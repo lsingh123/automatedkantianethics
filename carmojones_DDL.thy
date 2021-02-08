@@ -16,7 +16,7 @@ consts cw::i (*current world*)
 (*semantic embedding, so these are constraints on wf models*)
 axiomatization where 
 ax_3a: "\<exists>x. av(w)(x)" 
-and ax_4a: "\<forall>x. av(w)(x) \<Longrightarrow> pv(w)(x)" 
+and ax_4a: "\<forall>x. av(w)(x) \<longrightarrow> pv(w)(x)" 
 and ax_4b: "pv(w)(w)"
 and ax_5a: "\<not>ob(X)(\<lambda>w. False)"
 (*note that X(w) denotes w is a member of X*)
@@ -41,8 +41,12 @@ abbreviation ddlob::"t\<Rightarrow>t\<Rightarrow>t" ("\<circle>{_|_}")
   where "\<circle>{B|A} \<equiv> \<lambda> w. ob(A)(B)"
 abbreviation ddlboxa::"t\<Rightarrow>t" ("\<box>\<^sub>a")
   where "\<box>\<^sub>aA \<equiv> \<lambda>x.\<forall>y. (\<not> av(x)(y) \<or> A(y))"
+abbreviation ddldiamonda::"t\<Rightarrow>t" ("\<diamond>\<^sub>a")
+  where "\<diamond>\<^sub>aA \<equiv> \<^bold>\<not>(\<box>\<^sub>a(\<^bold>\<not>A))"
 abbreviation ddlboxp::"t\<Rightarrow>t" ("\<box>\<^sub>p")
   where "\<box>\<^sub>pA \<equiv> \<lambda>x.\<forall>y. (\<not> pv(x)(y) \<or> A(y))"
+abbreviation ddldiamondp::"t\<Rightarrow>t" ("\<diamond>\<^sub>p")
+  where "\<diamond>\<^sub>pA \<equiv> \<^bold>\<not>(\<box>\<^sub>a(\<^bold>\<not>A))"
 abbreviation ddloba::"t\<Rightarrow>t" ("\<circle>\<^sub>a")
   where "\<circle>\<^sub>aA \<equiv> \<lambda>x. ob(av(x))(A) \<and> (\<exists>y.(av(x)(y) \<and> \<not>A(y)))"
 abbreviation ddlobp::"t\<Rightarrow>t" ("\<circle>\<^sub>p")
