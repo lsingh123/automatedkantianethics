@@ -23,9 +23,16 @@ lemma nec_p:
   shows "\<Turnstile>(\<box>\<^sub>pA)"
   by (simp add: assms)
 (*fancier inference rules*)
+(*carmo and jones specify that B and A must not contain w -
+ not sure how to specify that*)
 lemma Oa_boxaO:
-  assumes "\<Turnstile>(B \<^bold>\<rightarrow> (\<lambda>w. (\<^bold>\<not>(\<box>((\<circle>\<^sub>aA) \<^bold>\<rightarrow> ((\<box>\<^sub>aw) \<^bold>\<and> \<circle>{A|w}))))))"
-  shows "\<top>"
+  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((\<circle>\<^sub>aA) \<^bold>\<rightarrow> ((\<box>\<^sub>aw) \<^bold>\<and> \<circle>{A|w}))))))"
+  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(\<circle>\<^sub>aA))))"
+  by (metis ax_5a ax_5b)
+lemma Oa_boxpO:
+  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((\<circle>\<^sub>pA) \<^bold>\<rightarrow> ((\<box>\<^sub>pw) \<^bold>\<and> \<circle>{A|w}))))))"
+  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(\<circle>\<^sub>pA))))"
+  by (metis ax_5a ax_5b)
 
 (*\<box> is an S5 modal operator*)
 lemma K:
