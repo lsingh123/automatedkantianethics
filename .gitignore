@@ -4,5 +4,4 @@ document/*
 document/
 
 ROOT
-output/document*
-output/document/*
+.DS_Store
