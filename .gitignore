@@ -1,0 +1,8 @@
+*~
+
+document/*
+document/
+
+ROOT
+output/document*
+output/document/*
