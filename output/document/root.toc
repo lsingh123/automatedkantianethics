@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}System Definition}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Definitions}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Axiomatization}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Abbreviations}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Consistency}{4}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Inference Rules}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Basic Inference Rules}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Fancier Inference Rules}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Axioms}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Box}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}O}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Possible Box}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Actual Box}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Relations Between the Modal Operators}{8}{subsection.3.5}%

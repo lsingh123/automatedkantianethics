@@ -1,0 +1,1012 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{carmojones{\isacharunderscore}DDL{\isacharunderscore}completeness}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ carmojones{\isacharunderscore}DDL{\isacharunderscore}completeness\ \isakeyword{imports}\ carmojones{\isacharunderscore}DDL\isanewline
+\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\begin{isamarkuptext}%
+This theory shows completeness for this logic with respect to the models presented in carmojonesDDl.thy.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Inference Rules%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Basic Inference Rules%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+These inference rules are common to most modal and propostional logics%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ modus{\isacharunderscore}ponens{\isacharcolon}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ A{\isachardoublequoteclose}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}B{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{Because I have not defined a ``derivable" operator, inference rules are written using assumptions.%
+}\isanewline
+%
+\isamarkupcmt{For further meta-logical work, defining metalogical operators may be useful%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ nec{\isacharcolon}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}A{\isachardoublequoteclose}\ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isasymbox}A{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ nec{\isacharunderscore}a{\isacharcolon}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}A{\isachardoublequoteclose}\ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ nec{\isacharunderscore}p{\isacharcolon}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}A{\isachardoublequoteclose}\ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Fancier Inference Rules%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+These are new rules that Carmo and Jones introduced for this logic.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ Oa{\isacharunderscore}boxaO{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub aw{\isacharparenright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}A{\isacharbar}w{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ Oa{\isacharunderscore}boxpO{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pw{\isacharparenright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}A{\isacharbar}w{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+%
+\isamarkupcmt{B and A must not contain w. not sure how to encode that requirement.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Axioms%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Box%
+}
+\isamarkuptrue%
+%
+\isamarkupcmt{$\box$ is an S5 modal operator, which is where these axioms come from.%
+}%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+\isanewline
+%
+\endisadelimdocument
+\isacommand{lemma}\isamarkupfalse%
+\ K{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ T{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}A{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ {\isadigit{5}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isasymdiamond}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{O%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This characterization of O comes from Carmo and Jones p 593%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}diamond{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}B{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymdiamond}{\isacharparenleft}B\ \isactrlbold {\isasymand}\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}a\isanewline
+\ \ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+%
+\isamarkupcmt{A is only obligatory in a context if it can possibly be true in that context.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}C{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}A\ \isactrlbold {\isasymand}\ {\isacharparenleft}B\ \isactrlbold {\isasymand}\ C{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}C{\isacharbar}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O{\isacharbraceleft}B\isactrlbold {\isasymand}C{\isacharbar}A{\isacharbraceright}{\isacharparenright}\ {\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharcomma}\ lifting{\isacharparenright}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+%
+\isamarkupcmt{The conjunction of obligations in a context is obligatory in that context.%
+}\isanewline
+%
+\isamarkupcmt{The restriction $\diamond (A \and B \and C)$ is to prevent contradictory obligations and contexts.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}SA{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}A\ \isactrlbold {\isasymand}C{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}C{\isacharbar}B{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O{\isacharbraceleft}C{\isacharbar}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{5}}e\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{The principle of strengthening the antecedent.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}REA{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}A\ \isactrlbold {\isasymequiv}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O{\isacharbraceleft}C{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymequiv}\ O{\isacharbraceleft}C{\isacharbar}B{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ ax{\isacharunderscore}{\isadigit{5}}e\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{Equivalence for equivalent contexts.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}contextual{\isacharunderscore}REA{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}C\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}A\ \isactrlbold {\isasymequiv}B{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}C{\isacharbraceright}\ \isactrlbold {\isasymequiv}\ O{\isacharbraceleft}B{\isacharbar}C{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+%
+\isamarkupcmt{The above lemma, but in some context C.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}nec{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+%
+\isamarkupcmt{Obligations are necessarily obligated.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}to{\isacharunderscore}O{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ O{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharcomma}\ lifting{\isacharparenright}\ O{\isacharunderscore}REA\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+%
+\isamarkupcmt{Moving from the dyadic to monadic obligation operators.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Possible Box%
+}
+\isamarkuptrue%
+%
+\isamarkupcmt{$\box_p$ is a KT modal operator.%
+}%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+\isanewline
+%
+\endisadelimdocument
+\isacommand{lemma}\isamarkupfalse%
+\ K{\isacharunderscore}boxp{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub p{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}\isactrlsub pB{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ T{\isacharunderscore}boxp{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ A{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{4}}b\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Actual Box%
+}
+\isamarkuptrue%
+%
+\isamarkupcmt{$\box_a$ is a KD modal operator.%
+}%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+\isanewline
+%
+\endisadelimdocument
+\isacommand{lemma}\isamarkupfalse%
+\ K{\isacharunderscore}boxa{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub a{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}\isactrlsub aB{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ D{\isacharunderscore}boxa{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymdiamond}\isactrlsub aA{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{3}}a\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Relations Between the Modal Operators%
+}
+\isamarkuptrue%
+%
+\isamarkupcmt{Relation between $\box$, $\box_a$, and $\box_p$.%
+}%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+\isanewline
+%
+\endisadelimdocument
+\isacommand{lemma}\isamarkupfalse%
+\ box{\isacharunderscore}boxp{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ auto%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ boxp{\isacharunderscore}boxa{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{4}}a\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\isanewline
+%
+\isamarkupcmt{Relation between actual/possible O and $\box$.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ not{\isacharunderscore}Oa{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\isactrlsub a\ {\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ not{\isacharunderscore}Op{\isacharcolon}\isanewline
+\isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\isactrlsub p\ {\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ equiv{\isacharunderscore}Oa{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub a{\isacharparenleft}A\ \isactrlbold {\isasymequiv}B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}\ \isactrlbold {\isasymequiv}\ {\isacharparenleft}O\isactrlsub a\ B{\isacharparenright}\ {\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}contextual{\isacharunderscore}REA\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ equiv{\isacharunderscore}Op{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub p{\isacharparenleft}A\ \isactrlbold {\isasymequiv}B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}\ \isactrlbold {\isasymequiv}\ {\isacharparenleft}O\isactrlsub p\ B{\isacharparenright}\ {\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}contextual{\isacharunderscore}REA\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\isanewline
+%
+\isamarkupcmt{relationships between actual/possible O and $\box$ and O proper.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ factual{\isacharunderscore}detach{\isacharunderscore}a{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isasymbox}\isactrlsub aA{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}\isactrlsub aB{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isasymdiamond}\isactrlsub a{\isacharparenleft}\isactrlbold {\isasymnot}B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\isactrlsub a\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}SA\ \isacommand{by}\isamarkupfalse%
+\ auto%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ factual{\isacharunderscore}detach{\isacharunderscore}p{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isasymbox}\isactrlsub pA{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}\isactrlsub pB{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}{\isasymdiamond}\isactrlsub p{\isacharparenleft}\isactrlbold {\isasymnot}B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\isactrlsub p\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ O{\isacharunderscore}SA\ boxp{\isacharunderscore}boxa{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/carmojones_DDL_completeness.thy%:%
+%:%10=1%:%
+%:%11=1%:%
+%:%12=2%:%
+%:%13=3%:%
+%:%22=5%:%
+%:%31=7%:%
+%:%35=9%:%
+%:%47=11%:%
+%:%49=13%:%
+%:%50=13%:%
+%:%51=14%:%
+%:%54=15%:%
+%:%58=15%:%
+%:%59=15%:%
+%:%60=15%:%
+%:%62=16%:%
+%:%63=16%:%
+%:%65=17%:%
+%:%71=17%:%
+%:%74=18%:%
+%:%75=19%:%
+%:%76=19%:%
+%:%79=20%:%
+%:%83=20%:%
+%:%84=20%:%
+%:%89=20%:%
+%:%92=21%:%
+%:%93=22%:%
+%:%94=22%:%
+%:%97=23%:%
+%:%101=23%:%
+%:%102=23%:%
+%:%107=23%:%
+%:%110=24%:%
+%:%111=24%:%
+%:%114=25%:%
+%:%118=25%:%
+%:%119=25%:%
+%:%133=27%:%
+%:%145=29%:%
+%:%147=31%:%
+%:%148=31%:%
+%:%149=32%:%
+%:%150=33%:%
+%:%153=34%:%
+%:%157=34%:%
+%:%158=34%:%
+%:%163=34%:%
+%:%166=35%:%
+%:%167=35%:%
+%:%168=36%:%
+%:%169=37%:%
+%:%172=38%:%
+%:%176=38%:%
+%:%177=38%:%
+%:%179=39%:%
+%:%194=41%:%
+%:%198=43%:%
+%:%202=45%:%
+%:%208=45%:%
+%:%211=46%:%
+%:%212=46%:%
+%:%213=47%:%
+%:%216=48%:%
+%:%220=48%:%
+%:%221=48%:%
+%:%226=48%:%
+%:%229=49%:%
+%:%230=50%:%
+%:%231=50%:%
+%:%232=51%:%
+%:%235=52%:%
+%:%239=52%:%
+%:%240=52%:%
+%:%245=52%:%
+%:%248=53%:%
+%:%249=54%:%
+%:%250=54%:%
+%:%251=55%:%
+%:%254=56%:%
+%:%258=56%:%
+%:%259=56%:%
+%:%273=58%:%
+%:%285=60%:%
+%:%287=61%:%
+%:%288=61%:%
+%:%289=62%:%
+%:%292=63%:%
+%:%296=63%:%
+%:%297=63%:%
+%:%298=64%:%
+%:%299=64%:%
+%:%301=65%:%
+%:%307=65%:%
+%:%310=66%:%
+%:%311=67%:%
+%:%312=67%:%
+%:%313=68%:%
+%:%316=69%:%
+%:%320=69%:%
+%:%321=69%:%
+%:%323=70%:%
+%:%324=70%:%
+%:%326=71%:%
+%:%332=71%:%
+%:%335=72%:%
+%:%336=73%:%
+%:%337=73%:%
+%:%338=74%:%
+%:%341=75%:%
+%:%345=75%:%
+%:%346=75%:%
+%:%347=75%:%
+%:%349=76%:%
+%:%355=76%:%
+%:%358=77%:%
+%:%359=78%:%
+%:%360=78%:%
+%:%361=79%:%
+%:%364=80%:%
+%:%368=80%:%
+%:%369=80%:%
+%:%370=80%:%
+%:%372=81%:%
+%:%378=81%:%
+%:%381=82%:%
+%:%382=83%:%
+%:%383=83%:%
+%:%384=84%:%
+%:%387=85%:%
+%:%391=85%:%
+%:%392=85%:%
+%:%394=86%:%
+%:%400=86%:%
+%:%403=87%:%
+%:%404=88%:%
+%:%405=88%:%
+%:%406=89%:%
+%:%409=90%:%
+%:%413=90%:%
+%:%414=90%:%
+%:%416=91%:%
+%:%422=91%:%
+%:%425=92%:%
+%:%426=93%:%
+%:%427=93%:%
+%:%428=94%:%
+%:%431=95%:%
+%:%435=95%:%
+%:%436=95%:%
+%:%438=96%:%
+%:%453=98%:%
+%:%457=100%:%
+%:%463=100%:%
+%:%466=101%:%
+%:%467=101%:%
+%:%468=102%:%
+%:%471=103%:%
+%:%475=103%:%
+%:%476=103%:%
+%:%481=103%:%
+%:%484=104%:%
+%:%485=104%:%
+%:%486=105%:%
+%:%489=106%:%
+%:%493=106%:%
+%:%494=106%:%
+%:%495=106%:%
+%:%509=108%:%
+%:%513=110%:%
+%:%519=110%:%
+%:%522=111%:%
+%:%523=111%:%
+%:%524=112%:%
+%:%527=113%:%
+%:%531=113%:%
+%:%532=113%:%
+%:%537=113%:%
+%:%540=114%:%
+%:%541=114%:%
+%:%542=115%:%
+%:%545=116%:%
+%:%549=116%:%
+%:%550=116%:%
+%:%551=116%:%
+%:%565=118%:%
+%:%569=120%:%
+%:%575=120%:%
+%:%578=121%:%
+%:%579=121%:%
+%:%580=122%:%
+%:%583=123%:%
+%:%587=123%:%
+%:%588=123%:%
+%:%593=123%:%
+%:%596=124%:%
+%:%597=124%:%
+%:%598=125%:%
+%:%601=126%:%
+%:%605=126%:%
+%:%606=126%:%
+%:%607=126%:%
+%:%608=127%:%
+%:%610=128%:%
+%:%616=128%:%
+%:%619=129%:%
+%:%620=129%:%
+%:%621=130%:%
+%:%624=131%:%
+%:%628=131%:%
+%:%629=131%:%
+%:%630=131%:%
+%:%635=131%:%
+%:%638=132%:%
+%:%639=132%:%
+%:%640=133%:%
+%:%643=134%:%
+%:%647=134%:%
+%:%648=134%:%
+%:%649=134%:%
+%:%654=134%:%
+%:%657=135%:%
+%:%658=135%:%
+%:%659=136%:%
+%:%662=137%:%
+%:%666=137%:%
+%:%667=137%:%
+%:%668=137%:%
+%:%673=137%:%
+%:%676=138%:%
+%:%677=138%:%
+%:%678=139%:%
+%:%681=140%:%
+%:%685=140%:%
+%:%686=140%:%
+%:%687=140%:%
+%:%688=141%:%
+%:%690=142%:%
+%:%696=142%:%
+%:%699=143%:%
+%:%700=143%:%
+%:%701=144%:%
+%:%704=145%:%
+%:%708=145%:%
+%:%709=145%:%
+%:%710=145%:%
+%:%715=145%:%
+%:%718=146%:%
+%:%719=146%:%
+%:%720=147%:%
+%:%723=148%:%
+%:%727=148%:%
+%:%728=148%:%
+%:%733=148%:%
+%:%736=149%:%
+%:%739=150%:%
+%:%744=151%:%

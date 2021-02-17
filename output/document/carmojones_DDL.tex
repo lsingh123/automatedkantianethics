@@ -1,0 +1,550 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{carmojones{\isacharunderscore}DDL}%
+%
+\begin{isamarkuptext}%
+Referencing Benzmuller and Parent's implementation: https://www.mi.fu-berlin.de/inf/groups/ag-ki/publications/dyadic-deontic-logic/C71.pdf%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+This theory contains the axiomatization of the system and some useful abbreviations.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ carmojones{\isacharunderscore}DDL\isanewline
+\ \ \isakeyword{imports}\ \isanewline
+\ \ \ \ Main\ \isanewline
+\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{System Definition%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Definitions%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This section contains definitions and constants necessary to construct a DDL model.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{typedecl}\isamarkupfalse%
+\ i\ %
+\isamarkupcmt{i is the type for a set of possible worlds."%
+}\isanewline
+\isanewline
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ t\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+%
+\isamarkupcmt{t represents a set of DDL formulas.%
+}\isanewline
+%
+\isamarkupcmt{this set is defined by its truth function, mapping the set of worlds to the formula set's truth value.%
+}\isanewline
+\isanewline
+%
+\isamarkupcmt{accessibility relations map a set of worlds to:%
+}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ av{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}i\ {\isasymRightarrow}\ t{\isachardoublequoteclose}\ %
+\isamarkupcmt{actual versions of that world set%
+}\isanewline
+\ \ %
+\isamarkupcmt{these worlds represent what is "open to the agent"%
+}\isanewline
+\ \ %
+\isamarkupcmt{for example, the agent eating pizza or pasta for dinner might constitute two different actual worlds%
+}\isanewline
+\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ pv{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}i\ {\isasymRightarrow}\ t{\isachardoublequoteclose}\ %
+\isamarkupcmt{possible versions of that world set%
+}\isanewline
+\ \ %
+\isamarkupcmt{these worlds represent was was "potentially open to the agent"%
+}\isanewline
+\ %
+\isamarkupcmt{for example, what someone across the world eats for dinner might constitute a possible world, 
+ %
+\isamarkupcmt{since the agent has no control over this%
+}%
+}\isanewline
+\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ {\isacharparenleft}t\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ \ %
+\isamarkupcmt{set of propositions obligatory in this "context"%
+}\isanewline
+\ %
+\isamarkupcmt{ob(context)(term) is True if t is obligatory in the context%
+}\isanewline
+\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ cw{\isacharcolon}{\isacharcolon}i\ \ %
+\isamarkupcmt{current world%
+}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Axiomatization%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This subsection contains axioms. Because the embedding is semantic, these are just constraints on models.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+This axiomatization comes from Carmo and Jones p 6 and the HOL embedding defined in Benzmuller and Parent%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\isanewline
+ax{\isacharunderscore}{\isadigit{3}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymexists}x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\ %
+\isamarkupcmt{every world has some actual version%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}\ {\isasymlongrightarrow}\ pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+%
+\isamarkupcmt{all actual versions of a world are also possible versions of it%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}b{\isacharcolon}\ {\isachardoublequoteopen}pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{every world is a possible version of itself%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymnot}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ False{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{in any arbitrary context X, something will be obligatory%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymlongleftrightarrow}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymlongleftrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\ %
+\isamarkupcmt{note that X(w) denotes w is a member of X%
+}\isanewline
+%
+\isamarkupcmt{X, Y, and Z are sets of formulas%
+}\isanewline
+%
+\isamarkupcmt{If X $\cap$ Y = X $\cap$ Z then the context X obliges Y iff it obliges Z%
+}\isanewline
+\isanewline
+%
+\isamarkupcmt{ob(X)($\lambda$ w. Fw) can be read as F $\in$ ob(X)%
+}\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}c{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}Z{\isachardot}\ {\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}Z{\isachardot}\ {\isasymbeta}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\isanewline
+{\isacharparenleft}{\isasymexists}y{\isachardot}{\isacharparenleft}{\isasymforall}Z{\isachardot}\ {\isacharparenleft}{\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ Z{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymand}\ X{\isacharparenleft}y{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isasymforall}Z{\isachardot}{\isacharparenleft}{\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{For any nonempty subset $\beta$ of ob(X), if its members share members with X then it members are all in ob(X)%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\isanewline
+{\isacharparenleft}ob{\isacharparenleft}Y{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}Z{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ {\isasymnot}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{If some subset Y of X is in ob(X) then in a larger context Z, any obligatory proposition must either be in Y or in Z-X%
+}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}e{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}w{\isachardot}{\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}Y{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{If Z is obligatory in context X, then Z is obligatory in a subset of X called Y, if Z shares some elements with Y%
+}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Abbreviations%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+These abbreviations are defined in Benzmuller and Parent, p9%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+These are all syntactic sugar for HOL expressions, so evaluating these symbols will be light-weight%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isamarkupcmt{propositional logic symbols%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlneg{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymnot}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymnot}\ A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isasymnot}\ A{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlor{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymor}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymor}\ A\ B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}A{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddland{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlbold {\isasymand}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}A\isactrlbold {\isasymand}\ B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}A{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlif{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlbold {\isasymrightarrow}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}A\isactrlbold {\isasymrightarrow}B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymnot}\ A{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlequiv{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlbold {\isasymequiv}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\isactrlbold {\isasymequiv}B{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}{\isacharparenleft}A\isactrlbold {\isasymrightarrow}B{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\ B\isactrlbold {\isasymrightarrow}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{modal operators%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlbox{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymbox}\ A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}{\isasymforall}y{\isachardot}\ A{\isacharparenleft}y{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddldiamond{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymdiamond}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymdiamond}A\ {\isasymequiv}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{O$\{B|A\}$ can be read as ``B is obligatory in the context A"%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O{\isacharbraceleft}{\isacharunderscore}{\isacharbar}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}\ w{\isachardot}\ ob{\isacharparenleft}A{\isacharparenright}{\isacharparenleft}B{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{modal symbols over the actual and possible worlds relations%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlboxa{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}\isactrlsub a{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymbox}\isactrlsub aA\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}{\isasymforall}y{\isachardot}\ {\isacharparenleft}{\isasymnot}\ av{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}y{\isacharparenright}\ {\isasymor}\ A{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddldiamonda{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymdiamond}\isactrlsub a{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymdiamond}\isactrlsub aA\ {\isasymequiv}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}\isactrlsub a{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlboxp{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}\isactrlsub p{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymbox}\isactrlsub pA\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}{\isasymforall}y{\isachardot}\ {\isacharparenleft}{\isasymnot}\ pv{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}y{\isacharparenright}\ {\isasymor}\ A{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddldiamondp{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymdiamond}\isactrlsub p{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymdiamond}\isactrlsub pA\ {\isasymequiv}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}\isactrlsub a{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{obligation symbols over the actual and possible worlds%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddloba{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\isactrlsub a{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}O\isactrlsub a\ A\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ ob{\isacharparenleft}av{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenleft}A{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}y{\isachardot}{\isacharparenleft}av{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}y{\isacharparenright}\ {\isasymand}\ {\isasymnot}A{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlobp{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\isactrlsub p{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}O\isactrlsub p\ A\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ ob{\isacharparenleft}pv{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenleft}A{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}y{\isachardot}{\isacharparenleft}pv{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}y{\isacharparenright}\ {\isasymand}\ {\isasymnot}A{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{syntactic sugar for a ``monadic" obligation operator%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymtop}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ True{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}{\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+\isanewline
+%
+\isamarkupcmt{validity%
+}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlvalid{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}A\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ A{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlvalidcw{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}\isactrlsub c{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}\isactrlsub cA\ {\isasymequiv}\ A{\isacharparenleft}cw{\isacharparenright}{\isachardoublequoteclose}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Consistency%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Consistency is so easy to show in Isabelle!%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ True\ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}show{\isacharunderscore}all{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\ \isanewline
+%
+\isamarkupcmt{Nitpick successfully found a countermodel.%
+}\isanewline
+%
+\isamarkupcmt{It's not shown in the document printout, hence the oops.%
+}\isanewline
+%
+\isamarkupcmt{If you hover over "nitpick" in JEdit, the model will be printed to output.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/carmojones_DDL.thy%:%
+%:%6=1%:%
+%:%10=2%:%
+%:%18=4%:%
+%:%19=4%:%
+%:%20=5%:%
+%:%21=6%:%
+%:%22=7%:%
+%:%23=8%:%
+%:%37=10%:%
+%:%41=12%:%
+%:%53=14%:%
+%:%55=16%:%
+%:%56=16%:%
+%:%57=16%:%
+%:%58=16%:%
+%:%59=17%:%
+%:%60=18%:%
+%:%61=18%:%
+%:%63=19%:%
+%:%64=19%:%
+%:%66=20%:%
+%:%67=20%:%
+%:%68=21%:%
+%:%70=22%:%
+%:%71=22%:%
+%:%72=23%:%
+%:%73=23%:%
+%:%74=23%:%
+%:%75=23%:%
+%:%76=24%:%
+%:%77=24%:%
+%:%78=24%:%
+%:%79=25%:%
+%:%80=25%:%
+%:%81=25%:%
+%:%82=26%:%
+%:%83=27%:%
+%:%84=27%:%
+%:%85=27%:%
+%:%86=27%:%
+%:%87=28%:%
+%:%88=28%:%
+%:%89=28%:%
+%:%90=29%:%
+%:%91=29%:%
+%:%92=30%:%
+%:%93=30%:%
+%:%95=30%:%
+%:%96=31%:%
+%:%97=32%:%
+%:%98=32%:%
+%:%99=32%:%
+%:%100=32%:%
+%:%101=33%:%
+%:%102=33%:%
+%:%103=33%:%
+%:%104=34%:%
+%:%105=35%:%
+%:%106=35%:%
+%:%107=35%:%
+%:%115=37%:%
+%:%127=39%:%
+%:%131=40%:%
+%:%133=42%:%
+%:%134=42%:%
+%:%135=43%:%
+%:%136=44%:%
+%:%137=44%:%
+%:%138=44%:%
+%:%139=45%:%
+%:%140=46%:%
+%:%142=47%:%
+%:%143=47%:%
+%:%144=48%:%
+%:%145=49%:%
+%:%147=50%:%
+%:%148=50%:%
+%:%149=51%:%
+%:%150=52%:%
+%:%152=53%:%
+%:%153=53%:%
+%:%154=54%:%
+%:%155=55%:%
+%:%156=55%:%
+%:%157=55%:%
+%:%159=56%:%
+%:%160=56%:%
+%:%162=57%:%
+%:%163=57%:%
+%:%164=58%:%
+%:%166=59%:%
+%:%167=59%:%
+%:%168=60%:%
+%:%169=61%:%
+%:%171=62%:%
+%:%172=62%:%
+%:%173=63%:%
+%:%174=64%:%
+%:%175=65%:%
+%:%177=66%:%
+%:%178=66%:%
+%:%179=67%:%
+%:%180=68%:%
+%:%182=69%:%
+%:%190=71%:%
+%:%202=73%:%
+%:%206=74%:%
+%:%209=76%:%
+%:%210=76%:%
+%:%211=77%:%
+%:%212=77%:%
+%:%213=78%:%
+%:%214=79%:%
+%:%215=79%:%
+%:%216=80%:%
+%:%217=81%:%
+%:%218=81%:%
+%:%219=82%:%
+%:%220=83%:%
+%:%221=83%:%
+%:%222=84%:%
+%:%223=85%:%
+%:%224=85%:%
+%:%225=86%:%
+%:%226=87%:%
+%:%228=88%:%
+%:%229=88%:%
+%:%230=89%:%
+%:%231=89%:%
+%:%232=90%:%
+%:%233=91%:%
+%:%234=91%:%
+%:%235=92%:%
+%:%236=93%:%
+%:%238=94%:%
+%:%239=94%:%
+%:%240=95%:%
+%:%241=95%:%
+%:%242=96%:%
+%:%243=97%:%
+%:%245=98%:%
+%:%246=98%:%
+%:%247=99%:%
+%:%248=99%:%
+%:%249=100%:%
+%:%250=101%:%
+%:%251=101%:%
+%:%252=102%:%
+%:%253=103%:%
+%:%254=103%:%
+%:%255=104%:%
+%:%256=105%:%
+%:%257=105%:%
+%:%258=106%:%
+%:%259=107%:%
+%:%261=108%:%
+%:%262=108%:%
+%:%263=109%:%
+%:%264=109%:%
+%:%265=110%:%
+%:%266=111%:%
+%:%267=111%:%
+%:%268=112%:%
+%:%269=113%:%
+%:%271=114%:%
+%:%272=114%:%
+%:%273=115%:%
+%:%274=115%:%
+%:%275=116%:%
+%:%276=117%:%
+%:%277=117%:%
+%:%278=118%:%
+%:%279=119%:%
+%:%281=120%:%
+%:%282=120%:%
+%:%283=121%:%
+%:%284=121%:%
+%:%285=122%:%
+%:%286=123%:%
+%:%287=123%:%
+%:%288=124%:%
+%:%295=126%:%
+%:%307=128%:%
+%:%309=130%:%
+%:%310=130%:%
+%:%311=130%:%
+%:%313=130%:%
+%:%317=130%:%
+%:%318=130%:%
+%:%320=131%:%
+%:%321=131%:%
+%:%323=132%:%
+%:%324=132%:%
+%:%326=133%:%
+%:%334=133%:%
+%:%337=134%:%
+%:%342=135%:%

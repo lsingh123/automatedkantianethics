@@ -2,74 +2,102 @@ theory carmojones_DDL_completeness imports carmojones_DDL
 
 begin
 
-(*Completeness.*)
+text "This theory shows completeness for this logic with respect to the models presented in carmojonesDDl.thy."
 
-(*inference rules*)
-lemma modus_ponens:
-  assumes "\<Turnstile> A"
-  assumes "\<Turnstile> (A \<^bold>\<rightarrow> B)"
+section "Inference Rules"
+
+subsection "Basic Inference Rules"
+
+text "These inference rules are common to most modal and propostional logics"
+
+lemma modus_ponens: assumes "\<Turnstile> A" assumes "\<Turnstile> (A \<^bold>\<rightarrow> B)"
   shows "\<Turnstile>B"
   using assms(1) assms(2) by blast
-lemma nec:
-  assumes "\<Turnstile>A"
-  shows "\<Turnstile>(\<box>A)"
+\<comment> \<open>Because I have not defined a ``derivable" operator, inference rules are written using assumptions.\<close>
+\<comment> \<open>For further meta-logical work, defining metalogical operators may be useful\<close>
+
+lemma nec: assumes "\<Turnstile>A" shows "\<Turnstile>(\<box>A)"
   by (simp add: assms)
-lemma nec_a:
- assumes "\<Turnstile>A"
-  shows "\<Turnstile>(\<box>\<^sub>aA)"
+
+lemma nec_a: assumes "\<Turnstile>A" shows "\<Turnstile>(\<box>\<^sub>aA)"
   by (simp add: assms)
-lemma nec_p:
- assumes "\<Turnstile>A"
-  shows "\<Turnstile>(\<box>\<^sub>pA)"
+lemma nec_p: assumes "\<Turnstile>A" shows "\<Turnstile>(\<box>\<^sub>pA)"
   by (simp add: assms)
-(*fancier inference rules*)
-(*carmo and jones specify that B and A must not contain w -
- not sure how to specify that*)
+
+subsection "Fancier Inference Rules"
+
+text "These are new rules that Carmo and Jones introduced for this logic."
+
 lemma Oa_boxaO:
-  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((\<circle>\<^sub>aA) \<^bold>\<rightarrow> ((\<box>\<^sub>aw) \<^bold>\<and> \<circle>{A|w}))))))"
-  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(\<circle>\<^sub>aA))))"
+  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((O\<^sub>a A) \<^bold>\<rightarrow> ((\<box>\<^sub>aw) \<^bold>\<and> O{A|w}))))))"
+  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(O\<^sub>a A))))"
   by (metis ax_5a ax_5b)
 lemma Oa_boxpO:
-  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((\<circle>\<^sub>pA) \<^bold>\<rightarrow> ((\<box>\<^sub>pw) \<^bold>\<and> \<circle>{A|w}))))))"
-  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(\<circle>\<^sub>pA))))"
+  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((O\<^sub>p A) \<^bold>\<rightarrow> ((\<box>\<^sub>pw) \<^bold>\<and> O{A|w}))))))"
+  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(O\<^sub>p A))))"
   by (metis ax_5a ax_5b)
+\<comment> \<open>B and A must not contain w. not sure how to encode that requirement.\<close>
 
-(*\<box> is an S5 modal operator*)
+section Axioms 
+
+subsection Box
+
+\<comment> \<open>$\box$ is an S5 modal operator, which is where these axioms come from.\<close>
 lemma K:
   shows "\<Turnstile> ((\<box>(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>A) \<^bold>\<rightarrow> (\<box>B)))"
   by blast
+
 lemma T:
   shows "\<Turnstile> ((\<box>A) \<^bold>\<rightarrow>A)"
   by blast
+
 lemma 5:
   shows "\<Turnstile> ((\<diamond>A) \<^bold>\<rightarrow> (\<box>(\<diamond>A)))"
   by blast
 
-(*Characterization of O, CJ p 593*)
+subsection O
+
+text "This characterization of O comes from Carmo and Jones p 593"
 lemma O_diamond:
-  shows "\<Turnstile> (\<circle>{A|B} \<^bold>\<rightarrow> (\<diamond>(B \<^bold>\<and> A)))"
+  shows "\<Turnstile> (O{A|B} \<^bold>\<rightarrow> (\<diamond>(B \<^bold>\<and> A)))"
   using ax_5b ax_5a
   by metis
-lemma O_C:
-  shows "\<Turnstile>(((\<diamond>(A \<^bold>\<and> (B \<^bold>\<and> C))) \<^bold>\<and> (\<circle>{B|A} \<^bold>\<and> \<circle>{C|A})) \<^bold>\<rightarrow> (\<circle>{B\<^bold>\<and>C|A}) )"
-  by (metis (no_types, lifting) ax_5b)
-lemma O_SA:
-  shows "\<Turnstile>(((\<box>(A \<^bold>\<rightarrow>B)) \<^bold>\<and> ((\<diamond>(A \<^bold>\<and>C)) \<^bold>\<and> \<circle>{C|B})) \<^bold>\<rightarrow> (\<circle>{C|A}))"
-  using ax_5e by blast
-lemma O_REA:
-  shows "\<Turnstile>((\<box>(A \<^bold>\<equiv> B)) \<^bold>\<rightarrow> (\<circle>{C|A} \<^bold>\<equiv> \<circle>{C|B}))"
-  using O_diamond ax_5e by blast
-lemma O_contextual_REA:
-  shows "\<Turnstile> ((\<box>(C \<^bold>\<rightarrow> (A \<^bold>\<equiv>B))) \<^bold>\<rightarrow> (\<circle>{A|C} \<^bold>\<equiv> \<circle>{B|C}))"
-  by (metis ax_5b)
-lemma O_nec:
-  shows "\<Turnstile>(\<circle>{B|A} \<^bold>\<rightarrow> (\<box>\<circle>{B|A}))"
-  by simp
-lemma O_to_O:
-  shows "\<Turnstile>(\<circle>{B|A} \<^bold>\<rightarrow> \<circle>(A \<^bold>\<rightarrow> B))"
-  by (metis (no_types, lifting) O_REA ax_5a ax_5b)
+\<comment> \<open>A is only obligatory in a context if it can possibly be true in that context.\<close>
 
-(*characterization of \<box>\<^sub>p as a KT modal operator*)
+lemma O_C:
+  shows "\<Turnstile>(((\<diamond>(A \<^bold>\<and> (B \<^bold>\<and> C))) \<^bold>\<and> (O{B|A} \<^bold>\<and> O{C|A})) \<^bold>\<rightarrow> (O{B\<^bold>\<and>C|A}) )"
+  by (metis (no_types, lifting) ax_5b)
+\<comment> \<open>The conjunction of obligations in a context is obligatory in that context.\<close>
+\<comment> \<open>The restriction $\diamond (A \and B \and C)$ is to prevent contradictory obligations and contexts.\<close>
+
+lemma O_SA:
+  shows "\<Turnstile>(((\<box>(A \<^bold>\<rightarrow>B)) \<^bold>\<and> ((\<diamond>(A \<^bold>\<and>C)) \<^bold>\<and> O{C|B})) \<^bold>\<rightarrow> (O{C|A}))"
+  using ax_5e by blast
+\<comment> \<open>The principle of strengthening the antecedent.\<close>
+
+lemma O_REA:
+  shows "\<Turnstile>((\<box>(A \<^bold>\<equiv> B)) \<^bold>\<rightarrow> (O{C|A} \<^bold>\<equiv> O{C|B}))"
+  using O_diamond ax_5e by blast
+\<comment> \<open>Equivalence for equivalent contexts.\<close>
+
+lemma O_contextual_REA:
+  shows "\<Turnstile> ((\<box>(C \<^bold>\<rightarrow> (A \<^bold>\<equiv>B))) \<^bold>\<rightarrow> (O{A|C} \<^bold>\<equiv> O{B|C}))"
+  by (metis ax_5b)
+\<comment> \<open>The above lemma, but in some context C.\<close>
+
+lemma O_nec:
+  shows "\<Turnstile>(O{B|A} \<^bold>\<rightarrow> (\<box>O{B|A}))"
+  by simp
+\<comment> \<open>Obligations are necessarily obligated.\<close>
+
+lemma O_to_O:
+  shows "\<Turnstile>(O{B|A} \<^bold>\<rightarrow> O(A \<^bold>\<rightarrow> B))"
+  by (metis (no_types, lifting) O_REA ax_5a ax_5b)
+\<comment> \<open>Moving from the dyadic to monadic obligation operators.\<close>
+
+subsection "Possible Box"
+
+\<comment> \<open>$\box_p$ is a KT modal operator.\<close>
 lemma K_boxp:
   shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>\<^sub>pA) \<^bold>\<rightarrow> (\<box>\<^sub>pB)))"
   by blast
@@ -77,7 +105,9 @@ lemma T_boxp:
   shows "\<Turnstile>((\<box>\<^sub>pA) \<^bold>\<rightarrow> A)"
   using ax_4b by blast
 
-(*characterization of \<box>\<^sub>a as a KD modal operator*)
+subsection "Actual Box"
+
+\<comment> \<open>$\box_a$ is a KD modal operator.\<close>
 lemma K_boxa:
   shows "\<Turnstile>((\<box>\<^sub>a(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>\<^sub>aA) \<^bold>\<rightarrow> (\<box>\<^sub>aB)))"
   by blast
@@ -85,7 +115,9 @@ lemma D_boxa:
   shows "\<Turnstile>((\<box>\<^sub>aA) \<^bold>\<rightarrow> (\<diamond>\<^sub>aA))"
   using ax_3a by blast
 
-(*relationships between \<box>, \<box>\<^sub>a, and \<box>\<^sub>p*)
+subsection "Relations Between the Modal Operators"
+
+\<comment> \<open>Relation between $\box$, $\box_a$, and $\box_p$.\<close>
 lemma box_boxp:
   shows "\<Turnstile>((\<box>A) \<^bold>\<rightarrow> (\<box>\<^sub>pA))"
   by auto
@@ -93,28 +125,28 @@ lemma boxp_boxa:
   shows "\<Turnstile>((\<box>\<^sub>pA) \<^bold>\<rightarrow> (\<box>\<^sub>aA))"
   using ax_4a by blast
 
-(*relationships between \<circle>\<^sub>a\<^sub>\\<^sub>p and \<box>\<^sub>a\<^sub>\\<^sub>p*)
+\<comment> \<open>Relation between actual/possible O and $\box$.\<close>
 lemma not_Oa:
-  shows "\<Turnstile>((\<box>\<^sub>aA) \<^bold>\<rightarrow> ((\<^bold>\<not>(\<circle>\<^sub>aA)) \<^bold>\<and> (\<^bold>\<not>(\<circle>\<^sub>a(\<^bold>\<not>A)))))"
+  shows "\<Turnstile>((\<box>\<^sub>aA) \<^bold>\<rightarrow> ((\<^bold>\<not>(O\<^sub>a A)) \<^bold>\<and> (\<^bold>\<not>(O\<^sub>a (\<^bold>\<not>A)))))"
   using O_diamond by blast
 lemma not_Op:
-shows "\<Turnstile>((\<box>\<^sub>pA) \<^bold>\<rightarrow> ((\<^bold>\<not>(\<circle>\<^sub>pA)) \<^bold>\<and> (\<^bold>\<not>(\<circle>\<^sub>p(\<^bold>\<not>A)))))"
+shows "\<Turnstile>((\<box>\<^sub>pA) \<^bold>\<rightarrow> ((\<^bold>\<not>(O\<^sub>p A)) \<^bold>\<and> (\<^bold>\<not>(O\<^sub>p (\<^bold>\<not>A)))))"
   using O_diamond by blast
 lemma equiv_Oa:
-  shows "\<Turnstile>((\<box>\<^sub>a(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((\<circle>\<^sub>aA) \<^bold>\<equiv> (\<circle>\<^sub>aB) ))"
+  shows "\<Turnstile>((\<box>\<^sub>a(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((O\<^sub>a A) \<^bold>\<equiv> (O\<^sub>a B) ))"
   using O_contextual_REA by blast
 lemma equiv_Op:
-  shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((\<circle>\<^sub>pA) \<^bold>\<equiv> (\<circle>\<^sub>pB) ))"
+  shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((O\<^sub>p A) \<^bold>\<equiv> (O\<^sub>p B) ))"
   using O_contextual_REA by blast
 
-(*relationships between \<circle>, \<circle>\<^sub>a\<^sub>\\<^sub>p, \<box>\<^sub>a\<^sub>\\<^sub>p *)
+\<comment> \<open>relationships between actual/possible O and $\box$ and O proper.\<close>
 lemma factual_detach_a:
-  shows "\<Turnstile>(((\<circle>{B|A} \<^bold>\<and> (\<box>\<^sub>aA)) \<^bold>\<and> ((\<diamond>\<^sub>aB) \<^bold>\<and> (\<diamond>\<^sub>a(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (\<circle>\<^sub>aB))"
+  shows "\<Turnstile>(((O{B|A} \<^bold>\<and> (\<box>\<^sub>aA)) \<^bold>\<and> ((\<diamond>\<^sub>aB) \<^bold>\<and> (\<diamond>\<^sub>a(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (O\<^sub>a B))"
   using O_SA by auto
 lemma factual_detach_p:
-  shows "\<Turnstile>(((\<circle>{B|A} \<^bold>\<and> (\<box>\<^sub>pA)) \<^bold>\<and> ((\<diamond>\<^sub>pB) \<^bold>\<and> (\<diamond>\<^sub>p(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (\<circle>\<^sub>pB))"
+  shows "\<Turnstile>(((O{B|A} \<^bold>\<and> (\<box>\<^sub>pA)) \<^bold>\<and> ((\<diamond>\<^sub>pB) \<^bold>\<and> (\<diamond>\<^sub>p(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (O\<^sub>p B))"
   by (smt O_SA boxp_boxa)
 
 
-
+end
 
