@@ -1,0 +1,182 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{categorical{\isacharunderscore}imperative{\isacharunderscore}{\isadigit{1}}}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ categorical{\isacharunderscore}imperative{\isacharunderscore}{\isadigit{1}}\ \isakeyword{imports}\ carmojones{\isacharunderscore}DDL{\isacharunderscore}completeness\isanewline
+\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{The Categorical Imperative%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Simple Formulation of the Kingdom of Ends%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This is my initial attempt at formalizing the concept of the Kingdom of Ends%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlpermissable{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}P{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}P\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\ {\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Will be useful when discussing the categorical imperative%
+}\isanewline
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ kingdom{\isacharunderscore}of{\isacharunderscore}ends{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}O\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}\ {\isacharparenleft}P\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ O{\isacharunderscore}diamond\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+%
+\isamarkupcmt{One interpretation of the categorical imperative is that something is obligatory only if it is permissible in every ideal world%
+}\isanewline
+%
+\isamarkupcmt{This formulation mirrors the kingdom of ends.%
+}\isanewline
+%
+\isamarkupcmt{This formulation is already a theorem of carmo and jones' DDL!.%
+}\isanewline
+%
+\isamarkupcmt{It can be shown using the O diamond rule, which just says that obligatory things must be possible.%
+}\isanewline
+%
+\isamarkupcmt{There are two possibilities: either the logic is already quite powerful OR this formulation is ``empty".%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ kingdom{\isacharunderscore}of{\isacharunderscore}ends{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\ {\isacharparenleft}P\ A{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\ A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ O{\isacharunderscore}diamond\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}c{\isacharparenright}\isanewline
+%
+\isamarkupcmt{Notice also that ideally, this relationship does not hold in the reverse direction.%
+}\isanewline
+%
+\isamarkupcmt{Plenty of things are necessarily permissible (drinking water) but not obligatory.%
+}\isanewline
+%
+\isamarkupcmt{Very strange that this is a theorem in this logic.....%
+}\isanewline
+%
+\isamarkupcmt{That being said, Isabelle seems quite upset with this proof and is very slow to resconstruct it%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/categorical_imperative_1.thy%:%
+%:%10=1%:%
+%:%11=1%:%
+%:%12=2%:%
+%:%13=3%:%
+%:%27=5%:%
+%:%31=7%:%
+%:%43=9%:%
+%:%45=11%:%
+%:%46=11%:%
+%:%47=12%:%
+%:%49=13%:%
+%:%50=13%:%
+%:%51=14%:%
+%:%52=15%:%
+%:%53=16%:%
+%:%54=16%:%
+%:%55=17%:%
+%:%58=18%:%
+%:%62=18%:%
+%:%63=18%:%
+%:%65=19%:%
+%:%66=19%:%
+%:%68=20%:%
+%:%69=20%:%
+%:%71=21%:%
+%:%72=21%:%
+%:%74=22%:%
+%:%75=22%:%
+%:%77=23%:%
+%:%83=23%:%
+%:%86=24%:%
+%:%87=25%:%
+%:%88=25%:%
+%:%89=26%:%
+%:%92=27%:%
+%:%96=27%:%
+%:%97=27%:%
+%:%99=28%:%
+%:%100=28%:%
+%:%102=29%:%
+%:%103=29%:%
+%:%105=30%:%
+%:%106=30%:%
+%:%108=31%:%
+%:%114=31%:%
+%:%119=32%:%
+%:%124=33%:%

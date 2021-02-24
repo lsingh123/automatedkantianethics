@@ -42,7 +42,7 @@ section Axioms
 
 subsection Box
 
-\<comment> \<open>$\box$ is an S5 modal operator, which is where these axioms come from.\<close>
+\<comment> \<open>$\Box$ is an S5 modal operator, which is where these axioms come from.\<close>
 lemma K:
   shows "\<Turnstile> ((\<box>(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>A) \<^bold>\<rightarrow> (\<box>B)))"
   by blast
@@ -68,7 +68,7 @@ lemma O_C:
   shows "\<Turnstile>(((\<diamond>(A \<^bold>\<and> (B \<^bold>\<and> C))) \<^bold>\<and> (O{B|A} \<^bold>\<and> O{C|A})) \<^bold>\<rightarrow> (O{B\<^bold>\<and>C|A}) )"
   by (metis (no_types, lifting) ax_5b)
 \<comment> \<open>The conjunction of obligations in a context is obligatory in that context.\<close>
-\<comment> \<open>The restriction $\diamond (A \and B \and C)$ is to prevent contradictory obligations and contexts.\<close>
+\<comment> \<open>The restriction $\Diamond (A \and B \and C)$ is to prevent contradictory obligations and contexts.\<close>
 
 lemma O_SA:
   shows "\<Turnstile>(((\<box>(A \<^bold>\<rightarrow>B)) \<^bold>\<and> ((\<diamond>(A \<^bold>\<and>C)) \<^bold>\<and> O{C|B})) \<^bold>\<rightarrow> (O{C|A}))"
@@ -97,7 +97,7 @@ lemma O_to_O:
 
 subsection "Possible Box"
 
-\<comment> \<open>$\box_p$ is a KT modal operator.\<close>
+\<comment> \<open> $\Box_p$ is a KT modal operator.\<close>
 lemma K_boxp:
   shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>\<^sub>pA) \<^bold>\<rightarrow> (\<box>\<^sub>pB)))"
   by blast
@@ -107,7 +107,7 @@ lemma T_boxp:
 
 subsection "Actual Box"
 
-\<comment> \<open>$\box_a$ is a KD modal operator.\<close>
+\<comment> \<open>$\Box_a$ is a KD modal operator.\<close>
 lemma K_boxa:
   shows "\<Turnstile>((\<box>\<^sub>a(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>\<^sub>aA) \<^bold>\<rightarrow> (\<box>\<^sub>aB)))"
   by blast
@@ -117,7 +117,7 @@ lemma D_boxa:
 
 subsection "Relations Between the Modal Operators"
 
-\<comment> \<open>Relation between $\box$, $\box_a$, and $\box_p$.\<close>
+\<comment> \<open>Relation between $\Box$, $\Box_a$, and $\Box_p$.\<close>
 lemma box_boxp:
   shows "\<Turnstile>((\<box>A) \<^bold>\<rightarrow> (\<box>\<^sub>pA))"
   by auto
@@ -125,7 +125,7 @@ lemma boxp_boxa:
   shows "\<Turnstile>((\<box>\<^sub>pA) \<^bold>\<rightarrow> (\<box>\<^sub>aA))"
   using ax_4a by blast
 
-\<comment> \<open>Relation between actual/possible O and $\box$.\<close>
+\<comment> \<open>Relation between actual/possible O and $\Box$.\<close>
 lemma not_Oa:
   shows "\<Turnstile>((\<box>\<^sub>aA) \<^bold>\<rightarrow> ((\<^bold>\<not>(O\<^sub>a A)) \<^bold>\<and> (\<^bold>\<not>(O\<^sub>a (\<^bold>\<not>A)))))"
   using O_diamond by blast
@@ -139,7 +139,7 @@ lemma equiv_Op:
   shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((O\<^sub>p A) \<^bold>\<equiv> (O\<^sub>p B) ))"
   using O_contextual_REA by blast
 
-\<comment> \<open>relationships between actual/possible O and $\box$ and O proper.\<close>
+\<comment> \<open>relationships between actual/possible O and $\Box$ and O proper.\<close>
 lemma factual_detach_a:
   shows "\<Turnstile>(((O{B|A} \<^bold>\<and> (\<box>\<^sub>aA)) \<^bold>\<and> ((\<diamond>\<^sub>aB) \<^bold>\<and> (\<diamond>\<^sub>a(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (O\<^sub>a B))"
   using O_SA by auto
