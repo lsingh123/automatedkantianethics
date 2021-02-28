@@ -10,8 +10,10 @@ text "This is my initial attempt at formalizing the concept of the Kingdom of En
 
 abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
   where "(P A) \<equiv> (\<^bold>\<not>(O (\<^bold>\<not>A)))"
+\<comment> \<open>This operator represents permissibility\<close>
 \<comment> \<open>Will be useful when discussing the categorical imperative\<close>
-
+\<comment> \<open>Something is permissible if it is not prohibited\<close>
+\<comment> \<open>Something is prohibited if its negation is obligatory\<close>
 
 lemma kingdom_of_ends_1:
   shows "\<Turnstile> ((O A) \<^bold>\<rightarrow> (\<box> (P A)))"
@@ -29,6 +31,28 @@ lemma kingdom_of_ends_2:
 \<comment> \<open>Plenty of things are necessarily permissible (drinking water) but not obligatory.\<close>
 \<comment> \<open>Very strange that this is a theorem in this logic.....\<close>
 \<comment> \<open>That being said, Isabelle seems quite upset with this proof and is very slow to resconstruct it\<close>
+\<comment> \<open>I am struggling to recreate this proof on paper\<close>
+
+
+lemma permissible_to_ob:
+  shows "\<Turnstile> ((P A) \<^bold>\<rightarrow> (O A))"
+proof -
+have "ob \<top> (\<^bold>\<not> A) \<or> ob \<top> A"
+using kingdom_of_ends_2 by presburger
+  then show ?thesis
+by meson
+qed
+\<comment> \<open>Uh-oh.....this shouldn't be true...\<close>
+\<comment> \<open>Not all permissable things are obligatory.....\<close>
+
+lemma weaker_permissible_to_ob:
+  shows "\<Turnstile> ((\<diamond> (P A)) \<^bold>\<rightarrow> O A)"
+  using kingdom_of_ends_2 by auto
+\<comment> \<open>Makes sense that this follows from the reverse kingdom of ends.\<close>
+\<comment> \<open>Obligation and necessity/possibility are separated in this logic\<close>
+\<comment> \<open>Both the dyadic obligation and necessity operator are world agnostic\<close>
+
+
 
 end
 

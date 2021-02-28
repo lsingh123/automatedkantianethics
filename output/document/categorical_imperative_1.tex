@@ -46,9 +46,17 @@ This is my initial attempt at formalizing the concept of the Kingdom of Ends%
 \ ddlpermissable{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}P{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}P\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\ {\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
+\isamarkupcmt{This operator represents permissibility%
+}\isanewline
+%
 \isamarkupcmt{Will be useful when discussing the categorical imperative%
 }\isanewline
-\isanewline
+%
+\isamarkupcmt{Something is permissible if it is not prohibited%
+}\isanewline
+%
+\isamarkupcmt{Something is prohibited if its negation is obligatory%
+}\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ kingdom{\isacharunderscore}of{\isacharunderscore}ends{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\isanewline
@@ -106,6 +114,9 @@ This is my initial attempt at formalizing the concept of the Kingdom of Ends%
 }\isanewline
 %
 \isamarkupcmt{That being said, Isabelle seems quite upset with this proof and is very slow to resconstruct it%
+}\isanewline
+%
+\isamarkupcmt{I am struggling to recreate this proof on paper%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -114,6 +125,75 @@ This is my initial attempt at formalizing the concept of the Kingdom of Ends%
 \isanewline
 %
 \endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}to{\isacharunderscore}ob{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}P\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\ A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\isanewline
+\isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}ob\ {\isasymtop}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ A{\isacharparenright}\ {\isasymor}\ ob\ {\isasymtop}\ A{\isachardoublequoteclose}\isanewline
+\isacommand{using}\isamarkupfalse%
+\ kingdom{\isacharunderscore}of{\isacharunderscore}ends{\isacharunderscore}{\isadigit{2}}\ \isacommand{by}\isamarkupfalse%
+\ presburger\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\isacommand{by}\isamarkupfalse%
+\ meson\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Uh-oh.....this shouldn't be true...%
+}\isanewline
+%
+\isamarkupcmt{Not all permissable things are obligatory.....%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ weaker{\isacharunderscore}permissible{\isacharunderscore}to{\isacharunderscore}ob{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}\ {\isacharparenleft}P\ A{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ O\ A{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ kingdom{\isacharunderscore}of{\isacharunderscore}ends{\isacharunderscore}{\isadigit{2}}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+%
+\isamarkupcmt{Makes sense that this follows from the reverse kingdom of ends.%
+}\isanewline
+%
+\isamarkupcmt{Obligation and necessity/possibility are separated in this logic%
+}\isanewline
+%
+\isamarkupcmt{Both the dyadic obligation and necessity operator are world agnostic%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isanewline
 %
 \isadelimtheory
 \isanewline
@@ -145,38 +225,84 @@ This is my initial attempt at formalizing the concept of the Kingdom of Ends%
 %:%47=12%:%
 %:%49=13%:%
 %:%50=13%:%
-%:%51=14%:%
-%:%52=15%:%
-%:%53=16%:%
-%:%54=16%:%
-%:%55=17%:%
-%:%58=18%:%
+%:%52=14%:%
+%:%53=14%:%
+%:%55=15%:%
+%:%56=15%:%
+%:%58=16%:%
+%:%59=16%:%
+%:%60=17%:%
+%:%61=18%:%
 %:%62=18%:%
-%:%63=18%:%
-%:%65=19%:%
-%:%66=19%:%
-%:%68=20%:%
-%:%69=20%:%
-%:%71=21%:%
-%:%72=21%:%
-%:%74=22%:%
-%:%75=22%:%
-%:%77=23%:%
-%:%83=23%:%
-%:%86=24%:%
-%:%87=25%:%
-%:%88=25%:%
-%:%89=26%:%
-%:%92=27%:%
+%:%63=19%:%
+%:%66=20%:%
+%:%70=20%:%
+%:%71=20%:%
+%:%73=21%:%
+%:%74=21%:%
+%:%76=22%:%
+%:%77=22%:%
+%:%79=23%:%
+%:%80=23%:%
+%:%82=24%:%
+%:%83=24%:%
+%:%85=25%:%
+%:%91=25%:%
+%:%94=26%:%
+%:%95=27%:%
 %:%96=27%:%
-%:%97=27%:%
-%:%99=28%:%
-%:%100=28%:%
-%:%102=29%:%
-%:%103=29%:%
-%:%105=30%:%
-%:%106=30%:%
-%:%108=31%:%
-%:%114=31%:%
-%:%119=32%:%
-%:%124=33%:%
+%:%97=28%:%
+%:%100=29%:%
+%:%104=29%:%
+%:%105=29%:%
+%:%107=30%:%
+%:%108=30%:%
+%:%110=31%:%
+%:%111=31%:%
+%:%113=32%:%
+%:%114=32%:%
+%:%116=33%:%
+%:%117=33%:%
+%:%119=34%:%
+%:%125=34%:%
+%:%128=35%:%
+%:%129=36%:%
+%:%130=37%:%
+%:%131=37%:%
+%:%132=38%:%
+%:%139=39%:%
+%:%140=39%:%
+%:%141=40%:%
+%:%142=40%:%
+%:%143=41%:%
+%:%144=41%:%
+%:%145=41%:%
+%:%146=42%:%
+%:%147=42%:%
+%:%148=42%:%
+%:%149=43%:%
+%:%150=43%:%
+%:%151=44%:%
+%:%152=44%:%
+%:%154=45%:%
+%:%155=45%:%
+%:%157=46%:%
+%:%163=46%:%
+%:%166=47%:%
+%:%167=48%:%
+%:%168=48%:%
+%:%169=49%:%
+%:%172=50%:%
+%:%176=50%:%
+%:%177=50%:%
+%:%178=50%:%
+%:%180=51%:%
+%:%181=51%:%
+%:%183=52%:%
+%:%184=52%:%
+%:%186=53%:%
+%:%192=53%:%
+%:%195=54%:%
+%:%196=55%:%
+%:%199=56%:%
+%:%204=57%:%
