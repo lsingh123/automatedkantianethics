@@ -132,27 +132,27 @@ This axiomatization comes from Carmo and Jones p 6 and the HOL embedding defined
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{axiomatization}\isamarkupfalse%
 \ \isakeyword{where}\isanewline
-ax{\isacharunderscore}{\isadigit{3}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymexists}x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+ax{\isacharunderscore}{\isadigit{3}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}{\isasymexists}x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
 \ %
 \isamarkupcmt{every world has some actual version%
 }\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}\ {\isasymlongrightarrow}\ pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}w\ x{\isachardot}\ av{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}\ {\isasymlongrightarrow}\ pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}x{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
 %
 \isamarkupcmt{all actual versions of a world are also possible versions of it%
 }\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}b{\isacharcolon}\ {\isachardoublequoteopen}pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{4}}b{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ pv{\isacharparenleft}w{\isacharparenright}{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{every world is a possible version of itself%
 }\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymnot}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ False{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}a{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X{\isachardot}{\isasymnot}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ False{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
 %
 \isamarkupcmt{in any arbitrary context X, something will be obligatory%
 }\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymlongleftrightarrow}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymlongleftrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\ %
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymlongleftrightarrow}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymlongleftrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\ %
 \isamarkupcmt{note that X(w) denotes w is a member of X%
 }\isanewline
 %
@@ -165,19 +165,16 @@ ax{\isacharunderscore}{\isadigit{3}}a{\isacharcolon}\ {\isachardoublequoteopen}{
 %
 \isamarkupcmt{ob(X)($\lambda$ w. Fw) can be read as F $\in$ ob(X)%
 }\isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}c{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}Z{\isachardot}\ {\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}Z{\isachardot}\ {\isasymbeta}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\isanewline
-{\isacharparenleft}{\isasymexists}y{\isachardot}{\isacharparenleft}{\isasymforall}Z{\isachardot}\ {\isacharparenleft}{\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ Z{\isacharparenleft}y{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymand}\ X{\isacharparenleft}y{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isasymforall}Z{\isachardot}{\isacharparenleft}{\isasymbeta}{\isacharparenleft}Z{\isacharparenright}\ {\isasymlongrightarrow}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{For any nonempty subset $\beta$ of ob(X), if its members share members with X then it members are all in ob(X)%
-}\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\isanewline
-{\isacharparenleft}ob{\isacharparenleft}Y{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}Z{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ {\isasymnot}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}c{\isadigit{2}}{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}X{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Y{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isanewline
+\ \ {\isasymlongrightarrow}ob{\isacharparenleft}Z{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}{\isacharparenleft}Z{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ {\isasymnot}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymor}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{If some subset Y of X is in ob(X) then in a larger context Z, any obligatory proposition must either be in Y or in Z-X%
 }\isanewline
 \isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}e{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}w{\isachardot}{\isacharparenleft}Y{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}Y{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}e{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob{\isacharparenleft}Y{\isacharparenright}{\isacharparenleft}Z{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{If Z is obligatory in context X, then Z is obligatory in a subset of X called Y, if Z shares some elements with Y%
 }%
@@ -210,7 +207,7 @@ These are all syntactic sugar for HOL expressions, so evaluating these symbols w
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlneg{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymnot}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymnot}\ A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isasymnot}\ A{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymnot}A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isasymnot}A{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlor{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymor}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymor}\ A\ B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}A{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
@@ -219,7 +216,7 @@ These are all syntactic sugar for HOL expressions, so evaluating these symbols w
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}A\isactrlbold {\isasymand}\ B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}A{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlif{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlbold {\isasymrightarrow}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}A\isactrlbold {\isasymrightarrow}B\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymnot}\ A{\isacharparenleft}w{\isacharparenright}\ {\isasymor}\ B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}A\isactrlbold {\isasymrightarrow}B\ {\isasymequiv}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ A{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}B{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlequiv{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlbold {\isasymequiv}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\isactrlbold {\isasymequiv}B{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}{\isacharparenleft}A\isactrlbold {\isasymrightarrow}B{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\ B\isactrlbold {\isasymrightarrow}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
@@ -271,21 +268,21 @@ These are all syntactic sugar for HOL expressions, so evaluating these symbols w
 \isamarkupcmt{syntactic sugar for a ``monadic" obligation operator%
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
-\ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymtop}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ True{\isachardoublequoteclose}\isanewline
+\ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymtop}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ True{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
-\ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}{\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+\ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
 \isanewline
 %
 \isamarkupcmt{validity%
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlvalid{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}A\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ A{\isacharparenleft}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}A\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ A\ w{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlvalidcw{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}\isactrlsub c{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}\isactrlsub cA\ {\isasymequiv}\ A{\isacharparenleft}cw{\isacharparenright}{\isachardoublequoteclose}%
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}\isactrlsub cA\ {\isasymequiv}\ A\ cw{\isachardoublequoteclose}%
 \isadelimdocument
 %
 \endisadelimdocument
@@ -331,6 +328,7 @@ Consistency is so easy to show in Isabelle!%
 \isadelimproof
 %
 \endisadelimproof
+\isanewline
 \isanewline
 %
 \isadelimtheory
@@ -445,106 +443,105 @@ Consistency is so easy to show in Isabelle!%
 %:%167=59%:%
 %:%168=60%:%
 %:%169=61%:%
-%:%171=62%:%
-%:%172=62%:%
-%:%173=63%:%
-%:%174=64%:%
+%:%170=62%:%
+%:%171=63%:%
+%:%172=64%:%
+%:%174=65%:%
 %:%175=65%:%
-%:%177=66%:%
-%:%178=66%:%
-%:%179=67%:%
-%:%180=68%:%
-%:%182=69%:%
-%:%190=71%:%
-%:%202=73%:%
-%:%206=74%:%
+%:%176=66%:%
+%:%177=67%:%
+%:%179=68%:%
+%:%187=70%:%
+%:%199=72%:%
+%:%203=73%:%
+%:%206=75%:%
+%:%207=75%:%
+%:%208=76%:%
 %:%209=76%:%
-%:%210=76%:%
-%:%211=77%:%
-%:%212=77%:%
-%:%213=78%:%
-%:%214=79%:%
-%:%215=79%:%
-%:%216=80%:%
-%:%217=81%:%
-%:%218=81%:%
-%:%219=82%:%
-%:%220=83%:%
-%:%221=83%:%
-%:%222=84%:%
-%:%223=85%:%
-%:%224=85%:%
-%:%225=86%:%
+%:%210=77%:%
+%:%211=78%:%
+%:%212=78%:%
+%:%213=79%:%
+%:%214=80%:%
+%:%215=80%:%
+%:%216=81%:%
+%:%217=82%:%
+%:%218=82%:%
+%:%219=83%:%
+%:%220=84%:%
+%:%221=84%:%
+%:%222=85%:%
+%:%223=86%:%
+%:%225=87%:%
 %:%226=87%:%
+%:%227=88%:%
 %:%228=88%:%
-%:%229=88%:%
-%:%230=89%:%
-%:%231=89%:%
-%:%232=90%:%
-%:%233=91%:%
-%:%234=91%:%
-%:%235=92%:%
+%:%229=89%:%
+%:%230=90%:%
+%:%231=90%:%
+%:%232=91%:%
+%:%233=92%:%
+%:%235=93%:%
 %:%236=93%:%
+%:%237=94%:%
 %:%238=94%:%
-%:%239=94%:%
-%:%240=95%:%
-%:%241=95%:%
-%:%242=96%:%
+%:%239=95%:%
+%:%240=96%:%
+%:%242=97%:%
 %:%243=97%:%
+%:%244=98%:%
 %:%245=98%:%
-%:%246=98%:%
-%:%247=99%:%
-%:%248=99%:%
-%:%249=100%:%
-%:%250=101%:%
-%:%251=101%:%
-%:%252=102%:%
-%:%253=103%:%
-%:%254=103%:%
-%:%255=104%:%
-%:%256=105%:%
-%:%257=105%:%
-%:%258=106%:%
+%:%246=99%:%
+%:%247=100%:%
+%:%248=100%:%
+%:%249=101%:%
+%:%250=102%:%
+%:%251=102%:%
+%:%252=103%:%
+%:%253=104%:%
+%:%254=104%:%
+%:%255=105%:%
+%:%256=106%:%
+%:%258=107%:%
 %:%259=107%:%
+%:%260=108%:%
 %:%261=108%:%
-%:%262=108%:%
-%:%263=109%:%
-%:%264=109%:%
-%:%265=110%:%
-%:%266=111%:%
-%:%267=111%:%
-%:%268=112%:%
+%:%262=109%:%
+%:%263=110%:%
+%:%264=110%:%
+%:%265=111%:%
+%:%266=112%:%
+%:%268=113%:%
 %:%269=113%:%
+%:%270=114%:%
 %:%271=114%:%
-%:%272=114%:%
-%:%273=115%:%
-%:%274=115%:%
-%:%275=116%:%
-%:%276=117%:%
-%:%277=117%:%
-%:%278=118%:%
+%:%272=115%:%
+%:%273=116%:%
+%:%274=116%:%
+%:%275=117%:%
+%:%276=118%:%
+%:%278=119%:%
 %:%279=119%:%
+%:%280=120%:%
 %:%281=120%:%
-%:%282=120%:%
-%:%283=121%:%
-%:%284=121%:%
-%:%285=122%:%
-%:%286=123%:%
-%:%287=123%:%
-%:%288=124%:%
-%:%295=126%:%
-%:%307=128%:%
-%:%309=130%:%
-%:%310=130%:%
-%:%311=130%:%
-%:%313=130%:%
+%:%282=121%:%
+%:%283=122%:%
+%:%284=122%:%
+%:%285=123%:%
+%:%292=125%:%
+%:%304=127%:%
+%:%306=129%:%
+%:%307=129%:%
+%:%308=129%:%
+%:%310=129%:%
+%:%314=129%:%
+%:%315=129%:%
 %:%317=130%:%
 %:%318=130%:%
 %:%320=131%:%
 %:%321=131%:%
 %:%323=132%:%
-%:%324=132%:%
-%:%326=133%:%
-%:%334=133%:%
-%:%337=134%:%
-%:%342=135%:%
+%:%331=132%:%
+%:%332=133%:%
+%:%335=134%:%
+%:%340=135%:%

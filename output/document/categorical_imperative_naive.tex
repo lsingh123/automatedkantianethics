@@ -1,0 +1,176 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{categorical{\isacharunderscore}imperative{\isacharunderscore}naive}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ categorical{\isacharunderscore}imperative{\isacharunderscore}naive\ \isakeyword{imports}\ carmojones{\isacharunderscore}DDL{\isacharunderscore}completeness\isanewline
+\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{The Categorical Imperative%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Simple Formulation of the Formula of Universal Law%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This is my second attempt at formalizing the Formula of Universal Law%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlpermissable{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}P{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}P\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This operator represents permissibility%
+}\isanewline
+%
+\isamarkupcmt{Will be useful when discussing the categorical imperative%
+}\isanewline
+%
+\isamarkupcmt{Something is permissible if it is not prohibited%
+}\isanewline
+%
+\isamarkupcmt{Something is prohibited if its negation is obligatory%
+}%
+\begin{isamarkuptext}%
+Let's consider a naive reading of the Formula of Universal Law (FUL).
+From the Groundwork, 'act only in accordance with that maxim through which you can at the same time will that it become a universal law'.
+What does this mean in DDL? One interpretation is if A is not necessarily permissible, then its negation is obligated.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\isanewline
+FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}\ {\isacharparenleft}P\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\ {\isacharbraceleft}{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ True\ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}show{\isacharunderscore}all{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\ \isanewline
+%
+\isamarkupcmt{Nitpick tells us that the FUL is consistent%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+I'm going to test this formulation now.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isamarkupcmt{lemma test1:
+  shows $\forall w. \exists A. O \{A\}w$
+%
+\isamarkupcmt{We might think that in every world we want something to be obligated.%
+}
+%
+\isamarkupcmt{Sadly, Sledgehammer times out trying to prove this. Let's relax this%
+}
+
+lemma test1_relaxed:
+  shows $\exists A w. O \{A\} w$
+Wow, even the relaxed version times out!
+One problem becomes obvious if we look at the definition of permissible
+Expanding the FUL gives us: $\sim \square \sim O(\sim A)$ $\longrightarrow$ $O(\sim A)$
+By modal duals we get that diamond O($\sim$A) $\longrightarrow$ O($\sim$A) which is clearly not a desirable property of an ethical theory%
+}%
+\begin{isamarkuptext}%
+Interestingly Isabelle struggles to show even this very obvious lemma.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/categorical_imperative_naive.thy%:%
+%:%10=1%:%
+%:%11=1%:%
+%:%12=2%:%
+%:%13=3%:%
+%:%27=5%:%
+%:%31=7%:%
+%:%43=9%:%
+%:%45=11%:%
+%:%46=11%:%
+%:%47=12%:%
+%:%49=13%:%
+%:%50=13%:%
+%:%52=14%:%
+%:%53=14%:%
+%:%55=15%:%
+%:%56=15%:%
+%:%58=16%:%
+%:%61=18%:%
+%:%62=19%:%
+%:%63=20%:%
+%:%65=22%:%
+%:%66=22%:%
+%:%67=23%:%
+%:%68=24%:%
+%:%69=25%:%
+%:%70=25%:%
+%:%71=25%:%
+%:%73=25%:%
+%:%77=25%:%
+%:%78=25%:%
+%:%80=26%:%
+%:%90=28%:%
+%:%93=30%:%
+%:%94=31%:%
+%:%96=32%:%
+%:%97=32%:%
+%:%99=33%:%
+%:%100=33%:%
+%:%101=34%:%
+%:%102=35%:%
+%:%103=36%:%
+%:%104=37%:%
+%:%105=38%:%
+%:%106=39%:%
+%:%107=40%:%
+%:%110=42%:%
+%:%118=44%:%

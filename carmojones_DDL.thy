@@ -40,32 +40,31 @@ text "This subsection contains axioms. Because the embedding is semantic, these 
 text "This axiomatization comes from Carmo and Jones p 6 and the HOL embedding defined in Benzmuller and Parent"
 
 axiomatization where
-ax_3a: "\<exists>x. av(w)(x)" 
+ax_3a: "\<forall>w.\<exists>x. av(w)(x)" 
  \<comment> \<open>every world has some actual version\<close>
 
-and ax_4a: "\<forall>x. av(w)(x) \<longrightarrow> pv(w)(x)" 
+and ax_4a: "\<forall>w x. av(w)(x) \<longrightarrow> pv(w)(x)" 
 \<comment> \<open>all actual versions of a world are also possible versions of it\<close>
 
-and ax_4b: "pv(w)(w)"
+and ax_4b: "\<forall>w. pv(w)(w)"
 \<comment> \<open>every world is a possible version of itself\<close>
 
-and ax_5a: "\<not>ob(X)(\<lambda>w. False)"
+and ax_5a: "\<forall>X.\<not>ob(X)(\<lambda>w. False)" 
 \<comment> \<open>in any arbitrary context X, something will be obligatory\<close>
 
-and ax_5b: "\<forall>w. ((X(w) \<and> Y(w)) \<longleftrightarrow> (X(w) \<and> Z(w))) \<longrightarrow> (ob(X)(Y) \<longleftrightarrow> ob(X)(Z))" \<comment> \<open>note that X(w) denotes w is a member of X\<close>
+and ax_5b: "\<forall>X Y Z. (\<forall>w. ((X(w) \<and> Y(w)) \<longleftrightarrow> (X(w) \<and> Z(w)))) \<longrightarrow> (ob(X)(Y) \<longleftrightarrow> ob(X)(Z))" \<comment> \<open>note that X(w) denotes w is a member of X\<close>
 \<comment> \<open>X, Y, and Z are sets of formulas\<close>
 \<comment> \<open>If X $\cap$ Y = X $\cap$ Z then the context X obliges Y iff it obliges Z\<close>
 
 \<comment> \<open>ob(X)($\lambda$ w. Fw) can be read as F $\in$ ob(X)\<close>
-and ax_5c: "(\<forall>Z. \<beta>(Z) \<longrightarrow> ob(X)(Z) \<and> (\<exists>Z. \<beta>(Z))) \<longrightarrow>
-(\<exists>y.(\<forall>Z. (\<beta>(Z) \<longrightarrow> Z(y))) \<and> X(y)) \<longrightarrow> ob(X)(\<lambda>w. \<forall>Z.(\<beta>(Z) \<longrightarrow> Z(w)))"
-\<comment> \<open>For any nonempty subset $\beta$ of ob(X), if its members share members with X then it members are all in ob(X) \<close>
 
-and ax_5d: "(\<forall>w. (Y(w)\<longrightarrow>X(w)) \<and> (ob(X)(Y)) \<and> (\<forall>w. (X(w) \<longrightarrow>Z(w)))) \<longrightarrow>
-(ob(Y)(\<lambda>w. Y(w) \<or> (Z(w) \<and> \<not>X(w))))"
+and ax_5c2: "\<forall>X Y Z. (((\<exists>w. (X(w) \<and> Y(w) \<and> Z(w))) \<and> ob(X)(Y) \<and> ob(X)(Z))) \<longrightarrow> ob(X)(\<lambda>w. Y(w) \<and> Z(w))"
+
+and ax_5d: "\<forall>X Y Z. ((\<forall>w. Y(w)\<longrightarrow>X(w)) \<and> ob(X)(Y) \<and> (\<forall>w. X(w)\<longrightarrow>Z(w))) 
+  \<longrightarrow>ob(Z)(\<lambda>w.(Z(w) \<and> \<not>X(w)) \<or> Y(w))"
 \<comment> \<open>If some subset Y of X is in ob(X) then in a larger context Z, any obligatory proposition must either be in Y or in Z-X\<close>
 
-and ax_5e: "((\<forall>w. (Y(w)\<longrightarrow>X(w))) \<and> ob(X)(Z) \<and> (\<exists>w.(Y(w) \<and> Z(w)))) \<longrightarrow> ob(Y)(Z)"
+and ax_5e: "\<forall>X Y Z. ((\<forall>w. Y(w)\<longrightarrow>X(w)) \<and> ob(X)(Z) \<and> (\<exists>w. Y(w) \<and> Z(w))) \<longrightarrow> ob(Y)(Z)"
 \<comment> \<open>If Z is obligatory in context X, then Z is obligatory in a subset of X called Y, if Z shares some elements with Y\<close>
 
 subsection Abbreviations
@@ -75,13 +74,13 @@ text "These are all syntactic sugar for HOL expressions, so evaluating these sym
 
 \<comment> \<open>propositional logic symbols\<close>
 abbreviation ddlneg::"t\<Rightarrow>t" ("\<^bold>\<not>") 
-  where "\<^bold>\<not> A \<equiv> \<lambda>w. \<not> A(w)" 
+  where "\<^bold>\<not>A \<equiv> \<lambda>w. \<not>A(w)" 
 abbreviation ddlor::"t\<Rightarrow>t\<Rightarrow>t" ("\<^bold>\<or>") 
   where "\<^bold>\<or> A B \<equiv> \<lambda>w. (A(w) \<or> B(w))"
 abbreviation ddland::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<and>_")
   where "A\<^bold>\<and> B \<equiv> \<lambda>w. (A(w) \<and> B(w))"
 abbreviation ddlif::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<rightarrow>_")
-  where "A\<^bold>\<rightarrow>B \<equiv> \<lambda>w. (\<not> A(w) \<or> B(w))"
+  where "A\<^bold>\<rightarrow>B \<equiv> (\<lambda>w. A(w)\<longrightarrow>B(w))"
 abbreviation ddlequiv::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<equiv>_")
   where "(A\<^bold>\<equiv>B) \<equiv> ((A\<^bold>\<rightarrow>B) \<^bold>\<and> ( B\<^bold>\<rightarrow>A))"
 
@@ -112,16 +111,16 @@ abbreviation ddlobp::"t\<Rightarrow>t" ("O\<^sub>p")
   where "O\<^sub>p A \<equiv> \<lambda>x. ob(pv(x))(A) \<and> (\<exists>y.(pv(x)(y) \<and> \<not>A(y)))"
 
 \<comment> \<open>syntactic sugar for a ``monadic" obligation operator\<close>
-abbreviation ddltrue::"t" ("\<top>")
-  where "\<top> \<equiv> \<lambda>w. True"
-abbreviation ddlob_normal::"t\<Rightarrow>t" ("O_")
-  where "(O A) \<equiv> (O{A|\<top>}) "
+abbreviation ddltrue::"t" ("\<^bold>\<top>")
+  where "\<^bold>\<top> \<equiv> \<lambda>w. True"
+abbreviation ddlob_normal::"t\<Rightarrow>t" ("O {_}")
+  where "(O {A}) \<equiv> (O{A|\<^bold>\<top>}) "
 
 \<comment> \<open>validity\<close>
 abbreviation ddlvalid::"t\<Rightarrow>bool" ("\<Turnstile>_")
-  where "\<Turnstile>A \<equiv> \<forall>w. A(w)"
+  where "\<Turnstile>A \<equiv> \<forall>w. A w"
 abbreviation ddlvalidcw::"t\<Rightarrow>bool" ("\<Turnstile>\<^sub>c_")
-  where "\<Turnstile>\<^sub>cA \<equiv> A(cw)"
+  where "\<Turnstile>\<^sub>cA \<equiv> A cw"
 
 subsection Consistency
 
@@ -131,5 +130,6 @@ lemma True nitpick [satisfy,user_axioms,show_all,format=2] oops
 \<comment> \<open>Nitpick successfully found a countermodel.\<close>
 \<comment> \<open>It's not shown in the document printout, hence the oops.\<close>
 \<comment> \<open>If you hover over "nitpick" in JEdit, the model will be printed to output.\<close>
+
 
 end

@@ -144,46 +144,12 @@ These inference rules are common to most modal and propostional logics%
 \begin{isamarkuptext}%
 These are new rules that Carmo and Jones introduced for this logic.%
 \end{isamarkuptext}\isamarkuptrue%
-\isacommand{lemma}\isamarkupfalse%
-\ Oa{\isacharunderscore}boxaO{\isacharcolon}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub aw{\isacharparenright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}A{\isacharbar}w{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}O\isactrlsub a\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isadelimproof
-\ \ %
-\endisadelimproof
-%
-\isatagproof
-\isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-\isanewline
-%
-\endisadelimproof
-\isacommand{lemma}\isamarkupfalse%
-\ Oa{\isacharunderscore}boxpO{\isacharcolon}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}\isactrlsub pw{\isacharparenright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}A{\isacharbar}w{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}B\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}O\isactrlsub p\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isadelimproof
-\ \ %
-\endisadelimproof
-%
-\isatagproof
-\isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
-%
-\isamarkupcmt{B and A must not contain w. not sure how to encode that requirement.%
-}%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
+\begin{isamarkuptext}%
+B and A must not contain w. not sure how to encode that requirement.
+one option is to define a new free variables predicate and use that, but that requires a deeper embedding than I have.
+If Benzmuller and Parent can survive without these inference rules, so can I%
+\end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
 %
@@ -205,9 +171,9 @@ These are new rules that Carmo and Jones introduced for this logic.%
 {\isafolddocument}%
 %
 \isadelimdocument
-\isanewline
 %
 \endisadelimdocument
+\isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ K{\isacharcolon}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
@@ -318,7 +284,7 @@ This characterization of O comes from Carmo and Jones p 593%
 %
 \isatagproof
 \isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharcomma}\ lifting{\isacharparenright}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+\ {\isacharparenleft}metis\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}c{\isadigit{2}}{\isacharparenright}\isanewline
 %
 \isamarkupcmt{The conjunction of obligations in a context is obligatory in that context.%
 }\isanewline
@@ -424,8 +390,8 @@ This characterization of O comes from Carmo and Jones p 593%
 \endisadelimproof
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
-\ O{\isacharunderscore}to{\isacharunderscore}O{\isacharcolon}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ O{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharprime}{\isacharprime}{\isacharcolon}\ \isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}ob\ X\ Y\ {\isasymlongleftrightarrow}\ ob\ X\ {\isacharparenleft}{\isasymlambda}z{\isachardot}\ {\isacharparenleft}Y\ z{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}X\ z{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -433,7 +399,53 @@ This characterization of O comes from Carmo and Jones p 593%
 %
 \isatagproof
 \isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharcomma}\ lifting{\isacharparenright}\ O{\isacharunderscore}REA\ ax{\isacharunderscore}{\isadigit{5}}a\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}\isanewline
+\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharcomma}\ lifting{\isacharparenright}\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}to{\isacharunderscore}O{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\isactrlbold {\isasymrightarrow}O{\isacharbraceleft}{\isacharparenleft}A\isactrlbold {\isasymrightarrow}B{\isacharparenright}{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}ob\ X\ Y\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X\ w\ {\isasymlongrightarrow}\ Z\ w{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob\ Z\ {\isacharparenleft}{\isasymlambda}w{\isachardot}{\isacharparenleft}Z\ w\ {\isasymand}\ {\isasymnot}X\ w{\isacharparenright}\ {\isasymor}\ Y\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ ax{\isacharunderscore}{\isadigit{5}}d\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharprime}{\isacharprime}{\isacharparenright}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\isanewline
+\ \ \isacommand{obtain}\isamarkupfalse%
+\ ii\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}\ {\isasymRightarrow}\ {\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}\ {\isasymRightarrow}\ i{\isachardoublequoteclose}\ \isakeyword{where}\isanewline
+{\isachardoublequoteopen}{\isasymforall}x{\isadigit{0}}\ x{\isadigit{2}}{\isachardot}\ {\isacharparenleft}{\isasymexists}v{\isadigit{3}}{\isachardot}\ {\isacharparenleft}x{\isadigit{2}}\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ x{\isadigit{0}}{\isacharparenright}{\isacharparenright}\ v{\isadigit{3}}{\isacharparenright}\ {\isacharequal}\ x{\isadigit{2}}\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ x{\isadigit{0}}{\isacharparenright}\ {\isacharparenleft}ii\ x{\isadigit{0}}\ x{\isadigit{2}}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ moura\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}p\ pa\ pb{\isachardot}\ {\isacharparenleft}{\isasymnot}\ ob\ p\ pa\ {\isasymor}\ p\isactrlbold {\isasymand}\isactrlbold {\isasymnot}\ pb\ {\isacharparenleft}ii\ pb\ p{\isacharparenright}{\isacharparenright}\ {\isasymor}\ ob\ pb\ {\isacharparenleft}\isactrlbold {\isasymor}\ pb\isactrlbold {\isasymand}\isactrlbold {\isasymnot}\ p\ pa{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}metis\ {\isacharparenleft}no{\isacharunderscore}types{\isacharparenright}\ {\isacartoucheopen}{\isasymforall}X\ Y\ Z{\isachardot}\ ob\ X\ Y\ {\isasymand}\ {\isasymTurnstile}X\isactrlbold {\isasymrightarrow}Z\ {\isasymlongrightarrow}\ ob\ Z\ {\isacharparenleft}\isactrlbold {\isasymor}\ Z\isactrlbold {\isasymand}\isactrlbold {\isasymnot}\ X\ Y{\isacharparenright}{\isacartoucheclose}{\isacharparenright}\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ fastforce\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
 %
 \isamarkupcmt{Moving from the dyadic to monadic obligation operators.%
 }%
@@ -687,7 +699,7 @@ This characterization of O comes from Carmo and Jones p 593%
 \ blast\isanewline
 \isanewline
 %
-\isamarkupcmt{relationships between actual/possible O and $\Box$ and O proper.%
+\isamarkupcmt{relationships between actual possible O and $\Box$ and O proper.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -733,7 +745,6 @@ This characterization of O comes from Carmo and Jones p 593%
 \isanewline
 %
 \endisadelimproof
-\isanewline
 %
 \isadelimtheory
 \isanewline
@@ -793,220 +804,240 @@ This characterization of O comes from Carmo and Jones p 593%
 %:%119=25%:%
 %:%133=27%:%
 %:%145=29%:%
-%:%147=31%:%
-%:%148=31%:%
-%:%149=32%:%
-%:%150=33%:%
-%:%153=34%:%
-%:%157=34%:%
-%:%158=34%:%
-%:%163=34%:%
-%:%166=35%:%
-%:%167=35%:%
-%:%168=36%:%
-%:%169=37%:%
-%:%172=38%:%
-%:%176=38%:%
-%:%177=38%:%
-%:%179=39%:%
-%:%194=41%:%
-%:%198=43%:%
-%:%202=45%:%
-%:%208=45%:%
+%:%149=31%:%
+%:%150=32%:%
+%:%151=33%:%
+%:%160=35%:%
+%:%164=37%:%
+%:%168=39%:%
+%:%176=39%:%
+%:%177=40%:%
+%:%178=40%:%
+%:%179=41%:%
+%:%182=42%:%
+%:%186=42%:%
+%:%187=42%:%
+%:%192=42%:%
+%:%195=43%:%
+%:%196=44%:%
+%:%197=44%:%
+%:%198=45%:%
+%:%201=46%:%
+%:%205=46%:%
+%:%206=46%:%
 %:%211=46%:%
-%:%212=46%:%
-%:%213=47%:%
+%:%214=47%:%
+%:%215=48%:%
 %:%216=48%:%
-%:%220=48%:%
-%:%221=48%:%
-%:%226=48%:%
-%:%229=49%:%
-%:%230=50%:%
-%:%231=50%:%
-%:%232=51%:%
-%:%235=52%:%
+%:%217=49%:%
+%:%220=50%:%
+%:%224=50%:%
+%:%225=50%:%
 %:%239=52%:%
-%:%240=52%:%
-%:%245=52%:%
-%:%248=53%:%
-%:%249=54%:%
-%:%250=54%:%
-%:%251=55%:%
-%:%254=56%:%
-%:%258=56%:%
-%:%259=56%:%
-%:%273=58%:%
-%:%285=60%:%
-%:%287=61%:%
-%:%288=61%:%
-%:%289=62%:%
-%:%292=63%:%
-%:%296=63%:%
-%:%297=63%:%
-%:%298=64%:%
-%:%299=64%:%
-%:%301=65%:%
-%:%307=65%:%
-%:%310=66%:%
-%:%311=67%:%
-%:%312=67%:%
-%:%313=68%:%
-%:%316=69%:%
-%:%320=69%:%
-%:%321=69%:%
-%:%323=70%:%
-%:%324=70%:%
-%:%326=71%:%
-%:%332=71%:%
-%:%335=72%:%
-%:%336=73%:%
-%:%337=73%:%
-%:%338=74%:%
-%:%341=75%:%
-%:%345=75%:%
-%:%346=75%:%
-%:%347=75%:%
-%:%349=76%:%
-%:%355=76%:%
-%:%358=77%:%
-%:%359=78%:%
-%:%360=78%:%
-%:%361=79%:%
-%:%364=80%:%
-%:%368=80%:%
-%:%369=80%:%
-%:%370=80%:%
-%:%372=81%:%
-%:%378=81%:%
-%:%381=82%:%
-%:%382=83%:%
-%:%383=83%:%
-%:%384=84%:%
-%:%387=85%:%
-%:%391=85%:%
-%:%392=85%:%
-%:%394=86%:%
-%:%400=86%:%
-%:%403=87%:%
-%:%404=88%:%
-%:%405=88%:%
-%:%406=89%:%
-%:%409=90%:%
-%:%413=90%:%
-%:%414=90%:%
-%:%416=91%:%
-%:%422=91%:%
-%:%425=92%:%
-%:%426=93%:%
-%:%427=93%:%
-%:%428=94%:%
-%:%431=95%:%
-%:%435=95%:%
-%:%436=95%:%
-%:%438=96%:%
-%:%453=98%:%
-%:%457=100%:%
-%:%463=100%:%
-%:%466=101%:%
-%:%467=101%:%
-%:%468=102%:%
-%:%471=103%:%
-%:%475=103%:%
-%:%476=103%:%
-%:%481=103%:%
-%:%484=104%:%
-%:%485=104%:%
-%:%486=105%:%
-%:%489=106%:%
-%:%493=106%:%
-%:%494=106%:%
-%:%495=106%:%
-%:%509=108%:%
-%:%513=110%:%
-%:%519=110%:%
-%:%522=111%:%
-%:%523=111%:%
-%:%524=112%:%
-%:%527=113%:%
-%:%531=113%:%
-%:%532=113%:%
-%:%537=113%:%
-%:%540=114%:%
-%:%541=114%:%
-%:%542=115%:%
-%:%545=116%:%
-%:%549=116%:%
-%:%550=116%:%
-%:%551=116%:%
-%:%565=118%:%
-%:%569=120%:%
-%:%575=120%:%
-%:%578=121%:%
-%:%579=121%:%
-%:%580=122%:%
-%:%583=123%:%
-%:%587=123%:%
-%:%588=123%:%
-%:%593=123%:%
-%:%596=124%:%
-%:%597=124%:%
-%:%598=125%:%
-%:%601=126%:%
-%:%605=126%:%
-%:%606=126%:%
-%:%607=126%:%
-%:%608=127%:%
-%:%610=128%:%
-%:%616=128%:%
-%:%619=129%:%
-%:%620=129%:%
-%:%621=130%:%
-%:%624=131%:%
-%:%628=131%:%
-%:%629=131%:%
-%:%630=131%:%
-%:%635=131%:%
-%:%638=132%:%
-%:%639=132%:%
-%:%640=133%:%
-%:%643=134%:%
-%:%647=134%:%
-%:%648=134%:%
-%:%649=134%:%
-%:%654=134%:%
-%:%657=135%:%
-%:%658=135%:%
-%:%659=136%:%
-%:%662=137%:%
-%:%666=137%:%
-%:%667=137%:%
-%:%668=137%:%
-%:%673=137%:%
-%:%676=138%:%
-%:%677=138%:%
-%:%678=139%:%
-%:%681=140%:%
-%:%685=140%:%
-%:%686=140%:%
-%:%687=140%:%
-%:%688=141%:%
-%:%690=142%:%
-%:%696=142%:%
-%:%699=143%:%
-%:%700=143%:%
-%:%701=144%:%
-%:%704=145%:%
-%:%708=145%:%
-%:%709=145%:%
-%:%710=145%:%
-%:%715=145%:%
-%:%718=146%:%
-%:%719=146%:%
-%:%720=147%:%
-%:%723=148%:%
-%:%727=148%:%
-%:%728=148%:%
-%:%733=148%:%
-%:%736=149%:%
-%:%739=150%:%
-%:%744=151%:%
+%:%251=54%:%
+%:%253=55%:%
+%:%254=55%:%
+%:%255=56%:%
+%:%258=57%:%
+%:%262=57%:%
+%:%263=57%:%
+%:%264=58%:%
+%:%265=58%:%
+%:%267=59%:%
+%:%273=59%:%
+%:%276=60%:%
+%:%277=61%:%
+%:%278=61%:%
+%:%279=62%:%
+%:%282=63%:%
+%:%286=63%:%
+%:%287=63%:%
+%:%289=64%:%
+%:%290=64%:%
+%:%292=65%:%
+%:%298=65%:%
+%:%301=66%:%
+%:%302=67%:%
+%:%303=67%:%
+%:%304=68%:%
+%:%307=69%:%
+%:%311=69%:%
+%:%312=69%:%
+%:%313=69%:%
+%:%315=70%:%
+%:%321=70%:%
+%:%324=71%:%
+%:%325=72%:%
+%:%326=72%:%
+%:%327=73%:%
+%:%330=74%:%
+%:%334=74%:%
+%:%335=74%:%
+%:%336=74%:%
+%:%338=75%:%
+%:%344=75%:%
+%:%347=76%:%
+%:%348=77%:%
+%:%349=77%:%
+%:%350=78%:%
+%:%353=79%:%
+%:%357=79%:%
+%:%358=79%:%
+%:%360=80%:%
+%:%366=80%:%
+%:%369=81%:%
+%:%370=82%:%
+%:%371=82%:%
+%:%372=83%:%
+%:%375=84%:%
+%:%379=84%:%
+%:%380=84%:%
+%:%382=85%:%
+%:%388=85%:%
+%:%391=86%:%
+%:%392=87%:%
+%:%393=87%:%
+%:%394=88%:%
+%:%397=89%:%
+%:%401=89%:%
+%:%402=89%:%
+%:%407=89%:%
+%:%410=90%:%
+%:%411=91%:%
+%:%412=91%:%
+%:%413=92%:%
+%:%420=93%:%
+%:%421=93%:%
+%:%422=94%:%
+%:%423=94%:%
+%:%424=95%:%
+%:%425=95%:%
+%:%426=96%:%
+%:%427=96%:%
+%:%428=97%:%
+%:%429=97%:%
+%:%430=98%:%
+%:%431=98%:%
+%:%432=99%:%
+%:%433=100%:%
+%:%434=100%:%
+%:%435=101%:%
+%:%436=101%:%
+%:%437=101%:%
+%:%438=102%:%
+%:%439=102%:%
+%:%440=103%:%
+%:%441=103%:%
+%:%442=103%:%
+%:%443=104%:%
+%:%444=104%:%
+%:%445=105%:%
+%:%446=105%:%
+%:%447=106%:%
+%:%448=106%:%
+%:%450=107%:%
+%:%465=109%:%
+%:%469=111%:%
+%:%475=111%:%
+%:%478=112%:%
+%:%479=112%:%
+%:%480=113%:%
+%:%483=114%:%
+%:%487=114%:%
+%:%488=114%:%
+%:%493=114%:%
+%:%496=115%:%
+%:%497=115%:%
+%:%498=116%:%
+%:%501=117%:%
+%:%505=117%:%
+%:%506=117%:%
+%:%507=117%:%
+%:%521=119%:%
+%:%525=121%:%
+%:%531=121%:%
+%:%534=122%:%
+%:%535=122%:%
+%:%536=123%:%
+%:%539=124%:%
+%:%543=124%:%
+%:%544=124%:%
+%:%549=124%:%
+%:%552=125%:%
+%:%553=125%:%
+%:%554=126%:%
+%:%557=127%:%
+%:%561=127%:%
+%:%562=127%:%
+%:%563=127%:%
+%:%577=129%:%
+%:%581=131%:%
+%:%587=131%:%
+%:%590=132%:%
+%:%591=132%:%
+%:%592=133%:%
+%:%595=134%:%
+%:%599=134%:%
+%:%600=134%:%
+%:%605=134%:%
+%:%608=135%:%
+%:%609=135%:%
+%:%610=136%:%
+%:%613=137%:%
+%:%617=137%:%
+%:%618=137%:%
+%:%619=137%:%
+%:%620=138%:%
+%:%622=139%:%
+%:%628=139%:%
+%:%631=140%:%
+%:%632=140%:%
+%:%633=141%:%
+%:%636=142%:%
+%:%640=142%:%
+%:%641=142%:%
+%:%642=142%:%
+%:%647=142%:%
+%:%650=143%:%
+%:%651=143%:%
+%:%652=144%:%
+%:%655=145%:%
+%:%659=145%:%
+%:%660=145%:%
+%:%661=145%:%
+%:%666=145%:%
+%:%669=146%:%
+%:%670=146%:%
+%:%671=147%:%
+%:%674=148%:%
+%:%678=148%:%
+%:%679=148%:%
+%:%680=148%:%
+%:%685=148%:%
+%:%688=149%:%
+%:%689=149%:%
+%:%690=150%:%
+%:%693=151%:%
+%:%697=151%:%
+%:%698=151%:%
+%:%699=151%:%
+%:%700=152%:%
+%:%702=153%:%
+%:%708=153%:%
+%:%711=154%:%
+%:%712=154%:%
+%:%713=155%:%
+%:%716=156%:%
+%:%720=156%:%
+%:%721=156%:%
+%:%722=156%:%
+%:%727=156%:%
+%:%730=157%:%
+%:%731=157%:%
+%:%732=158%:%
+%:%735=159%:%
+%:%739=159%:%
+%:%740=159%:%
+%:%745=159%:%
+%:%750=160%:%
+%:%755=161%:%

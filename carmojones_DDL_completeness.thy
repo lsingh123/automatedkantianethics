@@ -28,15 +28,9 @@ subsection "Fancier Inference Rules"
 
 text "These are new rules that Carmo and Jones introduced for this logic."
 
-lemma Oa_boxaO:
-  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((O\<^sub>a A) \<^bold>\<rightarrow> ((\<box>\<^sub>aw) \<^bold>\<and> O{A|w}))))))"
-  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(O\<^sub>a A))))"
-  by (metis ax_5a ax_5b)
-lemma Oa_boxpO:
-  assumes "\<Turnstile>(B \<^bold>\<rightarrow> ((\<^bold>\<not>(\<box>((O\<^sub>p A) \<^bold>\<rightarrow> ((\<box>\<^sub>pw) \<^bold>\<and> O{A|w}))))))"
-  shows "\<Turnstile>(B \<^bold>\<rightarrow> (\<^bold>\<not>(\<diamond>(O\<^sub>p A))))"
-  by (metis ax_5a ax_5b)
-\<comment> \<open>B and A must not contain w. not sure how to encode that requirement.\<close>
+text "B and A must not contain w. not sure how to encode that requirement.
+one option is to define a new free variables predicate and use that, but that requires a deeper embedding than I have.
+If Benzmuller and Parent can survive without these inference rules, so can I"
 
 section Axioms 
 
@@ -66,7 +60,7 @@ lemma O_diamond:
 
 lemma O_C:
   shows "\<Turnstile>(((\<diamond>(A \<^bold>\<and> (B \<^bold>\<and> C))) \<^bold>\<and> (O{B|A} \<^bold>\<and> O{C|A})) \<^bold>\<rightarrow> (O{B\<^bold>\<and>C|A}) )"
-  by (metis (no_types, lifting) ax_5b)
+  by (metis ax_5b ax_5c2)
 \<comment> \<open>The conjunction of obligations in a context is obligatory in that context.\<close>
 \<comment> \<open>The restriction $\Diamond (A \and B \and C)$ is to prevent contradictory obligations and contexts.\<close>
 
@@ -90,9 +84,26 @@ lemma O_nec:
   by simp
 \<comment> \<open>Obligations are necessarily obligated.\<close>
 
+lemma ax_5b'': 
+  shows "ob X Y \<longleftrightarrow> ob X (\<lambda>z. (Y z) \<and> (X z))"
+  by (metis (no_types, lifting) ax_5b)
+
 lemma O_to_O:
-  shows "\<Turnstile>(O{B|A} \<^bold>\<rightarrow> O(A \<^bold>\<rightarrow> B))"
-  by (metis (no_types, lifting) O_REA ax_5a ax_5b)
+  shows "\<Turnstile>(O{B|A}\<^bold>\<rightarrow>O{(A\<^bold>\<rightarrow>B)|\<^bold>\<top>})"
+proof-
+  have "\<forall>X Y Z. (ob X Y \<and> (\<forall>w. X w \<longrightarrow> Z w)) \<longrightarrow> ob Z (\<lambda>w.(Z w \<and> \<not>X w) \<or> Y w)"
+  by (smt ax_5d ax_5b ax_5b'')
+  thus ?thesis
+proof -
+  obtain ii :: "(i \<Rightarrow> bool) \<Rightarrow> (i \<Rightarrow> bool) \<Rightarrow> i" where
+"\<forall>x0 x2. (\<exists>v3. (x2\<^bold>\<and>(\<^bold>\<not> x0)) v3) = x2\<^bold>\<and>(\<^bold>\<not> x0) (ii x0 x2)"
+    by moura
+  then have "\<forall>p pa pb. (\<not> ob p pa \<or> p\<^bold>\<and>\<^bold>\<not> pb (ii pb p)) \<or> ob pb (\<^bold>\<or> pb\<^bold>\<and>\<^bold>\<not> p pa)"
+    by (metis (no_types) \<open>\<forall>X Y Z. ob X Y \<and> \<Turnstile>X\<^bold>\<rightarrow>Z \<longrightarrow> ob Z (\<^bold>\<or> Z\<^bold>\<and>\<^bold>\<not> X Y)\<close>)
+  then show ?thesis
+    by fastforce
+qed
+qed
 \<comment> \<open>Moving from the dyadic to monadic obligation operators.\<close>
 
 subsection "Possible Box"
@@ -139,14 +150,13 @@ lemma equiv_Op:
   shows "\<Turnstile>((\<box>\<^sub>p(A \<^bold>\<equiv>B)) \<^bold>\<rightarrow> ((O\<^sub>p A) \<^bold>\<equiv> (O\<^sub>p B) ))"
   using O_contextual_REA by blast
 
-\<comment> \<open>relationships between actual/possible O and $\Box$ and O proper.\<close>
+\<comment> \<open>relationships between actual possible O and $\Box$ and O proper.\<close>
 lemma factual_detach_a:
   shows "\<Turnstile>(((O{B|A} \<^bold>\<and> (\<box>\<^sub>aA)) \<^bold>\<and> ((\<diamond>\<^sub>aB) \<^bold>\<and> (\<diamond>\<^sub>a(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (O\<^sub>a B))"
   using O_SA by auto
 lemma factual_detach_p:
   shows "\<Turnstile>(((O{B|A} \<^bold>\<and> (\<box>\<^sub>pA)) \<^bold>\<and> ((\<diamond>\<^sub>pB) \<^bold>\<and> (\<diamond>\<^sub>p(\<^bold>\<not>B)))) \<^bold>\<rightarrow> (O\<^sub>p B))"
   by (smt O_SA boxp_boxa)
-
 
 end
 
