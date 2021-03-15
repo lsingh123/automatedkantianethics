@@ -27,19 +27,36 @@ lemma True nitpick [satisfy,user_axioms,show_all,format=2] oops
 
 text "I'm going to test this formulation now."
 
-\<comment> \<open>lemma test1:
-  shows $\forall w. \exists A. O \{A\}w$
+lemma something_is_obligatory:
+  shows "\<forall> w. \<exists> A. O {A} w"
+  oops
 \<comment> \<open>We might think that in every world we want something to be obligated. \<close>
 \<comment> \<open>Sadly, Sledgehammer times out trying to prove this. Let's relax this\<close>
 
-lemma test1_relaxed:
-  shows $\exists A w. O \{A\} w$
-Wow, even the relaxed version times out!
-One problem becomes obvious if we look at the definition of permissible
-Expanding the FUL gives us: $\sim \square \sim O(\sim A)$ $\longrightarrow$ $O(\sim A)$
-By modal duals we get that diamond O($\sim$A) $\longrightarrow$ O($\sim$A) which is clearly not a desirable property of an ethical theory\<close>
+lemma something_is_obligatory_relaxed:
+  shows "\<exists> A w. O {A} w"
+  oops
+\<comment> \<open>Wow, even the relaxed version times out!\<close>
 
-text "Interestingly Isabelle struggles to show even this very obvious lemma."
+text "Maybe the problem is that currently, everything is permissible. What if we add something impermissible?"
+
+consts M::"t"
+abbreviation murder_wrong::"bool" where "murder_wrong \<equiv> \<Turnstile>(O {\<^bold>\<not> M})"
+
+lemma something_is_obligatory_2:
+  assumes murder_wrong
+  shows "\<forall> w. \<exists> A. O {A} w"
+  using assms by auto
+\<comment> \<open>It works this time, but I think ``murder wrong" might be too strong of an assumption\<close>
+
+lemma FUL_alternate:
+  shows "\<Turnstile> ((\<diamond> (O {\<^bold>\<not> A})) \<^bold>\<rightarrow> (O {\<^bold>\<not> A}))"
+  by simp
+\<comment> \<open>One problem becomes obvious if we look at the definition of permissible\<close>
+\<comment> \<open>Expanding the FUL gives us: $\sim \Box \sim O(\sim A) \longrightarrow O(\sim A)$\<close>
+\<comment> \<open>By modal duals we get that $\diamond O(\sim A) \longrightarrow O(\sim A)$\<close>
+\<comment> \<open>This means that if something is possibly prohibited, it is in fact prohibited.\<close>
+\<comment> \<open>I'm not convinced that this is a desirable property of an ethical theory.\<close>
 
 end
 

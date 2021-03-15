@@ -90,7 +90,7 @@ abbreviation ddlbox::"t\<Rightarrow>t" ("\<box>")
 abbreviation ddldiamond::"t \<Rightarrow> t" ("\<diamond>")
   where "\<diamond>A \<equiv> \<^bold>\<not>(\<box>(\<^bold>\<not>A))"
 
-\<comment> \<open>O$\{B|A\}$ can be read as ``B is obligatory in the context A"\<close>
+\<comment> \<open>O$\{B \vert A\}$ can be read as ``B is obligatory in the context A"\<close>
 abbreviation ddlob::"t\<Rightarrow>t\<Rightarrow>t" ("O{_|_}")
   where "O{B|A} \<equiv> \<lambda> w. ob(A)(B)"
 

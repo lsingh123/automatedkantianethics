@@ -7,6 +7,7 @@ section "The Categorical Imperative"
 subsection "Simple Formulation of the Kingdom of Ends"
 
 text "This is my first attempt at formalizing the concept of the Kingdom of Ends"
+text "NOTE: this attempt revealed a bug in my embedding. I've included it as an artifact, but none of these theorems hold anymore (hence the oops)."
 
 abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
   where "(P A) \<equiv> (\<^bold>\<not>(O {\<^bold>\<not>A}))"
@@ -16,53 +17,47 @@ abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
 \<comment> \<open>Something is prohibited if its negation is obligatory\<close>
 
 
-\<comment> \<open>lemma kingdom_of_ends_1:
-  shows "$\vdash$ ((O {A}) $\longrightarrow$ (\<box> (P A)))"
-  by (metis O_diamond ax_5b)
-
-One interpretation of the categorical imperative is that something is obligatory only if it is permissible in every ideal world
-This formulation mirrors the kingdom of ends.
-This formulation is already a theorem of carmo and jones' DDL!.
-It can be shown using the O diamond rule, which just says that obligatory things must be possible.
-There are two possibilities: either the logic is already quite powerful OR this formulation is ``empty".
+lemma kingdom_of_ends_1:
+  shows "\<Turnstile> ((O {A}) \<^bold>\<rightarrow> (\<box> (P A)))"
+  oops
+\<comment> \<open>One interpretation of the categorical imperative is that something is obligatory only if it is permissible in every ideal world\<close>
+\<comment> \<open>This formulation mirrors the kingdom of ends.\<close>
+\<comment> \<open>This formulation is already a theorem of carmo and jones' DDL!.\<close>
+\<comment> \<open>It can be shown using the O diamond rule, which just says that obligatory things must be possible.\<close>
+\<comment> \<open>There are two possibilities: either the logic is already quite powerful OR this formulation is ``empty".\<close>
 
 
 lemma kingdom_of_ends_2:
-  shows $\vdash ((\square (P A)) \longrightarrow (O A))$
-  by (metis O_diamond ax_5a ax_5b ax_5c)
+  shows "\<Turnstile> ((\<box> (P A)) \<^bold>\<rightarrow> (O {A}))"
+  oops
 
-Notice also that ideally, this relationship does not hold in the reverse direction.
-Plenty of things are necessarily permissible (drinking water) but not obligatory.
-Very strange that this is a theorem in this logic.....
-That being said, Isabelle seems quite upset with this proof and is very slow to resconstruct it
-I am struggling to recreate this proof on paper
+\<comment> \<open>Notice also that ideally, this relationship does not hold in the reverse direction.\<close>
+\<comment> \<open>Plenty of things are necessarily permissible (drinking water) but not obligatory.\<close>
+\<comment> \<open>Very strange that this is a theorem in this logic.....\<close>
+\<comment> \<open>That being said, Isabelle seems quite upset with this proof and is very slow to resconstruct it\<close>
+\<comment> \<open>I am struggling to recreate this proof on paper\<close>
 
 
 lemma permissible_to_ob:
-  shows $\vdash ((P A) (O A))$
-proof -
-have "ob $\top$ ($\sim$ A) $\vee$ ob $\top$ A"
-using kingdom_of_ends_2 by presburger
-  then show ?thesis
-by meson
-qed
-Uh-oh.....this shouldn't be true...
-Not all permissable things are obligatory.....
+  shows "\<Turnstile> ((P A) \<^bold>\<rightarrow> (O {A}))"
+  oops
+\<comment> \<open>Uh-oh.....this shouldn't be true...\<close>
+\<comment> \<open>Not all permissable things are obligatory.....\<close>
 
 lemma weaker_permissible_to_ob:
-  shows "$\vdash ((\diamond (P A)) \longrightarrow O A)$"
-  using kingdom_of_ends_2 by auto
-Makes sense that this follows from the reverse kingdom of ends.
-Obligation and necessity/possibility are separated in this logic
-Both the dyadic obligation and necessity operator are world agnostic
+  shows "\<Turnstile> ((\<diamond> (P A)) \<^bold>\<rightarrow> O {A})"
+    oops
+\<comment> \<open>Makes sense that this follows from the reverse kingdom of ends.\<close>
+\<comment> \<open>Obligation and necessity/possibility are separated in this logic\<close>
+\<comment> \<open>Both the dyadic obligation and necessity operator are world agnostic\<close>
 
 lemma contradictory_obligations:
-  shows "$\vdash(\sim ((O A) \wedge (O (\sim A))))$"
-  by (metis ax_5a ax_5b)
-What is the cause of the above strangeness?
-This very intuitive theorem holds in my logic but not in Benzmuller Parent's
-It's clear that this theorem results in the strange results above.
-Conclusion: There is a bug in my embedding \<close>
+  shows "\<Turnstile>(\<^bold>\<not> ((O {A}) \<^bold>\<and> (O {\<^bold>\<not> A})))"
+  oops
+\<comment> \<open>What is the cause of the above strangeness?\<close>
+\<comment> \<open>This very intuitive theorem holds in my logic but not in Benzmuller Parent's\<close>
+\<comment> \<open>It's clear that this theorem results in the strange results above.\<close>
+\<comment> \<open>Conclusion: There is a bug in my embedding\<close>
 
 
 text "Sidebar: the above theorem is really intuitive - it seems like we wouldn't want 
@@ -73,9 +68,9 @@ perspective why this would be the case. In fact this theorem seems like a desira
 property. Potential avenue for exploration"
 
 text "Did some debugging. What was the problem? A misplaced parentheses in the definition 
-of ax5b that led to a term being on the wrong side of an implication. Computer Science "
+of ax5b that led to a term being on the wrong side of an implication. Computer Science :( "
 
-text "After the debugging, all of this is no longer true! On to the next attempt"
+text "After the debugging, all of this is no longer true! On to the next attempt :)"
 
 end
 
