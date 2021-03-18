@@ -83,16 +83,24 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 \endisadelimdocument
 \isacommand{lemma}\isamarkupfalse%
 \ True\ \isacommand{nitpick}\isamarkupfalse%
-\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}show{\isacharunderscore}all{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
 \isadelimproof
 \ %
 \endisadelimproof
 %
 \isatagproof
 \isacommand{oops}\isamarkupfalse%
-\ \isanewline
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a model for card i = 1:
+
+  Empty assignment"%
+}\isanewline
 %
 \isamarkupcmt{Nitpick tells us that the FUL is consistent%
+}\isanewline
+%
+\isamarkupcmt{``oops" after Nitpick does not mean Nitpick failed.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -102,10 +110,11 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 \endisadelimproof
 \isanewline
 \isanewline
-\isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ something{\isacharunderscore}is{\isacharunderscore}obligatory{\isacharcolon}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}\ w{\isachardot}\ {\isasymexists}\ A{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -119,6 +128,47 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 }\isanewline
 %
 \isamarkupcmt{Sadly, Sledgehammer times out trying to prove this. Let's relax this%
+}\isanewline
+%
+\isamarkupcmt{``Nitpick found a counterexample for card i = 1:
+
+  Empty assignment"%
+}\isanewline
+%
+\isamarkupcmt{Nitpick to the rescue! The formula is in fact not valid.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ something{\isacharunderscore}is{\isacharunderscore}obligatory{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}\ w{\isachardot}\ {\isasymexists}\ A{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a model for card i = 1:
+
+  Skolem constant:
+    A = ($\lambda x. \_$)($i_1$ := True)"%
+}\isanewline
+%
+\isamarkupcmt{Nitpick tells us that the formula is consistent - it found a model where the formula is true.%
+}\isanewline
+%
+\isamarkupcmt{This means that our model is underspecified - this formula is neither valid nor inconsistent.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -131,6 +181,8 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 \isacommand{lemma}\isamarkupfalse%
 \ something{\isacharunderscore}is{\isacharunderscore}obligatory{\isacharunderscore}relaxed{\isacharcolon}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymexists}\ A\ w{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -140,7 +192,45 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{Wow, even the relaxed version times out!%
+\isamarkupcmt{``Nitpick found a counterexample for card i = 1:
+
+  Empty assignment"%
+}\isanewline
+%
+\isamarkupcmt{The relaxed version definitely isn't valid.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ something{\isacharunderscore}is{\isacharunderscore}obligatory{\isacharunderscore}relaxed{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymexists}\ A\ w{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a model for card i = 1:
+
+  Skolem constant:
+    A = ($\lambda x. \_$)($i_1$ := True)"%
+}\isanewline
+%
+\isamarkupcmt{Nitpick tells us that the formula is consistent - it found a model where the formula is true.%
+}\isanewline
+%
+\isamarkupcmt{The model seems underspecified.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -149,8 +239,25 @@ FUL{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{
 %
 \endisadelimproof
 %
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Specifying the Model%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
 \begin{isamarkuptext}%
-Maybe the problem is that currently, everything is permissible. What if we add something impermissible?%
+Let's specify the model. What if we add something impermissible?%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ M{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
@@ -194,6 +301,8 @@ Let's try a weaker assumption: Not everyone can lie.%
 \ breaking{\isacharunderscore}promises{\isacharcolon}\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymnot}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ lie{\isacharparenleft}x{\isacharparenright}\ cw{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}\ cw{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}\ cw{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -210,6 +319,95 @@ Let's try a weaker assumption: Not everyone can lie.%
 }\isanewline
 %
 \isamarkupcmt{But NOT across people, which is really what the most obvious reading of FUL implies%
+}\isanewline
+%
+\isamarkupcmt{``Nitpick found a counterexample for card person = 2 and card i = 2:
+
+  Free variable:
+    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))"%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Consistent Sentences%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+The above section tested validity. We might also be interested in some weaker properties%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Let's test whether certain sentences are consistent - can we find a model that makes them true?%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a model for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)"%
+}\isanewline
+%
+\isamarkupcmt{Awesome! Permissible things are consistent - clearly we've fixed the bug from categorical\_imperative\_1%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a model for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"%
+}\isanewline
+%
+\isamarkupcmt{Oh no! Nitpick found a model with conflicting obligations - that's bad!%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -268,6 +466,36 @@ Let's try a weaker assumption: Not everyone can lie.%
 %
 \endisadelimproof
 \isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ arbitrary{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharequal}true{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)"%
+}\isanewline
+%
+\isamarkupcmt{This is good! Shows us that any arbitrary term isn't obligatory.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
 \isacommand{axiomatization}\isamarkupfalse%
 \ \isakeyword{where}\isanewline
 ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isachardoublequoteopen}{\isasymexists}A{\isachardot}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
@@ -297,6 +525,9 @@ ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isach
 \isadelimproof
 %
 \endisadelimproof
+\isanewline
+\isanewline
+\isanewline
 \isanewline
 %
 \isadelimtheory
@@ -348,95 +579,213 @@ ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isach
 %:%92=27%:%
 %:%93=27%:%
 %:%95=28%:%
-%:%103=28%:%
-%:%104=29%:%
-%:%105=30%:%
-%:%106=31%:%
-%:%107=31%:%
-%:%108=32%:%
-%:%111=33%:%
-%:%115=33%:%
-%:%116=33%:%
-%:%118=34%:%
-%:%119=34%:%
-%:%121=35%:%
-%:%127=35%:%
-%:%130=36%:%
-%:%131=37%:%
-%:%132=37%:%
-%:%133=38%:%
-%:%136=39%:%
-%:%140=39%:%
-%:%141=39%:%
-%:%143=40%:%
-%:%153=42%:%
-%:%155=44%:%
-%:%156=44%:%
-%:%157=45%:%
-%:%158=45%:%
-%:%159=46%:%
-%:%160=47%:%
-%:%161=47%:%
-%:%162=48%:%
-%:%163=49%:%
-%:%166=50%:%
-%:%170=50%:%
-%:%171=50%:%
-%:%172=50%:%
-%:%174=51%:%
-%:%184=53%:%
-%:%186=55%:%
-%:%187=55%:%
-%:%188=56%:%
-%:%189=56%:%
-%:%190=57%:%
-%:%191=57%:%
-%:%192=58%:%
+%:%96=29%:%
+%:%97=30%:%
+%:%98=30%:%
+%:%100=31%:%
+%:%101=31%:%
+%:%103=32%:%
+%:%111=32%:%
+%:%112=33%:%
+%:%113=34%:%
+%:%114=34%:%
+%:%115=35%:%
+%:%116=36%:%
+%:%117=36%:%
+%:%120=37%:%
+%:%124=37%:%
+%:%125=37%:%
+%:%127=38%:%
+%:%128=38%:%
+%:%130=39%:%
+%:%131=39%:%
+%:%133=40%:%
+%:%134=41%:%
+%:%135=42%:%
+%:%136=42%:%
+%:%138=43%:%
+%:%144=43%:%
+%:%147=44%:%
+%:%148=45%:%
+%:%149=45%:%
+%:%150=46%:%
+%:%151=47%:%
+%:%152=47%:%
+%:%155=48%:%
+%:%159=48%:%
+%:%160=48%:%
+%:%162=49%:%
+%:%163=50%:%
+%:%164=51%:%
+%:%165=52%:%
+%:%166=52%:%
+%:%168=53%:%
+%:%169=53%:%
+%:%171=54%:%
+%:%177=54%:%
+%:%180=55%:%
+%:%181=56%:%
+%:%182=56%:%
+%:%183=57%:%
+%:%184=58%:%
+%:%185=58%:%
+%:%188=59%:%
+%:%192=59%:%
 %:%193=59%:%
-%:%194=59%:%
 %:%195=60%:%
 %:%196=61%:%
-%:%199=62%:%
-%:%203=62%:%
-%:%204=62%:%
+%:%197=62%:%
+%:%198=62%:%
+%:%200=63%:%
 %:%206=63%:%
-%:%207=63%:%
 %:%209=64%:%
-%:%210=64%:%
-%:%212=65%:%
-%:%227=67%:%
-%:%237=69%:%
-%:%238=69%:%
-%:%239=70%:%
-%:%242=71%:%
-%:%246=71%:%
-%:%247=71%:%
-%:%249=72%:%
-%:%250=72%:%
-%:%252=73%:%
-%:%253=73%:%
-%:%255=74%:%
-%:%256=74%:%
-%:%258=75%:%
-%:%259=75%:%
-%:%261=76%:%
-%:%267=76%:%
-%:%270=77%:%
-%:%271=78%:%
-%:%272=78%:%
-%:%273=79%:%
-%:%274=80%:%
-%:%275=81%:%
-%:%276=81%:%
-%:%277=81%:%
-%:%279=81%:%
-%:%283=81%:%
-%:%284=81%:%
-%:%286=82%:%
-%:%287=82%:%
-%:%289=83%:%
-%:%290=83%:%
-%:%292=84%:%
-%:%300=84%:%
-%:%303=85%:%
-%:%308=86%:%
+%:%210=65%:%
+%:%211=65%:%
+%:%212=66%:%
+%:%213=67%:%
+%:%214=67%:%
+%:%217=68%:%
+%:%221=68%:%
+%:%222=68%:%
+%:%224=69%:%
+%:%225=70%:%
+%:%226=71%:%
+%:%227=72%:%
+%:%228=72%:%
+%:%230=73%:%
+%:%231=73%:%
+%:%233=74%:%
+%:%248=76%:%
+%:%260=78%:%
+%:%262=80%:%
+%:%263=80%:%
+%:%264=81%:%
+%:%265=81%:%
+%:%266=82%:%
+%:%267=83%:%
+%:%268=83%:%
+%:%269=84%:%
+%:%270=85%:%
+%:%273=86%:%
+%:%277=86%:%
+%:%278=86%:%
+%:%279=86%:%
+%:%281=87%:%
+%:%291=89%:%
+%:%293=91%:%
+%:%294=91%:%
+%:%295=92%:%
+%:%296=92%:%
+%:%297=93%:%
+%:%298=93%:%
+%:%299=94%:%
+%:%300=95%:%
+%:%301=95%:%
+%:%302=96%:%
+%:%303=97%:%
+%:%304=98%:%
+%:%305=98%:%
+%:%308=99%:%
+%:%312=99%:%
+%:%313=99%:%
+%:%315=100%:%
+%:%316=100%:%
+%:%318=101%:%
+%:%319=101%:%
+%:%321=102%:%
+%:%322=102%:%
+%:%324=103%:%
+%:%325=104%:%
+%:%326=105%:%
+%:%327=106%:%
+%:%342=108%:%
+%:%354=110%:%
+%:%358=111%:%
+%:%360=113%:%
+%:%361=113%:%
+%:%362=114%:%
+%:%363=115%:%
+%:%364=116%:%
+%:%365=116%:%
+%:%367=116%:%
+%:%371=116%:%
+%:%372=116%:%
+%:%374=117%:%
+%:%375=118%:%
+%:%376=119%:%
+%:%377=120%:%
+%:%378=120%:%
+%:%380=121%:%
+%:%388=121%:%
+%:%389=122%:%
+%:%390=123%:%
+%:%391=123%:%
+%:%392=124%:%
+%:%393=125%:%
+%:%394=126%:%
+%:%395=126%:%
+%:%397=126%:%
+%:%401=126%:%
+%:%402=126%:%
+%:%404=127%:%
+%:%405=128%:%
+%:%406=129%:%
+%:%407=130%:%
+%:%408=130%:%
+%:%410=131%:%
+%:%425=133%:%
+%:%435=135%:%
+%:%436=135%:%
+%:%437=136%:%
+%:%440=137%:%
+%:%444=137%:%
+%:%445=137%:%
+%:%447=138%:%
+%:%448=138%:%
+%:%450=139%:%
+%:%451=139%:%
+%:%453=140%:%
+%:%454=140%:%
+%:%456=141%:%
+%:%457=141%:%
+%:%459=142%:%
+%:%465=142%:%
+%:%468=143%:%
+%:%469=144%:%
+%:%470=144%:%
+%:%471=145%:%
+%:%472=146%:%
+%:%473=147%:%
+%:%474=147%:%
+%:%476=147%:%
+%:%480=147%:%
+%:%481=147%:%
+%:%483=148%:%
+%:%484=149%:%
+%:%485=150%:%
+%:%486=151%:%
+%:%487=151%:%
+%:%489=152%:%
+%:%497=152%:%
+%:%498=153%:%
+%:%499=154%:%
+%:%500=154%:%
+%:%501=155%:%
+%:%502=156%:%
+%:%503=157%:%
+%:%504=157%:%
+%:%505=157%:%
+%:%507=157%:%
+%:%511=157%:%
+%:%512=157%:%
+%:%514=158%:%
+%:%515=158%:%
+%:%517=159%:%
+%:%518=159%:%
+%:%520=160%:%
+%:%528=160%:%
+%:%529=161%:%
+%:%530=162%:%
+%:%531=163%:%
+%:%534=164%:%
+%:%539=165%:%

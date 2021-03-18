@@ -24,22 +24,58 @@ FUL_1: "\<Turnstile> ((\<^bold>\<not>(\<box> (P A))) \<^bold>\<rightarrow> (O {(
 
 subsection "Basic Tests"
 
-lemma True nitpick [satisfy,user_axioms,show_all,format=2] oops 
-\<comment> \<open>Nitpick tells us that the FUL is consistent\<close>
+lemma True nitpick [satisfy,user_axioms,format=2] oops
+\<comment> \<open>``Nitpick found a model for card i = 1:
 
+  Empty assignment"\<close>
+\<comment> \<open>Nitpick tells us that the FUL is consistent\<close>
+\<comment> \<open>``oops" after Nitpick does not mean Nitpick failed.\<close>
 
 lemma something_is_obligatory:
   shows "\<forall> w. \<exists> A. O {A} w"
+  nitpick [user_axioms]
   oops
 \<comment> \<open>We might think that in every world we want something to be obligated. \<close>
 \<comment> \<open>Sadly, Sledgehammer times out trying to prove this. Let's relax this\<close>
+\<comment>\<open>``Nitpick found a counterexample for card i = 1:
+
+  Empty assignment"\<close>
+\<comment>\<open>Nitpick to the rescue! The formula is in fact not valid.\<close>
+
+lemma something_is_obligatory_2:
+  shows "\<forall> w. \<exists> A. O {A} w"
+  nitpick [user_axioms, falsify=false]
+  oops
+\<comment>\<open>``Nitpick found a model for card i = 1:
+
+  Skolem constant:
+    A = ($\lambda x. \_$)($i_1$ := True)"\<close>
+\<comment>\<open>Nitpick tells us that the formula is consistent - it found a model where the formula is true.\<close>
+\<comment>\<open>This means that our model is underspecified - this formula is neither valid nor inconsistent.\<close>
 
 lemma something_is_obligatory_relaxed:
   shows "\<exists> A w. O {A} w"
+  nitpick [user_axioms]
   oops
-\<comment> \<open>Wow, even the relaxed version times out!\<close>
+\<comment>\<open>``Nitpick found a counterexample for card i = 1:
 
-text "Maybe the problem is that currently, everything is permissible. What if we add something impermissible?"
+  Empty assignment"\<close>
+\<comment>\<open>The relaxed version definitely isn't valid.\<close>
+
+lemma something_is_obligatory_relaxed_2:
+  shows "\<exists> A w. O {A} w"
+  nitpick [user_axioms, falsify=false]
+  oops
+\<comment>\<open>``Nitpick found a model for card i = 1:
+
+  Skolem constant:
+    A = ($\lambda x. \_$)($i_1$ := True)"\<close>
+\<comment>\<open>Nitpick tells us that the formula is consistent - it found a model where the formula is true.\<close>
+\<comment> \<open>The model seems underspecified.\<close>
+
+subsection "Specifying the Model"
+
+text "Let's specify the model. What if we add something impermissible?"
 
 consts M::"t"
 abbreviation murder_wrong::"bool" where "murder_wrong \<equiv> \<Turnstile>(O {\<^bold>\<not> M})"
@@ -59,12 +95,42 @@ consts me::"person"
 lemma breaking_promises:
   assumes "\<not> (\<forall>x. lie(x) cw) \<and> (lie(me) cw)"
   shows "(O {\<^bold>\<not> (lie(me))}) cw"
+  nitpick [user_axioms]
   oops
 \<comment> \<open>No proof found. Makes sense:\<close>
 \<comment> \<open>This version of FUL simply universalizes across worlds (using the $\Box$ operator),\<close>
 \<comment> \<open>But NOT across people, which is really what the most obvious reading of FUL implies\<close>
+\<comment>\<open>``Nitpick found a counterexample for card person = 2 and card i = 2:
 
-subsection "Metaethical Tests"
+  Free variable:
+    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))"\<close>
+
+subsection "Consistent Sentences"
+
+text "The above section tested validity. We might also be interested in some weaker properties"
+text "Let's test whether certain sentences are consistent - can we find a model that makes them true?"
+
+lemma permissible:
+  fixes A
+  shows "((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
+  nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>``Nitpick found a model for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)"\<close>
+\<comment>\<open>Awesome! Permissible things are consistent - clearly we've fixed the bug from categorical\_imperative\_1\<close>
+
+lemma conflicting_obligations:
+  fixes A
+  shows "(O {A} \<^bold>\<and> O {\<^bold>\<not> A}) w"
+  nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>``Nitpick found a model for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"\<close>
+\<comment>\<open>Oh no! Nitpick found a model with conflicting obligations - that's bad!\<close>
+
+  subsection "Metaethical Tests"
 
 lemma FUL_alternate:
   shows "\<Turnstile> ((\<diamond> (O {\<^bold>\<not> A})) \<^bold>\<rightarrow> (O {\<^bold>\<not> A}))"
@@ -75,13 +141,17 @@ lemma FUL_alternate:
 \<comment> \<open>This means that if something is possibly prohibited, it is in fact prohibited.\<close>
 \<comment> \<open>I'm not convinced that this is a desirable property of an ethical theory.\<close>
 
-axiomatization where
-ax_morally_neutral: "\<exists>A.(((\<^bold>\<not> (O {A})) \<^bold>\<and> (O {\<^bold>\<not> A}))) w"
+lemma arbitrary_obligations:
+  fixes A::"t"
+  shows "O {A} w"
+  nitpick [user_axioms=true] oops
+\<comment> \<open>``Nitpick found a counterexample for card i = 1:
 
-lemma True nitpick [satisfy,user_axioms,show_all,format=2] oops 
-\<comment> \<open>We might imagine that we want to allow for ``morally neutral" statements\<close>
-\<comment> \<open>Ex: it is neither obligated nor prohibited that I eat lunch today.\<close>
-\<comment> \<open>Nitpick successfully finds a model with morally neutral statements! \<close>
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)"\<close>
+\<comment>\<open>This is good! Shows us that any arbitrary term isn't obligatory.\<close>
+
+
 
 end
 
