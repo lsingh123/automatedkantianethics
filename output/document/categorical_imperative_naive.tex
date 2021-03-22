@@ -496,28 +496,26 @@ Let's test whether certain sentences are consistent - can we find a model that m
 \endisadelimproof
 \isanewline
 \isanewline
-\isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\isanewline
-ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isachardoublequoteopen}{\isasymexists}A{\isachardot}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
-\isanewline
 \isacommand{lemma}\isamarkupfalse%
-\ True\ \isacommand{nitpick}\isamarkupfalse%
-\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}show{\isacharunderscore}all{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\ removing{\isacharunderscore}conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}A{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ True\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
 \isadelimproof
 \ %
 \endisadelimproof
 %
 \isatagproof
 \isacommand{oops}\isamarkupfalse%
-\ \isanewline
+\isanewline
 %
-\isamarkupcmt{We might imagine that we want to allow for ``morally neutral" statements%
+\isamarkupcmt{`` Nitpick found a model for card i = 1:
+
+  Empty assignment"%
 }\isanewline
 %
-\isamarkupcmt{Ex: it is neither obligated nor prohibited that I eat lunch today.%
-}\isanewline
-%
-\isamarkupcmt{Nitpick successfully finds a model with morally neutral statements!%
+\isamarkupcmt{We can disallow conflicting obligations and the system is still consistent - that's good.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -527,11 +525,123 @@ ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isach
 \endisadelimproof
 \isanewline
 \isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ implied{\isacharunderscore}contradiction{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{fixes}\ B{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ \isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}A\ \isactrlbold {\isasymand}\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\ \isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}A\ \isactrlbold {\isasymand}\ B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenright}\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ carmojones{\isacharunderscore}DDL{\isacharunderscore}completeness{\isachardot}O{\isacharunderscore}diamond{\isacharparenright}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\ \isacommand{oops}\isamarkupfalse%
 \isanewline
+%
+\isamarkupcmt{\cite{KorsgaardFUL} mentions that if two maxims imply a contradiction, they must not be willed.%
+}\isanewline
+%
+\isamarkupcmt{Above is a natural interpretation of this fact that we are, so far, unable to prove.%
+}\isanewline
+%
+\isamarkupcmt{``Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"%
+}\isanewline
+%
+\isamarkupcmt{This isn't actually a theorem of the logic as formed - clearly this is a problem.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ distribute{\isacharunderscore}obligations{\isacharunderscore}if{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}true{\isacharcomma}\ verbose{\isacharbrackright}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick can't find a countermodel for this theorem, and sledgehammer can't find a proof.%
+}\isanewline
+%
+\isamarkupcmt{Super strange. I wonder if this is similar to $\Box (A \wedge B)$ vs $\Box A \wedge \Box B$%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ distribute{\isacharunderscore}obligations{\isacharunderscore}onlyif{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ \ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{``Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"%
+}\isanewline
+%
+\isamarkupcmt{If this was a theorem, then contradictory obligations would be ruled out pretty immediately.%
+}\isanewline
+%
+\isamarkupcmt{Note that all of this holds in CJ's original DDL as well, not just my modified version.%
+}\isanewline
+%
+\isamarkupcmt{We might imagine adding this equivalence to our system.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
 \isanewline
 %
 \isadelimtheory
-\isanewline
 %
 \endisadelimtheory
 %
@@ -774,18 +884,83 @@ ax{\isacharunderscore}morally{\isacharunderscore}neutral{\isacharcolon}\ {\isach
 %:%502=156%:%
 %:%503=157%:%
 %:%504=157%:%
-%:%505=157%:%
-%:%507=157%:%
+%:%506=157%:%
+%:%510=157%:%
 %:%511=157%:%
-%:%512=157%:%
-%:%514=158%:%
-%:%515=158%:%
-%:%517=159%:%
-%:%518=159%:%
-%:%520=160%:%
-%:%528=160%:%
-%:%529=161%:%
-%:%530=162%:%
-%:%531=163%:%
-%:%534=164%:%
-%:%539=165%:%
+%:%513=158%:%
+%:%514=159%:%
+%:%515=160%:%
+%:%516=160%:%
+%:%518=161%:%
+%:%526=161%:%
+%:%527=162%:%
+%:%528=163%:%
+%:%529=163%:%
+%:%530=164%:%
+%:%531=165%:%
+%:%532=166%:%
+%:%533=167%:%
+%:%534=168%:%
+%:%535=168%:%
+%:%542=169%:%
+%:%543=169%:%
+%:%544=170%:%
+%:%545=170%:%
+%:%546=171%:%
+%:%547=171%:%
+%:%548=172%:%
+%:%549=172%:%
+%:%550=172%:%
+%:%551=172%:%
+%:%552=173%:%
+%:%553=173%:%
+%:%554=173%:%
+%:%556=174%:%
+%:%557=174%:%
+%:%559=175%:%
+%:%560=175%:%
+%:%562=176%:%
+%:%563=177%:%
+%:%564=178%:%
+%:%565=179%:%
+%:%566=180%:%
+%:%567=180%:%
+%:%569=181%:%
+%:%575=181%:%
+%:%578=182%:%
+%:%579=183%:%
+%:%580=183%:%
+%:%581=184%:%
+%:%582=185%:%
+%:%583=186%:%
+%:%584=186%:%
+%:%587=187%:%
+%:%591=187%:%
+%:%592=187%:%
+%:%594=188%:%
+%:%595=188%:%
+%:%597=189%:%
+%:%603=189%:%
+%:%606=190%:%
+%:%607=191%:%
+%:%608=191%:%
+%:%609=192%:%
+%:%610=193%:%
+%:%611=194%:%
+%:%612=194%:%
+%:%614=194%:%
+%:%618=194%:%
+%:%619=194%:%
+%:%621=195%:%
+%:%622=196%:%
+%:%623=197%:%
+%:%624=198%:%
+%:%625=199%:%
+%:%626=199%:%
+%:%628=200%:%
+%:%629=200%:%
+%:%631=201%:%
+%:%632=201%:%
+%:%634=202%:%
+%:%642=202%:%
+%:%649=203%:%

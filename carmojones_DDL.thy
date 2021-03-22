@@ -1,11 +1,12 @@
-text "Referencing Benzmuller and Parent's implementation: https://www.mi.fu-berlin.de/inf/groups/ag-ki/publications/dyadic-deontic-logic/C71.pdf"
-text "This theory contains the axiomatization of the system and some useful abbreviations."
-
 theory carmojones_DDL
   imports 
     Main 
 
 begin
+
+text "Referencing Benzmuller and Parent's implementation @{cite BP}"
+text "This theory contains the axiomatization of the system and some useful abbreviations."
+
 
 section "System Definition"
 
@@ -37,7 +38,7 @@ consts cw::i  \<comment> \<open>current world\<close>
 subsection Axiomatization 
 
 text "This subsection contains axioms. Because the embedding is semantic, these are just constraints on models."
-text "This axiomatization comes from Carmo and Jones p 6 and the HOL embedding defined in Benzmuller and Parent"
+text "This axiomatization comes from @{cite CJDDL} p6 and the HOL embedding defined in Benzmuller and Parent"
 
 axiomatization where
 ax_3a: "\<forall>w.\<exists>x. av(w)(x)" 
@@ -69,7 +70,7 @@ and ax_5e: "\<forall>X Y Z. ((\<forall>w. Y(w)\<longrightarrow>X(w)) \<and> ob(X
 
 subsection Abbreviations
 
-text "These abbreviations are defined in Benzmuller and Parent, p9"
+text "These abbreviations are defined in @cite{BenzmullerParent} p9"
 text "These are all syntactic sugar for HOL expressions, so evaluating these symbols will be light-weight"
 
 \<comment> \<open>propositional logic symbols\<close>

@@ -151,12 +151,56 @@ lemma arbitrary_obligations:
     A = ($\lambda x. \_$)($i_1$ := False)"\<close>
 \<comment>\<open>This is good! Shows us that any arbitrary term isn't obligatory.\<close>
 
+lemma removing_conflicting_obligations:
+  assumes "\<forall>A. \<Turnstile> (\<^bold>\<not> (O {A} \<^bold>\<and> O {\<^bold>\<not> A}))"
+  shows True
+  nitpick [satisfy,user_axioms,format=2] oops
+\<comment>\<open>`` Nitpick found a model for card i = 1:
 
+  Empty assignment"\<close>
+\<comment>\<open>We can disallow conflicting obligations and the system is still consistent - that's good.\<close>
 
+lemma implied_contradiction:
+  fixes A::"t"
+  fixes B::"t" 
+  assumes "\<Turnstile>(\<^bold>\<not> (A \<^bold>\<and> B))"
+  shows "\<Turnstile>(\<^bold>\<not> (O {A} \<^bold>\<and> O {B}))"
+  nitpick [user_axioms]
+proof - 
+  have "\<Turnstile>(\<^bold>\<not>(\<diamond>(A \<^bold>\<and> B)))"
+    by (simp add: assms)
+  then have "\<Turnstile>(\<^bold>\<not> (O {A \<^bold>\<and> B}))" by (smt carmojones_DDL_completeness.O_diamond)
+  thus ?thesis oops
+\<comment>\<open>@{cite KorsgaardFUL} mentions that if two maxims imply a contradiction, they must not be willed.\<close>
+\<comment>\<open>Above is a natural interpretation of this fact that we are, so far, unable to prove.\<close>
+\<comment>\<open>``Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"\<close>
+\<comment>\<open>This isn't actually a theorem of the logic as formed - clearly this is a problem.\<close>
+
+lemma distribute_obligations_if:
+  assumes "\<Turnstile> O {A \<^bold>\<and> B}"
+  shows "\<Turnstile> (O {A} \<^bold>\<and> O {B})"
+  nitpick [user_axioms, falsify=true, verbose]
+  oops
+\<comment>\<open>Nitpick can't find a countermodel for this theorem, and sledgehammer can't find a proof.\<close>
+\<comment>\<open>Super strange. I wonder if this is similar to $\Box (A \wedge B)$ vs $\Box A \wedge \Box B$\<close>
+
+lemma distribute_obligations_onlyif:
+  assumes  "\<Turnstile> (O {A} \<^bold>\<and> O {B})"
+  shows "\<Turnstile> O {A \<^bold>\<and> B}"
+  nitpick [user_axioms] oops
+\<comment>\<open>``Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"\<close>
+\<comment>\<open>If this was a theorem, then contradictory obligations would be ruled out pretty immediately.\<close>
+\<comment>\<open>Note that all of this holds in CJ's original DDL as well, not just my modified version.\<close>
+\<comment>\<open>We might imagine adding this equivalence to our system.\<close>
 end
-
-
-
     
 
 
