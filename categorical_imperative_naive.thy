@@ -86,7 +86,17 @@ lemma something_is_obligatory_2:
   using assms by auto
 \<comment> \<open>It works this time, but I think ``murder wrong" might be too strong of an assumption\<close>
 
-text "Let's try a weaker assumption: Not everyone can lie."
+abbreviation poss_murder_wrong::"bool" where "poss_murder_wrong \<equiv> \<Turnstile>(\<diamond> (O {\<^bold>\<not> M}))"
+
+lemma wrong_if_posibly_wrong:
+  assumes poss_murder_wrong
+  shows murder_wrong
+  using assms by blast
+\<comment>\<open>This lemma holds and uses a slightly weaker assumption. This also seems to get closer to the ``heart" of 
+this naive interpretation. We really want to say that if something isn't necessarily obligated, it's not obligated anywhere."\<close>
+
+
+text "Let's try an even weaker assumption: Not everyone can lie."
 
 typedecl person
 consts lies::"person\<Rightarrow>t"
@@ -105,6 +115,19 @@ lemma breaking_promises:
   Free variable:
     lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))"\<close>
 
+lemma universalizability:
+  assumes "\<Turnstile> O {(lie(me))}"
+  shows "\<forall>x. \<Turnstile> (O {(lie(x))})"
+  nitpick [user_axioms] oops
+\<comment>\<open>Nitpick found a counterexample for card person = 2 and card i = 2:
+
+  Free variable:
+    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := True), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
+  Skolem constant:
+    x = $p_2$\<close>
+\<comment>\<open>This lemma demonstrates the point even more clearly - we really want to think that obligations are consistent 
+across people, but because we don't have a notion of agency, we don't have that property. \<close>
+
 subsection "Consistent Sentences"
 
 text "The above section tested validity. We might also be interested in some weaker properties"
@@ -119,6 +142,8 @@ lemma permissible:
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False)"\<close>
 \<comment>\<open>Awesome! Permissible things are consistent - clearly we've fixed the bug from categorical\_imperative\_1\<close>
+\<comment>\<open>Note that apparently it's not clear {@cite kitcher} if Kant actually thought that permissibility was a coherent concept. Either way, 
+I think permissibility is a pretty widely accepted ethical phenomenon.\<close>
 
 lemma conflicting_obligations:
   fixes A
@@ -130,7 +155,7 @@ lemma conflicting_obligations:
     A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)"\<close>
 \<comment>\<open>Oh no! Nitpick found a model with conflicting obligations - that's bad!\<close>
 
-  subsection "Metaethical Tests"
+subsection "Metaethical Tests"
 
 lemma FUL_alternate:
   shows "\<Turnstile> ((\<diamond> (O {\<^bold>\<not> A})) \<^bold>\<rightarrow> (O {\<^bold>\<not> A}))"
@@ -188,6 +213,15 @@ lemma distribute_obligations_if:
 \<comment>\<open>Nitpick can't find a countermodel for this theorem, and sledgehammer can't find a proof.\<close>
 \<comment>\<open>Super strange. I wonder if this is similar to $\Box (A \wedge B)$ vs $\Box A \wedge \Box B$\<close>
 
+lemma distribute_boxes:
+  assumes "\<Turnstile>( \<box>(A \<^bold>\<and> B))"
+  shows "\<Turnstile> ((\<box>A) \<^bold>\<and> (\<box>B))"
+  using assms by blast
+\<comment>\<open>We really expect the O operator to be acting like the $\square$ operator. It's like a modal necessity operator,
+like necessity across ideal worlds instead of actual worlds. Therefore, we'd expect theorems that hold of $\square$
+to also hold of O.\<close>
+
+
 lemma distribute_obligations_onlyif:
   assumes  "\<Turnstile> (O {A} \<^bold>\<and> O {B})"
   shows "\<Turnstile> O {A \<^bold>\<and> B}"
@@ -200,6 +234,14 @@ lemma distribute_obligations_onlyif:
 \<comment>\<open>If this was a theorem, then contradictory obligations would be ruled out pretty immediately.\<close>
 \<comment>\<open>Note that all of this holds in CJ's original DDL as well, not just my modified version.\<close>
 \<comment>\<open>We might imagine adding this equivalence to our system.\<close>
+
+lemma ought_implies_can:
+  shows "\<forall>A. \<Turnstile> (O {A} \<^bold>\<rightarrow> (\<diamond>A))"
+  using O_diamond by blast
+\<comment>\<open>``ought implies can" is often attributed to Kant and is a pretty basic principle - you can't be obligated to do the impossible.
+I'm not surprised that our base logic has this as an axiom. It's often said to be the central motivation behind deontic logics.\<close>
+
+
 end
     
 
