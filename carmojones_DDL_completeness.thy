@@ -106,12 +106,12 @@ proof-
   by (smt ax_5d ax_5b ax_5b'')
   thus ?thesis
   proof -
-    have f1: "\<forall>p pa pb. ((\<not> (ob p pa)) \<or> (\<exists>i. (p\<^bold>\<and>(\<^bold>\<not> pb)) i)) \<or> (ob pb (\<^bold>\<or> (pb\<^bold>\<and>(\<^bold>\<not> p)) pa))"
-      using \<open>\<forall>X Y Z. ob X Y \<and> (\<Turnstile>(X\<^bold>\<rightarrow>Z)) \<longrightarrow> ob Z (\<^bold>\<or> (Z\<^bold>\<and>(\<^bold>\<not> X)) Y)\<close> by force
+    have f1: "\<forall>p pa pb. ((\<not> (ob p pa)) \<or> (\<exists>i. (p\<^bold>\<and>(\<^bold>\<not> pb)) i)) \<or> (ob pb ((pb\<^bold>\<and>(\<^bold>\<not> p))\<^bold>\<or>  pa))"
+      using \<open>\<forall>X Y Z. ob X Y \<and> (\<Turnstile>(X\<^bold>\<rightarrow>Z)) \<longrightarrow> ob Z ( (Z\<^bold>\<and>(\<^bold>\<not> X))\<^bold>\<or> Y)\<close> by force
     obtain ii :: "(i \<Rightarrow> bool) \<Rightarrow> (i \<Rightarrow> bool) \<Rightarrow> i" where
       "\<forall>x0 x2. (\<exists>v3. (x2\<^bold>\<and>(\<^bold>\<not> x0)) v3) = (x2\<^bold>\<and>(\<^bold>\<not> x0)) (ii x0 x2)"
       by moura
-    then have "\<forall>p pa pb. ((\<not> ob p pa) \<or> (p\<^bold>\<and>(\<^bold>\<not> pb)) (ii pb p)) \<or> ob pb (\<^bold>\<or> (pb\<^bold>\<and>(\<^bold>\<not> p)) pa)"
+    then have "\<forall>p pa pb. ((\<not> ob p pa) \<or> (p\<^bold>\<and>(\<^bold>\<not> pb)) (ii pb p)) \<or> ob pb ( (pb\<^bold>\<and>(\<^bold>\<not> p))\<^bold>\<or> pa)"
       using f1 by presburger
     then show ?thesis
       by fastforce

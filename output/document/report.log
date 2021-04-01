@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 23:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**\nonstopmode\input{root.tex}
-(./root.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
+**\nonstopmode\input{report.tex}
+(./report.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
@@ -204,8 +204,8 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count186
 \l__pdf_internal_box=\box48
 )
-(./root.aux)
-\openout1 = `root.aux'.
+No file report.aux.
+\openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
@@ -223,7 +223,6 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
-
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count187
@@ -255,14 +254,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 36.
 LaTeX Info: Redefining \pageref on input line 36.
 LaTeX Info: Redefining \nameref on input line 36.
- (./root.out) (./root.out)
 \@outlinefile=\write4
-\openout4 = `root.out'.
+\openout4 = `report.out'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
 
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
@@ -270,63 +267,49 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./root.toc)
+)
 \tf@toc=\write5
-\openout5 = `root.toc'.
+\openout5 = `report.toc'.
+
+ [1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./pape
+r.tex)
+[2]
+No file report.bbl.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 58.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 58.
+(./report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 58.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 58.
 
 
-[1
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./carmojones_DDL.tex [2] [3] [4]) [5] (./carmojones_DDL_completeness.tex
-[6] [7] [8]) [9] (./categorical_imperative_1.tex [10]) [11]
-(./categorical_imperative_naive.tex [12] [13] [14]
-Overfull \hbox (9.73499pt too wide) in paragraph at lines 612--616
-[][]  \OT1/cmr/bx/n/10 then have $\OMS/cmsy/m/n/10 j[][]$$\OT1/cmr/m/n/10 ($$\O
-MS/cmsy/b/n/10 :$ $\OT1/cmr/m/n/10 ($\OT1/cmr/m/it/10 O $\OMS/cmsy/m/n/10 f$\OT
-1/cmr/m/it/10 A $\OMS/cmsy/b/n/10 ^$ \OT1/cmr/m/it/10 B$\OMS/cmsy/m/n/10 g$$\OT
-1/cmr/m/n/10 )$$)$ \OT1/cmr/bx/n/10 by $\OT1/cmr/m/n/10 ($\OT1/cmr/m/it/10 smt 
-carmojones[]DDL[]completeness$\OML/cmm/m/it/10 :$\OT1/cmr/m/it/10 O[]diamond$\O
-T1/cmr/m/n/10 )$[] 
- []
-
-[15]) (./root.bbl [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
- [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
- (./root.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
-Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: CBC4093F864CA46F1898990011061963;1426.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  A02D95553E30B97FF125B1AA17CF9044;47.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 58.
  ) 
 Here is how much of TeX's memory you used:
- 6287 strings out of 480608
- 92976 string characters out of 5903631
- 351927 words of memory out of 5000000
- 22018 multiletter control sequences out of 15000+600000
- 545663 words of font info for 74 fonts, out of 8000000 for 9000
+ 6166 strings out of 480608
+ 91415 string characters out of 5903631
+ 342750 words of memory out of 5000000
+ 21963 multiletter control sequences out of 15000+600000
+ 539293 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,33p,1030b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
-b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+ 41i,6n,33p,214b,375s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on root.pdf (17 pages, 199901 bytes).
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on report.pdf (2 pages, 53270 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
- 177 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 39 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

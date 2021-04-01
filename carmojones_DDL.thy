@@ -76,8 +76,8 @@ text "These are all syntactic sugar for HOL expressions, so evaluating these sym
 \<comment> \<open>propositional logic symbols\<close>
 abbreviation ddlneg::"t\<Rightarrow>t" ("\<^bold>\<not>") 
   where "\<^bold>\<not>A \<equiv> \<lambda>w. \<not>A(w)" 
-abbreviation ddlor::"t\<Rightarrow>t\<Rightarrow>t" ("\<^bold>\<or>") 
-  where "\<^bold>\<or> A B \<equiv> \<lambda>w. (A(w) \<or> B(w))"
+abbreviation ddlor::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<or>_") 
+  where "A \<^bold>\<or> B \<equiv> \<lambda>w. (A(w) \<or> B(w))"
 abbreviation ddland::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<and>_")
   where "A\<^bold>\<and> B \<equiv> \<lambda>w. (A(w) \<and> B(w))"
 abbreviation ddlif::"t\<Rightarrow>t\<Rightarrow>t" ("_\<^bold>\<rightarrow>_")

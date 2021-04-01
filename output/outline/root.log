@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 23:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  31 MAR 2021 23:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -45,8 +45,10 @@ Including comment 'isatagML' Including comment 'isadelimvisible'
 Including comment 'isatagvisible' Excluding comment 'isadeliminvisible'
 Excluding comment 'isataginvisible' Including comment 'isadelimimportant'
 Including comment 'isatagimportant' Including comment 'isadelimunimportant'
-Including comment 'isatagunimportant') (./isabelletags.sty) (./isabellesym.sty)
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Including comment 'isatagunimportant') (./isabelletags.sty
+Including comment 'isadelimproof' Excluding comment 'isatagproof'
+Including comment 'isadelimML' Excluding comment 'isatagML') (./isabellesym.sty
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -278,23 +280,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./carmojones_DDL.tex [2] [3] [4]) [5] (./carmojones_DDL_completeness.tex
-[6] [7] [8]) [9] (./categorical_imperative_1.tex [10]) [11]
-(./categorical_imperative_naive.tex [12] [13] [14]
-Overfull \hbox (9.73499pt too wide) in paragraph at lines 612--616
-[][]  \OT1/cmr/bx/n/10 then have $\OMS/cmsy/m/n/10 j[][]$$\OT1/cmr/m/n/10 ($$\O
-MS/cmsy/b/n/10 :$ $\OT1/cmr/m/n/10 ($\OT1/cmr/m/it/10 O $\OMS/cmsy/m/n/10 f$\OT
-1/cmr/m/it/10 A $\OMS/cmsy/b/n/10 ^$ \OT1/cmr/m/it/10 B$\OMS/cmsy/m/n/10 g$$\OT
-1/cmr/m/n/10 )$$)$ \OT1/cmr/bx/n/10 by $\OT1/cmr/m/n/10 ($\OT1/cmr/m/it/10 smt 
-carmojones[]DDL[]completeness$\OML/cmm/m/it/10 :$\OT1/cmr/m/it/10 O[]diamond$\O
-T1/cmr/m/n/10 )$[] 
- []
-
-[15]) (./root.bbl [16])
+(./carmojones_DDL.tex [2] [3]) [4] (./carmojones_DDL_completeness.tex [5]
+[6]) [7] (./categorical_imperative_1.tex [8]) [9]
+(./categorical_imperative_naive.tex [10] [11] [12]) (./root.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
- [17]
+ [13]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
- (./root.aux)
+
+(./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
 Package rerunfilecheck Info: File `root.out' has not changed.
@@ -303,12 +296,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
  ) 
 Here is how much of TeX's memory you used:
  6287 strings out of 480608
- 92976 string characters out of 5903631
- 351927 words of memory out of 5000000
- 22018 multiletter control sequences out of 15000+600000
- 545663 words of font info for 74 fonts, out of 8000000 for 9000
+ 93008 string characters out of 5903631
+ 351980 words of memory out of 5000000
+ 22022 multiletter control sequences out of 15000+600000
+ 546361 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,33p,1030b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,33p,1030b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -317,16 +310,14 @@ b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on root.pdf (17 pages, 199901 bytes).
+al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on root.pdf (13 pages, 171117 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 45 named destinations out of 1000 (max. 500000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 40 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
