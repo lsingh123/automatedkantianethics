@@ -1,0 +1,466 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{kroy}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{theory}\isamarkupfalse%
+\ kroy\isanewline
+\ \ \isakeyword{imports}\ carmojones{\isacharunderscore}DDL\isanewline
+\isanewline
+\isakeyword{begin}%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\begin{isamarkuptext}%
+This theory will contain a formalization of the CI based on Moshe Kroy's partial formalization. \cite{kroy}%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Kroy's Formalization of the Categorical Imperative%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{The Substitution Operator%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsubsection{Definition%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\isacommand{typedecl}\isamarkupfalse%
+\ s\ %
+\isamarkupcmt{s is the type for a ``subject", like the subject of a sentence%
+}\isanewline
+%
+\isamarkupcmt{Intuitively, we need some notion of ``x does action", which we can write as ``x is the subject of the sentence 'does action'"%
+}\isanewline
+\isanewline
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{An open sentence is a generalized version of Kroy's substitution operator \cite{kroy} 196%
+}\isanewline
+%
+\isamarkupcmt{``does action" is an open sentence that can be instantiated with a subject%
+}\isanewline
+%
+\isamarkupcmt{``P sub (d/e)" can be written as ``S(e)", where S(d) = P%
+}\isanewline
+%
+\isamarkupcmt{So the terms that we substitute into are actually instantiations of an open sentence, and substitution just requires re-instantiating the open sentence with a different subject%
+}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Abbreviations%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}neg{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph {\isasymnot}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}\isactrlemph {\isasymnot}A{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ \isactrlbold {\isasymnot}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}and{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlemph {\isasymand}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\ \isactrlemph {\isasymand}\ B{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}B{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}or{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlemph {\isasymor}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\ \isactrlemph {\isasymor}\ B{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymor}\ {\isacharparenleft}B{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph O{\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlemph O{\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharparenleft}x{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{We could probably do without these abbreviations, but they will simplify the notiation a bit and unify it with Kroy's original paper.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddl{\isacharunderscore}permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}P\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os{\isasymRightarrow}os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ P\ {\isacharbraceleft}A{\isacharparenleft}x{\isacharparenright}{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Carmo and Jones don't make much use of permissibility, but we will find it useful here.%
+}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Differences Between Kroy's Logic (Kr) and DDL%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+\cite{kroy} uses a different logic than DDL. Let's see if the semantics that Kr requires hold in DDL%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantic{\isacharunderscore}faithful{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{The most faithful interpretation of Kr is that if A is permissible in a context, then 
+it must be true at some world in that context. Kr operates under the ``deontic alternatives" view, 
+summarized by Solt as ``A proposition of the sort OA is true at the actual world w if and
+only if A is true at every deontic alternative world to t." Under this view, permissible propositions
+are obligated at some deontic alternative, but not at all of them.
+
+DDL does not adopt a deontic alternatives view, which is why this proposition seems wildly counterintuitive
+in DDL. In DDL, the ob operator abstracts away the notion of deontic alternatives and completely determines
+obligations. Even if one belives that permissible statements should be true at some deontic alternative, 
+it's not clear that permissible statements must be realized at some world, hence the failure of this 
+lemma in DDL.%
+}\isanewline
+%
+\isamarkupcmt{Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantic{\isacharunderscore}faithful{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ x{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)%
+}\isanewline
+%
+\isamarkupcmt{This is the most clear lemma that we would expect to hold under the deontic alternatives view. The 
+fact that it doesn't shows DDL is not a logic of deontic alternatives. There are pros and cons to this
+approach. The deontic alternatives view is quite simple to visualize and offers clear intuition. On
+the other hand, DDL's ob function can encode more complex relations than the deontic alternatives view,
+and can encode these in a more intuitive manner. The notion of a ``deontically perfect alternative"
+is a squishy one, and an ob function more directly captures the idea of obligation.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantic{\isacharunderscore}vacuous{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ ob{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Kr does not allow vasuously permissible statements -> if something is permissible it has to be obligated 
+at some deontically perfect alternative. In DDL, this can be roughly translated as, if A is permissible, 
+it is obligated in some context.%
+}\isanewline
+%
+\isamarkupcmt{Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)%
+}\isanewline
+%
+\isamarkupcmt{In order to make this true, we'd have to require that everything is either obligatory or 
+prohibited somewhere. But as found in the buggy version of DDL, that breaks everything and destroys the 
+notion of permissibility everywhere. I am going to allow for vacuous permissibility. If something breaks later
+in Kr, it may be because of this.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{The Categorical Imperative%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\isacommand{abbreviation}\isamarkupfalse%
+\ CI{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}CI\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}p\ {\isacharparenright}w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}x{\isacharparenright}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This is Kroy's formalization of the FUL in DDL. Recall that the FUL says
+``act only in accordance with that maxim through which you can at the same time will that it become a universal law" \cite{groundwork}
+Kroy interprets this to mean that if an action is permissible for me, then it must be permissible for everyone.
+This formalizes an important moral intuition - the CI prohibits free-riding. No one is a moral exception%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ CI{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ CI\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick found a counterexample for card s = 2 and card i = 2:
+
+  Skolem constants:
+    A = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := True), $s_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
+    p = $s_1$
+    x = $s_2$
+This formalization doesn't hold in DDL. Good - this means that adding it as an axiom will change the logic.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/kroy.thy%:%
+%:%10=1%:%
+%:%11=1%:%
+%:%12=2%:%
+%:%13=3%:%
+%:%14=4%:%
+%:%23=6%:%
+%:%32=8%:%
+%:%36=10%:%
+%:%40=12%:%
+%:%50=14%:%
+%:%51=14%:%
+%:%52=14%:%
+%:%53=14%:%
+%:%55=15%:%
+%:%56=15%:%
+%:%57=16%:%
+%:%58=17%:%
+%:%59=17%:%
+%:%61=18%:%
+%:%62=18%:%
+%:%64=19%:%
+%:%65=19%:%
+%:%67=20%:%
+%:%68=20%:%
+%:%70=21%:%
+%:%78=23%:%
+%:%88=25%:%
+%:%89=25%:%
+%:%90=26%:%
+%:%91=27%:%
+%:%92=27%:%
+%:%93=28%:%
+%:%94=29%:%
+%:%95=29%:%
+%:%96=30%:%
+%:%97=31%:%
+%:%98=31%:%
+%:%99=32%:%
+%:%101=33%:%
+%:%102=33%:%
+%:%103=34%:%
+%:%104=35%:%
+%:%105=35%:%
+%:%106=36%:%
+%:%107=37%:%
+%:%108=37%:%
+%:%109=38%:%
+%:%111=39%:%
+%:%119=41%:%
+%:%131=43%:%
+%:%133=45%:%
+%:%134=45%:%
+%:%135=46%:%
+%:%136=47%:%
+%:%137=48%:%
+%:%138=48%:%
+%:%140=48%:%
+%:%144=48%:%
+%:%145=48%:%
+%:%147=49%:%
+%:%148=50%:%
+%:%149=51%:%
+%:%150=52%:%
+%:%151=53%:%
+%:%152=54%:%
+%:%153=55%:%
+%:%154=56%:%
+%:%155=57%:%
+%:%156=58%:%
+%:%157=59%:%
+%:%158=59%:%
+%:%160=60%:%
+%:%161=61%:%
+%:%162=62%:%
+%:%163=63%:%
+%:%171=63%:%
+%:%172=64%:%
+%:%173=65%:%
+%:%174=65%:%
+%:%175=66%:%
+%:%176=67%:%
+%:%177=68%:%
+%:%178=68%:%
+%:%180=68%:%
+%:%184=68%:%
+%:%185=68%:%
+%:%187=69%:%
+%:%188=70%:%
+%:%189=71%:%
+%:%190=72%:%
+%:%191=72%:%
+%:%193=73%:%
+%:%194=74%:%
+%:%195=75%:%
+%:%196=76%:%
+%:%197=77%:%
+%:%198=78%:%
+%:%206=78%:%
+%:%207=79%:%
+%:%208=80%:%
+%:%209=81%:%
+%:%210=81%:%
+%:%211=82%:%
+%:%212=83%:%
+%:%213=84%:%
+%:%214=84%:%
+%:%216=84%:%
+%:%220=84%:%
+%:%221=84%:%
+%:%223=85%:%
+%:%224=86%:%
+%:%225=87%:%
+%:%226=87%:%
+%:%228=88%:%
+%:%229=89%:%
+%:%230=90%:%
+%:%231=91%:%
+%:%232=91%:%
+%:%234=92%:%
+%:%235=93%:%
+%:%236=94%:%
+%:%237=95%:%
+%:%252=97%:%
+%:%262=99%:%
+%:%263=99%:%
+%:%265=100%:%
+%:%266=101%:%
+%:%267=102%:%
+%:%268=103%:%
+%:%269=103%:%
+%:%270=104%:%
+%:%271=105%:%
+%:%272=105%:%
+%:%273=106%:%
+%:%274=107%:%
+%:%275=107%:%
+%:%277=107%:%
+%:%281=107%:%
+%:%282=107%:%
+%:%284=108%:%
+%:%285=109%:%
+%:%286=110%:%
+%:%287=111%:%
+%:%288=112%:%
+%:%289=113%:%
+%:%290=114%:%
+%:%298=114%:%
+%:%301=115%:%
+%:%306=116%:%
