@@ -94,6 +94,24 @@ prohibited somewhere. But as found in the buggy version of DDL, that breaks ever
 notion of permissibility everywhere. I am going to allow for vacuous permissibility. If something breaks later
 in Kr, it may be because of this.\<close>
 
+lemma permissible_ob:
+  fixes A w
+  shows "O {A} w \<longrightarrow> P {A} w"
+  nitpick [user_axioms] oops
+\<comment>\<open>Nitpick found a counterexample for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\<close>
+\<comment>\<open>This one is definitely problematic. Being permissible should be a precondition for being obligatory.
+Let's add this as an axiom - I can't see any ethical theory succeeding without this.\<close>
+
+axiomatization where permissible_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
+
+lemma permissible_ob_round_2:
+  fixes A w
+  shows "O {A} w \<longrightarrow> P {A} w"
+  by (simp add: permissible_ob)
+
 subsection "The Categorical Imperative"
 
 abbreviation CI::"bool" where "CI \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
@@ -112,5 +130,59 @@ lemma CI:
     p = $s_1$
     x = $s_2$
 This formalization doesn't hold in DDL. Good - this means that adding it as an axiom will change the logic.\<close>
+
+lemma "\<Turnstile> (\<^bold>\<not> (O {\<^bold>\<not> \<^bold>\<top>}))"
+  by (simp add: ax_5a) 
+
+lemma complete:
+  shows "(\<Turnstile> (((A \<^bold>\<rightarrow> \<^bold>\<not>\<^bold>\<top>)))) \<longrightarrow> (\<Turnstile> (\<^bold>\<not> (O {A})))"
+proof - 
+  have "(\<exists>x. (\<^bold>\<not> (\<diamond> A)) x) \<longrightarrow> (\<exists>x. (\<^bold>\<not> O {A}) x)"
+    by (simp add: ax_5a ax_5b)
+  thus ?thesis
+    by blast
+
+
+axiomatization where CI: CI and 
+possible: "(\<forall>w. \<not> \<diamond>A w) \<longrightarrow> \<Turnstile>(O {\<^bold>\<not> A})"
+\<comment>\<open>We really need a way to add negative obligations - to related the concept of contradiction and 
+obligation. This seems reasonable - if A is never possible at any world, then it's prohibited.\<close>
+and hmm: "\<Turnstile> (\<^bold>\<not> (O {\<^bold>\<not> \<^bold>\<top>}))"
+
+subsection "Tests"
+
+lemma True nitpick [satisfy,user_axioms] oops 
+\<comment>\<open>Nitpick found a model for card s = 1 and card i = 1:
+
+  Empty assignment\<close>
+\<comment>\<open>The categorical imperative is consistent!\<close>
+
+  subsubsection "Specifying the Model"
+
+
+lemma breaking_promises:
+  fixes me::s
+  fixes lie::os
+  assumes "\<exists>x. (\<^bold>\<not> (\<diamond>(lie(x))) cw)"
+  shows "\<exists>x. (\<^bold>\<not> (O {lie(x)})) cw"
+  by (metis assms ax_5a ax_5b)
+
+
+lemma breaking_promises:
+  fixes me::s
+  fixes lie::os
+  assumes "\<exists>x. (\<^bold>\<not> (\<diamond>(lie(x))) cw)"
+  shows "\<exists>x. (\<^bold>\<not> (P {lie(x)})) cw"
+  nitpick[user_axioms]
+
+
+
+  subsubsection "Metaethical Tests"
+
+  subsubsection "Kroy's Tests"
+
+
+
+
 
 end
