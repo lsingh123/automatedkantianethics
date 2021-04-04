@@ -141,7 +141,7 @@ proof -
     by (simp add: ax_5a ax_5b)
   thus ?thesis
     by blast
-
+qed
 
 axiomatization where CI: CI and 
 possible: "(\<forall>w. \<not> \<diamond>A w) \<longrightarrow> \<Turnstile>(O {\<^bold>\<not> A})"
@@ -173,7 +173,7 @@ lemma breaking_promises:
   fixes lie::os
   assumes "\<exists>x. (\<^bold>\<not> (\<diamond>(lie(x))) cw)"
   shows "\<exists>x. (\<^bold>\<not> (P {lie(x)})) cw"
-  nitpick[user_axioms]
+  nitpick[user_axioms] oops
 
 
 

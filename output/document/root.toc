@@ -26,3 +26,7 @@
 \contentsline {subsubsection}{\numberline {6.1.2}Abbreviations}{18}{subsubsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.2}Differences Between Kroy's Logic (Kr) and DDL}{19}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}The Categorical Imperative}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Tests}{21}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Specifying the Model}{21}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Metaethical Tests}{21}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Kroy's Tests}{21}{subsubsection.6.4.3}%
