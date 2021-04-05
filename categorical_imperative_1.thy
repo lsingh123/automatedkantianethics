@@ -53,11 +53,16 @@ lemma weaker_permissible_to_ob:
 
 lemma contradictory_obligations:
   shows "\<Turnstile>(\<^bold>\<not> ((O {A}) \<^bold>\<and> (O {\<^bold>\<not> A})))"
+  nitpick[user_axioms]
   oops
 \<comment> \<open>What is the cause of the above strangeness?\<close>
-\<comment> \<open>This very intuitive theorem holds in my logic but not in Benzmuller Parent's\<close>
+\<comment> \<open>This very intuitive theorem holds in my logic but not in BFP's\<close>
 \<comment> \<open>It's clear that this theorem results in the strange results above.\<close>
 \<comment> \<open>Conclusion: There is a bug in my embedding\<close>
+\<comment>\<open>Nitpick found a counterexample for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\<close>
 
 
 text "Sidebar: the above theorem is really intuitive - it seems like we wouldn't want 

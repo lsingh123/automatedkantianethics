@@ -41,7 +41,7 @@ lemma Oa_boxpO:
 
 text "B and A must not contain w. not sure how to encode that requirement.
 one option is to define a new free variables predicate and use that, but that requires a deeper embedding than I have.
-If Benzmuller and Parent can survive without these inference rules, so can I"
+May become a problem later"
 
 section Axioms 
 

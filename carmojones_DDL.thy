@@ -4,7 +4,7 @@ theory carmojones_DDL
 
 begin
 
-text "Referencing Benzmuller and Parent's implementation @{cite BP}"
+text "Referencing Benzmueller, Farjami, and Parent's implementation @{cite BFP}"
 text "This theory contains the axiomatization of the system and some useful abbreviations."
 
 

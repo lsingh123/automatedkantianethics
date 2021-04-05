@@ -190,6 +190,8 @@ NOTE: this attempt revealed a bug in my embedding. I've included it as an artifa
 \isacommand{lemma}\isamarkupfalse%
 \ contradictory{\isacharunderscore}obligations{\isacharcolon}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -202,13 +204,19 @@ NOTE: this attempt revealed a bug in my embedding. I've included it as an artifa
 \isamarkupcmt{What is the cause of the above strangeness?%
 }\isanewline
 %
-\isamarkupcmt{This very intuitive theorem holds in my logic but not in Benzmuller Parent's%
+\isamarkupcmt{This very intuitive theorem holds in my logic but not in BFP's%
 }\isanewline
 %
 \isamarkupcmt{It's clear that this theorem results in the strange results above.%
 }\isanewline
 %
 \isamarkupcmt{Conclusion: There is a bug in my embedding%
+}\isanewline
+%
+\isamarkupcmt{Nitpick found a counterexample for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -337,23 +345,30 @@ After the debugging, all of this is no longer true! On to the next attempt :)%
 %:%190=54%:%
 %:%191=54%:%
 %:%192=55%:%
-%:%195=56%:%
-%:%199=56%:%
-%:%200=56%:%
+%:%193=56%:%
+%:%194=56%:%
+%:%197=57%:%
+%:%201=57%:%
 %:%202=57%:%
-%:%203=57%:%
+%:%204=58%:%
 %:%205=58%:%
-%:%206=58%:%
+%:%207=59%:%
 %:%208=59%:%
-%:%209=59%:%
+%:%210=60%:%
 %:%211=60%:%
-%:%221=63%:%
-%:%222=64%:%
-%:%223=65%:%
-%:%224=66%:%
-%:%225=67%:%
-%:%226=68%:%
-%:%230=70%:%
-%:%231=71%:%
-%:%235=73%:%
-%:%243=75%:%
+%:%213=61%:%
+%:%214=61%:%
+%:%216=62%:%
+%:%217=63%:%
+%:%218=64%:%
+%:%219=65%:%
+%:%229=68%:%
+%:%230=69%:%
+%:%231=70%:%
+%:%232=71%:%
+%:%233=72%:%
+%:%234=73%:%
+%:%238=75%:%
+%:%239=76%:%
+%:%243=78%:%
+%:%251=80%:%
