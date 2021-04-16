@@ -1,0 +1,107 @@
+\begin{thebibliography}{10}
+
+\bibitem{BL}
+M.~M. Bentzen and F.~Lindner.
+\newblock A formalization of kant's second formulation of the categorical
+  imperative.
+\newblock {\em CoRR}, abs/1801.03160, 2018.
+
+\bibitem{BFP}
+C.~Benzm{\"u}ller, A.~Farjami, and X.~Parent.
+\newblock Dyadic deontic logic in hol: Faithful embedding and meta-theoretical
+  experiments.
+\newblock In M.~Armgardt, H.~C. Nordtveit~Kvernenes, and S.~Rahman, editors,
+  {\em New Developments in Legal Reasoning and Logic: From Ancient Law to
+  Modern Legal Systems}, volume~23 of {\em Logic, Argumentation \& Reasoning}.
+  Springer Nature Switzerland AG, 2021.
+
+\bibitem{logikey}
+C.~Benzm{\"{u}}ller, X.~Parent, and L.~W.~N. van~der Torre.
+\newblock Designing normative theories of ethical reasoning: Formal framework,
+  methodology, and tool support.
+\newblock {\em CoRR}, abs/1903.10187, 2019.
+
+\bibitem{smt}
+J.~C. Blanchette, S.~B\"{o}hme, and L.~C. Paulson.
+\newblock Extending sledgehammer with smt solvers.
+\newblock In {\em Proceedings of the 23rd International Conference on Automated
+  Deduction}, CADE'11, page 116–130, Berlin, Heidelberg, 2011.
+  Springer-Verlag.
+
+\bibitem{nitpick}
+J.~C. Blanchette and T.~Nipkow.
+\newblock {\em Nitpick: A Counterexample Generator for Higher-Order Logic Based
+  on a Relational Model Finder}, volume 6172, page 131–146.
+\newblock Springer Berlin Heidelberg, 2010.
+
+\bibitem{CJDDL}
+J.~Carmo and A.~Jones.
+\newblock Completeness and decidability results for a logic of contrary-to-duty
+  conditionals.
+\newblock {\em J. Log. Comput.}, 23:585--626, 2013.
+
+\bibitem{cresswell}
+M.~J. Cresswell and G.~E. Hughes.
+\newblock {\em A New Introduction to Modal Logic}.
+\newblock Routledge, 1996.
+
+\bibitem{hintikka}
+J.~Hintikka.
+\newblock {\em Knowledge and Belief}.
+\newblock Cornell University Press, 1962.
+
+\bibitem{groundwork}
+I.~Kant.
+\newblock {\em Groundwork of the Metaphysics of Morals}.
+\newblock Cambridge University Press, Cambridge, 1785.
+
+\bibitem{KorsgaardFUL}
+C.~Korsgaard.
+\newblock {Kant's Formula of Universal Law}.
+\newblock {\em Pacific Philosophical Quarterly}, 66:24--47, 1985.
+
+\bibitem{sep-logic-deontic}
+P.~McNamara and F.~Van De~Putte.
+\newblock {Deontic Logic}.
+\newblock In E.~N. Zalta, editor, {\em The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, spring 2021
+  edition, 2021.
+
+\bibitem{neighborhood2}
+R.~MONTAGUE.
+\newblock Universal grammar.
+\newblock {\em Theoria}, 36(3):373--398, 1970.
+
+\bibitem{isabelle}
+T.~Nipkow, L.~C. Paulson, and M.~Wenzel.
+\newblock {\em Isabelle/HOL: A Proof Assistant for Higher Order Logic}.
+\newblock Springer-Verlag Berlin Heidelberg, Berlin, 2002.
+
+\bibitem{sledgehammer}
+L.~Paulson and J.~Blanchette.
+\newblock Three years of experience with sledgehammer, a practical link between
+  automatic and interactive theorem provers.
+\newblock 02 2015.
+
+\bibitem{powers}
+T.~M. {Powers}.
+\newblock Prospects for a kantian machine.
+\newblock {\em IEEE Intelligent Systems}, 21(4):46--51, 2006.
+
+\bibitem{ctd}
+D.~Rönnedal.
+\newblock Contrary-to-duty paradoxes and counterfactual deontic logic.
+\newblock {\em Philosophia}, 47, 09 2019.
+
+\bibitem{neighborhood1}
+D.~Scott.
+\newblock Advice on modal logic.
+\newblock In K.~Lambert, editor, {\em Philosophical Problems in Logic: Some
+  Recent Developments}, pages 143--173. D. Reidel, 1970.
+
+\bibitem{mesurvey}
+S.~Tolmeijer, M.~Kneer, C.~Sarasua, M.~Christen, and A.~Bernstein.
+\newblock Implementations in machine ethics.
+\newblock {\em ACM Computing Surveys}, 53(6):1–38, Feb 2021.
+
+\end{thebibliography}

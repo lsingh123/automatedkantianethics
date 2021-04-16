@@ -1,0 +1,737 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{paper{\isadigit{2}}{\isadigit{2}}{\isadigit{4}}}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+\textbf{Modus Ponens}%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ modus{\isacharunderscore}ponens{\isacharcolon}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ A{\isachardoublequoteclose}\ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}B{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{Because I have not defined a ``derivable" operator, inference rules are written using assumptions.%
+}\isanewline
+%
+\isamarkupcmt{The rule {\color{blue} blast} is a classical reasoning method that comes with Isabelle out of the box. \cite{isabelle}%
+}\isanewline
+%
+\isamarkupcmt{This is an example of a metalogical proof in this system using the validity operator.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Another relevant operator for our purposes is $\Box$, the modal necessity operator. In 
+this system, $\Box$ behaves as an S5 modal necessity operator.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ K{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}{\isacharparenleft}A\ \isactrlbold {\isasymrightarrow}\ B{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ T{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymbox}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}A{\isacharparenright}{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ {\isadigit{5}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}A{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}{\isacharparenleft}{\isasymdiamond}A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+As mentioned earlier, the obligation operator is most interesting for my purposes. Here are some 
+of its properties.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}diamond{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}B{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymdiamond}{\isacharparenleft}B\ \isactrlbold {\isasymand}\ A{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}a\isanewline
+\ \ \isacommand{by}\isamarkupfalse%
+\ metis\isanewline
+%
+\isamarkupcmt{A is only obligatory in a context if it can possibly be true in that context. This is meant to 
+prevent impossible obligations in a context.%
+}\isanewline
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}nec{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymbox}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+%
+\isamarkupcmt{Obligations are necessarily obligated. This axiom is faithful to Kant's interpretation of ethics 
+and is evidence of Deontic Logic's power in representing Kant's theory. Kant claimed that the categorical
+imperative was not contingent on any facts about the world, but instead a property of the concept of 
+morality itself \cite{groundwork}. Under this view, obligation should not be world-specific.%
+}\isanewline
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Below is an example of a more involved proof in Isabelle. This proof was almost completely automatically
+generated. The property itself here is not very interesting for my purposes because I will rarely mix the dyadic
+and monadic obligation operators.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ O{\isacharunderscore}to{\isacharunderscore}O{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\isactrlbold {\isasymrightarrow}O{\isacharbraceleft}{\isacharparenleft}A\isactrlbold {\isasymrightarrow}B{\isacharparenright}{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}ob\ X\ Y\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X\ w\ {\isasymlongrightarrow}\ Z\ w{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob\ Z\ {\isacharparenleft}{\isasymlambda}w{\isachardot}{\isacharparenleft}Z\ w\ {\isasymand}\ {\isasymnot}X\ w{\isacharparenright}\ {\isasymor}\ Y\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{I had to manually specify this subgoal, but once I did Isabelle was able to prove it automatically.%
+}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ ax{\isacharunderscore}{\isadigit{5}}d\ ax{\isacharunderscore}{\isadigit{5}}b\ ax{\isacharunderscore}{\isadigit{5}}b{\isacharprime}{\isacharprime}{\isacharparenright}\isanewline
+%
+\isamarkupcmt{Isabelle's proof-finding tool, Sledgehammer  \cite{sledgehammer}, comes with out-of-the-box support for smt solving \cite{smt}.%
+}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\isanewline
+\ \ \ \ \isacommand{have}\isamarkupfalse%
+\ f{\isadigit{1}}{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}p\ pa\ pb{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymnot}\ {\isacharparenleft}ob\ p\ pa{\isacharparenright}{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}{\isasymexists}i{\isachardot}\ {\isacharparenleft}p\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ pb{\isacharparenright}{\isacharparenright}\ i{\isacharparenright}{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}ob\ pb\ {\isacharparenleft}{\isacharparenleft}pb\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ p{\isacharparenright}{\isacharparenright}\isactrlbold {\isasymor}\ \ pa{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ {\isacartoucheopen}{\isasymforall}X\ Y\ Z{\isachardot}\ ob\ X\ Y\ {\isasymand}\ {\isacharparenleft}{\isasymTurnstile}{\isacharparenleft}X\isactrlbold {\isasymrightarrow}Z{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ ob\ Z\ {\isacharparenleft}\ {\isacharparenleft}Z\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ X{\isacharparenright}{\isacharparenright}\isactrlbold {\isasymor}\ Y{\isacharparenright}{\isacartoucheclose}\ \isacommand{by}\isamarkupfalse%
+\ force\isanewline
+\ \ \ \ \isacommand{obtain}\isamarkupfalse%
+\ ii\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}\ {\isasymRightarrow}\ {\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}\ {\isasymRightarrow}\ i{\isachardoublequoteclose}\ \isakeyword{where}\isanewline
+\ \ \ \ \ \ {\isachardoublequoteopen}{\isasymforall}x{\isadigit{0}}\ x{\isadigit{2}}{\isachardot}\ {\isacharparenleft}{\isasymexists}v{\isadigit{3}}{\isachardot}\ {\isacharparenleft}x{\isadigit{2}}\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ x{\isadigit{0}}{\isacharparenright}{\isacharparenright}\ v{\isadigit{3}}{\isacharparenright}\ {\isacharequal}\ {\isacharparenleft}x{\isadigit{2}}\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ x{\isadigit{0}}{\isacharparenright}{\isacharparenright}\ {\isacharparenleft}ii\ x{\isadigit{0}}\ x{\isadigit{2}}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ moura\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}p\ pa\ pb{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymnot}\ ob\ p\ pa{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}p\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ pb{\isacharparenright}{\isacharparenright}\ {\isacharparenleft}ii\ pb\ p{\isacharparenright}{\isacharparenright}\ {\isasymor}\ ob\ pb\ {\isacharparenleft}\ {\isacharparenleft}pb\isactrlbold {\isasymand}{\isacharparenleft}\isactrlbold {\isasymnot}\ p{\isacharparenright}{\isacharparenright}\isactrlbold {\isasymor}\ pa{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ f{\isadigit{1}}\ \isacommand{by}\isamarkupfalse%
+\ presburger\isanewline
+\ \ \ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{show}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \ \ \isacommand{by}\isamarkupfalse%
+\ fastforce\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{This entire Isar style proof was automatically generated using Sledgehammer.%
+}\isanewline
+\isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The implementation of DDL showcases some of the useful features of Isabelle. Abbreviations allow
+us to embed the syntax of DDL into HOL without defining an entire abstract sytax tree. Automated 
+support for proof-finding using Sledgehammer makes proving lemmas trivial, and proving more complex theorems
+far easier. Nitpick's model finding ability is useful to check for consistency and create countermodels.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper224.thy%:%
+%:%32=13%:%
+%:%34=15%:%
+%:%35=15%:%
+%:%36=16%:%
+%:%39=17%:%
+%:%43=17%:%
+%:%44=17%:%
+%:%45=17%:%
+%:%47=18%:%
+%:%48=18%:%
+%:%50=19%:%
+%:%51=19%:%
+%:%53=20%:%
+%:%154=54%:%
+%:%155=55%:%
+%:%157=56%:%
+%:%158=56%:%
+%:%159=57%:%
+%:%161=57%:%
+%:%165=57%:%
+%:%166=57%:%
+%:%173=57%:%
+%:%174=58%:%
+%:%175=59%:%
+%:%176=59%:%
+%:%177=60%:%
+%:%179=60%:%
+%:%183=60%:%
+%:%184=60%:%
+%:%191=60%:%
+%:%192=61%:%
+%:%193=62%:%
+%:%194=62%:%
+%:%195=63%:%
+%:%197=63%:%
+%:%201=63%:%
+%:%202=63%:%
+%:%225=69%:%
+%:%226=70%:%
+%:%228=72%:%
+%:%229=72%:%
+%:%230=73%:%
+%:%233=74%:%
+%:%237=74%:%
+%:%238=74%:%
+%:%239=75%:%
+%:%240=75%:%
+%:%242=76%:%
+%:%243=77%:%
+%:%244=77%:%
+%:%302=101%:%
+%:%305=102%:%
+%:%306=102%:%
+%:%307=103%:%
+%:%310=104%:%
+%:%314=104%:%
+%:%315=104%:%
+%:%317=105%:%
+%:%318=106%:%
+%:%319=107%:%
+%:%320=108%:%
+%:%321=108%:%
+%:%344=116%:%
+%:%345=117%:%
+%:%346=118%:%
+%:%348=120%:%
+%:%349=120%:%
+%:%350=121%:%
+%:%357=122%:%
+%:%358=122%:%
+%:%359=123%:%
+%:%360=123%:%
+%:%362=124%:%
+%:%363=124%:%
+%:%364=125%:%
+%:%365=125%:%
+%:%367=126%:%
+%:%368=126%:%
+%:%369=127%:%
+%:%370=127%:%
+%:%371=128%:%
+%:%372=128%:%
+%:%373=129%:%
+%:%374=129%:%
+%:%375=130%:%
+%:%376=130%:%
+%:%377=130%:%
+%:%378=131%:%
+%:%379=131%:%
+%:%380=132%:%
+%:%381=133%:%
+%:%382=133%:%
+%:%383=134%:%
+%:%384=134%:%
+%:%385=134%:%
+%:%386=135%:%
+%:%387=135%:%
+%:%388=135%:%
+%:%389=136%:%
+%:%390=136%:%
+%:%391=136%:%
+%:%392=137%:%
+%:%393=137%:%
+%:%394=138%:%
+%:%395=138%:%
+%:%397=139%:%
+%:%398=139%:%
+%:%399=140%:%
+%:%409=142%:%
+%:%410=143%:%
+%:%411=144%:%
+%:%412=145%:%

@@ -1,0 +1,373 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{paper{\isadigit{2}}{\isadigit{2}}}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Isabelle/HOL Implementation%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Isabelle/HOL is an interactive proof assistant \cite{isabelle} built on Haskell and Scala. It 
+allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
+automatic and interactive/manual theorem proving. 
+
+I started my project by reimplementing Benzmueller, Farjami, and Parent's \cite{BFP} \cite{logikey} implementation 
+of DDL in Isabelle/HOL. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
+next few sections demonstrates the power of Isabelle.
+
+BFP use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
+constants in HOL and axioms as constraints on DDL models. This document will contain a subset of my 
+implementation that is particularly interesting and relevant to understanding the rest of the project. 
+For the complete implementation, see the source code in \isatt{carmojones{\char`\_}DDL.thy}.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{System Definition%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+The first step in embedding a logic in Isabelle is defining the relevant terms and types.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{typedecl}\isamarkupfalse%
+\ i\ %
+\isamarkupcmt{i is the type for a set of worlds.%
+}\isanewline
+\isanewline
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ t\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ %
+\isamarkupcmt{t represents a set of DDL formulas.%
+}\isanewline
+%
+\isamarkupcmt{A set of formulae is defined by its truth value at a set of worlds. For example, the set {``True"}
+would be true at any set of worlds.%
+}\isanewline
+%
+\begin{isamarkuptext}%
+The main accessibility relation that I will use is the $ob$ relation:%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ {\isacharparenleft}t\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ \ %
+\isamarkupcmt{set of propositions obligatory in this "context"%
+}\isanewline
+\ %
+\isamarkupcmt{ob(context)(term) is True if t is obligatory in this context%
+}\isanewline
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Axiomatization%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+For a semantic embedding, axioms are modelled as restrictions on models of the system. In this case,
+a model is specificied by the relevant accessibility relations, so it suffices to place conditions on 
+the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's \cite{BFP}
+implementation of Carmo and Jones's original axioms directly. Here's an example of an axiom:%
+\end{isamarkuptext}\isamarkuptrue%
+\isanewline
+\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isanewline
+\ \ {\isasymlongrightarrow}ob{\isacharparenleft}Z{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}{\isacharparenleft}Z{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ {\isasymnot}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymor}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{If some subset Y of X is obligatory in the context X, then in a larger context Z,
+ any obligatory proposition must either be in Y or in Z-X. Intuitively, expanding the context can't 
+cause something unobligatory to become obligatory, so the obligation operator is monotonically increasing
+ with respect to changing contexts.%
+}\isanewline
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Syntax%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+The syntax that I will work with is defined as abbreviations. Each DDL operator is represented 
+as a HOL formula. A formula defined with the \isatt{abbreviation} command is unfolded in every 
+instance. While the shallow embedding is generally performant (because it uses Isabelle's original 
+syntax tree), abbreviations may possibly hurt performance. In some complicated proofs, we want controlled
+unfolding. Benzmueller and Parent told me that eventually, the performance cost of abbreviations can 
+be mitigated using a definition instead.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Modal operators will be useful for my purposes, but the implementation is pretty standard.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlbox{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymbox}\ A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}{\isasymforall}y{\isachardot}\ A{\isacharparenleft}y{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddldiamond{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymdiamond}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymdiamond}A\ {\isasymequiv}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+The most important operator for our purposes is the obligation operator.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O{\isacharbraceleft}{\isacharunderscore}{\isacharbar}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}O{\isacharbraceleft}B{\isacharbar}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}\ w{\isachardot}\ ob{\isacharparenleft}A{\isacharparenright}{\isacharparenleft}B{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{O$\{B \vert A\}$ can be read as ``B is obligatory in the context A"%
+}\isanewline
+%
+\begin{isamarkuptext}%
+While DDL is powerful because of its support for a dyadic obligation operator, in many cases 
+we need a monadic obligation operator. Below is some syntactic sugar for a monadic obligation operator.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymtop}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ True{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Intuitively, the context \texttt{True} is the widest context possible because \texttt{True} holds at all worlds.%
+}%
+\begin{isamarkuptext}%
+Validity will be useful when discussing metalogical/ethical properties.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddlvalid{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}A\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ A\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Syntactic Properties%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+One way to show that a semantic embedding is complete is to show that the syntactic specification
+of the theory (axioms) are valid for this semantics - so to show that every axiom holds at every 
+world. BFP \cite{BFP} provide a complete treatment of the completeness of their embedding, but I 
+will include selected axioms that are particularly interesting here. This section also demonstrates many
+of the relevant features of Isabelle/HOL for my project.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+\textbf{Consistency}%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ True\ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+%
+\isamarkupcmt{Isabelle has built-in support for Nitpick, a model checker. 
+Nitpick successfully found a model satisfying these axioms so the system is consistent.\cite{hintikka}%
+}\isanewline
+%
+\isamarkupcmt{\color{blue} Nitpick found a model for card i = 1:
+
+  Empty assignment \color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+{\color{red} Nitpick} \cite{nitpick} can generate models or countermodels, so it's useful to falsify potential
+theorems, as well as to show consistency. {\color{red} by simp} indicates the proof method. In this 
+case, {\color{red} simp} indicates the Simplification proof method, which involves unfolding definitions
+and applying theorems directly. HOL has $True$ as a theorem, which is why this theorem was so easy to prove.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper22.thy%:%
+%:%24=6%:%
+%:%36=8%:%
+%:%37=9%:%
+%:%38=10%:%
+%:%39=11%:%
+%:%40=12%:%
+%:%41=13%:%
+%:%42=14%:%
+%:%43=15%:%
+%:%44=16%:%
+%:%45=17%:%
+%:%46=18%:%
+%:%47=19%:%
+%:%56=22%:%
+%:%68=24%:%
+%:%70=26%:%
+%:%71=26%:%
+%:%72=26%:%
+%:%73=26%:%
+%:%74=27%:%
+%:%75=28%:%
+%:%76=28%:%
+%:%77=28%:%
+%:%78=28%:%
+%:%80=29%:%
+%:%81=30%:%
+%:%82=30%:%
+%:%85=44%:%
+%:%87=46%:%
+%:%88=46%:%
+%:%89=46%:%
+%:%90=46%:%
+%:%91=47%:%
+%:%92=47%:%
+%:%93=47%:%
+%:%101=51%:%
+%:%113=53%:%
+%:%114=54%:%
+%:%115=55%:%
+%:%116=56%:%
+%:%118=80%:%
+%:%119=81%:%
+%:%120=82%:%
+%:%122=83%:%
+%:%123=84%:%
+%:%124=85%:%
+%:%125=86%:%
+%:%126=86%:%
+%:%134=93%:%
+%:%146=95%:%
+%:%147=96%:%
+%:%148=97%:%
+%:%149=98%:%
+%:%150=99%:%
+%:%151=100%:%
+%:%155=116%:%
+%:%157=117%:%
+%:%158=117%:%
+%:%159=118%:%
+%:%160=119%:%
+%:%161=119%:%
+%:%162=120%:%
+%:%164=122%:%
+%:%166=123%:%
+%:%167=123%:%
+%:%168=124%:%
+%:%170=125%:%
+%:%171=125%:%
+%:%174=145%:%
+%:%175=146%:%
+%:%177=147%:%
+%:%178=147%:%
+%:%179=148%:%
+%:%180=149%:%
+%:%181=149%:%
+%:%182=150%:%
+%:%184=151%:%
+%:%187=153%:%
+%:%189=154%:%
+%:%190=154%:%
+%:%191=155%:%
+%:%199=162%:%
+%:%211=164%:%
+%:%212=165%:%
+%:%213=166%:%
+%:%214=167%:%
+%:%215=168%:%
+%:%219=170%:%
+%:%221=171%:%
+%:%222=171%:%
+%:%223=171%:%
+%:%225=171%:%
+%:%229=171%:%
+%:%230=171%:%
+%:%232=172%:%
+%:%233=173%:%
+%:%234=173%:%
+%:%236=174%:%
+%:%237=175%:%
+%:%238=176%:%
+%:%248=178%:%
+%:%249=179%:%
+%:%250=180%:%
+%:%251=181%:%

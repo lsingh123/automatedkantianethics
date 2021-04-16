@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: root.aux
+The style file: abbrv.bst
+Database file #1: root.bib
+Warning--empty booktitle in sledgehammer
+You've used 21 entries,
+            2118 wiz_defined-function locations,
+            642 strings with 6971 characters,
+and the built_in function-call counts, 6489 in all, are:
+= -- 632
+> -- 267
+< -- 5
++ -- 107
+- -- 83
+* -- 391
+:= -- 1083
+add.period$ -- 67
+call.type$ -- 21
+change.case$ -- 97
+chr.to.int$ -- 0
+cite$ -- 22
+duplicate$ -- 300
+empty$ -- 541
+format.name$ -- 83
+if$ -- 1398
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 27
+newline$ -- 108
+num.names$ -- 48
+pop$ -- 120
+preamble$ -- 1
+purify$ -- 81
+quote$ -- 0
+skip$ -- 209
+stack$ -- 0
+substring$ -- 312
+swap$ -- 71
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 72
+warning$ -- 1
+while$ -- 58
+width$ -- 23
+write$ -- 235
+(There was 1 warning)
