@@ -11,3 +11,5 @@
 \contentsline {subsubsection}{\numberline {2.3.4}Syntactic Properties}{7}{subsubsection.2.3.4}%
 \contentsline {section}{\numberline {3}The Categorical Imperative}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Naive Formulation of the Formula of Universal Law}{10}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Specifying the Model}{11}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Metaethical Properties}{12}{subsubsection.3.1.2}%

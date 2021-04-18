@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  16 APR 2021 10:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  18 APR 2021 11:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,43 +294,44 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [5] [6]
-[7]) (./paper224.tex [8]) (./paper31.tex [9]) [10] (./root.bbl [11])
+[7]) (./paper224.tex [8]) (./paper31.tex [9] [10] [11] [12] [13] [14]) [15]
+(./root.bbl [16])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
- [12]
+ [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
-
-(./root.aux)
+ (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: D99B40CCDFE76A0B10427C4D4813DB4A;914.
+(rerunfilecheck)             Checksum: 448DEB50DC9D3E964D6BE91958D416B3;1076.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 64.
  ) 
 Here is how much of TeX's memory you used:
- 6395 strings out of 480608
- 94379 string characters out of 5903631
- 349766 words of memory out of 5000000
- 22100 multiletter control sequences out of 15000+600000
- 561375 words of font info for 92 fonts, out of 8000000 for 9000
+ 6435 strings out of 480608
+ 94818 string characters out of 5903631
+ 349889 words of memory out of 5000000
+ 22117 multiletter control sequences out of 15000+600000
+ 569260 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,33p,824b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,33p,824b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
 ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive
-/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/f
-onts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on root.pdf (12 pages, 158966 bytes).
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/font
+s/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/ur
+w/times/utmri8a.pfb>
+Output written on root.pdf (17 pages, 181547 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

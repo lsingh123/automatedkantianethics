@@ -71,10 +71,10 @@ it is prohibited. In order to appropriately formalize this, we need some notion 
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}P\ A{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{An act $A$ is permissible if its negation is not obligated. For example, buying a red folder is 
-permissible because I am not requires to refrain from buying a red folder.%
+permissible because I am not required to refrain from buying a red folder.%
 }%
 \begin{isamarkuptext}%
-This naice formalization will require very little additional logical machinery, but more complex
+This naive formalization will require very little additional logical machinery, but more complex
 formalizations may require additional logic concepts beyond just that of permissibility. 
 
 Let's now consider a naive reading of the Formula of Universal Law (FUL): 'act only in accordance 
@@ -96,7 +96,260 @@ imperative as an axiom makes it impossible to violate it.
 Note that in this system, reasoning about violations of obligation is difficult. Any violation of the 
 categorical imperative immediately results in a contradiction. Developing a Kantian account of contrary-
 to-duty obligations is a much larger philosophical project that is still open \cite{KorsgaardRTL}. This paper will focus 
-on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
+on the classical Kantian notion of an ideal moral world \cite{idealtheory}.
+
+The immediate test for any formalization is consistency, which we can check with Nitpick.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ True\ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue} Nitpick found a model for card i = 1:
+
+  Empty assignment \color{black}%
+}\isanewline
+%
+\isamarkupcmt{Nitpick tells us that the FUL is consistent%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Specifying the Model%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+One category of tests is specified models. Specifying the model allows us to encode certain facts 
+into the system and then ask questions about obligations. Without specifying the model, we are limited 
+to showing high-level metaethical facts. Let's start with analyzing an obvious example - that murder is 
+wrong.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ M{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ murder{\isacharunderscore}wrong{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}murder{\isacharunderscore}wrong\ {\isasymequiv}\ {\isasymTurnstile}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isacommand{abbreviation}\isamarkupfalse%
+\ poss{\isacharunderscore}murder{\isacharunderscore}wrong{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}poss{\isacharunderscore}murder{\isacharunderscore}wrong\ {\isasymequiv}\ {\isasymTurnstile}{\isacharparenleft}{\isasymdiamond}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{These are very simple properties. \isa{poss{\isacharunderscore}murder{\isacharunderscore}wrong} is an abbreviation for the axiom
+that there is some world where murder might be prohibited. Even this is quite a strong assumption - 
+ideally we'd want to give the system nonmoral facts about murder (like a definition) and then make 
+moral claims.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}posibly{\isacharunderscore}wrong{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ poss{\isacharunderscore}murder{\isacharunderscore}wrong\isanewline
+\ \ \isakeyword{shows}\ murder{\isacharunderscore}wrong\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This lemma gets to the ``heart" of this naive interpretation. We really want to say that if something
+ isn't necessarily obligated, it's not obligated anywhere. "%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The above example does exactly what we expect it to: we show that if something is wrong somewhere 
+it's wrong everywhere. That being said, it seems like quite a weak claim. We assumed a very strong, moral 
+fact about murder (that it is wrong somewhere), so of course we were able to reach our desired conclusion.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Let's try a weaker assumption: Not everyone can lie.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{typedecl}\isamarkupfalse%
+\ person\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ lie{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}person{\isasymRightarrow}t{\isachardoublequoteclose}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ me{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}person{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Notice that this machinery is quite empty. We don't give an axioms about what a person can or can't do.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ lying{\isacharunderscore}not{\isacharunderscore}universal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ lie{\isacharparenleft}x{\isacharparenright}\ cw{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}\ cw{\isacharparenright}{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+This is a rough translation of failure of the universalizability test: we will the maxim universally,
+as represented by the universal quantifier in the first conjunct, and simulataneously \cite{simul}, as represented by 
+the second conjunct. The FUL tells us that if this sentence is true, then lying should be prohibited. 
+Let's test it.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ breaking{\isacharunderscore}promises{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ lying{\isacharunderscore}not{\isacharunderscore}universal\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}\ cw{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card person = 2 and card i = 2:
+
+  Free variable:
+    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False)) \color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This formula isn't valid. While the FUL should tell us that lying is prohibited, the fact that it 
+doesn't demonstrates the weakness of this naive formulation of the categorical imperative. Kant's version of
+the FUL universalizes across people, as we did in the definition of \isa{lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ lie\ x\ cw{\isacharparenright}\ {\isasymand}\ lie\ me\ cw}. The 
+naive formalization universalizes across worlds using the $\Box$ operator, so it makes sense that it can't
+handle this example appropriately.
+
+The above implies that the FUL should prescribe consistent obligations across people. If our formalization
+doesn't, clearly something has gone wrong somewhere. Let's test that!%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ universalizability{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}{\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}x{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}{\isacharparenleft}lie{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card person = 2 and card i = 2:
+
+  Free variable:
+    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := True), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
+  Skolem constant:
+    x = $p_2$ \color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This lemma demonstrates the problem with the naive interpretation. The FUL universalizes across people
+but the naive formalization universalizes across worlds. Because this interpretation is so naive, it is 
+limited in its power. However, this serves as an example of the kind of reasoning that 
+Isabelle empowers us to do. Even this simple argument has philosophical consequences. It tells us that
+reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
+agents, leads to counterintuitive conclusions.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -105,83 +358,9 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \isatagdocument
 %
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
+\isamarkupsubsubsection{Metaethical Properties%
+}
+\isamarkuptrue%
 %
 \endisatagdocument
 {\isafolddocument}%
@@ -190,12 +369,47 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimdocument
 %
+\begin{isamarkuptext}%
+The above section specified the model to simulate practical ethical reasoning, or the kind of 
+reasoning that is useful when an agent has to decide what to do. Formalizations of the categorical 
+imperative can also be used to do metaethical reasoning, which can evaluate a particular ethical theory
+as good or bad. In this case, we can analyze properties of the system in the form of theorems. For example,
+if we can show that, in this system, nothing is ever obligated, that would indicate that we have a bad 
+ethical system. This is not only philosophical work, but is also a useful way to test different ethical
+reasoning systems.
+
+An initial property that we might be interested in is permissibility itself. More generally, an ethical
+theory that doesn't allow for permissibility would require that every action is either obligatory or 
+prohibited. In fact, if that is the case, many counterintuitive theorems follow, including that all 
+permissible actions are obligatory.\footnote{Proof is in the appendix.}%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)\color{black}%
+}\isanewline
+%
+\isamarkupcmt{This is exactly the desired result above - we have shown that models exist where an action can be 
+neither obligatory nor prohibited.%
+}\isanewline
+%
+\isamarkupcmt{Note that it's not clear \cite{kitcher} if Kant actually thought that permissibility was a coherent 
+concept. Either way, in modern ethics, permissibility is a pretty widely accepted phenomenon.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -203,12 +417,32 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+Another initial test is the possibility of arbitrary obligations. If anything can be shown to be 
+obligatory in this theory, then clearly it doesn't track out intuitions.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ arbitrary{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharequal}true{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}%
+}\isanewline
+%
+\isamarkupcmt{This is good! Shows us that any arbitrary term isn't obligatory.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -216,12 +450,38 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
-\isadelimproof
+\begin{isamarkuptext}%
+$\textbf{Conflicting Obligations}$%
+\end{isamarkuptext}\isamarkuptrue%
 %
+\begin{isamarkuptext}%
+A more complex metaethical property is the possibility of conflicting obligations. Many deontological
+ethics are criticized for prescribing conflicting obligations, but it is clear that in Kantian ethics, 
+obligations are never conflicting \cite{contradictoryob}. In order for morality to be action-guiding, it needs to be free of 
+conflicting obligations. Let's see if we can have contradictary obligations under the naive formalization.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a model for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True) \color{black}%
+}\isanewline
+%
+\isamarkupcmt{Oh no! Nitpick found a model with conflicting obligations - that's bad!%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -229,12 +489,32 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+This is a property of DDL itself, not necessarily of my formalization specifically. A future, 
+more robust formalization should add an axiom that disallows this. Let's see if that causes any obvious 
+problems.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ removing{\isacharunderscore}conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}A{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ True\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}satisfy{\isacharcomma}user{\isacharunderscore}axioms{\isacharcomma}format{\isacharequal}{\isadigit{2}}{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a model for card i = 1:
+
+  Empty assignment \color{black}%
+}\isanewline
+%
+\isamarkupcmt{We can disallow conflicting obligations and the system is still consistent - that's good.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -242,25 +522,52 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
+\begin{isamarkuptext}%
+The above is a rather weak notion of contradictory obligations. Korsgaard \cite{KorsgaardFUL} argues that Kantian 
+ethics also has the stronger property that if two maxims imply a contradiction, they must not be willed.
+Let's see if that fact holds in this formalization.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ implied{\isacharunderscore}contradiction{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{fixes}\ B{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ \isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}A\ \isactrlbold {\isasymand}\ B{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}\isanewline
 %
 \isadelimproof
 %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\ \isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}{\isacharparenleft}{\isasymdiamond}{\isacharparenleft}A\ \isactrlbold {\isasymand}\ B{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenright}\isanewline
+\ \ \isacommand{then}\isamarkupfalse%
+\ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ O{\isacharunderscore}diamond{\isacharparenright}\isanewline
 %
+\isamarkupcmt{Notice that this is $\textbf{almost}$ the property we are interested in. In fact, if $O \{ A \wedge B \}$
+is equivalent to $O\{A\} \wedge O\{B\}$, then the proof is complete.%
+}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\ \isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True) \color{black}%
+}\isanewline
+%
+\isamarkupcmt{Sadly the property we're actually interested in doesn't follow.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -268,12 +575,33 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+The above proof yields an interesting observation.  $O \{ A \wedge B \} $ is not equivalent to 
+$O\{A\} \wedge O\{B\}$. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
+do both A and B". The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
+and you are obligated to do B." We think those English sentences mean the same thing, so they should mean 
+the same thing in our logic as well. Let's test that.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ distribute{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ \ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
+    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -281,25 +609,41 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
-\isadelimdocument
+\begin{isamarkuptext}%
+Note that this is a property of DDL itself, not just my formalization. A future formalization might 
+add this property as an axiom.\footnote{For discussion of why this property doesn't hold in DDL, see the Appendix.}%
+\end{isamarkuptext}\isamarkuptrue%
 %
-\endisadelimdocument
+\begin{isamarkuptext}%
+$\textbf{Miscellaneous Properties}$%
+\end{isamarkuptext}\isamarkuptrue%
 %
-\isatagdocument
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
+\begin{isamarkuptext}%
+I named this formalization the naive formulation for a reason. Though it seems to be an immediate
+translation of the FUL into DDL, it doesn't fully respect the properties of modal logic itself. In particular, the 
+formalization as given is equivalent to the below theorem.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ FUL{\isacharunderscore}alternate{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymdiamond}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isadelimproof
-%
+\ \ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
 %
+\isamarkupcmt{This means that if something is possibly prohibited, it is in fact prohibited.%
+}\isanewline
+%
+\isamarkupcmt{This is a direct consequence\footnote{For a manual proof, see the Appendix.} of the naive formalization, but it's not clear to me that this is 
+actually how we think about ethics. For example, we can imagine an alternate universe where smiling at 
+someone is considered an incredibly rude and disrespectful gesture. In this universe, we are probably 
+prohibited from smiling at people, but this doesn't mean that in this current universe, smiling is 
+morally wrong.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -307,63 +651,27 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %
 \endisadelimproof
 %
-\isadelimproof
+\begin{isamarkuptext}%
+The ``ought implies can" principle is attributed to Kant\footnote{The exact philosophical credence of this view is disupted, but the rough idea holds nonetheless. See \cite{kohl} for more.}
+ and is rather intuitive: you can't be obligated to do the impossible. It is worth noting that deontic 
+logics evolved\cite{cresswell} specifically from this principle, so this should hold in both my 
+modified logic and in DDL.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ ought{\isacharunderscore}implies{\isacharunderscore}can{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}A{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isasymdiamond}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
+\isadelimproof
+\ \ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
 %
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
+\isamarkupcmt{\isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A} is an axiom of DDL itself, so this theorem holds in DDL.%
+}\isanewline
 %
 \endisatagproof
 {\isafoldproof}%
@@ -454,3 +762,276 @@ on the classical Kantian notion of an ideal moral world \cite{idealtheory}.%
 %:%97=55%:%
 %:%98=56%:%
 %:%99=57%:%
+%:%100=58%:%
+%:%101=59%:%
+%:%103=62%:%
+%:%104=62%:%
+%:%105=62%:%
+%:%107=62%:%
+%:%111=62%:%
+%:%112=62%:%
+%:%114=63%:%
+%:%115=64%:%
+%:%116=65%:%
+%:%117=65%:%
+%:%119=66%:%
+%:%186=113%:%
+%:%198=115%:%
+%:%199=116%:%
+%:%200=117%:%
+%:%201=118%:%
+%:%203=120%:%
+%:%204=120%:%
+%:%205=121%:%
+%:%206=121%:%
+%:%218=129%:%
+%:%221=130%:%
+%:%222=130%:%
+%:%224=131%:%
+%:%225=132%:%
+%:%226=133%:%
+%:%227=134%:%
+%:%228=134%:%
+%:%229=135%:%
+%:%230=136%:%
+%:%231=136%:%
+%:%232=137%:%
+%:%233=138%:%
+%:%236=139%:%
+%:%240=139%:%
+%:%241=139%:%
+%:%242=139%:%
+%:%244=140%:%
+%:%245=141%:%
+%:%255=143%:%
+%:%256=144%:%
+%:%257=145%:%
+%:%261=147%:%
+%:%263=149%:%
+%:%264=149%:%
+%:%265=150%:%
+%:%266=150%:%
+%:%267=151%:%
+%:%268=151%:%
+%:%270=152%:%
+%:%271=152%:%
+%:%272=153%:%
+%:%273=154%:%
+%:%274=154%:%
+%:%276=156%:%
+%:%277=157%:%
+%:%278=158%:%
+%:%279=159%:%
+%:%281=161%:%
+%:%282=161%:%
+%:%283=162%:%
+%:%284=163%:%
+%:%285=164%:%
+%:%286=164%:%
+%:%289=165%:%
+%:%293=165%:%
+%:%294=165%:%
+%:%296=166%:%
+%:%297=167%:%
+%:%298=168%:%
+%:%299=169%:%
+%:%309=171%:%
+%:%310=172%:%
+%:%311=173%:%
+%:%312=174%:%
+%:%313=175%:%
+%:%314=176%:%
+%:%315=177%:%
+%:%316=178%:%
+%:%318=180%:%
+%:%319=180%:%
+%:%320=181%:%
+%:%321=182%:%
+%:%322=183%:%
+%:%323=183%:%
+%:%325=183%:%
+%:%329=183%:%
+%:%330=183%:%
+%:%332=184%:%
+%:%333=185%:%
+%:%334=186%:%
+%:%335=187%:%
+%:%336=188%:%
+%:%337=189%:%
+%:%347=191%:%
+%:%348=192%:%
+%:%349=193%:%
+%:%350=194%:%
+%:%351=195%:%
+%:%352=196%:%
+%:%361=198%:%
+%:%373=200%:%
+%:%374=201%:%
+%:%375=202%:%
+%:%376=203%:%
+%:%377=204%:%
+%:%378=205%:%
+%:%379=206%:%
+%:%380=207%:%
+%:%381=208%:%
+%:%382=209%:%
+%:%383=210%:%
+%:%384=211%:%
+%:%386=213%:%
+%:%387=213%:%
+%:%388=214%:%
+%:%389=215%:%
+%:%390=216%:%
+%:%391=216%:%
+%:%393=216%:%
+%:%397=216%:%
+%:%398=216%:%
+%:%400=217%:%
+%:%401=218%:%
+%:%402=219%:%
+%:%403=220%:%
+%:%404=220%:%
+%:%406=221%:%
+%:%407=222%:%
+%:%408=222%:%
+%:%410=223%:%
+%:%411=224%:%
+%:%421=226%:%
+%:%422=227%:%
+%:%424=229%:%
+%:%425=229%:%
+%:%426=230%:%
+%:%427=231%:%
+%:%428=232%:%
+%:%429=232%:%
+%:%431=232%:%
+%:%435=232%:%
+%:%436=232%:%
+%:%438=233%:%
+%:%439=234%:%
+%:%440=235%:%
+%:%441=236%:%
+%:%442=236%:%
+%:%444=237%:%
+%:%454=239%:%
+%:%458=241%:%
+%:%459=242%:%
+%:%460=243%:%
+%:%461=244%:%
+%:%463=246%:%
+%:%464=246%:%
+%:%465=247%:%
+%:%466=248%:%
+%:%467=249%:%
+%:%468=249%:%
+%:%470=249%:%
+%:%474=249%:%
+%:%475=249%:%
+%:%477=250%:%
+%:%478=251%:%
+%:%479=252%:%
+%:%480=253%:%
+%:%481=253%:%
+%:%483=254%:%
+%:%493=256%:%
+%:%494=257%:%
+%:%495=258%:%
+%:%497=260%:%
+%:%498=260%:%
+%:%499=261%:%
+%:%500=262%:%
+%:%501=263%:%
+%:%502=263%:%
+%:%504=263%:%
+%:%508=263%:%
+%:%509=263%:%
+%:%511=264%:%
+%:%512=265%:%
+%:%513=266%:%
+%:%514=266%:%
+%:%516=267%:%
+%:%526=269%:%
+%:%527=270%:%
+%:%528=271%:%
+%:%530=273%:%
+%:%531=273%:%
+%:%532=274%:%
+%:%533=275%:%
+%:%534=276%:%
+%:%535=277%:%
+%:%536=278%:%
+%:%537=278%:%
+%:%544=279%:%
+%:%545=279%:%
+%:%546=280%:%
+%:%547=280%:%
+%:%548=281%:%
+%:%549=281%:%
+%:%550=282%:%
+%:%551=282%:%
+%:%552=282%:%
+%:%553=282%:%
+%:%555=283%:%
+%:%556=284%:%
+%:%557=284%:%
+%:%558=285%:%
+%:%559=285%:%
+%:%560=285%:%
+%:%562=286%:%
+%:%563=287%:%
+%:%564=288%:%
+%:%565=289%:%
+%:%566=290%:%
+%:%567=290%:%
+%:%569=291%:%
+%:%579=293%:%
+%:%580=294%:%
+%:%581=295%:%
+%:%582=296%:%
+%:%583=297%:%
+%:%585=299%:%
+%:%586=299%:%
+%:%587=300%:%
+%:%588=301%:%
+%:%589=302%:%
+%:%590=302%:%
+%:%592=302%:%
+%:%596=302%:%
+%:%597=302%:%
+%:%599=303%:%
+%:%600=304%:%
+%:%601=305%:%
+%:%602=306%:%
+%:%603=307%:%
+%:%613=309%:%
+%:%614=310%:%
+%:%618=312%:%
+%:%622=314%:%
+%:%623=315%:%
+%:%624=316%:%
+%:%626=318%:%
+%:%627=318%:%
+%:%628=319%:%
+%:%631=320%:%
+%:%635=320%:%
+%:%636=320%:%
+%:%638=321%:%
+%:%639=321%:%
+%:%641=322%:%
+%:%642=323%:%
+%:%643=324%:%
+%:%644=325%:%
+%:%645=326%:%
+%:%655=328%:%
+%:%656=329%:%
+%:%657=330%:%
+%:%658=331%:%
+%:%660=333%:%
+%:%661=333%:%
+%:%662=334%:%
+%:%665=335%:%
+%:%669=335%:%
+%:%670=335%:%
+%:%671=335%:%
+%:%673=336%:%
+%:%674=336%:%
