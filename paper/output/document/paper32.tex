@@ -1,0 +1,385 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{paper{\isadigit{3}}{\isadigit{2}}}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Kroy's Formalization of the Categorical Imperative%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+This section contains a formalization of the categorical imperative introduced by Moshe Kroy in 
+1976 \cite{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
+the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains 
+that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
+and test both of Kroy's formalizations.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Additional Logical Tools%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Kroy's logic relies heavily on some notion of identity or agency. We need some notion of ``x does action", 
+which we can write as ``x is the subject of the sentence 'does action'". This requires defining a subject.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{typedecl}\isamarkupfalse%
+\ s\ %
+\isamarkupcmt{s is the type for a ``subject", like the subject of a sentence%
+}%
+\begin{isamarkuptext}%
+Kroy also defines a substitution operator\footnote{see page 196 in \cite{kroy}}. $P (d/e)$ is read in his logic as ``P with e substituted 
+for d." DDL has no such notion of substitution, so I will define a more generalized notion of an ``open 
+sentence." An open sentence takes as input a subject and returns a complete or ``closed" DDL formula. For example, 
+``does action" is an open sentence that can be instantiated with a subject.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{``P sub (d/e)" can be written as ``S(e)", where S(d) = P%
+}\isanewline
+%
+\isamarkupcmt{The terms that we substitute into are actually instantiations of an open sentence, and substitution 
+just requires re-instantiating the open sentence with a different subject.%
+}%
+\begin{isamarkuptext}%
+\textbf{New Operators}
+
+Because Isabelle is strongly typed, we need to define new operators to handle open sentences. These operators 
+are similar to DDL's original operators. We could probably do without these abbreviations, but they will 
+simplify the notation and make it look more similar to Kroy's original paper.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}neg{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph {\isasymnot}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}\isactrlemph {\isasymnot}A{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ \isactrlbold {\isasymnot}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}and{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlemph {\isasymand}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\ \isactrlemph {\isasymand}\ B{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}B{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}or{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\isactrlemph {\isasymor}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}A\ \isactrlemph {\isasymor}\ B{\isacharparenright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}{\isacharparenleft}A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymor}\ {\isacharparenleft}B{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph O{\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlemph O{\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharparenleft}x{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+Once again, the notion of permissibility will be useful here.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ ddl{\isacharunderscore}permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}P\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ os{\isacharunderscore}permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os{\isasymRightarrow}os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ P\ {\isacharbraceleft}A{\isacharparenleft}x{\isacharparenright}{\isacharbraceright}{\isachardoublequoteclose}%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Differences Between Kroy's Logic (Kr) and DDL%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper/paper32.thy%:%
+%:%24=8%:%
+%:%36=10%:%
+%:%37=11%:%
+%:%38=12%:%
+%:%39=13%:%
+%:%40=14%:%
+%:%49=16%:%
+%:%61=18%:%
+%:%62=19%:%
+%:%64=21%:%
+%:%65=21%:%
+%:%66=21%:%
+%:%69=23%:%
+%:%70=24%:%
+%:%71=25%:%
+%:%72=26%:%
+%:%74=28%:%
+%:%75=28%:%
+%:%77=29%:%
+%:%78=29%:%
+%:%80=30%:%
+%:%81=31%:%
+%:%84=33%:%
+%:%85=34%:%
+%:%86=35%:%
+%:%87=36%:%
+%:%88=37%:%
+%:%90=39%:%
+%:%91=39%:%
+%:%92=40%:%
+%:%93=41%:%
+%:%94=41%:%
+%:%95=42%:%
+%:%96=43%:%
+%:%97=43%:%
+%:%98=44%:%
+%:%99=45%:%
+%:%100=45%:%
+%:%101=46%:%
+%:%103=48%:%
+%:%105=50%:%
+%:%106=50%:%
+%:%107=51%:%
+%:%108=52%:%
+%:%109=52%:%
+%:%110=53%:%
+%:%117=56%:%

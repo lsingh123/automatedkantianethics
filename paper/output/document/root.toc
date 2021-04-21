@@ -13,3 +13,6 @@
 \contentsline {subsection}{\numberline {3.1}Naive Formulation of the Formula of Universal Law}{10}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Specifying the Model}{11}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Metaethical Properties}{12}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative}{15}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Additional Logical Tools}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Differences Between Kroy's Logic (Kr) and DDL}{16}{subsubsection.3.2.2}%
