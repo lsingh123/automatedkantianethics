@@ -22,13 +22,13 @@ This report is intended to be accessible to computer scientists with little back
 The root directory contains development versions of my Isabelle theories, in files ending in `*.thy`. The directory `paper/` 
 contains cleaned up versions of these theories, compiled to produce the report in `paper/output/document.pdf`
 
-## Tasks
-* Implement DDL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-* Test DDL and derive useful theorems ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-* Implement the naive formalization ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-* Test the naive formalization ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-* Implement Kroy's formalization of FUL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
-    * Include analysis of the differences between Kroy's logic and DDL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) `#c5f015`
+## Goals
+* Implement DDL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)
+* Test DDL and derive useful theorems ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) 
+* Implement the naive formalization ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) 
+* Test the naive formalization ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)
+* Implement Kroy's formalization of FUL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) 
+    * Include analysis of the differences between Kroy's logic and DDL ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) 
 * Test Kroy's formalization of FUL
 * Implement Kroy's formalization of FUH
 * Test Kroy's formalization of FUH
