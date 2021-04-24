@@ -38,4 +38,6 @@ contains cleaned up versions of these theories, compiled to produce the report i
     * Figure out what level of model specification is necessary for each formalization
     * Try working with classical ethical dilemmas, like the Nazi example
 * Analyze Kant's argument for the equivalence of the three formulations of the categorical imperative 
+* *(For report) section on related work*
+* *(For report) section on goals/roadmap for thesis*
  
