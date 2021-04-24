@@ -9,7 +9,7 @@ text \<open>Isabelle/HOL is an interactive proof assistant @{cite isabelle} buil
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
 automatic and interactive/manual theorem proving. 
 
-I started my project by reimplementing Benzmueller, Farjami, and Parent's @{cite BFP} @{cite logikey} implementation 
+I started my project by reimplementing Benzmueller, Farjami, and Parent's \cite{BFP, logikey} implementation 
 of DDL in Isabelle/HOL. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
 next few sections demonstrates the power of Isabelle.
 

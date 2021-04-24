@@ -7,7 +7,6 @@
 \endisadelimtheory
 %
 \isatagtheory
-\ \ \isakeyword{imports}\ Main\isanewline
 %
 \endisatagtheory
 {\isafoldtheory}%
@@ -59,7 +58,7 @@ field of philosophy is devoted to developing and testing robust ethical theories
 ethics must draw on plausible moral philosophy.
 
 The ideal candidate ethical theory will be both philosophically interesting and easy to 
-formalize. Kantian ethics, often described as ``formal," has been often floated as such a candidate \cite{powers} \cite{BL}. 
+formalize. Kantian ethics, often described as ``formal," has been often floated as such a candidate \cite{powers, BL}. 
 The categorical imperative, Kant's universal law of morality, is a moral rule that can be used to 
 guide action. 
 
@@ -145,8 +144,19 @@ $\textbf{Definition}$ \emph{(Formula of Universal Law)}
 A ``maxim" is roughly a moral rule like ``I can murder someone to take their job". ``Willing" a maxim is 
 equivalent to acting on that rule. The FUL creates a thought experiment called the universalizability 
 test: to decide if a maxim is permissible, imagine what would happen if everyone willed that maxim. 
-If your imagined world yields a contradiction, the maxim is prohibited. Intuitively, the FUL asks 
-the question, "What would happen if everyone did that?" \cite{KorsgaardFUL}.
+If your imagined world yields a contradiction, the maxim is prohibited\footnote{There is another case here.
+What happens if the imagined world does not yield a logical contradiction, but is still undesirable? Kant 
+distinguishes between these cases as contradictions in conception and contradictions in will. Both yield moral
+prohibitions, but contradictions in conception generate stronger contradictions and therefore stronger obligations. 
+This paper will focus entirely on contradictions in conception, for this is the only kind of contradiction 
+for which a strict logical interpretation makes sense. For a complete treatment of the difference, see \cite{groundwork, KorsgaardFUL}}. Intuitively, the FUL asks 
+the question, "What would happen if everyone did that?" \cite{KorsgaardFUL}. 
+
+As an example, let's apply the universalizability test to the maxim of murdering others to take their job.
+Universalized, anyone who wants a job can murder the person currently holding that job. It is contradictory
+to simultaneously will that I acquire a job (through murder) and also that someone can take that job from me 
+whenever they want (also by murder). The maxim thwarts its own end, and is thus internally contradictory.
+ Therefore, this maxim is prohibited.
 
 The universalizability test makes the ``formal" nature of Kant's ethics immediately clear. Formal 
 logic has the tools to universalize a maxim (apply a universal quantifier) and to test for 
@@ -215,13 +225,24 @@ These logics also usually contain the $\diamond$ operator, representing possibil
 logic like $\sim, \wedge, \vee, \rightarrow$.
 
 A deontic logic is a special kind of modal logic designed to reason about obligation. Standard deontic
-logic \cite{cresswell} \cite{sep-logic-deontic} essentially replaces $\Box$ with the obligation operator
+logic \cite{cresswell, sep-logic-deontic} essentially replaces $\Box$ with the obligation operator
 $O$, and $\diamond$ with the permissibility operator $P$. Using the Kripke semantics for $O$, $O p$ 
 is true at $w$ if $p$ is true at all  ideal deontic alternatives to $w$. The $O$ operator in SDL
 takes a single argument (the formula that is obligatory), and is thus called a monadic deontic operator.
 
  While SDL is appreciable for its simplicity, it suffers a variety of well-documented paradoxes, 
-including contrary-to-duty paradoxes \cite{ctd}. In situations where duty is violated, the logic breaks down 
+including contrary-to-duty paradoxes \footnote{The paradigm case of a contrary-to-duty paradox is the 
+Chisholm paradox. Consider the following statements: \begin{enumerate}
+\item It ought to be that Tom ought helps his neighbors
+\item It ought to be that if Tom goes to help his neighbors, he tells them he is coming
+\item If Tom does not go to help his neighbors, he ought not tell them that he is coming
+\item Tom does not help his neighbors
+\end{enumerate} 
+These premises contradict themselves, because items (2)-(4) imply that Tom ought not help his neighbors. The 
+contradiction results because the logic cannot handle violations of duty mixed with
+conditionals. \cite{chisholm, ctd}
+}. 
+In situations where duty is violated, the logic breaks down 
 and produces paradoxical results. Thus, I use an improved deontic logic instead of SDL for this work.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -246,7 +267,7 @@ and produces paradoxical results. Thus, I use an improved deontic logic instead 
 I use as my base logic Carmo and Jones's dyadic deontic logic, or DDL, which improves on SDL \cite{CJDDL}. 
 It introduces a dyadic obligation operator $O\{A \vert B\}$ 
 to represent the sentence ``A is obligated in the context B". This gracefully handles contrary-to-duty
-conditionals. The obligation operator uses a neighborhood semantics \cite{neighborhood1}\cite{neighborhood2}, instead of the Kripke semantics. 
+conditionals. The obligation operator uses a neighborhood semantics \cite{neighborhood1, neighborhood2}, instead of the Kripke semantics. 
 Carmo and Jones define a function $ob$ that maps from worlds to sets of sets of worlds. Intuitively, 
 each world is mapped to the set of propositions obligated at that world, where a proposition $p$ is defined as 
 the worlds at which the $p$ is true.
@@ -293,154 +314,175 @@ and Parent warned me that this may become a problem if Isabelle's automated proo
 \end{isabellebody}%
 \endinput
 %:%file=~/Desktop/cs91r/paper/paper.thy%:%
-%:%10=2%:%
-%:%25=6%:%
-%:%37=8%:%
-%:%38=9%:%
-%:%39=10%:%
-%:%40=11%:%
-%:%41=12%:%
-%:%42=13%:%
-%:%43=14%:%
-%:%44=15%:%
-%:%45=16%:%
-%:%46=17%:%
-%:%47=18%:%
-%:%48=19%:%
-%:%49=20%:%
-%:%50=21%:%
-%:%51=22%:%
-%:%52=23%:%
-%:%53=24%:%
-%:%54=25%:%
-%:%55=26%:%
-%:%56=27%:%
-%:%57=28%:%
-%:%58=29%:%
-%:%59=30%:%
-%:%60=31%:%
-%:%61=32%:%
-%:%62=33%:%
-%:%63=34%:%
-%:%64=35%:%
-%:%65=36%:%
-%:%66=37%:%
-%:%67=38%:%
-%:%68=39%:%
-%:%69=40%:%
-%:%70=41%:%
-%:%71=42%:%
-%:%72=43%:%
-%:%73=44%:%
-%:%74=45%:%
-%:%75=46%:%
-%:%76=47%:%
-%:%77=48%:%
-%:%78=49%:%
-%:%79=50%:%
-%:%88=52%:%
-%:%100=54%:%
-%:%101=55%:%
-%:%102=56%:%
-%:%103=57%:%
-%:%104=58%:%
-%:%105=59%:%
-%:%114=61%:%
-%:%126=63%:%
-%:%127=64%:%
-%:%128=65%:%
-%:%129=66%:%
-%:%130=67%:%
-%:%131=68%:%
-%:%132=69%:%
-%:%133=70%:%
-%:%134=71%:%
-%:%135=72%:%
-%:%136=73%:%
-%:%137=74%:%
-%:%138=75%:%
-%:%139=76%:%
-%:%140=77%:%
-%:%141=78%:%
-%:%142=79%:%
-%:%143=80%:%
-%:%144=81%:%
-%:%145=82%:%
-%:%146=83%:%
-%:%147=84%:%
-%:%148=85%:%
-%:%149=86%:%
-%:%150=87%:%
-%:%151=88%:%
-%:%152=89%:%
-%:%153=90%:%
-%:%154=91%:%
-%:%155=92%:%
-%:%156=93%:%
-%:%157=94%:%
-%:%158=95%:%
-%:%159=96%:%
-%:%160=97%:%
-%:%161=98%:%
-%:%162=99%:%
-%:%163=100%:%
-%:%164=101%:%
-%:%165=102%:%
-%:%166=103%:%
-%:%167=104%:%
-%:%168=105%:%
-%:%169=106%:%
-%:%170=107%:%
-%:%171=108%:%
-%:%172=109%:%
-%:%173=110%:%
-%:%174=111%:%
-%:%175=112%:%
-%:%176=113%:%
-%:%177=114%:%
-%:%178=115%:%
-%:%179=116%:%
-%:%180=117%:%
-%:%181=118%:%
-%:%182=119%:%
-%:%183=120%:%
-%:%184=121%:%
-%:%185=122%:%
-%:%186=123%:%
-%:%195=127%:%
-%:%199=129%:%
-%:%211=131%:%
-%:%212=132%:%
-%:%213=133%:%
-%:%214=134%:%
-%:%215=135%:%
-%:%216=136%:%
-%:%217=137%:%
-%:%218=138%:%
-%:%219=139%:%
-%:%220=140%:%
-%:%221=141%:%
-%:%222=142%:%
-%:%223=143%:%
-%:%224=144%:%
-%:%225=145%:%
-%:%234=147%:%
-%:%246=149%:%
-%:%247=150%:%
-%:%248=151%:%
-%:%249=152%:%
-%:%250=153%:%
-%:%251=154%:%
-%:%252=155%:%
-%:%253=156%:%
-%:%254=157%:%
-%:%255=158%:%
-%:%256=159%:%
-%:%257=160%:%
-%:%258=161%:%
-%:%259=162%:%
-%:%260=163%:%
-%:%261=164%:%
-%:%262=165%:%
-%:%263=166%:%
-%:%264=167%:%
+%:%24=6%:%
+%:%36=8%:%
+%:%37=9%:%
+%:%38=10%:%
+%:%39=11%:%
+%:%40=12%:%
+%:%41=13%:%
+%:%42=14%:%
+%:%43=15%:%
+%:%44=16%:%
+%:%45=17%:%
+%:%46=18%:%
+%:%47=19%:%
+%:%48=20%:%
+%:%49=21%:%
+%:%50=22%:%
+%:%51=23%:%
+%:%52=24%:%
+%:%53=25%:%
+%:%54=26%:%
+%:%55=27%:%
+%:%56=28%:%
+%:%57=29%:%
+%:%58=30%:%
+%:%59=31%:%
+%:%60=32%:%
+%:%61=33%:%
+%:%62=34%:%
+%:%63=35%:%
+%:%64=36%:%
+%:%65=37%:%
+%:%66=38%:%
+%:%67=39%:%
+%:%68=40%:%
+%:%69=41%:%
+%:%70=42%:%
+%:%71=43%:%
+%:%72=44%:%
+%:%73=45%:%
+%:%74=46%:%
+%:%75=47%:%
+%:%76=48%:%
+%:%77=49%:%
+%:%78=50%:%
+%:%87=52%:%
+%:%99=54%:%
+%:%100=55%:%
+%:%101=56%:%
+%:%102=57%:%
+%:%103=58%:%
+%:%104=59%:%
+%:%113=61%:%
+%:%125=63%:%
+%:%126=64%:%
+%:%127=65%:%
+%:%128=66%:%
+%:%129=67%:%
+%:%130=68%:%
+%:%131=69%:%
+%:%132=70%:%
+%:%133=71%:%
+%:%134=72%:%
+%:%135=73%:%
+%:%136=74%:%
+%:%137=75%:%
+%:%138=76%:%
+%:%139=77%:%
+%:%140=78%:%
+%:%141=79%:%
+%:%142=80%:%
+%:%143=81%:%
+%:%144=82%:%
+%:%145=83%:%
+%:%146=84%:%
+%:%147=85%:%
+%:%148=86%:%
+%:%149=87%:%
+%:%150=88%:%
+%:%151=89%:%
+%:%152=90%:%
+%:%153=91%:%
+%:%154=92%:%
+%:%155=93%:%
+%:%156=94%:%
+%:%157=95%:%
+%:%158=96%:%
+%:%159=97%:%
+%:%160=98%:%
+%:%161=99%:%
+%:%162=100%:%
+%:%163=101%:%
+%:%164=102%:%
+%:%165=103%:%
+%:%166=104%:%
+%:%167=105%:%
+%:%168=106%:%
+%:%169=107%:%
+%:%170=108%:%
+%:%171=109%:%
+%:%172=110%:%
+%:%173=111%:%
+%:%174=112%:%
+%:%175=113%:%
+%:%176=114%:%
+%:%177=115%:%
+%:%178=116%:%
+%:%179=117%:%
+%:%180=118%:%
+%:%181=119%:%
+%:%182=120%:%
+%:%183=121%:%
+%:%184=122%:%
+%:%185=123%:%
+%:%186=124%:%
+%:%187=125%:%
+%:%188=126%:%
+%:%189=127%:%
+%:%190=128%:%
+%:%191=129%:%
+%:%192=130%:%
+%:%193=131%:%
+%:%194=132%:%
+%:%195=133%:%
+%:%196=134%:%
+%:%205=138%:%
+%:%209=140%:%
+%:%221=142%:%
+%:%222=143%:%
+%:%223=144%:%
+%:%224=145%:%
+%:%225=146%:%
+%:%226=147%:%
+%:%227=148%:%
+%:%228=149%:%
+%:%229=150%:%
+%:%230=151%:%
+%:%231=152%:%
+%:%232=153%:%
+%:%233=154%:%
+%:%234=155%:%
+%:%235=156%:%
+%:%236=157%:%
+%:%237=158%:%
+%:%238=159%:%
+%:%239=160%:%
+%:%240=161%:%
+%:%241=162%:%
+%:%242=163%:%
+%:%243=164%:%
+%:%244=165%:%
+%:%245=166%:%
+%:%246=167%:%
+%:%255=169%:%
+%:%267=171%:%
+%:%268=172%:%
+%:%269=173%:%
+%:%270=174%:%
+%:%271=175%:%
+%:%272=176%:%
+%:%273=177%:%
+%:%274=178%:%
+%:%275=179%:%
+%:%276=180%:%
+%:%277=181%:%
+%:%278=182%:%
+%:%279=183%:%
+%:%280=184%:%
+%:%281=185%:%
+%:%282=186%:%
+%:%283=187%:%
+%:%284=188%:%
+%:%285=189%:%

@@ -4,45 +4,45 @@ The top-level auxiliary file: root.aux
 The style file: abbrv.bst
 Database file #1: root.bib
 Warning--empty booktitle in sledgehammer
-You've used 25 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            668 strings with 7364 characters,
-and the built_in function-call counts, 7553 in all, are:
-= -- 743
-> -- 295
+            677 strings with 7488 characters,
+and the built_in function-call counts, 7832 in all, are:
+= -- 773
+> -- 302
 < -- 5
-+ -- 119
-- -- 91
-* -- 464
-:= -- 1266
-add.period$ -- 79
-call.type$ -- 25
-change.case$ -- 113
++ -- 122
+- -- 93
+* -- 484
+:= -- 1313
+add.period$ -- 82
+call.type$ -- 26
+change.case$ -- 117
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 343
-empty$ -- 636
-format.name$ -- 91
-if$ -- 1617
+cite$ -- 27
+duplicate$ -- 354
+empty$ -- 661
+format.name$ -- 93
+if$ -- 1674
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 31
-newline$ -- 128
-num.names$ -- 56
-pop$ -- 128
+int.to.str$ -- 26
+missing$ -- 32
+newline$ -- 133
+num.names$ -- 58
+pop$ -- 130
 preamble$ -- 1
-purify$ -- 93
+purify$ -- 96
 quote$ -- 0
-skip$ -- 238
+skip$ -- 245
 stack$ -- 0
-substring$ -- 394
-swap$ -- 75
+substring$ -- 418
+swap$ -- 76
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 92
 warning$ -- 1
-while$ -- 71
-width$ -- 27
-write$ -- 279
+while$ -- 75
+width$ -- 28
+write$ -- 290
 (There was 1 warning)
