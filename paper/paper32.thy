@@ -20,7 +20,7 @@ which we can write as ``x is the subject of the sentence 'does action'". This re
 
 typedecl s \<comment>\<open>s is the type for a ``subject", like the subject of a sentence\<close>
 
-text \<open>Kroy also defines a substitution operator\footnote{see page 196 in @{cite kroy}}. $P (d/e)$ is read in his logic as ``P with e substituted 
+text \<open>Kroy also defines a substitution operator\footnote{See page 196 in Kroy's original paper @{cite kroy}.}. $P (d/e)$ is read in his logic as ``P with e substituted 
 for d." DDL has no such notion of substitution, so I will define a more generalized notion of an ``open 
 sentence." An open sentence takes as input a subject and returns a complete or ``closed" DDL formula. For example, 
 ``does action" is an open sentence that can be instantiated with a subject. \<close>

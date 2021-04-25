@@ -170,7 +170,7 @@ of the relevant features of Isabelle/HOL for my project.\<close>
 text \<open>\textbf{Consistency}\<close>
 lemma True nitpick [satisfy,user_axioms,format=2] by simp
 \<comment> \<open>Isabelle has built-in support for Nitpick, a model checker. 
-Nitpick successfully found a model satisfying these axioms so the system is consistent.@{cite hintikka}\<close>
+Nitpick successfully found a model satisfying these axioms so the system is consistent.\<close>
 \<comment>\<open> \color{blue} Nitpick found a model for card i = 1:
 
   Empty assignment \color{black}\<close>

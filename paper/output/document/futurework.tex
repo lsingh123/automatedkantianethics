@@ -58,12 +58,17 @@ provide anything, or is all the ethical work hidden in the model specification i
 This final question is both technical and philosophical, and will be interesting to explore in the written
 component of my thesis. This question is related to Kant's distinction between analytic and synthetic reasoning \cite{groundwork}. 
 Analytic statements are true simply by virtue of their meaning, such as ``All bachelors are unmarried." Synthetic 
-reasoning involves some contribution by the reasoner, in the form of new insight or facts about the world. 
+reasoning involves some contribution by the reasoner, in the form of new insight or facts about the world.
+Kant presents the statements ``All bachelors are alone" and ``7+5=12" as examples of synthetic propositions. 
+The analytic/synthetic distinction is hotly debated and has been refined significantly since Kant, and this 
+area will require further research.
+ 
 Kant believes that ethics is synthetic a priori reasoning, but it is unclear if automated theorem provers 
 like Isabelle are capable of anything more than analytic reasoning. Many of the basic proof solving 
 tools like \texttt{simp} or \texttt{blast} simply unfold definitions and apply axioms, and they appear to 
-perform analytic reasoning. smt solvers like \texttt{Nitpick} and \texttt{z3} (bundled with Isabelle) are 
-candidates for synthetic reasoning.
+perform analytic reasoning. SMT solvers like \texttt{Nitpick} and \texttt{z3} (bundled with Isabelle) are 
+candidates for synthetic reasoning. Model finding seems more sophisticated than the simple unfolding
+of definitions, but this requires further exploration.
 
 Lastly, I hope to explore Kant's argument that the three formulations of the categorical imperative are 
 equivalent. This hypothesis has been the subject of controversy, but many neo-Kantians believe that his 
@@ -126,3 +131,8 @@ for my formalization, and analyze the philosophical implications of my result.%
 %:%70=43%:%
 %:%71=44%:%
 %:%72=45%:%
+%:%73=46%:%
+%:%74=47%:%
+%:%75=48%:%
+%:%76=49%:%
+%:%77=50%:%

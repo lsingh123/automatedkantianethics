@@ -36,7 +36,7 @@ permissible because I am not required to refrain from buying a red folder.\<clos
 text "This naive formalization will require very little additional logical machinery, but more complex
 formalizations may require additional logic concepts beyond just that of permissibility. 
 
-Let's now consider a naive reading of the Formula of Universal Law (FUL): 'act only in accordance 
+Let's now consider a naive reading of the Formula of Universal Law (FUL): `act only in accordance 
 with that maxim through which you can at the same time will that it become a universal law' @{cite groundwork}.
 An immediate translation to DDL is that if A is not necessary permissible then it is prohibited. In other
 words, if we cannot universalize $P A$ (where universalizing is represented by the modal necessity 
@@ -133,7 +133,7 @@ that there is some world where murder might be prohibited. Even this is quite a 
 ideally we'd want to give the system nonmoral facts about murder (like a definition) and then make 
 moral claims.\<close>
 
-lemma wrong_if_posibly_wrong:
+lemma wrong_if_possibly_wrong:
   assumes poss_murder_wrong
   shows murder_wrong
   using assms by blast
@@ -167,6 +167,13 @@ lemma breaking_promises:
 
   Free variable:
     lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False)) \color{black}\<close>
+\<comment>\<open>Quick note on how to read Nitpick results. Nitpick will either say that it found a ``model" or a ``counterexample" in 
+the first line. It will then provide a model by specifying model components. For readability, all except for the 
+free variables are hidden. This model has cardinality 2 for the person and world (i) types. The term \texttt{lie} is 
+defined for people $p_1$ and $p_2$. $p_1$ lies at world $i_1$ and does not lie at world $i_2$. $p_2$ does
+the opposite.\<close>
+\<comment>\<open>These details will be elided for most Nitpick examples, but this provides guidance on how to interpret
+the output.\<close>
 
   text \<open>This formula isn't valid. While the FUL should tell us that lying is prohibited, the fact that it 
 doesn't demonstrates the weakness of this naive formulation of the categorical imperative. Kant's version of
@@ -325,9 +332,9 @@ someone is considered an incredibly rude and disrespectful gesture. In this univ
 prohibited from smiling at people, but this doesn't mean that in this current universe, smiling is 
 morally wrong.\<close>
 
-text \<open>The ``ought implies can" principle is attributed to Kant\footnote{The exact philosophical credence of this view is disupted, but the rough idea holds nonetheless. See @{cite kohl} for more.}
+text \<open>The ``ought implies can" principle is attributed to Kant\footnote{The exact philosophical credence of this view is disputed, but the rough idea holds nonetheless. See @{cite kohl} for more.}
  and is rather intuitive: you can't be obligated to do the impossible. It is worth noting that deontic 
-logics evolved@{cite cresswell} specifically from this principle, so this should hold in both my 
+logics evolved @{cite cresswell} specifically from this principle, so this should hold in both my 
 modified logic and in DDL. \<close>
 
 lemma ought_implies_can:
