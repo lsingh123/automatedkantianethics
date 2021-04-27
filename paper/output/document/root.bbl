@@ -1,5 +1,31 @@
 \begin{thebibliography}{10}
 
+\bibitem{util1}
+D.~Abel, J.~MacGlashan, and M.~Littman.
+\newblock Reinforcement learning as a framework for ethical decision making.
+\newblock In {\em AAAI Workshop: AI, Ethics, and Society}, 2016.
+
+\bibitem{deon2}
+M.~Anderson and S.~Anderson.
+\newblock Geneth: A general ethical dilemma analyzer.
+\newblock volume~1, 07 2014.
+
+\bibitem{util2}
+M.~Anderson, S.~Anderson, and C.~Armen.
+\newblock Towards machine ethics.
+\newblock 07 2004.
+
+\bibitem{deon1}
+M.~Anderson and S.~L. Anderson.
+\newblock Ethel: Toward a principled ethical eldercare robot.
+
+\bibitem{particularism1}
+K.~D. Ashley and B.~M. McLaren.
+\newblock A cbr knowledge representation for practical ethics.
+\newblock In {\em Selected Papers from the Second European Workshop on Advances
+  in Case-Based Reasoning}, EWCBR '94, page 181–197, Berlin, Heidelberg,
+  1994. Springer-Verlag.
+
 \bibitem{BL}
 M.~M. Bentzen and F.~Lindner.
 \newblock A formalization of kant's second formulation of the categorical
@@ -14,6 +40,12 @@ C.~Benzm{\"u}ller, A.~Farjami, and X.~Parent.
   {\em New Developments in Legal Reasoning and Logic: From Ancient Law to
   Modern Legal Systems}, volume~23 of {\em Logic, Argumentation \& Reasoning}.
   Springer Nature Switzerland AG, 2021.
+
+\bibitem{godel}
+C.~Benzm{\"{u}}ller and B.~W. Paleo.
+\newblock Formalization, mechanization and automation of g{\"{o}}del's proof of
+  god's existence.
+\newblock {\em CoRR}, abs/1308.4526, 2013.
 
 \bibitem{logikey}
 C.~Benzm{\"{u}}ller, X.~Parent, and L.~W.~N. van~der Torre.
@@ -50,10 +82,39 @@ M.~J. Cresswell and G.~E. Hughes.
 \newblock {\em A New Introduction to Modal Logic}.
 \newblock Routledge, 1996.
 
+\bibitem{gewirth}
+D.~Fuenmayor and C.~Benzmüller.
+\newblock Formalisation and evaluation of alan gewirth's proof for the
+  principle of generic consistency in isabelle/hol.
+\newblock {\em Archive of Formal Proofs}, Oct. 2018.
+\newblock \url{https://isa-afp.org/entries/GewirthPGCProof.html}, Formal proof
+  development.
+
+\bibitem{dde}
+N.~S. Govindarajulu and S.~Bringsjord.
+\newblock On automating the doctrine of double effect.
+\newblock {\em CoRR}, abs/1703.08922, 2017.
+
+\bibitem{particularism2}
+M.~Guarini.
+\newblock Particularism and the classification and reclassification of moral
+  cases.
+\newblock {\em IEEE Intelligent Systems}, 21(4):22--28, 2006.
+
+\bibitem{hintikka}
+J.~Hintikka.
+\newblock {\em Knowledge and Belief}.
+\newblock Cornell University Press, 1962.
+
 \bibitem{groundwork}
 I.~Kant.
 \newblock {\em Groundwork of the Metaphysics of Morals}.
 \newblock Cambridge University Press, Cambridge, 1785.
+
+\bibitem{metaphysics1}
+D.~Kirchner, C.~Benzm{\"{u}}ller, and E.~N. Zalta.
+\newblock Computer science and metaphysics: {A} cross-fertilization.
+\newblock {\em CoRR}, abs/1905.00787, 2019.
 
 \bibitem{kitcher}
 P.~Kitcher.
@@ -129,6 +190,17 @@ D.~Scott.
 \newblock Advice on modal logic.
 \newblock In K.~Lambert, editor, {\em Philosophical Problems in Logic: Some
   Recent Developments}, pages 143--173. D. Reidel, 1970.
+
+\bibitem{solt}
+K.~Solt.
+\newblock Deontic alternative worlds and the truth-value of 'oa'.
+\newblock {\em Logique et Analyse}, 27(107):349--351, 1984.
+
+\bibitem{io}
+A.~Stephenson, M.~Sergot, and R.~Evans.
+\newblock Formalizing kant's rules: a logic of conditional imperatives and
+  permissives.
+\newblock {\em Journal of Philosophical Logic}, 49, November 2019.
 
 \bibitem{contradictoryob}
 J.~Timmermann.

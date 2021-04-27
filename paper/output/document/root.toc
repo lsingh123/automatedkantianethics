@@ -16,4 +16,5 @@
 \contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative}{16}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Additional Logical Tools}{16}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Differences Between Kroy's Logic (Kr) and DDL}{17}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}Future Work}{17}{section.4}%
+\contentsline {section}{\numberline {4}Related Work}{18}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{19}{section.5}%

@@ -55,78 +55,101 @@ abbreviation os_permissible::"os\<Rightarrow>os" ("\<^emph>P {_}")
 
 subsubsection "Differences Between Kroy's Logic (Kr) and DDL"
 
-(*<*)
-text "@{cite kroy} uses a different logic than DDL. Let's see if the semantics that Kr requires hold in DDL"
 
-lemma permissible_semantic_faithful:
+text \<open>One complication that arises here is that Kroy's original paper uses a different logic than DDL. 
+His custom logic is a slight modification of Hintikka's deontic logic @{cite hintikka}. In this section, 
+I will determine if some of the semantic properties that Kroy's logic (which I will now call Kr) requires 
+hold in DDL. These differences may become important later and can explain differences in my results and 
+Kroy's.\<close>
+
+text \<open>\textbf{Deontic alternatives versus the neighborhood semantics}\<close>
+
+text \<open>The most faithful interpretation of Kr is that if $A$ is permissible in a context, then 
+it must be true at some world in that context. Kr operates under the ``deontic alternatives" or Kripke semantics, 
+summarized by Solt @{cite solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
+only if $A$ is true at every deontic alternative world to $w$." Under this view, permissible propositions
+are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. Let's 
+see if this holds in DDL.\<close>
+
+lemma permissible_semantics:
   fixes A w
-  shows "P {A} w \<longrightarrow> (\<exists>x. A(x))"
+  shows "(P {A}) w \<longrightarrow> (\<exists>x. A(x))"
   nitpick[user_axioms] oops
-\<comment>\<open>The most faithful interpretation of Kr is that if A is permissible in a context, then 
-it must be true at some world in that context. Kr operates under the ``deontic alternatives" view, 
-summarized by Solt as ``A proposition of the sort OA is true at the actual world w if and
-only if A is true at every deontic alternative world to t." Under this view, permissible propositions
-are obligated at some deontic alternative, but not at all of them.
-
-DDL does not adopt a deontic alternatives view, which is why this proposition seems wildly counterintuitive
-in DDL. In DDL, the ob operator abstracts away the notion of deontic alternatives and completely determines
-obligations. Even if one belives that permissible statements should be true at some deontic alternative, 
-it's not clear that permissible statements must be realized at some world, hence the failure of this 
-lemma in DDL.\<close>
-\<comment>\<open>Nitpick found a counterexample for card i = 1:
+\<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False)\<close>
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 
-lemma permissible_semantic_faithful_2:
+text \<open>Remember that DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
+ proposition fails in DDL. In DDL, the $ob$ function abstracts away the notion of
+ deontic alternatives and completely determines obligations. Even if one belives that permissible 
+statements should be true at some deontic alternative, it's not clear that permissible statements
+ must be realized at some world. In some ways, this also coheres with our understanding of obligation. There 
+are permissible actions like ``Lavanya buys a red folder" that might not happen in any universe.
+
+An even stricter version of the semantics that Kr requires is that if something is permissible at a world, 
+then it is obligatory at some world. This is a straightforward application of the Kripke semantics. Let's
+test this proposition.\<close>
+
+lemma permissible_semantics_2:
   fixes A w
   shows "P {A} w \<longrightarrow> (\<exists>x. O {A} x)"
   nitpick[user_axioms] oops
-\<comment>\<open>Nitpick found a counterexample for card i = 1:
+\<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False)\<close>
-\<comment>\<open>This is the most clear lemma that we would expect to hold under the deontic alternatives view. The 
-fact that it doesn't shows DDL is not a logic of deontic alternatives. There are pros and cons to this
-approach. The deontic alternatives view is quite simple to visualize and offers clear intuition. On
-the other hand, DDL's ob function can encode more complex relations than the deontic alternatives view,
-and can encode these in a more intuitive manner. The notion of a ``deontically perfect alternative"
-is a squishy one, and an ob function more directly captures the idea of obligation.\<close>
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+
+
+  text \<open>This also doesn't hold in DDL because DDL uses neighborhood semantics instead of the deontic 
+alternatives or Kripke semantics. This also seems to cohere with our moral intuitions. The statement 
+``Lavanya buys a red folder" is permissible in the current world, but it's hard to see why it would 
+be oblgiatory in any world.
+
+One implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements." In 
+other words, if something is permissible it has to be obligated at some deontically perfect alternative. 
+If we translate this to the language of DDL, we expect that if $A$ is permissible, it is obligated in some 
+context.\<close>
 
 
 lemma permissible_semantic_vacuous:
   fixes A w
   shows "P {A} w \<longrightarrow> (\<exists>x. ob(x)(A))"
   nitpick[user_axioms] oops
-\<comment>\<open>Kr does not allow vasuously permissible statements -> if something is permissible it has to be obligated 
-at some deontically perfect alternative. In DDL, this can be roughly translated as, if A is permissible, 
-it is obligated in some context.\<close>
-\<comment>\<open>Nitpick found a counterexample for card i = 1:
+\<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False)\<close>
-\<comment>\<open>In order to make this true, we'd have to require that everything is either obligatory or 
-prohibited somewhere. But as found in the buggy version of DDL, that breaks everything and destroys the 
-notion of permissibility everywhere. I am going to allow for vacuous permissibility. If something breaks later
-in Kr, it may be because of this.\<close>
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 
-lemma permissible_ob:
+text \<open>In order to make this true, we'd have to require that everything is either obligatory or
+prohibited somewhere. Sadly, that breaks everything and destroys the 
+notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
+If something breaks later in this section, it may be because of vacuous permissibility.\<close>
+
+text \<open>\textbf{Obligatory Statements Should be Permissible}\<close>
+
+text \<open>Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
+is permissible at that world\footnote{This follows straightforwardly from the Kripke semantics. If proposition $A$ is 
+obligated at world $w$, this means that at all of $w$'s neighbors, $O A$ holds. Therefore, 
+$\exists w'$ such that $w$ sees $w'$ and $O A$ holds at $w'$ so $A$ is permissible at $w$.}. Let's see 
+if that also holds in DDL.\<close>
+
+lemma permissible_prereq_ob:
   fixes A w
   shows "O {A} w \<longrightarrow> P {A} w"
   nitpick [user_axioms] oops
-\<comment>\<open>Nitpick found a counterexample for card i = 2:
+\<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 2:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\<close>
-\<comment>\<open>This one is definitely problematic. Being permissible should be a precondition for being obligatory.
-Let's add this as an axiom - I can't see any ethical theory succeeding without this.\<close>
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}\<close>
 
-axiomatization where permissible_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
+  text \<open>This particular difference seems untenable. Most ethical theories require that if something is 
+obligatory, it must also be permissible. This is an important enough property of an ethical theory that I 
+will add it as an axiom.\<close>
 
-lemma permissible_ob_round_2:
-  fixes A w
-  shows "O {A} w \<longrightarrow> P {A} w"
-  by (simp add: permissible_ob)
+axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
+
+(*<*)
 
 subsection "The Categorical Imperative"
 

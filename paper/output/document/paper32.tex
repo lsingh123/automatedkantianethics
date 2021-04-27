@@ -125,12 +125,45 @@ Once again, the notion of permissibility will be useful here.%
 %
 \endisadelimdocument
 %
-\isadelimproof
+\begin{isamarkuptext}%
+One complication that arises here is that Kroy's original paper uses a different logic than DDL. 
+His custom logic is a slight modification of Hintikka's deontic logic \cite{hintikka}. In this section, 
+I will determine if some of the semantic properties that Kroy's logic (which I will now call Kr) requires 
+hold in DDL. These differences may become important later and can explain differences in my results and 
+Kroy's.%
+\end{isamarkuptext}\isamarkuptrue%
 %
+\begin{isamarkuptext}%
+\textbf{Deontic alternatives versus the neighborhood semantics}%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+The most faithful interpretation of Kr is that if $A$ is permissible in a context, then 
+it must be true at some world in that context. Kr operates under the ``deontic alternatives" or Kripke semantics, 
+summarized by Solt \cite{solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
+only if $A$ is true at every deontic alternative world to $w$." Under this view, permissible propositions
+are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. Let's 
+see if this holds in DDL.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantics{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ A{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -138,12 +171,37 @@ Once again, the notion of permissibility will be useful here.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+Remember that DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
+ proposition fails in DDL. In DDL, the $ob$ function abstracts away the notion of
+ deontic alternatives and completely determines obligations. Even if one belives that permissible 
+statements should be true at some deontic alternative, it's not clear that permissible statements
+ must be realized at some world. In some ways, this also coheres with our understanding of obligation. There 
+are permissible actions like ``Lavanya buys a red folder" that might not happen in any universe.
+
+An even stricter version of the semantics that Kr requires is that if something is permissible at a world, 
+then it is obligatory at some world. This is a straightforward application of the Kripke semantics. Let's
+test this proposition.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantics{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ O\ {\isacharbraceleft}A{\isacharbraceright}\ x{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -151,12 +209,36 @@ Once again, the notion of permissibility will be useful here.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+This also doesn't hold in DDL because DDL uses neighborhood semantics instead of the deontic 
+alternatives or Kripke semantics. This also seems to cohere with our moral intuitions. The statement 
+``Lavanya buys a red folder" is permissible in the current world, but it's hard to see why it would 
+be oblgiatory in any world.
+
+One implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements." In 
+other words, if something is permissible it has to be obligated at some deontically perfect alternative. 
+If we translate this to the language of DDL, we expect that if $A$ is permissible, it is obligated in some 
+context.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}semantic{\isacharunderscore}vacuous{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}P\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymexists}x{\isachardot}\ ob{\isacharparenleft}x{\isacharparenright}{\isacharparenleft}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False) \color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -164,12 +246,43 @@ Once again, the notion of permissibility will be useful here.%
 %
 \endisadelimproof
 %
-\isadelimproof
+\begin{isamarkuptext}%
+In order to make this true, we'd have to require that everything is either obligatory or
+prohibited somewhere. Sadly, that breaks everything and destroys the 
+notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
+If something breaks later in this section, it may be because of vacuous permissibility.%
+\end{isamarkuptext}\isamarkuptrue%
 %
+\begin{isamarkuptext}%
+\textbf{Obligatory Statements Should be Permissible}%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
+is permissible at that world\footnote{This follows straightforwardly from the Kripke semantics. If proposition $A$ is 
+obligated at world $w$, this means that at all of $w$'s neighbors, $O A$ holds. Therefore, 
+$\exists w'$ such that $w$ sees $w'$ and $O A$ holds at $w'$ so $A$ is permissible at $w$.}. Let's see 
+if that also holds in DDL.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharunderscore}prereq{\isacharunderscore}ob{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\ w\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 2:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -177,18 +290,13 @@ Once again, the notion of permissibility will be useful here.%
 %
 \endisadelimproof
 %
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
+\begin{isamarkuptext}%
+This particular difference seems untenable. Most ethical theories require that if something is 
+obligatory, it must also be permissible. This is an important enough property of an ethical theory that I 
+will add it as an axiom.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\ permissible{\isacharunderscore}prepreq{\isacharunderscore}ob{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isadelimdocument
 %
@@ -383,3 +491,101 @@ Once again, the notion of permissibility will be useful here.%
 %:%109=52%:%
 %:%110=53%:%
 %:%117=56%:%
+%:%129=59%:%
+%:%130=60%:%
+%:%131=61%:%
+%:%132=62%:%
+%:%133=63%:%
+%:%137=65%:%
+%:%141=67%:%
+%:%142=68%:%
+%:%143=69%:%
+%:%144=70%:%
+%:%145=71%:%
+%:%146=72%:%
+%:%148=74%:%
+%:%149=74%:%
+%:%150=75%:%
+%:%151=76%:%
+%:%152=77%:%
+%:%153=77%:%
+%:%155=77%:%
+%:%159=77%:%
+%:%160=77%:%
+%:%162=78%:%
+%:%163=79%:%
+%:%164=80%:%
+%:%165=81%:%
+%:%175=83%:%
+%:%176=84%:%
+%:%177=85%:%
+%:%178=86%:%
+%:%179=87%:%
+%:%180=88%:%
+%:%181=89%:%
+%:%182=90%:%
+%:%183=91%:%
+%:%184=92%:%
+%:%186=94%:%
+%:%187=94%:%
+%:%188=95%:%
+%:%189=96%:%
+%:%190=97%:%
+%:%191=97%:%
+%:%193=97%:%
+%:%197=97%:%
+%:%198=97%:%
+%:%200=98%:%
+%:%201=99%:%
+%:%202=100%:%
+%:%203=101%:%
+%:%213=104%:%
+%:%214=105%:%
+%:%215=106%:%
+%:%216=107%:%
+%:%217=108%:%
+%:%218=109%:%
+%:%219=110%:%
+%:%220=111%:%
+%:%221=112%:%
+%:%223=115%:%
+%:%224=115%:%
+%:%225=116%:%
+%:%226=117%:%
+%:%227=118%:%
+%:%228=118%:%
+%:%230=118%:%
+%:%234=118%:%
+%:%235=118%:%
+%:%237=119%:%
+%:%238=120%:%
+%:%239=121%:%
+%:%240=122%:%
+%:%250=124%:%
+%:%251=125%:%
+%:%252=126%:%
+%:%253=127%:%
+%:%257=129%:%
+%:%261=131%:%
+%:%262=132%:%
+%:%263=133%:%
+%:%264=134%:%
+%:%265=135%:%
+%:%267=137%:%
+%:%268=137%:%
+%:%269=138%:%
+%:%270=139%:%
+%:%271=140%:%
+%:%272=140%:%
+%:%274=140%:%
+%:%278=140%:%
+%:%279=140%:%
+%:%281=141%:%
+%:%282=142%:%
+%:%283=143%:%
+%:%284=144%:%
+%:%294=146%:%
+%:%295=147%:%
+%:%296=148%:%
+%:%298=150%:%
+%:%299=150%:%
