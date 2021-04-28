@@ -5,46 +5,47 @@ The style file: abbrv.bst
 Database file #1: root.bib
 Warning--empty booktitle in deon2
 Warning--empty booktitle in util2
+Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
-You've used 38 entries,
+You've used 39 entries,
             2118 wiz_defined-function locations,
-            737 strings with 9257 characters,
-and the built_in function-call counts, 11286 in all, are:
-= -- 1106
-> -- 466
-< -- 7
-+ -- 187
-- -- 145
-* -- 685
-:= -- 1896
-add.period$ -- 119
-call.type$ -- 38
-change.case$ -- 179
+            743 strings with 9447 characters,
+and the built_in function-call counts, 11709 in all, are:
+= -- 1145
+> -- 484
+< -- 8
++ -- 194
+- -- 151
+* -- 712
+:= -- 1958
+add.period$ -- 122
+call.type$ -- 39
+change.case$ -- 184
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 506
-empty$ -- 936
-format.name$ -- 145
-if$ -- 2404
+cite$ -- 43
+duplicate$ -- 526
+empty$ -- 971
+format.name$ -- 151
+if$ -- 2501
 int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 43
-newline$ -- 193
-num.names$ -- 82
-pop$ -- 197
+int.to.str$ -- 39
+missing$ -- 45
+newline$ -- 198
+num.names$ -- 84
+pop$ -- 209
 preamble$ -- 1
-purify$ -- 146
+purify$ -- 151
 quote$ -- 0
-skip$ -- 369
+skip$ -- 384
 stack$ -- 0
-substring$ -- 537
-swap$ -- 109
-text.length$ -- 7
+substring$ -- 562
+swap$ -- 117
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 140
-warning$ -- 3
-while$ -- 103
-width$ -- 40
-write$ -- 418
-(There were 3 warnings)
+type$ -- 142
+warning$ -- 4
+while$ -- 107
+width$ -- 41
+write$ -- 428
+(There were 4 warnings)

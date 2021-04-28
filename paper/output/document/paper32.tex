@@ -21,7 +21,7 @@
 %
 \isatagdocument
 %
-\isamarkupsubsection{Kroy's Formalization of the Categorical Imperative%
+\isamarkupsubsection{Kroy's Formalization of the Categorical Imperative \label{sec:kroy}%
 }
 \isamarkuptrue%
 %
@@ -59,7 +59,7 @@ and test both of Kroy's formalizations.%
 %
 \begin{isamarkuptext}%
 Kroy's logic relies heavily on some notion of identity or agency. We need some notion of ``x does action", 
-which we can write as ``x is the subject of the sentence 'does action'". This requires defining a subject.%
+which we can write as ``x is the subject of the sentence `does action'". This requires defining a subject.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ s\ %
@@ -254,7 +254,7 @@ If something breaks later in this section, it may be because of vacuous permissi
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-\textbf{Obligatory Statements Should be Permissible}%
+\textbf{Obligatory statements should be permissible}%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
@@ -296,13 +296,16 @@ obligatory, it must also be permissible. This is an important enough property of
 will add it as an axiom.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ permissible{\isacharunderscore}prepreq{\isacharunderscore}ob{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
+\ \isakeyword{where}\ permissible{\isacharunderscore}prepreq{\isacharunderscore}ob{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}%
 \isadelimdocument
 %
 \endisadelimdocument
 %
 \isatagdocument
+%
+\isamarkupsubsubsection{The Categorical Imperative%
+}
+\isamarkuptrue%
 %
 \endisatagdocument
 {\isafolddocument}%
@@ -311,12 +314,43 @@ will add it as an axiom.%
 %
 \endisadelimdocument
 %
-\isadelimproof
+\begin{isamarkuptext}%
+I will now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
+``act only in accordance with that maxim which you can at the same time will a universal law" \cite{groundwork}.
+Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
+This formalizes an important moral intuition: the categorical imperative prohibits free-riding. No one is a moral exception.
+Formalizing this interpretation requires using open sentences to handle the notion of substitution.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ FUL{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}p\ {\isacharparenright}w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}x{\isacharparenright}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
+\isamarkupcmt{In English, this statement roughly means that if there exists a person $p$ for whom action $A$ is 
+permissible, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
+is captured by the substitution of $x$ for $p$.%
+}%
+\begin{isamarkuptext}%
+Let's check if this is already an axiom of DDL. If so, then the formalization is trivial.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ FUL{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ FUL\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpick found a counterexample for card s = 2 and card i = 2:
+
+  Skolem constants:
+    A = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := True), $s_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
+    p = $s_1$
+    x = $s_2$\color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -324,12 +358,30 @@ will add it as an axiom.%
 %
 \endisadelimproof
 %
+\begin{isamarkuptext}%
+This formalization doesn't hold in DDL, so adding it as an axiom will change the logic.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\ FUL{\isacharcolon}\ FUL%
+\begin{isamarkuptext}%
+Consistency check: is the logic still consistent with the FUL added as an axiom?%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ True\ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ satisfy{\isacharcomma}\ card{\isacharequal}{\isadigit{1}}{\isacharbrackright}%
 \isadelimproof
-%
+\ %
 \endisadelimproof
 %
 \isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{\color{blue} Nitpicking formula... 
+Nitpick found a model for card i = 1:
+
+  Empty assignment\color{black}%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -337,96 +389,12 @@ will add it as an axiom.%
 %
 \endisadelimproof
 %
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-%
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
+\begin{isamarkuptext}%
+This completes my implementation of Kroy's formalization of the first formulation of the 
+categorical imperative. I defined new logical constructs to handle Kroy's logic, studied the differences
+between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
+that it is both non-trivial and consistent. Next semester, I will pick up where I left off and start testing!%
+\end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
 %
@@ -589,3 +557,47 @@ will add it as an axiom.%
 %:%296=148%:%
 %:%298=150%:%
 %:%299=150%:%
+%:%306=153%:%
+%:%318=155%:%
+%:%319=156%:%
+%:%320=157%:%
+%:%321=158%:%
+%:%322=159%:%
+%:%324=161%:%
+%:%325=161%:%
+%:%327=162%:%
+%:%328=163%:%
+%:%329=164%:%
+%:%332=166%:%
+%:%334=168%:%
+%:%335=168%:%
+%:%336=169%:%
+%:%337=170%:%
+%:%338=170%:%
+%:%340=170%:%
+%:%344=170%:%
+%:%345=170%:%
+%:%347=171%:%
+%:%348=172%:%
+%:%349=173%:%
+%:%350=174%:%
+%:%351=175%:%
+%:%352=176%:%
+%:%362=178%:%
+%:%364=180%:%
+%:%365=180%:%
+%:%367=182%:%
+%:%369=184%:%
+%:%370=184%:%
+%:%371=184%:%
+%:%373=184%:%
+%:%377=184%:%
+%:%378=184%:%
+%:%380=185%:%
+%:%381=186%:%
+%:%382=187%:%
+%:%383=188%:%
+%:%393=190%:%
+%:%394=191%:%
+%:%395=192%:%
+%:%396=193%:%

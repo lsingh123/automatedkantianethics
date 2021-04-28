@@ -5,7 +5,7 @@ begin
 (*>*)
 
 
-subsection "Kroy's Formalization of the Categorical Imperative"
+subsection \<open>Kroy's Formalization of the Categorical Imperative \label{sec:kroy}\<close>
 
 text \<open>This section contains a formalization of the categorical imperative introduced by Moshe Kroy in 
 1976 @{cite kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
@@ -16,7 +16,7 @@ and test both of Kroy's formalizations.\<close>
 subsubsection "Additional Logical Tools"
 
 text \<open>Kroy's logic relies heavily on some notion of identity or agency. We need some notion of ``x does action", 
-which we can write as ``x is the subject of the sentence 'does action'". This requires defining a subject.\<close>
+which we can write as ``x is the subject of the sentence `does action'". This requires defining a subject.\<close>
 
 typedecl s \<comment>\<open>s is the type for a ``subject", like the subject of a sentence\<close>
 
@@ -126,7 +126,7 @@ prohibited somewhere. Sadly, that breaks everything and destroys the
 notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
 If something breaks later in this section, it may be because of vacuous permissibility.\<close>
 
-text \<open>\textbf{Obligatory Statements Should be Permissible}\<close>
+text \<open>\textbf{Obligatory statements should be permissible}\<close>
 
 text \<open>Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
 is permissible at that world\footnote{This follows straightforwardly from the Kripke semantics. If proposition $A$ is 
@@ -149,80 +149,50 @@ will add it as an axiom.\<close>
 
 axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
 
-(*<*)
 
-subsection "The Categorical Imperative"
+subsubsection "The Categorical Imperative"
 
-abbreviation CI::"bool" where "CI \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
-\<comment>\<open>This is Kroy's formalization of the FUL in DDL. Recall that the FUL says
-``act only in accordance with that maxim through which you can at the same time will that it become a universal law" @{cite groundwork}
-Kroy interprets this to mean that if an action is permissible for me, then it must be permissible for everyone.
-This formalizes an important moral intuition - the CI prohibits free-riding. No one is a moral exception\<close>
+text \<open>I will now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
+``act only in accordance with that maxim which you can at the same time will a universal law" @{cite groundwork}.
+Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
+This formalizes an important moral intuition: the categorical imperative prohibits free-riding. No one is a moral exception.
+Formalizing this interpretation requires using open sentences to handle the notion of substitution.\<close>
 
-lemma CI:
-  shows CI
+abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
+\<comment>\<open>In English, this statement roughly means that if there exists a person $p$ for whom action $A$ is 
+permissible, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
+is captured by the substitution of $x$ for $p$.\<close>
+
+text \<open>Let's check if this is already an axiom of DDL. If so, then the formalization is trivial.\<close>
+
+lemma FUL:
+  shows FUL
   nitpick[user_axioms] oops
-\<comment>\<open>Nitpick found a counterexample for card s = 2 and card i = 2:
+\<comment>\<open>\color{blue} Nitpick found a counterexample for card s = 2 and card i = 2:
 
   Skolem constants:
     A = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := True), $s_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
     p = $s_1$
-    x = $s_2$
-This formalization doesn't hold in DDL. Good - this means that adding it as an axiom will change the logic.\<close>
+    x = $s_2$\color{black}\<close>
 
-lemma "\<Turnstile> (\<^bold>\<not> (O {\<^bold>\<not> \<^bold>\<top>}))"
-  by (simp add: ax_5a) 
+  text "This formalization doesn't hold in DDL, so adding it as an axiom will change the logic."
 
-lemma complete:
-  shows "(\<Turnstile> (((A \<^bold>\<rightarrow> \<^bold>\<not>\<^bold>\<top>)))) \<longrightarrow> (\<Turnstile> (\<^bold>\<not> (O {A})))"
-proof - 
-  have "(\<exists>x. (\<^bold>\<not> (\<diamond> A)) x) \<longrightarrow> (\<exists>x. (\<^bold>\<not> O {A}) x)"
-    by (simp add: ax_5a ax_5b)
-  thus ?thesis
-    by blast
-qed
+axiomatization where FUL: FUL
 
-axiomatization where CI: CI and 
-possible: "(\<forall>w. \<not> \<diamond>A w) \<longrightarrow> \<Turnstile>(O {\<^bold>\<not> A})"
-\<comment>\<open>We really need a way to add negative obligations - to related the concept of contradiction and 
-obligation. This seems reasonable - if A is never possible at any world, then it's prohibited.\<close>
-and hmm: "\<Turnstile> (\<^bold>\<not> (O {\<^bold>\<not> \<^bold>\<top>}))"
+text "Consistency check: is the logic still consistent with the FUL added as an axiom?"
 
-subsection "Tests"
+lemma True nitpick[user_axioms, satisfy, card=1] oops
+\<comment>\<open>\color{blue} Nitpicking formula... 
+Nitpick found a model for card i = 1:
 
-lemma True nitpick [satisfy,user_axioms] oops 
-\<comment>\<open>Nitpick found a model for card s = 1 and card i = 1:
+  Empty assignment\color{black}\<close>
 
-  Empty assignment\<close>
-\<comment>\<open>The categorical imperative is consistent!\<close>
+  text "This completes my implementation of Kroy's formalization of the first formulation of the 
+categorical imperative. I defined new logical constructs to handle Kroy's logic, studied the differences
+between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
+that it is both non-trivial and consistent. Next semester, I will pick up where I left off and start testing!"
 
-  subsubsection "Specifying the Model"
-
-
-lemma breaking_promises:
-  fixes me::s
-  fixes lie::os
-  assumes "\<exists>x. (\<^bold>\<not> (\<diamond>(lie(x))) cw)"
-  shows "\<exists>x. (\<^bold>\<not> (O {lie(x)})) cw"
-  by (metis assms ax_5a ax_5b)
-
-
-lemma breaking_promises:
-  fixes me::s
-  fixes lie::os
-  assumes "\<exists>x. (\<^bold>\<not> (\<diamond>(lie(x))) cw)"
-  shows "\<exists>x. (\<^bold>\<not> (P {lie(x)})) cw"
-  nitpick[user_axioms] oops
-
-
-
-  subsubsection "Metaethical Tests"
-
-  subsubsection "Kroy's Tests"
-
-
-
-
+(*<*)
 
 end
 (*>*)

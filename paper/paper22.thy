@@ -3,7 +3,7 @@
 
 (*<*) begin (*>*) 
 
-subsection "Isabelle/HOL Implementation"
+subsection \<open>Isabelle/HOL Implementation \label{sec:isabelle}\<close>
 
 text \<open>Isabelle/HOL is an interactive proof assistant @{cite isabelle} built on Haskell and Scala. It 
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
@@ -25,8 +25,8 @@ text \<open>The first step in embedding a logic in Isabelle is defining the rele
 
 typedecl i \<comment> \<open> i is the type for a set of worlds.\<close>
 
-type_synonym t = "(i \<Rightarrow> bool)" \<comment> \<open> t represents a set of DDL formulas. \<close>
-\<comment> \<open>A set of formulae is defined by its truth value at a set of worlds. For example, the set {``True"}
+type_synonym t = "(i \<Rightarrow> bool)" \<comment> \<open> t represents a set of DDL formulae. \<close>
+\<comment> \<open>A set of formulae is defined by its truth value at a set of worlds. For example, the set \{True\}
 would be true at any set of worlds.\<close>
 
 (*<*)
@@ -43,8 +43,8 @@ consts pv::"i \<Rightarrow> t" \<comment> \<open>possible versions of that world
 
 text \<open>The main accessibility relation that I will use is the $ob$ relation:\<close>
 
-consts ob::"t \<Rightarrow> (t \<Rightarrow> bool)"  \<comment> \<open>set of propositions obligatory in this "context"\<close>
- \<comment> \<open>ob(context)(term) is True if t is obligatory in this context\<close>
+consts ob::"t \<Rightarrow> (t \<Rightarrow> bool)"  \<comment> \<open>set of propositions obligatory in this context\<close>
+ \<comment> \<open>ob(context)(term) is True if the term is obligatory in this context\<close>
 
 (*<*)consts cw::i  \<comment> \<open>current world\<close>(*>*)
 
@@ -93,10 +93,10 @@ and ax_5e: "\<forall>X Y Z. ((\<forall>w. Y(w)\<longrightarrow>X(w)) \<and> ob(X
 subsubsection Syntax
 
 text \<open>The syntax that I will work with is defined as abbreviations. Each DDL operator is represented 
-as a HOL formula. A formula defined with the @{verbatim abbreviation} command is unfolded in every 
-instance. While the shallow embedding is generally performant (because it uses Isabelle's original 
-syntax tree), abbreviations may possibly hurt performance. In some complicated proofs, we want controlled
-unfolding. Benzmueller and Parent told me that eventually, the performance cost of abbreviations can 
+as a HOL formula. Isabelle automatically unfolds formulae defined with the @{verbatim abbreviation} command 
+whenever they are applied. While the shallow embedding is performant (because it uses Isabelle's original 
+syntax tree), abbreviations may hurt performance. In some complicated proofs, we want to control definition
+unfolding. Benzmueller and Parent told me that the performance cost of abbreviations can 
 be mitigated using a definition instead.\<close>
 
 (*<*)
@@ -175,7 +175,7 @@ Nitpick successfully found a model satisfying these axioms so the system is cons
 
   Empty assignment \color{black}\<close>
 
-text \<open>{\color{red} Nitpick} @{cite nitpick} can generate models or countermodels, so it's useful to falsify potential
+text \<open>Nitpick @{cite nitpick} can generate models or countermodels, so it's useful to falsify potential
 theorems, as well as to show consistency. {\color{red} by simp} indicates the proof method. In this 
 case, {\color{red} simp} indicates the Simplification proof method, which involves unfolding definitions
 and applying theorems directly. HOL has $True$ as a theorem, which is why this theorem was so easy to prove.\<close>

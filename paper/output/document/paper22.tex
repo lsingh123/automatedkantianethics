@@ -21,7 +21,7 @@
 %
 \isatagdocument
 %
-\isamarkupsubsection{Isabelle/HOL Implementation%
+\isamarkupsubsection{Isabelle/HOL Implementation \label{sec:isabelle}%
 }
 \isamarkuptrue%
 %
@@ -74,10 +74,10 @@ The first step in embedding a logic in Isabelle is defining the relevant terms a
 \isanewline
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ t\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ %
-\isamarkupcmt{t represents a set of DDL formulas.%
+\isamarkupcmt{t represents a set of DDL formulae.%
 }\isanewline
 %
-\isamarkupcmt{A set of formulae is defined by its truth value at a set of worlds. For example, the set {``True"}
+\isamarkupcmt{A set of formulae is defined by its truth value at a set of worlds. For example, the set \{True\}
 would be true at any set of worlds.%
 }\isanewline
 %
@@ -86,10 +86,10 @@ The main accessibility relation that I will use is the $ob$ relation:%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ {\isacharparenleft}t\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ \ %
-\isamarkupcmt{set of propositions obligatory in this "context"%
+\isamarkupcmt{set of propositions obligatory in this context%
 }\isanewline
 \ %
-\isamarkupcmt{ob(context)(term) is True if t is obligatory in this context%
+\isamarkupcmt{ob(context)(term) is True if the term is obligatory in this context%
 }\isanewline
 %
 \isadelimdocument
@@ -144,10 +144,10 @@ cause something unobligatory to become obligatory, so the obligation operator is
 %
 \begin{isamarkuptext}%
 The syntax that I will work with is defined as abbreviations. Each DDL operator is represented 
-as a HOL formula. A formula defined with the \isatt{abbreviation} command is unfolded in every 
-instance. While the shallow embedding is generally performant (because it uses Isabelle's original 
-syntax tree), abbreviations may possibly hurt performance. In some complicated proofs, we want controlled
-unfolding. Benzmueller and Parent told me that eventually, the performance cost of abbreviations can 
+as a HOL formula. Isabelle automatically unfolds formulae defined with the \isatt{abbreviation} command 
+whenever they are applied. While the shallow embedding is performant (because it uses Isabelle's original 
+syntax tree), abbreviations may hurt performance. In some complicated proofs, we want to control definition
+unfolding. Benzmueller and Parent told me that the performance cost of abbreviations can 
 be mitigated using a definition instead.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -245,7 +245,7 @@ Nitpick successfully found a model satisfying these axioms so the system is cons
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-{\color{red} Nitpick} \cite{nitpick} can generate models or countermodels, so it's useful to falsify potential
+Nitpick \cite{nitpick} can generate models or countermodels, so it's useful to falsify potential
 theorems, as well as to show consistency. {\color{red} by simp} indicates the proof method. In this 
 case, {\color{red} simp} indicates the Simplification proof method, which involves unfolding definitions
 and applying theorems directly. HOL has $True$ as a theorem, which is why this theorem was so easy to prove.%

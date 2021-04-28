@@ -14,14 +14,14 @@ I also hope to write robust tests for both of these implementations to explore t
 will help inform my eventual formalization of the categorical imperative.
 
 The ultimate goal of the project is to present my own formalization of the categorical imperative that escapes
-the limitations on the naive formalization and Kroy's formalization revealed by my tests. This formalization
+the limitations of the naive formalization and Kroy's formalization. This formalization
 will likely require some additional logical machinery to handle the complete notion of a maxim, including 
 an agent, action, and end. My formalization will also patch up some of the holes in DDL itself that have been
-problematic for my project so far, such as the existence of contradictory obligations. I intend to formalize
+problematic for my project so far, such as the existence of contradictory obligations. I intend to formalize and implement
 all three formulations of the categorical imperative.
 
 I will then test my formalization of the categorical imperative. I will create two kinds of tests. First,
-I will create metaethical tests that show logical properties independent of any model specification as I did
+I will create metaethical tests that show logical properties independent of any model specification, as I did
 for the first two formalizations. Second, I will create tests that specify models and apply my formalization
 to real, concrete ethical dilemmas. This part of the project will seek to demonstrate the power and limitations of
 automated ethical reasoning. Questions to be explored here include: How much model specification is necessary to 

@@ -52,7 +52,7 @@ subsection Box
 (*>*)
 
 text \<open>Another relevant operator for our purposes is $\Box$, the modal necessity operator. In 
-this system, $\Box$ behaves as an S5 modal necessity operator.\<close>
+this system, $\Box$ behaves as an S5 \cite{cresswell} modal necessity operator.\<close>
 lemma K:
   shows "\<Turnstile> ((\<box>(A \<^bold>\<rightarrow> B)) \<^bold>\<rightarrow> ((\<box>A) \<^bold>\<rightarrow> (\<box>B)))" by blast
 
@@ -74,7 +74,7 @@ lemma O_diamond:
   using ax_5b ax_5a
   by metis
 \<comment> \<open>A is only obligatory in a context if it can possibly be true in that context. This is meant to 
-prevent impossible obligations in a context.\<close>
+prevent impossible obligations.\<close>
 
 (*<*)
 lemma O_C:
@@ -103,7 +103,7 @@ lemma O_nec:
   shows "\<Turnstile>(O{B|A} \<^bold>\<rightarrow> (\<box>O{B|A}))"
   by simp
 \<comment> \<open>Obligations are necessarily obligated. This axiom is faithful to Kant's interpretation of ethics 
-and is evidence of Deontic Logic's power in representing Kant's theory. Kant claimed that the categorical
+and is evidence of DDL's power in representing Kant's theory. Kant claimed that the categorical
 imperative was not contingent on any facts about the world, but instead a property of the concept of 
 morality itself @{cite groundwork}. Under this view, obligation should not be world-specific.\<close>
 

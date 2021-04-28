@@ -1,20 +1,21 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{System Overview }{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Kantian Ethics }{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Dyadic Deontic Logic}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Dyadic Deontic Logic }{section.2}% 4
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Deontic Logic}{subsection.2.2}% 5
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Dyadic Deontic Logic}{subsection.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.3}{Isabelle/HOL Implementation}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Isabelle/HOL Implementation }{section.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.3.1}{System Definition}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Axiomatization}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Syntax}{subsection.2.3}% 10
 \BOOKMARK [3][-]{subsubsection.2.3.4}{Syntactic Properties}{subsection.2.3}% 11
 \BOOKMARK [1][-]{section.3}{The Categorical Imperative}{}% 12
-\BOOKMARK [2][-]{subsection.3.1}{Naive Formulation of the Formula of Universal Law}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Naive Formulation of the Formula of Universal Law }{section.3}% 13
 \BOOKMARK [3][-]{subsubsection.3.1.1}{Specifying the Model}{subsection.3.1}% 14
 \BOOKMARK [3][-]{subsubsection.3.1.2}{Metaethical Properties}{subsection.3.1}% 15
-\BOOKMARK [2][-]{subsection.3.2}{Kroy's Formalization of the Categorical Imperative}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.2}{Kroy's Formalization of the Categorical Imperative }{section.3}% 16
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Additional Logical Tools}{subsection.3.2}% 17
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Differences Between Kroy's Logic \(Kr\) and DDL}{subsection.3.2}% 18
-\BOOKMARK [1][-]{section.4}{Related Work}{}% 19
-\BOOKMARK [1][-]{section.5}{Future Work}{}% 20
+\BOOKMARK [3][-]{subsubsection.3.2.3}{The Categorical Imperative}{subsection.3.2}% 19
+\BOOKMARK [1][-]{section.4}{Related Work}{}% 20
+\BOOKMARK [1][-]{section.5}{Future Work}{}% 21

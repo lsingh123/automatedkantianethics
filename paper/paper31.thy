@@ -6,20 +6,17 @@ begin
 
 section "The Categorical Imperative"
 
-text "In this section, I will present three formulations of the categorical imperative. In Section 3.1, I will 
+text \<open>In this section, I will present two formulations of the categorical imperative. In Section \ref{sec:naive}, I will 
 consider a simple, naive formulation of the formula of universal law. This formulation is, as I will 
 show, clearly not a good ethical rule. The purpose of this section is to explore the kinds of ethical
-tests that Isabelle can carry out. In Section 3.2, I will explore Moshe Kroy's @{cite kroy} partial formalization of 
-the first two formulations of the categorical imperative. I will also explore drawbacks of this attempt, 
-particularly in the lack of the machinery to handle the important Kantian concept of a maxim: an action 
-performed for a particular end. In Section 3.3, I will present my own improved
-formalization of the categorical imperative."
+tests that Isabelle can carry out. In Section \ref{sec:kroy}, I will explore Moshe Kroy's @{cite kroy} partial formalization of 
+the first two formulations of the categorical imperative.\<close>
 
-subsection "Naive Formulation of the Formula of Universal Law"
+subsection \<open>Naive Formulation of the Formula of Universal Law \label{sec:naive}\<close>
 
 text "This section presents a simple and intuitive formalization of the formula of universal law, which 
 is to will only those maxims that you would simultaneously will universalized. The universalizability 
-test presents negative obligations: if a maxim passes the universalizability test, it is permissible. Else,
+test creates negative obligations: if a maxim passes the universalizability test, it is permissible. Else,
 it is prohibited. In order to appropriately formalize this, we need some notion of permissibility."
 
 abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
@@ -34,11 +31,11 @@ permissible because I am not required to refrain from buying a red folder.\<clos
 (*>*)
 
 text "This naive formalization will require very little additional logical machinery, but more complex
-formalizations may require additional logic concepts beyond just that of permissibility. 
+formalizations may require additional logic concepts. 
 
 Let's now consider a naive reading of the Formula of Universal Law (FUL): `act only in accordance 
 with that maxim through which you can at the same time will that it become a universal law' @{cite groundwork}.
-An immediate translation to DDL is that if A is not necessary permissible then it is prohibited. In other
+An immediate translation to DDL is that if $A$ is not necessary permissible then it is prohibited. In other
 words, if we cannot universalize $P A$ (where universalizing is represented by the modal necessity 
 operator), then $A$ is prohibited. Let's add this as an axiom to our logic."
 
@@ -138,23 +135,23 @@ lemma wrong_if_possibly_wrong:
   shows murder_wrong
   using assms by blast
 \<comment>\<open>This lemma gets to the ``heart" of this naive interpretation. We really want to say that if something
- isn't necessarily obligated, it's not obligated anywhere. "\<close>
+ isn't necessarily obligated, it's not obligated anywhere.\<close>
 
 text "The above example does exactly what we expect it to: we show that if something is wrong somewhere 
 it's wrong everywhere. That being said, it seems like quite a weak claim. We assumed a very strong, moral 
-fact about murder (that it is wrong somewhere), so of course we were able to reach our desired conclusion."
+fact about murder (that it is wrong somewhere), so it's not surprise that we were able to reach our desired conclusion."
 
 text "Let's try a weaker assumption: Not everyone can lie."
 
 typedecl person
 consts lie::"person\<Rightarrow>t"
 consts me::"person"
-\<comment>\<open>Notice that this machinery is quite empty. We don't give an axioms about what a person can or can't do.\<close>
+\<comment>\<open>Notice that this machinery is quite empty. We don't give axioms about what a person can or can't do.\<close>
 
 abbreviation lying_not_universal::"bool" where "lying_not_universal \<equiv> \<not> (\<forall>x. lie(x) cw) \<and> (lie(me) cw)"
 
 text "This is a rough translation of failure of the universalizability test: we will the maxim universally,
-as represented by the universal quantifier in the first conjunct, and simulataneously @{cite simul}, as represented by 
+as represented by the universal quantifier in the first conjunct, and simultaneously @{cite simul}, as represented by 
 the second conjunct. The FUL tells us that if this sentence is true, then lying should be prohibited. 
 Let's test it."
 
@@ -231,7 +228,7 @@ neither obligatory nor prohibited.\<close>
 concept. Either way, in modern ethics, permissibility is a pretty widely accepted phenomenon.\<close>
 
   text \<open>Another initial test is the possibility of arbitrary obligations. If anything can be shown to be 
-obligatory in this theory, then clearly it doesn't track out intuitions.\<close>
+obligatory in this theory, then clearly it doesn't track our intuitions.\<close>
 
 lemma arbitrary_obligations:
   fixes A::"t"
@@ -246,8 +243,8 @@ lemma arbitrary_obligations:
   text \<open>$\textbf{Conflicting Obligations}$\<close>
 
   text \<open>A more complex metaethical property is the possibility of conflicting obligations. Many deontological
-ethics are criticized for prescribing conflicting obligations, but it is clear that in Kantian ethics, 
-obligations are never conflicting @{cite contradictoryob}. In order for morality to be action-guiding, it needs to be free of 
+ethics are criticized for prescribing conflicting obligations, but in Kantian ethics, 
+obligations never conflict @{cite contradictoryob}. In order for morality to be action-guiding, it needs to be free of 
 conflicting obligations. Let's see if we can have contradictary obligations under the naive formalization.\<close>
 
 lemma conflicting_obligations:

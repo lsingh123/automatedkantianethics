@@ -1,20 +1,21 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
 \contentsline {section}{\numberline {2}System Overview }{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Kantian Ethics }{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Dyadic Deontic Logic}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Dyadic Deontic Logic }{5}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Deontic Logic}{5}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Dyadic Deontic Logic}{5}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Isabelle/HOL Implementation}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Isabelle/HOL Implementation }{6}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}System Definition}{6}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Axiomatization}{7}{subsubsection.2.3.2}%
 \contentsline {subsubsection}{\numberline {2.3.3}Syntax}{7}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Syntactic Properties}{8}{subsubsection.2.3.4}%
 \contentsline {section}{\numberline {3}The Categorical Imperative}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Naive Formulation of the Formula of Universal Law}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Naive Formulation of the Formula of Universal Law }{10}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Specifying the Model}{11}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Metaethical Properties}{13}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative}{16}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative }{15}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Additional Logical Tools}{16}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Differences Between Kroy's Logic (Kr) and DDL}{17}{subsubsection.3.2.2}%
-\contentsline {section}{\numberline {4}Related Work}{18}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{19}{section.5}%
+\contentsline {subsubsection}{\numberline {3.2.3}The Categorical Imperative}{18}{subsubsection.3.2.3}%
+\contentsline {section}{\numberline {4}Related Work}{19}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{20}{section.5}%
