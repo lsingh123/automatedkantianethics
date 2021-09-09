@@ -103,25 +103,18 @@ lemma permissible_ob:
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\<close>
 \<comment>\<open>This one is definitely problematic. Being permissible should be a precondition for being obligatory.
-Let's add this as an axiom - I can't see any ethical theory succeeding without this.\<close>
-
-axiomatization where permissible_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
-
-lemma permissible_ob_round_2:
-  fixes A w
-  shows "O {A} w \<longrightarrow> P {A} w"
-  by (simp add: permissible_ob)
+In my eventual logic, I will need to add this as an axiom, because I can't see any ethical theory succeeding without this.\<close>
 
 subsection "The Categorical Imperative"
 
-abbreviation CI::"bool" where "CI \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
+abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
 \<comment>\<open>This is Kroy's formalization of the FUL in DDL. Recall that the FUL says
 ``act only in accordance with that maxim through which you can at the same time will that it become a universal law" @{cite groundwork}
-Kroy interprets this to mean that if an action is permissible for me, then it must be permissible for everyone.
-This formalizes an important moral intuition - the CI prohibits free-riding. No one is a moral exception\<close>
+Kroy interprets this to mean that if an action A is permissible for some agent p, then it must be permissible for everyone.
+This formalizes the important moral intuition that the formula of universal law prohibits free-riding. No one is a moral exception\<close>
 
-lemma CI:
-  shows CI
+lemma FUL:
+  shows FUL
   nitpick[user_axioms] oops
 \<comment>\<open>Nitpick found a counterexample for card s = 2 and card i = 2:
 

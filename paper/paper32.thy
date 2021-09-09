@@ -1,5 +1,5 @@
 (*<*) theory paper32
-  imports paper31 paper22 paper224
+  imports  paper22 paper224
 
 begin
 (*>*)
@@ -143,11 +143,10 @@ lemma permissible_prereq_ob:
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}\<close>
 
-  text \<open>This particular difference seems untenable. Most ethical theories require that if something is 
-obligatory, it must also be permissible. This is an important enough property of an ethical theory that I 
-will add it as an axiom.\<close>
+  text \<open>This particular difference seems untenable. My custom formalization of the categorical imperative 
+must add this as an axiom.\<close>
 
-axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"
+(*<*)text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"\<close> (*>*)
 
 
 subsubsection "The Categorical Imperative"
@@ -157,10 +156,11 @@ text \<open>I will now implement Kroy's formalization of the Formula of Universa
 Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
 This formalizes an important moral intuition: the categorical imperative prohibits free-riding. No one is a moral exception.
 Formalizing this interpretation requires using open sentences to handle the notion of substitution.\<close>
+abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p::s. ((P {A p}) w))  \<longrightarrow>( (\<forall>p.( P {A p}) w))) "
+text "P {A p} vs *P{A} p"
 
-abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p. (\<^emph>P {A}p )w) \<longrightarrow> (\<forall>x. (\<^emph>P {A}x)w))"
-\<comment>\<open>In English, this statement roughly means that if there exists a person $p$ for whom action $A$ is 
-permissible, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
+\<comment>\<open>In English, this statement roughly means that, for any person $p$ if action $A$ is 
+permissible for $p$, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
 is captured by the substitution of $x$ for $p$.\<close>
 
 text \<open>Let's check if this is already an axiom of DDL. If so, then the formalization is trivial.\<close>
@@ -194,5 +194,93 @@ that it is both non-trivial and consistent. Next semester, I will pick up where 
 
 (*<*)
 
+  subsubsection "Application Tests"
+
+  text "Recall that in Section 3.1.1, we tested the naive interpretation's ability to show that murder 
+is wrong. We started by showing that if murder is possibly wrong, then it is wrong. Let's test that 
+here."
+
+consts M::"t"
+\<comment>\<open>Let the constant $M$ denote murder.\<close>
+
+lemma wrong_if_possibly_wrong:
+  shows "((\<diamond> (O {\<^bold>\<not> M})) cw) \<longrightarrow>  (\<forall>w. (O {\<^bold>\<not> M}) w)"
+  by simp
+
+text \<open>This is the same result we got in Section 3.1.1—if murder is wrong at some world, it is wrong at
+every world. Kroy's formulation shouldn't actually mean that this property holds. Kroy interprets the 
+FUL as universalizing across $people$, not worlds. In other words, Kroy's formulation implies that if
+murder is wrong for someone, then it is wrong for everyone. This strange result is actually a property 
+of DDL itself, not a property of Kroy's formalization. Indeed, repeating this experiment in DDL, with no
+additional axioms that represent the categorical imperative shows that, in DDL, if something is 
+possible wrong, it is wrong at every world. So this is not a useful example to test any formulation,
+since it holds in the base logic itself.\<close>
+
+text "Let's try adapting our murder wrong axiom to Kroy's formulation. In particular, let's see if 
+murder being wrong for one person means that it's wrong for everyone."
+
+consts M2::"os"
+\<comment>\<open>Let's define murder as an open sentence this time, so that we can substitute in different people.\<close>
+
+lemma wrong_if_wrong_for_someone:
+  shows "(\<exists>p. \<Turnstile> O {\<^bold>\<not>(M2 p)}) \<longrightarrow> (\<forall>p. \<Turnstile> O {\<^bold>\<not>(M2 p)})"
+  proof 
+    assume "(\<exists>p. \<Turnstile> O {\<^bold>\<not>(M2 p)})"
+    show "(\<forall>p. \<Turnstile> O {\<^bold>\<not>(M2 p)})"
+      using FUL \<open>\<exists>p. \<Turnstile>\<^emph>O{\<^emph>\<not>M2} p\<close> by blast
+  qed
+\<comment>\<open>This lemma gets to the heart of Kroy's formulation of the categorical imperative. If murder is prohobited
+for a specific person $p$, then it must be prohobited for all people. This test case also revealed a 
+bug in my original implementation of Kroy's formulation of the FUL, demonstrating the power of such 
+philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
+and ethicists can use this approach to find bugs in the precise formulations of their theories.\<close>
+
+  text "Lying not universalizable"
+
+  text "something more sophisticated? like the nazi example?"
+
+  text "maybe trolley problem/self driving car thing"
+
+  subsubsection "Metaethical Tests"
+
+  text "permissibility is possible"
+  lemma permissible:
+    shows "\<exists>A. ((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
+    nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+
+  Skolem constant:
+    A =($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+\<comment>\<open>Just as with the naive interpretation, permissibility is possible.\<close>
+
+lemma fixed_formula_is_permissible:
+  fixes A
+  shows "((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
+  nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>\color{blue}Nitpick found a model for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)\color{black}\<close>
+\<comment>\<open>This bad result also holds under Kroy's formulation. Recall that we want this to fail - if A is ``murder" 
+then no model should render it permissible.\<close>
+
+lemma arbitrary_obligations:
+  fixes A::"t"
+  shows "O {A} w"
+  nitpick [user_axioms=true] oops
+
+    text "ought implies can"
+
+
+
+  text "arbitrary obligations"
+
+  text "conflicting obligations"
+
+  text "obligation and permissible relationship"
+
+  subsection "Misc"
+
+  text "stuff from Kroy's paper"
 end
 (*>*)

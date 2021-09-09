@@ -23,12 +23,6 @@ abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
   where "(P A) \<equiv> (\<^bold>\<not>(O {\<^bold>\<not>A}))"
 \<comment>\<open>An act $A$ is permissible if its negation is not obligated. For example, buying a red folder is 
 permissible because I am not required to refrain from buying a red folder.\<close>
-(*<*)
-\<comment> \<open>This operator represents permissibility\<close>
-\<comment> \<open>Will be useful when discussing the categorical imperative\<close>
-\<comment> \<open>Something is permissible if it is not prohibited\<close>
-\<comment> \<open>Something is prohibited if its negation is obligatory\<close>
-(*>*)
 
 text "This naive formalization will require very little additional logical machinery, but more complex
 formalizations may require additional logic concepts. 
@@ -60,10 +54,11 @@ lemma True nitpick [satisfy,user_axioms,format=2] oops
 \<comment> \<open>\color{blue} Nitpick found a model for card i = 1:
 
   Empty assignment \color{black}\<close>
-\<comment> \<open>Nitpick tells us that the FUL is consistent\<close>
-(*<*)
-\<comment> \<open>``oops" after Nitpick does not mean Nitpick failed.\<close>
+\<comment> \<open>Nitpick tells us that the FUL is consistent\footnote{``oops" at the end of a lemma indicates that the 
+proof is left unfinished. It does not indicate that an error occurred. In this case, we aren't interested
+in proving True (the proof is trivial and automatic), hence the oops.}\<close>
 
+(*<*)
 lemma something_is_obligatory:
   shows "\<forall> w. \<exists> A. O {A} w"
   nitpick [user_axioms]
@@ -109,10 +104,10 @@ lemma something_is_obligatory_relaxed_2:
 
 subsubsection "Specifying the Model"
 
-text "One category of tests is specified models. Specifying the model allows us to encode certain facts 
+text "One category of tests involves specified models to encode certain facts 
 into the system and then ask questions about obligations. Without specifying the model, we are limited 
 to showing high-level metaethical facts. Let's start with analyzing an obvious example - that murder is 
-wrong. "
+wrong."
 
 consts M::"t"
 abbreviation murder_wrong::"bool" where "murder_wrong \<equiv> \<Turnstile>(O {\<^bold>\<not> M})"
@@ -124,16 +119,15 @@ lemma something_is_obligatory_2:
   using assms by auto
 \<comment> \<open>It works this time, but I think ``murder wrong" might be too strong of an assumption\<close>(*>*)
 
-abbreviation poss_murder_wrong::"bool" where "poss_murder_wrong \<equiv> \<Turnstile>(\<diamond> (O {\<^bold>\<not> M}))"
+abbreviation possibly_murder_wrong::"bool" where "possibly_murder_wrong \<equiv> (\<diamond> (O {\<^bold>\<not> M})) cw"
 \<comment>\<open>These are very simple properties. @{text poss_murder_wrong} is an abbreviation for the axiom
 that there is some world where murder might be prohibited. Even this is quite a strong assumption - 
 ideally we'd want to give the system nonmoral facts about murder (like a definition) and then make 
 moral claims.\<close>
 
 lemma wrong_if_possibly_wrong:
-  assumes poss_murder_wrong
-  shows murder_wrong
-  using assms by blast
+  shows "possibly_murder_wrong \<longrightarrow> murder_wrong"
+  by simp
 \<comment>\<open>This lemma gets to the ``heart" of this naive interpretation. We really want to say that if something
  isn't necessarily obligated, it's not obligated anywhere.\<close>
 
@@ -148,9 +142,9 @@ consts lie::"person\<Rightarrow>t"
 consts me::"person"
 \<comment>\<open>Notice that this machinery is quite empty. We don't give axioms about what a person can or can't do.\<close>
 
-abbreviation lying_not_universal::"bool" where "lying_not_universal \<equiv> \<not> (\<forall>x. lie(x) cw) \<and> (lie(me) cw)"
+abbreviation lying_not_universal::"bool" where "lying_not_universal \<equiv> \<forall>w. \<not> ((\<forall>x. lie(x) w) \<and> (lie(me) w))"
 
-text "This is a rough translation of failure of the universalizability test: we will the maxim universally,
+text "This is a rough translation of failure of the universalizability test: we will test the maxim universally,
 as represented by the universal quantifier in the first conjunct, and simultaneously @{cite simul}, as represented by 
 the second conjunct. The FUL tells us that if this sentence is true, then lying should be prohibited. 
 Let's test it."
@@ -213,8 +207,20 @@ An initial property that we might be interested in is permissibility itself. Mor
 theory that doesn't allow for permissibility would require that every action is either obligatory or 
 prohibited. In fact, if that is the case, many counterintuitive theorems follow, including that all 
 permissible actions are obligatory.\footnote{Proof is in the appendix.}\<close>
+  lemma permissible:
+    shows "\<exists>A. ((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
+    nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>\color{blue}Nitpick found a model for card i = 1 and card s = 1:
 
-lemma permissible:
+  Skolem constant:
+    A =($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+\<comment>\<open>We want to show that there exists a model where there is some formula A that is permissible, or, 
+in English, that permissibility is possible. Nitpick finds a model where the above formula holds, 
+so permissibility is indeed possible.\<close>
+\<comment>\<open>Note that it's not clear @{cite kitcher} if Kant actually thought that permissibility was a coherent 
+concept. Either way, in modern ethics, permissibility is a pretty widely accepted phenomenon.\<close>
+
+lemma fixed_formula_is_permissible:
   fixes A
   shows "((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
   nitpick [user_axioms, falsify=false] oops
@@ -222,10 +228,9 @@ lemma permissible:
 
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False)\color{black}\<close>
-\<comment>\<open>This is exactly the desired result above - we have shown that models exist where an action can be 
-neither obligatory nor prohibited.\<close>
-\<comment>\<open>Note that it's not clear @{cite kitcher} if Kant actually thought that permissibility was a coherent 
-concept. Either way, in modern ethics, permissibility is a pretty widely accepted phenomenon.\<close>
+\<comment>\<open>This is a slightly stronger result: for any arbitrary action A, there is a model that makes it 
+permissible. We actually don't want this to hold, because if A is "murder" then the CI requires that 
+it be prohibited in every world.\<close>
 
   text \<open>Another initial test is the possibility of arbitrary obligations. If anything can be shown to be 
 obligatory in this theory, then clearly it doesn't track our intuitions.\<close>

@@ -1,0 +1,99 @@
+Ch. 1: Introduction 
+  - Motivation
+      Automated ethics allows us to build ethical artifically intelligent reasoners and 
+      gives philsophers new tools for reasoning about ethics. I aim to faithfully automate a 
+      sophisticated ethical theory to demonstrate the power of automated ethics.
+  - System Components/Methods
+    - Kantian ethics
+        I choose to automate Kantian ethics, which presents three equivalent "formulations" 
+        (equality-based, dignity-based, respect-based) of the unviolable rule of morality. I 
+        will explain Kantian ethics to a complete philosophical beginner.
+    - Logical background
+        I use Carmo and Jones' Dyadic Deontic Logic. I will explain modal logic, deontic logic,
+        and Carmo and Jones' DDL to a logical beginner. It may not be appropriate for a reader with zero
+        logical familiarity.
+    - Isabelle/HOL
+        I will explain the choice of Isabelle/HOL and demonstrate basic syntax and proof 
+        capabilities through my recreation of BFP's implementation of Carmo and Jones's DDL. 
+  - My contributions 
+      I contribute (1) an implementation of a naive formalization of the categorical imperative, (2) 
+      an implementation of Kroy's formalization of the categorical imperative, (3) an implementation 
+      of my own formalization that addresses gaps in (1) and (2), (4) a testing architecture for 
+      evaluating an ethical formalization, (5) examples and methods for applying my implementations 
+      to real-world ethical dilemmas, (6) implementation and analysis of Kant's argument that the three
+      formulations of the categorical imperative are equal.
+
+Ch. 2: Testing Previous Theories
+  - Explaining and justifying my testing approach
+    - Metaethical/logical tests
+        These tests are proofs of theorems or demonstration of a sentence's consistency or inconsistency.
+        They test metaethical properties of the system, like "does the system allow contradictory
+        obligations" that may or may not be desirable.
+    - Model specification tests
+        These tests specify a model to encode specific background facts into the system. They demonstrate
+        how the system can be used to reason about real world ethical dilemmas.
+  - Testing the naive formulation
+      I will apply the testing approach above to a naive formulation of the categorical 
+      imperative.
+      - Lessons Learned
+        These lessons should inform my eventual formalization.
+  - Testing Kroy's formulation
+    - Formula of Universal Law
+    - Formula of Humanity
+      These sections apply the testing approach above to the two formalizations that Kroy presents, of the FUL
+      and the FUH respectively. I will also include miscellaneous tests specific to Kroy's logic and 
+      arguments.
+    - Lessons Learned 
+        These lessons should inform my eventual formalization.
+
+Ch. 3: New Formalization
+  - Goals 
+      I will set explicit goals for my formalization based on the lessons learned above. These lessons 
+      motivate the need for a new formalization.
+  - Formalization
+      I will present the logical components of my formalization, which may include a representation of agency,
+      additional background axioms about the meaning of "obligated" or "prohibited," and axioms representing
+      the categorical imperative itself.
+  - Evaluation A
+      I will apply the tests outlined in Chapter 2 to my new formalization, as well as any additional
+      tests that may be formalization specific. The actual research process will be very iterative here -
+      I will implement a formalization, apply the tests, and modify my formalization accordingly. Middle iterations
+      may not make it into the thesis itself.
+
+Ch. 4: Equivalence of the Three Formulations
+  - Kant's argument for equivalence
+      I will briefly present Kant's argument for the equivalence of the three formulations of the 
+      categorical imperative. It is well known to be difficult and complex, so presenting it concisely 
+      to a non-philosophical audiece will be a challenge.
+  - Logical argument for equivalence 
+      I will attempt to recreate Kant's proof of the equivalence of the three formulations. This attempt
+      may fail! There may be room to repeat this analysis with the naive formalization and Kroy's formalization.
+  - Philosophical analysis of success or failure of proof
+      I will analyze my success or failure and whether it demonstrates a problem with my system or 
+      a problem with Kant's. 
+
+Ch. 5:  Applications
+  - Motivation for applications
+      Using the system to reason about ethical dilemmas demonstrates its power in contributing to artifical
+      ethical reasoners. 
+  - Specifying a model 
+      I will briefly explain some challenges in specifying a model that have been presented before such as
+      how much background information to include and how to encode this background information.
+  - Example dilemmas 
+      I will present examples of ethical dilemmas that the system can handle. TBD whether or not it's 
+      worth including *additional* ethical dilemmas, versus simply analyzing the results of the tests from 
+      chapter 3.
+  - Evaluation
+      This section will analyze the philosophical implications of the applications presented above to 
+      determine if the system is performing ethical reasoning in any meaningful sense, or just repeating
+      the facts I present to it.
+
+Ch. 6: Discussion
+  - Related Work
+    I will present a brief literature review, starting from Leibnitz and moving to Benzmueller, Parent, and Farjami.
+  - Conclusions
+    This section will largely be informed by the findings in Chapters 3-5.
+  - Future Work
+    I will presents doors that my approach opens, other ethical theories that may be exciting candidates 
+    for formalization, what is left to do to make the implementation usable, and alternative logics
+    beyond DDL.
