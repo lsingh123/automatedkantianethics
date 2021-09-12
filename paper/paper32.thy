@@ -146,7 +146,7 @@ lemma permissible_prereq_ob:
   text \<open>This particular difference seems untenable. My custom formalization of the categorical imperative 
 must add this as an axiom.\<close>
 
-(*<*)text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<^bold>\<rightarrow> P {A})"\<close> (*>*)
+(*<*)text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<rightarrow> P {A})"\<close> (*>*)
 
 
 subsubsection "The Categorical Imperative"
@@ -190,9 +190,9 @@ Nitpick found a model for card i = 1:
   text "This completes my implementation of Kroy's formalization of the first formulation of the 
 categorical imperative. I defined new logical constructs to handle Kroy's logic, studied the differences
 between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
-that it is both non-trivial and consistent. Next semester, I will pick up where I left off and start testing!"
+that it is both non-trivial and consistent. Now it's time to start testing!"
 
-(*<*)
+
 
   subsubsection "Application Tests"
 
@@ -235,7 +235,45 @@ bug in my original implementation of Kroy's formulation of the FUL, demonstratin
 philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
 and ethicists can use this approach to find bugs in the precise formulations of their theories.\<close>
 
-  text "Lying not universalizable"
+  text "For the naive implementation, we also tested the slightly stronger proposition that if not 
+everyone can simultaneously lie, then lying is prohibited. We want to show that if lying 
+fails the universalizability test, then the FUL prohibits it."
+
+consts lie::os 
+abbreviation lying_not_universal::bool where "lying_not_universal \<equiv> \<forall>w. \<not> (\<forall>p. lie(p) w)"
+\<comment>\<open>The formula above reads, ``At all worlds, it is not the case that everyone lies."\<close>
+
+lemma lying_prohibited:
+  fixes p
+  shows " lying_not_universal \<longrightarrow> \<Turnstile> (O {\<^bold>\<not> (lie(p))})"
+  nitpick[user_axioms] oops
+\<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Free variable:
+    p = $s_1$
+  Skolem constant:
+    $\lambda$w. p = ($\lambda$x. $\_$)($i_1$ := $s_1$) $\color{black}$\<close>
+
+  text "Kroy's formulation also fails to show that if not everyone can lie, then lying is prohibited. 
+      There may be an issue here with our representation of lying not being universal. Specifically, 
+      the FUL is violated if it's not $possible$ for everyone to simultaneously lie, but the abbreviation 
+      above merely represents that fact that not everyone does, in fact, simultaneously lie. It's entirely
+      possible that everyone can simultaneously lie, but for some reason, maybe out of some moral sense, 
+      do not. Let's test a more accurate version of the failure of the universalizability test."
+
+  text\<open> We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is not possible that everyone lies simultaneously.
+      Representing this sentence requires that we apply a universal quantifier inside the possible operator,
+      something that DDL does not support as-is. There are two options here. (1) We can pull the universal outside
+      the diamond operator, resulting in the sentence ``At all worlds, for all people, it is not possible that 
+      they lie." This isn't $\textbf{really}$ the same as $S$. (2) We can define universal and existential 
+      operators that quantify over DDL formulae to actually represent $S$ as we want to. I am going to 
+      try to implement (2), borrowing from @{cite gewirth}'s extension of Carmo and Jones' DDL. This 
+      will also be useful when creating my own formalization of the categorical imperative. MOVE THIS TO NAIVE \<close>
+
+  text \<open>abbreviation lying not possibly universal::bool where "lying not possibly universal longleftrightarrow forall w. not (diamond (forall p. lie(p)))w)"\<close>
+\<comment>\<open>The formula above reads, "At all worlds, it is not possible \<close>
+
+
 
   text "something more sophisticated? like the nazi example?"
 
@@ -243,7 +281,6 @@ and ethicists can use this approach to find bugs in the precise formulations of 
 
   subsubsection "Metaethical Tests"
 
-  text "permissibility is possible"
   lemma permissible:
     shows "\<exists>A. ((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
     nitpick [user_axioms, falsify=false] oops
@@ -282,5 +319,6 @@ lemma arbitrary_obligations:
   subsection "Misc"
 
   text "stuff from Kroy's paper"
+(*<*)
 end
 (*>*)

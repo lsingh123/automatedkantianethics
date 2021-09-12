@@ -265,31 +265,8 @@ in Kr, it may be because of this.%
 }\isanewline
 %
 \isamarkupcmt{This one is definitely problematic. Being permissible should be a precondition for being obligatory.
-Let's add this as an axiom - I can't see any ethical theory succeeding without this.%
+In my eventual logic, I will need to add this as an axiom, because I can't see any ethical theory succeeding without this.%
 }%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-\isanewline
-\isanewline
-\isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ permissible{\isacharunderscore}ob{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\isanewline
-\isacommand{lemma}\isamarkupfalse%
-\ permissible{\isacharunderscore}ob{\isacharunderscore}round{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
-\ \ \isakeyword{fixes}\ A\ w\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
-%
-\isadelimproof
-\ \ %
-\endisadelimproof
-%
-\isatagproof
-\isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}simp\ add{\isacharcolon}\ permissible{\isacharunderscore}ob{\isacharparenright}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -314,17 +291,17 @@ Let's add this as an axiom - I can't see any ethical theory succeeding without t
 %
 \endisadelimdocument
 \isacommand{abbreviation}\isamarkupfalse%
-\ CI{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}CI\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}p\ {\isacharparenright}w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}x{\isacharparenright}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ FUL{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}p\ {\isacharparenright}w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}x{\isacharparenright}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{This is Kroy's formalization of the FUL in DDL. Recall that the FUL says
 ``act only in accordance with that maxim through which you can at the same time will that it become a universal law" \cite{groundwork}
-Kroy interprets this to mean that if an action is permissible for me, then it must be permissible for everyone.
-This formalizes an important moral intuition - the CI prohibits free-riding. No one is a moral exception%
+Kroy interprets this to mean that if an action A is permissible for some agent p, then it must be permissible for everyone.
+This formalizes the important moral intuition that the formula of universal law prohibits free-riding. No one is a moral exception%
 }\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
-\ CI{\isacharcolon}\isanewline
-\ \ \isakeyword{shows}\ CI\isanewline
+\ FUL{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ FUL\isanewline
 \ \ \isacommand{nitpick}\isamarkupfalse%
 {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
@@ -686,109 +663,97 @@ obligation. This seems reasonable - if A is never possible at any world, then it
 %:%265=104%:%
 %:%267=105%:%
 %:%268=106%:%
-%:%276=106%:%
-%:%277=107%:%
-%:%278=108%:%
-%:%279=108%:%
-%:%280=109%:%
-%:%281=110%:%
-%:%282=110%:%
-%:%283=111%:%
-%:%284=112%:%
-%:%287=113%:%
-%:%291=113%:%
-%:%292=113%:%
-%:%306=115%:%
-%:%316=117%:%
-%:%317=117%:%
-%:%319=118%:%
-%:%320=119%:%
-%:%321=120%:%
-%:%322=121%:%
-%:%323=121%:%
-%:%324=122%:%
-%:%325=123%:%
-%:%326=123%:%
-%:%327=124%:%
-%:%328=125%:%
+%:%283=108%:%
+%:%293=110%:%
+%:%294=110%:%
+%:%296=111%:%
+%:%297=112%:%
+%:%298=113%:%
+%:%299=114%:%
+%:%300=114%:%
+%:%301=115%:%
+%:%302=116%:%
+%:%303=116%:%
+%:%304=117%:%
+%:%305=118%:%
+%:%306=118%:%
+%:%308=118%:%
+%:%312=118%:%
+%:%313=118%:%
+%:%315=119%:%
+%:%316=120%:%
+%:%317=121%:%
+%:%318=122%:%
+%:%319=123%:%
+%:%320=124%:%
+%:%321=125%:%
 %:%329=125%:%
-%:%331=125%:%
-%:%335=125%:%
-%:%336=125%:%
-%:%338=126%:%
-%:%339=127%:%
+%:%330=126%:%
+%:%331=127%:%
+%:%332=127%:%
+%:%335=128%:%
+%:%339=128%:%
 %:%340=128%:%
-%:%341=129%:%
-%:%342=130%:%
-%:%343=131%:%
-%:%344=132%:%
-%:%352=132%:%
-%:%353=133%:%
-%:%354=134%:%
-%:%355=134%:%
-%:%358=135%:%
-%:%362=135%:%
-%:%363=135%:%
-%:%368=135%:%
-%:%371=136%:%
-%:%372=137%:%
-%:%373=137%:%
-%:%374=138%:%
-%:%381=139%:%
-%:%382=139%:%
-%:%383=140%:%
-%:%384=140%:%
-%:%385=141%:%
-%:%386=141%:%
-%:%387=142%:%
-%:%388=142%:%
-%:%389=143%:%
-%:%390=143%:%
-%:%391=144%:%
-%:%397=144%:%
-%:%400=145%:%
-%:%401=146%:%
-%:%402=146%:%
+%:%345=128%:%
+%:%348=129%:%
+%:%349=130%:%
+%:%350=130%:%
+%:%351=131%:%
+%:%358=132%:%
+%:%359=132%:%
+%:%360=133%:%
+%:%361=133%:%
+%:%362=134%:%
+%:%363=134%:%
+%:%364=135%:%
+%:%365=135%:%
+%:%366=136%:%
+%:%367=136%:%
+%:%368=137%:%
+%:%374=137%:%
+%:%377=138%:%
+%:%378=139%:%
+%:%379=139%:%
+%:%380=140%:%
+%:%382=141%:%
+%:%383=142%:%
+%:%384=142%:%
+%:%385=143%:%
+%:%392=145%:%
+%:%402=147%:%
 %:%403=147%:%
-%:%405=148%:%
-%:%406=149%:%
-%:%407=149%:%
-%:%408=150%:%
-%:%415=152%:%
-%:%425=154%:%
-%:%426=154%:%
-%:%427=154%:%
-%:%429=154%:%
-%:%433=154%:%
-%:%434=154%:%
-%:%436=155%:%
-%:%437=156%:%
-%:%438=157%:%
-%:%439=157%:%
-%:%441=158%:%
-%:%456=160%:%
-%:%466=163%:%
-%:%467=163%:%
-%:%468=164%:%
-%:%469=165%:%
-%:%470=166%:%
-%:%471=167%:%
-%:%474=168%:%
-%:%478=168%:%
-%:%479=168%:%
-%:%484=168%:%
-%:%487=169%:%
-%:%488=170%:%
-%:%489=171%:%
-%:%490=171%:%
-%:%491=172%:%
-%:%492=173%:%
-%:%493=174%:%
-%:%494=175%:%
-%:%495=176%:%
-%:%496=176%:%
-%:%498=176%:%
-%:%502=176%:%
-%:%517=180%:%
-%:%521=182%:%
-%:%537=188%:%
+%:%404=147%:%
+%:%406=147%:%
+%:%410=147%:%
+%:%411=147%:%
+%:%413=148%:%
+%:%414=149%:%
+%:%415=150%:%
+%:%416=150%:%
+%:%418=151%:%
+%:%433=153%:%
+%:%443=156%:%
+%:%444=156%:%
+%:%445=157%:%
+%:%446=158%:%
+%:%447=159%:%
+%:%448=160%:%
+%:%451=161%:%
+%:%455=161%:%
+%:%456=161%:%
+%:%461=161%:%
+%:%464=162%:%
+%:%465=163%:%
+%:%466=164%:%
+%:%467=164%:%
+%:%468=165%:%
+%:%469=166%:%
+%:%470=167%:%
+%:%471=168%:%
+%:%472=169%:%
+%:%473=169%:%
+%:%475=169%:%
+%:%479=169%:%
+%:%494=173%:%
+%:%498=175%:%
+%:%514=181%:%

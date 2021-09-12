@@ -16,6 +16,9 @@
 \contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative }{16}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Additional Logical Tools}{16}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Differences Between Kroy's Logic (Kr) and DDL}{17}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}The Categorical Imperative}{18}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Related Work}{19}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{20}{section.5}%
+\contentsline {subsubsection}{\numberline {3.2.3}The Categorical Imperative}{19}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Application Tests}{19}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Metaethical Tests}{21}{subsubsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.3}Misc}{22}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Related Work}{22}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{23}{section.5}%

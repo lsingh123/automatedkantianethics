@@ -291,12 +291,10 @@ if that also holds in DDL.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-This particular difference seems untenable. Most ethical theories require that if something is 
-obligatory, it must also be permissible. This is an important enough property of an ethical theory that I 
-will add it as an axiom.%
+This particular difference seems untenable. My custom formalization of the categorical imperative 
+must add this as an axiom.%
 \end{isamarkuptext}\isamarkuptrue%
-\isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ permissible{\isacharunderscore}prepreq{\isacharunderscore}ob{\isacharcolon}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}%
+%
 \isadelimdocument
 %
 \endisadelimdocument
@@ -322,10 +320,13 @@ This formalizes an important moral intuition: the categorical imperative prohibi
 Formalizing this interpretation requires using open sentences to handle the notion of substitution.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
-\ FUL{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}p\ {\isacharparenright}w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}x{\isachardot}\ {\isacharparenleft}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}x{\isacharparenright}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ FUL{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}P\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ \ {\isasymlongrightarrow}{\isacharparenleft}\ {\isacharparenleft}{\isasymforall}p{\isachardot}{\isacharparenleft}\ P\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+P {A p} vs *P{A} p%
+\end{isamarkuptext}\isamarkuptrue%
 %
-\isamarkupcmt{In English, this statement roughly means that if there exists a person $p$ for whom action $A$ is 
-permissible, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
+\isamarkupcmt{In English, this statement roughly means that, for any person $p$ if action $A$ is 
+permissible for $p$, then action $A$ must be permissible for all agents $x$. The notion of ``permissible for" 
 is captured by the substitution of $x$ for $p$.%
 }%
 \begin{isamarkuptext}%
@@ -393,7 +394,316 @@ Nitpick found a model for card i = 1:
 This completes my implementation of Kroy's formalization of the first formulation of the 
 categorical imperative. I defined new logical constructs to handle Kroy's logic, studied the differences
 between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
-that it is both non-trivial and consistent. Next semester, I will pick up where I left off and start testing!%
+that it is both non-trivial and consistent. Now it's time to start testing!%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Application Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Recall that in Section 3.1.1, we tested the naive interpretation's ability to show that murder 
+is wrong. We started by showing that if murder is possibly wrong, then it is wrong. Let's test that 
+here.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ M{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Let the constant $M$ denote murder.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}possibly{\isacharunderscore}wrong{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}{\isasymdiamond}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ cw{\isacharparenright}\ {\isasymlongrightarrow}\ \ {\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This is the same result we got in Section 3.1.1—if murder is wrong at some world, it is wrong at
+every world. Kroy's formulation shouldn't actually mean that this property holds. Kroy interprets the 
+FUL as universalizing across $people$, not worlds. In other words, Kroy's formulation implies that if
+murder is wrong for someone, then it is wrong for everyone. This strange result is actually a property 
+of DDL itself, not a property of Kroy's formalization. Indeed, repeating this experiment in DDL, with no
+additional axioms that represent the categorical imperative shows that, in DDL, if something is 
+possible wrong, it is wrong at every world. So this is not a useful example to test any formulation,
+since it holds in the base logic itself.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Let's try adapting our murder wrong axiom to Kroy's formulation. In particular, let's see if 
+murder being wrong for one person means that it's wrong for everyone.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ M{\isadigit{2}}{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Let's define murder as an open sentence this time, so that we can substitute in different people.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}wrong{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymTurnstile}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}M{\isadigit{2}}\ p{\isacharparenright}{\isacharbraceright}{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isasymTurnstile}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}M{\isadigit{2}}\ p{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+\ \isanewline
+\ \ \ \ \isacommand{assume}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymTurnstile}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}M{\isadigit{2}}\ p{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{show}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isasymTurnstile}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}M{\isadigit{2}}\ p{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ {\isacartoucheopen}{\isasymexists}p{\isachardot}\ {\isasymTurnstile}\isactrlemph O{\isacharbraceleft}\isactrlemph {\isasymnot}M{\isadigit{2}}{\isacharbraceright}\ p{\isacartoucheclose}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \ \isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{This lemma gets to the heart of Kroy's formulation of the categorical imperative. If murder is prohobited
+for a specific person $p$, then it must be prohobited for all people. This test case also revealed a 
+bug in my original implementation of Kroy's formulation of the FUL, demonstrating the power of such 
+philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
+and ethicists can use this approach to find bugs in the precise formulations of their theories.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+For the naive implementation, we also tested the slightly stronger proposition that if not 
+everyone can simultaneously lie, then lying is prohibited. We want to show that if lying 
+fails the universalizability test, then the FUL prohibits it.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ lie{\isacharcolon}{\isacharcolon}os\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ lying{\isacharunderscore}not{\isacharunderscore}universal{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ lie{\isacharparenleft}p{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{The formula above reads, ``At all worlds, it is not the case that everyone lies."%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ lying{\isacharunderscore}prohibited{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ p\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}\ lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymlongrightarrow}\ {\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}lie{\isacharparenleft}p{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Free variable:
+    p = $s_1$
+  Skolem constant:
+    $\lambda$w. p = ($\lambda$x. $\_$)($i_1$ := $s_1$) $\color{black}$%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Kroy's formulation also fails to show that if not everyone can lie, then lying is prohibited. 
+      There may be an issue here with our representation of lying not being universal. Specifically, 
+      the FUL is violated if it's not $possible$ for everyone to simultaneously lie, but the abbreviation 
+      above merely represents that fact that not everyone does, in fact, simultaneously lie. It's entirely
+      possible that everyone can simultaneously lie, but for some reason, maybe out of some moral sense, 
+      do not. Let's test a more accurate version of the failure of the universalizability test.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is not possible that everyone lies simultaneously.
+      Representing this sentence requires that we apply a universal quantifier inside the possible operator,
+      something that DDL does not support as-is. There are two options here. (1) We can pull the universal outside
+      the diamond operator, resulting in the sentence ``At all worlds, for all people, it is not possible that 
+      they lie." This isn't $\textbf{really}$ the same as $S$. (2) We can define universal and existential 
+      operators that quantify over DDL formulae to actually represent $S$ as we want to. I am going to 
+      try to implement (2), borrowing from \cite{gewirth}'s extension of Carmo and Jones' DDL. This 
+      will also be useful when creating my own formalization of the categorical imperative. MOVE THIS TO NAIVE%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+abbreviation lying not possibly universal::bool where "lying not possibly universal longleftrightarrow forall w. not (diamond (forall p. lie(p)))w)"%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isamarkupcmt{The formula above reads, "At all worlds, it is not possible%
+}%
+\begin{isamarkuptext}%
+something more sophisticated? like the nazi example?%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+maybe trolley problem/self driving car thing%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Metaethical Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+\ \ \isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharcolon}\isanewline
+\ \ \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymexists}A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+
+  Skolem constant:
+    A =($\lambda x. \_$)($i_1$ := False) \color{black}%
+}\isanewline
+%
+\isamarkupcmt{Just as with the naive interpretation, permissibility is possible.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ fixed{\isacharunderscore}formula{\isacharunderscore}is{\isacharunderscore}permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)\color{black}%
+}\isanewline
+%
+\isamarkupcmt{This bad result also holds under Kroy's formulation. Recall that we want this to fail - if A is ``murder" 
+then no model should render it permissible.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ arbitrary{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharequal}true{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+ought implies can%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+arbitrary obligations%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+conflicting obligations%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+obligation and permissible relationship%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Misc%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+stuff from Kroy's paper%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -554,50 +864,190 @@ that it is both non-trivial and consistent. Next semester, I will pick up where 
 %:%284=144%:%
 %:%294=146%:%
 %:%295=147%:%
-%:%296=148%:%
-%:%298=150%:%
-%:%299=150%:%
-%:%306=153%:%
-%:%318=155%:%
-%:%319=156%:%
-%:%320=157%:%
-%:%321=158%:%
+%:%304=152%:%
+%:%316=154%:%
+%:%317=155%:%
+%:%318=156%:%
+%:%319=157%:%
+%:%320=158%:%
 %:%322=159%:%
-%:%324=161%:%
-%:%325=161%:%
-%:%327=162%:%
-%:%328=163%:%
-%:%329=164%:%
-%:%332=166%:%
-%:%334=168%:%
+%:%323=159%:%
+%:%325=160%:%
+%:%328=162%:%
+%:%329=163%:%
+%:%330=164%:%
+%:%333=166%:%
 %:%335=168%:%
-%:%336=169%:%
-%:%337=170%:%
+%:%336=168%:%
+%:%337=169%:%
 %:%338=170%:%
-%:%340=170%:%
-%:%344=170%:%
+%:%339=170%:%
+%:%341=170%:%
 %:%345=170%:%
-%:%347=171%:%
-%:%348=172%:%
-%:%349=173%:%
-%:%350=174%:%
-%:%351=175%:%
-%:%352=176%:%
-%:%362=178%:%
-%:%364=180%:%
+%:%346=170%:%
+%:%348=171%:%
+%:%349=172%:%
+%:%350=173%:%
+%:%351=174%:%
+%:%352=175%:%
+%:%353=176%:%
+%:%363=178%:%
 %:%365=180%:%
-%:%367=182%:%
-%:%369=184%:%
+%:%366=180%:%
+%:%368=182%:%
 %:%370=184%:%
 %:%371=184%:%
-%:%373=184%:%
-%:%377=184%:%
+%:%372=184%:%
+%:%374=184%:%
 %:%378=184%:%
-%:%380=185%:%
-%:%381=186%:%
-%:%382=187%:%
-%:%383=188%:%
-%:%393=190%:%
-%:%394=191%:%
-%:%395=192%:%
-%:%396=193%:%
+%:%379=184%:%
+%:%381=185%:%
+%:%382=186%:%
+%:%383=187%:%
+%:%384=188%:%
+%:%394=190%:%
+%:%395=191%:%
+%:%396=192%:%
+%:%397=193%:%
+%:%406=197%:%
+%:%418=199%:%
+%:%419=200%:%
+%:%420=201%:%
+%:%422=203%:%
+%:%423=203%:%
+%:%425=204%:%
+%:%426=204%:%
+%:%427=205%:%
+%:%428=206%:%
+%:%429=206%:%
+%:%430=207%:%
+%:%433=208%:%
+%:%437=208%:%
+%:%438=208%:%
+%:%447=210%:%
+%:%448=211%:%
+%:%449=212%:%
+%:%450=213%:%
+%:%451=214%:%
+%:%452=215%:%
+%:%453=216%:%
+%:%454=217%:%
+%:%458=219%:%
+%:%459=220%:%
+%:%461=222%:%
+%:%462=222%:%
+%:%464=223%:%
+%:%465=223%:%
+%:%466=224%:%
+%:%467=225%:%
+%:%468=225%:%
+%:%469=226%:%
+%:%472=227%:%
+%:%476=227%:%
+%:%477=227%:%
+%:%478=228%:%
+%:%479=228%:%
+%:%480=229%:%
+%:%481=229%:%
+%:%482=230%:%
+%:%483=230%:%
+%:%484=230%:%
+%:%485=231%:%
+%:%486=231%:%
+%:%488=232%:%
+%:%489=233%:%
+%:%490=234%:%
+%:%491=235%:%
+%:%492=236%:%
+%:%502=238%:%
+%:%503=239%:%
+%:%504=240%:%
+%:%506=242%:%
+%:%507=242%:%
+%:%508=243%:%
+%:%509=243%:%
+%:%511=244%:%
+%:%512=244%:%
+%:%513=245%:%
+%:%514=246%:%
+%:%515=246%:%
+%:%516=247%:%
+%:%517=248%:%
+%:%518=249%:%
+%:%519=249%:%
+%:%521=249%:%
+%:%525=249%:%
+%:%526=249%:%
+%:%528=250%:%
+%:%529=251%:%
+%:%530=252%:%
+%:%531=253%:%
+%:%532=254%:%
+%:%533=255%:%
+%:%543=257%:%
+%:%544=258%:%
+%:%545=259%:%
+%:%546=260%:%
+%:%547=261%:%
+%:%548=262%:%
+%:%552=264%:%
+%:%553=265%:%
+%:%554=266%:%
+%:%555=267%:%
+%:%556=268%:%
+%:%557=269%:%
+%:%558=270%:%
+%:%559=271%:%
+%:%563=273%:%
+%:%566=274%:%
+%:%569=278%:%
+%:%573=280%:%
+%:%582=282%:%
+%:%592=284%:%
+%:%593=284%:%
+%:%594=285%:%
+%:%595=286%:%
+%:%596=286%:%
+%:%598=286%:%
+%:%602=286%:%
+%:%603=286%:%
+%:%605=287%:%
+%:%606=288%:%
+%:%607=289%:%
+%:%608=290%:%
+%:%609=290%:%
+%:%611=291%:%
+%:%619=291%:%
+%:%620=292%:%
+%:%621=293%:%
+%:%622=293%:%
+%:%623=294%:%
+%:%624=295%:%
+%:%625=296%:%
+%:%626=296%:%
+%:%628=296%:%
+%:%632=296%:%
+%:%633=296%:%
+%:%635=297%:%
+%:%636=298%:%
+%:%637=299%:%
+%:%638=300%:%
+%:%639=300%:%
+%:%641=301%:%
+%:%642=302%:%
+%:%650=302%:%
+%:%651=303%:%
+%:%652=304%:%
+%:%653=304%:%
+%:%654=305%:%
+%:%655=306%:%
+%:%656=307%:%
+%:%657=307%:%
+%:%659=307%:%
+%:%663=307%:%
+%:%673=309%:%
+%:%677=313%:%
+%:%681=315%:%
+%:%685=317%:%
+%:%694=319%:%
+%:%706=321%:%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  5 SEP 2021 09:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 SEP 2021 14:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,9 +303,15 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
  [6] [7])
-(./paper224.tex [8] [9]) (./paper31.tex [10] [11] [12] [13] [14])
-(./paper32.tex [15] [16] [17] [18]) (./relatedwork.tex [19]) (./futurework.tex
-[20]) [21] (./root.bbl [22]
+(./paper224.tex [8] [9]) (./paper31.tex [10] [11] [12] [13] [14] [15])
+(./paper32.tex [16] [17] [18] [19]
+Overfull \hbox (2.619pt too wide) in paragraph at lines 447--455
+\OT1/ptm/m/n/10.95 prop-erty holds. Kroy in-ter-prets the FUL as uni-ver-sal-iz
+-ing across $\OML/cmm/m/it/10.95 people$\OT1/ptm/m/n/10.95 , not worlds.
+ []
+
+[20] [21]) (./relatedwork.tex [22]) (./futurework.tex [23]) [24] (./root.bbl
+[25]
 Underfull \hbox (badness 1675) in paragraph at lines 86--92
 []\OT1/ptm/m/n/10.95 D. Fuen-mayor and C. Benzm[]uller.  For-mal-i-sa-tion and 
 eval-u-a-tion of
@@ -317,22 +323,22 @@ Underfull \hbox (badness 2753) in paragraph at lines 86--92
 tency in is-
  []
 
-[23])
+[26])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
- [24]
+ [27]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 84715B0BA653AB8A73ADF845A6716318;1552.
+(rerunfilecheck)             Checksum: C9E4E3032B5E070EB51BB3F9DB5E73BC;1760.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
  ) 
 Here is how much of TeX's memory you used:
- 6525 strings out of 480608
- 95931 string characters out of 5903631
+ 6534 strings out of 480608
+ 96062 string characters out of 5903631
  351578 words of memory out of 5000000
- 22161 multiletter control sequences out of 15000+600000
+ 22164 multiletter control sequences out of 15000+600000
  569260 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,33p,824b,513s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -353,10 +359,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on root.pdf (24 pages, 230759 bytes).
+Output written on root.pdf (27 pages, 239386 bytes).
 PDF statistics:
- 446 PDF objects out of 1000 (max. 8388607)
- 400 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 477 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
