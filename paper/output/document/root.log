@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 SEP 2021 14:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  13 SEP 2021 11:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -310,7 +310,15 @@ Overfull \hbox (2.619pt too wide) in paragraph at lines 447--455
 -ing across $\OML/cmm/m/it/10.95 people$\OT1/ptm/m/n/10.95 , not worlds.
  []
 
-[20] [21]) (./relatedwork.tex [22]) (./futurework.tex [23]) [24] (./root.bbl
+[20]
+Overfull \hbox (2.58928pt too wide) in paragraph at lines 570--572
+[][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 lying[]not[]possibly[]univers
+al$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 bool \OT1/ptm/b/n/10 where \OT1/ptm/m/
+it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm/m/it/
+10 w$\OML/cmm/m/it/10 :$
+ []
+
+[21]) (./relatedwork.tex [22]) (./futurework.tex [23]) [24] (./root.bbl
 [25]
 Underfull \hbox (badness 1675) in paragraph at lines 86--92
 []\OT1/ptm/m/n/10.95 D. Fuen-mayor and C. Benzm[]uller.  For-mal-i-sa-tion and 
@@ -359,10 +367,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on root.pdf (27 pages, 239386 bytes).
+Output written on root.pdf (27 pages, 241286 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 427 compressed objects within 5 object streams
+ 476 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
  107 named destinations out of 1000 (max. 500000)
  193 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -159,6 +159,8 @@ abbreviation ddlvalidcw::"t\<Rightarrow>bool" ("\<Turnstile>\<^sub>c_")
   where "\<Turnstile>\<^sub>cA \<equiv> A cw"
 (*>*)
 
+
+
 subsubsection "Syntactic Properties"
 
 text \<open>One way to show that a semantic embedding is complete is to show that the syntactic specification

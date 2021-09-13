@@ -486,7 +486,7 @@ murder being wrong for one person means that it's wrong for everyone.%
 \isanewline
 %
 \isamarkupcmt{This lemma gets to the heart of Kroy's formulation of the categorical imperative. If murder is prohobited
-for a specific person $p$, then it must be prohobited for all people. This test case also revealed a 
+for a specific person $p$, then it must be prohibited for all people. This test case also revealed a 
 bug in my original implementation of Kroy's formulation of the FUL, demonstrating the power of such 
 philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
 and ethicists can use this approach to find bugs in the precise formulations of their theories.%
@@ -549,28 +549,62 @@ Kroy's formulation also fails to show that if not everyone can lie, then lying i
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is not possible that everyone lies simultaneously.
-      Representing this sentence requires that we apply a universal quantifier inside the possible operator,
-      something that DDL does not support as-is. There are two options here. (1) We can pull the universal outside
-      the diamond operator, resulting in the sentence ``At all worlds, for all people, it is not possible that 
-      they lie." This isn't $\textbf{really}$ the same as $S$. (2) We can define universal and existential 
-      operators that quantify over DDL formulae to actually represent $S$ as we want to. I am going to 
-      try to implement (2), borrowing from \cite{gewirth}'s extension of Carmo and Jones' DDL. This 
-      will also be useful when creating my own formalization of the categorical imperative. MOVE THIS TO NAIVE%
+We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is 
+      not possible that everyone lies simultaneously." Consider the two abbreviations below.%
 \end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ everyone{\isacharunderscore}lies{\isacharcolon}{\isacharcolon}t\ \isakeyword{where}\ {\isachardoublequoteopen}everyone{\isacharunderscore}lies\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}lie{\isacharparenleft}p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\begin{isamarkuptext}%
-abbreviation lying not possibly universal::bool where "lying not possibly universal longleftrightarrow forall w. not (diamond (forall p. lie(p)))w)"%
-\end{isamarkuptext}\isamarkuptrue%
+\isamarkupcmt{This represents the term ``all people lie". Naively, we might think to represent this as $\forall p. lie(p)$.
+In HOL, the $\forall$ operator has type $('a\rightarrow bool) \rightarrow bool$, where $'a$ is a polymorphic
+type representing the type of the argument to $\forall$. This is because the universal quantifier binds 
+the argument of the term given to it, such that it turns an open term into a closed term. In the given example, 
+$\forall$ has the type $(s \rightarrow bool) \rightarrow bool$, so it can only be applied to a formula 
+of type $s \rightarrow bool$. In the abbreviation above, we're applying the quantifier to the sentence 
+$lie(p) w$ for any arbitrary $w$, so the types cohere.%
+}\isanewline
 %
-\isamarkupcmt{The formula above reads, "At all worlds, it is not possible%
+\isamarkupcmt{The term above is true for a set of worlds $i$ (recall that a term is true at a set of worlds) 
+such that, at all the worlds $w$ in $i$, all people at $w$ lie.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ lying{\isacharunderscore}not{\isacharunderscore}possibly{\isacharunderscore}universal{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}lying{\isacharunderscore}not{\isacharunderscore}possibly{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}{\isacharparenleft}{\isasymdiamond}everyone{\isacharunderscore}lies\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Armed with \isa{everyone{\isacharunderscore}lies\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ {\isasymforall}p{\isachardot}\ lie\ p\ w}, it's easy to represent the sentence $S$. The abbreviation above 
+reads, ``At all worlds, it is not possible that everyone lies."%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ lying{\isacharunderscore}prohibited{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}lying{\isacharunderscore}not{\isacharunderscore}possible{\isacharunderscore}universal\ {\isasymlongrightarrow}\ \ {\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}lie{\isacharparenleft}p{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    $lying\_not\_possible\_universal$ = True
+    p = $s_1$ $\color{black}$%
 }%
-\begin{isamarkuptext}%
-something more sophisticated? like the nazi example?%
-\end{isamarkuptext}\isamarkuptrue%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
 %
 \begin{isamarkuptext}%
-maybe trolley problem/self driving car thing%
+Even with the stronger assumption that it's not possible for everyone to lie 
+simultaneously, Kroy's formulation is still not able to show that lying is prohibited for an arbitrary
+person. That's a problem! WHY IS THIS HAPPENING%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -992,62 +1026,88 @@ stuff from Kroy's paper%
 %:%548=262%:%
 %:%552=264%:%
 %:%553=265%:%
-%:%554=266%:%
 %:%555=267%:%
-%:%556=268%:%
-%:%557=269%:%
-%:%558=270%:%
-%:%559=271%:%
+%:%556=267%:%
+%:%558=268%:%
+%:%559=269%:%
+%:%560=270%:%
+%:%561=271%:%
+%:%562=272%:%
 %:%563=273%:%
-%:%566=274%:%
-%:%569=278%:%
-%:%573=280%:%
-%:%582=282%:%
-%:%592=284%:%
-%:%593=284%:%
-%:%594=285%:%
-%:%595=286%:%
-%:%596=286%:%
-%:%598=286%:%
-%:%602=286%:%
-%:%603=286%:%
-%:%605=287%:%
-%:%606=288%:%
-%:%607=289%:%
-%:%608=290%:%
-%:%609=290%:%
-%:%611=291%:%
-%:%619=291%:%
-%:%620=292%:%
-%:%621=293%:%
-%:%622=293%:%
-%:%623=294%:%
-%:%624=295%:%
-%:%625=296%:%
-%:%626=296%:%
-%:%628=296%:%
-%:%632=296%:%
-%:%633=296%:%
-%:%635=297%:%
-%:%636=298%:%
+%:%564=274%:%
+%:%565=274%:%
+%:%567=275%:%
+%:%568=276%:%
+%:%569=276%:%
+%:%570=277%:%
+%:%571=278%:%
+%:%572=278%:%
+%:%574=279%:%
+%:%575=280%:%
+%:%576=280%:%
+%:%577=281%:%
+%:%578=282%:%
+%:%579=282%:%
+%:%580=283%:%
+%:%581=284%:%
+%:%582=284%:%
+%:%584=284%:%
+%:%588=284%:%
+%:%589=284%:%
+%:%591=285%:%
+%:%592=286%:%
+%:%593=287%:%
+%:%594=288%:%
+%:%595=289%:%
+%:%605=291%:%
+%:%606=292%:%
+%:%607=293%:%
+%:%616=295%:%
+%:%626=297%:%
+%:%627=297%:%
+%:%628=298%:%
+%:%629=299%:%
+%:%630=299%:%
+%:%632=299%:%
+%:%636=299%:%
 %:%637=299%:%
-%:%638=300%:%
 %:%639=300%:%
-%:%641=301%:%
-%:%642=302%:%
-%:%650=302%:%
-%:%651=303%:%
-%:%652=304%:%
+%:%640=301%:%
+%:%641=302%:%
+%:%642=303%:%
+%:%643=303%:%
+%:%645=304%:%
 %:%653=304%:%
 %:%654=305%:%
 %:%655=306%:%
-%:%656=307%:%
+%:%656=306%:%
 %:%657=307%:%
-%:%659=307%:%
-%:%663=307%:%
-%:%673=309%:%
-%:%677=313%:%
-%:%681=315%:%
-%:%685=317%:%
-%:%694=319%:%
-%:%706=321%:%
+%:%658=308%:%
+%:%659=309%:%
+%:%660=309%:%
+%:%662=309%:%
+%:%666=309%:%
+%:%667=309%:%
+%:%669=310%:%
+%:%670=311%:%
+%:%671=312%:%
+%:%672=313%:%
+%:%673=313%:%
+%:%675=314%:%
+%:%676=315%:%
+%:%684=315%:%
+%:%685=316%:%
+%:%686=317%:%
+%:%687=317%:%
+%:%688=318%:%
+%:%689=319%:%
+%:%690=320%:%
+%:%691=320%:%
+%:%693=320%:%
+%:%697=320%:%
+%:%707=322%:%
+%:%711=326%:%
+%:%715=328%:%
+%:%719=330%:%
+%:%728=332%:%
+%:%740=334%:%

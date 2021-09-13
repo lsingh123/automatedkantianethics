@@ -230,7 +230,7 @@ lemma wrong_if_wrong_for_someone:
       using FUL \<open>\<exists>p. \<Turnstile>\<^emph>O{\<^emph>\<not>M2} p\<close> by blast
   qed
 \<comment>\<open>This lemma gets to the heart of Kroy's formulation of the categorical imperative. If murder is prohobited
-for a specific person $p$, then it must be prohobited for all people. This test case also revealed a 
+for a specific person $p$, then it must be prohibited for all people. This test case also revealed a 
 bug in my original implementation of Kroy's formulation of the FUL, demonstrating the power of such 
 philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
 and ethicists can use this approach to find bugs in the precise formulations of their theories.\<close>
@@ -261,23 +261,36 @@ lemma lying_prohibited:
       possible that everyone can simultaneously lie, but for some reason, maybe out of some moral sense, 
       do not. Let's test a more accurate version of the failure of the universalizability test."
 
-  text\<open> We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is not possible that everyone lies simultaneously.
-      Representing this sentence requires that we apply a universal quantifier inside the possible operator,
-      something that DDL does not support as-is. There are two options here. (1) We can pull the universal outside
-      the diamond operator, resulting in the sentence ``At all worlds, for all people, it is not possible that 
-      they lie." This isn't $\textbf{really}$ the same as $S$. (2) We can define universal and existential 
-      operators that quantify over DDL formulae to actually represent $S$ as we want to. I am going to 
-      try to implement (2), borrowing from @{cite gewirth}'s extension of Carmo and Jones' DDL. This 
-      will also be useful when creating my own formalization of the categorical imperative. MOVE THIS TO NAIVE \<close>
+  text\<open> We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is 
+      not possible that everyone lies simultaneously." Consider the two abbreviations below. \<close>
 
-  text \<open>abbreviation lying not possibly universal::bool where "lying not possibly universal longleftrightarrow forall w. not (diamond (forall p. lie(p)))w)"\<close>
-\<comment>\<open>The formula above reads, "At all worlds, it is not possible \<close>
+abbreviation everyone_lies::t where "everyone_lies \<equiv> \<lambda>w. (\<forall>p. (lie(p) w))"
+\<comment>\<open>This represents the term ``all people lie". Naively, we might think to represent this as $\forall p. lie(p)$.
+In HOL, the $\forall$ operator has type $('a\rightarrow bool) \rightarrow bool$, where $'a$ is a polymorphic
+type representing the type of the argument to $\forall$. This is because the universal quantifier binds 
+the argument of the term given to it, such that it turns an open term into a closed term. In the given example, 
+$\forall$ has the type $(s \rightarrow bool) \rightarrow bool$, so it can only be applied to a formula 
+of type $s \rightarrow bool$. In the abbreviation above, we're applying the quantifier to the sentence 
+$lie(p) w$ for any arbitrary $w$, so the types cohere.\<close>
+\<comment>\<open>The term above is true for a set of worlds $i$ (recall that a term is true at a set of worlds) 
+such that, at all the worlds $w$ in $i$, all people at $w$ lie.\<close>
 
+abbreviation lying_not_possibly_universal::bool where "lying_not_possibly_universal \<equiv> \<forall>w. \<not>(\<diamond>everyone_lies w)"
+\<comment>\<open>Armed with @{abbrev everyone_lies}, it's easy to represent the sentence $S$. The abbreviation above 
+reads, ``At all worlds, it is not possible that everyone lies."\<close>
 
+lemma lying_prohibited_2:
+  shows "lying_not_possible_universal \<longrightarrow>  \<Turnstile> (O {\<^bold>\<not> (lie(p))})"
+  nitpick[user_axioms] oops
+\<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 2:
 
-  text "something more sophisticated? like the nazi example?"
+  Free variables:
+    $lying\_not\_possible\_universal$ = True
+    p = $s_1$ $\color{black}$\<close>
 
-  text "maybe trolley problem/self driving car thing"
+  text "Even with the stronger assumption that it's not possible for everyone to lie 
+simultaneously, Kroy's formulation is still not able to show that lying is prohibited for an arbitrary
+person. That's a problem! WHY IS THIS HAPPENING"
 
   subsubsection "Metaethical Tests"
 
