@@ -267,26 +267,40 @@ lemma lying_prohibited:
 abbreviation everyone_lies::t where "everyone_lies \<equiv> \<lambda>w. (\<forall>p. (lie(p) w))"
 \<comment>\<open>This represents the term ``all people lie". Naively, we might think to represent this as $\forall p. lie(p)$.
 In HOL, the $\forall$ operator has type $('a\rightarrow bool) \rightarrow bool$, where $'a$ is a polymorphic
-type representing the type of the argument to $\forall$. This is because the universal quantifier binds 
-the argument of the term given to it, such that it turns an open term into a closed term. In the given example, 
+type of the term being bound by $\forall$. In the given example, 
 $\forall$ has the type $(s \rightarrow bool) \rightarrow bool$, so it can only be applied to a formula 
-of type $s \rightarrow bool$. In the abbreviation above, we're applying the quantifier to the sentence 
-$lie(p) w$ for any arbitrary $w$, so the types cohere.\<close>
+of type $s \rightarrow bool$. In the abbreviation above, we're applying the quantifier to a sentence 
+that takes in a given subject $p$ and returns $lie(p) w$ for any arbitrary $w$, so the types cohere.\<close>
 \<comment>\<open>The term above is true for a set of worlds $i$ (recall that a term is true at a set of worlds) 
 such that, at all the worlds $w$ in $i$, all people at $w$ lie.\<close>
 
-abbreviation lying_not_possibly_universal::bool where "lying_not_possibly_universal \<equiv> \<forall>w. \<not>(\<diamond>everyone_lies w)"
+abbreviation lying_not_possibly_universal::bool where "lying_not_possibly_universal \<equiv> \<Turnstile>(\<^bold>\<not> (\<diamond> everyone_lies))"
 \<comment>\<open>Armed with @{abbrev everyone_lies}, it's easy to represent the sentence $S$. The abbreviation above 
 reads, ``At all worlds, it is not possible that everyone lies."\<close>
 
 lemma lying_prohibited_2:
-  shows "lying_not_possible_universal \<longrightarrow>  \<Turnstile> (O {\<^bold>\<not> (lie(p))})"
+  shows "lying_not_possibly_universal \<longrightarrow>  ( \<Turnstile>(\<^bold>\<not> P {lie(p)}))"
   nitpick[user_axioms] oops
 \<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 2:
 
   Free variables:
-    $lying\_not\_possible\_universal$ = True
+
+    $lying\_not\_possible_universal$ = True
+
     p = $s_1$ $\color{black}$\<close>
+
+  text "1) at all worlds, it's not possible for everyone to lie. (lying not possible universal) 
+        2) at all worlds, there is necessarily someone who doesn't lie. (step2)
+        3) For something to be permissible, it must be possible for there to exist a world where everyone does the thing.
+        4)No such world exists for lying.
+        5) Lying is impermissible."
+
+lemma step2:
+  shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>( (\<box> (\<lambda>w. \<exists>p. (\<^bold>\<not> (lie(p)) w)))) "
+  by simp
+
+lemma step3:
+  shows "(\<Turnstile> P {A(p)}) \<longrightarrow> (\<exists>w. )"
 
   text "Even with the stronger assumption that it's not possible for everyone to lie 
 simultaneously, Kroy's formulation is still not able to show that lying is prohibited for an arbitrary
@@ -333,5 +347,28 @@ lemma arbitrary_obligations:
 
   text "stuff from Kroy's paper"
 (*<*)
+lemma hmmm:
+  shows "lying_not_possibly_universal \<longrightarrow> (\<forall>w. \<exists>p. (( \<^bold>\<not> (lie(p)))w)) "
+  by simp
+
+lemma hmmm2:
+  shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>( \<^bold>\<not> (\<diamond> (\<lambda>w. \<forall>p. (lie(p) w)))) "
+  by blast
+
+lemma hellno:
+  shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>(\<box>(\<^bold>\<not>(everyone_lies)))"
+  by auto
+
+lemma dammit:
+  shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>(\<box>(\<lambda>w. (\<exists>p. (\<^bold>\<not> (lie(p)) w))))"
+  by simp
+
+lemma hm:
+  shows "(\<exists>p. \<Turnstile> P {lie(p)}) \<longrightarrow> (\<forall>p. (\<Turnstile> P {lie(p)}))"
+  using FUL by blast
+
+lemma wtf:
+  shows "(\<Turnstile> (P {lie(p)})) \<longrightarrow> \<Turnstile>(\<diamond> (lie(p)))"
+  nitpick[user_axioms] oops
 end
 (*>*)
