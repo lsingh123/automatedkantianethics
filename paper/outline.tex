@@ -1,5 +1,96 @@
+\documentclass[11pt]{article}
 \usepackage{outlines}
-\renewcommand{\outlineii}{cenumerate}
-\begin{outline}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+
+\normalfont
+
+
+\begin{document}
+\begin{outline}[enumerate]
+\1[Note: ] Sections highlighted in \textcolor{blue}{blue} are areas where I envision philosophical points of contact. 
+\1[Chapter 1:] Introduction
+\2 Motivation
+\3 In order for AI agents to navigate the world successfully, they need sophisticated ethical reasoning capacity. 
+\3 Just as interactive theorem provers enable mathematicians to prove new theorems and find holes in old arguments, automated ethics can help philosophers better study ethics.
+\2 System components/methods \color{blue}
+\3 \textbf{Kantian ethics} \color{black} I choose to automate Kantian ethics, which presents three equivalent ``formulations" (equality-based, dignity-based, respect-based) of the unviolable rule of morality. I will offer a brief introduction to Kantian ethics and explain why I choose to formalize Kantian ethics instead of utilitarianism or virtue ethics. 
+Readings: \begin{itemize}
+    \item Should I cite introductory texts (the Groundwork, Bentham, Mill, Aristotle) here as a crash course on each theory? Prof. Amin (CS advisor) recommended putting a literature review at the end of the thesis, so I've included formalization attempts for each theory there.
+\end{itemize} \color{black}
+\3 \textbf{Logical background} I use Carmo and Jones' Dyadic Deontic Logic. I will explain modal logic, deontic logic, and Carmo and Jones' DDL to a logical beginner. 
+\3 \textbf{Isabelle/HOL} I will explain the choice of Isabelle/HOL and demonstrate basic syntax and proof capabilities through my recreation of Benzmüller, Farjami, and Parent's \cite{BFP} implementation of Carmo and Jones's DDL. 
+\3 \textbf{Contributions} I contribute (1) an implementation of a naive formalization of the categorical imperative, (2) an implementation of Kroy's formalization of the categorical imperative, (3) an implementation of my own formalization that addresses gaps in (1) and (2), (4) a testing architecture for evaluating an ethical formalization, (5) examples and methods for applying my implementations to real-world ethical dilemmas, (6) implementation and analysis of Kant's argument that the three formulations of the categorical imperative are equal.
+
+\1[Chapter 2:] Testing Previous Theories
+\2 Explaining and justifying my testing approach
+\3 \textcolor{blue}{\textbf{Metaethical/logical tests}} These tests are proofs of theorems or demonstration of a sentence's consistency or inconsistency. They test metaethical properties of the formalization, like ``does the formalization allow contradictory obligations?" Readings:
+\begin{enumerate}
+    \item Timmermann's ``Kantian Dilemmas? Moral Conflict in Kant’s Ethical Theory"  \cite{contradictoryob} examines the possibility of contradictory obligations in Kant's theory.
+    \item Kohl's ``Kant and `Ought Implies Can'" \cite{kohl} explores the ought implies can principle.
+    \item Are there other readings that might be interesting here? Specifically, I'm looking for metaethical properties of Kant's theory.
+\end{enumerate}
+\3 \textcolor{blue}{\textbf{Model specification tests}} These tests specify a model to encode specific background facts into the system. They demonstrate how the system can be used to reason about real world ethical dilemmas.
+\begin{enumerate}
+    \item This section focuses on easy, simple examples like lying and murder. If there are other examples that get at the heart of the categorical imperative, that would be helpful here.
+\end{enumerate} 
+
+\color{black}
+\3 \textbf{Testing the naive formalization} I will apply the testing approach above to a naive formalization of the categorical imperative and document the lessons learned, which will inform my eventual formulation in Chapter 3.
+\3 \textbf{Testing Kroy's Formulation} These sections apply the testing approach above to the two formalizations that Kroy presents \cite{kroy}, of the FUL and the FUH respectively. I will also include miscellaneous tests specific to Kroy's logic and arguments. I will document lessons learned and use them to inform my eventual formulation in Chapter 3.
+
+
+\1[Chapter 3:] New Formalization
+\2 \textbf{Goals} I will set explicit goals for my formalization based on the lessons learned above.
+\2 \textcolor{blue}{\textbf{Formalization}} I will present the logical components of my formalization, which may include a representation of agency, maxims, and willing; additional background axioms about the meaning of "obligated" or "prohibited," and axioms representing the categorical imperative itself. Readings:
+\begin{enumerate}
+    \item Korsgaard's ``Kant's Formula of Universal Law," \cite{KorsgaardFUL} explores three interpretations of the FUL and argues in favor of one.
+    \item Hill's ``Dignity and Practical Reason in Kant’s Moral Theory" \cite{hill_2019} picks apart the Groundwork and makes the formulations precise.
+    \item Do you have recommendations for readings that make formulations of the categorical imperative precise? Or common debates in the literature?
+\end{enumerate}
+\2 \textbf{Evaluation} I will apply the tests outlined in Chapter 2 to my new formalization, as well as any additional tests that may be formalization specific. The actual research process will be very iterative here - I will implement a formalization, apply the tests, and modify my formalization accordingly. Middle iterations may not make it into the thesis itself.
+
+\1[Chapter 4:] Equivalence of the Three Formulations
+\2 \textcolor{blue}{\textbf{Kant's argument}} I will briefly present Kant's argument for the equivalence of the three formulations of the categorical imperative. It is well known to be difficult and complex, so presenting it concisely to a non-philosophical audience will be a challenge. Readings:
+\begin{enumerate}
+    \item Kitcher's ``Kant's Argument for the Categorical Imperative" \cite{kitcher} examines Kant's argument in depth. 
+    \item Allison's \emph{Kant’s Groundwork for the Metaphysics of Morals: A Commentary} \cite{allison} argues that all three formulations result in the same duties.
+    \item O'Neill's \emph{Acting on Principle} \cite{o'neill_2013}, Engstrom's \emph{The Form of Practical Knowledge} \cite{engstrom}, and Sensen's ``Kant’s Constructivism" \cite{sensen} argue that FUH implies FUL.
+    \item Wood's \emph{Kantian Ethics} \cite{wood_2007} and Cureton's ``A Contractualist Reading of Kant’s Proof of the Formula of Humanity" \cite{cureton_2013} disagree with the above.
+    \item Are there common debates within the literature on the content or correctness of Kant's argument?
+\end{enumerate}
+\2 \textbf{Logical argument for equivalence} I will attempt to recreate Kant's proof of the equivalence of the three formulations. This attempt may fail! There may be room to repeat this analysis with the naive formalization and Kroy's formalization.
+\2 \textcolor{blue}{\textbf{Philosophical analysis of results}} I will analyze my success or failure and whether it demonstrates a problem with my system or a problem with Kant's. The readings from (a) will inform this analysis.
+
+\1[Chapter 5:] Applications
+\2 \textbf{Specifying a model} I will briefly explain some challenges in specifying a model that have been presented before such as how much background information to include and how to encode this background information. 
+
+\2 \textcolor{blue}{\textbf{Example dilemmas}} I will present examples of ethical dilemmas that the system can handle. Readings: Kemp's ``Kant's Examples of the Categorical Imperative" presents some of the canonical applications of the categorical imperative. 
+\3 \textcolor{blue}{\textbf{Evaluation}} This section will analyze the philosophical implications of the applications presented above to determine if the system is performing ethical reasoning in any meaningful sense. Three facets of this question:
+\4 How much background knowledge does the reasoner need to reach the expected conclusions? How much background knowledge is just giving away the answer? Readings: O'Neill's \emph{Constructions of Reason} \cite{constofreason}, Silber's ``Procedural Formalism in Kant’s Ethics" \cite{silber}, and Rawls' ``Kantian Constructivism in Moral Theory" \cite{rawlsconstructivism}.
+\4 Even a computer reaches the same conclusions as a person, is it actually acting morally? Is it capable of practical reason? Is it capable of giving laws to itself?\footnote{My hypothesis is that the answer to this is a quick no, at least for the system I'm building. Might not be worth investing a ton of time here, since the result falls out almost immediately.} Readings include: Korsgaard's \emph{Sources of Normativity} \cite{sources} presents her view of practical reason. Bok's \emph{Freedom and Responsibility} \cite{bok} examines the notion of a ``pocket oracle" to distinguish between an oracle (or machine) and a human reasoner. 
+\4 Can a computer perform synthetic a priori reasoning? I would appreciate reading recommendations here. Readings: Benardete's ``AI and the Synthetic A Priori" \cite{benardete} and Hintikka's ``Are Mathematical Truths Synthetic a Priori?" \cite{hintikkaapriori}.
+
+\1[Chapter 6] Discussion
+\2 \textcolor{blue}{\textbf{Related Work}} I will present a brief literature review. Readings:
+\begin{enumerate}
+    \item Attempts to formalize consequentialism include: Abel et. al's ``Reinforcement Learning as a Framework for Ethical Decision Making" \cite{util1} and Anderson et. al's ``Towards Machine Ethics." \cite{util2}.
+     \item Attempts to formalize deontological theories include: Govindarajulu's ``On Automating the Doctrine of Double Effect," \cite{dde}, Anderson et. al's ``ETHEL: Toward a Principled Ethical Eldercare Robot," \cite{deon1}, and Anderson et. al's ``GenEth: A General Ethical Dilemma Analyzer." \cite{deon2}.
+    \item Attempts to formalize virtue ethics include: Berberich and Diepold's ``The Virtuous Machine - Old Ethics for New Technology?" \cite{virtue2} and Govindarajulu et. al's ``Toward the Engineering of Virtuous Machines" \cite{virtue1}.
+\end{enumerate}
+\2 \textcolor{blue}{\textbf{Conclusions}} I will discuss my findings in Ch. 2-5. Questions that might be interesting here:
+\3 How exactly can automated ethics be used in AI systems? Can it be a black box? Is it possible to make an API for ethics?
+\3 How much common sense reasoning do automated ethical reasoners need? 
+\3 What is the power of automated ethics, in a nutshell?
+\2 \textbf{Future Work} I will presents doors that my approach opens, other ethical theories that may be exciting candidates for formalization, what is left to do to make the implementation usable, and alternative logics beyond DDL.
+
+
+
+
 
 \end{outline}
+\bibliographystyle{plain}
+\bibliography{document/root.bib}
+\end{document}
+
