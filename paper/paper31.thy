@@ -4,7 +4,7 @@ begin
 
 (*>*)
 
-section "The Categorical Imperative"
+section "Prior Formalizations of The Categorical Imperative"
 
 text \<open>In this section, I will present two formulations of the categorical imperative. In Section \ref{sec:naive}, I will 
 consider a simple, naive formulation of the formula of universal law. This formulation is, as I will 
@@ -12,12 +12,16 @@ show, clearly not a good ethical rule. The purpose of this section is to explore
 tests that Isabelle can carry out. In Section \ref{sec:kroy}, I will explore Moshe Kroy's @{cite kroy} partial formalization of 
 the first two formulations of the categorical imperative.\<close>
 
-subsection \<open>Naive Formulation of the Formula of Universal Law \label{sec:naive}\<close>
+subsection \<open>Naive Formalization of the Formula of Universal Law \label{sec:naive}\<close>
 
 text "This section presents a simple and intuitive formalization of the formula of universal law, which 
 is to will only those maxims that you would simultaneously will universalized. The universalizability 
 test creates negative obligations: if a maxim passes the universalizability test, it is permissible. Else,
-it is prohibited. In order to appropriately formalize this, we need some notion of permissibility."
+it is prohibited."
+
+subsubsection \<open>Formalization \label{sec:naive_form}\<close>
+
+text "In order to appropriately formalize the categorical imperative, we to define the notion of permissibility."
 
 abbreviation ddlpermissable::"t\<Rightarrow>t" ("P_")
   where "(P A) \<equiv> (\<^bold>\<not>(O {\<^bold>\<not>A}))"

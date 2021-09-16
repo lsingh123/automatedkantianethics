@@ -126,6 +126,16 @@ prohibited somewhere. Sadly, that breaks everything and destroys the
 notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
 If something breaks later in this section, it may be because of vacuous permissibility.\<close>
 
+lemma contradictory_obs:
+  fixes A B w
+  assumes "\<Turnstile> (A \<^bold>\<and> B)"
+  shows "(\<^bold>\<not> (O {A \<^bold>\<and> B})) w"
+  nitpick [user_axioms, falsify] oops
+\<comment>\<open>Contradictory things can't be obligated in Kr, since a contradiction can't be true at any deontic alternative.
+This doesn't hold in DDL, and we already saw this cause problems for the naive formalization. We should 
+expect those problems to hold in our implementation of Kr, but this difference suggests that they are 
+a symptom of DDL, not of any inherent problem with Kroy's formalization.\<close>
+
 text \<open>\textbf{Obligatory statements should be permissible}\<close>
 
 text \<open>Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
@@ -196,6 +206,8 @@ that it is both non-trivial and consistent. Now it's time to start testing!"
 
   subsubsection "Application Tests"
 
+  text_raw\<open>\textbf{Murder}\<close>
+
   text "Recall that in Section 3.1.1, we tested the naive interpretation's ability to show that murder 
 is wrong. We started by showing that if murder is possibly wrong, then it is wrong. Let's test that 
 here."
@@ -235,17 +247,19 @@ bug in my original implementation of Kroy's formulation of the FUL, demonstratin
 philosophical tests for automated ethics. Just as engineers use TDD to find bugs in their code, philosophers
 and ethicists can use this approach to find bugs in the precise formulations of their theories.\<close>
 
+  text_raw\<open>\textbf{Lying}\<close>
+
   text "For the naive implementation, we also tested the slightly stronger proposition that if not 
 everyone can simultaneously lie, then lying is prohibited. We want to show that if lying 
 fails the universalizability test, then the FUL prohibits it."
 
 consts lie::os 
-abbreviation lying_not_universal::bool where "lying_not_universal \<equiv> \<forall>w. \<not> (\<forall>p. lie(p) w)"
+(*<*) abbreviation lying_not_universal_1::bool where "lying_not_universal_1 \<equiv> \<forall>w. \<not> (\<forall>p. lie(p) w)"
 \<comment>\<open>The formula above reads, ``At all worlds, it is not the case that everyone lies."\<close>
 
-lemma lying_prohibited:
+lemma lying_prohibited_1:
   fixes p
-  shows " lying_not_universal \<longrightarrow> \<Turnstile> (O {\<^bold>\<not> (lie(p))})"
+  shows " lying_not_universal_1 \<longrightarrow> \<Turnstile> (O {\<^bold>\<not> (lie(p))})"
   nitpick[user_axioms] oops
 \<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 1:
 
@@ -259,7 +273,7 @@ lemma lying_prohibited:
       the FUL is violated if it's not $possible$ for everyone to simultaneously lie, but the abbreviation 
       above merely represents that fact that not everyone does, in fact, simultaneously lie. It's entirely
       possible that everyone can simultaneously lie, but for some reason, maybe out of some moral sense, 
-      do not. Let's test a more accurate version of the failure of the universalizability test."
+      do not. Let's test a more accurate version of the failure of the universalizability test."(*>*)
 
   text\<open> We want to represent the sentence, call it $S$ $\longleftrightarrow$ ``At all worlds, it is 
       not possible that everyone lies simultaneously." Consider the two abbreviations below. \<close>
@@ -278,7 +292,7 @@ abbreviation lying_not_possibly_universal::bool where "lying_not_possibly_univer
 \<comment>\<open>Armed with @{abbrev everyone_lies}, it's easy to represent the sentence $S$. The abbreviation above 
 reads, ``At all worlds, it is not possible that everyone lies."\<close>
 
-lemma lying_prohibited_2:
+lemma lying_prohibited:
   shows "lying_not_possibly_universal \<longrightarrow>  ( \<Turnstile>(\<^bold>\<not> P {lie(p)}))"
   nitpick[user_axioms] oops
 \<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 1 and card s = 2:
@@ -289,59 +303,172 @@ lemma lying_prohibited_2:
 
     p = $s_1$ $\color{black}$\<close>
 
-  text "1) at all worlds, it's not possible for everyone to lie. (lying not possible universal) 
-        2) at all worlds, there is necessarily someone who doesn't lie. (step2)
-        3) For something to be permissible, it must be possible for there to exist a world where everyone does the thing.
-        4)No such world exists for lying.
-        5) Lying is impermissible."
+  text "Even with the stronger assumption that it's not possible for everyone to lie 
+    simultaneously, Kroy's formulation is still not able to show that lying is prohibited for an arbitrary
+    person. That is not good. Let's investigate why this is happening."
+
+
+  text \<open>Let's outline the syllogism that we $\emph{expect}$ to prove that lying is prohibited.\<close>
+
+  text_raw\<open>\begin{enumerate}
+        \item At all worlds, it's not possible for everyone to lie. (This is the assumed lemma lying\_not\_possible\_universal)
+        \item At all worlds, there is necessarily someone who doesn't lie. (Modal dual of (1))
+        \item If A is permissible for subject p at world w, A is possible for subject p at world w. (Ought Implies Can)
+        \item If A is permissible at world w for any person p, it must be possible for everyone to A at w. (FUL and (3)) 
+        \item Lying is impermissible. (Follows from (4) and (1)) \end{enumerate}\<close>
+
+text "Armed with this syllogism, we can figure out which step fails."
 
 lemma step2:
   shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>( (\<box> (\<lambda>w. \<exists>p. (\<^bold>\<not> (lie(p)) w)))) "
   by simp
+\<comment>\<open>Step 2 holds!\<close>
 
-lemma step3:
-  shows "(\<Turnstile> P {A(p)}) \<longrightarrow> (\<exists>w. )"
+lemma step3: 
+  fixes A p w
+  shows "P {A(p)} w \<longrightarrow> (\<diamond> (A(p)) w)"
+  nitpick [user_axioms, falsify] oops
+\<comment>\<open>$\color{blue}$Nitpick found a counterexample for card `a = 1, card i = 1, and card s = 1:
 
-  text "Even with the stronger assumption that it's not possible for everyone to lie 
-simultaneously, Kroy's formulation is still not able to show that lying is prohibited for an arbitrary
-person. That's a problem! WHY IS THIS HAPPENING"
+  Free variables:
+    A = ($\lambda x. \_$)($a_1$ := ($\lambda x. \_$)($i_1$ := False))
+    p = $a_1$ $\color{black}$\<close>
+
+  text \<open>As we see above, the syllogism fails at Step 3, explaining why the lemma doesn't 
+        hold as expected. Taking a step back, it's not clear that Step 3 should hold. After all,
+        impossible actions can be permissible (look for citation). Imagine I make a trip to Target to 
+        purchase a folder, and they offer blue and black folders. No one could claim that it's impermissible
+        for me to purchase a red folder, or, equivalently, that I am obligated to not purchase a red folder.\<close>
+
+  text \<open>(This is some actual philosophy - maybe worth fleshing this out and giving it a separate subsection?)
+        Another core issue here is Kroy's interpretation of the formula of universal law. In @cite{korsgaardFUL}, 
+        Korsgaard defends a practical contradiction interpretation of the categorical imperative, whereby 
+        a maxim is prohibited if, when universalized, it defeats itself (Korsgaard 3). In other words, if universalizing
+        the maxim renders the maxim ineffective at achieving its stated objective, the maxim fails the
+        universalizability test. 
+
+        This example shows that Kroy, on the other hand, is operating under a very different, circular view of 
+        the formula of universal law. He interprets the FUL as prohibiting A if it is not simultaneously 
+        permissible for everyone to A. This is empty—the categorical imperative is supposed to be a complete,
+        self-contained (cite the groundwork), absolute rule of morality, but Kroy's version of the FUL prescribes obligations 
+        in a self-referencing manner. The FUL is supposed to define what is permissible and what isn't, 
+        but Kroy provides a circular definition that defines permissibility in terms of permissibility.
+        
+        This is not obvious from Kroy's presentation of his formalization of 
+        the categorical imperative. This example demonstrates the power of formalized ethics. Making
+        an interpretation of the categorical imperative precise demonstrated a philosophical problem 
+        with that interpretation.
+
+        Another key takeaway here is that in order for a formalization to be faithful to what Korsgaard
+        argues is the most generous interpretation of the formula of universal law, we must have some notion
+        of the actions and ends of a maxim. Specifically, we must be able to represent the notion of the 
+        actions of a maxim being ``undermined" or impossible.\<close>
 
   subsubsection "Metaethical Tests"
 
-  lemma permissible:
-    shows "\<exists>A. ((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
-    nitpick [user_axioms, falsify=false] oops
-\<comment>\<open>\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+  text "In addition to testing specific applications of the theory, we're also interested in certain 
+        metaethical properties, as in the naive interpretation. First, we want to see if permissiblility
+        is possible under this formalization."
 
-  Skolem constant:
-    A =($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
-\<comment>\<open>Just as with the naive interpretation, permissibility is possible.\<close>
-
-lemma fixed_formula_is_permissible:
-  fixes A
+lemma permissible:
+  fixes A w
   shows "((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
   nitpick [user_axioms, falsify=false] oops
 \<comment>\<open>\color{blue}Nitpick found a model for card i = 1:
 
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False)\color{black}\<close>
-\<comment>\<open>This bad result also holds under Kroy's formulation. Recall that we want this to fail - if A is ``murder" 
-then no model should render it permissible.\<close>
+
+  text \<open>The above result shows that, for some action A and world w, we can find a model where A 
+        is permissible at w. That's exactly the result we want. If we were to further specify properties
+        of A (such as `A is murder' or `A is prohibited') we would want this result to fail.\<close>
+
+  text "Next, we want to see if the formalization allows arbitrary obligations."
 
 lemma arbitrary_obligations:
   fixes A::"t"
   shows "O {A} w"
-  nitpick [user_axioms=true] oops
+  nitpick [user_axioms=true, falsify] oops
+\<comment>\<open>Nitpick found a counterexample for card i = 1 and card s = 1:
 
-    text "ought implies can"
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False)\<close>
 
+  text \<open>This is exactly the expected result. Any arbitrary action A isn't obligated. A slightly 
+        stronger property is ``modal collapse," or whether or not A happens implies A is obligated.\<close>
 
+lemma modal_collapse:
+  fixes A w
+  shows "A w \<longrightarrow> O {A} w"
+  nitpick [user_axioms=true, falsify] oops
+\<comment>\<open>Nitpick found a counterexample for card i = 1 and card s = 1:
 
-  text "arbitrary obligations"
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True)
+    w = $i_1$\<close>
 
-  text "conflicting obligations"
+  text "This test also passes. Next, let's try whether or not ought implies can holds. Recall that I 
+        showed in section 3.1.2 that ought implies can is a theorem of DDL itself, so it should still hold."
 
-  text "obligation and permissible relationship"
+lemma ought_implies_can:
+  fixes A w
+  shows "O {A} w \<longrightarrow> \<diamond> A w"
+  using O_diamond by blast
+
+text "This theorem holds. Now that we have a substitution operation, we also expect that if an action 
+      is obligated for a person then it is possible for that person. That should also follow by the 
+      axiom of substitution @{cite cresswell}, or if we just replace the `A' in the formula above with 
+      `A(p)'"
+
+lemma ought_implies_can_person:
+  fixes A w 
+  shows "O { A(p)} w \<longrightarrow> \<diamond> (A (p)) w"
+  using O_diamond by blast
+
+text "This test also passes. Next, let's explore whether or not Kroy's formalization still allows 
+      conflicting obligations."
+
+lemma conflicting_obligations:
+  fixes A w
+  shows "(O {A} \<^bold>\<and> O {\<^bold>\<not> A}) w"
+  nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>$\color{blue}$Nitpick found a model for card i = 2 and card s = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)$\color{black}$\<close>
+
+  text "Just as with the naive formalization, Kroy's formalization allows for contradictory obligations. 
+        Recall earlier that we showed this is a property of DDL itself. This is a good goal to have for 
+        my custom formalization. I will also test the stronger property that if two maxims imply a 
+        contradiction, they may not be simultaneously willed."
+
+lemma implied_contradiction:
+  fixes A B w
+  assumes "(A \<^bold>\<rightarrow> (\<^bold>\<not> B))w"
+  shows "\<^bold>\<not> (O {A} \<^bold>\<and> O {B}) w"
+  nitpick [user_axioms, falsify] oops
+\<comment>\<open>$\color{blue}$Nitpick found a counterexample for card i = 2 and card s = 1:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True, $i_2$  := False)
+    B = ($\lambda x. \_$)($i_1$  := True, $i_2$  := False)
+    w = $i_2$ $\color{black}$\<close>
+
+  text "Just as with the naive formalization, Kroy's formalization allows implied contradictions because 
+        DDL itself allows implied contradictions and, as we explored in Section (applied tests), Kroy's 
+        formalization doesn't do anything to remedy this. IS THIS ACTUALLY HOW WE REPRESENT A CONTRADICTION"
+
+lemma ob_perm:
+  fixes A w
+  shows "(O {A} \<^bold>\<or> (P {A} \<^bold>\<or> O {\<^bold>\<not> A})) w"
+  by simp
+\<comment>\<open>This is exactly what we expect - an action should be either obligatory, permissible, or prohibited.\<close>
+
+text "(This should be more developed and go at the beginning of this section as a thesis). The combination of these tests shows 
+      that while Kroy's formalization is more powerful and more coherent than the naive formalization, it 
+      still fails to capture most of the desired properties of the categorical imperative. Some of these 
+      problems might be remedied by the fact that Kroy's logic doesn't allow contradictory obligations, 
+      and that possibility will be interesting to explore in my own formalization."
 
   subsection "Misc"
 
