@@ -7,45 +7,45 @@ Warning--empty booktitle in deon2
 Warning--empty booktitle in util2
 Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
-You've used 39 entries,
+You've used 40 entries,
             2118 wiz_defined-function locations,
-            743 strings with 9447 characters,
-and the built_in function-call counts, 11709 in all, are:
-= -- 1145
-> -- 484
+            752 strings with 9636 characters,
+and the built_in function-call counts, 11988 in all, are:
+= -- 1175
+> -- 491
 < -- 8
-+ -- 194
-- -- 151
-* -- 712
-:= -- 1958
-add.period$ -- 122
-call.type$ -- 39
-change.case$ -- 184
++ -- 197
+- -- 153
+* -- 732
+:= -- 2005
+add.period$ -- 125
+call.type$ -- 40
+change.case$ -- 188
 chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 526
-empty$ -- 971
-format.name$ -- 151
-if$ -- 2501
+cite$ -- 44
+duplicate$ -- 537
+empty$ -- 996
+format.name$ -- 153
+if$ -- 2558
 int.to.chr$ -- 0
-int.to.str$ -- 39
-missing$ -- 45
-newline$ -- 198
-num.names$ -- 84
-pop$ -- 209
+int.to.str$ -- 40
+missing$ -- 46
+newline$ -- 203
+num.names$ -- 86
+pop$ -- 211
 preamble$ -- 1
-purify$ -- 151
+purify$ -- 154
 quote$ -- 0
-skip$ -- 384
+skip$ -- 391
 stack$ -- 0
-substring$ -- 562
-swap$ -- 117
+substring$ -- 586
+swap$ -- 118
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 142
+type$ -- 146
 warning$ -- 4
-while$ -- 107
-width$ -- 41
-write$ -- 428
+while$ -- 111
+width$ -- 42
+write$ -- 439
 (There were 4 warnings)

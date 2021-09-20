@@ -673,14 +673,15 @@ Armed with this syllogism, we can figure out which step fails.%
 %
 \begin{isamarkuptext}%
 As we see above, the syllogism fails at Step 3, explaining why the lemma doesn't 
-        hold as expected. Taking a step back, it's not clear that Step 3 should hold. After all,
+        hold as expected. Kroy explicitly states (p. 199 footnote 19) that this lemma holds in his logic, which may explain
+        his choice of formalization. Taking a step back, it's not clear that Step 3 should hold. After all,
         impossible actions can be permissible (look for citation). Imagine I make a trip to Target to 
         purchase a folder, and they offer blue and black folders. No one could claim that it's impermissible
         for me to purchase a red folder, or, equivalently, that I am obligated to not purchase a red folder.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-(This is some actual philosophy - maybe worth fleshing this out and giving it a separate subsection?)
+(This is actual philosophy - maybe worth fleshing this out?)
         Another core issue here is Kroy's interpretation of the formula of universal law. In @cite{korsgaardFUL}, 
         Korsgaard defends a practical contradiction interpretation of the categorical imperative, whereby 
         a maxim is prohibited if, when universalized, it defeats itself (Korsgaard 3). In other words, if universalizing
@@ -975,7 +976,7 @@ Just as with the naive formalization, Kroy's formalization allows implied contra
 %
 \isatagdocument
 %
-\isamarkupsubsection{Misc%
+\isamarkupsubsection{Miscellaneous Test%
 }
 \isamarkuptrue%
 %
@@ -985,6 +986,196 @@ Just as with the naive formalization, Kroy's formalization allows implied contra
 \isadelimdocument
 %
 \endisadelimdocument
+%
+\begin{isamarkuptext}%
+In this section, I explore tests of properties that Kroy presents in his original paper. These 
+tests will not only test the features of the system that Kroy intended to draw out, but they may also 
+inspire additional tests and criteria for my own formalization in Chapter 3.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Kroy presents a stronger version of the formula of universal law and argues that his formalization
+is implied by the stronger version. Let's test that claim.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ FUL{\isacharunderscore}strong{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}FUL{\isacharunderscore}strong\ {\isasymequiv}\ \ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}P\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ \ {\isasymlongrightarrow}{\isacharparenleft}\ {\isacharparenleft}{\isacharparenleft}\ P\ {\isacharbraceleft}\ {\isasymlambda}x{\isachardot}\ {\isasymforall}p{\isachardot}\ A\ p\ x{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ strong{\isacharunderscore}implies{\isacharunderscore}weak{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}FUL{\isacharunderscore}Strong\ {\isasymlongrightarrow}\ FUL{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ FUL\ \isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Kroy's stated stronger version of the FUL is indeed stronger than his original version.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+The difference between the stronger version and \isa{FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isasymexists}p{\isachardot}\ P\ {\isacharbraceleft}A\ p{\isacharbraceright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ P\ {\isacharbraceleft}A\ p{\isacharbraceright}\ w{\isacharparenright}} is subtle. The antecedent of FUL is ``for all people p,
+it is permissible that they p." The antecedent of this stronger statement is ``it is permissible that 
+everyone p's." In particular, this stronger statement requires that it is permissible for everyone to
+ p simultaneously. Kroy immediately rejects this version of the categorical imperative, arguing that 
+it's impossible for everyone to be the US president simultaneously, so this version of the FUL prohibits
+running for president.
+
+Most Kantians would disagree with this interpretation. Consider the classical example of lying, as presented 
+in \cite{kemp} and in \cite{KorsgaardFUL}. Lying fails the universalizability test because in a 
+world where everyone lied simultaneously, the practice of lying would break down. If we adopt Kroy's 
+version, lying is only prohibited if, no matter who lies, lying is impermissible. As argued above, this 
+rule circularly relies on some existing prohibition against lying for a particular person, and thus 
+fails to show the wrongness of lying. It is tempting to claim that this issue explains why the tests 
+above on the wrongness of lying failed. To test this hypothesis, I will check if the stronger version 
+of the FUL implies that lying is impermissible. (TODO make this and the written philosophy above coherent)%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ strongFUL{\isacharunderscore}implies{\isacharunderscore}lying{\isacharunderscore}is{\isacharunderscore}wrong{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ p\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}FUL{\isacharunderscore}strong\ {\isasymlongrightarrow}\ {\isasymTurnstile}{\isacharparenleft}\isactrlbold {\isasymnot}\ P\ {\isacharbraceleft}lie{\isacharparenleft}p{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{$\color{blue}$
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Free variable:
+    p = $s_1$
+$\color{black}$%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The test above also fails! This means that not even the stronger version of Kroy's formalization
+        of the FUL can show the wrongness of lying. There are two independent errors. The first is the 
+        cirularity of the formalization and the second is the assumption that impossible actions are 
+        impermissible. The stronger FUL addresses the first error, but the second remains.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Kroy also argues that the FUL gives us recipes for deriving obligations, in addition to deriving
+        permissibile actions. Specifically, he presents two principles parallel to FUL and strong FUL, 
+        which in his logic are equivalent.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ obligation{\isacharunderscore}universal{\isacharunderscore}weak{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}obligation{\isacharunderscore}universal{\isacharunderscore}weak\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}O\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ \ {\isasymlongrightarrow}{\isacharparenleft}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}\ O\ {\isacharbraceleft}A\ p\ {\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ obligation{\isacharunderscore}universal{\isacharunderscore}strong{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}obligation{\isacharunderscore}universal{\isacharunderscore}strong\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}O\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ \ {\isasymlongrightarrow}{\isacharparenleft}\ {\isacharparenleft}{\isacharparenleft}\ O\ {\isacharbraceleft}\ {\isasymlambda}x{\isachardot}\ {\isasymforall}p{\isachardot}\ A\ p\ x{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ weak{\isacharunderscore}equiv{\isacharunderscore}strong{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}obligation{\isacharunderscore}universal{\isacharunderscore}weak\ {\isasymequiv}\ obligation{\isacharunderscore}universal{\isacharunderscore}strong{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Isabelle is neither able to find a proof nor a countermodel for the statement above, so I can't say 
+  if it holds or not without completing a full, manual proof. This entire aside is not super relevant to 
+  my project, so I will defer such a proof until later.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+These two statements are not necessarily equivalent in my logic, but are in Kroy's$\footnote{This follows from
+        the fact that the Barcan formula holds in Kroy's logic but not in mine, as verified with Nitpick. See 
+        Appendix for more.}$ This difference in logics may further explain why tests are not behaving as 
+        they should. Nonetheless, Kroy argues that the FUL implies both statements above. Let's test that.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ FUL{\isacharunderscore}implies{\isacharunderscore}ob{\isacharunderscore}weak{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}FUL\ {\isasymlongrightarrow}\ obligation{\isacharunderscore}universal{\isacharunderscore}weak{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Isabelle is neither able to find a proof nor a countermodel for this statement.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ FUL{\isacharunderscore}implies{\isacharunderscore}ob{\isacharunderscore}strong{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}FUL\ {\isasymlongrightarrow}\ obligation{\isacharunderscore}universal{\isacharunderscore}strong{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Isabelle is neither able to find a proof nor a countermodel for this statement.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Isabelle timed out when looking for proofs or countermodels to the statements above. This may be 
+        an indication of a problem that Benzmueller warned me about—mixing quantifiers into a shallow
+        embedding of DDL may be too expensive for Isabelle to handle. Not sure what to do about this.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Kroy argues that the two statements above are equivalent, but this fails in our logic.%
+\end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
 stuff from Kroy's paper%
@@ -1417,7 +1608,7 @@ stuff from Kroy's paper%
 %:%677=339%:%
 %:%678=340%:%
 %:%679=341%:%
-%:%683=343%:%
+%:%680=342%:%
 %:%684=344%:%
 %:%685=345%:%
 %:%686=346%:%
@@ -1440,128 +1631,219 @@ stuff from Kroy's paper%
 %:%703=363%:%
 %:%704=364%:%
 %:%705=365%:%
-%:%714=367%:%
-%:%726=369%:%
+%:%706=366%:%
+%:%715=368%:%
 %:%727=370%:%
 %:%728=371%:%
-%:%730=373%:%
-%:%731=373%:%
+%:%729=372%:%
+%:%731=374%:%
 %:%732=374%:%
 %:%733=375%:%
 %:%734=376%:%
-%:%735=376%:%
-%:%737=376%:%
-%:%741=376%:%
-%:%742=376%:%
-%:%744=377%:%
+%:%735=377%:%
+%:%736=377%:%
+%:%738=377%:%
+%:%742=377%:%
+%:%743=377%:%
 %:%745=378%:%
 %:%746=379%:%
 %:%747=380%:%
-%:%757=382%:%
+%:%748=381%:%
 %:%758=383%:%
 %:%759=384%:%
-%:%763=386%:%
-%:%765=388%:%
-%:%766=388%:%
+%:%760=385%:%
+%:%764=387%:%
+%:%766=389%:%
 %:%767=389%:%
 %:%768=390%:%
 %:%769=391%:%
-%:%770=391%:%
-%:%772=391%:%
-%:%776=391%:%
-%:%777=391%:%
-%:%779=392%:%
+%:%770=392%:%
+%:%771=392%:%
+%:%773=392%:%
+%:%777=392%:%
+%:%778=392%:%
 %:%780=393%:%
 %:%781=394%:%
 %:%782=395%:%
-%:%792=397%:%
+%:%783=396%:%
 %:%793=398%:%
-%:%795=400%:%
-%:%796=400%:%
+%:%794=399%:%
+%:%796=401%:%
 %:%797=401%:%
 %:%798=402%:%
 %:%799=403%:%
-%:%800=403%:%
-%:%802=403%:%
-%:%806=403%:%
-%:%807=403%:%
-%:%809=404%:%
+%:%800=404%:%
+%:%801=404%:%
+%:%803=404%:%
+%:%807=404%:%
+%:%808=404%:%
 %:%810=405%:%
 %:%811=406%:%
 %:%812=407%:%
 %:%813=408%:%
-%:%823=410%:%
+%:%814=409%:%
 %:%824=411%:%
-%:%826=413%:%
-%:%827=413%:%
+%:%825=412%:%
+%:%827=414%:%
 %:%828=414%:%
 %:%829=415%:%
-%:%832=416%:%
-%:%836=416%:%
-%:%837=416%:%
-%:%838=416%:%
-%:%847=418%:%
+%:%830=416%:%
+%:%833=417%:%
+%:%837=417%:%
+%:%838=417%:%
+%:%839=417%:%
 %:%848=419%:%
 %:%849=420%:%
 %:%850=421%:%
-%:%852=423%:%
-%:%853=423%:%
+%:%851=422%:%
+%:%853=424%:%
 %:%854=424%:%
 %:%855=425%:%
-%:%858=426%:%
-%:%862=426%:%
-%:%863=426%:%
-%:%864=426%:%
-%:%873=428%:%
+%:%856=426%:%
+%:%859=427%:%
+%:%863=427%:%
+%:%864=427%:%
+%:%865=427%:%
 %:%874=429%:%
-%:%876=431%:%
-%:%877=431%:%
+%:%875=430%:%
+%:%877=432%:%
 %:%878=432%:%
 %:%879=433%:%
 %:%880=434%:%
-%:%881=434%:%
-%:%883=434%:%
-%:%887=434%:%
-%:%888=434%:%
-%:%890=435%:%
+%:%881=435%:%
+%:%882=435%:%
+%:%884=435%:%
+%:%888=435%:%
+%:%889=435%:%
 %:%891=436%:%
 %:%892=437%:%
 %:%893=438%:%
-%:%903=440%:%
+%:%894=439%:%
 %:%904=441%:%
 %:%905=442%:%
 %:%906=443%:%
-%:%908=445%:%
-%:%909=445%:%
+%:%907=444%:%
+%:%909=446%:%
 %:%910=446%:%
 %:%911=447%:%
 %:%912=448%:%
 %:%913=449%:%
-%:%914=449%:%
-%:%916=449%:%
-%:%920=449%:%
-%:%921=449%:%
-%:%923=450%:%
+%:%914=450%:%
+%:%915=450%:%
+%:%917=450%:%
+%:%921=450%:%
+%:%922=450%:%
 %:%924=451%:%
 %:%925=452%:%
 %:%926=453%:%
 %:%927=454%:%
 %:%928=455%:%
-%:%938=457%:%
+%:%929=456%:%
 %:%939=458%:%
 %:%940=459%:%
-%:%942=461%:%
-%:%943=461%:%
+%:%941=460%:%
+%:%943=462%:%
 %:%944=462%:%
 %:%945=463%:%
-%:%948=464%:%
-%:%952=464%:%
-%:%953=464%:%
-%:%955=465%:%
-%:%965=467%:%
+%:%946=464%:%
+%:%949=465%:%
+%:%953=465%:%
+%:%954=465%:%
+%:%956=466%:%
 %:%966=468%:%
 %:%967=469%:%
 %:%968=470%:%
 %:%969=471%:%
-%:%978=473%:%
-%:%990=475%:%
+%:%970=472%:%
+%:%979=474%:%
+%:%991=476%:%
+%:%992=477%:%
+%:%993=478%:%
+%:%997=480%:%
+%:%998=481%:%
+%:%1000=483%:%
+%:%1001=483%:%
+%:%1002=484%:%
+%:%1003=485%:%
+%:%1004=485%:%
+%:%1005=486%:%
+%:%1008=487%:%
+%:%1012=487%:%
+%:%1013=487%:%
+%:%1014=487%:%
+%:%1023=489%:%
+%:%1027=491%:%
+%:%1028=492%:%
+%:%1029=493%:%
+%:%1030=494%:%
+%:%1031=495%:%
+%:%1032=496%:%
+%:%1033=497%:%
+%:%1034=498%:%
+%:%1035=499%:%
+%:%1036=500%:%
+%:%1037=501%:%
+%:%1038=502%:%
+%:%1039=503%:%
+%:%1040=504%:%
+%:%1041=505%:%
+%:%1043=507%:%
+%:%1044=507%:%
+%:%1045=508%:%
+%:%1046=509%:%
+%:%1047=510%:%
+%:%1048=510%:%
+%:%1050=510%:%
+%:%1054=510%:%
+%:%1055=510%:%
+%:%1057=511%:%
+%:%1058=512%:%
+%:%1059=513%:%
+%:%1060=514%:%
+%:%1061=515%:%
+%:%1062=516%:%
+%:%1072=518%:%
+%:%1073=519%:%
+%:%1074=520%:%
+%:%1075=521%:%
+%:%1079=523%:%
+%:%1080=524%:%
+%:%1081=525%:%
+%:%1083=527%:%
+%:%1084=527%:%
+%:%1085=528%:%
+%:%1086=528%:%
+%:%1087=529%:%
+%:%1088=529%:%
+%:%1089=530%:%
+%:%1092=531%:%
+%:%1096=531%:%
+%:%1097=531%:%
+%:%1099=532%:%
+%:%1100=533%:%
+%:%1101=534%:%
+%:%1111=536%:%
+%:%1112=537%:%
+%:%1113=538%:%
+%:%1114=539%:%
+%:%1116=541%:%
+%:%1117=541%:%
+%:%1118=542%:%
+%:%1120=542%:%
+%:%1124=542%:%
+%:%1125=542%:%
+%:%1127=543%:%
+%:%1135=543%:%
+%:%1136=544%:%
+%:%1137=545%:%
+%:%1138=545%:%
+%:%1139=546%:%
+%:%1141=546%:%
+%:%1145=546%:%
+%:%1146=546%:%
+%:%1148=547%:%
+%:%1158=549%:%
+%:%1159=550%:%
+%:%1160=551%:%
+%:%1177=564%:%
+%:%1181=565%:%

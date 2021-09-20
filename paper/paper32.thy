@@ -335,12 +335,13 @@ lemma step3:
     p = $a_1$ $\color{black}$\<close>
 
   text \<open>As we see above, the syllogism fails at Step 3, explaining why the lemma doesn't 
-        hold as expected. Taking a step back, it's not clear that Step 3 should hold. After all,
+        hold as expected. Kroy explicitly states (p. 199 footnote 19) that this lemma holds in his logic, which may explain
+        his choice of formalization. Taking a step back, it's not clear that Step 3 should hold. After all,
         impossible actions can be permissible (look for citation). Imagine I make a trip to Target to 
         purchase a folder, and they offer blue and black folders. No one could claim that it's impermissible
         for me to purchase a red folder, or, equivalently, that I am obligated to not purchase a red folder.\<close>
 
-  text \<open>(This is some actual philosophy - maybe worth fleshing this out and giving it a separate subsection?)
+  text \<open>(This is actual philosophy - maybe worth fleshing this out?)
         Another core issue here is Kroy's interpretation of the formula of universal law. In @cite{korsgaardFUL}, 
         Korsgaard defends a practical contradiction interpretation of the categorical imperative, whereby 
         a maxim is prohibited if, when universalized, it defeats itself (Korsgaard 3). In other words, if universalizing
@@ -470,8 +471,97 @@ text "(This should be more developed and go at the beginning of this section as 
       problems might be remedied by the fact that Kroy's logic doesn't allow contradictory obligations, 
       and that possibility will be interesting to explore in my own formalization."
 
-  subsection "Misc"
+subsection "Miscellaneous Test"
 
+text "In this section, I explore tests of properties that Kroy presents in his original paper. These 
+tests will not only test the features of the system that Kroy intended to draw out, but they may also 
+inspire additional tests and criteria for my own formalization in Chapter 3."
+
+text "Kroy presents a stronger version of the formula of universal law and argues that his formalization
+is implied by the stronger version. Let's test that claim."
+
+abbreviation FUL_strong::bool where "FUL_strong \<equiv>  \<forall>w A. ((\<exists>p::s. ((P {A p}) w))  \<longrightarrow>( (( P { \<lambda>x. \<forall>p. A p x}) w)))"
+
+lemma strong_implies_weak:
+  shows "FUL_Strong \<longrightarrow> FUL"
+  using FUL by blast
+
+text "Kroy's stated stronger version of the FUL is indeed stronger than his original version."
+
+text \<open>The difference between the stronger version and @{abbrev FUL} is subtle. The antecedent of FUL is ``for all people p,
+it is permissible that they p." The antecedent of this stronger statement is ``it is permissible that 
+everyone p's." In particular, this stronger statement requires that it is permissible for everyone to
+ p simultaneously. Kroy immediately rejects this version of the categorical imperative, arguing that 
+it's impossible for everyone to be the US president simultaneously, so this version of the FUL prohibits
+running for president.
+
+Most Kantians would disagree with this interpretation. Consider the classical example of lying, as presented 
+in @{cite kemp} and in @{cite "KorsgaardFUL"}. Lying fails the universalizability test because in a 
+world where everyone lied simultaneously, the practice of lying would break down. If we adopt Kroy's 
+version, lying is only prohibited if, no matter who lies, lying is impermissible. As argued above, this 
+rule circularly relies on some existing prohibition against lying for a particular person, and thus 
+fails to show the wrongness of lying. It is tempting to claim that this issue explains why the tests 
+above on the wrongness of lying failed. To test this hypothesis, I will check if the stronger version 
+of the FUL implies that lying is impermissible. (TODO make this and the written philosophy above coherent)\<close>
+
+lemma strongFUL_implies_lying_is_wrong:
+  fixes p
+  shows "FUL_strong \<longrightarrow> \<Turnstile>(\<^bold>\<not> P {lie(p)})"
+  nitpick[user_axioms, falsify] oops
+\<comment>\<open>$\color{blue}$
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Free variable:
+    p = $s_1$
+$\color{black}$\<close>
+
+  text "The test above also fails! This means that not even the stronger version of Kroy's formalization
+        of the FUL can show the wrongness of lying. There are two independent errors. The first is the 
+        cirularity of the formalization and the second is the assumption that impossible actions are 
+        impermissible. The stronger FUL addresses the first error, but the second remains."
+
+  text "Kroy also argues that the FUL gives us recipes for deriving obligations, in addition to deriving
+        permissibile actions. Specifically, he presents two principles parallel to FUL and strong FUL, 
+        which in his logic are equivalent."
+
+abbreviation obligation_universal_weak::bool where "obligation_universal_weak \<equiv> \<forall>w A. ((\<exists>p::s. ((O {A p}) w))  \<longrightarrow>( (\<forall>p. ( O {A p }) w)))"
+abbreviation obligation_universal_strong::bool where "obligation_universal_strong \<equiv> \<forall>w A. ((\<exists>p::s. ((O {A p}) w))  \<longrightarrow>( (( O { \<lambda>x. \<forall>p. A p x}) w)))"
+lemma weak_equiv_strong:
+  shows "obligation_universal_weak \<equiv> obligation_universal_strong"
+  oops
+\<comment>\<open>Isabelle is neither able to find a proof nor a countermodel for the statement above, so I can't say 
+  if it holds or not without completing a full, manual proof. This entire aside is not super relevant to 
+  my project, so I will defer such a proof until later.\<close>
+
+  text \<open>These two statements are not necessarily equivalent in my logic, but are in Kroy's$\footnote{This follows from
+        the fact that the Barcan formula holds in Kroy's logic but not in mine, as verified with Nitpick. See 
+        Appendix for more.}$ This difference in logics may further explain why tests are not behaving as 
+        they should. Nonetheless, Kroy argues that the FUL implies both statements above. Let's test that.\<close>
+
+lemma FUL_implies_ob_weak:
+  shows "FUL \<longrightarrow> obligation_universal_weak" oops
+\<comment>\<open>Isabelle is neither able to find a proof nor a countermodel for this statement.\<close>
+
+lemma FUL_implies_ob_strong:
+  shows "FUL \<longrightarrow> obligation_universal_strong" oops
+\<comment>\<open>Isabelle is neither able to find a proof nor a countermodel for this statement.\<close>
+
+  text "Isabelle timed out when looking for proofs or countermodels to the statements above. This may be 
+        an indication of a problem that Benzmueller warned me about—mixing quantifiers into a shallow
+        embedding of DDL may be too expensive for Isabelle to handle. Not sure what to do about this. "
+
+(*<*)
+text "put this in the appendix"
+lemma barcan:
+  shows "(\<forall>w p. O { A(p) } w) \<equiv> (O {\<lambda>x. \<forall>p. A(p) x} w)"
+  nitpick[user_axioms, falsify] oops
+\<comment>\<open>$\color{blue} $Nitpick found a counterexample for card 'a = 2, card i = 2, and card s = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($a_1$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := True), $a_2$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)) $\color{black}$\<close>
+(*>*)
+
+  text "Kroy argues that the two statements above are equivalent, but this fails in our logic. "
   text "stuff from Kroy's paper"
 (*<*)
 lemma hmmm:
