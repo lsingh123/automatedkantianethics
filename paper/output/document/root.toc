@@ -20,6 +20,6 @@
 \contentsline {subsubsection}{\numberline {3.2.3}The Categorical Imperative}{19}{subsubsection.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Application Tests}{20}{subsubsection.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}Metaethical Tests}{23}{subsubsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.3}Miscellaneous Test}{25}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.6}Miscellaneous Test}{25}{subsubsection.3.2.6}%
 \contentsline {section}{\numberline {4}Related Work}{27}{section.4}%
 \contentsline {section}{\numberline {5}Future Work}{27}{section.5}%

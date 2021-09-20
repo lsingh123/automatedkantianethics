@@ -471,7 +471,7 @@ text "(This should be more developed and go at the beginning of this section as 
       problems might be remedied by the fact that Kroy's logic doesn't allow contradictory obligations, 
       and that possibility will be interesting to explore in my own formalization."
 
-subsection "Miscellaneous Test"
+subsubsection "Miscellaneous Test"
 
 text "In this section, I explore tests of properties that Kroy presents in his original paper. These 
 tests will not only test the features of the system that Kroy intended to draw out, but they may also 
