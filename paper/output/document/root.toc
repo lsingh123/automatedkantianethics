@@ -12,14 +12,13 @@
 \contentsline {section}{\numberline {3}Prior Formalizations of The Categorical Imperative}{10}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Naive Formalization of the Formula of Universal Law }{10}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Formalization }{10}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Specifying the Model}{11}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Metaethical Properties}{13}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.2}Application Tests }{11}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Metaethical Tests }{13}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}Kroy's Formalization of the Categorical Imperative }{16}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Additional Logical Tools}{16}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Differences Between Kroy's Logic (Kr) and DDL}{17}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}The Categorical Imperative}{19}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Application Tests}{20}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Metaethical Tests}{23}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Miscellaneous Test}{25}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.1}Logical Background }{16}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}The Categorical Imperative }{19}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Application Tests}{20}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Metaethical Tests }{23}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Miscellaneous Tests }{25}{subsubsection.3.2.5}%
 \contentsline {section}{\numberline {4}Related Work}{27}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{27}{section.5}%
+\contentsline {section}{\numberline {5}Future Work}{28}{section.5}%

@@ -106,7 +106,7 @@ lemma something_is_obligatory_relaxed_2:
 \<comment> \<open>The model seems underspecified.\<close>
 (*>*)
 
-subsubsection "Specifying the Model"
+subsubsection \<open>Application Tests \label{sec:app_tests_naive}\<close>
 
 text "One category of tests involves specified models to encode certain facts 
 into the system and then ask questions about obligations. Without specifying the model, we are limited 
@@ -197,7 +197,7 @@ Isabelle empowers us to do. Even this simple argument has philosophical conseque
 reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
 agents, leads to counterintuitive conclusions.\<close>
 
-  subsubsection "Metaethical Properties"
+  subsubsection \<open>Metaethical Tests \label{sec:meta_tests_naive}\<close>
 
   text \<open>The above section specified the model to simulate practical ethical reasoning, or the kind of 
 reasoning that is useful when an agent has to decide what to do. Formalizations of the categorical 
