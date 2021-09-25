@@ -1,0 +1,15 @@
+Sept. 23 - Oct. 5 -> Custom formulation of CI (first part of Ch. 3)
+  Sept. 23 - Sept. 28 -> Notion of a maxim/logical background
+  Sept. 28 - Oct. 5 -> Formulating FUL
+Oct. 5 - Oct. 26 -> Testing the custom formulation (second part of Ch. 3)
+  Oct. 5 - Oct. 12 -> Define goals from previous sections, metaethical tests 
+  Oct. 12 - Oct. 19 -> Metaethical tests
+  Oct. 19 - Oct. 26 -> Application Tests
+Oct. 26 - Nov. 9 -> Clean up Ch. 1 and 2
+Nov. 9 - Dec. 7 -> Applications (ch. 4)
+  Nov. 9 - Nov. 16 -> Pick examples, think about representation 
+  Nov. 16 - Nov. 23 -> Begin implementing examples 
+  Nov. 23 - Nov. 30 -> Iterate on representation (Thanksgiving break)
+  Nov. 30 - Dec. 7 -> Write up conclusions 
+Dec. 7 - Jan. 6 -> (Winter Break) Clean ch. 3. Continue Applications.
+Jan. 6 - onwards -> (Spring semester) Writing and cleaning

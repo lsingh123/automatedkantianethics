@@ -1,0 +1,61 @@
+KG$ notes @{cite korsgaardFUL}. p. 8-> maxims include reasons.
+p. 14 -> impossible actions are permissible.
+need a purpose or end-> overall article
+
+KG$ Sources. p. 86 -> two parts, act and the end
+internal structure. hmm?
+
+KG$ Acting on a Reason.
+208- what properties of actions give us reasons? is it just the goal? (if so a maxim is self-contained).
+209 - things that play a role in deliberation, call out to agents 
+210 - agent must take properties to be good making 
+214 - not just in accordance with normative concern, but on it 
+consciousness of your own appropriateness - reflexive property
+215 - acting on a reason requires being conscious of your reason - but that's not concern for others 
+217 - aristotle calls action == logos == principle
+    time, way, object, and end (all have to be right to be good)
+    action INCLUDES aim
+218 - you choose the whole pacakge for its own sake: to-do-this-act-for-the-sake-of-this-end
+    different end == different maxim == different test
+219 - form: "I will do act A for end E"
+    act may be the end - dancing for its own sake or for the sheerjoy of dancing 
+    do certain acts have ends built into them? dancing is always done for the sake of moving in time with music?
+    is it dancing if they're shooting bullets at you? or dodging?
+221 - purpose is part of an action 
+222 - why did the agent think it was worth doing - should be self contained in a maxim 
+223 - order where this is universal practice AND you simultaneously will the maxim 
+224 - wrongness of act - type really is wrong of actions that fall under that act type 
+      maybe represent this as (all action with this act are wrong)
+228 - the reason is the action itself 
+
+SEP. I will A in C in order to realize or produce E.
+
+Kitcher, What is a Maxim. 
+p. 4 - tailoring objection - YAY. relevant for applications 
+p. 6 - O'Niell \<rightarrow> if circumstance, I ought to action (action as in KG or act?)
+      in C I ought to A for P \<rightarrow> exactly what DDL does
+      BUT, this would be neutral wrt moral content (is that true?)
+p. 7 - practical maxims are obvious to anyone with worldly knowledge (are they truth apt?)
+      maxim is a rule for life - isn't that just the CI?
+      ah, religion within the limits of mere reason 
+p. 8 - is an imperative different from a maxim? ***
+p. 11 - maxim is a principle that contains a judgement (Wolff)
+p. 13 - in C I ought to do A for P because that would be G (Type of goodness)
+    for Kant, G == duty 
+    moral law makes the first 3 placeholders 
+p. 14 - but what do you feed into FUL if G is already indicated 
+p. 15 - just remove the self love component 
+p. 16 - FUL says ``in C, everyone ought to do A for P" or ``in C, everyone ought to do A for P or not 
+        as they please." So good maxim is "in C, I ought to do A for P because <insert one formulation of FUL"
+        look in notes for more readings on FUL
+p. 16-20 - maxims of self love or moral maxims. hm.
+p. 20 - if you made this decision once, you're committing to it again
+        so do you just need all the info necessary to make the decision? that's a hard epistemic question 
+        this is super relevant to application tests 
+        only need "morally relevant" info
+p. 21 - garbage in/ garbage out 
+p. 22 - genuine self deception should be a false positive - interesting kind of tests 
+        USEFUL for miscellaneous tests 
+p. 25 - generate hypotheses (self love) and test them (FUL)
+
+

@@ -146,6 +146,8 @@ text \<open>While DDL is powerful because of its support for a dyadic obligation
 we need a monadic obligation operator. Below is some syntactic sugar for a monadic obligation operator.\<close>
 abbreviation ddltrue::"t" ("\<^bold>\<top>")
   where "\<^bold>\<top> \<equiv> \<lambda>w. True"
+abbreviation ddlfalse::"t" ("\<^bold>\<bottom>")
+  where "\<^bold>\<bottom> \<equiv> \<lambda>w. False"
 abbreviation ddlob_normal::"t\<Rightarrow>t" ("O {_}")
   where "(O {A}) \<equiv> (O{A|\<^bold>\<top>}) "
 \<comment>\<open>Intuitively, the context \texttt{True} is the widest context possible because \texttt{True} holds at all worlds.\<close>

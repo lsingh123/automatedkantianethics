@@ -128,22 +128,6 @@ prohibited somewhere. Sadly, that breaks everything and destroys the
 notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
 If something breaks later in this section, it may be because of vacuous permissibility.\<close>
 
-lemma contradictory_obs:
-  fixes A B w
-  assumes "\<Turnstile> (A \<^bold>\<and> B)"
-  shows "(\<^bold>\<not> (O {A \<^bold>\<and> B})) w"
-  nitpick [user_axioms, falsify] oops
-\<comment>\<open>$\color{blue} $Nitpick found a counterexample for card i = 1:
-
-  Free variables:
-    A = ($\lambda x. \_$)($i_1$ := True)
-    B = ($\lambda x. \_$)($i_1$ := True) $\color{blue}$
-\<close>
-  text \<open>Contradictory things can't be obligated in Kr, since a contradiction can't be true at any deontic alternative.
-This doesn't hold in DDL, and we already saw this cause problems for the naive formalization. We should 
-expect those problems to hold in our implementation of Kr, but this difference suggests that they are 
-a symptom of DDL, not of any inherent problem with Kroy's formalization.\<close>
-
   text_raw \<open>\emph{Obligatory statements should be permissible}\<close>
 
 text \<open>Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
@@ -457,7 +441,7 @@ lemma conflicting_obligations:
     A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True) \color{black}\<close>
 
   text "Just as with the naive formalization, Kroy's formalization allows for contradictory obligations. 
-        Recall earlier that I showed this is a property of DDL itself. This is a good goal to have in mind when 
+        Testing this lemma in DDL without the FUL shows that this is a property of DDL itself. This is a good goal to have in mind when 
         developing my custom formalization. 
 
         Next, I will test the stronger property that if two maxims imply a
@@ -465,7 +449,7 @@ lemma conflicting_obligations:
 
 lemma implied_contradiction:
   fixes A B w
-  assumes "(A \<^bold>\<rightarrow> (\<^bold>\<not> B))w"
+  assumes "((A \<^bold>\<and> B) \<^bold>\<rightarrow> \<^bold>\<bottom>) w"
   shows "\<^bold>\<not> (O {A} \<^bold>\<and> O {B}) w"
   nitpick [user_axioms, falsify] oops
 \<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 2 and card s = 1:
@@ -477,7 +461,7 @@ lemma implied_contradiction:
 
   text \<open>  Just as with the naive formalization, Kroy's formalization allows implied contradictions because 
         DDL itself allows implied contradictions and, as I explored in Section \ref{sec:naive_tests_kroy}, Kroy's 
-        formalization doesn't do anything to remedy this. IS THIS ACTUALLY HOW WE REPRESENT A CONTRADICTION
+        formalization doesn't do anything to remedy this. 
 
       As my final metaethical test, I will test that an action is either obligatory, permissible, or 
       prohibited.\<close>
