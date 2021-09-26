@@ -3,17 +3,27 @@
 
 begin
 
+section "Novel Formalization of the Categorical Imperative"
+
+text "In this section, I present a custom formalization of the categorical imperative, as inspired by 
+the goals from the previous chapter."
+
+subsection "Logical Background"
+
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
+type_synonym os = "(s \<Rightarrow> t)"
 
 text \<open>Borrowing subjects from Ch. 2.\<close>
 
 typedecl act \<comment>\<open>Type representing an act such as ``Running"\<close>
 typedecl goal \<comment>\<open>Type representing a goal such as ``To visit my mother"\<close>
 
-type_synonym logos = "(t * act * goal * s)" \<comment>\<open>A logos or principle according to Aristotle
- is a circumstance, act, goal, subject pair. Read logos (C, A, G, S)
+type_synonym maxim = "(t * os * t)" \<comment>\<open>A logos or principle according to Aristotle
+ is a circumstance, act, goal pair. Read logos (C, A, G)
 as ``In circumstance C, S will do A in order to G." A circumstance is represented as a set of worlds 
-$t$ where that circumstance holds.
+$t$ where that circumstance holds. A goal is a term because it can be true or false at a world if it 
+is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
+false at a world if it is actually performed by that subject. 
 
 Korsgaard interprets a maxim as being equivalent to a logos, and thus only being composed of the features
 above. Kitcher argues for one additional component: the motivation. This additional component is read 
@@ -35,30 +45,27 @@ models the process of practical reason may use my implementation of the FUL as a
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
 evaluating an agent's behavior, since that's where ``acting from duty" starts to matter.\<close>
 
-type_synonym maxim = "logos \<Rightarrow> t" \<comment>\<open>I will define a maxim as a function that maps 
- a maxim to a term. To will a maxim is to assign it a truth value at a set of worlds, or, in this logic, 
-to make it true at a set of worlds.\<close>
+fun act_on :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("A _ _")
+  where "act_on (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
+ \<comment>\<open>A maxim is acted on by a subject at a world if the circumstances hold at that world and the 
+subject performs the action (denoted by the application of the action to the subject). At worlds 
+where the circumstances do not hold, a maxim is trivially acted on. This coheres with Kitcher's and
+ Korsgaard's understanding of a maxim as a principle or rule to live by. If your rule is ``I will 
+do X in these cirumstances", then you can't violate the rule when the circumstances don't hold.  
 
-text \<open>\textbf{New Operators}
+The type of a maxim that is acted on is a term, allowing me
+to use DDL's obligation operator on the notion of acting on a maxim. While DDL offers a dyadic obligation
+operator (taking in a term and context as arguments), I will only use the monadic version (only 
+taking in a term), since the act\_on function already excludes worlds where the circumstances do not hold.
+HOW DOES THIS INTERACT WITH THE MONADIC VS DYADIC O OPERATOR AND THE OB FUNCTION? WHAT DO WE DO IN WORLDS 
+WHERE THE CIRCUMSTANCES DO NOT HOLD?\<close>
 
-Because Isabelle is strongly typed, I need to define new operators to handle maxims. These operators 
-are similar to DDL's original operators.  \<close>
-
-abbreviation maxim_neg::"maxim \<Rightarrow> maxim" ("\<^emph>\<not>_")
-  where "(\<^emph>\<not>A) \<equiv> \<lambda>x::logos. \<^bold>\<not>(A(x))"
-abbreviation maxim_and::"maxim \<Rightarrow> maxim \<Rightarrow> maxim" ("_\<^emph>\<and>_")
-  where "(A \<^emph>\<and> B) \<equiv> \<lambda>x::logos. ((A(x)) \<^bold>\<and> (B(x)))"
-abbreviation maxim_or::"maxim \<Rightarrow> maxim \<Rightarrow> maxim" ("_\<^emph>\<or>_")
-  where "(A \<^emph>\<or> B) \<equiv> \<lambda>x::logos. ((A(x)) \<^bold>\<or> (B(x)))"
-abbreviation maxim_ob::"maxim \<Rightarrow> maxim" ("\<^emph>O{_}")
-  where "\<^emph>O{A} \<equiv> \<lambda>(c, a, g, s). (O{ A(c, a, g, s) | c})"
-
-text \<open>Once again, the notion of permissibility will be useful here.\<close>
-
-abbreviation ddl_permissible::"t\<Rightarrow>t\<Rightarrow>t" ("P{_|_}")
-  where "P{A|C} \<equiv> \<^bold>\<not> (O{\<^bold>\<not> A | C})"
-abbreviation maxim_permissible::"maxim\<Rightarrow>maxim" ("\<^emph>P {_}")
-  where "\<^emph>P{A} \<equiv> \<lambda>(c, a, g, s). P{ A(c, a, g, s) | c}"
+fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
+  where "effective (c::t, a::os, g::t) s = ((act_on (c, a, g) s) \<^bold>\<rightarrow> g)"
+\<comment>\<open>A maxim is effective for a subject when, if the subject acts on it then the goal is achieved. 
+A maxim is trivially effective in worlds where the circumstances do not hold or where it is not 
+acted on by the argument above. 
+Open Q: If a maxim is effective for me, is it effective for you?\<close>
 
 
 (*<*)

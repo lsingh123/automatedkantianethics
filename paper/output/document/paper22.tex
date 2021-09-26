@@ -178,6 +178,9 @@ we need a monadic obligation operator. Below is some syntactic sugar for a monad
 \ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymtop}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ True{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
+\ ddlfalse{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymbottom}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlbold {\isasymbottom}\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}\ False{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
 \ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
 %
@@ -343,31 +346,34 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%180=149%:%
 %:%181=149%:%
 %:%182=150%:%
+%:%183=151%:%
 %:%184=151%:%
+%:%185=152%:%
 %:%187=153%:%
-%:%189=154%:%
-%:%190=154%:%
-%:%191=155%:%
-%:%199=164%:%
-%:%211=166%:%
-%:%212=167%:%
-%:%213=168%:%
-%:%214=169%:%
-%:%215=170%:%
-%:%219=172%:%
-%:%221=173%:%
-%:%222=173%:%
-%:%223=173%:%
-%:%225=173%:%
-%:%229=173%:%
-%:%230=173%:%
-%:%232=174%:%
+%:%190=155%:%
+%:%192=156%:%
+%:%193=156%:%
+%:%194=157%:%
+%:%202=166%:%
+%:%214=168%:%
+%:%215=169%:%
+%:%216=170%:%
+%:%217=171%:%
+%:%218=172%:%
+%:%222=174%:%
+%:%224=175%:%
+%:%225=175%:%
+%:%226=175%:%
+%:%228=175%:%
+%:%232=175%:%
 %:%233=175%:%
-%:%234=175%:%
-%:%236=176%:%
+%:%235=176%:%
+%:%236=177%:%
 %:%237=177%:%
-%:%238=178%:%
-%:%248=180%:%
-%:%249=181%:%
-%:%250=182%:%
-%:%251=183%:%
+%:%239=178%:%
+%:%240=179%:%
+%:%241=180%:%
+%:%251=182%:%
+%:%252=183%:%
+%:%253=184%:%
+%:%254=185%:%
