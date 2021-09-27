@@ -21,12 +21,21 @@
 %
 \isatagdocument
 %
+\isamarkupsection{Novel Formalization of the Categorical Imperative%
+}
+\isamarkuptrue%
+%
 \endisatagdocument
 {\isafolddocument}%
 %
 \isadelimdocument
 %
 \endisadelimdocument
+%
+\begin{isamarkuptext}%
+In this section, I present a custom formalization of the categorical imperative, as inspired by 
+the goals from the previous chapter.%
+\end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
 %
@@ -34,12 +43,114 @@
 %
 \isatagdocument
 %
+\isamarkupsubsection{Logical Background%
+}
+\isamarkuptrue%
+%
 \endisatagdocument
 {\isafolddocument}%
 %
 \isadelimdocument
 %
 \endisadelimdocument
+%
+\begin{isamarkuptext}%
+The previous attempts to model the categorical imperative in Chapter 2 partially failed due to 
+lack of expressivity about the complexity of a maxim. Specifically, they treated actions as a single, 
+monolithic unit of evaluation, whereas most Kantians consider the unit of evaluation for the FUL to the more
+complex notion of a maxim. In this section, I will present some logical background necessarily to more fully 
+capture the spirit of a maxim. I will begin by borrowing some machinery to handle ``subjects" who perform 
+actions from Chapter 2.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{typedecl}\isamarkupfalse%
+\ s\ %
+\isamarkupcmt{s is the type for a ``subject," i.e. the subject of a sentence%
+}\isanewline
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
+\isamarkupcmt{Recall that an open sentence maps a subject to a term to model substitution.%
+}\isanewline
+\isanewline
+\isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
+\ maxim\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}t\ {\isacharasterisk}\ os\ {\isacharasterisk}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
+\isamarkupcmt{Korsgaard interprets Kant's idea of a maxim as being equivalent 
+to Aristotle's notion of logos or principle, which is a circumstance, act, goal pair. Read logos (C, A, G)
+as ``In circumstance C, I will do A in order to G." A circumstance is represented as a set of worlds 
+$t$ where that circumstance holds. A goal is a term because it can be true or false at a world if it 
+is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
+false at a world if it is actually performed by that subject. 
+
+Korsgaard interprets a maxim as being equivalent to a logos, and thus only being composed of the features
+above. Kitcher argues that a maxim should also include the motivation. This additional component is read 
+as ``In circumstance C, I will do A in order to G because of M." where M may be ``duty" or ``self-love."
+This captures Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
+Given that, under the Kantian constituvist view, the categorical
+imperative completely defines duty, Kitcher argues that the FUL would obligate maxims of the form 
+``In circumstance C, I will do A in order to G because I would will that I and everyone else simultaneously
+will do A in order to G in circumstance C." In other words, the affirmative result of the FUL becomes 
+the motivation for a moral action.
+
+While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
+because it is not essential to putting maxims through the FUL. 
+Notice that in order to pass the maxim through the FUL, it suffices to know C, A and G. The FUL
+derives the purpose that Kitcher bundles into the maxim, so automating the FUL does not require 
+including some notion of a purpose. The ``input" to the FUL is the (C, A, G) pair. My project takes 
+this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
+justice to the rich notion of motivation requires modelling the operation of practical reason itself, 
+which it outside the scope of this project. My work focuses on the FUL test itself, but future work that 
+models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
+with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
+evaluating an agent's behavior, since that's where ``acting from duty" starts to matter.%
+}\isanewline
+\isanewline
+\isacommand{fun}\isamarkupfalse%
+\ act{\isacharunderscore}on\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}A\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}act{\isacharunderscore}on\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ %
+\isamarkupcmt{A maxim is acted on by a subject at a world if, when the circumstances hold at that world, the 
+subject performs the action (denoted by the application of the action to the subject). At worlds 
+where the circumstances do not hold, a maxim is trivially acted on. This coheres with Kitcher's and
+ Korsgaard's understanding of a maxim as a principle or rule to live by. If your rule is ``I will 
+do X in these cirumstances", then you are trivillay obeying it when the circumstances don't hold.  
+
+The type of a maxim that is acted on is a term, allowing me
+to use DDL's obligation operator on the notion of acting on a maxim. While DDL offers a dyadic obligation
+operator (taking in a term and context as arguments), I will only use the monadic version (only 
+taking in a term), since the act\_on function already excludes worlds where the circumstances do not hold.
+
+Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
+our definition of the obligation operator, we define O {B|A} to be true at all worlds iff ob(B)(A), or 
+if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
+definition implies that worlds outside of B have no bearing on the obligatory-ness of A in context B, which 
+coheres with intuitions about obligation in a context. Thus, the dyadic obligation operator 
+disqualifies worlds where the context does not hold, so the trivial truth of the act\_on statement in 
+these worlds does not matter. 
+
+Given that the `acted\_on' function already excludes worlds where the circumstances fail (by rendering 
+the statement trivially true at them), one may conclude that the dyadic obligation operator is now useless. 
+Using the dyadic obligation operator allows me to take advantage of the power of DDL to represent the bearing 
+that circumstances have on obligation. DDL has powerful axioms expressing the relationship between circumstances 
+and obligation, such as the fact that obligations are monotonically increasing with respect to broader 
+circumstances. Using the monadic obligation operator would require me to either operate with an empty 
+notion of context or to redefine these axioms. The dyadic obligation operator lets me take advantage of the full 
+power of DDL in expressing contrary-to-duty obligations. This is particularly important for Kantian ethics 
+and the FUL specifically because many critiques of the FUL rely on attention to circumstances (tailoring 
+objection) or lack thereof (ideal theory). This is also an innovation that my custom formalization presents 
+over the prior work. By formally including the notion of a circumstance or context, I am able to represent 
+these objections that Kantian scholars study. Formalizing Kantian ethics in a dyadic deontic logic 
+instead of a monadic deontic logic is a key contribution of this thesis.%
+}\isanewline
+\isanewline
+\isacommand{fun}\isamarkupfalse%
+\ effective\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}\ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}E\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}effective\ {\isacharparenleft}c{\isacharcolon}{\isacharcolon}t{\isacharcomma}\ a{\isacharcolon}{\isacharcolon}os{\isacharcomma}\ g{\isacharcolon}{\isacharcolon}t{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}{\isacharparenleft}act{\isacharunderscore}on\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ g{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{A maxim is effective for a subject when, if the subject acts on it then the goal is achieved. 
+A maxim is trivially effective in worlds where the circumstances do not hold or where it is not 
+acted on by the argument above. 
+Open Q: If a maxim is effective for me, is it effective for you? Do we need the subject here?%
+}\isanewline
+\isanewline
 %
 \isadelimtheory
 %
@@ -57,3 +168,101 @@
 \end{isabellebody}%
 \endinput
 %:%file=~/Desktop/cs91r/paper/paper41.thy%:%
+%:%24=6%:%
+%:%36=8%:%
+%:%37=9%:%
+%:%46=11%:%
+%:%58=13%:%
+%:%59=14%:%
+%:%60=15%:%
+%:%61=16%:%
+%:%62=17%:%
+%:%63=18%:%
+%:%65=20%:%
+%:%66=20%:%
+%:%67=20%:%
+%:%68=20%:%
+%:%69=21%:%
+%:%70=21%:%
+%:%71=21%:%
+%:%72=21%:%
+%:%73=22%:%
+%:%74=23%:%
+%:%75=23%:%
+%:%76=23%:%
+%:%77=24%:%
+%:%78=25%:%
+%:%79=26%:%
+%:%80=27%:%
+%:%81=28%:%
+%:%82=29%:%
+%:%83=30%:%
+%:%84=31%:%
+%:%85=32%:%
+%:%86=33%:%
+%:%87=34%:%
+%:%88=35%:%
+%:%89=36%:%
+%:%90=37%:%
+%:%91=38%:%
+%:%92=39%:%
+%:%93=40%:%
+%:%94=41%:%
+%:%95=42%:%
+%:%96=43%:%
+%:%97=44%:%
+%:%98=45%:%
+%:%99=46%:%
+%:%100=47%:%
+%:%101=48%:%
+%:%102=49%:%
+%:%103=50%:%
+%:%104=50%:%
+%:%105=51%:%
+%:%106=52%:%
+%:%107=52%:%
+%:%108=53%:%
+%:%109=54%:%
+%:%110=54%:%
+%:%111=55%:%
+%:%112=56%:%
+%:%113=57%:%
+%:%114=58%:%
+%:%115=59%:%
+%:%116=60%:%
+%:%117=61%:%
+%:%118=62%:%
+%:%119=63%:%
+%:%120=64%:%
+%:%121=65%:%
+%:%122=66%:%
+%:%123=67%:%
+%:%124=68%:%
+%:%125=69%:%
+%:%126=70%:%
+%:%127=71%:%
+%:%128=72%:%
+%:%129=73%:%
+%:%130=74%:%
+%:%131=75%:%
+%:%132=76%:%
+%:%133=77%:%
+%:%134=78%:%
+%:%135=79%:%
+%:%136=80%:%
+%:%137=81%:%
+%:%138=82%:%
+%:%139=83%:%
+%:%140=84%:%
+%:%141=85%:%
+%:%142=86%:%
+%:%143=87%:%
+%:%144=88%:%
+%:%145=88%:%
+%:%146=89%:%
+%:%148=90%:%
+%:%149=91%:%
+%:%150=92%:%
+%:%151=93%:%
+%:%152=93%:%
+%:%153=94%:%
