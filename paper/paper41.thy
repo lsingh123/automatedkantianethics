@@ -20,15 +20,15 @@ actions from Chapter 2.\<close>
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
 type_synonym os = "(s \<Rightarrow> t)" \<comment>\<open>Recall that an open sentence maps a subject to a term to model substitution.\<close>
 
-type_synonym maxim = "(t * os * t)" \<comment>\<open>Korsgaard interprets Kant's idea of a maxim as being equivalent 
-to Aristotle's notion of logos or principle, which is a circumstance, act, goal pair. Read logos (C, A, G)
+type_synonym maxim = "(t * os * t)" \<comment>\<open>Korsgaard @{cite actingforareason} interprets Kant's idea of a maxim as being equivalent 
+to Aristotle's notion of logos or principle (insert cite), which is a circumstance, act, goal pair. Read logos (C, A, G)
 as ``In circumstance C, I will do A in order to G." A circumstance is represented as a set of worlds 
 $t$ where that circumstance holds. A goal is a term because it can be true or false at a world if it 
 is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
 false at a world if it is actually performed by that subject. 
 
 Korsgaard interprets a maxim as being equivalent to a logos, and thus only being composed of the features
-above. Kitcher argues that a maxim should also include the motivation. This additional component is read 
+above. Kitcher @{cite whatisamaxim} argues that a maxim should also include the motivation. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M." where M may be ``duty" or ``self-love."
 This captures Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
 Given that, under the Kantian constituvist view, the categorical
