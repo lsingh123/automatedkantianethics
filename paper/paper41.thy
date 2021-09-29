@@ -51,7 +51,9 @@ evaluating an agent's behavior, since that's where ``acting from duty" starts to
 
 fun act_on :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("A _ _")
   where "act_on (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
- \<comment>\<open>A maxim is acted on by a subject at a world if, when the circumstances hold at that world, the 
+ \<comment>\<open>This should be willed on. is there literature on this discussion?
+
+A maxim is acted on by a subject at a world if, when the circumstances hold at that world, the
 subject performs the action (denoted by the application of the action to the subject). At worlds 
 where the circumstances do not hold, a maxim is trivially acted on. This coheres with Kitcher's and
  Korsgaard's understanding of a maxim as a principle or rule to live by. If your rule is ``I will 
@@ -90,9 +92,72 @@ fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
 \<comment>\<open>A maxim is effective for a subject when, if the subject acts on it then the goal is achieved. 
 A maxim is trivially effective in worlds where the circumstances do not hold or where it is not 
 acted on by the argument above. 
-Open Q: If a maxim is effective for me, is it effective for you? Do we need the subject here?\<close>
+Open Q: If a maxim is effective for me, is it effective for you? Do we need the subject here?
 
+nonexistent is ineffective, no trivial effectiveness in philosophy
+write up language to signal the choices that im making
+3 choice points - what version -> FUL; definition of maxim; and practical contradiction interpretation
+PC view -> circumstances are that everyone does it!!!\<close>
 
+text_raw \<open>\pagebreak\<close>
+
+text \<open>$\textbf{``Effectiveness" of a Maxim}$\<close>
+
+text \<open>I wish to formalize the notion of an ``effective" maxim. Intuitively, a maxim (a rule to 
+perform an act A for goal G) is effective if the act results in the goal. For example, studying hard 
+to get good grades is (sometimes) an effective maxim because the act of studying (sometimes) results in
+ the end of getting good grades. At first glance, it is tempting to represent effectiveness 
+as follows: an act, goal pair ($A, G$) is effective if $A \longrightarrow G$. If $A$ then $G$ implies that 
+$A$ is an effective mechanism for achieving $G$.
+
+Trivial truth is a problem for this interpretation. If act $A$ never happens or 
+is impossible, then, $\forall G$, it is trivially true that $A \longrightarrow G$ (since $\sim A$). This leads to the 
+disturbing conclusion that impossible actions are effective in achieving any goal. While the messiness 
+is familiar to logicians, it has troubling implications for ethics.
+
+One such issue arises from Korsgaard's @{cite KorsgaardFUL} argument that, if an act no longer exists, then it is no 
+longer an effective mechanism for achieving any ends at all. This is a critical part of her interpretation 
+of the formula of universal law\footnote{Korsgaard compares two interpretations of the formula of universal law. 
+Under the logical contradiction view, a maxim is prohibited if, when everyone adopts it, it is logically
+impossible. Under the practical contradiction (PC) view, a maxim is prohibited if, when everyone adopt it, 
+it is no longer effective (the act isn't a means to the goal or end. For cases where universalization 
+renders the action impossible (like lying, since if everyone lies no one would believe each other), both 
+views should prohibit the maxim. For the PC view to prohibit the maxim, the maxim's impossibility must 
+also imply its ineffectiveness.}. Under Korsgaard's interpretation, if 
+studying hard is no longer an existing or possible action  (maybe because of perpetual construction outside my room), 
+then the maxim ``studying hard to get a good grade" is no longer effective. Trivial truth means that the
+initial definition of effectiveness cannot achieve this result.
+
+I could fix this problem by defining effectiveness as an act being existent and 
+also achieving the goal. I could try to model existent as ``possible at some world," therefore using 
+the power of modal logic to represent ideas like possibility. That way, a maxim is effective if (1) 
+the act is possible at some world and (2) in worlds where the act is in fact realized, the goal is also
+realized. 
+
+This solution draws a distinction between the notions of possibility (which is a modal
+sentence) and truth or occurrence. Drawing this distinction 
+allows us to preserve the fact that trivial truth does, in some way, make sense. Specifically, in a world 
+where the act is not performed, we still think that the maxim is effective. Its effectiveness hasn't been 
+disproven. Just as all purple elephants can fly, hunting purple elephants is an effective way to make money\footnote{Someone not steeped in logic might not agree here.}.
+
+This solution has two drawbacks. First, it introduces additional logical complexity into the effectiveness
+predicate. This is fine, but may have performance/developer time drawbacks. Ideally, a sentence in simple propositional
+logic could represent effectiveness. Second, more importantly, it doesn't address the idea of ``causality." 
+It might be the case that $A \longrightarrow G$ but $A$ does not cause $G$. For example, maybe eating 
+banana bread is a way to improve my grades because I eat banana bread but also happen to study hard, which 
+is the real cause of my GPA. How can I represent this idea? $A \wedge G$ fails because an act doesn't have to occur to be an effective means to an end 
+(the same reason that preserving trivial truth is nice). $A \longleftrightarrow G$ fails because we can imagine
+there also being some other cause for $G$. I can get good grades by studying hard or by bribing my professor, but
+both of those remain effective methods to achieve goal $G$. 
+
+How do I solve this problem? Should I look into logics of causation (I'm sure such things exist)? 
+Should I represent effectiveness as the implication $A \longrightarrow G$ holding at every world? That 
+idea addresses the second challenge about causation vs correlation, since if  $A \longrightarrow G$ in
+every possible world, then $A$ must cause $G$, since any fact noncontingent on $A$ will be false at some 
+possible world. This idea introduces even more logical complexity!
+
+\<close>
 (*<*)
+
 end
 (*>*)

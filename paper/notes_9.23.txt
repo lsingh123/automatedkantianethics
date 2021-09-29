@@ -72,5 +72,25 @@ p. 12 - practical contradiction view is largely accepted \<rightarrow> nice!
 p. 16 - FUL doesn't help show WHY a particular action is wrong 
       maybe it does - free riding, making an exception of yourself
 
+william meeting 09/27/21
+Kant doesn't think this could be mechanized (Ebels Duggan)
+test if a certain interpretation of FUL can be mechanized 
+- just going to pick this one and see if that's possible 
+what is the human doing vs what is the robot doing 
+what would kant think? analytic vs synthetic?
+bases covered bc KG$ has the dominant interpretation 
+  here are some other possiblities, im not going to consider them in a footnote
+constructivists vs realists get murky 
+  im going to formalize FUL because this is an early attempt 
+  make a choice and say in the footnote that these are the alternatives so you know that i know 
+  (1) easy (2) constructivist (3) kant says they're all the same so who cares
+  - don't need to take a stance on this 
+  - back pocket to show bona fides for talking about different interpretations 
+- action vs act korsgaard
+- KG only has act and end, Kitcher and Ebels Duggan adds circumstance 
+- can you use context in tailoring objection/application section 
+
+
+
 
 
