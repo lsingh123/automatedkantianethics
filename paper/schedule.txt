@@ -5,7 +5,7 @@ Oct. 5 - Oct. 26 -> Testing the custom formulation (second part of Ch. 3)
   Oct. 5 - Oct. 12 -> Define goals from previous sections, metaethical tests 
   Oct. 12 - Oct. 19 -> Metaethical tests
   Oct. 19 - Oct. 26 -> Application Tests
-Oct. 26 - Nov. 9 -> Clean up Ch. 1 and 2
+Oct. 26 - Nov. 9 -> Clean up Ch. 1 and 2 (using Prof. Amin's feedback)
 Nov. 9 - Dec. 7 -> Applications (ch. 4)
   Nov. 9 - Nov. 16 -> Pick examples, think about representation 
   Nov. 16 - Nov. 23 -> Begin implementing examples 

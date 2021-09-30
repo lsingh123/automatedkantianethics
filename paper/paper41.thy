@@ -20,15 +20,28 @@ actions from Chapter 2.\<close>
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
 type_synonym os = "(s \<Rightarrow> t)" \<comment>\<open>Recall that an open sentence maps a subject to a term to model substitution.\<close>
 
-type_synonym maxim = "(t * os * t)" \<comment>\<open>Korsgaard @{cite actingforareason} interprets Kant's idea of a maxim as being equivalent 
-to Aristotle's notion of logos or principle (insert cite), which is a circumstance, act, goal pair. Read logos (C, A, G)
-as ``In circumstance C, I will do A in order to G." A circumstance is represented as a set of worlds 
+type_synonym maxim = "(t * os * t)" \<comment>\<open>I define a maxim as a circumstance, act, goal pair (C, A, G), read 
+as ``In circumstances C, do act A for goal G."  A circumstance is represented as a set of worlds 
 $t$ where that circumstance holds. A goal is a term because it can be true or false at a world if it 
 is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
-false at a world if it is actually performed by that subject. 
+false at a world if it is actually performed by that subject.\<close>
 
-Korsgaard interprets a maxim as being equivalent to a logos, and thus only being composed of the features
-above. Kitcher @{cite whatisamaxim} argues that a maxim should also include the motivation. This additional component is read 
+text \<open>My definition of a maxim is inspired by O'Niell's and Kitcher's work on maxims. 
+
+O'Niell (insert cite and get book???) presents the widely accepted view that a maxim is a circumstances, 
+act, goal tuple as I represented above. <Explain why she includes each thing>
+
+O'Niell's inclusion of circumstances in a maxim leaves her open to the question of what qualifies as a 
+morally relevant circumstance for a particular maxim. This is particularly important for the tailoring objection, 
+under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
+I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
+this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
+to the rest of the maxim (cite tailoring objection). This issue will be important as I create maxims to test, as, otherwise, the test 
+will suffer from a garbage in, garbage out problem. I will explain this issue in greater detail when discussing
+applications of my formalization.
+
+Kitcher @{cite whatisamaxim} begins with O'Niell's (C, A, G)  view and expands it to include the motivation 
+behind performing the maxim. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M." where M may be ``duty" or ``self-love."
 This captures Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
 Given that, under the Kantian constituvist view, the categorical
@@ -38,7 +51,8 @@ will do A in order to G in circumstance C." In other words, the affirmative resu
 the motivation for a moral action.
 
 While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
-because it is not essential to putting maxims through the FUL. 
+because it is not necessary for putting maxims through the FUL. Indeed, Kitcher acknowledges that 
+O'Niell's formulation suffices for the universalizability test, but is not the general notion of a maxim.
 Notice that in order to pass the maxim through the FUL, it suffices to know C, A and G. The FUL
 derives the purpose that Kitcher bundles into the maxim, so automating the FUL does not require 
 including some notion of a purpose. The ``input" to the FUL is the (C, A, G) pair. My project takes 
@@ -49,31 +63,33 @@ models the process of practical reason may use my implementation of the FUL as a
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
 evaluating an agent's behavior, since that's where ``acting from duty" starts to matter.\<close>
 
-fun act_on :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("A _ _")
-  where "act_on (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
- \<comment>\<open>This should be willed on. is there literature on this discussion?
+fun will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("A _ _")
+  where "will (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
 
-A maxim is acted on by a subject at a world if, when the circumstances hold at that world, the
-subject performs the action (denoted by the application of the action to the subject). At worlds 
-where the circumstances do not hold, a maxim is trivially acted on. This coheres with Kitcher's and
- Korsgaard's understanding of a maxim as a principle or rule to live by. If your rule is ``I will 
-do X in these cirumstances", then you are trivillay obeying it when the circumstances don't hold.  
+text \<open>Korsgaard claims that ``To will an end, rather than just
+wishing for it or wanting it, is to set yourself to be its cause" @{cite "sources"}. To will a maxim, then, 
+is to set yourself to, in the relevant circumstances, be the cause of its goal by taking the means 
+specified in the maxim. This coheres with 
+Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. At worlds 
+where the circumstances do not hold, a maxim is vacuously willed. If you decide to act on the rule ``I will 
+do X in these cirumstances", then you are vacuously obeying it when the circumstances don't hold.  
 
-The type of a maxim that is acted on is a term, allowing me
-to use DDL's obligation operator on the notion of acting on a maxim. While DDL offers a dyadic obligation
-operator (taking in a term and context as arguments), I will only use the monadic version (only 
-taking in a term), since the act\_on function already excludes worlds where the circumstances do not hold.
+I am using the word `will' as a verb, to mean committing oneself to living by
+the principle of a maxim. This coheres with Kant's Formula of Universal Law, because it tests the willing 
+of a maxim to determine if it could be a universal law that everyone committed to. Formalizing this idea,
+the type of a maxim that is willed is a term, allowing me
+to use DDL's obligation operator on the notion of willing a maxim. 
 
 Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
 our definition of the obligation operator, we define O {B|A} to be true at all worlds iff ob(B)(A), or 
 if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
 definition implies that worlds outside of B have no bearing on the obligatory-ness of A in context B, which 
 coheres with intuitions about obligation in a context. Thus, the dyadic obligation operator 
-disqualifies worlds where the context does not hold, so the trivial truth of the act\_on statement in 
+disqualifies worlds where the context does not hold, so the vacuous truth of the will statement in 
 these worlds does not matter. 
 
-Given that the `acted\_on' function already excludes worlds where the circumstances fail (by rendering 
-the statement trivially true at them), one may conclude that the dyadic obligation operator is now useless. 
+Given that the will function already excludes worlds where the circumstances fail (by rendering 
+the statement vacuously true at them), one may conclude that the dyadic obligation operator is now useless. 
 Using the dyadic obligation operator allows me to take advantage of the power of DDL to represent the bearing 
 that circumstances have on obligation. DDL has powerful axioms expressing the relationship between circumstances 
 and obligation, such as the fact that obligations are monotonically increasing with respect to broader 
@@ -88,17 +104,32 @@ instead of a monadic deontic logic is a key contribution of this thesis.
 \<close>
 
 fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
-  where "effective (c::t, a::os, g::t) s = ((act_on (c, a, g) s) \<^bold>\<rightarrow> g)"
-\<comment>\<open>A maxim is effective for a subject when, if the subject acts on it then the goal is achieved. 
-A maxim is trivially effective in worlds where the circumstances do not hold or where it is not 
-acted on by the argument above. 
-Open Q: If a maxim is effective for me, is it effective for you? Do we need the subject here?
+  where "effective (c::t, a::os, g::t) s = ((will (c, a, g) s) \<^bold>\<equiv> g)"
 
-nonexistent is ineffective, no trivial effectiveness in philosophy
-write up language to signal the choices that im making
-3 choice points - what version -> FUL; definition of maxim; and practical contradiction interpretation
-PC view -> circumstances are that everyone does it!!!\<close>
+text \<open>A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
+when the subject does not act on it, the goal is not achieved.\footnote{Thank you to Jeremy D. Zucker for helping me think through this.} @{cite sepcausality} 
+The former direction of the implication 
+is intuitive: if the act results in the goal, it was effective in causing the goal. This represents `necessary'
+causality. 
 
+The latter direction represents `sufficient' causality, or the idea that, counterfactually,
+if the maxim were not willed, then the goal is not achieved @{cite "lewiscausality"}. Note that nothing else changes about this
+counterfactual world—the circumstances are identical and we neither added additional theorems nor 
+specified the model any further. This represents Lewis's idea of "comparative similarity," @{cite lewiscounterfactuals} where 
+a counterfactual is true if it holds at the most similar world. In our case, this is just the world 
+where everything is the same except the maxim is not acted on.
+
+Combining these ideas, this definition of effective states that a maxim is effective if the 
+maxim being acted on by a subject is the necessary and sufficient cause of the goal.\footnote{Should I wave a hand at critiques of counterfactual causality?}
+
+If the circumstances do not hold and the goal is achieved, then the maxim is vacuously effective, since 
+it is vacuously willed (as described above). While this scenario is counterintuitive, it is not very 
+interesting for my purposes because, when the circumstances do not hold, a maxim is not applicable. It 
+doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
+read a book to one-up your nemesis" is vacuously effective because it can never be disproven.\<close>
+
+
+(*<*)
 text_raw \<open>\pagebreak\<close>
 
 text \<open>$\textbf{``Effectiveness" of a Maxim}$\<close>
@@ -157,7 +188,7 @@ every possible world, then $A$ must cause $G$, since any fact noncontingent on $
 possible world. This idea introduces even more logical complexity!
 
 \<close>
-(*<*)
+
 
 end
 (*>*)
