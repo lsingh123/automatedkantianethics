@@ -26,21 +26,65 @@ $t$ where that circumstance holds. A goal is a term because it can be true or fa
 is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
 false at a world if it is actually performed by that subject.\<close>
 
-text \<open>My definition of a maxim is inspired by O'Niell's and Kitcher's work on maxims. 
+text \<open>My definition of a maxim is inspired by Onora O'Neill's work on maxims, and I will defend my representation
+below and consider an additional component that Patricia Kitcher @{cite whatisamaxim} argues for.
 
-O'Niell (insert cite and get book???) presents the widely accepted view that a maxim is a circumstances, 
-act, goal tuple as I represented above. <Explain why she includes each thing>
+$\textbf{O'Niell's Original Schematic and The Role of Practical Judgement}$
 
-O'Niell's inclusion of circumstances in a maxim leaves her open to the question of what qualifies as a 
-morally relevant circumstance for a particular maxim. This is particularly important for the tailoring objection, 
+O'Neill$\footnote{p. 37}$ @{cite "actingonprinciple"} presents what Kitcher calls the widely accepted view that a maxim is a circumstance, 
+act, goal tuple as I represented above. She views a maxim as a particular, subjective instantiation of a 
+practical principle, which people may choose to act on or live by. Like a practical principle, a maxim 
+is a kind of action-guiding rule and thus naturally includes an action and the circumstances under which 
+it should be performed, which are often referred to as ``morally relevant circumstances." 
+
+She also includes the notion of a maxim's purpose or end (which I call goal) because Kant includes this in many of his 
+example maxims and because Kant argues that human activity, because it is guided by a rational will, 
+is inherently purposive. People do not act randomly, but instead in the pursuit of ends which they 
+deem valuable @{cite sources}$\footnote{where in sources is this discussed}$. This inclusion is also essential 
+for the version of the universalizability test that I will implement, explained in Section ??, so is 
+ultimately uncontroversial.
+
+O'Niell's inclusion of circumstances, on the other hand, is interesting because it leaves open the question of what qualifies as a 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" @{cite whatisamaxim}$\footnote{Kitcher
+on p.217 cites Wood p. 102 @{cite kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
 under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
 I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
-this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
-to the rest of the maxim (cite tailoring objection). This issue will be important as I create maxims to test, as, otherwise, the test 
-will suffer from a garbage in, garbage out problem. I will explain this issue in greater detail when discussing
-applications of my formalization.
+this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not relevant 
+to the rest of the maxim. This solution requires some discussion of what qualifies as a relevant circumstance.
 
-Kitcher @{cite whatisamaxim} begins with O'Niell's (C, A, G)  view and expands it to include the motivation 
+O'Niell seems to adopt some version of this view when she concedes that a maxim cannot include ALL 
+the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+an artifact of the fact that maxims are closely related to practical principles. Like any practical rule, 
+maxims require an exercise of judgement to determine in which circumstances they should be applied. 
+This judgement, applied in both choosing to exercise the maxim and in the formulation of the maxim 
+itself, is what determines what qualifies as a ``morally relevant circumstance."
+
+The implication for my project is that the computer cannot perform all ethical activity alone. 
+Human judgement or the exercise of practical reason is essential to both formulate kinds maxims and 
+determine when the actual conditions of life coincide with the circumstances in which the maxim is relevant. 
+The second concern is less relevant to my project because analyzing a formal representation of the FUL requires 
+making the circumstances in a given scenario precise. The first concern, on the other hand, demonstrates 
+the important fact that ethics as presented here is not a solely computational activity. A
+human being must create a representation for the dilemma they wish to test, effectively translating 
+a complex, real situation into a flat logical structure. Not only will some of the situation's complexity
+inevitably be lost, the outcome of the test will determine greatly on how the human formulates the maxim
+and whether or not this formulation does indeed include morally relevant circumstances. If the human puts 
+garbage into the test, the test will surely return garbage out.
+
+While this may appear to be a weakness of my system, I believe that it actually
+allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers @{cite powers} presents 
+the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
+Ethics is a fundamentally human activity. As Korsgaard argues, the categorical imperative is a statement 
+about the properties of rational wills, i.e. our human wills. If ethics is meant to guide human behavior, 
+the role of the computer becomes clear as not a replacement for our will (which is the entire focal point 
+of Kantian ethics), but instead as a tool to help guide our wills and help us reason more efficiently 
+and more effectively. Just as calculators don't render mathematicians obsolete, computational ethics
+does not render human judgement obsolete. Chapter 4 Section ??  will be devoted to a more complete discussion 
+of this issue.
+
+$\textbf{Motive}$
+
+Kitcher @{cite whatisamaxim} begins with O'Niell's (C, A, G) view and expands it to include the motivation 
 behind performing the maxim. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M." where M may be ``duty" or ``self-love."
 This captures Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
@@ -74,14 +118,21 @@ Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to liv
 where the circumstances do not hold, a maxim is vacuously willed. If you decide to act on the rule ``I will 
 do X in these cirumstances", then you are vacuously obeying it when the circumstances don't hold.  
 
-I am using the word `will' as a verb, to mean committing oneself to living by
+The above discussion implies that willing a maxim is particular to the agent, justifying my choice to 
+require that a particular subject will a maxim. O'Niell argues for this interpretation when she distinguishes 
+between the evaluation of a principle, which is generic, and a maxim, which she views as ``individuated only 
+by referring to a person"$\footnote{p. 13}$ @{cite "actingonprinciple"}. I adopt the spirit of this interpretation but modify it slightly 
+by representing the general maxim as a principle that anyone could adopt, and the act of willing the maxim 
+as a person-particular instantiation of the maxim.
+
+I additionally represent a subject as willing a maxim because I use the word `will' as a verb, to mean committing oneself to living by
 the principle of a maxim. This coheres with Kant's Formula of Universal Law, because it tests the willing 
 of a maxim to determine if it could be a universal law that everyone committed to. Formalizing this idea,
 the type of a maxim that is willed is a term, allowing me
 to use DDL's obligation operator on the notion of willing a maxim. 
 
 Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
-our definition of the obligation operator, we define O {B|A} to be true at all worlds iff ob(B)(A), or 
+our definition of the obligation operator, we define $O \{B|A\}$ to be true at all worlds iff ob(B)(A), or 
 if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
 definition implies that worlds outside of B have no bearing on the obligatory-ness of A in context B, which 
 coheres with intuitions about obligation in a context. Thus, the dyadic obligation operator 
@@ -107,7 +158,7 @@ fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
   where "effective (c::t, a::os, g::t) s = ((will (c, a, g) s) \<^bold>\<equiv> g)"
 
 text \<open>A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
-when the subject does not act on it, the goal is not achieved.\footnote{Thank you to Jeremy D. Zucker for helping me think through this.} @{cite sepcausality} 
+when the subject does not act on it, the goal is not achieved.$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ @{cite sepcausation} 
 The former direction of the implication 
 is intuitive: if the act results in the goal, it was effective in causing the goal. This represents `necessary'
 causality. 

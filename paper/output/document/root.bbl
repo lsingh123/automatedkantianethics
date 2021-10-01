@@ -151,16 +151,26 @@ C.~Korsgaard.
 \newblock {The Right to Lie: Kant on Dealing with Evil}.
 \newblock {\em Philosophy and Public Affairs}, 15:325--249, 1986.
 
-\bibitem{actingforareason}
-C.~M. Korsgaard.
-\newblock Acting for a reason.
-\newblock {\em Danish Yearbook of Philosophy}, 40(1):11--35, 2005.
+\bibitem{sources}
+C.~M. Korsgaard and O.~O'Neill.
+\newblock {\em The Sources of Normativity}.
+\newblock Cambridge University Press, 1996.
 
 \bibitem{kroy}
 M.~Kroy.
 \newblock A partial formalization of kant’s categorical imperative. an
   application of deontic logic to classical moral philosophy.
 \newblock {\em Kant-Studien}, 67(1-4):192--209, 1976.
+
+\bibitem{lewiscausality}
+D.~Lewis.
+\newblock Causation.
+\newblock {\em Journal of Philosophy}, 70(17):556--567, 1973.
+
+\bibitem{lewiscounterfactuals}
+D.~Lewis.
+\newblock {\em Counterfactuals}.
+\newblock Blackwell, 1973.
 
 \bibitem{lin}
 P.~Lin, K.~Abney, and G.~A. Bekey.
@@ -174,6 +184,13 @@ P.~McNamara and F.~Van De~Putte.
 \newblock In E.~N. Zalta, editor, {\em The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, spring 2021
   edition, 2021.
+
+\bibitem{sepcausation}
+P.~Menzies and H.~Beebee.
+\newblock {Counterfactual Theories of Causation}.
+\newblock In E.~N. Zalta, editor, {\em The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2020
+  edition, 2020.
 
 \bibitem{neighborhood2}
 R.~MONTAGUE.
@@ -189,6 +206,11 @@ T.~Nipkow, L.~C. Paulson, and M.~Wenzel.
 O.~O'Neill.
 \newblock {\em Bounds of Justice}.
 \newblock Cambridge University Press, December 2009.
+
+\bibitem{actingonprinciple}
+O.~O'Neill.
+\newblock {\em Acting on Principle: An Essay on Kantian Ethics}.
+\newblock Cambridge University Press, 2013.
 
 \bibitem{sledgehammer}
 L.~Paulson and J.~Blanchette.
@@ -232,5 +254,10 @@ J.~Timmermann.
 S.~Tolmeijer, M.~Kneer, C.~Sarasua, M.~Christen, and A.~Bernstein.
 \newblock Implementations in machine ethics.
 \newblock {\em ACM Computing Surveys}, 53(6):1–38, Feb 2021.
+
+\bibitem{kantsethicalthought}
+A.~W. Wood.
+\newblock {\em Kant\textquoteright{}s Ethical Thought}.
+\newblock Cambridge University Press, 1999.
 
 \end{thebibliography}
