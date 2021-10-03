@@ -73,99 +73,114 @@ actions from Chapter 2.%
 \isanewline
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ maxim\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}t\ {\isacharasterisk}\ os\ {\isacharasterisk}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
-\isamarkupcmt{I define a maxim as a circumstance, act, goal pair (C, A, G), read 
-as ``In circumstances C, do act A for goal G."  A circumstance is represented as a set of worlds 
-$t$ where that circumstance holds. A goal is a term because it can be true or false at a world if it 
-is realized. An act is an open sentence because, once we substitute an agent in, an act can be true or 
-false at a world if it is actually performed by that subject.%
+\isamarkupcmt{I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
+as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
+type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
+$t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
+is realized or not. An act is an open sentence because an act itself is not the kind of thing that can 
+be true or false (as in, an act is not truth-apt), but the combination of a subject performing an act 
+can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
+For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.%
 }%
 \begin{isamarkuptext}%
-My definition of a maxim is inspired by Onora O'Neill's work on maxims, and I will defend my representation
-below and consider an additional component that Patricia Kitcher \cite{whatisamaxim} argues for.
+I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
+as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
+type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
+$t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
+is realized or not. An act is an open sentence because an act itself is not the kind of thing that can 
+be true or false (as in, an act is not truth-apt), but the combination of a subject performing an act 
+can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
+For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
 
-$\textbf{O'Niell's Original Schematic and The Role of Practical Judgement}$
+My definition of a maxim is inspired by Onora O'Neill's work on maxims. I will defend my representation
+below and consider an additional component that Patricia Kitcher argues for.
 
-O'Neill$\footnote{p. 37}$ \cite{actingonprinciple} presents what Kitcher calls the widely accepted view that a maxim is a circumstance, 
-act, goal tuple as I represented above. She views a maxim as a particular, subjective instantiation of a 
-practical principle, which people may choose to act on or live by. Like a practical principle, a maxim 
-is a kind of action-guiding rule and thus naturally includes an action and the circumstances under which 
+$\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
+
+O'Neill$\footnote{p. 37}$ \cite{actingonprinciple} presents what Kitcher \cite{whatisamaxim}  calls the widely accepted 
+view that a maxim is a circumstance, act, goal tuple. A maxim 
+is an action-guiding rule and thus naturally includes an act and the circumstances under which 
 it should be performed, which are often referred to as ``morally relevant circumstances." 
 
-She also includes the notion of a maxim's purpose or end (which I call goal) because Kant includes this in many of his 
+She also includes a purpose, end, or goal in the maxim because Kant includes this in many of his 
 example maxims and because Kant argues that human activity, because it is guided by a rational will, 
-is inherently purposive. People do not act randomly, but instead in the pursuit of ends which they 
-deem valuable \cite{sources}$\footnote{where in sources is this discussed}$. This inclusion is also essential 
-for the version of the universalizability test that I will implement, explained in Section ??, so is 
-ultimately uncontroversial.
+is inherently purposive\cite{groundwork}\footnote{(G 4:428)}. A rational will does not act randomly (else it would not be rational), 
+but instead in the pursuit of ends which it deems valuable. This inclusion is also essential for the version of the universalizability test 
+that I will implement, explained in Section ??.
 
-O'Niell's inclusion of circumstances, on the other hand, is interesting because it leaves open the question of what qualifies as a 
+O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
 relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" \cite{whatisamaxim}$\footnote{Kitcher
 on p.217 cites Wood p. 102 \cite{kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
 under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
 I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
-this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not relevant 
-to the rest of the maxim. This solution requires some discussion of what qualifies as a relevant circumstance.
+this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
+to the act and goal. This solution requires some discussion of what qualifies as a relevant circumstance.
 
-O'Niell seems to adopt some version of this view when she concedes that a maxim cannot include ALL 
-the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
-an artifact of the fact that maxims are closely related to practical principles. Like any practical rule, 
-maxims require an exercise of judgement to determine in which circumstances they should be applied. 
-This judgement, applied in both choosing to exercise the maxim and in the formulation of the maxim 
-itself, is what determines what qualifies as a ``morally relevant circumstance."
+O'Neill seems to acknowledge the difficult of determining relevant circumstances when she concedes that a maxim cannot include all 
+of the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
+and how to do it \cite{bok}. Like any practical rule, 
+maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
+This judgement, applied in both choosing when to exercise the maxim and in the formulation of the maxim 
+itself, is what determines the ``morally relevant circumstances."
 
-The implication for my project is that the computer cannot perform all ethical activity alone. 
-Human judgement or the exercise of practical reason is essential to both formulate kinds maxims and 
+The upshot for computational ethics is that the computer cannot perform all ethical activity alone. 
+Human judgement and the exercise of practical reason are essential to both formulate maxims and 
 determine when the actual conditions of life coincide with the circumstances in which the maxim is relevant. 
-The second concern is less relevant to my project because analyzing a formal representation of the FUL requires 
-making the circumstances in a given scenario precise. The first concern, on the other hand, demonstrates 
-the important fact that ethics as presented here is not a solely computational activity. A
+Choosing when to exercise a maxim is less relevant to my project because analyzing a formal representation of the FUL requires 
+making the circumstances in a given scenario precise, but will be important for applications of 
+computational ethics to guiding AI agents. The difficulty in formulating a maxim, on the other hand, demonstrates 
+the important fact that ethics, as presented here, is not a solely computational activity. A
 human being must create a representation for the dilemma they wish to test, effectively translating 
-a complex, real situation into a flat logical structure. Not only will some of the situation's complexity
-inevitably be lost, the outcome of the test will determine greatly on how the human formulates the maxim
+a complex, real situation into a flat logical structure. This parallels the challenge that programmers 
+face when translating the complexity of reality to a programming langauge or computational representation. Not only will some of the situation's complexity
+inevitably be lost, the outcome of the universalizability test will depend on how the human formulates the maxim
 and whether or not this formulation does indeed include morally relevant circumstances. If the human puts 
-garbage into the test, the test will surely return garbage out.
+garbage into the test, the test will return garbage out.
 
 While this may appear to be a weakness of my system, I believe that it actually
 allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers \cite{powers} presents 
 the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
-Ethics is a fundamentally human activity. As Korsgaard argues, the categorical imperative is a statement 
-about the properties of rational wills, i.e. our human wills. If ethics is meant to guide human behavior, 
-the role of the computer becomes clear as not a replacement for our will (which is the entire focal point 
-of Kantian ethics), but instead as a tool to help guide our wills and help us reason more efficiently 
+Ethics is a fundamentally human activity. Kant argues that the categorical imperative is a statement 
+about the properties of rational wills. In fact, Korsgaard argues that morality derives its authority over us, 
+or normativity, only because is it a property of a rational will, and we, as human beings, are rational wills.
+If ethics is meant to guide human behavior, the role of the computer becomes clear as not a replacement for our will,
+but instead as a tool to help guide our wills and reason more efficiently 
 and more effectively. Just as calculators don't render mathematicians obsolete, computational ethics
-does not render human judgement obsolete. Chapter 4 Section ??  will be devoted to a more complete discussion 
+does not render human judgement or philosophy obsolete. Chapter 4 Section ?? will be devoted to a more complete discussion 
 of this issue.
 
-$\textbf{Motive}$
+$\emph{Exclusion of Motive}$
 
-Kitcher \cite{whatisamaxim} begins with O'Niell's (C, A, G) view and expands it to include the motivation 
+Kitcher \cite{whatisamaxim} begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
 behind performing the maxim. This additional component is read 
-as ``In circumstance C, I will do A in order to G because of M." where M may be ``duty" or ``self-love."
-This captures Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
-Given that, under the Kantian constituvist view, the categorical
-imperative completely defines duty, Kitcher argues that the FUL would obligate maxims of the form 
-``In circumstance C, I will do A in order to G because I would will that I and everyone else simultaneously
-will do A in order to G in circumstance C." In other words, the affirmative result of the FUL becomes 
-the motivation for a moral action.
+as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
+Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
+in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
+Under this view, the FUL would obligate maxims of the form 
+``In circumstance C, I will do A in order to G because I can will that I and everyone else simultaneously
+will do A in order to G in circumstance C." In other words, if Kant is correct in arguing that moral 
+actions must be done from the motive of duty, the affirmative result of the FUL becomes 
+the motive for a moral action.
 
 While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
 because it is not necessary for putting maxims through the FUL. Indeed, Kitcher acknowledges that 
-O'Niell's formulation suffices for the universalizability test, but is not the general notion of a maxim.
-Notice that in order to pass the maxim through the FUL, it suffices to know C, A and G. The FUL
-derives the purpose that Kitcher bundles into the maxim, so automating the FUL does not require 
-including some notion of a purpose. The ``input" to the FUL is the (C, A, G) pair. My project takes 
+O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
+In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
+derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
+including a motive. The ``input" to the FUL is the circumstance, act, goal pair. My project takes 
 this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
-justice to the rich notion of motivation requires modelling the operation of practical reason itself, 
-which it outside the scope of this project. My work focuses on the FUL test itself, but future work that 
+justice to the rich notion of motive requires modelling the operation of practical reason itself, 
+which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
 models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's where ``acting from duty" starts to matter.%
+evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{fun}\isamarkupfalse%
 \ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}A\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
-Korsgaard claims that ``To will an end, rather than just
+Korsgaard claims that ``to will an end, rather than just
 wishing for it or wanting it, is to set yourself to be its cause" \cite{sources}. To will a maxim, then, 
 is to set yourself to, in the relevant circumstances, be the cause of its goal by taking the means 
 specified in the maxim. This coheres with 
@@ -174,7 +189,7 @@ where the circumstances do not hold, a maxim is vacuously willed. If you decide 
 do X in these cirumstances", then you are vacuously obeying it when the circumstances don't hold.  
 
 The above discussion implies that willing a maxim is particular to the agent, justifying my choice to 
-require that a particular subject will a maxim. O'Niell argues for this interpretation when she distinguishes 
+require that a particular subject will a maxim. O'Neill argues for this interpretation when she distinguishes 
 between the evaluation of a principle, which is generic, and a maxim, which she views as ``individuated only 
 by referring to a person"$\footnote{p. 13}$ \cite{actingonprinciple}. I adopt the spirit of this interpretation but modify it slightly 
 by representing the general maxim as a principle that anyone could adopt, and the act of willing the maxim 
@@ -277,9 +292,9 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 %:%78=25%:%
 %:%79=26%:%
 %:%80=27%:%
-%:%83=29%:%
-%:%84=30%:%
-%:%85=31%:%
+%:%81=28%:%
+%:%82=29%:%
+%:%83=30%:%
 %:%86=32%:%
 %:%87=33%:%
 %:%88=34%:%
@@ -357,24 +372,24 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 %:%160=106%:%
 %:%161=107%:%
 %:%162=108%:%
+%:%163=109%:%
 %:%164=110%:%
-%:%165=110%:%
-%:%166=111%:%
-%:%168=113%:%
-%:%169=114%:%
-%:%170=115%:%
-%:%171=116%:%
-%:%172=117%:%
-%:%173=118%:%
-%:%174=119%:%
-%:%175=120%:%
-%:%176=121%:%
-%:%177=122%:%
-%:%178=123%:%
-%:%179=124%:%
+%:%165=111%:%
+%:%166=112%:%
+%:%167=113%:%
+%:%168=114%:%
+%:%169=115%:%
+%:%170=116%:%
+%:%171=117%:%
+%:%172=118%:%
+%:%173=119%:%
+%:%174=120%:%
+%:%175=121%:%
+%:%176=122%:%
+%:%177=123%:%
+%:%179=125%:%
 %:%180=125%:%
 %:%181=126%:%
-%:%182=127%:%
 %:%183=128%:%
 %:%184=129%:%
 %:%185=130%:%
@@ -402,9 +417,11 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 %:%207=152%:%
 %:%208=153%:%
 %:%209=154%:%
-%:%211=157%:%
+%:%210=155%:%
+%:%211=156%:%
 %:%212=157%:%
 %:%213=158%:%
+%:%214=159%:%
 %:%215=160%:%
 %:%216=161%:%
 %:%217=162%:%
@@ -415,14 +432,27 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 %:%222=167%:%
 %:%223=168%:%
 %:%224=169%:%
-%:%225=170%:%
-%:%226=171%:%
+%:%226=172%:%
 %:%227=172%:%
 %:%228=173%:%
-%:%229=174%:%
 %:%230=175%:%
 %:%231=176%:%
 %:%232=177%:%
 %:%233=178%:%
 %:%234=179%:%
 %:%235=180%:%
+%:%236=181%:%
+%:%237=182%:%
+%:%238=183%:%
+%:%239=184%:%
+%:%240=185%:%
+%:%241=186%:%
+%:%242=187%:%
+%:%243=188%:%
+%:%244=189%:%
+%:%245=190%:%
+%:%246=191%:%
+%:%247=192%:%
+%:%248=193%:%
+%:%249=194%:%
+%:%250=195%:%

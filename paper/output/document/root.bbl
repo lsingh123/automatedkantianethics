@@ -66,6 +66,11 @@ J.~C. Blanchette and T.~Nipkow.
   on a Relational Model Finder}, volume 6172, page 131–146.
 \newblock Springer Berlin Heidelberg, 2010.
 
+\bibitem{bok}
+H.~Bok.
+\newblock {\em Freedom and Responsibility}.
+\newblock Princeton University Press, 1998.
+
 \bibitem{CJDDL}
 J.~Carmo and A.~Jones.
 \newblock Completeness and decidability results for a logic of contrary-to-duty

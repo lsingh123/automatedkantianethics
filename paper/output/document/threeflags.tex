@@ -1,0 +1,398 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{threeflags}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\begin{isamarkuptext}%
+The literature on Kantian ethics is expansive and complicated. To focus my thesis on the contributions 
+of automated ethics to Kantian thought, I make the following choices.
+
+$\textbf{Choice to Formalize the FUL}$
+
+I am only studying formalizations of Kant's first formulation of the categorical imperative,
+the formula of universal law (FUL), because it is the most formal and thus the easiest to formalize and implement. 
+Onora O'Neill \cite{actingonprinciple}\footnote{p. 33} explains that the formalism of the FUL allows 
+for greater precision in philosophical arguments analyzing its implications and power. This precision 
+is particularly useful in a computational context because any formalism necessarily makes its content 
+precise. The FUL's existing precision reduces ambiguity, allowing me to remain faithful to Kant's writing and 
+philosophical interpretations of it. Precision reduces the need to make choices to resolve debates 
+and ambiguities. Some of these choices may be well-studied and grounded in literature, 
+but some may be unique to formalizing the FUL and thus understudied. Minimizing these choices minimizes 
+arbitrariness in my formalization and puts it on solid philosophical footing. Given that this thesis is a proof-of-concept, 
+the formalism of the FUL is attractive because it reduces both the computational and philosophical complexity of my work. 
+
+While some criticize the FUL for its formalism and percieved ``sterility" \cite{actingonprinciple}, 
+Kantian constructivists embrace it. My project is not committed to Kantian constructivism; I argue that computational
+ethics is a valuable tool for any ethicist, with a focus on general Kantian ethics. Nonetheless, Kantian constructivists may find the focus on 
+the FUL particularly appealing. 
+
+Though Kantians study all formulations of the categorical imperative, Kant argues in Groundwork 
+that the three formulations of the categorical imperative are equivalent \cite{groundwork}. While this 
+argument is disputed \cite{sepkant}, for those who believe it, the
+stakes for my choice of the FUL are greatly reduced. If all formulations are equivalent, then a formalization of the FUL
+lends the exact same power as a formalization of the second or third formulation of the categorical 
+imperative. In fact, future work could formalize the other formulas and try to prove that they 
+are identical. Kant believes that his argument for the equality of the formulas is analytical, and
+if he is correct, it should be possible to recreate the argument in logic.
+
+$\textbf{Definition of a Maxim}$
+
+I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
+as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
+type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
+$t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
+is realized or not. An act is an open sentence because an act itself is not the kind of thing that can 
+be true or false (as in, an act is not truth-apt), but the combination of a subject performing an act 
+can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
+For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
+
+My definition of a maxim is inspired by Onora O'Neill's work on maxims. I will defend my representation
+below and consider an additional component that Patricia Kitcher argues for.
+
+$\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
+
+O'Neill$\footnote{p. 37}$ \cite{actingonprinciple} presents what Kitcher \cite{whatisamaxim}  calls the widely accepted 
+view that a maxim is a circumstance, act, goal tuple. A maxim 
+is an action-guiding rule and thus naturally includes an act and the circumstances under which 
+it should be performed, which are often referred to as ``morally relevant circumstances." 
+
+She also includes a purpose, end, or goal in the maxim because Kant includes this in many of his 
+example maxims and because Kant argues that human activity, because it is guided by a rational will, 
+is inherently purposive\cite{groundwork}\footnote{(G 4:428)}. A rational will does not act randomly (else it would not be rational), 
+but instead in the pursuit of ends which it deems valuable. This inclusion is also essential for the version of the universalizability test 
+that I will implement, explained in Section ??.
+
+O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" \cite{whatisamaxim}$\footnote{Kitcher
+on p.217 cites Wood p. 102 \cite{kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
+under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
+I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
+this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
+to the act and goal. This solution requires some discussion of what qualifies as a relevant circumstance.
+
+O'Neill seems to acknowledge the difficult of determining relevant circumstances when she concedes that a maxim cannot include all 
+of the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
+and how to do it \cite{bok}. Like any practical rule, 
+maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
+This judgement, applied in both choosing when to exercise the maxim and in the formulation of the maxim 
+itself, is what determines the ``morally relevant circumstances."
+
+The upshot for computational ethics is that the computer cannot perform all ethical activity alone. 
+Human judgement and the exercise of practical reason are essential to both formulate maxims and 
+determine when the actual conditions of life coincide with the circumstances in which the maxim is relevant. 
+Choosing when to exercise a maxim is less relevant to my project because analyzing a formal representation of the FUL requires 
+making the circumstances in a given scenario precise, but will be important for applications of 
+computational ethics to guiding AI agents. The difficulty in formulating a maxim, on the other hand, demonstrates 
+the important fact that ethics, as presented here, is not a solely computational activity. A
+human being must create a representation for the dilemma they wish to test, effectively translating 
+a complex, real situation into a flat logical structure. This parallels the challenge that programmers 
+face when translating the complexity of reality to a programming langauge or computational representation. Not only will some of the situation's complexity
+inevitably be lost, the outcome of the universalizability test will depend on how the human formulates the maxim
+and whether or not this formulation does indeed include morally relevant circumstances. If the human puts 
+garbage into the test, the test will return garbage out.
+
+While this may appear to be a weakness of my system, I believe that it actually
+allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers \cite{powers} presents 
+the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
+Ethics is a fundamentally human activity. Kant argues that the categorical imperative is a statement 
+about the properties of rational wills. In fact, Korsgaard argues that morality derives its authority over us, 
+or normativity, only because is it a property of a rational will, and we, as human beings, are rational wills.
+If ethics is meant to guide human behavior, the role of the computer becomes clear as not a replacement for our will,
+but instead as a tool to help guide our wills and reason more efficiently 
+and more effectively. Just as calculators don't render mathematicians obsolete, computational ethics
+does not render human judgement or philosophy obsolete. Chapter 4 Section ?? will be devoted to a more complete discussion 
+of this issue.
+
+$\emph{Exclusion of Motive}$
+
+Kitcher \cite{whatisamaxim} begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
+behind performing the maxim. This additional component is read 
+as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
+Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
+in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
+Under this view, the FUL would obligate maxims of the form 
+``In circumstance C, I will do A in order to G because I can will that I and everyone else simultaneously
+will do A in order to G in circumstance C." In other words, if Kant is correct in arguing that moral 
+actions must be done from the motive of duty, the affirmative result of the FUL becomes 
+the motive for a moral action.
+
+While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
+because it is not necessary for putting maxims through the FUL. Indeed, Kitcher acknowledges that 
+O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
+In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
+derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
+including a motive. The ``input" to the FUL is the circumstance, act, goal pair. My project takes 
+this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
+justice to the rich notion of motive requires modelling the operation of practical reason itself, 
+which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
+models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
+with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
+evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.
+
+$\textbf{Practical Contradiction Interpretation}$
+
+Kantians debate the correct interpretation of the formula of universal law because Kant, 
+at times, appears to interpret the universalizability test in different ways. My project uses Korsgaard's practical contradiction 
+interpretation, broadly accepted as correct within the philosophical community \cite{ebelsduggan}\footnote{p. 177}.
+Below, I briefly reconstruct Korsgaard's argument for the practical contradiction interpretation. While 
+she believes that the text partially supports this interpretation, her argument is philosophical and 
+derives its strength from the plausibility of the practical contradiction interpretation.
+
+Recall that the formula of universal law is “act only in accordance with that maxim through which you can at the 
+same time will that it become a universal law” \cite{groundwork}\footnote{(G: 4:421)}. To determine if a maxim can be willed as a 
+universal law, one must use the “universalizability test,” which requires imagining a world in which 
+everyone for all of time has willed the maxim. If willing the maxim in such a world generates a contradiction, 
+then the action is prohibited. There are three interpretations of what sort of contradiction is necessary: 
+(1) the teleological view, prohibiting actions that conflict with some assumed teleological end when 
+universalized, (2) the logical contradiction view, prohibiting maxims that are logically impossible 
+when universalized, and (3) the practical contradiction view, prohibiting maxims that are self-defeating 
+when universalized.
+
+Under the logical contradiction interpretation, falsely promising to repay a loan to get some quick cash
+fails the universalizability test because, in such a world, the practice of promising would die out so 
+making a false promise would be impossible. Korsgaard appeals to Dietrichson \cite{dietrichson} to construct the example of 
+a mother killing her children that tend to cry more than average so that she can get some 
+sleep at night. Universalizing this maxim does not generate a logical contradiction, but it is clearly 
+morally wrong. The problem here is that killing is a natural action, which Korsgaard distinguishes from 
+a practice, like promising. Natural actions will never be logically impossible, so the logical contradiction 
+view fails to prohibit them.
+
+Under the teleological contradiction interpretation, a maxim is prohibited if it undercuts some natural 
+or assigned purpose for some practice, act, or object. For example, the purpose of promising is to 
+create a system of mutual trust and false promising undercuts this purpose and is thus prohibited. The problem 
+with this view is that it assumes that the agent is committed, either because of their own goals or 
+because of some property of a rational will, to some teleological system. Acton formulates Hegel's argument that \cite{acton},
+an agent doesn't have to be committed to promising as a system of mutual trust. Korsgaard concludes that 
+assigning teleological purposes to actions is difficult because ``such purposes may have
+nothing to do with what the agent wants or ought rationally to want, or even with what
+any human being wants." If the agent is not committed to the purpose, then will not see a contradiction 
+in willing an act that violates this purpose.
+
+This difficulty with the teleological contradiction interpretation drives Korsgaard to look for purposes
+that an agent must necessarily be committed to, and she concludes that this must be the purpose of the 
+maxim itself. By willing a maxim, an agent commits themselves to the goal of the maxim, and thus cannot 
+rationally will a system in which this goal is undercut. This system satisfactorily handles natural actions
+like those of the sleep-deprived mother: in willing the end of sleeping through the night, she is 
+implicitly willing that she be alive in order to secure and enjoy her sleep. If any mother is allowed to kill
+any loud child, then she cannot be secure in the possession of her life, because her own mother may have 
+grown frustrated with her crying. Her willing this maxim thwarts the end that she sought to secure. 
+
+The practical contradiction interpretation not only addresses the problems with the first two 
+interpretations, it also offers a much more satisfying explanation of why certain maxims are immoral. 
+The problem is not the existence of a contradiction itself, but instead the fact that these maxims 
+involve parasitic behavior on social conditions that the agent seeks to benefit from. The false promiser 
+simultaneously wants to abuse the system of promising and benefit from it, and is thus making an exception 
+of themselves. It is this kind of free-riding that the universalizability test seeks to draw out. The test
+raises the same kinds of objections that the question ``What if everyone did that?" seeks to draw out.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper/threeflags.thy%:%
+%:%19=7%:%
+%:%20=8%:%
+%:%21=9%:%
+%:%22=10%:%
+%:%23=11%:%
+%:%24=12%:%
+%:%25=13%:%
+%:%26=14%:%
+%:%27=15%:%
+%:%28=16%:%
+%:%29=17%:%
+%:%30=18%:%
+%:%31=19%:%
+%:%32=20%:%
+%:%33=21%:%
+%:%34=22%:%
+%:%35=23%:%
+%:%36=24%:%
+%:%37=25%:%
+%:%38=26%:%
+%:%39=27%:%
+%:%40=28%:%
+%:%41=29%:%
+%:%42=30%:%
+%:%43=31%:%
+%:%44=32%:%
+%:%45=33%:%
+%:%46=34%:%
+%:%47=35%:%
+%:%48=36%:%
+%:%49=37%:%
+%:%50=38%:%
+%:%51=39%:%
+%:%52=40%:%
+%:%53=41%:%
+%:%54=42%:%
+%:%55=43%:%
+%:%56=44%:%
+%:%57=45%:%
+%:%58=46%:%
+%:%59=47%:%
+%:%60=48%:%
+%:%61=49%:%
+%:%62=50%:%
+%:%63=51%:%
+%:%64=52%:%
+%:%65=53%:%
+%:%66=54%:%
+%:%67=55%:%
+%:%68=56%:%
+%:%69=57%:%
+%:%70=58%:%
+%:%71=59%:%
+%:%72=60%:%
+%:%73=61%:%
+%:%74=62%:%
+%:%75=63%:%
+%:%76=64%:%
+%:%77=65%:%
+%:%78=66%:%
+%:%79=67%:%
+%:%80=68%:%
+%:%81=69%:%
+%:%82=70%:%
+%:%83=71%:%
+%:%84=72%:%
+%:%85=73%:%
+%:%86=74%:%
+%:%87=75%:%
+%:%88=76%:%
+%:%89=77%:%
+%:%90=78%:%
+%:%91=79%:%
+%:%92=80%:%
+%:%93=81%:%
+%:%94=82%:%
+%:%95=83%:%
+%:%96=84%:%
+%:%97=85%:%
+%:%98=86%:%
+%:%99=87%:%
+%:%100=88%:%
+%:%101=89%:%
+%:%102=90%:%
+%:%103=91%:%
+%:%104=92%:%
+%:%105=93%:%
+%:%106=94%:%
+%:%107=95%:%
+%:%108=96%:%
+%:%109=97%:%
+%:%110=98%:%
+%:%111=99%:%
+%:%112=100%:%
+%:%113=101%:%
+%:%114=102%:%
+%:%115=103%:%
+%:%116=104%:%
+%:%117=105%:%
+%:%118=106%:%
+%:%119=107%:%
+%:%120=108%:%
+%:%121=109%:%
+%:%122=110%:%
+%:%123=111%:%
+%:%124=112%:%
+%:%125=113%:%
+%:%126=114%:%
+%:%127=115%:%
+%:%128=116%:%
+%:%129=117%:%
+%:%130=118%:%
+%:%131=119%:%
+%:%132=120%:%
+%:%133=121%:%
+%:%134=122%:%
+%:%135=123%:%
+%:%136=124%:%
+%:%137=125%:%
+%:%138=126%:%
+%:%139=127%:%
+%:%140=128%:%
+%:%141=129%:%
+%:%142=130%:%
+%:%143=131%:%
+%:%144=132%:%
+%:%145=133%:%
+%:%146=134%:%
+%:%147=135%:%
+%:%148=136%:%
+%:%149=137%:%
+%:%150=138%:%
+%:%151=139%:%
+%:%152=140%:%
+%:%153=141%:%
+%:%154=142%:%
+%:%155=143%:%
+%:%156=144%:%
+%:%157=145%:%
+%:%158=146%:%
+%:%159=147%:%
+%:%160=148%:%
+%:%161=149%:%
+%:%162=150%:%
+%:%163=151%:%
+%:%164=152%:%
+%:%165=153%:%
+%:%166=154%:%
+%:%167=155%:%
+%:%168=156%:%
+%:%169=157%:%
+%:%170=158%:%
+%:%171=159%:%
+%:%172=160%:%
+%:%173=161%:%
+%:%174=162%:%
+%:%175=163%:%
+%:%176=164%:%
+%:%177=165%:%
+%:%178=166%:%
+%:%179=167%:%
+%:%180=168%:%
+%:%181=169%:%
+%:%182=170%:%
+%:%183=171%:%
+%:%184=172%:%
+%:%185=173%:%
+%:%186=174%:%
+%:%187=175%:%
+%:%188=176%:%
+%:%189=177%:%
+%:%190=178%:%
+%:%191=179%:%
+%:%192=180%:%
+%:%193=181%:%
+%:%194=182%:%
+%:%195=183%:%
+%:%196=184%:%
+%:%197=185%:%
+%:%198=186%:%
+%:%199=187%:%
