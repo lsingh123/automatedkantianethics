@@ -18,6 +18,7 @@ capture the spirit of a maxim. I will begin by borrowing some machinery to handl
 actions from Chapter 2.\<close>
 
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
+
 type_synonym os = "(s \<Rightarrow> t)" \<comment>\<open>Recall that an open sentence maps a subject to a term to model substitution.\<close>
 
 type_synonym maxim = "(t * os * t)" \<comment>\<open>I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
@@ -124,6 +125,7 @@ evaluating an agent's behavior, since that's when ``acting from duty" starts to 
 
 fun will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("W _ _")
   where "will (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
+print_theorems
 
 text \<open>Korsgaard claims that ``to will an end, rather than just
 wishing for it or wanting it, is to set yourself to be its cause" @{cite "sources"}. To will a maxim, then, 
@@ -171,6 +173,7 @@ instead of a monadic deontic logic is a key contribution of this thesis.
 
 fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
   where "effective (c::t, a::os, g::t) s = ((will (c, a, g) s) \<^bold>\<equiv> g)"
+print_theorems
 
 text \<open>A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
 when the subject does not act on it, the goal is not achieved.$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ @{cite sepcausation} 
@@ -194,10 +197,15 @@ interesting for my purposes because, when the circumstances do not hold, a maxim
 doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
 read a book to one-up your nemesis" is vacuously effective because it can never be disproven.\<close>
 
+fun LHS::"maxim\<Rightarrow>s\<Rightarrow>t" where 
+"LHS M s = (\<lambda>w. (\<forall>p. W M p w))"
+
 fun not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where 
-"not_universalizable M s = (\<forall>p. \<Turnstile> ((W M p) \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))))"
+"not_universalizable M s = (\<Turnstile> (LHS M s \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))))"
 \<comment>\<open>The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
 $M$ is no longer effective for $s$.\<close>
+print_theorems
+
 
 text \<open> This formalizes Korgsaard's definition of the practical contradiction
 interpretation:  a maxim is not universalizable 
@@ -206,58 +214,86 @@ agent's attempt to use the maxim's act to achieve the maxim's goal is frustrated
 the maxim is universally willed (captured by applying a universal qunatifier and the will function 
 to the maxim on the LHS), then it is no longer effective for the subject $s$ (RHS above). 
 
-One worry is the order of the universal quantifier and the $\Turnstile$ or derivability symbol. In particular, 
-my representation quantifies over the sentence $\Turnstile W M p \longrightarrow \sim E M s$. This is 
+One worry is the order of the universal quantifier and the $\vDash$ or derivability symbol. In this 
+representation, the universal quantifier is tightly bound to the left hand side of the equation, so it 
+only quantifies into the statement ``All p will maxim M at any world." We can imagine an alternate
+representation that quantifies over the sentence $\vDash W M p \longrightarrow \sim E M s$. This is 
 a sentence of type $s \longrightarrow bool$, since it accepts a subject ($p$) as input and returns 
 a boolean (the result of $p$ substituted into the sentence.) Thus, applying the universal quantifier 
 $\forall p$ to this sentence results in a boolean that tracks the universalizability (or lack thereof) 
-of the maxim. We can imagine an alternate ordering, where the quantifier is $\emph{inside}$ the Turnstile
-symbol. This might even track the intuitive meaning of the universalizability test better: ``IF (the maxim 
-is universalized) THEN (it is no longer effective)". Luckily, I can show using Isabelle that the ordering 
-of the derivability operator and the quantifier doesn't make a differnece! 
+of the maxim. I chose my representation because it tracks the intuitive meaning of the universalizability 
+test better: ``IF (the maxim is universalized) THEN (it is no longer effective)".
+
+It's not clear to me if there's any intuitive difference between these two representations, but the lemmas 
+below (using simplified versions of the representations) show that my representation is weaker than 
+the representation where the quantifier has larger scope. This seems promising—the representation in 
+lemma test\_2 is likely too strong because the quantifier quantifies into $M a$ as well. It really 
+doesn't seem like this should make a difference, since $p$ never appears on the RHS expression. Let's
+see if Prof. Amin has insight.
 \<close>
 
-fun test_1:: "os\<Rightarrow>s\<Rightarrow>bool" where 
-"test_1 M a = \<Turnstile> ((\<lambda>w. \<forall>p. M p w) \<^bold>\<rightarrow> (\<^bold>\<not> (M a)))"
-fun test_2:: "os\<Rightarrow>s\<Rightarrow>bool" where 
-"test_2 M a = (\<forall>p. \<Turnstile> ((M p) \<^bold>\<rightarrow> (\<^bold>\<not> (M a))))"
+abbreviation FUL0::bool where "FUL0 \<equiv> \<forall> c a g s. not_universalizable (c, a, g) s \<longrightarrow> \<Turnstile>((O{(\<^bold>\<not> W (c, a, g) s)| c}))"
+\<comment>\<open>This representation of the Formula of Universal Law reads, ``For all circumstances, goals, acts, 
+and subjects, if the maxim of the subject performing the act for the goal in the circumstances is not 
+universalizable (as defined above), then, at all worlds, in those circumstances, the subject 
+is prohibited (obligated not to) from willing the maxim.
 
-lemma "test_2 M s \<longrightarrow> test_1 M s"
-  by auto
+It's also inconsistent!!!! Boooooo\<close>
 
-lemma "test_1 M s \<longrightarrow> test_2 M s"
-  nitpick[user_axioms]
-  nitpick[user_axioms, falsify=false]
-  oops
-\<comment>\<open>Isabelle finds a counterexample AND satisfying model for this direction. Hm.\<close>
+fun imagine_a_world::"maxim\<Rightarrow>bool" where 
+"imagine_a_world M = (\<exists>w. (\<forall>p. (W M p) w))"
+\<comment>\<open>The FUL really says, `imagine a world where the maxim were universalized...' I suspect that part of 
+the problem with FUL0 is that it universalizes the maxim at the same world that prohibits it, which 
+is weird because the agent performs the action (since it's universalized) but it's prohibited. Instead, 
+we want to say that in some other world where the maxim is universalized, let's apply the universalizability 
+test. This particular function represents a world where the maxim is universalized.\<close>
 
+fun not_contradictory::"maxim\<Rightarrow>bool" where 
+"not_contradictory (c, a, g) = (\<forall>p w. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w)"
+\<comment>\<open>This function represents a maxim that is not contradictory, in that an agent can will it without 
+contradiction. It's more of a sanity check.\<close> 
 
+axiomatization where imagination_works:"\<forall>c::t. \<forall>a::os. \<forall>g::t.  (\<forall>p::s. \<forall>w::i. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w) \<longrightarrow>  (\<exists>w. (\<forall>p. (W (c, a, g) p) w))"
+\<comment>\<open>This axiom says, effectively, that our imagination works. In other words, for every maxim, if it 
+isn't contradictory, there is some (imagined) world where it is universalized. This guarantees that the 
+FUL can't be trivially true, since there is some world where the universalizability test is carried out.\<close>
 
+lemma True
+  nitpick[user_axioms, falsify=false] oops
+\<comment>\<open>Consistent so far:
+Nitpick found a model for card i = 1 and card s = 1:
 
+  Empty assignment\<close>
 
+consts a::os
+consts g::t
+consts c::t
+abbreviation M where "M \<equiv> (c, a, g)"
 
-lemma one: shows "\<forall>p. \<Turnstile> (W M p) \<equiv> \<Turnstile> \<lambda>w. \<forall>p. W M p w"
-  by smt
-\<comment>\<open>The left hand side of this lemma represents the \<close>
+consts M2::maxim
 
-lemma two: shows "\<Turnstile> (A \<^bold>\<rightarrow> B) \<equiv> \<forall>w. A w \<longrightarrow> B w"
-  by simp
+abbreviation FUL2 where "FUL2 \<equiv> \<forall>s. (((\<forall>w. (\<forall>p. (c \<^bold>\<rightarrow> (a p)) w) \<longrightarrow> \<not> (((c \<^bold>\<rightarrow> (a s)) \<^bold>\<rightarrow> g) w)) \<longrightarrow> O {\<^bold>\<not> (c \<^bold>\<rightarrow> (a s))} cw))"
 
-lemma "not_universalizable_2 M s \<longrightarrow> not_universalizable_3 M s"
-proof 
-  assume "not_universalizable_2 M s"
-  have "\<forall>x. ((\<lambda>w. \<forall>p. M p w)  \<^bold>\<rightarrow> (\<^bold>\<not> (M a))) x"
-    using \<open>not_universalizable_2 M s\<close> by auto
-  then have "(\<Turnstile>(\<lambda>w. \<forall>p. M p w))  \<longrightarrow> (\<Turnstile> (\<^bold>\<not> (M a)))"
-    by (smt \<open>\<Turnstile>(\<lambda>x. (\<forall>p. M p x) \<longrightarrow> \<^bold>\<not> (M a) x)\<close>) 
-  thus ?thesis
-    oops
+lemma "FUL2"
+  nitpick[user_axioms, falsify=false, show_all] 
+  nitpick[user_axioms, verbose, falsify=true, show_all] 
 
-lemma "(\<forall>p. \<Turnstile> ((M p) \<^bold>\<rightarrow> (\<^bold>\<not> (M a)))) \<equiv> (\<Turnstile>(\<lambda>w. \<forall>p. M p w))  \<longrightarrow> (\<Turnstile> (\<^bold>\<not> (M a)))"
-  nitpick[user_axioms]
+  text \<open>This is a formulation of the FUL in which, assuming every maxim is universalized at some
+world (this is the axiom imagination works), at that world (or other worlds like it), if the maxim is 
+not effective for the agent, then it is prohibited at the current world cw. Couple of optimizations 
+necessary to get Nitpick able to handle this:
+(1) Couldn't use the effective and will functions becuase they made Nitpick time out. Is there a way 
+to have a purely syntactic version of these functions? They'll make notation prettier? Like an 
+abbreviation with free variables?
 
-lemma "not_universalizable_2 \<equiv> not_universalizable_3"
-  nitpick[user_axioms]
+(2) If I quantify over the maxim's components, then Nitpick times out. If I specify a 
+single maxim as a constant, then it can handle everything just fine. I could try, every 
+time I'm working with an example, specifying properties of these constants. The downside is that if I want 
+to work with 2 maxims at once, then I have to add more constants and add the FUL as an axiom again for each of these maxims. This might not 
+be too annoying in practice (I don't think I'll need that many maxims), but there's something theoretically
+unsatisfying about it. I guess one theoretical explanation is that the system can only handle small models?
+Which is maybe not a huge problem?\<close>
+
 (*<*)
 end
 (*>*)

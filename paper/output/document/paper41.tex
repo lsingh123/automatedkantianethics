@@ -177,7 +177,7 @@ with a logic of practical reason, an implementation of the FUL can move from eva
 evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{fun}\isamarkupfalse%
-\ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}A\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
+\ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}W\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
 Korsgaard claims that ``to will an end, rather than just
@@ -249,6 +249,90 @@ interesting for my purposes because, when the circumstances do not hold, a maxim
 doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
 read a book to one-up your nemesis" is vacuously effective because it can never be disproven.%
 \end{isamarkuptext}\isamarkuptrue%
+\isacommand{fun}\isamarkupfalse%
+\ not{\isacharunderscore}universalizable\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}not{\isacharunderscore}universalizable\ M\ s\ {\isacharequal}\ {\isacharparenleft}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isasymforall}p{\isachardot}\ W\ M\ p\ w{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
+$M$ is no longer effective for $s$.%
+}%
+\begin{isamarkuptext}%
+This formalizes Korgsaard's definition of the practical contradiction
+interpretation:  a maxim is not universalizable 
+if, in the world where the maxim becomes the standard practice (i.e. everyone acts on the maxim), the
+agent's attempt to use the maxim's act to achieve the maxim's goal is frustrated. In other words, if 
+the maxim is universally willed (captured by applying a universal qunatifier and the will function 
+to the maxim on the LHS), then it is no longer effective for the subject $s$ (RHS above). 
+
+One worry is the order of the universal quantifier and the $\vDash$ or derivability symbol. In this 
+representation, the universal quantifier is tightly bound to the left hand side of the equation, so it 
+only quantifies into the statement ``All p will maxim M at any world." We can imagine an alternate
+representation that quantifies over the sentence $\vDash W M p \longrightarrow \sim E M s$. This is 
+a sentence of type $s \longrightarrow bool$, since it accepts a subject ($p$) as input and returns 
+a boolean (the result of $p$ substituted into the sentence.) Thus, applying the universal quantifier 
+$\forall p$ to this sentence results in a boolean that tracks the universalizability (or lack thereof) 
+of the maxim. I chose my representation because it tracks the intuitive meaning of the universalizability 
+test better: ``IF (the maxim is universalized) THEN (it is no longer effective)".
+
+It's not clear to me if there's any intuitive difference between these two representations, but the lemmas 
+below (using simplified versions of the representations) show that my representation is weaker than 
+the representation where the quantifier has larger scope. This seems promising—the representation in 
+lemma test\_2 is likely too strong because the quantifier quantifies into $M a$ as well. It really 
+doesn't seem like this should make a difference, since $p$ never appears on the RHS expression. Let's
+see if Prof. Amin has insight.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
 %
 \isadelimtheory
 %
@@ -456,3 +540,31 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 %:%248=193%:%
 %:%249=194%:%
 %:%250=195%:%
+%:%252=197%:%
+%:%253=197%:%
+%:%254=198%:%
+%:%256=199%:%
+%:%257=200%:%
+%:%260=202%:%
+%:%261=203%:%
+%:%262=204%:%
+%:%263=205%:%
+%:%264=206%:%
+%:%265=207%:%
+%:%266=208%:%
+%:%267=209%:%
+%:%268=210%:%
+%:%269=211%:%
+%:%270=212%:%
+%:%271=213%:%
+%:%272=214%:%
+%:%273=215%:%
+%:%274=216%:%
+%:%275=217%:%
+%:%276=218%:%
+%:%277=219%:%
+%:%278=220%:%
+%:%279=221%:%
+%:%280=222%:%
+%:%281=223%:%
+%:%282=224%:%
