@@ -276,7 +276,7 @@ abbreviation FUL2 where "FUL2 \<equiv> \<forall>s. (((\<forall>w. (\<forall>p. (
 
 lemma "FUL2"
   nitpick[user_axioms, falsify=false, show_all] 
-  nitpick[user_axioms, verbose, falsify=true, show_all] 
+  nitpick[user_axioms, verbose, falsify=true, show_all] oops
 
   text \<open>This is a formulation of the FUL in which, assuming every maxim is universalized at some
 world (this is the axiom imagination works), at that world (or other worlds like it), if the maxim is 
