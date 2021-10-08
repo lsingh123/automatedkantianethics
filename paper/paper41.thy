@@ -123,8 +123,8 @@ models the process of practical reason may use my implementation of the FUL as a
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
 evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.\<close>
 
-fun will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("W _ _")
-  where "will (c, a, g) s = (c \<^bold>\<rightarrow> (a s))"
+abbreviation will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("W _ _")
+  where "will \<equiv> \<lambda>(c, a, g) s. (c \<^bold>\<rightarrow> (a s))"
 print_theorems
 
 text \<open>Korsgaard claims that ``to will an end, rather than just
@@ -171,8 +171,8 @@ these objections that Kantian scholars study. Formalizing Kantian ethics in a dy
 instead of a monadic deontic logic is a key contribution of this thesis.
 \<close>
 
-fun effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
-  where "effective (c::t, a::os, g::t) s = ((will (c, a, g) s) \<^bold>\<equiv> g)"
+abbreviation effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
+  where "effective  \<equiv> \<lambda>(c, a, g) s. ((will (c, a, g) s) \<^bold>\<equiv> g)"
 print_theorems
 
 text \<open>A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
@@ -197,15 +197,14 @@ interesting for my purposes because, when the circumstances do not hold, a maxim
 doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
 read a book to one-up your nemesis" is vacuously effective because it can never be disproven.\<close>
 
-fun LHS::"maxim\<Rightarrow>s\<Rightarrow>t" where 
-"LHS M s = (\<lambda>w. (\<forall>p. W M p w))"
+abbreviation LHS::"maxim\<Rightarrow>s\<Rightarrow>t" where 
+"LHS \<equiv> \<lambda>M s. (\<lambda>w. (\<forall>p. W M p w))"
 
-fun not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where 
-"not_universalizable M s = (\<Turnstile> (LHS M s \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))))"
+abbreviation not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where 
+"not_universalizable \<equiv> \<lambda>M s. (\<Turnstile> (LHS M s \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))))"
 \<comment>\<open>The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
 $M$ is no longer effective for $s$.\<close>
 print_theorems
-
 
 text \<open> This formalizes Korgsaard's definition of the practical contradiction
 interpretation:  a maxim is not universalizable 
@@ -240,43 +239,57 @@ is prohibited (obligated not to) from willing the maxim.
 
 It's also inconsistent!!!! Boooooo\<close>
 
-fun imagine_a_world::"maxim\<Rightarrow>bool" where 
-"imagine_a_world M = (\<exists>w. (\<forall>p. (W M p) w))"
+lemma "FUL0 \<longrightarrow> False" using O_diamond ax_5d 
+  using prod.simps(2) split_conv by fastforce
+
+abbreviation imagine_a_world::"maxim\<Rightarrow>bool" where 
+"imagine_a_world \<equiv> \<lambda>M. (\<exists>w. (\<forall>p. (W M p) w))"
 \<comment>\<open>The FUL really says, `imagine a world where the maxim were universalized...' I suspect that part of 
 the problem with FUL0 is that it universalizes the maxim at the same world that prohibits it, which 
 is weird because the agent performs the action (since it's universalized) but it's prohibited. Instead, 
 we want to say that in some other world where the maxim is universalized, let's apply the universalizability 
 test. This particular function represents a world where the maxim is universalized.\<close>
 
-fun not_contradictory::"maxim\<Rightarrow>bool" where 
-"not_contradictory (c, a, g) = (\<forall>p w. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w)"
+abbreviation not_contradictory::"maxim\<Rightarrow>bool" where 
+"not_contradictory \<equiv> \<lambda>(c, a, g). (\<forall>p w. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w)"
 \<comment>\<open>This function represents a maxim that is not contradictory, in that an agent can will it without 
 contradiction. It's more of a sanity check.\<close> 
 
-axiomatization where imagination_works:"\<forall>c::t. \<forall>a::os. \<forall>g::t.  (\<forall>p::s. \<forall>w::i. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w) \<longrightarrow>  (\<exists>w. (\<forall>p. (W (c, a, g) p) w))"
+axiomatization where imagination_works:"\<forall>M::maxim.  (not_contradictory M) \<longrightarrow>  (\<exists>w. (\<forall>p. (W M p) w))"
 \<comment>\<open>This axiom says, effectively, that our imagination works. In other words, for every maxim, if it 
 isn't contradictory, there is some (imagined) world where it is universalized. This guarantees that the 
 FUL can't be trivially true, since there is some world where the universalizability test is carried out.\<close>
 
 lemma True
-  nitpick[user_axioms, falsify=false] oops
+  nitpick[user_axioms, falsify=false] by simp 
 \<comment>\<open>Consistent so far:
 Nitpick found a model for card i = 1 and card s = 1:
 
   Empty assignment\<close>
 
-consts a::os
-consts g::t
-consts c::t
-abbreviation M where "M \<equiv> (c, a, g)"
+abbreviation not_vacuous::"maxim\<Rightarrow>s\<Rightarrow>bool" where 
+"not_vacuous \<equiv> \<lambda>(c, a, g) s. \<not> (g = c) \<and> \<not> (a s = c)"
 
-consts M2::maxim
+abbreviation FUL where "FUL \<equiv> \<forall>M::maxim. \<forall>s::s. (not_vacuous M s) \<longrightarrow> (not_universalizable M s \<longrightarrow> O {\<^bold>\<not> (will M s)} cw)"
 
-abbreviation FUL2 where "FUL2 \<equiv> \<forall>s. (((\<forall>w. (\<forall>p. (c \<^bold>\<rightarrow> (a p)) w) \<longrightarrow> \<not> (((c \<^bold>\<rightarrow> (a s)) \<^bold>\<rightarrow> g) w)) \<longrightarrow> O {\<^bold>\<not> (c \<^bold>\<rightarrow> (a s))} cw))"
+lemma "FUL"
+  nitpick[user_axioms, falsify=true] oops
+\<comment>\<open>$\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
 
-lemma "FUL2"
-  nitpick[user_axioms, falsify=false, show_all] 
-  nitpick[user_axioms, verbose, falsify=true, show_all] oops
+  Skolem constants:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := True)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    $\lambda w$. p = ($\lambda x. \_$)($i_1$ := $s_1$)
+    s = $s_1$ $\color{black}$ \<close>
+
+axiomatization where FUL:FUL
+
+lemma True
+  nitpick[user_axioms, falsify=false] by simp
+\<comment>\<open>$\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
+
+  Empty assignment $\color{black}$ \<close>
 
   text \<open>This is a formulation of the FUL in which, assuming every maxim is universalized at some
 world (this is the axiom imagination works), at that world (or other worlds like it), if the maxim is 

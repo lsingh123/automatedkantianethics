@@ -177,9 +177,9 @@ models the process of practical reason may use my implementation of the FUL as a
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
 evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.%
 \end{isamarkuptext}\isamarkuptrue%
-\isacommand{fun}\isamarkupfalse%
+\isacommand{abbreviation}\isamarkupfalse%
 \ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}W\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isacommand{print{\isacharunderscore}theorems}\isamarkupfalse%
 %
 \begin{isamarkuptext}%
@@ -226,9 +226,9 @@ over the prior work. By formally including the notion of a circumstance or conte
 these objections that Kantian scholars study. Formalizing Kantian ethics in a dyadic deontic logic 
 instead of a monadic deontic logic is a key contribution of this thesis.%
 \end{isamarkuptext}\isamarkuptrue%
-\isacommand{fun}\isamarkupfalse%
+\isacommand{abbreviation}\isamarkupfalse%
 \ effective\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}\ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}E\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}effective\ {\isacharparenleft}c{\isacharcolon}{\isacharcolon}t{\isacharcomma}\ a{\isacharcolon}{\isacharcolon}os{\isacharcomma}\ g{\isacharcolon}{\isacharcolon}t{\isacharparenright}\ s\ {\isacharequal}\ {\isacharparenleft}{\isacharparenleft}will\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymequiv}\ g{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}effective\ \ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}will\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymequiv}\ g{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isacommand{print{\isacharunderscore}theorems}\isamarkupfalse%
 %
 \begin{isamarkuptext}%
@@ -254,13 +254,13 @@ interesting for my purposes because, when the circumstances do not hold, a maxim
 doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
 read a book to one-up your nemesis" is vacuously effective because it can never be disproven.%
 \end{isamarkuptext}\isamarkuptrue%
-\isacommand{fun}\isamarkupfalse%
+\isacommand{abbreviation}\isamarkupfalse%
 \ LHS{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}LHS\ M\ s\ {\isacharequal}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ W\ M\ p\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}LHS\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ W\ M\ p\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isanewline
-\isacommand{fun}\isamarkupfalse%
+\isacommand{abbreviation}\isamarkupfalse%
 \ not{\isacharunderscore}universalizable\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}not{\isacharunderscore}universalizable\ M\ s\ {\isacharequal}\ {\isacharparenleft}{\isasymTurnstile}\ {\isacharparenleft}LHS\ M\ s\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}not{\isacharunderscore}universalizable\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ {\isacharparenleft}{\isasymTurnstile}\ {\isacharparenleft}LHS\ M\ s\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
 $M$ is no longer effective for $s$.%
@@ -303,9 +303,29 @@ is prohibited (obligated not to) from willing the maxim.
 It's also inconsistent!!!! Boooooo%
 }\isanewline
 \isanewline
-\isacommand{fun}\isamarkupfalse%
+\isacommand{lemma}\isamarkupfalse%
+\ {\isachardoublequoteopen}FUL{\isadigit{0}}\ {\isasymlongrightarrow}\ False{\isachardoublequoteclose}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ ax{\isacharunderscore}{\isadigit{5}}d\ \isanewline
+\ \ \isacommand{using}\isamarkupfalse%
+\ prod{\isachardot}simps{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ split{\isacharunderscore}conv\ \isacommand{by}\isamarkupfalse%
+\ fastforce%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
 \ imagine{\isacharunderscore}a{\isacharunderscore}world{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}imagine{\isacharunderscore}a{\isacharunderscore}world\ M\ {\isacharequal}\ {\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}imagine{\isacharunderscore}a{\isacharunderscore}world\ {\isasymequiv}\ {\isasymlambda}M{\isachardot}\ {\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{The FUL really says, `imagine a world where the maxim were universalized...' I suspect that part of 
 the problem with FUL0 is that it universalizes the maxim at the same world that prohibits it, which 
@@ -314,16 +334,16 @@ we want to say that in some other world where the maxim is universalized, let's 
 test. This particular function represents a world where the maxim is universalized.%
 }\isanewline
 \isanewline
-\isacommand{fun}\isamarkupfalse%
+\isacommand{abbreviation}\isamarkupfalse%
 \ not{\isacharunderscore}contradictory{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}not{\isacharunderscore}contradictory\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ {\isacharequal}\ {\isacharparenleft}{\isasymforall}p\ w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}c\ \isactrlbold {\isasymand}\ {\isacharparenleft}a\ p{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}not{\isacharunderscore}contradictory\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ {\isacharparenleft}{\isasymforall}p\ w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}c\ \isactrlbold {\isasymand}\ {\isacharparenleft}a\ p{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{This function represents a maxim that is not contradictory, in that an agent can will it without 
 contradiction. It's more of a sanity check.%
 }\ \isanewline
 \isanewline
 \isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ imagination{\isacharunderscore}works{\isacharcolon}{\isachardoublequoteopen}{\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}a{\isacharcolon}{\isacharcolon}os{\isachardot}\ {\isasymforall}g{\isacharcolon}{\isacharcolon}t{\isachardot}\ \ {\isacharparenleft}{\isasymforall}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isasymforall}w{\isacharcolon}{\isacharcolon}i{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}c\ \isactrlbold {\isasymand}\ {\isacharparenleft}a\ p{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ \ {\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \isakeyword{where}\ imagination{\isacharunderscore}works{\isacharcolon}{\isachardoublequoteopen}{\isasymforall}M{\isacharcolon}{\isacharcolon}maxim{\isachardot}\ \ {\isacharparenleft}not{\isacharunderscore}contradictory\ M{\isacharparenright}\ {\isasymlongrightarrow}\ \ {\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{This axiom says, effectively, that our imagination works. In other words, for every maxim, if it 
 isn't contradictory, there is some (imagined) world where it is universalized. This guarantees that the 
@@ -339,8 +359,8 @@ FUL can't be trivially true, since there is some world where the universalizabil
 \endisadelimproof
 %
 \isatagproof
-\isacommand{oops}\isamarkupfalse%
-\isanewline
+\isacommand{by}\isamarkupfalse%
+\ simp\ \isanewline
 %
 \isamarkupcmt{Consistent so far:
 Nitpick found a model for card i = 1 and card s = 1:
@@ -355,34 +375,61 @@ Nitpick found a model for card i = 1 and card s = 1:
 \endisadelimproof
 \isanewline
 \isanewline
-\isacommand{consts}\isamarkupfalse%
-\ a{\isacharcolon}{\isacharcolon}os\isanewline
-\isacommand{consts}\isamarkupfalse%
-\ g{\isacharcolon}{\isacharcolon}t\isanewline
-\isacommand{consts}\isamarkupfalse%
-\ c{\isacharcolon}{\isacharcolon}t\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
-\ M\ \isakeyword{where}\ {\isachardoublequoteopen}M\ {\isasymequiv}\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\isanewline
-\isacommand{consts}\isamarkupfalse%
-\ M{\isadigit{2}}{\isacharcolon}{\isacharcolon}maxim\isanewline
+\ not{\isacharunderscore}vacuous{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}not{\isacharunderscore}vacuous\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isasymnot}\ {\isacharparenleft}g\ {\isacharequal}\ c{\isacharparenright}\ {\isasymand}\ {\isasymnot}\ {\isacharparenleft}a\ s\ {\isacharequal}\ c{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
-\ FUL{\isadigit{2}}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL{\isadigit{2}}\ {\isasymequiv}\ {\isasymforall}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ p{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}{\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ g{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ {\isasymlongrightarrow}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isacharbraceright}\ cw{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ FUL\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}M{\isacharcolon}{\isacharcolon}maxim{\isachardot}\ {\isasymforall}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}not{\isacharunderscore}vacuous\ M\ s{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}not{\isacharunderscore}universalizable\ M\ s\ {\isasymlongrightarrow}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}will\ M\ s{\isacharparenright}{\isacharbraceright}\ cw{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
-\ {\isachardoublequoteopen}FUL{\isadigit{2}}{\isachardoublequoteclose}\isanewline
+\ {\isachardoublequoteopen}FUL{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{nitpick}\isamarkupfalse%
-{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharcomma}\ show{\isacharunderscore}all{\isacharbrackright}\ \isanewline
-\ \ \isacommand{nitpick}\isamarkupfalse%
-{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ verbose{\isacharcomma}\ falsify{\isacharequal}true{\isacharcomma}\ show{\isacharunderscore}all{\isacharbrackright}%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}true{\isacharbrackright}%
 \isadelimproof
 \ %
 \endisadelimproof
 %
 \isatagproof
 \isacommand{oops}\isamarkupfalse%
+\isanewline
 %
+\isamarkupcmt{$\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
+
+  Skolem constants:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := True)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    $\lambda w$. p = ($\lambda x. \_$)($i_1$ := $s_1$)
+    s = $s_1$ $\color{black}$%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\ FUL{\isacharcolon}FUL\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ True\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+%
+\isamarkupcmt{$\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
+
+  Empty assignment $\color{black}$%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -628,111 +675,135 @@ Which is maybe not a huge problem?%
 %:%266=206%:%
 %:%267=206%:%
 %:%268=207%:%
-%:%271=210%:%
-%:%272=211%:%
-%:%273=212%:%
-%:%274=213%:%
-%:%275=214%:%
-%:%276=215%:%
-%:%277=216%:%
-%:%278=217%:%
-%:%279=218%:%
-%:%280=219%:%
-%:%281=220%:%
-%:%282=221%:%
-%:%283=222%:%
-%:%284=223%:%
-%:%285=224%:%
-%:%286=225%:%
-%:%287=226%:%
-%:%288=227%:%
-%:%289=228%:%
-%:%290=229%:%
-%:%291=230%:%
-%:%292=231%:%
-%:%293=232%:%
-%:%295=235%:%
-%:%296=235%:%
-%:%298=236%:%
-%:%299=237%:%
-%:%300=238%:%
-%:%301=239%:%
-%:%302=240%:%
-%:%303=241%:%
-%:%304=241%:%
-%:%305=242%:%
-%:%306=243%:%
-%:%307=243%:%
-%:%308=244%:%
-%:%310=245%:%
-%:%311=246%:%
-%:%312=247%:%
-%:%313=248%:%
-%:%314=249%:%
-%:%315=249%:%
-%:%316=250%:%
-%:%317=251%:%
-%:%318=251%:%
-%:%319=252%:%
-%:%321=253%:%
-%:%322=254%:%
-%:%323=254%:%
-%:%324=255%:%
-%:%325=256%:%
-%:%326=256%:%
-%:%328=257%:%
-%:%329=258%:%
-%:%330=259%:%
-%:%331=259%:%
-%:%332=260%:%
-%:%333=261%:%
-%:%334=261%:%
-%:%335=262%:%
-%:%336=262%:%
-%:%338=262%:%
-%:%342=262%:%
-%:%343=262%:%
-%:%345=263%:%
-%:%346=264%:%
-%:%347=265%:%
-%:%348=266%:%
-%:%356=266%:%
-%:%357=267%:%
-%:%358=268%:%
-%:%359=268%:%
-%:%360=269%:%
-%:%361=269%:%
-%:%362=270%:%
-%:%363=270%:%
-%:%364=271%:%
-%:%365=271%:%
-%:%366=272%:%
-%:%367=273%:%
-%:%368=273%:%
-%:%369=274%:%
-%:%370=275%:%
-%:%371=275%:%
-%:%372=276%:%
-%:%373=277%:%
-%:%374=277%:%
-%:%375=278%:%
-%:%376=278%:%
-%:%377=279%:%
-%:%378=279%:%
-%:%380=279%:%
-%:%384=279%:%
-%:%394=281%:%
-%:%395=282%:%
-%:%396=283%:%
-%:%397=284%:%
-%:%398=285%:%
-%:%399=286%:%
-%:%400=287%:%
-%:%401=288%:%
-%:%402=289%:%
-%:%403=290%:%
-%:%404=291%:%
-%:%405=292%:%
-%:%406=293%:%
-%:%407=294%:%
-%:%408=295%:%
+%:%271=209%:%
+%:%272=210%:%
+%:%273=211%:%
+%:%274=212%:%
+%:%275=213%:%
+%:%276=214%:%
+%:%277=215%:%
+%:%278=216%:%
+%:%279=217%:%
+%:%280=218%:%
+%:%281=219%:%
+%:%282=220%:%
+%:%283=221%:%
+%:%284=222%:%
+%:%285=223%:%
+%:%286=224%:%
+%:%287=225%:%
+%:%288=226%:%
+%:%289=227%:%
+%:%290=228%:%
+%:%291=229%:%
+%:%292=230%:%
+%:%293=231%:%
+%:%295=234%:%
+%:%296=234%:%
+%:%298=235%:%
+%:%299=236%:%
+%:%300=237%:%
+%:%301=238%:%
+%:%302=239%:%
+%:%303=240%:%
+%:%304=240%:%
+%:%305=241%:%
+%:%306=242%:%
+%:%307=242%:%
+%:%309=242%:%
+%:%313=242%:%
+%:%314=242%:%
+%:%315=243%:%
+%:%316=243%:%
+%:%317=243%:%
+%:%324=243%:%
+%:%325=244%:%
+%:%326=245%:%
+%:%327=245%:%
+%:%328=246%:%
+%:%330=247%:%
+%:%331=248%:%
+%:%332=249%:%
+%:%333=250%:%
+%:%334=251%:%
+%:%335=251%:%
+%:%336=252%:%
+%:%337=253%:%
+%:%338=253%:%
+%:%339=254%:%
+%:%341=255%:%
+%:%342=256%:%
+%:%343=256%:%
+%:%344=257%:%
+%:%345=258%:%
+%:%346=258%:%
+%:%348=259%:%
+%:%349=260%:%
+%:%350=261%:%
+%:%351=261%:%
+%:%352=262%:%
+%:%353=263%:%
+%:%354=263%:%
+%:%355=264%:%
+%:%356=264%:%
+%:%358=264%:%
+%:%362=264%:%
+%:%363=264%:%
+%:%365=265%:%
+%:%366=266%:%
+%:%367=267%:%
+%:%368=268%:%
+%:%376=268%:%
+%:%377=269%:%
+%:%378=270%:%
+%:%379=270%:%
+%:%380=271%:%
+%:%381=272%:%
+%:%382=273%:%
+%:%383=273%:%
+%:%384=274%:%
+%:%385=275%:%
+%:%386=275%:%
+%:%387=276%:%
+%:%388=276%:%
+%:%390=276%:%
+%:%394=276%:%
+%:%395=276%:%
+%:%397=277%:%
+%:%398=278%:%
+%:%399=279%:%
+%:%400=280%:%
+%:%401=281%:%
+%:%402=282%:%
+%:%403=283%:%
+%:%404=284%:%
+%:%412=284%:%
+%:%413=285%:%
+%:%414=286%:%
+%:%415=286%:%
+%:%416=287%:%
+%:%417=288%:%
+%:%418=288%:%
+%:%419=289%:%
+%:%420=289%:%
+%:%422=289%:%
+%:%426=289%:%
+%:%427=289%:%
+%:%429=290%:%
+%:%430=291%:%
+%:%431=292%:%
+%:%441=294%:%
+%:%442=295%:%
+%:%443=296%:%
+%:%444=297%:%
+%:%445=298%:%
+%:%446=299%:%
+%:%447=300%:%
+%:%448=301%:%
+%:%449=302%:%
+%:%450=303%:%
+%:%451=304%:%
+%:%452=305%:%
+%:%453=306%:%
+%:%454=307%:%
+%:%455=308%:%
