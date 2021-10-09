@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  8 OCT 2021 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 OCT 2021 11:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -380,17 +380,7 @@ LaTeX Warning: Reference `sec:naive_tests_kroy' on page 24 undefined on input l
 ine 916.
 
 [24] [25]) (./paper33.tex) (./paper41.tex [26] [27] [28] [29] [30] [31]
-[32]
-Overfull \hbox (26.73387pt too wide) in paragraph at lines 381--383
-[][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 FUL \OT1/ptm/b/n/10 where \OT
-1/ptm/m/it/10 FUL $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm/m/it/10 M$\OT1/cmr/m/n/10
- :$$:$\OT1/ptm/m/it/10 maxim$\OML/cmm/m/it/10 :$ $\OMS/cmsy/m/n/10 8 $\OT1/ptm/
-m/it/10 s$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 s$\OML/cmm/m/it/10 :$ $\OT1/cmr
-/m/n/10 ($\OT1/ptm/m/it/10 not[]vacuous M s$\OT1/cmr/m/n/10 )$ $[][]\OMS/cmsy/m
-/n/10 !$ $\OT1/cmr/m/n/10 ($\OT1/ptm/m/it/10 not[]universalizable
- []
-
-[33]) (./relatedwork.tex) (./futurework.tex [34] [35]) [36] (./root.bbl
+[32] [33]) (./relatedwork.tex) (./futurework.tex [34] [35]) [36] (./root.bbl
 [37]
 Underfull \hbox (badness 1675) in paragraph at lines 91--97
 []\OT1/ptm/m/n/10.95 D. Fuen-mayor and C. Benzm[]uller.  For-mal-i-sa-tion and 
@@ -419,11 +409,11 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  ) 
 Here is how much of TeX's memory you used:
- 7199 strings out of 480608
- 103795 string characters out of 5903631
+ 7215 strings out of 480608
+ 103985 string characters out of 5903631
  363497 words of memory out of 5000000
- 22769 multiletter control sequences out of 15000+600000
- 574035 words of font info for 114 fonts, out of 8000000 for 9000
+ 22779 multiletter control sequences out of 15000+600000
+ 577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,33p,895b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -444,7 +434,7 @@ fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/tim
 es/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on root.pdf (40 pages, 288990 bytes).
+Output written on root.pdf (40 pages, 288331 bytes).
 PDF statistics:
  610 PDF objects out of 1000 (max. 8388607)
  545 compressed objects within 6 object streams
