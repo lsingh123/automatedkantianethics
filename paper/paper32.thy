@@ -47,7 +47,9 @@ abbreviation os_or::"os \<Rightarrow> os \<Rightarrow> os" ("_\<^emph>\<or>_")
 abbreviation os_ob::"os \<Rightarrow> os" ("\<^emph>O{_}")
   where "\<^emph>O{A} \<equiv> \<lambda>x. (O {A(x)})"
 
-text \<open>Once again, the notion of permissibility will be useful here.\<close>
+text \<open>Once again, the notion of permissibility will be useful here. Recall that an action can either be 
+obligated, permissible, or prohibited. A permissible action is acceptable (there is no specific prohibition 
+against it), but not required (there is no specific obligation requiring it).\<close>
 
 abbreviation ddl_permissible::"t\<Rightarrow>t" ("P {_}")
   where "P {A} \<equiv> \<^bold>\<not> (O {\<^bold>\<not> A})"
@@ -213,7 +215,13 @@ is wrong. I started by showing the morally dubious proposition that if murder is
 it is actually wrong.\<close>
 
 consts M::"t"
-\<comment>\<open>Let the constant $M$ denote murder.\<close>
+\<comment>\<open>Let the constant $M$ denote murder. I have defined no features of this constant, except that it is 
+of the type term, which can be true or false at a set of worlds. Indeed, this constant as-is has no 
+semantic meaning and could be replaced with any symbol, like `Q' or `Going to Target.' This constant 
+will begin to take on features of the act of murder when I specify its properties. In the tests below, 
+I specify its properties as the antecedents of lemmas. For example, the test below specifies that 
+it is possible that murder is prohibited at the current world. This pattern will hold for most constants 
+defined in Isabelle—they have no meaning until I program a meaning.\<close>
 
 lemma wrong_if_possibly_wrong:
   shows "((\<diamond> (O {\<^bold>\<not> M})) cw) \<longrightarrow>  (\<forall>w. (O {\<^bold>\<not> M}) w)"
@@ -234,8 +242,11 @@ everyone.
 The fact that this strange lemma holds is actually a property of DDL itself, not a property
 of Kroy's formalization. Indeed, repeating this experiment in DDL, with no
 additional axioms that represent the categorical imperative shows that, in DDL, if something is 
-possibly wrong, it is wrong at every world. This implies that this is not a useful example to test any formulation,
-since it holds in the base logic itself.\<close>
+possibly wrong, it is wrong at every world. This implies that this is not a useful example to test any formulation. 
+If a lemma is true in the base logic, without any custom axioms added, then it will hold for any set of  
+custom axioms. Testing whether or not it holds as we add axioms tells us nothing, since it held in 
+the base logic itself. Interesting cases are ones that fail (or are indeterminate) in the base logic, 
+but become true as we add axioms. \<close>
 
 text "To adapt the murder wrong axiom to capture the spirit of Kroy's formulation, I will modify if 
 to state that if murder is wrong for one person, it is wrong for everyone."
@@ -460,7 +471,7 @@ lemma implied_contradiction:
     w = $i_2$ \color{black}\<close>
 
   text \<open>  Just as with the naive formalization, Kroy's formalization allows implied contradictions because 
-        DDL itself allows implied contradictions and, as I explored in Section \ref{sec:naive_tests_kroy}, Kroy's 
+        DDL itself allows implied contradictions and Kroy's 
         formalization doesn't do anything to remedy this. 
 
       As my final metaethical test, I will test that an action is either obligatory, permissible, or 

@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{16}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{16}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{19}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{19}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{20}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{23}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{25}{subsubsection.2.2.5}%
 \contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{27}{section.3}%

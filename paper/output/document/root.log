@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 OCT 2021 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 OCT 2021 17:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -400,7 +400,7 @@ i-ga-tions. Ko-rs-gaard [[]]
  []
 
 [14] [15]) (./paper32.tex [16] [17] [18] [19] [20]
-Overfull \hbox (6.36386pt too wide) in paragraph at lines 552--554
+Overfull \hbox (6.36386pt too wide) in paragraph at lines 563--565
 [][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 lying[]not[]possibly[]univers
 al$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 bool \OT1/ptm/b/n/10 where \OT1/ptm/m/
 it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
@@ -408,17 +408,12 @@ it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
  []
 
 [21]
-Overfull \hbox (100.0398pt too wide) in paragraph at lines 598--599
+Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
 [][] 
  []
 
-[22] [23]
-
-LaTeX Warning: Reference `sec:naive_tests_kroy' on page 24 undefined on input l
-ine 916.
-
-[24] [25]) (./paper33.tex) (./paper41.tex [26] [27] [28] [29] [30] [31]
-[32] [33]) (./relatedwork.tex
+[22] [23] [24] [25] [26]) (./paper33.tex) (./paper41.tex [27] [28] [29]
+[30] [31] [32] [33]) (./relatedwork.tex
 Overfull \hbox (6.088pt too wide) in paragraph at lines 45--55
 []\OT1/ptm/m/n/10.95 ] or par-tic-u-lar-ism [[], []].
  []
@@ -442,17 +437,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
 Package rerunfilecheck Info: File `root.out' has not changed.
 (rerunfilecheck)             Checksum: 9DCFDC4A1E9928B1B89D2250DFD0E2F5;1871.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 7213 strings out of 480608
- 103976 string characters out of 5903631
+ 7212 strings out of 480608
+ 103954 string characters out of 5903631
  365380 words of memory out of 5000000
- 22780 multiletter control sequences out of 15000+600000
+ 22779 multiletter control sequences out of 15000+600000
  577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,33p,895b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -474,7 +465,7 @@ fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/tim
 es/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on root.pdf (40 pages, 291144 bytes).
+Output written on root.pdf (40 pages, 291646 bytes).
 PDF statistics:
  607 PDF objects out of 1000 (max. 8388607)
  542 compressed objects within 6 object streams
