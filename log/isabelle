@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec "/Applications/Isabelle2020.app/Contents/Resources/Isabelle2020/bin/isabelle" "$@"

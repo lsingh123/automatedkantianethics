@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 OCT 2021 13:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 OCT 2021 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -342,34 +342,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./thre
 eflags.tex
-[2] [3] [4] [5]) [6] (./writing.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
+[2]
+Overfull \hbox (36.81137pt too wide) in paragraph at lines 60--65
+[]\OT1/ptm/m/n/10.95 While some crit-i-cize the FUL for its for-mal-ism and per
+-cieved ``steril-ity" $\OT1/cmr/m/n/10.95 [[]]$\OT1/ptm/m/n/10.95 ,
+ []
+
+[3] [4] [5]
+Overfull \hbox (10.14925pt too wide) in paragraph at lines 183--189
+\OT1/ptm/m/n/10.95 re-con-struct Ko-rs-gaard's ar-gu-ment for the prac-ti-cal c
+on-tra-dic-tion in-ter-pre-ta-tion. While
+ []
+
+[6]) [7] (./writing.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 61.
+ [8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 61.
  (./writing.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 61.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 61.
 Package rerunfilecheck Info: File `writing.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 61.
  ) 
 Here is how much of TeX's memory you used:
- 6876 strings out of 480608
- 99858 string characters out of 5903631
- 360507 words of memory out of 5000000
- 22608 multiletter control sequences out of 15000+600000
+ 6875 strings out of 480608
+ 99872 string characters out of 5903631
+ 359738 words of memory out of 5000000
+ 22610 multiletter control sequences out of 15000+600000
  558969 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,9n,31p,217b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,9n,31p,217b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on writing.pdf (7 pages, 67212 bytes).
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/
+fonts/type1/urw/times/utmri8a.pfb>
+Output written on writing.pdf (8 pages, 81252 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
+ 111 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

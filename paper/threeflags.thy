@@ -4,15 +4,41 @@
 begin(*>*)
 
 
-text \<open>The literature on Kantian ethics is expansive and complicated. To focus my thesis on the contributions 
-of automated ethics to Kantian thought, I make the following choices.
+text \<open>
 
 $\textbf{Choice to Formalize the FUL}$
 
-I am only studying formalizations of Kant's first formulation of the categorical imperative,
+In \emph{Groundwork of the Metaphysics of Morals}, Kant presents three formulations, or versions, 
+of what he calls the ``supreme law of morality." I will focus on the first of these three formulations, 
+and below I explain the formulations and defend my choice.
+
+Kant argues that if  morality 
+exists, it must take the form of a categorical imperative or a law that holds unconditionally. Categorical
+imperatives are contrasted with hypothetical imperatives, which take the form of conditionals as in, 
+``If I want to get good grades, I must study hard." Hypothetical imperatives only have force so long
+as the antecedent holds, but the categorical imperative is unconditionally binding $\cite[28]{groundwork}$. In the first 
+half of \emph{Groundwork}, Kant examines what the categorical imperative, if such a thing exists and has force,
+must be. He concludes that there are three ``formulations" of the categorical imperative, or three ways 
+of articulating the supreme law of morality. 
+
+The first formulation of the categorical imperative is the
+formula of universal law (FUL), which reads, ``act only according to that maxim through which you can 
+at the same time will that it become a universal law." $\cite[34]{groundwork}$ This formulation
+generates the universalizability test, which ``tests" the moral value of a maxim by 
+imagining a world in which it becomes a universal law and attempting to will the maxim in that world. The 
+second formulation of the categorical imperative is the formula of humanity (FUH): ``So act that you use humanity, 
+in your own person, as well as in the person of any other, always at the same time as an end, never merely 
+as a means." $\cite[41]{groundwork}$. This formulation is often understood as requiring us to 
+acknowledge and respect the dignity of every other person. The third formulation of the categorical 
+imperative is the formula of autonomy (FOA), which Korsgaard summarizes in her introduction to the Groundwork 
+as, ``we should so act that we may think of ourselves as legislating universal laws through our 
+maxims." $\cite[28]{korsgaardintro}$ While closely related to the FUL, the FOA presents morality as the activity of 
+perfectly rational agents in an ideal ``kingdom of ends," guided by what Kant calls the ``laws of freedom."
+
+I choose to focus on formalizations of Kant's first formulation of the categorical imperative,
 the formula of universal law (FUL), because it is the most formal and thus the easiest to formalize and implement. 
-Onora O'Neill @{cite actingonprinciple}\footnote{p. 33} explains that the formalism of the FUL allows 
-for greater precision in philosophical arguments analyzing its implications and power. This precision 
+Onora O'Neill explains that the formalism of the FUL allows 
+for greater precision in philosophical arguments analyzing its implications and power $\cite[33]{actingonprinciple}$. This precision 
 is particularly useful in a computational context because any formalism necessarily makes its content 
 precise. The FUL's existing precision reduces ambiguity, allowing me to remain faithful to Kant's writing and 
 philosophical interpretations of it. Precision reduces the need to make choices to resolve debates 
@@ -21,9 +47,10 @@ but some may be unique to formalizing the FUL and thus understudied. Minimizing 
 arbitrariness in my formalization and puts it on solid philosophical footing. Given that this thesis is a proof-of-concept, 
 the formalism of the FUL is attractive because it reduces both the computational and philosophical complexity of my work. 
 
-While some criticize the FUL for its formalism and percieved ``sterility" @{cite actingonprinciple}, 
-Kantian constructivists embrace it. My project is not committed to Kantian constructivism; I argue that computational
-ethics is a valuable tool for any ethicist, with a focus on general Kantian ethics. Nonetheless, Kantian constructivists may find the focus on 
+While some criticize the FUL for its formalism and percieved ``sterility" $\cite[33]{actingonprinciple}$, 
+Kantian constructivists embrace it $\cite[173]{ebelsduggan}$. My project is not committed to Kantian constructivism. 
+I believe that computational ethics is likely a valuable tool for any ethicist, and I make the case 
+for Kantian ethics specifically. Nonetheless, Kantian constructivists may find the focus on 
 the FUL particularly appealing. 
 
 Though Kantians study all formulations of the categorical imperative, Kant argues in Groundwork 
@@ -37,6 +64,17 @@ if he is correct, it should be possible to recreate the argument in logic.
 
 $\textbf{Definition of a Maxim}$
 
+The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
+in a footnote in \emph{Groundworkd} as ``the subjective principle of willing," or the principle that 
+the agent acts on $\cite[16]{groundwork}$. Modern Kantians differ in their interpretations of this definition. The naive view 
+is that a maxim is an act, but Korsgaard adopts the more sophisticated view that a maxim is composed
+of an act and the agent's purpose for acting @{cite "actingforareason"}. She also compares a maxim 
+to Aristotle's logos, which includes these components and information about the circumstances and methods 
+of the act. O'Neill concludes that Kant's examples imply that a maxim must also include circumstances @{cite "actingonprinciple"}, and 
+Kitcher @{cite "whatisamaxim"} uses textual evidence from the Groundwork to argue for the inclusion of a maxim's purpose 
+or motivation. In order to formalize the notion of a maxim, I must adopt a specific definition and 
+defend my choice.
+
 I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
 as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
 type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
@@ -46,32 +84,32 @@ be true or false (as in, an act is not truth-apt), but the combination of a subj
 can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
 For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
 
-My definition of a maxim is inspired by Onora O'Neill's work on maxims. I will defend my representation
-below and consider an additional component that Patricia Kitcher argues for.
+My definition of a maxim is inspired by O'Neill's work on maxims. I will defend my representation
+below and consider an additional component that Kitcher argues for.
 
 $\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
 
-O'Neill$\footnote{p. 37}$ @{cite "actingonprinciple"} presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
+O'Neill $\cite[37]{actingonprinciple}$ presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
 view that a maxim is a circumstance, act, goal tuple. A maxim 
 is an action-guiding rule and thus naturally includes an act and the circumstances under which 
 it should be performed, which are often referred to as ``morally relevant circumstances." 
 
 She also includes a purpose, end, or goal in the maxim because Kant includes this in many of his 
 example maxims and because Kant argues that human activity, because it is guided by a rational will, 
-is inherently purposive@{cite groundwork}\footnote{(G 4:428)}. A rational will does not act randomly (else it would not be rational), 
+is inherently purposive $\cite[4:428]{groundwork}$. A rational will does not act randomly (else it would not be rational), 
 but instead in the pursuit of ends which it deems valuable. This inclusion is also essential for the version of the universalizability test 
 that I will implement, explained in Section ??.
 
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
-relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" @{cite whatisamaxim}$\footnote{Kitcher
-on p.217 cites Wood p. 102 @{cite kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" $\cite[217]{whatisamaxim} \footnote{Kitcher
+cites \cite{kantsethicalthought}  as offering an example of a false positive due to this objection.}$, 
 under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
 I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
 this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
 to the act and goal. This solution requires some discussion of what qualifies as a relevant circumstance.
 
-O'Neill seems to acknowledge the difficult of determining relevant circumstances when she concedes that a maxim cannot include all 
-of the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
+of the infinitely many circumstances in which the agent may perform the action$\cite[4:428]{actingonprinciple}$. She argues that this is 
 an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
 and how to do it @{cite bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
@@ -93,8 +131,8 @@ and whether or not this formulation does indeed include morally relevant circums
 garbage into the test, the test will return garbage out.
 
 While this may appear to be a weakness of my system, I believe that it actually
-allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers @{cite powers} presents 
-the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
+allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers presents 
+the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics @{cite powers}.}
 Ethics is a fundamentally human activity. Kant argues that the categorical imperative is a statement 
 about the properties of rational wills. In fact, Korsgaard argues that morality derives its authority over us, 
 or normativity, only because is it a property of a rational will, and we, as human beings, are rational wills.
@@ -106,8 +144,8 @@ of this issue.
 
 $\emph{Exclusion of Motive}$
 
-Kitcher @{cite whatisamaxim} begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim. This additional component is read 
+Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
+behind performing the maxim @{cite whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
 Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
 in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
@@ -122,7 +160,7 @@ because it is not necessary for putting maxims through the FUL. Indeed, Kitcher 
 O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
-including a motive. The ``input" to the FUL is the circumstance, act, goal pair. My project takes 
+including a motive. The ``input" to the FUL is the circumstance, act, goal tuple. My project takes 
 this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
@@ -132,15 +170,15 @@ evaluating an agent's behavior, since that's when ``acting from duty" starts to 
 
 $\textbf{Practical Contradiction Interpretation}$
 
-Kantians debate the correct interpretation of the formula of universal law because Kant, 
-at times, appears to interpret the universalizability test in different ways. My project uses Korsgaard's practical contradiction 
-interpretation, broadly accepted as correct within the philosophical community @{cite ebelsduggan}\footnote{p. 177}.
+Kantians debate the correct interpretation of the formula of universal law because Kant appears to 
+interpret the universalizability test in different ways. My project uses Korsgaard's practical contradiction 
+interpretation, broadly accepted as correct within the philosophical community $\cite[177]{ebelsduggan}$.
 Below, I briefly reconstruct Korsgaard's argument for the practical contradiction interpretation. While 
 she believes that the text partially supports this interpretation, her argument is philosophical and 
 derives its strength from the plausibility of the practical contradiction interpretation.
 
 Recall that the formula of universal law is “act only in accordance with that maxim through which you can at the 
-same time will that it become a universal law” @{cite groundwork}\footnote{(G: 4:421)}. To determine if a maxim can be willed as a 
+same time will that it become a universal law” $\cite[4:421]{groundwork}$. To determine if a maxim can be willed as a 
 universal law, one must use the “universalizability test,” which requires imagining a world in which 
 everyone for all of time has willed the maxim. If willing the maxim in such a world generates a contradiction, 
 then the action is prohibited. There are three interpretations of what sort of contradiction is necessary: 

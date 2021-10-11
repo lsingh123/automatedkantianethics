@@ -56,34 +56,40 @@ the goals from the previous chapter.%
 %
 \begin{isamarkuptext}%
 The previous attempts to model the categorical imperative in Chapter 2 partially failed due to 
-lack of expressivity about the complexity of a maxim. Specifically, they treated actions as a single, 
+an inability to fully represent the complexity of a maxim. Specifically, they treated actions as a single, 
 monolithic unit of evaluation, whereas most Kantians consider the unit of evaluation for the FUL to the more
-complex notion of a maxim. In this section, I will present some logical background necessarily to more fully 
+complex notion of a maxim. In this section, I will present some logical background necessarily to fully 
 capture the spirit of a maxim. I will begin by borrowing some machinery to handle ``subjects" who perform 
 actions from Chapter 2.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ s\ %
-\isamarkupcmt{s is the type for a ``subject," i.e. the subject of a sentence%
+\isamarkupcmt{s is the type for a ``subject," i.e. the subject of a sentence. In this interpretation, 
+a subject is merely defined as ``that which can act." It does not include any other properties, such as 
+rationality or dignity. As I will show, for the purposes of defining the universalizability test, this 
+``thin" representation of a subject suffices.%
 }\isanewline
 \isanewline
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
-\isamarkupcmt{Recall that an open sentence maps a subject to a term to model substitution.%
+\isamarkupcmt{Recall that an open sentence maps a subject to a term to model the 
+substitution operator.%
 }\isanewline
 \isanewline
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
-\ maxim\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}t\ {\isacharasterisk}\ os\ {\isacharasterisk}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
-\isamarkupcmt{I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
-as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
-type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
-$t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
-is realized or not. An act is an open sentence because an act itself is not the kind of thing that can 
-be true or false (as in, an act is not truth-apt), but the combination of a subject performing an act 
-can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
-For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.%
-}%
+\ maxim\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}t\ {\isacharasterisk}\ os\ {\isacharasterisk}\ t{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
+The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
+in a footnote in \emph{Groundworkd} as ``the subjective principle of willing," or the principle that 
+the agent acts on $\cite[16]{groundwork}$. Modern Kantians differ in their interpretations of this definition. The naive view 
+is that a maxim is an act, but Korsgaard adopts the more sophisticated view that a maxim is composed
+of an act and the agent's purpose for acting \cite{actingforareason}. She also compares a maxim 
+to Aristotle's logos, which includes these components and information about the circumstances and methods 
+of the act. O'Neill concludes that Kant's examples imply that a maxim must also include circumstances \cite{actingonprinciple}, and 
+Kitcher \cite{whatisamaxim} uses textual evidence from the Groundwork to argue for the inclusion of a maxim's purpose 
+or motivation. In order to formalize the notion of a maxim, I must adopt a specific definition and 
+defend my choice.
+
 I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
 as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
 type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
@@ -93,32 +99,32 @@ be true or false (as in, an act is not truth-apt), but the combination of a subj
 can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
 For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
 
-My definition of a maxim is inspired by Onora O'Neill's work on maxims. I will defend my representation
-below and consider an additional component that Patricia Kitcher argues for.
+My definition of a maxim is inspired by O'Neill's work on maxims. I will defend my representation
+below and consider an additional component that Kitcher argues for.
 
 $\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
 
-O'Neill$\footnote{p. 37}$ \cite{actingonprinciple} presents what Kitcher \cite{whatisamaxim}  calls the widely accepted 
+O'Neill $\cite[37]{actingonprinciple}$ presents what Kitcher \cite{whatisamaxim}  calls the widely accepted 
 view that a maxim is a circumstance, act, goal tuple. A maxim 
 is an action-guiding rule and thus naturally includes an act and the circumstances under which 
 it should be performed, which are often referred to as ``morally relevant circumstances." 
 
 She also includes a purpose, end, or goal in the maxim because Kant includes this in many of his 
 example maxims and because Kant argues that human activity, because it is guided by a rational will, 
-is inherently purposive\cite{groundwork}\footnote{(G 4:428)}. A rational will does not act randomly (else it would not be rational), 
+is inherently purposive $\cite[4:428]{groundwork}$. A rational will does not act randomly (else it would not be rational), 
 but instead in the pursuit of ends which it deems valuable. This inclusion is also essential for the version of the universalizability test 
 that I will implement, explained in Section ??.
 
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
-relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" \cite{whatisamaxim}$\footnote{Kitcher
-on p.217 cites Wood p. 102 \cite{kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" $\cite[217]{whatisamaxim} \footnote{Kitcher
+cites \cite{kantsethicalthought}  as offering an example of a false positive due to this objection.}$, 
 under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
 I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
 this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
 to the act and goal. This solution requires some discussion of what qualifies as a relevant circumstance.
 
-O'Neill seems to acknowledge the difficult of determining relevant circumstances when she concedes that a maxim cannot include all 
-of the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
+of the infinitely many circumstances in which the agent may perform the action$\cite[4:428]{actingonprinciple}$. She argues that this is 
 an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
 and how to do it \cite{bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
@@ -140,8 +146,8 @@ and whether or not this formulation does indeed include morally relevant circums
 garbage into the test, the test will return garbage out.
 
 While this may appear to be a weakness of my system, I believe that it actually
-allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers \cite{powers} presents 
-the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
+allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers presents 
+the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics \cite{powers}.}
 Ethics is a fundamentally human activity. Kant argues that the categorical imperative is a statement 
 about the properties of rational wills. In fact, Korsgaard argues that morality derives its authority over us, 
 or normativity, only because is it a property of a rational will, and we, as human beings, are rational wills.
@@ -153,8 +159,8 @@ of this issue.
 
 $\emph{Exclusion of Motive}$
 
-Kitcher \cite{whatisamaxim} begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim. This additional component is read 
+Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
+behind performing the maxim \cite{whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
 Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
 in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
@@ -169,7 +175,7 @@ because it is not necessary for putting maxims through the FUL. Indeed, Kitcher 
 O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
-including a motive. The ``input" to the FUL is the circumstance, act, goal pair. My project takes 
+including a motive. The ``input" to the FUL is the circumstance, act, goal tuple. My project takes 
 this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
@@ -184,35 +190,38 @@ evaluating an agent's behavior, since that's when ``acting from duty" starts to 
 %
 \begin{isamarkuptext}%
 Korsgaard claims that ``to will an end, rather than just
-wishing for it or wanting it, is to set yourself to be its cause" \cite{sources}. To will a maxim, then, 
-is to set yourself to, in the relevant circumstances, be the cause of its goal by taking the means 
-specified in the maxim. This coheres with 
-Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. At worlds 
+wishing for it or wanting it, is to set yourself to be its cause" \cite{sources}. To will a maxim
+is to set yourself to be the cause of its goal by taking the means 
+specified in the maxim in the relevant circumstances. This coheres with 
+Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. 
+
+At worlds
 where the circumstances do not hold, a maxim is vacuously willed. If you decide to act on the rule ``I will 
 do X in these cirumstances", then you are vacuously obeying it when the circumstances don't hold.  
 
 The above discussion implies that willing a maxim is particular to the agent, justifying my choice to 
 require that a particular subject will a maxim. O'Neill argues for this interpretation when she distinguishes 
 between the evaluation of a principle, which is generic, and a maxim, which she views as ``individuated only 
-by referring to a person"$\footnote{p. 13}$ \cite{actingonprinciple}. I adopt the spirit of this interpretation but modify it slightly 
+by referring to a person"$\cite[13]{actingonprinciple}$. I adopt the spirit of this interpretation but modify it slightly 
 by representing the general maxim as a principle that anyone could adopt, and the act of willing the maxim 
 as a person-particular instantiation of the maxim.
 
 I additionally represent a subject as willing a maxim because I use the word `will' as a verb, to mean committing oneself to living by
-the principle of a maxim. This coheres with Kant's Formula of Universal Law, because it tests the willing 
-of a maxim to determine if it could be a universal law that everyone committed to. Formalizing this idea,
-the type of a maxim that is willed is a term, allowing me
-to use DDL's obligation operator on the notion of willing a maxim. 
+the principle of a maxim. This coheres with the FUL, which tests the act willing 
+of a maxim by determining if the maxim could be a universal law that everyone committed to. Formalizing this idea,
+the type of a willed maxim is a term, allowing me
+to use DDL's obligation operator on the notion of willing a maxim. Concretely, my system will prove 
+or disprove statements of the form ``Lavanya is obligated to will the maxim M." 
 
 Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
-our definition of the obligation operator, we define $O \{B|A\}$ to be true at all worlds iff ob(B)(A), or 
+\cite{BFP}'s definition of the obligation operator,  $O \{B|A\}$ is true at all worlds iff ob(B)(A), or 
 if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
-definition implies that worlds outside of B have no bearing on the obligatory-ness of A in context B, which 
-coheres with intuitions about obligation in a context. Thus, the dyadic obligation operator 
+definition implies that worlds outside of B have no bearing on the moral status of A in context B, which 
+coheres with intuitions about contextual obligation. Thus, the dyadic obligation operator 
 disqualifies worlds where the context does not hold, so the vacuous truth of the will statement in 
 these worlds does not matter. 
 
-Given that the will function already excludes worlds where the circumstances fail (by rendering 
+Given that the will abbreviation already excludes worlds where the circumstances fail (by rendering 
 the statement vacuously true at them), one may conclude that the dyadic obligation operator is now useless. 
 Using the dyadic obligation operator allows me to take advantage of the power of DDL to represent the bearing 
 that circumstances have on obligation. DDL has powerful axioms expressing the relationship between circumstances 
@@ -233,7 +242,7 @@ instead of a monadic deontic logic is a key contribution of this thesis.%
 %
 \begin{isamarkuptext}%
 A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
-when the subject does not act on it, the goal is not achieved.$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ \cite{sepcausation} 
+when the subject does not act on it, the goal is not achieved$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ \cite{sepcausation}. 
 The former direction of the implication 
 is intuitive: if the act results in the goal, it was effective in causing the goal. This represents `necessary'
 causality. 
@@ -241,8 +250,8 @@ causality.
 The latter direction represents `sufficient' causality, or the idea that, counterfactually,
 if the maxim were not willed, then the goal is not achieved \cite{lewiscausality}. Note that nothing else changes about this
 counterfactual world—the circumstances are identical and we neither added additional theorems nor 
-specified the model any further. This represents Lewis's idea of "comparative similarity," \cite{lewiscounterfactuals} where 
-a counterfactual is true if it holds at the most similar world. In our case, this is just the world 
+specified the model any further. This represents Lewis's idea of "comparative similarity,"  where 
+a counterfactual is true if it holds at the most similar world \cite{lewiscounterfactuals}. In our case, this is just the world 
 where everything is the same except the maxim is not acted on.
 
 Combining these ideas, this definition of effective states that a maxim is effective if the 
@@ -306,21 +315,21 @@ is prohibited (obligated not to) from willing the maxim.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-FUL0 is not consistent, and sledgehammer is indeed able to show that it implies a contradiction. 
-The axioms that sledgehammer used are O\_diamond, which is \isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A}. This axiom captures 
+FUL0 is not consistent, and sledgehammer is able to prove this by showing that it implies a contradiction 
+usig axiom O\_diamond, which is \isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A}. This axiom captures 
 the idea that an obligation can't contradict its context. This is particularly problematic if the goal or 
 action of a maxim are equivalent to its circumstances. In other words, if the maxim has already been 
 acted on or the goal has already been achieved, then prohibiting it is impossible. 
 In any model that has at least one term, it is possible to construct a maxim where the circumstances, goal, 
 and act (once a subject acts on it) are all that same term, resulting in a contradiction. 
 
-To get around this, I will exclude what I call ``badly formed maxims," which are those maxims sucht that the goal has already been 
+To get around this, I will exclude what I call ``badly formed maxims," which are those maxims such that the goal has already been 
 achieved or the act has already been acted on. Under my formalization, such maxims are 
-not well-formed. To understand why, we can return to Korsgaard's and O'Neill's interpretations of a maxim as a practical
+not well-formed. To understand why, I return to Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast," is not 
-practically relevant. No agent would ever need to act on such a principle. It's not necessarily contradictory
-or prohibited, but it is the wrong kind of question to be asking yourself. It is not a 
+practically relevant. No agent would ever need to act on such a principle. It is not contradictory
+or prohibited, but it is the wrong kind of question to be asking. It is not a 
 well-formed maxim, so the categorical imperative does not apply to it.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
@@ -353,6 +362,7 @@ maxims that are well-formed at every world.%
 \isamarkupcmt{The FUL does not hold in DDL, because nitpick is able to find a model for my system in which it is 
 false. If the FUL were already a theorem of the system, adding it wouldn't make the system any more 
 powerful, so this is the desired result.
+
 $\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
 
   Skolem constants:
@@ -385,8 +395,9 @@ $\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
 \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 %
-\isamarkupcmt{The system is still consistent! Nitpick is able to find a model in which all axioms are satisfied, 
+\isamarkupcmt{Nitpick is able to find a model in which all axioms are satisfied, 
 so this version of the FUL is consistent.
+
 $\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
 
   Empty assignment $\color{black}$%
@@ -399,12 +410,13 @@ $\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-During the process of making FUL0 consistent, I used Isabelle to gain philosophical insights, 
-especially about vacuous maxims. I used Nitpick and Sledgehammer to quickly test if a small tweak 
-to FUL0 fixed the problem or if I was still able to derive a contradiction.  I then realized that if 
-I defined the circumstances, act, and goal as constant, then FUL0 was indeed consistent. After some 
-experiementation, Prof. Amin correctly pointed out that, as constants, these three entities were 
-distinct. When merely quantifying over (c, a, g), all members of a tuple could be equivalent. Within
+During the process of making FUL0 consistent, I used Isabelle to gain philosophical insights 
+about vacuous maxims. This process is an example of the power of computational tools to aid
+philosophical progress. I used Nitpick and Sledgehammer to quickly test if a small tweak 
+to FUL0 fixed the inconsistency or if I was still able to derive a contradiction.  I then realized that if 
+I defined the circumstances, act, and goal as constants, then FUL0 was indeed consistent. After some 
+experimentation, Prof. Amin correctly pointed out that as constants, these three entities were 
+distinct. However, when merely quantifying over (c, a, g), all members of a tuple could be equivalent. Within
 a minute, I could formalize this notion, add it to FUL0, and test if it solved the problem. The fact 
 that it did spurred my philosophical insight about vacuous maxims. 
 
@@ -417,11 +429,11 @@ logical inconsistency then enabled a philosophical insight about which kinds of 
 practical principles. This is one way to do computational ethics: model a system in a logic, use 
 computational tools to refine and debug the logic, and then use insights about the logic to derive 
 insights about the ethical phenonema it is modelling. This procedure parallels the use of proofs in 
-theoretical math to understand the world.%
+theoretical math to understand the mathematical objects they model.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-One potential problem with my formalization is that it does not hugly use the modal nature of the system. 
+One potential problem with my formalization is that it does not use the modal nature of the system. 
 All of the properties that the FUL investigates hold at all worlds, in effect removing the modal nature 
 of the system. This approach simplifies logical and therefore computational complexity, improving 
 performance. On the other hand, it doesn't use the full expressivity of DDL. If I run into problems 
@@ -470,306 +482,319 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%65=20%:%
 %:%66=20%:%
 %:%67=20%:%
-%:%68=20%:%
-%:%69=21%:%
-%:%70=22%:%
-%:%71=22%:%
-%:%72=22%:%
-%:%73=22%:%
-%:%74=23%:%
-%:%75=24%:%
-%:%76=24%:%
-%:%77=24%:%
-%:%78=25%:%
-%:%79=26%:%
-%:%80=27%:%
-%:%81=28%:%
-%:%82=29%:%
-%:%83=30%:%
-%:%84=31%:%
-%:%87=33%:%
-%:%88=34%:%
-%:%89=35%:%
-%:%90=36%:%
-%:%91=37%:%
-%:%92=38%:%
-%:%93=39%:%
-%:%94=40%:%
-%:%95=41%:%
-%:%96=42%:%
-%:%97=43%:%
-%:%98=44%:%
-%:%99=45%:%
-%:%100=46%:%
-%:%101=47%:%
-%:%102=48%:%
-%:%103=49%:%
-%:%104=50%:%
-%:%105=51%:%
-%:%106=52%:%
-%:%107=53%:%
-%:%108=54%:%
-%:%109=55%:%
-%:%110=56%:%
-%:%111=57%:%
-%:%112=58%:%
-%:%113=59%:%
-%:%114=60%:%
-%:%115=61%:%
-%:%116=62%:%
-%:%117=63%:%
-%:%118=64%:%
-%:%119=65%:%
-%:%120=66%:%
-%:%121=67%:%
-%:%122=68%:%
-%:%123=69%:%
-%:%124=70%:%
-%:%125=71%:%
-%:%126=72%:%
-%:%127=73%:%
-%:%128=74%:%
-%:%129=75%:%
-%:%130=76%:%
-%:%131=77%:%
-%:%132=78%:%
-%:%133=79%:%
-%:%134=80%:%
-%:%135=81%:%
-%:%136=82%:%
-%:%137=83%:%
-%:%138=84%:%
-%:%139=85%:%
-%:%140=86%:%
-%:%141=87%:%
-%:%142=88%:%
-%:%143=89%:%
-%:%144=90%:%
-%:%145=91%:%
-%:%146=92%:%
-%:%147=93%:%
-%:%148=94%:%
-%:%149=95%:%
-%:%150=96%:%
-%:%151=97%:%
-%:%152=98%:%
-%:%153=99%:%
-%:%154=100%:%
-%:%155=101%:%
-%:%156=102%:%
-%:%157=103%:%
-%:%158=104%:%
-%:%159=105%:%
-%:%160=106%:%
-%:%161=107%:%
-%:%162=108%:%
-%:%163=109%:%
-%:%164=110%:%
-%:%165=111%:%
-%:%166=112%:%
-%:%167=113%:%
-%:%168=114%:%
-%:%169=115%:%
-%:%170=116%:%
-%:%171=117%:%
-%:%172=118%:%
-%:%173=119%:%
-%:%174=120%:%
-%:%175=121%:%
-%:%176=122%:%
-%:%177=123%:%
-%:%178=124%:%
-%:%180=126%:%
-%:%181=126%:%
-%:%182=127%:%
-%:%183=128%:%
-%:%186=130%:%
-%:%187=131%:%
-%:%188=132%:%
-%:%189=133%:%
-%:%190=134%:%
-%:%191=135%:%
-%:%192=136%:%
-%:%193=137%:%
-%:%194=138%:%
-%:%195=139%:%
-%:%196=140%:%
-%:%197=141%:%
-%:%198=142%:%
-%:%199=143%:%
-%:%200=144%:%
-%:%201=145%:%
-%:%202=146%:%
-%:%203=147%:%
-%:%204=148%:%
-%:%205=149%:%
-%:%206=150%:%
-%:%207=151%:%
-%:%208=152%:%
-%:%209=153%:%
-%:%210=154%:%
-%:%211=155%:%
-%:%212=156%:%
-%:%213=157%:%
-%:%214=158%:%
-%:%215=159%:%
-%:%216=160%:%
-%:%217=161%:%
-%:%218=162%:%
-%:%219=163%:%
-%:%220=164%:%
-%:%221=165%:%
-%:%222=166%:%
-%:%223=167%:%
-%:%224=168%:%
-%:%225=169%:%
-%:%226=170%:%
-%:%227=171%:%
-%:%229=174%:%
-%:%230=174%:%
-%:%231=175%:%
-%:%232=176%:%
-%:%235=178%:%
-%:%236=179%:%
-%:%237=180%:%
-%:%238=181%:%
-%:%239=182%:%
-%:%240=183%:%
-%:%241=184%:%
-%:%242=185%:%
-%:%243=186%:%
-%:%244=187%:%
-%:%245=188%:%
-%:%246=189%:%
-%:%247=190%:%
-%:%248=191%:%
-%:%249=192%:%
-%:%250=193%:%
-%:%251=194%:%
-%:%252=195%:%
-%:%253=196%:%
-%:%254=197%:%
-%:%255=198%:%
-%:%257=200%:%
-%:%258=200%:%
-%:%259=201%:%
-%:%260=202%:%
-%:%261=203%:%
-%:%262=203%:%
-%:%263=204%:%
-%:%265=205%:%
-%:%266=206%:%
-%:%269=208%:%
-%:%270=209%:%
-%:%271=210%:%
-%:%272=211%:%
-%:%273=212%:%
-%:%274=213%:%
-%:%276=216%:%
-%:%277=216%:%
-%:%278=217%:%
-%:%279=218%:%
-%:%280=219%:%
-%:%281=219%:%
-%:%283=220%:%
-%:%284=221%:%
-%:%285=222%:%
-%:%286=223%:%
-%:%287=223%:%
-%:%288=224%:%
-%:%289=225%:%
-%:%290=225%:%
-%:%292=225%:%
-%:%296=225%:%
-%:%297=225%:%
-%:%298=226%:%
-%:%299=226%:%
-%:%300=226%:%
-%:%309=228%:%
-%:%310=229%:%
-%:%311=230%:%
-%:%312=231%:%
-%:%313=232%:%
-%:%314=233%:%
-%:%315=234%:%
-%:%316=235%:%
-%:%317=236%:%
-%:%318=237%:%
-%:%319=238%:%
-%:%320=239%:%
-%:%321=240%:%
-%:%322=241%:%
-%:%323=242%:%
-%:%324=243%:%
-%:%326=245%:%
-%:%327=245%:%
-%:%328=246%:%
-%:%330=247%:%
-%:%331=248%:%
-%:%332=248%:%
-%:%333=249%:%
-%:%334=250%:%
-%:%335=250%:%
-%:%337=251%:%
-%:%338=252%:%
-%:%339=252%:%
-%:%340=253%:%
-%:%341=254%:%
-%:%342=254%:%
-%:%343=255%:%
-%:%344=255%:%
-%:%346=255%:%
-%:%350=255%:%
-%:%351=255%:%
-%:%353=256%:%
-%:%354=257%:%
-%:%355=258%:%
-%:%356=259%:%
-%:%357=260%:%
-%:%358=261%:%
-%:%359=262%:%
-%:%360=263%:%
-%:%361=264%:%
-%:%362=265%:%
-%:%363=266%:%
-%:%371=266%:%
-%:%372=267%:%
-%:%373=268%:%
-%:%374=268%:%
-%:%375=269%:%
-%:%376=270%:%
-%:%377=270%:%
-%:%378=271%:%
-%:%379=271%:%
-%:%381=271%:%
-%:%385=271%:%
-%:%386=271%:%
-%:%388=272%:%
-%:%389=273%:%
-%:%390=274%:%
-%:%391=275%:%
-%:%392=276%:%
-%:%402=278%:%
-%:%403=279%:%
-%:%404=280%:%
-%:%405=281%:%
-%:%406=282%:%
-%:%407=283%:%
-%:%408=284%:%
-%:%409=285%:%
-%:%410=286%:%
-%:%411=287%:%
-%:%412=288%:%
-%:%413=289%:%
-%:%414=290%:%
-%:%415=291%:%
-%:%416=292%:%
-%:%417=293%:%
-%:%418=294%:%
-%:%419=295%:%
-%:%420=296%:%
-%:%424=298%:%
-%:%425=299%:%
-%:%426=300%:%
-%:%427=301%:%
-%:%428=302%:%
+%:%68=21%:%
+%:%69=22%:%
+%:%70=23%:%
+%:%71=23%:%
+%:%72=24%:%
+%:%73=25%:%
+%:%74=25%:%
+%:%75=25%:%
+%:%76=26%:%
+%:%77=26%:%
+%:%78=27%:%
+%:%79=28%:%
+%:%80=28%:%
+%:%82=30%:%
+%:%83=31%:%
+%:%84=32%:%
+%:%85=33%:%
+%:%86=34%:%
+%:%87=35%:%
+%:%88=36%:%
+%:%89=37%:%
+%:%90=38%:%
+%:%91=39%:%
+%:%92=40%:%
+%:%93=41%:%
+%:%94=42%:%
+%:%95=43%:%
+%:%96=44%:%
+%:%97=45%:%
+%:%98=46%:%
+%:%99=47%:%
+%:%100=48%:%
+%:%101=49%:%
+%:%102=50%:%
+%:%103=51%:%
+%:%104=52%:%
+%:%105=53%:%
+%:%106=54%:%
+%:%107=55%:%
+%:%108=56%:%
+%:%109=57%:%
+%:%110=58%:%
+%:%111=59%:%
+%:%112=60%:%
+%:%113=61%:%
+%:%114=62%:%
+%:%115=63%:%
+%:%116=64%:%
+%:%117=65%:%
+%:%118=66%:%
+%:%119=67%:%
+%:%120=68%:%
+%:%121=69%:%
+%:%122=70%:%
+%:%123=71%:%
+%:%124=72%:%
+%:%125=73%:%
+%:%126=74%:%
+%:%127=75%:%
+%:%128=76%:%
+%:%129=77%:%
+%:%130=78%:%
+%:%131=79%:%
+%:%132=80%:%
+%:%133=81%:%
+%:%134=82%:%
+%:%135=83%:%
+%:%136=84%:%
+%:%137=85%:%
+%:%138=86%:%
+%:%139=87%:%
+%:%140=88%:%
+%:%141=89%:%
+%:%142=90%:%
+%:%143=91%:%
+%:%144=92%:%
+%:%145=93%:%
+%:%146=94%:%
+%:%147=95%:%
+%:%148=96%:%
+%:%149=97%:%
+%:%150=98%:%
+%:%151=99%:%
+%:%152=100%:%
+%:%153=101%:%
+%:%154=102%:%
+%:%155=103%:%
+%:%156=104%:%
+%:%157=105%:%
+%:%158=106%:%
+%:%159=107%:%
+%:%160=108%:%
+%:%161=109%:%
+%:%162=110%:%
+%:%163=111%:%
+%:%164=112%:%
+%:%165=113%:%
+%:%166=114%:%
+%:%167=115%:%
+%:%168=116%:%
+%:%169=117%:%
+%:%170=118%:%
+%:%171=119%:%
+%:%172=120%:%
+%:%173=121%:%
+%:%174=122%:%
+%:%175=123%:%
+%:%176=124%:%
+%:%177=125%:%
+%:%178=126%:%
+%:%179=127%:%
+%:%180=128%:%
+%:%181=129%:%
+%:%182=130%:%
+%:%183=131%:%
+%:%184=132%:%
+%:%186=134%:%
+%:%187=134%:%
+%:%188=135%:%
+%:%189=136%:%
+%:%192=138%:%
+%:%193=139%:%
+%:%194=140%:%
+%:%195=141%:%
+%:%196=142%:%
+%:%197=143%:%
+%:%198=144%:%
+%:%199=145%:%
+%:%200=146%:%
+%:%201=147%:%
+%:%202=148%:%
+%:%203=149%:%
+%:%204=150%:%
+%:%205=151%:%
+%:%206=152%:%
+%:%207=153%:%
+%:%208=154%:%
+%:%209=155%:%
+%:%210=156%:%
+%:%211=157%:%
+%:%212=158%:%
+%:%213=159%:%
+%:%214=160%:%
+%:%215=161%:%
+%:%216=162%:%
+%:%217=163%:%
+%:%218=164%:%
+%:%219=165%:%
+%:%220=166%:%
+%:%221=167%:%
+%:%222=168%:%
+%:%223=169%:%
+%:%224=170%:%
+%:%225=171%:%
+%:%226=172%:%
+%:%227=173%:%
+%:%228=174%:%
+%:%229=175%:%
+%:%230=176%:%
+%:%231=177%:%
+%:%232=178%:%
+%:%233=179%:%
+%:%234=180%:%
+%:%235=181%:%
+%:%236=182%:%
+%:%238=185%:%
+%:%239=185%:%
+%:%240=186%:%
+%:%241=187%:%
+%:%244=189%:%
+%:%245=190%:%
+%:%246=191%:%
+%:%247=192%:%
+%:%248=193%:%
+%:%249=194%:%
+%:%250=195%:%
+%:%251=196%:%
+%:%252=197%:%
+%:%253=198%:%
+%:%254=199%:%
+%:%255=200%:%
+%:%256=201%:%
+%:%257=202%:%
+%:%258=203%:%
+%:%259=204%:%
+%:%260=205%:%
+%:%261=206%:%
+%:%262=207%:%
+%:%263=208%:%
+%:%264=209%:%
+%:%266=211%:%
+%:%267=211%:%
+%:%268=212%:%
+%:%269=213%:%
+%:%270=214%:%
+%:%271=214%:%
+%:%272=215%:%
+%:%274=216%:%
+%:%275=217%:%
+%:%278=219%:%
+%:%279=220%:%
+%:%280=221%:%
+%:%281=222%:%
+%:%282=223%:%
+%:%283=224%:%
+%:%285=227%:%
+%:%286=227%:%
+%:%287=228%:%
+%:%288=229%:%
+%:%289=230%:%
+%:%290=230%:%
+%:%292=231%:%
+%:%293=232%:%
+%:%294=233%:%
+%:%295=234%:%
+%:%296=234%:%
+%:%297=235%:%
+%:%298=236%:%
+%:%299=236%:%
+%:%301=236%:%
+%:%305=236%:%
+%:%306=236%:%
+%:%307=237%:%
+%:%308=237%:%
+%:%309=237%:%
+%:%318=239%:%
+%:%319=240%:%
+%:%320=241%:%
+%:%321=242%:%
+%:%322=243%:%
+%:%323=244%:%
+%:%324=245%:%
+%:%325=246%:%
+%:%326=247%:%
+%:%327=248%:%
+%:%328=249%:%
+%:%329=250%:%
+%:%330=251%:%
+%:%331=252%:%
+%:%332=253%:%
+%:%333=254%:%
+%:%335=256%:%
+%:%336=256%:%
+%:%337=257%:%
+%:%339=258%:%
+%:%340=259%:%
+%:%341=259%:%
+%:%342=260%:%
+%:%343=261%:%
+%:%344=261%:%
+%:%346=262%:%
+%:%347=263%:%
+%:%348=263%:%
+%:%349=264%:%
+%:%350=265%:%
+%:%351=265%:%
+%:%352=266%:%
+%:%353=266%:%
+%:%355=266%:%
+%:%359=266%:%
+%:%360=266%:%
+%:%362=267%:%
+%:%363=268%:%
+%:%364=269%:%
+%:%365=270%:%
+%:%366=271%:%
+%:%367=272%:%
+%:%368=273%:%
+%:%369=274%:%
+%:%370=275%:%
+%:%371=276%:%
+%:%372=277%:%
+%:%373=278%:%
+%:%381=278%:%
+%:%382=279%:%
+%:%383=280%:%
+%:%384=280%:%
+%:%385=281%:%
+%:%386=282%:%
+%:%387=282%:%
+%:%388=283%:%
+%:%389=283%:%
+%:%391=283%:%
+%:%395=283%:%
+%:%396=283%:%
+%:%398=284%:%
+%:%399=285%:%
+%:%400=286%:%
+%:%401=287%:%
+%:%402=288%:%
+%:%403=289%:%
+%:%413=291%:%
+%:%414=292%:%
+%:%415=293%:%
+%:%416=294%:%
+%:%417=295%:%
+%:%418=296%:%
+%:%419=297%:%
+%:%420=298%:%
+%:%421=299%:%
+%:%422=300%:%
+%:%423=301%:%
+%:%424=302%:%
+%:%425=303%:%
+%:%426=304%:%
+%:%427=305%:%
+%:%428=306%:%
+%:%429=307%:%
+%:%430=308%:%
+%:%431=309%:%
+%:%432=310%:%
+%:%436=312%:%
+%:%437=313%:%
+%:%438=314%:%
+%:%439=315%:%
+%:%440=316%:%

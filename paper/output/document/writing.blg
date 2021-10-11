@@ -1,50 +1,50 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: writing.aux
-The style file: abbrv.bst
+The style file: apalike.bst
 Database file #1: root.bib
+Warning--I didn't find a database entry for "w"
 Warning--empty journal in dietrichson
-Warning--empty chapter and pages in ebelsduggan
 Warning--empty title in acton
-You've used 10 entries,
-            2118 wiz_defined-function locations,
-            562 strings with 4751 characters,
-and the built_in function-call counts, 2588 in all, are:
-= -- 246
-> -- 80
-< -- 0
-+ -- 33
-- -- 23
-* -- 153
-:= -- 450
-add.period$ -- 30
-call.type$ -- 10
-change.case$ -- 36
-chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 120
-empty$ -- 249
-format.name$ -- 23
-if$ -- 541
-int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 15
-newline$ -- 52
-num.names$ -- 22
-pop$ -- 61
+You've used 12 entries,
+            1935 wiz_defined-function locations,
+            547 strings with 4852 characters,
+and the built_in function-call counts, 3874 in all, are:
+= -- 371
+> -- 94
+< -- 14
++ -- 27
+- -- 27
+* -- 293
+:= -- 691
+add.period$ -- 36
+call.type$ -- 12
+change.case$ -- 67
+chr.to.int$ -- 12
+cite$ -- 14
+duplicate$ -- 176
+empty$ -- 325
+format.name$ -- 41
+if$ -- 763
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 18
+newline$ -- 62
+num.names$ -- 38
+pop$ -- 79
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 73
 quote$ -- 0
-skip$ -- 61
+skip$ -- 121
 stack$ -- 0
-substring$ -- 140
-swap$ -- 9
-text.length$ -- 0
+substring$ -- 253
+swap$ -- 13
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
-warning$ -- 3
-while$ -- 28
-width$ -- 12
-write$ -- 106
+type$ -- 60
+warning$ -- 2
+while$ -- 34
+width$ -- 0
+write$ -- 154
 (There were 3 warnings)

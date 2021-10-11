@@ -11,26 +11,34 @@ the goals from the previous chapter."
 subsection "Logical Background"
 
 text \<open>The previous attempts to model the categorical imperative in Chapter 2 partially failed due to 
-lack of expressivity about the complexity of a maxim. Specifically, they treated actions as a single, 
+an inability to fully represent the complexity of a maxim. Specifically, they treated actions as a single, 
 monolithic unit of evaluation, whereas most Kantians consider the unit of evaluation for the FUL to the more
-complex notion of a maxim. In this section, I will present some logical background necessarily to more fully 
+complex notion of a maxim. In this section, I will present some logical background necessarily to fully 
 capture the spirit of a maxim. I will begin by borrowing some machinery to handle ``subjects" who perform 
 actions from Chapter 2.\<close>
 
-typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
+typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence. In this interpretation, 
+a subject is merely defined as ``that which can act." It does not include any other properties, such as 
+rationality or dignity. As I will show, for the purposes of defining the universalizability test, this 
+``thin" representation of a subject suffices.\<close>
 
-type_synonym os = "(s \<Rightarrow> t)" \<comment>\<open>Recall that an open sentence maps a subject to a term to model substitution.\<close>
+type_synonym os = "(s \<Rightarrow> t)" \<comment>\<open>Recall that an open sentence maps a subject to a term to model the 
+substitution operator.\<close>
 
-type_synonym maxim = "(t * os * t)" \<comment>\<open>I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
-as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
-type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
-$t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
-is realized or not. An act is an open sentence because an act itself is not the kind of thing that can 
-be true or false (as in, an act is not truth-apt), but the combination of a subject performing an act 
-can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
-For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.\<close>
+type_synonym maxim = "(t * os * t)"
 
-text \<open>I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
+text \<open>The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
+in a footnote in \emph{Groundworkd} as ``the subjective principle of willing," or the principle that 
+the agent acts on $\cite[16]{groundwork}$. Modern Kantians differ in their interpretations of this definition. The naive view 
+is that a maxim is an act, but Korsgaard adopts the more sophisticated view that a maxim is composed
+of an act and the agent's purpose for acting @{cite "actingforareason"}. She also compares a maxim 
+to Aristotle's logos, which includes these components and information about the circumstances and methods 
+of the act. O'Neill concludes that Kant's examples imply that a maxim must also include circumstances @{cite "actingonprinciple"}, and 
+Kitcher @{cite "whatisamaxim"} uses textual evidence from the Groundwork to argue for the inclusion of a maxim's purpose 
+or motivation. In order to formalize the notion of a maxim, I must adopt a specific definition and 
+defend my choice.
+
+I define a maxim as a circumstance, act, goal tuple (C, A, G), read 
 as ``In circumstances C, act A for goal G." Isabelle's strict typing rules mean that the choice of the 
 type of each member of this tuple is significant. A circumstance is represented as a set of worlds 
 $t$ where that circumstance holds. A goal is also a term because it can be true or false at a world if it 
@@ -39,32 +47,32 @@ be true or false (as in, an act is not truth-apt), but the combination of a subj
 can be true or false at a world depending on whether or not the act is indeed performed by that subject. 
 For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
 
-My definition of a maxim is inspired by Onora O'Neill's work on maxims. I will defend my representation
-below and consider an additional component that Patricia Kitcher argues for.
+My definition of a maxim is inspired by O'Neill's work on maxims. I will defend my representation
+below and consider an additional component that Kitcher argues for.
 
 $\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
 
-O'Neill$\footnote{p. 37}$ @{cite "actingonprinciple"} presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
+O'Neill $\cite[37]{actingonprinciple}$ presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
 view that a maxim is a circumstance, act, goal tuple. A maxim 
 is an action-guiding rule and thus naturally includes an act and the circumstances under which 
 it should be performed, which are often referred to as ``morally relevant circumstances." 
 
 She also includes a purpose, end, or goal in the maxim because Kant includes this in many of his 
 example maxims and because Kant argues that human activity, because it is guided by a rational will, 
-is inherently purposive@{cite groundwork}\footnote{(G 4:428)}. A rational will does not act randomly (else it would not be rational), 
+is inherently purposive $\cite[4:428]{groundwork}$. A rational will does not act randomly (else it would not be rational), 
 but instead in the pursuit of ends which it deems valuable. This inclusion is also essential for the version of the universalizability test 
 that I will implement, explained in Section ??.
 
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
-relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" @{cite whatisamaxim}$\footnote{Kitcher
-on p.217 cites Wood p. 102 @{cite kantsethicalthought} as offering an example of a false positive due to this objection.}$, 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" $\cite[217]{whatisamaxim} \footnote{Kitcher
+cites \cite{kantsethicalthought}  as offering an example of a false positive due to this objection.}$, 
 under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Lavanya Singh,
 I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
 this problem is to argue that the circumstance ``When my name is Lavanya Singh" is not morally relevant 
 to the act and goal. This solution requires some discussion of what qualifies as a relevant circumstance.
 
-O'Neill seems to acknowledge the difficult of determining relevant circumstances when she concedes that a maxim cannot include all 
-of the infinitely many circumstances in which the agent may perform the action$\footnote{p. 37}$. She argues that this is 
+O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
+of the infinitely many circumstances in which the agent may perform the action$\cite[4:428]{actingonprinciple}$. She argues that this is 
 an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
 and how to do it @{cite bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
@@ -86,8 +94,8 @@ and whether or not this formulation does indeed include morally relevant circums
 garbage into the test, the test will return garbage out.
 
 While this may appear to be a weakness of my system, I believe that it actually
-allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers @{cite powers} presents 
-the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics.}
+allows my system to retain some of the human complexity that many philosophers agree cannot be automated away.\footnote{Powers presents 
+the determination of morally relevant circumstances as an obstacle to the automation of Kantian ethics @{cite powers}.}
 Ethics is a fundamentally human activity. Kant argues that the categorical imperative is a statement 
 about the properties of rational wills. In fact, Korsgaard argues that morality derives its authority over us, 
 or normativity, only because is it a property of a rational will, and we, as human beings, are rational wills.
@@ -99,8 +107,8 @@ of this issue.
 
 $\emph{Exclusion of Motive}$
 
-Kitcher @{cite whatisamaxim} begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim. This additional component is read 
+Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
+behind performing the maxim @{cite whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
 Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
 in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
@@ -115,7 +123,7 @@ because it is not necessary for putting maxims through the FUL. Indeed, Kitcher 
 O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
-including a motive. The ``input" to the FUL is the circumstance, act, goal pair. My project takes 
+including a motive. The ``input" to the FUL is the circumstance, act, goal tuple. My project takes 
 this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
@@ -128,35 +136,38 @@ abbreviation will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("W _ _")
 print_theorems
 
 text \<open>Korsgaard claims that ``to will an end, rather than just
-wishing for it or wanting it, is to set yourself to be its cause" @{cite "sources"}. To will a maxim, then, 
-is to set yourself to, in the relevant circumstances, be the cause of its goal by taking the means 
-specified in the maxim. This coheres with 
-Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. At worlds 
+wishing for it or wanting it, is to set yourself to be its cause" @{cite "sources"}. To will a maxim
+is to set yourself to be the cause of its goal by taking the means 
+specified in the maxim in the relevant circumstances. This coheres with 
+Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. 
+
+At worlds
 where the circumstances do not hold, a maxim is vacuously willed. If you decide to act on the rule ``I will 
 do X in these cirumstances", then you are vacuously obeying it when the circumstances don't hold.  
 
 The above discussion implies that willing a maxim is particular to the agent, justifying my choice to 
 require that a particular subject will a maxim. O'Neill argues for this interpretation when she distinguishes 
 between the evaluation of a principle, which is generic, and a maxim, which she views as ``individuated only 
-by referring to a person"$\footnote{p. 13}$ @{cite "actingonprinciple"}. I adopt the spirit of this interpretation but modify it slightly 
+by referring to a person"$\cite[13]{actingonprinciple}$. I adopt the spirit of this interpretation but modify it slightly 
 by representing the general maxim as a principle that anyone could adopt, and the act of willing the maxim 
 as a person-particular instantiation of the maxim.
 
 I additionally represent a subject as willing a maxim because I use the word `will' as a verb, to mean committing oneself to living by
-the principle of a maxim. This coheres with Kant's Formula of Universal Law, because it tests the willing 
-of a maxim to determine if it could be a universal law that everyone committed to. Formalizing this idea,
-the type of a maxim that is willed is a term, allowing me
-to use DDL's obligation operator on the notion of willing a maxim. 
+the principle of a maxim. This coheres with the FUL, which tests the act willing 
+of a maxim by determining if the maxim could be a universal law that everyone committed to. Formalizing this idea,
+the type of a willed maxim is a term, allowing me
+to use DDL's obligation operator on the notion of willing a maxim. Concretely, my system will prove 
+or disprove statements of the form ``Lavanya is obligated to will the maxim M." 
 
 Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
-our definition of the obligation operator, we define $O \{B|A\}$ to be true at all worlds iff ob(B)(A), or 
+@{cite BFP}'s definition of the obligation operator,  $O \{B|A\}$ is true at all worlds iff ob(B)(A), or 
 if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
-definition implies that worlds outside of B have no bearing on the obligatory-ness of A in context B, which 
-coheres with intuitions about obligation in a context. Thus, the dyadic obligation operator 
+definition implies that worlds outside of B have no bearing on the moral status of A in context B, which 
+coheres with intuitions about contextual obligation. Thus, the dyadic obligation operator 
 disqualifies worlds where the context does not hold, so the vacuous truth of the will statement in 
 these worlds does not matter. 
 
-Given that the will function already excludes worlds where the circumstances fail (by rendering 
+Given that the will abbreviation already excludes worlds where the circumstances fail (by rendering 
 the statement vacuously true at them), one may conclude that the dyadic obligation operator is now useless. 
 Using the dyadic obligation operator allows me to take advantage of the power of DDL to represent the bearing 
 that circumstances have on obligation. DDL has powerful axioms expressing the relationship between circumstances 
@@ -176,7 +187,7 @@ abbreviation effective :: "maxim\<Rightarrow>s\<Rightarrow> t" ("E _ _")
 print_theorems
 
 text \<open>A maxim is effective for a subject when, if the subject wills it then the goal is achieved, and
-when the subject does not act on it, the goal is not achieved.$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ @{cite sepcausation} 
+when the subject does not act on it, the goal is not achieved$\footnote{Thank you to Jeremy D. Zucker for helping me think through this.}$ @{cite sepcausation}. 
 The former direction of the implication 
 is intuitive: if the act results in the goal, it was effective in causing the goal. This represents `necessary'
 causality. 
@@ -184,8 +195,8 @@ causality.
 The latter direction represents `sufficient' causality, or the idea that, counterfactually,
 if the maxim were not willed, then the goal is not achieved @{cite "lewiscausality"}. Note that nothing else changes about this
 counterfactual world—the circumstances are identical and we neither added additional theorems nor 
-specified the model any further. This represents Lewis's idea of "comparative similarity," @{cite lewiscounterfactuals} where 
-a counterfactual is true if it holds at the most similar world. In our case, this is just the world 
+specified the model any further. This represents Lewis's idea of "comparative similarity,"  where 
+a counterfactual is true if it holds at the most similar world @{cite lewiscounterfactuals}. In our case, this is just the world 
 where everything is the same except the maxim is not acted on.
 
 Combining these ideas, this definition of effective states that a maxim is effective if the 
@@ -225,21 +236,21 @@ is prohibited (obligated not to) from willing the maxim.\<close>
 lemma "FUL0 \<longrightarrow> False" using O_diamond 
   using prod.simps(2) split_conv by fastforce
 
-text \<open>FUL0 is not consistent, and sledgehammer is indeed able to show that it implies a contradiction. 
-The axioms that sledgehammer used are O\_diamond, which is @{"thm" "O_diamond"}. This axiom captures 
+text \<open>FUL0 is not consistent, and sledgehammer is able to prove this by showing that it implies a contradiction 
+usig axiom O\_diamond, which is @{"thm" "O_diamond"}. This axiom captures 
 the idea that an obligation can't contradict its context. This is particularly problematic if the goal or 
 action of a maxim are equivalent to its circumstances. In other words, if the maxim has already been 
 acted on or the goal has already been achieved, then prohibiting it is impossible. 
 In any model that has at least one term, it is possible to construct a maxim where the circumstances, goal, 
 and act (once a subject acts on it) are all that same term, resulting in a contradiction. 
 
-To get around this, I will exclude what I call ``badly formed maxims," which are those maxims sucht that the goal has already been 
+To get around this, I will exclude what I call ``badly formed maxims," which are those maxims such that the goal has already been 
 achieved or the act has already been acted on. Under my formalization, such maxims are 
-not well-formed. To understand why, we can return to Korsgaard's and O'Neill's interpretations of a maxim as a practical
+not well-formed. To understand why, I return to Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast," is not 
-practically relevant. No agent would ever need to act on such a principle. It's not necessarily contradictory
-or prohibited, but it is the wrong kind of question to be asking yourself. It is not a 
+practically relevant. No agent would ever need to act on such a principle. It is not contradictory
+or prohibited, but it is the wrong kind of question to be asking. It is not a 
 well-formed maxim, so the categorical imperative does not apply to it.\<close>
 
 abbreviation well_formed::"maxim\<Rightarrow>s\<Rightarrow>i\<Rightarrow>bool" where 
@@ -256,6 +267,7 @@ lemma "FUL"
 \<comment>\<open>The FUL does not hold in DDL, because nitpick is able to find a model for my system in which it is 
 false. If the FUL were already a theorem of the system, adding it wouldn't make the system any more 
 powerful, so this is the desired result.
+
 $\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
 
   Skolem constants:
@@ -269,18 +281,20 @@ axiomatization where FUL:FUL
 
 lemma True
   nitpick[user_axioms, falsify=false] by simp
-\<comment>\<open>The system is still consistent! Nitpick is able to find a model in which all axioms are satisfied, 
+\<comment>\<open>Nitpick is able to find a model in which all axioms are satisfied, 
 so this version of the FUL is consistent.
+
 $\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
 
   Empty assignment $\color{black}$ \<close>
 
-text \<open>During the process of making FUL0 consistent, I used Isabelle to gain philosophical insights, 
-especially about vacuous maxims. I used Nitpick and Sledgehammer to quickly test if a small tweak 
-to FUL0 fixed the problem or if I was still able to derive a contradiction.  I then realized that if 
-I defined the circumstances, act, and goal as constant, then FUL0 was indeed consistent. After some 
-experiementation, Prof. Amin correctly pointed out that, as constants, these three entities were 
-distinct. When merely quantifying over (c, a, g), all members of a tuple could be equivalent. Within
+text \<open>During the process of making FUL0 consistent, I used Isabelle to gain philosophical insights 
+about vacuous maxims. This process is an example of the power of computational tools to aid
+philosophical progress. I used Nitpick and Sledgehammer to quickly test if a small tweak 
+to FUL0 fixed the inconsistency or if I was still able to derive a contradiction.  I then realized that if 
+I defined the circumstances, act, and goal as constants, then FUL0 was indeed consistent. After some 
+experimentation, Prof. Amin correctly pointed out that as constants, these three entities were 
+distinct. However, when merely quantifying over (c, a, g), all members of a tuple could be equivalent. Within
 a minute, I could formalize this notion, add it to FUL0, and test if it solved the problem. The fact 
 that it did spurred my philosophical insight about vacuous maxims. 
 
@@ -293,9 +307,9 @@ logical inconsistency then enabled a philosophical insight about which kinds of 
 practical principles. This is one way to do computational ethics: model a system in a logic, use 
 computational tools to refine and debug the logic, and then use insights about the logic to derive 
 insights about the ethical phenonema it is modelling. This procedure parallels the use of proofs in 
-theoretical math to understand the world.\<close>
+theoretical math to understand the mathematical objects they model.\<close>
 
-text \<open>One potential problem with my formalization is that it does not hugly use the modal nature of the system. 
+text \<open>One potential problem with my formalization is that it does not use the modal nature of the system. 
 All of the properties that the FUL investigates hold at all worlds, in effect removing the modal nature 
 of the system. This approach simplifies logical and therefore computational complexity, improving 
 performance. On the other hand, it doesn't use the full expressivity of DDL. If I run into problems 

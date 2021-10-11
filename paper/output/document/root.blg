@@ -1,51 +1,52 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
-The style file: abbrv.bst
+The style file: apalike.bst
 Database file #1: root.bib
 Warning--empty booktitle in deon2
 Warning--empty booktitle in util2
+Warning--empty year in deon1
 Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
-You've used 48 entries,
-            2118 wiz_defined-function locations,
-            792 strings with 10317 characters,
-and the built_in function-call counts, 14014 in all, are:
-= -- 1367
-> -- 563
-< -- 8
-+ -- 227
-- -- 174
-* -- 839
-:= -- 2356
+You've used 49 entries,
+            1935 wiz_defined-function locations,
+            766 strings with 10353 characters,
+and the built_in function-call counts, 17460 in all, are:
+= -- 1710
+> -- 570
+< -- 47
++ -- 187
+- -- 176
+* -- 1320
+:= -- 3037
 add.period$ -- 150
-call.type$ -- 48
-change.case$ -- 218
-chr.to.int$ -- 0
-cite$ -- 52
-duplicate$ -- 634
-empty$ -- 1189
-format.name$ -- 174
-if$ -- 2986
-int.to.chr$ -- 0
-int.to.str$ -- 48
-missing$ -- 59
-newline$ -- 243
-num.names$ -- 104
-pop$ -- 264
+call.type$ -- 49
+change.case$ -- 320
+chr.to.int$ -- 48
+cite$ -- 54
+duplicate$ -- 786
+empty$ -- 1319
+format.name$ -- 253
+if$ -- 3499
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 60
+newline$ -- 245
+num.names$ -- 155
+pop$ -- 316
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 330
 quote$ -- 0
-skip$ -- 442
+skip$ -- 607
 stack$ -- 0
-substring$ -- 677
-swap$ -- 126
+substring$ -- 1049
+swap$ -- 122
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 168
-warning$ -- 4
-while$ -- 132
-width$ -- 50
-write$ -- 523
-(There were 4 warnings)
+type$ -- 270
+warning$ -- 5
+while$ -- 136
+width$ -- 0
+write$ -- 629
+(There were 5 warnings)

@@ -15,11 +15,11 @@
 \contentsline {subsubsection}{\numberline {2.1.3}Metaethical Tests }{13}{subsubsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{16}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{16}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{18}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{19}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{19}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{23}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{25}{subsubsection.2.2.5}%
-\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{26}{section.3}%
+\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{27}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Logical Background}{27}{subsection.3.1}%
 \contentsline {section}{\numberline {4}Related Work}{34}{section.4}%
 \contentsline {section}{\numberline {5}Future Work}{35}{section.5}%

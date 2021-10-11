@@ -1,54 +1,64 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{}
 
-\bibitem{bok}
-H.~Bok.
+\bibitem[Bok, 1998]{bok}
+Bok, H. (1998).
 \newblock {\em Freedom and Responsibility}.
-\newblock Princeton University Press, 1998.
+\newblock Princeton University Press.
 
-\bibitem{dietrichson}
-P.~Dietrichson.
+\bibitem[Dietrichson, 1964]{dietrichson}
+Dietrichson, P. (1964).
 \newblock When is a maxim fully universalizable ?
-\newblock 55(1-4):143--170, 1964.
+\newblock 55(1-4):143--170.
 
-\bibitem{ebelsduggan}
-K.~Ebels-Duggan.
-\newblock {\em Kantian Ethics}.
-\newblock Continuum, 2012.
+\bibitem[Ebels-Duggan, 2012]{ebelsduggan}
+Ebels-Duggan, K. (2012).
+\newblock {\em Kantian Ethics}, chapter Kantian Ethics.
+\newblock Continuum.
 
-\bibitem{acton}
-A.~C. Ewing.
-\newblock {\em Philosophy}, 47(180):173--175, 1972.
+\bibitem[Ewing, 1972]{acton}
+Ewing, A.~C. (1972).
+\newblock {\em Philosophy}, 47(180):173--175.
 
-\bibitem{sepkant}
-R.~Johnson and A.~Cureton.
+\bibitem[Johnson and Cureton, 2021]{sepkant}
+Johnson, R. and Cureton, A. (2021).
 \newblock {Kant’s Moral Philosophy}.
-\newblock In E.~N. Zalta, editor, {\em The {Stanford} Encyclopedia of
+\newblock In Zalta, E.~N., editor, {\em The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {S}pring 2021
-  edition, 2021.
+  edition.
 
-\bibitem{groundwork}
-I.~Kant.
+\bibitem[Kant, 1785]{groundwork}
+Kant, I. (1785).
 \newblock {\em Groundwork of the Metaphysics of Morals}.
-\newblock Cambridge University Press, Cambridge, 1785.
+\newblock Cambridge University Press, Cambridge.
 
-\bibitem{whatisamaxim}
-P.~Kitcher.
+\bibitem[Kitcher, 2003]{whatisamaxim}
+Kitcher, P. (2003).
 \newblock What is a maxim?
-\newblock {\em Philosophical Topics}, 31(1/2):215--243, 2003.
+\newblock {\em Philosophical Topics}, 31(1/2):215--243.
 
-\bibitem{actingonprinciple}
-O.~O'Neill.
+\bibitem[Korsgaard, 2012]{korsgaardintro}
+Korsgaard, C. (2012).
+\newblock {\em Groundwork of the Metaphysics of Morals}, chapter Introduction.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Korsgaard, 2005]{actingforareason}
+Korsgaard, C.~M. (2005).
+\newblock Acting for a reason.
+\newblock {\em Danish Yearbook of Philosophy}, 40(1):11--35.
+
+\bibitem[O'Neill, 2013]{actingonprinciple}
+O'Neill, O. (2013).
 \newblock {\em Acting on Principle: An Essay on Kantian Ethics}.
-\newblock Cambridge University Press, 2013.
+\newblock Cambridge University Press.
 
-\bibitem{powers}
-T.~M. {Powers}.
+\bibitem[{Powers}, 2006]{powers}
+{Powers}, T.~M. (2006).
 \newblock Prospects for a kantian machine.
-\newblock {\em IEEE Intelligent Systems}, 21(4):46--51, 2006.
+\newblock {\em IEEE Intelligent Systems}, 21(4):46--51.
 
-\bibitem{kantsethicalthought}
-A.~W. Wood.
+\bibitem[Wood, 1999]{kantsethicalthought}
+Wood, A.~W. (1999).
 \newblock {\em Kant\textquoteright{}s Ethical Thought}.
-\newblock Cambridge University Press, 1999.
+\newblock Cambridge University Press.
 
 \end{thebibliography}
