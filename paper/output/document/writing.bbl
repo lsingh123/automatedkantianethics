@@ -5,6 +5,12 @@ Bok, H. (1998).
 \newblock {\em Freedom and Responsibility}.
 \newblock Princeton University Press.
 
+\bibitem[Buzzard, 2021]{buzzardvideo}
+Buzzard, K. (2021).
+\newblock How do you convince mathematicians a theorem prover is worth their
+  time?
+\newblock Talk at IOHK.
+
 \bibitem[Dietrichson, 1964]{dietrichson}
 Dietrichson, P. (1964).
 \newblock When is a maxim fully universalizable ?
@@ -18,6 +24,11 @@ Ebels-Duggan, K. (2012).
 \bibitem[Ewing, 1972]{acton}
 Ewing, A.~C. (1972).
 \newblock {\em Philosophy}, 47(180):173--175.
+
+\bibitem[Harrison et~al., 2014]{historyofITP}
+Harrison, J., Urban, J., and Wiedijk, F. (2014).
+\newblock History of interactive theorem proving.
+\newblock In {\em Computational Logic}.
 
 \bibitem[Johnson and Cureton, 2021]{sepkant}
 Johnson, R. and Cureton, A. (2021).

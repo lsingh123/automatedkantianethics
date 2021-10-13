@@ -3,48 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: writing.aux
 The style file: apalike.bst
 Database file #1: root.bib
-Warning--I didn't find a database entry for "w"
 Warning--empty journal in dietrichson
 Warning--empty title in acton
-You've used 12 entries,
+You've used 14 entries,
             1935 wiz_defined-function locations,
-            547 strings with 4852 characters,
-and the built_in function-call counts, 3874 in all, are:
-= -- 371
-> -- 94
-< -- 14
-+ -- 27
-- -- 27
-* -- 293
-:= -- 691
-add.period$ -- 36
-call.type$ -- 12
-change.case$ -- 67
-chr.to.int$ -- 12
-cite$ -- 14
-duplicate$ -- 176
-empty$ -- 325
-format.name$ -- 41
-if$ -- 763
+            556 strings with 5092 characters,
+and the built_in function-call counts, 4487 in all, are:
+= -- 430
+> -- 119
+< -- 15
++ -- 35
+- -- 35
+* -- 336
+:= -- 805
+add.period$ -- 42
+call.type$ -- 14
+change.case$ -- 81
+chr.to.int$ -- 14
+cite$ -- 16
+duplicate$ -- 204
+empty$ -- 369
+format.name$ -- 51
+if$ -- 881
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 18
-newline$ -- 62
-num.names$ -- 38
-pop$ -- 79
+missing$ -- 19
+newline$ -- 72
+num.names$ -- 44
+pop$ -- 95
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 87
 quote$ -- 0
-skip$ -- 121
+skip$ -- 138
 stack$ -- 0
-substring$ -- 253
-swap$ -- 13
+substring$ -- 277
+swap$ -- 14
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
+type$ -- 72
 warning$ -- 2
-while$ -- 34
+while$ -- 38
 width$ -- 0
-write$ -- 154
-(There were 3 warnings)
+write$ -- 178
+(There were 2 warnings)

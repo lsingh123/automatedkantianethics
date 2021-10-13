@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 OCT 2021 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  13 OCT 2021 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -384,7 +384,7 @@ on-tra-dic-tion in-ter-pre-ta-tion. While
  []
 
 [6]) [7] (./upshot.tex
-<AI_engine.png, id=127, 976.64874pt x 461.725pt>
+<AI_engine.png, id=138, 976.64874pt x 461.725pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
 Package pdftex.def Info: AI_engine.png  used on input line 81.
@@ -394,54 +394,38 @@ Overfull \hbox (30.65257pt too wide) in paragraph at lines 81--82
  [][] 
  []
 
-[8] [9 <./AI_engine.png>] [10]
-Overfull \hbox (125.73709pt too wide) in paragraph at lines 230--237
-\OT1/ptm/m/n/10.95 though the-o-rem provers were first in-vented in the 1960's 
-(cite https://www.cl.cam.ac.uk/ jrh13/papers/joerg.pdf).
- []
-
-[11]) (./writing.bbl)
+[8] [9 <./AI_engine.png>] [10] [11] [12]) (./writing.bbl)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 65.
- [12]
+ [13]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
  (./writing.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 65.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
-
-
-Package rerunfilecheck Warning: File `writing.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `writing.out':
-(rerunfilecheck)             Before: B4FCB5385C6E4C35C458CD079B1D19A2;624
-(rerunfilecheck)             After:  93605D77DF2245453FB0FD136E0DE071;825.
+Package rerunfilecheck Info: File `writing.out' has not changed.
+(rerunfilecheck)             Checksum: 93605D77DF2245453FB0FD136E0DE071;825.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 65.
  ) 
 Here is how much of TeX's memory you used:
- 7214 strings out of 480608
- 104805 string characters out of 5903631
- 366156 words of memory out of 5000000
- 22901 multiletter control sequences out of 15000+600000
+ 7221 strings out of 480608
+ 104925 string characters out of 5903631
+ 366258 words of memory out of 5000000
+ 22905 multiletter control sequences out of 15000+600000
  560145 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,9n,31p,520b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.4.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
-live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
-ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on writing.pdf (12 pages, 152098 bytes).
+ 39i,9n,31p,493b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/urw/times/utmri8a.pfb>
+Output written on writing.pdf (13 pages, 155917 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
