@@ -4,10 +4,11 @@
 begin(*>*)
 
 
+
+
+section "Choice to Formalize the FUL"
+
 text \<open>
-
-$\textbf{Choice to Formalize the FUL}$
-
 In \emph{Groundwork of the Metaphysics of Morals}, Kant presents three formulations, or versions, 
 of what he calls the ``supreme law of morality." I will focus on the first of these three formulations, 
 and below I explain the formulations and defend my choice.
@@ -60,11 +61,11 @@ stakes for my choice of the FUL are greatly reduced. If all formulations are equ
 lends the exact same power as a formalization of the second or third formulation of the categorical 
 imperative. In fact, future work could formalize the other formulas and try to prove that they 
 are identical. Kant believes that his argument for the equality of the formulas is analytical, and
-if he is correct, it should be possible to recreate the argument in logic.
+if he is correct, it should be possible to recreate the argument in logic.\<close>
 
-$\textbf{Definition of a Maxim}$
+section "Definition of a Maxim"
 
-The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
+text \<open>The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
 in a footnote in \emph{Groundworkd} as ``the subjective principle of willing," or the principle that 
 the agent acts on $\cite[16]{groundwork}$. Modern Kantians differ in their interpretations of this definition. The naive view 
 is that a maxim is an act, but Korsgaard adopts the more sophisticated view that a maxim is composed
@@ -85,11 +86,11 @@ can be true or false at a world depending on whether or not the act is indeed pe
 For example, ``running" is not truth-apt, but ``Sara runs" is truth-apt.
 
 My definition of a maxim is inspired by O'Neill's work on maxims. I will defend my representation
-below and consider an additional component that Kitcher argues for.
+below and consider an additional component that Kitcher argues for.\<close>
 
-$\emph{O'Niell's Original Schematic and The Role of Practical Judgement}$
+subsection "O'Niell's Original Schematic and The Role of Practical Judgement"
 
-O'Neill $\cite[37]{actingonprinciple}$ presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
+text \<open>O'Neill $\cite[37]{actingonprinciple}$ presents what Kitcher @{cite whatisamaxim}  calls the widely accepted 
 view that a maxim is a circumstance, act, goal tuple. A maxim 
 is an action-guiding rule and thus naturally includes an act and the circumstances under which 
 it should be performed, which are often referred to as ``morally relevant circumstances." 
@@ -140,11 +141,11 @@ If ethics is meant to guide human behavior, the role of the computer becomes cle
 but instead as a tool to help guide our wills and reason more efficiently 
 and more effectively. Just as calculators don't render mathematicians obsolete, computational ethics
 does not render human judgement or philosophy obsolete. Chapter 4 Section ?? will be devoted to a more complete discussion 
-of this issue.
+of this issue.\<close>
 
-$\emph{Exclusion of Motive}$
+subsection "Exclusion of Motive"
 
-Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
+text \<open>Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
 behind performing the maxim @{cite whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
 Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
@@ -166,11 +167,11 @@ justice to the rich notion of motive requires modelling the operation of practic
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
 models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.
+evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.\<close>
 
-$\textbf{Practical Contradiction Interpretation}$
+section "Practical Contradiction Interpretation"
 
-Kantians debate the correct interpretation of the formula of universal law because Kant appears to 
+text \<open>Kantians debate the correct interpretation of the formula of universal law because Kant appears to 
 interpret the universalizability test in different ways. My project uses Korsgaard's practical contradiction 
 interpretation, broadly accepted as correct within the philosophical community $\cite[177]{ebelsduggan}$.
 Below, I briefly reconstruct Korsgaard's argument for the practical contradiction interpretation. While 

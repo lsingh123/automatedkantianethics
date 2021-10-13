@@ -20,6 +20,7 @@
 \contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{23}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{25}{subsubsection.2.2.5}%
 \contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{27}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Logical Background}{27}{subsection.3.1}%
-\contentsline {section}{\numberline {4}Related Work}{34}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{35}{section.5}%
+\contentsline {subsection}{\numberline {3.1}Constructing the Formalization}{27}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Application Tests}{34}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Related Work}{35}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{36}{section.5}%

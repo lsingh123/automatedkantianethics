@@ -43,7 +43,7 @@ the goals from the previous chapter.%
 %
 \isatagdocument
 %
-\isamarkupsubsection{Logical Background%
+\isamarkupsubsection{Constructing the Formalization%
 }
 \isamarkuptrue%
 %
@@ -440,6 +440,40 @@ performance. On the other hand, it doesn't use the full expressivity of DDL. If 
 later on, one option is to tweak the FUL to use this expressivity.%
 \end{isamarkuptext}\isamarkuptrue%
 %
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Application Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+As with the naive formalization and Kroy's formalization, I will apply my testing framework to 
+my custom formalization of the FUL. I will begin with some basic application tests. In these tests, 
+I specify particular maxims as constants with no properties and gradually add properties to understand 
+how the system handles different kinds of maxims. For example, initially I simply define ``murder'' as 
+a constant $M$, and then I specify properties of murder, such as murder is not universalizable or 
+murder is prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ M{\isacharcolon}{\isacharcolon}os\isanewline
+%
+\isamarkupcmt{The constant $M$ will represent the act ``murder."%
+}\isanewline
+%
+\isamarkupcmt{Should I represent this as a set of maxims? should I specify the circumstances and goals?%
+}\isanewline
+%
 \isadelimproof
 %
 \endisadelimproof
@@ -798,3 +832,16 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%438=314%:%
 %:%439=315%:%
 %:%440=316%:%
+%:%449=318%:%
+%:%461=320%:%
+%:%462=321%:%
+%:%463=322%:%
+%:%464=323%:%
+%:%465=324%:%
+%:%466=325%:%
+%:%468=327%:%
+%:%469=327%:%
+%:%471=328%:%
+%:%472=328%:%
+%:%474=329%:%
+%:%475=329%:%

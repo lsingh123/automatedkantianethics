@@ -8,7 +8,7 @@ section "Novel Formalization of the Categorical Imperative"
 text "In this section, I present a custom formalization of the categorical imperative, as inspired by 
 the goals from the previous chapter."
 
-subsection "Logical Background"
+subsection "Constructing the Formalization"
 
 text \<open>The previous attempts to model the categorical imperative in Chapter 2 partially failed due to 
 an inability to fully represent the complexity of a maxim. Specifically, they treated actions as a single, 
@@ -314,6 +314,19 @@ All of the properties that the FUL investigates hold at all worlds, in effect re
 of the system. This approach simplifies logical and therefore computational complexity, improving 
 performance. On the other hand, it doesn't use the full expressivity of DDL. If I run into problems 
 later on, one option is to tweak the FUL to use this expressivity. \<close> 
+
+subsection "Application Tests"
+
+text \<open>As with the naive formalization and Kroy's formalization, I will apply my testing framework to 
+my custom formalization of the FUL. I will begin with some basic application tests. In these tests, 
+I specify particular maxims as constants with no properties and gradually add properties to understand 
+how the system handles different kinds of maxims. For example, initially I simply define ``murder'' as 
+a constant $M$, and then I specify properties of murder, such as murder is not universalizable or 
+murder is prohibited. \<close>
+
+consts M::os
+\<comment>\<open>The constant $M$ will represent the act ``murder."\<close>
+\<comment>\<open>Should I represent this as a set of maxims? should I specify the circumstances and goals?\<close>
 
 (*<*)
 

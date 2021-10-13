@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Choice to Formalize the FUL}{2}{section.1}%
+\contentsline {section}{\numberline {2}Definition of a Maxim}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}O'Niell's Original Schematic and The Role of Practical Judgement}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Exclusion of Motive}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Practical Contradiction Interpretation}{6}{section.3}%
+\contentsline {section}{\numberline {4}Philosophical Contributions}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}AI Agents}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Computational Philosophy}{9}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Example of a Philosophical Insight}{9}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Two Uses of Computational Ethics}{11}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Looking Forward}{11}{subsubsection.4.2.3}%
