@@ -6,47 +6,48 @@ Database file #1: root.bib
 Warning--empty booktitle in deon2
 Warning--empty booktitle in util2
 Warning--empty year in deon1
+Warning--can't use both author and editor fields in metaphysicsintro
 Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
-You've used 49 entries,
+You've used 52 entries,
             1935 wiz_defined-function locations,
-            766 strings with 10353 characters,
-and the built_in function-call counts, 17460 in all, are:
-= -- 1710
-> -- 570
-< -- 47
-+ -- 187
-- -- 176
-* -- 1320
-:= -- 3037
-add.period$ -- 150
-call.type$ -- 49
-change.case$ -- 320
-chr.to.int$ -- 48
-cite$ -- 54
-duplicate$ -- 786
-empty$ -- 1319
-format.name$ -- 253
-if$ -- 3499
-int.to.chr$ -- 2
+            777 strings with 10580 characters,
+and the built_in function-call counts, 18721 in all, are:
+= -- 1845
+> -- 591
+< -- 52
++ -- 196
+- -- 182
+* -- 1403
+:= -- 3230
+add.period$ -- 160
+call.type$ -- 52
+change.case$ -- 337
+chr.to.int$ -- 50
+cite$ -- 58
+duplicate$ -- 852
+empty$ -- 1419
+format.name$ -- 262
+if$ -- 3775
+int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 60
-newline$ -- 245
-num.names$ -- 155
-pop$ -- 316
+missing$ -- 65
+newline$ -- 260
+num.names$ -- 164
+pop$ -- 336
 preamble$ -- 1
-purify$ -- 330
+purify$ -- 348
 quote$ -- 0
-skip$ -- 607
+skip$ -- 664
 stack$ -- 0
-substring$ -- 1049
-swap$ -- 122
-text.length$ -- 8
+substring$ -- 1150
+swap$ -- 148
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 270
-warning$ -- 5
-while$ -- 136
+type$ -- 284
+warning$ -- 6
+while$ -- 148
 width$ -- 0
-write$ -- 629
-(There were 5 warnings)
+write$ -- 670
+(There were 6 warnings)

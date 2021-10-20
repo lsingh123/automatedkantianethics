@@ -8,7 +8,7 @@ section "Novel Formalization of the Categorical Imperative"
 text "In this section, I present a custom formalization of the categorical imperative, as inspired by 
 the goals from the previous chapter."
 
-subsection "Constructing the Formalization"
+subsection "Logical Background"
 
 text \<open>The previous attempts to model the categorical imperative in Chapter 2 partially failed due to 
 an inability to fully represent the complexity of a maxim. Specifically, they treated actions as a single, 
@@ -28,7 +28,7 @@ substitution operator.\<close>
 type_synonym maxim = "(t * os * t)"
 
 text \<open>The central unit of evaluation for the universalizability test is a ``maxim," which Kant defines 
-in a footnote in \emph{Groundworkd} as ``the subjective principle of willing," or the principle that 
+in a footnote in \emph{Groundwork} as ``the subjective principle of willing," or the principle that 
 the agent acts on $\cite[16]{groundwork}$. Modern Kantians differ in their interpretations of this definition. The naive view 
 is that a maxim is an act, but Korsgaard adopts the more sophisticated view that a maxim is composed
 of an act and the agent's purpose for acting @{cite "actingforareason"}. She also compares a maxim 
@@ -136,7 +136,7 @@ abbreviation will :: "maxim \<Rightarrow> s\<Rightarrow>  t" ("W _ _")
 print_theorems
 
 text \<open>Korsgaard claims that ``to will an end, rather than just
-wishing for it or wanting it, is to set yourself to be its cause" @{cite "sources"}. To will a maxim
+wishing for it or wanting it, is to set yourself to be its cause" \cite[38]{sources}. To will a maxim
 is to set yourself to be the cause of its goal by taking the means 
 specified in the maxim in the relevant circumstances. This coheres with 
 Kitcher's and Korsgaard's understanding of a maxim as a principle or rule to live by. 
@@ -160,8 +160,8 @@ to use DDL's obligation operator on the notion of willing a maxim. Concretely, m
 or disprove statements of the form ``Lavanya is obligated to will the maxim M." 
 
 Worlds where the circumstances do not hold are not relevant for determining obligation. Recall that in 
-@{cite BFP}'s definition of the obligation operator,  $O \{B|A\}$ is true at all worlds iff ob(B)(A), or 
-if the obligation function maps A to obligatory in context B (where the context is a set of worlds). This 
+Benzmueller et. al's definition of the obligation operator,  $O \{B|A\}$ is true at all worlds iff ob(B)(A), or 
+if the obligation function maps A to obligatory in context B (where the context is a set of worlds) \cite{BFP}. This 
 definition implies that worlds outside of B have no bearing on the moral status of A in context B, which 
 coheres with intuitions about contextual obligation. Thus, the dyadic obligation operator 
 disqualifies worlds where the context does not hold, so the vacuous truth of the will statement in 
@@ -216,6 +216,61 @@ abbreviation not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where
 \<comment>\<open>The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
 $M$ is no longer effective for $s$.\<close>
 
+text \<open>As before, the concepts of prohibition and permissibility will be helpful here. The unit of 
+evaluation for my formalization of the FUL is the act of willing a maxim, which entails performing 
+the maxim's act in the relevant circumstances. Therefore, I will say that, just as the act of willing a
+ maxim can be obligatory for a subject, it can be prohibited or permissible for a subject.\footnote{In 
+the rest of this section, for convenience, I will use the phrase ``subject s willing maxim M is obligatory" 
+interchangeably with ``maxim M is obligatory for subject s." I will use ``maxim M is obligatory" to 
+refer to M being obligatory for any arbitrary subject, which I will show to be equivalent to M being 
+obligatory for a specific subject.} \<close>
+
+abbreviation prohibited::"maxim\<Rightarrow>s\<Rightarrow>t" where 
+"prohibited \<equiv> \<lambda>(c, a, g) s. O{\<^bold>\<not> (will (c,a, g) s) | c}"
+
+abbreviation permissible::"maxim\<Rightarrow>s\<Rightarrow>t"
+  where "permissible \<equiv> \<lambda>M s. \<^bold>\<not> (prohibited M s)"
+\<comment>\<open>I will say that a maxim is permissible for a subject if it is not prohibited for that subject to 
+will that maxim. \<close>
+
+text \<open>One problem with prior formalization of the categorical imperative was that they didn't
+prohibit contradictory obligations, partially because DDL itself allows contradictory obligations. 
+Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
+can\footnote{Kohl points out that this principle is referred to as 
+Kant's dictum or Kant's law in the literature. \cite[footnote 1]{kohl}}. Kohl reconstructs his argument for the principle as 
+follows: if the will cannot comply with the moral law, then the moral law has no prescriptive authority 
+for the will \cite[703-4]{kohl}. This defeats the purpose of Kant's theory—to develop an unconditional, categorical imperative 
+for rational agents. Ought implies can requires that obligations never contradict, because an agent 
+can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
+and Kantian ethics in particular, must not result in conflicting obligations.
+
+Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
+conflicting moral obligations are impossible under his theory \cite[V224]{metaphysicsintro}. Particularly, the categorical imperative generates 
+``strict negative laws of omission", which cannot conflict by definition \cite[45]{timmerman}.\footnote{The 
+kinds of obligations generated by the FUL are called ``perfect duties" which arise from ``contradictions 
+in conception," or maxims that we cannot even concieve of universalizing. These duties are always negative 
+and thus never conflict. Kant also presents ``imperfect duties," generated from ``contradictions in will,"
+or maxims that we can concieve of universalizing but would never want to. These duties tend to be broader, 
+such as ``improve oneself" or "help others," and are secondary to perfect duties. My project only analyzes 
+perfect duties, as these are stronger than imperfect duties.} 
+
+When analyzing the naive formalization and Kroy's formalization, I learned that DDL and the prior 
+formalizations allow contradictory obligations. This is a major weakness of these systems, and my 
+formalization should fix this. To do so, I will add as an axiom the idea that obligations cannot 
+contradict each other or their internal circumstances. Formally, conflicting obligations are defined below. \<close>
+
+abbreviation non_contradictory where 
+"non_contradictory A B c w \<equiv> ((O{A|c} \<^bold>\<and> O{B|c}) w) \<longrightarrow> \<not>((A \<^bold>\<and> (B \<^bold>\<and> c)) w \<longrightarrow> False)"
+\<comment>\<open>Terms A and B are non contradictory in circumstances c if, when A and B are obligated in circumstances 
+c, the conjunction of A, B, and c, does not imply False. \<close>
+
+axiomatization where no_contradictions:"\<forall>A::t. \<forall>B::t. \<forall>c::t. \<forall>w::i. non_contradictory A B c w"
+\<comment>\<open>This axiom formalizes the idea that, for any terms A, B, and circumstances c, A and B must be 
+non-contradictory in circumstances c at all worlds. Intuitively, this axiom requires that obligations 
+do not conflict. \<close>
+
+subsection "Formalizing the FUL"
+
 text \<open> Below is my first attempt at formalizing Korgsaard's definition of the practical contradiction
 interpretation:  a maxim is not universalizable 
 if, in the world where the maxim becomes the standard practice (i.e. everyone acts on the maxim), the
@@ -223,9 +278,6 @@ agent's attempt to use the maxim's act to achieve the maxim's goal is frustrated
 the maxim is universally willed (captured by applying a universal qunatifier and the will function 
 to the maxim on the LHS), then it is no longer effective for the subject $s$ (RHS above). 
 \<close>
-
-abbreviation prohibited::"maxim\<Rightarrow>s\<Rightarrow>t" where 
-"prohibited \<equiv> \<lambda>(c, a, g) s. O{\<^bold>\<not> (will (c,a, g) s) | c}"
 
 abbreviation FUL0::bool where "FUL0 \<equiv> \<forall> c a g s. not_universalizable (c, a, g) s \<longrightarrow> \<Turnstile>((prohibited (c, a, g) s))"
 \<comment>\<open>This representation of the Formula of Universal Law reads, ``For all circumstances, goals, acts, 
@@ -251,7 +303,8 @@ guide to action. A maxim is a practical principle that guides how we behave in e
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast," is not 
 practically relevant. No agent would ever need to act on such a principle. It is not contradictory
 or prohibited, but it is the wrong kind of question to be asking. It is not a 
-well-formed maxim, so the categorical imperative does not apply to it.\<close>
+well-formed maxim, so the categorical imperative does not apply to it. (more explanation in philosophical 
+writing collection)\<close>
 
 abbreviation well_formed::"maxim\<Rightarrow>s\<Rightarrow>i\<Rightarrow>bool" where 
 "well_formed \<equiv> \<lambda>(c, a, g) s w. (\<not> ( (c \<^bold>\<rightarrow> g) w)) \<and> (\<not> ( (c \<^bold>\<rightarrow> a s) w))"
@@ -271,10 +324,9 @@ powerful, so this is the desired result.
 $\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
 
   Skolem constants:
-    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
-    c = ($\lambda x. \_$)($i_1$ := True)
-    g = ($\lambda x. \_$)($i_1$ := False)
-    $\lambda w$. p = ($\lambda x. \_$)($i_1$ := $s_1$)
+    M = (($\lambda x. \_$)($i_1$ := True), ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False)), ($\lambda x. \_$)
+         ($i_1$ := False))
+    $\lambda$ w. p = ($\lambda x. \_$)($i_1$ := $s_1$)
     s = $s_1$ $\color{black}$ \<close>
 
 axiomatization where FUL:FUL
@@ -320,16 +372,191 @@ subsection "Application Tests"
 text \<open>As with the naive formalization and Kroy's formalization, I will apply my testing framework to 
 my custom formalization of the FUL. I will begin with some basic application tests. In these tests, 
 I specify particular maxims as constants with no properties and gradually add properties to understand 
-how the system handles different kinds of maxims. For example, initially I simply define ``murder'' as 
-a constant $M$, and then I specify properties of murder, such as murder is not universalizable or 
-murder is prohibited. \<close>
+how the system handles different kinds of maxims. \<close>
 
-consts M::os
-\<comment>\<open>The constant $M$ will represent the act ``murder."\<close>
-\<comment>\<open>Should I represent this as a set of maxims? should I specify the circumstances and goals?\<close>
+
+subsection "Metaethical Tests"
+
+text \<open>Recall that metaethical tests test formal properties of the system that apply to any maxim, not 
+just those specified in the application tests. In this section I adapt the metaethical tests developed 
+in previous sections to my formalization of the categorical imperative. I preserved the philosophical 
+goal of each test but modified them to test the stronger, richer notion of a maxim.
+
+The first set of tests consider how obligation generalizes, first across worlds and then across
+people. As expected, the tests below show that both wrongness (prohibition) and rightness (obligation)
+generalize across both worlds and people. In other words, if something is obligated at some world, it 
+is obligated at every world and if something is obligated for some person, then it is obligated for 
+every person. 
+
+Generalization across people coheres with Kantian ethics—maxims are not person-specific.
+Indeed, Velleman argues that, because reason is accessible to everyone identically, obligations apply 
+to all people \cite[25]{velleman}. When Kant describes the categorical imperative as the objective 
+principle of the will, he is referring to the fact that, as opposed to a subjective principle, the categorical
+imperative applies to all rational agents equally $\cite[16]{groundwork}$. 
+
+Generalization across worlds is a consequence of the fact that my interpretation does not make use of the 
+modal nature of DDL. In particular, I do not use any property of the world when prescribing obligations 
+at that world. \<close>
+
+lemma wrong_if_wrong_for_someone:
+  shows "\<forall>w. \<forall>c::t. \<forall>g::t. \<exists>s::s. O{\<^bold>\<not> (W (c, M, g) s) | c} w \<longrightarrow> (\<forall>p.  O{\<^bold>\<not> (W (c, M, g) p) | c} w) "
+  by blast
+
+lemma right_if_right_for_someone:
+  shows "\<forall>w. \<forall>c::t. \<forall>g::t. \<exists>s::s. O{W (c, M, g) s | c} w \<longrightarrow> (\<forall>p.  O{W (c, M, g) p | c} w) "
+  by blast
+
+lemma wrong_if_wrong_somewhere:
+  shows "\<forall>c g. \<exists>w1. O{\<^bold>\<not> (W (c, M, g) s) | c} w1 \<longrightarrow> (\<forall>w2.  O{\<^bold>\<not> (W (c, M, g) s) | c} w2)"
+  by blast
+
+lemma right_if_right_somewhere:
+  shows "\<forall>c g. \<exists>w1. O{W (c, M, g) s | c} w1 \<longrightarrow> (\<forall>w2.  O{W (c, M, g) s | c} w2)"
+  by blast
+
+text \<open>As expected, obligation generalizes across people and worlds. In the next set of tests, I will 
+analyze basic properties of permissibility, obligation, and prohibition. 
+
+First, I verify that the logic allows
+for permissible maxims, as this is a problem that prior iterations ran into. Below, I use Nitpick to 
+find a model in which there is a circumstance, act, goal tuple that is permissible but not 
+obligated at some world. \<close>
+
+lemma permissible:
+  shows "((\<^bold>\<not> (O{(W (c, a, g) s) | c})) \<^bold>\<and> (\<^bold>\<not> (O{\<^bold>\<not> (W (c, a, g) s) | c}))) w"
+  nitpick [user_axioms, falsify=false] oops
+\<comment>\<open>\color{blue}Nitpick found a model for card i = 1 and card s = 2:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_2$\color{black}
+Recall that Nitpick is a model checker that finds models making certain formulae true or false. In this 
+case, Nitpick finds a model satisfying the given formula (which simply requires that the sentence 
+``s wills (c, a, g)'' is permissible but not obligator). This model consists of the above specifications 
+of a, c, g, and s. \<close>
+
+  text \<open>I also expect that any arbitrary maxim should be either permissible or prohibited, since all 
+acts are either permissible or prohibited. \<close>
+
+lemma perm_or_prohibited:
+  shows "((permissible (c, a, g) s) \<^bold>\<or> (prohibited (c, a, g) s)) w"
+  by blast
+\<comment>\<open>This simple test passes immediately by the definitions of  permissible and prohibited.\<close>
+
+text \<open>Obligation should be strictly stronger than permissibility. In other words, if a maxim is 
+obligated at a world, it should be permissible at that world. Below I test this property.\<close>
+
+lemma obligated_then_permissible:
+  shows "(O{W(c, a, g) s|c} \<^bold>\<rightarrow> (permissible (c, a, g)) s) w "
+  using no_contradictions by auto
+\<comment>\<open>This test passes and Isabelle is able to find a proof for the fact that all obligatory maxims are 
+also permissible.\<close>
+
+text \<open>The above test failed under Kroy's formalization of the categorical imperative and is thus evidence 
+that my formalization improves upon Kroy's. Interestingly, this new test passes because of the additional
+added axiom that prohibits contradictory obligations (recall that Kroy's formalization allowed contradictory
+obligations). The proof is clear: if maxims are either permissible or prohibited and obligation contradicts
+prohibition, then obligation must result in permissibility. Moreover, this property REQUIRES that 
+there be no contradictory obligations. Formally, in the base logic DDL, I can show the sentence 
+$(O \{A\} \wedge O \{\neg A\}) \mathbf{\longrightarrow} (\neg (O \{A\} \mathbf{\longrightarrow}  P \{A\})) w$
+\footnote{Sledgehammer can show this sentence to be true in DDL and in Kroy's formalization.}.
+In English, if A and not A are obligated, then A can be obligated but not permissible.
+
+Is there anything philosophically interesting here? Something about the possibility of genuine moral 
+conflict? \<close>
+
+  text "Next, I will test if the formalization allows for vacuous obligations or modal collapse. These 
+tests are sanity checks confirmed that the obligation operator is doesn't collapse. First, I will check 
+that any arbitrary term isn't obligated. "
+
+lemma arbitrary_obligations:
+  fixes c A::"t"
+  shows "O{A|c} w"
+  nitpick [user_axioms=true, falsify] oops
+\<comment>\<open>This test passes—Nitpick finds a model where A isn't obligated in circumstances c.
+\color{blue} Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True)
+    c = ($\lambda x. \_$)($i_1$ := False) \color{blue}
+Previous iterations of this test used the monadic obligation operator, which tests the term in the 
+context ``True" (equivalently the set of all worlds since True holds everywhere). In this iteration, 
+I test the term in a context c, because my formalization uses the dyadic obligation operator and must 
+thus specify circumstances.\<close>
+
+  text \<open>This is exactly the expected result. Any arbitrary action $A$ isn't obligated. A slightly 
+        stronger property is ``modal collapse," or whether or not `$A$ happens' implies `$A$ is obligated'. 
+The proposition below should be falsifiable.\<close>
+
+lemma modal_collapse:
+  shows "((W (c, a, g) s) w) \<longrightarrow> O{W (c, a, g) s|c} w"
+  nitpick [user_axioms=true, falsify] oops
+\<comment>\<open>Nitpick finds a counterexample, so willing doesn't imply obligation, so this test passes. 
+\color{blue}Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_2$
+    w = $i_1$\color{black}
+Once again, I modify this test to use the dyadic obligation operator instead of the monadic operator. \<close>
+
+  text \<open>The final set of tests deal with ought implies can and conflicting obligations. Recall that I 
+specifically added an axiom in my formalization to disallow contradictory obligations, so I expect 
+these tests to pass. Kroy's formalization fails these tests, so this is another area of improvement 
+over Kroy's formalization. \<close>
+
+lemma ought_implies_can:
+  shows "O{W (c, a, g) s|c} w \<longrightarrow> (\<diamond> W (c, a, g) s) w"
+  using O_diamond by blast
+\<comment>\<open>This test is a lemma of DDL itself, so it's no surprise that this test passes.\<close>
+
+lemma conflicting_obligations:
+  shows "\<not> (O{W (c, a, g) s|c} \<^bold>\<and> O{\<^bold>\<not>(W (c, a, g) s)| c}) w"
+  using no_contradictions by blast
+\<comment>\<open>This test passes immediately by the new axiom prohibited contradictory obligations.\<close>
+
+lemma implied_contradiction:
+  assumes "(((W (c1, a1, g1) s) \<^bold>\<and> (W (c2, a2, g2) s)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w"
+  shows "\<^bold>\<not> (O{W(c1, a1, g1) s|c} \<^bold>\<and> O{W(c2, a2, g2) s|c}) w"
+  using assms no_contradictions by blast
+\<comment>\<open>Recall that the we also expect the stronger property that the combination of obligatory maxims can't
+ imply a contradiction. The added axiom also makes this test pass. \<close>
+
+text \<open>The metaethical test suite ran on both Kroy's formalization and my formalizaion show two clear 
+improvements. First, my formalization shows that obligatory maxims are permissible, whereas Kroy's 
+paradoxically does not. Second, my formalization doesn't allow contradictory maxims, but Kroy's does. 
+Both of these improvements are derived from the new axiom I added in my formalization that disallows 
+contradictory obligations. Additionally, my formalization also improves on Kroy's by staying faithful to the 
+strongest interpretation of the FUL, Korsgaard's practical contradiction interpretation. (maybe stick 
+philosophical writing here or above?) \<close>
+
+subsection "Formalization Specific Tests" 
+
+text \<open>In this section, I explore tests specific to my formalization of the categorical imperative. First, 
+in my previous (buggy) implementation of DDL, prohibiting contradictory obligation led to the strange 
+result that all permissible actions are obligatory. I will test if this bug appears in this implementation 
+as well.\<close>
+
+lemma bug:
+  shows "permissible (c, a, g) s w \<longrightarrow> O{W(c, a, g) s | c} w"
+  nitpick[user_axioms] oops
+\<comment>\<open>\color{blue}
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_1$
+    w = undefined
+\color{black}
+This strange result does not hold; good!\<close>
 
 (*<*)
-
   text \<open>This is a formulation of the FUL in which, assuming every maxim is universalized at some
 world (this is the axiom imagination works), at that world (or other worlds like it), if the maxim is 
 not effective for the agent, then it is prohibited at the current world cw. Couple of optimizations 

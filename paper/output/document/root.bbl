@@ -114,6 +114,12 @@ Kant, I. (1785).
 \newblock {\em Groundwork of the Metaphysics of Morals}.
 \newblock Cambridge University Press, Cambridge.
 
+\bibitem[Kant, 2017]{metaphysicsintro}
+Kant, I. (2017).
+\newblock {\em Introduction}, pages ix--xxix.
+\newblock Cambridge Texts in the History of Philosophy. Cambridge University
+  Press, 2 edition.
+
 \bibitem[Kemp, 1958]{kemp}
 Kemp, J. (1958).
 \newblock Kant's examples of the categorical imperative.
@@ -141,8 +147,8 @@ Kleingeld, P. (2017).
 
 \bibitem[Kohl, 2015]{kohl}
 Kohl, M. (2015).
-\newblock {Kant and ‘Ought Implies Can’}.
-\newblock {\em The Philosophical Quarterly}, 65(261):690--710.
+\newblock Kant and 'ought implies can'.
+\newblock {\em The Philosophical Quarterly (1950-)}, 65(261):690--710.
 
 \bibitem[Korsgaard, 1985]{KorsgaardFUL}
 Korsgaard, C. (1985).
@@ -251,8 +257,13 @@ Stephenson, A., Sergot, M., and Evans, R. (2019).
   permissives.
 \newblock {\em Journal of Philosophical Logic}, 49.
 
-\bibitem[Timmermann, 2013]{contradictoryob}
-Timmermann, J. (2013).
+\bibitem[Timmermann, 2013a]{contradictoryob}
+Timmermann, J. (2013a).
+\newblock Kantian dilemmas? moral conflict in kant’s ethical theory.
+\newblock {\em Archiv für Geschichte der Philosophie}, 95(1):36--64.
+
+\bibitem[Timmermann, 2013b]{timmerman}
+Timmermann, J. (2013b).
 \newblock Kantian dilemmas? moral conflict in kant’s ethical theory.
 \newblock {\em Archiv für Geschichte der Philosophie}, 95(1):36--64.
 
@@ -260,6 +271,11 @@ Timmermann, J. (2013).
 Tolmeijer, S., Kneer, M., Sarasua, C., Christen, M., and Bernstein, A. (2021).
 \newblock Implementations in machine ethics.
 \newblock {\em ACM Computing Surveys}, 53(6):1–38.
+
+\bibitem[Velleman, 2005]{velleman}
+Velleman, J.~D. (2005).
+\newblock {\em A Brief Introduction to Kantian Ethics}, page 16–44.
+\newblock Cambridge University Press.
 
 \bibitem[Wood, 1999]{kantsethicalthought}
 Wood, A.~W. (1999).

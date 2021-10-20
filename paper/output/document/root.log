@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  13 OCT 2021 11:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  19 OCT 2021 20:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -336,15 +336,15 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./root.toc)
+) (./root.toc
+[1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write5
 \openout5 = `root.toc'.
 
 
-[1
-
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./paper.tex
+[2] (./paper.tex
 Overfull \hbox (30.39597pt too wide) in paragraph at lines 36--44
 \OT1/ptm/m/n/10.95 per-form-ing com-plex eth-i-cal rea-son-ing. The field of ma
 -chine ethics [[]]
@@ -356,12 +356,12 @@ Overfull \hbox (30.12245pt too wide) in paragraph at lines 65--72
 DL) [[]].
  []
 
-[2] [3] [4]
+[3] [4] [5]
 Overfull \hbox (32.41122pt too wide) in paragraph at lines 209--214
 \OT1/ptm/m/n/10.95 Stan-dard de-on-tic logic [[], []]
  []
 
-[5]) (./paper22.tex
+[6]) (./paper22.tex
 Overfull \hbox (0.31563pt too wide) in paragraph at lines 36--39
 \OT1/ptm/m/n/10.95 Isabelle/HOL is an in-ter-ac-tive proof as-sis-tant [[]] bui
 lt on Haskell
@@ -386,20 +386,20 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
- [6] [7])
-(./paper224.tex [8]
+ [7] [8])
+(./paper224.tex [9]
 Overfull \hbox (3.66676pt too wide) in paragraph at lines 365--368
 [][]\OT1/ptm/m/n/10 --- Is-abelle's proof-finding tool, Sledge-ham-mer [[]], co
 mes with
  []
 
-[9]) (./paper31.tex [10] [11] [12] [13]
+[10]) (./paper31.tex [11] [12] [13] [14]
 Overfull \hbox (39.48538pt too wide) in paragraph at lines 588--591
 []\OT1/ptm/m/n/10.95 The above is a rather weak no-tion of con-tra-dic-tory obl
 i-ga-tions. Ko-rs-gaard [[]]
  []
 
-[14] [15]) (./paper32.tex [16] [17] [18] [19] [20]
+[15] [16]) (./paper32.tex [17] [18] [19] [20] [21]
 Overfull \hbox (6.36386pt too wide) in paragraph at lines 563--565
 [][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 lying[]not[]possibly[]univers
 al$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 bool \OT1/ptm/b/n/10 where \OT1/ptm/m/
@@ -407,13 +407,30 @@ it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
 0 =$$($$\OMS/cmsy/b/n/10 :$
  []
 
-[21]
+[22]
 Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
 [][] 
  []
 
-[22] [23] [24] [25] [26]) (./paper33.tex) (./paper41.tex [27] [28] [29]
-[30] [31] [32] [33]) (./relatedwork.tex [34]
+[23] [24] [25] [26] [27]) (./paper33.tex) (./paper41.tex [28] [29] [30]
+[31]
+Overfull \hbox (12.98518pt too wide) in paragraph at lines 216--223
+\OT1/ptm/m/n/10.95 oblig-a-tory in con-text B (where the con-text is a set of w
+orlds) [[]].
+ []
+
+[32] [33] [34] [35] [36] [37]
+Overfull \hbox (18.04605pt too wide) in paragraph at lines 751--760
+\OT1/ptm/m/n/10.95 base logic DDL, I can show the sen-tence $\OT1/cmr/m/n/10.95
+ (\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/
+10.95 g ^ \OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f:\OML/cmm/m/it/10.95 A\OMS/
+cmsy/m/n/10.95 g\OT1/cmr/m/n/10.95 )[](\OMS/cmsy/m/n/10.95 :\OT1/cmr/m/n/10.95 
+(\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/1
+0.95 g[]\OML/cmm/m/it/10.95 P\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cms
+y/m/n/10.95 g\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 w$
+ []
+
+[38] [39]) (./relatedwork.tex [40]
 Overfull \hbox (6.088pt too wide) in paragraph at lines 45--55
 []\OT1/ptm/m/n/10.95 ] or par-tic-u-lar-ism [[], []].
  []
@@ -423,28 +440,28 @@ Overfull \hbox (3.13147pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 physics [[], []]. Fuen-mayor and Benz-
  []
 
-) (./futurework.tex [35] [36]) [37] (./root.bbl [38]
-Underfull \hbox (badness 6995) in paragraph at lines 123--126
+) (./futurework.tex [41]) [42] (./root.bbl [43]
+Underfull \hbox (badness 6995) in paragraph at lines 129--132
 []\OT1/ptm/m/n/10.95 Kirchner, D., Benzm[]uller, C., and Zalta, E. N.
  []
 
-[39] [40])
+[44] [45])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
- [41]
+ [46]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: EB81A31EB3551E5A6C33CA306D868D4C;1950.
+(rerunfilecheck)             Checksum: 15ECAC857A095B0FBCEFD85EBCC784EF;2152.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 7215 strings out of 480608
- 103991 string characters out of 5903631
- 365380 words of memory out of 5000000
- 22780 multiletter control sequences out of 15000+600000
- 577338 words of font info for 124 fonts, out of 8000000 for 9000
+ 7238 strings out of 480608
+ 104270 string characters out of 5903631
+ 365518 words of memory out of 5000000
+ 22787 multiletter control sequences out of 15000+600000
+ 577646 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,33p,895b,518s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -465,10 +482,10 @@ fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/tim
 es/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on root.pdf (41 pages, 292867 bytes).
+Output written on root.pdf (46 pages, 309120 bytes).
 PDF statistics:
- 618 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 145 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 674 PDF objects out of 1000 (max. 8388607)
+ 602 compressed objects within 7 object streams
+ 160 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

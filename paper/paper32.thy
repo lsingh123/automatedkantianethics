@@ -474,15 +474,30 @@ lemma implied_contradiction:
         DDL itself allows implied contradictions and Kroy's 
         formalization doesn't do anything to remedy this. 
 
-      As my final metaethical test, I will test that an action is either obligatory, permissible, or 
+      Next, I will test that an action is either obligatory, permissible, or 
       prohibited.\<close>
 
-lemma ob_perm:
+lemma ob_perm_or_prohibited:
   fixes A w
   shows "(O {A} \<^bold>\<or> (P {A} \<^bold>\<or> O {\<^bold>\<not> A})) w"
   by simp
 \<comment>\<open>This test passes.\<close>
 
+text \<open>I also expect obligation to be a strictly stronger property than permissibility. Particularly, 
+if A is obligated, then A should also be permissible.\<close>
+lemma obligated_then_permissible:
+  shows "(O {A} \<^bold>\<rightarrow> P {A}) w"
+  nitpick[user_axioms] oops
+\<comment>\<open>This test fails in Kroy's interpretation!
+\color{blue}Nitpick found a counterexample for card i = 2 and card s = 1:
+
+  Free variable:
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}\<close>
+(*<*)
+lemma test:
+  shows "(O {A} \<^bold>\<and> O {\<^bold>\<not>A}) \<^bold>\<rightarrow> (\<^bold>\<not> (O {A} \<^bold>\<rightarrow> P {A})) w"
+  by simp
+(*>*)
 text "These tests show that, while Kroy's formalization is more powerful and more coherent than the naive formalization, it 
       still fails to capture most of the desired properties of the categorical imperative. Some of these 
       problems may be remedied by the fact that Kroy's logic doesn't allow contradictory obligations, 
