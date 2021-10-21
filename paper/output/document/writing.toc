@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}Practical Contradiction Interpretation}{6}{section.3}%
 \contentsline {section}{\numberline {4}Philosophical Contributions}{8}{section.4}%
 \contentsline {subsection}{\numberline {4.1}AI Agents}{8}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Computational Philosophy}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Computational Philosophy}{10}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {4.2.1}Example of a Philosophical Insight}{10}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Two Uses of Computational Ethics}{11}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Looking Forward}{12}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.2}The Value of Computational Ethics}{15}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Looking Forward}{16}{subsubsection.4.2.3}%
