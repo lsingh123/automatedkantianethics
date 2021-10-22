@@ -101,16 +101,16 @@ subsection "Computational Philosophy"
 text \<open>Above I explained how my system offers a mechanism for humans to build ethical AI agents. I also 
 argue that computational ethics is a mechanism for computers to help humans think differently about 
 philosophy. Just as theorem provers make mathematics more efficient and push mathematicians to think 
-precisely about the phenomena they are modelling, computational ethics can help philosophers think about 
+precisely about the phenomena they are modelling, computational ethics can help philosophers think more precisely about 
 philosophy. Below I share an example of the kind of philosophical insight that computational ethics 
 can prompt and analyze the value that this tool offers to philosophers. \<close>
 
 subsubsection "Example of a  Philosophical Insight"
 
-text \<open>The process of implementing and testing a formalization using an interactive theorem prover 
-resulted in logical insights that led to a philosophical 
+text \<open>As I implemented and tested a formalization of the categorical imperative using an interactive theorem prover, 
+I discovered logical insights that led to a philosophical 
 insight that was novel to me and is potentially novel to the field. This philosophical insight has
-implications for what kinds of principles a practical reasoner should be concerned with. While this 
+implications for what kinds of principles a practical reasoner should concern themselves with. While this 
 insight could have been reached without the help of the computer, my system's logical results provoked
 an interesting philosophical conversation as I tried to understand their implications for the ethical 
 theory I am formalizing. This serves as an example for how computational ethics can prompt philosophical 
@@ -131,51 +131,50 @@ First, I used Sledgehammer to show that my formalization of the FUL\footnote{The
 resulted in a contradiction. Sledgehammer was able to tell me which axioms it used to complete 
 this proof, showing me that my formalization contradicted the axiom O\_diamond, which states that an 
 obligated term cannot contradict its context\footnote{The full form of the axiom is 
-$ O { A \vert B } \longrightarrow \diamond (B \wedge A)$}. 
+$ O \{ A \vert B \} \longrightarrow \diamond (B \wedge A)$}. 
 O\_diamond formalizes the principle ``ought implies can" and requires that if A is obligated in context 
 C, that A is possible in context C. I hypothesized that there was some tension between 
 the antecedent of the FUL, which states that all agents act on the maxim, and the consequent, 
 which states that the maxim is prohibited. If the maxim has already been acted on, then not acting on it
-is impossible so the prohibition is impossible to obey so the ought implies can principle is violated, 
-thus contradicting the axiom O\_diamond.
+is impossible. Thus, the generates prohibition is impossible to obey, so the ought implies can principle
+and axiom O\_diamond are violated.
 
-To solve this problem, I returned to Korsgaard's practical contradiction interpretation and focused 
-on the imaginatory component of the FUL. Specifically, the universalizability test requires that we imagine 
-a world where the maxim is universalized and study that world to determine whether or not the maxim 
-is obligatory in the actual world. For example, lying is not universalized in our current world, but to 
-determine if lying is prohibited, we imagine a different world in which everyone lied. To capture this difference,
-I implemented another version of the FUL under which  a maxim is prohibited at the current world $cw$ if, 
-when universalized at any world $w$ it is rendered ineffective at $w$. I hypothesized that this would remove 
-the contradiction found above. To test this new formalization, I used Nitpick, a model checker that 
-quickly generates models that satisfy the given axioms and theorems. Usually, Nitpick can find a satisfying 
-model to show that a logic is consistent in a matter of seconds, but Nitpick consistently timed out 
-when looking for a model of my modified FUL. 
+I then experimented with many different modifications of the FUL. I tried universalizing the maxim 
+at a world other than the current world and defining non-contradictory maxims, in which the maxim's 
+circumstances do not contradict the maxim's act. I noticed that, no matter which modifications I made, 
+Nitpick was timing out when looking for a model, and Sledgehammer wasn't able to find a proof of
+inconsistency. Isabelle's proof tools essentially weren't able to tell me if my modifications were 
+consistent or not. I suspected that something about my implementation was too slow, perhaps due to 
+my liberal use of quantifiers\footnote{Benzmueller warned me that as 
+I added quantifiers to the theory, Isabelle's automated proof tools may start to time out.}. 
 
-Nitpick performs an optimized version of a brute force model search, in which it generates many models 
+Nitpick performs an optimized version of a brute force model search, in which it generates many models
 and checks if they satisfy the given maxims. I suspected that Nitpick 
 was  timing out due to checking large models that exhausted its 
-time limit, especially due to the logical complexity of my theory\footnote{Benzmueller warned me that as 
-I added quantifiers to the theory, Isabelle's automated proof tools may start to time out.}. 
+time limit, especially due to the logical complexity of my theory. 
 To reduce the logical complexity, I decided to specify the exact number of maxims 
-in the system by passing as an argument to Nitpick the cardinality of my desired model. This did not 
-fix the problem. 
+in the system by passing as an argument to Nitpick the cardinality of my desired model. Surprisingly, 
+this did not fix the problem either. This puzzled me, as I felt that I could construct a pencil-and-paper 
+model with a single world and term in which my modified formalizations were consistent.
 
-I next defined a particular (circumstance, act, goal) tuple as a constant and, instead of
+Instead of specifying the cardinality of the model, I decided to tell Nitpick exactly how many 
+maxims there were in my system by defining them as constants. I defined a particular 
+(circumstance, act, goal) tuple as a constant. Instead of
 stating that the FUL held for all maxims, I stated that the FUL held for the specific maxim formed by this tuple.
-While before I added the axiom $\forall (c, a, g). FUL holds for maxim = (c, a, g)$, I now added constants $(c, a, g)$ 
-and added the axiom $FUL holds for maxim = (c, a, g)$. By specifying the circumstance, act, and goal 
+While before I added the axiom $\forall (c, a, g). \text{FUL holds for maxim} (c, a, g)$, I now added constants $(c, a, g)$ 
+and added the axiom $\text{FUL holds for maxim} (c, a, g)$. By specifying the circumstance, act, and goal 
 as constants, I removed the external universal quantifier, thus removing a layer of logical complexity.
 
-To my surprise, Nitpick was now able to show that the FUL was consistent!
+To my surprise, Nitpick was now not only returning quickly, it was able to show that the FUL was consistent!
 
 This result was counterintuitive—after all, what is the difference between a model of cardinality 
-1 and a model with one constant object? Why is quantifying over a tiny number of maxims so much 
-more time-cosuming than analyzing a single maxim? Professor Amin pointed out that when I defined the 
-circumstances, act, and goal as constants, then they were all distinct. When they were quantified over, 
-they could be identical. To formalize this idea, I defined a maxim as ``well-formed" if @{abbrev well_formed}. In propositional 
+1 and a model with one constant object? Why is quantifying over a tiny number of maxims different
+ than analyzing a single maxim? Professor Amin pointed out that, as constants, the 
+circumstances, act, and goal were all distinct. When they were quantified over, 
+they could be identical. To formalize this idea, I defined a maxim as @{abbrev well_formed}. In propositional 
 logic, a circumstance, act, goal tuple (c, a, g) is well-formed if $(\neg (c \longrightarrow a) ) \wedge 
-(\neg(c \longrightarrow g))$. I tested my hypothesis by modifying my axiom to instead read $\forall maxim
-(maxim is well-formed \longrightarrow FUL holds for maxim)$. This version of the FUL was indeed inconsistent!
+(\neg(c \longrightarrow g))$. I tested my hypothesis by modifying my axiom to instead read $\forall$ maxim
+(maxim is well-formed $\longrightarrow$ FUL holds for maxim). This version of the FUL was indeed consistent!
 
 To summarize, I realized that my initial attempt at formalizing the FUL was inconsistent because 
 it required that the FUL hold for badly formed maxims, in which the circumstances entail the act or 
@@ -184,8 +183,11 @@ goal. The logical insight was that if FUL holds for maxims in which $(c \longrig
 
 \emph{Philosophical Insight}
 
-Once I realized this logical property, I tried to understand its philosophical plausibility. I define
-a vacuous maxim as one in which the circumstances entail either the act or the goal. An example
+Once I realized this logical property, I tried to understand its philosophical plausibility. I 
+wanted to philosophically test the hypothesis that maxims in which  $(c \longrightarrow a) \vee 
+(c \longrightarrow g)$ are actually badly formed.
+
+I define a vacuous maxim as one in which the circumstances entail either the act or the goal. An example
 of a vacuous maxim is: ``When eating breakfast, eat breakfast in order to eat breakfast." This 
 maxim isn't clearly obligatory or prohibited, but there is something empty about it. For one 
 thing, acting on this maxim would never result in any actual action. If an agent adopts this maxim, 
@@ -195,58 +197,63 @@ already been performed! Making this maxim a rule to live by doesn't change how y
 When you are eating breakfast, you eat breakfast, but this statement is already 
 tautologically true regardless of whether you adopt the maxim or not. 
 
-Not only does a badly formed maxim fail to prescribe action, any obligations or prohibitions it 
-generates have already been fulfilled or violated and are thus foregone conclusions. If a badly formed 
+Not only does a vacuous maxim fail to prescribe action, any obligations or prohibitions it 
+generates have already been fulfilled or violated and are thus foregone conclusions. If a vacuous 
 maxim generates a prohibition, then this prohibition would be impossible to obey. 
 It is impossible to not eat breakfast while eating breakfast, because the circumstances assume that the 
-act has happened. On the other hand, if a badly formed maxim generates an obligation, then the obligation 
+act has happened. On the other hand, if a vacuous maxim generates an obligation, then the obligation 
 will have already been fulfilled. If you are required to eat breakfast while eating breakfast, then you've 
 already fulfilled your obligation because the circumstances assume that the act has happened. Thus, 
-a badly formed maxim does not actually guide action because it doesn't generate new obligations or 
+a vacuous maxim does not actually guide action because it doesn't generate new obligations or 
 prohibitions that could ever be acted on. 
 
-The implication is that any obligations or prohibitions generated by a badly formed maxim are foregone 
-conclusions and thus do not tell us how to live, and thus must not be the domain of ethics, because 
-ethics is supposed to tell us how to live. Kant's categorical imperative
+If any obligations or prohibitions generated by vacuous maxims do not tell us how to live, such 
+maxims must not be the domain of ethics because ethics is 
+supposed to tell us how to live. Kant's categorical imperative
  guides our use of practical reason, which is the kind of reason that tells us what we should do. 
-A practical reasoner asks moral questions not because they're mental puzzles or out of curiosity, but 
-because the reasoner wants to know how to act. Practical reason is action-guiding, but a badly formed
+A practical reasoner asks moral questions not as a mental puzzle or out of curiosity, but 
+because the reasoner wants to know how to act. Practical reason is action-guiding, but a vacuous
  maxim can never be action-guiding because it prescribes no new
 actions or obligations. It is not the kind of maxim that a practical reasoner would consider. 
-There is no explicit prohibition against a badly formed maxim like the breakfast example above, but it 
+There is no explicit prohibition against a vacuous maxim like the breakfast example above, but it 
 is the wrong kind of question for a practical reasoner to ask. Moreover, an ordinary person trying 
 to navigate the world would never ask that kind of question. If ethics and practical reason are meant 
 to guide action, then badly formed maxims are not questions for ethics, because they could never guide 
 action.
 
-Above I show that badly formed maxims are not questions for the ethics, but they also represent a 
-stronger problem. Asking if you should be acting while you act is undermining your will. 
+Above I show that vacuous maxims are not questions for the ethics, but I will now argue they also represent a 
+stronger problem. Asking if you should be acting while you act undermines your will and thus contradicts
+the very idea of willing a maxim. 
 Under the Kantian acount of willing, when you will a maxim, you make it your end and commit yourself 
-to be its cause. You cannot simultaneously will a maxim and ask if you should be willing it. To say that 
-you are willing the maxim is to say that you have decided to will it—so the question, ``should I be 
-willing this?" is nonsensical. Either you haven't actually adopted the maxim, or you aren't
-actually asking the question. In a badly formed maxim, the circumstances already assume that the agent 
-has willed the maxim. If someone asks me``should I eat breakfast while eating breakfast?" I not only 
-wouldn't be able to answer the question, I wouldn't understand what they're asking. I would say, ``what 
-do you mean? You ARE eating breakfast." The agent must either not actually be eating breakfast or 
-they must not be asking a real question. 
+to be its cause. You cannot simultaneously commit yourself to a maxim and ask if you should be committing to it. To 
+will the maxim is to decide to will it—so the question, ``should I be 
+willing this?" is nonsensical. Either you haven't actually adopted the maxim (and thus haven't yet 
+committed yourself to it), or you aren't
+actually asking the question (because the decision has already been made). In a vacuous maxim, 
+the circumstances already assume that the agent 
+has willed the maxim. If someone asks me ``should I eat breakfast while eating breakfast?" I not only 
+wouldn't be able to answer the question, I wouldn't understand it. My response would be, ``what 
+do you mean? You are already eating breakfast." The agent must either not actually be eating breakfast or 
+they must not be asking a real question. This argument is not specific to the Kantian account of willing. 
+Under any account of practical action, questioning a commitment as you make the commitment it impossible. 
+Either you haven't actually committed or you're not actually asking the question.
 
-That being said, we do often ask ``should I be doing this?" as we do something. What do we mean when 
-we ask this question? In what sense are we trying to evalute the moral status of a badly formed maxim?
+A skeptic may argue that we do often ask ``should I be doing this?" as we do something. What do we mean when 
+we ask this question? In what sense are we trying to evalute the moral status of a vacuous maxim?
 Can this kind of question ever be valid? To understand this worry, I consider the maxim, 
 ``When dancing, I should just dance for the sake of dancing."\footnote{Maybe cite Korgsaard since the
-dancing thing is her example.} While this maxim appears to be badly formed (the 
-circumstance `dancing' implies the act and goal), it's a question that practical reasoners 
+dancing thing is her example.} While this maxim appears to be vacuous (the 
+circumstance `dancing' implies the act and goal of dancing), it's a question that practical reasoners 
 do ask. I argue that there are multiple ways of understanding this maxim, and none are inconsistent with 
-my complaints about badly formed maxims. 
+my complaints about vacuous maxims. 
 
 First is what I call the ``different action" interpretation, under which "I should just dance" is 
-actually referring to a different act than the circumstances. The circumstances ``When dancing" refer 
+actually referring to a different act than the circumstance ``when dancing". The circumstance ``when dancing" refers 
 to rythmically moving your body to music, but ``I should just dance" refers to dancing without anxiety, 
-completely focused on the joy of dancing itself. More precisely, this maxim should actually read ``When 
+completely focused on the joy of dancing itself. More precisely, this maxim should read ``When 
 dancing, I should abandon my anxiety and focus on dancing for the sake of dancing." This maxim when so 
 modified is not vacuous at all—abandoning anxiety and focusing on dancing is an entirely different act 
-from moving your body rythmically to music. This maxim is thus actually well-formed, and thus doesn't
+from moving your body rythmically to music. This maxim is actually well-formed, and thus doesn't
 pose a problem for my argument. It is entirely plausible to tell yourself ``When I am dancing, I should focus 
 on dancing for the sake of dancing itself." The circumstances do not entail the act or the goal because 
 they refer to different meanings of the word dancing. 
@@ -254,31 +261,106 @@ they refer to different meanings of the word dancing.
 Another version of the ``different action" interpretation is as follows. Consider the maxim modified to 
 be ``When dancing and seeing a child drowning, I should dance for the sake of dancing." Clearly this 
 maxim is fit for moral evaluation, and we expect a moral theory to prohibit this maxim. The circumstances 
-``When dancing and seeing a child drowning" appear to entail the act of dancing. In this case, the question 
-that the agent is actually asking themselves is ``should I continue dancing?" That is the actionable 
+``When dancing and seeing a child drowning" appear to entail the act of dancing, and the maxim thus 
+appears vacuous. In this case, the question 
+that the agent is actually asking themselves is ``should I continue dancing?" That is the 
 maxim that they will adopt or reject. They mean to ask if they should stop dancing and go help the child. 
 Dancing at the current moment and dancing at the next moment are different acts, and the circumstances 
-imply the former but not the latter. A badly formed maxim would have circumstances and act both 
+imply the former but not the latter. A vacuous maxim would have circumstances and act both 
 ``dancing at moment t," but this maxim has circumstances ``dancing at moment t" and act ``dancing 
-at moment t+1."
+at moment t+1." I FEEL LIKE THERE'S SOMETHING INTERESTING HERE ABOUT TIME AND THE WILL BUT IDK WHAT 
 
-Another interpretation of the dancing example is the ``self doubt" intepretation. The question ``When I am dancing, 
-should I really be dancing for the sake of dancing?" is the agent asking, ``Am I doing the right thing 
-right now?" The agent is not asking about the next moment, but is expressing doubt about the 
-moral validity of their behavior at this current moment. Under this interpretation, the agent 
-wants to know if they made the right decision. But what decision has the agent made? Did the agent
-adopt the maxim ``When dancing, dance for the sake of dancing?" They could not have, because such a 
-maxim could not have altered their behavior at all. This agent actually wants to know if the maxim that 
-resulted in them dancing, the maxim that got them to the current moment on the dance floor, was actually 
-the right thing to do. They are asking if, in the past, when they decided to dance, they made the 
+The second interpretation of the dancing example is the ``self doubt" intepretation. Under this 
+interpretation, the question ``When I am dancing, 
+should I be dancing for the sake of dancing?" is the agent asking, ``Am I doing the right thing 
+right now?" Unlike the drowning example, the agent is not asking about the next moment, but is expressing doubt about the 
+moral validity of their behavior at this current moment. I do not want to argue that self-doubt is 
+contradictory because it undermines the will—after all, self-doubt plays an important role in moral 
+reasoning and often is the mark of a thoughtful agent. I argue instead that questions of self-doubt
+do not actually involve vacuous maxims, for these are not the maxims that the agent is doubting. 
+
+In the above situation, the agent wants to know if they made the right decision. What decision 
+has the agent made? Which decision are they 
+questioning? The decision that the agent is doubting could not be the decision to adopt the maxim 
+``When dancing, dance for the sake of dancing?" because such a 
+maxim could not have altered their behavior at all. This agent wants to know if the maxim that 
+resulted in the current moment in which the agent is dancing on the dance floor, was actually 
+the right thing to will. They are asking if, in the past, when they decided to dance, they made the 
 right decision. But such a maxim is not vacuous, because it resulted in the act of dancing. 
 The maxim that initiated the dancing would be something like ``When at a wedding, dance for the sake 
-of dancing." This is the maxim that they are currently acting on, not the badly formed example maxim.
-Evaluating the moral validity of this maxim is straightforward.
+of dancing." This is the maxim that they are currently acting on, not the vacuous maxim ``When dancing, 
+dance for the sake of dancing." Evaluating the moral validity of this well-formed maxim is straightforward, 
+and this evaluation is what will resolve or confirm the agent's self-doubt.
 
-This analysis also demonstrates the correct way to think about moral regret and self-doubt. When we 
+\emph{Implications for Self Doubt and Self Respect}
+
+Previously, I established the concept of a vacuous maxim and argued that such maxims are indeed 
+vacuous and problematic for reasoners. I will now outline one implication of this phenomenon, namely 
+that debates about epistimelogical self-doubt and self-respect are not only paralleled in ethics, 
+but resolved in a similar way using the notion of a vacuous maxim. I will first outline the tension in epistemology,
+and then turn to ethics.
+
+In epistemology, there is a tension between the rational requirement to believe in yourself and the 
+value of self-doubt, in moderation. Christensen presents the ``principle of self-respect," which requires 
+that any rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
+rationally both believe that the sky is blue and believe that I believe that the sky is green. I cannot 
+disapprove of my own credences. Christensen argues that this principle, which he calls SR, holds because 
+a perfectly rational agent can make accurate and confident judgements about what they believe. If this 
+is the case, violating SR results in a simple contradiction\cite[8-9]{christensen}. 
+
+While most philosophers accept some version of SR\footnote{Van Fraassen, Vickers, Koons \cite[5]{christensen}}, 
+Sherrilyn Roush argues that the principle must be modified in order to account for healthy epistemic 
+self-doubt. She argues that, while pathological second guessing is roundly criticized, we are generally 
+imperfect beings, and some sensitivity to our own limitations is a virtue\cite[2]{roushselfhelp}. Indeed, even Christensen 
+acknowledges that total self-confidence is an epistemic flaw. Thus there is a tension between the rational
+requirement to respect our authority as believers and the practical reality that we are often wrong. 
+
+This debate between self-respect and self-doubt in epistemology also applies to ethics and practical 
+reason. When we decide to act and commit ourselves to acting, we cannot simultaneously doubt the 
+validity of our action. If human behavior is purposive, then the very act of committing oneself implies 
+that one has sufficient reasons for committing oneself. These reasons may be flawed, but in making the 
+commitment, the reasoner has accepted them. It is incoherent to claim that someone commits and questions 
+simultaneously, because commitment itself implies a resolution to the question. This principle, that 
+one cannot will a maxim and simultaneously question if they should will that maxim, is what I will call 
+``ethical self-respect" or ESR.
+
+At the same time, self-doubt is an important part of ethical reasoning. Just as believers are often 
+mistaken, so are practical reasoners. An agent with perfect confidence, who is always sure that they 
+are doing the right thing, is clearly not thinking deeply enough about their obligations. Some degree
+of ethical self-doubt is normal and likely desirable. Thus, there is a tension between the rational
+requirement of ESR and the intuitive validity of self-doubt.
+
+
+
+
+
+
+
+
+
+
+Roush: https://philpapers.org/archive/ROUSGM.pdf
+
+Christensen: https://philpapers.org/archive/CHRES.pdf
+
+in epistemic literature, self doubt (about belief) is important but so is self respect (indeed, self respect is a 
+rational requirement). this idea also applies to ethics: it's good to re-evaluate your moral 
+decisions, but you also are rationally required to respect them. what is the solution? doubt is 
+about past maxims, in the same way that epistemic doubt is about past beliefs. this MUST be the case 
+for ethics, because doubt about the current action is a VACUOUS MAXIM. thus, moral self-doubt 
+is actually about past action, and thus can't regress that far because of memory limits. 
+
+This analysis also demonstrates the correct way to think about regret and self-doubt. When we 
 ask ``should I really be doing this?" we are asking if, when we chose to adopt our current maxim, 
-we made the right decision. The question is not, ``When acting should I act?" The question is, ``When 
+we made the right decision. We mean to ask, ``did I make the right decision?" not ``am I making the 
+right decision?" The notion of a vacuous maxim explains the subtle difference between the first question, 
+which involves reflecting on a decision made in the previous moment, and the second question, which contradicts
+the very notion of decision itself. If self-doubters were asking ``am I making the right decision?"
+they would inherently be undermining their own will. Regret of this form would necessarily contradict 
+the fact that the self-doubter did indeed make a decision. But this is not the conclusion we want—we 
+don't think that self-doubt means that you never made a decision at all. 
+
+ The question is not, ``When acting should I act?" The question is, ``When
 I was in the past, should I have chosen to act?" Regret is a counterfactual question about a valid, 
 well-formed maxim that was adopted in the past and led to the present moment. Unlike a badly formed 
 maxim, it doesn't undermine the will because it acknowledges the will's authority and the fact that the 
@@ -357,5 +439,22 @@ the history of theorem proving for math? Is this even that important for my proj
 
 
 (*<*)
+
+text \<open>My first, incorrect, attempt at solving this problem returned to Korsgaard's practical contradiction interpretation and focused 
+on the imaginatory component of the FUL. Specifically, the universalizability test requires that we imagine 
+a world where the maxim is universalized. We then study that world to determine whether or not the maxim 
+is prohibited in the actual world. For example, to determine if lying is prohibited, we imagine a different 
+world in which everyone lied. This is necessary becayse lying isn't actually universalized in the actual world.  To capture this difference,
+I implemented another version of the FUL under which  a maxim is prohibited at the current world $cw$ if, 
+when universalized at any world $w$ it is rendered ineffective at $w$\footnote{ 
+Maxim $M$ violates the FUL if $(\forall w, p. (Will M p) w \longrightarrow (\neg Effective M s w)). In English, 
+maxim $M$ violates the FUL if, at every world, when every person wills $M$ at $w$, $M$ is no longer effective 
+at $w$}. 
+
+I hypothesized that this modification would remove
+the contradiction found above. To test this new formalization, I used Nitpick, a model checker that 
+quickly generates models that satisfy the given axioms and theorems. Usually, Nitpick can find a satisfying 
+model to show that a logic is consistent in a matter of seconds, but Nitpick consistently timed out 
+when looking for a model of my modified FUL. \<close>
 end
 (*>*)
