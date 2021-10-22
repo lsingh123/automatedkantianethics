@@ -5,45 +5,45 @@ The style file: apalike.bst
 Database file #1: root.bib
 Warning--empty journal in dietrichson
 Warning--empty title in acton
-You've used 14 entries,
+You've used 19 entries,
             1935 wiz_defined-function locations,
-            556 strings with 5092 characters,
-and the built_in function-call counts, 4487 in all, are:
-= -- 430
-> -- 119
-< -- 15
-+ -- 35
-- -- 35
-* -- 336
-:= -- 805
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 81
-chr.to.int$ -- 14
-cite$ -- 16
-duplicate$ -- 204
-empty$ -- 369
-format.name$ -- 51
-if$ -- 881
+            594 strings with 5687 characters,
+and the built_in function-call counts, 6214 in all, are:
+= -- 607
+> -- 154
+< -- 20
++ -- 45
+- -- 45
+* -- 477
+:= -- 1104
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 110
+chr.to.int$ -- 19
+cite$ -- 21
+duplicate$ -- 274
+empty$ -- 512
+format.name$ -- 66
+if$ -- 1219
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 19
-newline$ -- 72
-num.names$ -- 44
-pop$ -- 95
+missing$ -- 25
+newline$ -- 97
+num.names$ -- 59
+pop$ -- 115
 preamble$ -- 1
-purify$ -- 87
+purify$ -- 117
 quote$ -- 0
-skip$ -- 138
+skip$ -- 192
 stack$ -- 0
-substring$ -- 277
-swap$ -- 14
+substring$ -- 437
+swap$ -- 19
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 100
 warning$ -- 2
-while$ -- 38
+while$ -- 56
 width$ -- 0
-write$ -- 178
+write$ -- 242
 (There were 2 warnings)
