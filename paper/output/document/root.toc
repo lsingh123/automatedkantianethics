@@ -1,29 +1,29 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Kantian Ethics }{4}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Dyadic Deontic Logic }{5}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Deontic Logic}{5}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Dyadic Deontic Logic}{6}{subsubsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.3}Isabelle/HOL Implementation }{7}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}System Definition}{7}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Axiomatization}{7}{subsubsection.1.3.2}%
-\contentsline {subsubsection}{\numberline {1.3.3}Syntax}{8}{subsubsection.1.3.3}%
-\contentsline {subsubsection}{\numberline {1.3.4}Syntactic Properties}{9}{subsubsection.1.3.4}%
-\contentsline {section}{\numberline {2}Prior Formalizations of The Categorical Imperative}{11}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Naive Formalization of the Formula of Universal Law }{11}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Formalization }{11}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Application Tests }{12}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Metaethical Tests }{14}{subsubsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{17}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{17}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{20}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{21}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{24}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{26}{subsubsection.2.2.5}%
-\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{28}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Logical Background}{28}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{35}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Application Tests}{37}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{37}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{40}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Related Work}{40}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{41}{section.5}%
+\contentsline {subsection}{\numberline {1.1}Kantian Ethics }{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Dyadic Deontic Logic }{7}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Deontic Logic}{7}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Dyadic Deontic Logic}{8}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Isabelle/HOL Implementation }{9}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}System Definition}{9}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Axiomatization}{10}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Syntax}{11}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Syntactic Properties}{12}{subsubsection.1.3.4}%
+\contentsline {section}{\numberline {2}Prior Formalizations of The Categorical Imperative}{15}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Naive Formalization of the Formula of Universal Law }{15}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Formalization }{16}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Application Tests }{17}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Metaethical Tests }{20}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{24}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{25}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{29}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{30}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{35}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{38}{subsubsection.2.2.5}%
+\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{41}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Logical Background}{42}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{52}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Application Tests}{55}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{57}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{61}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Related Work}{62}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{63}{section.5}%

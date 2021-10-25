@@ -208,13 +208,31 @@ interesting for my purposes because, when the circumstances do not hold, a maxim
 doesn't really make sense to evaluate a maxim when it's not supposed to be applied. The maxim ``When on Jupiter,
 read a book to one-up your nemesis" is vacuously effective because it can never be disproven.\<close>
 
-abbreviation universalized::"maxim\<Rightarrow>s\<Rightarrow>t" where 
-"universalized \<equiv> \<lambda>M s. (\<lambda>w. (\<forall>p. W M p w))"
+abbreviation universalized::"maxim\<Rightarrow>t" where 
+"universalized \<equiv> \<lambda>M. (\<lambda>w. (\<forall>p. W M p w))"
+
+abbreviation holds::"maxim\<Rightarrow>t" where 
+"holds \<equiv> \<lambda>(c, a, g). c"
 
 abbreviation not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where 
-"not_universalizable \<equiv> \<lambda>M s. (\<Turnstile> (universalized M s \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))))"
-\<comment>\<open>The maxim willed by subject $s$ is not universalizable if, for all people $p$, if $p$ wills M, then 
-$M$ is no longer effective for $s$.\<close>
+"not_universalizable \<equiv> \<lambda>M s. \<forall>w. (universalized M  \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))) w"
+\<comment>\<open>The formula above reads ``at world $w$, if M is universalized and M is acted on (i.e. the circumstances 
+of M hold), then M is not effective." 
+
+Notice that the antecedent specifies that the circumstances hold at the given world. 
+When evaluating if a maxim is universalizable or not, we want to ignore worlds where the circumstance 
+do not hold. At these worlds, the maxim is trivially effective and thus trivially universalizable. If we didn't exclude such worlds from 
+consideration, a maxim with circumstances that ever fail to hold would be universalizable. Clearly 
+this is not a desirable conclusion, since maxims like ``When you need money, lie to get easy money"
+would be universalizable.  \<close>
+
+abbreviation imagine_a_world::"maxim\<Rightarrow>bool" where 
+"imagine_a_world \<equiv> \<lambda>M. (\<exists>w. (\<forall>p. (W M p) w))"
+\<comment>\<open>This abbreviation formalizes the idea that, for any maxim, some world where exist where the maxim 
+is universally willed.\<close>
+
+abbreviation not_contradictory::"maxim\<Rightarrow>bool" where 
+"not_contradictory \<equiv> \<lambda>(c, a, g). (\<forall>p w. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w)"
 
 text \<open>As before, the concepts of prohibition and permissibility will be helpful here. The unit of 
 evaluation for my formalization of the FUL is the act of willing a maxim, which entails performing 
@@ -285,9 +303,9 @@ and subjects, if the maxim of the subject performing the act for the goal in the
 universalizable (as defined above), then, at all worlds, in those circumstances, the subject 
 is prohibited (obligated not to) from willing the maxim.\<close>
 
-lemma "FUL0 \<longrightarrow> False" using O_diamond 
-  using prod.simps(2) split_conv by fastforce
-
+lemma "FUL0 \<longrightarrow> False" using O_diamond
+  using case_prod_conv no_contradictions old.prod.case old.prod.case by fastforce
+  
 text \<open>FUL0 is not consistent, and sledgehammer is able to prove this by showing that it implies a contradiction 
 usig axiom O\_diamond, which is @{"thm" "O_diamond"}. This axiom captures 
 the idea that an obligation can't contradict its context. This is particularly problematic if the goal or 
@@ -374,6 +392,28 @@ my custom formalization of the FUL. I will begin with some basic application tes
 I specify particular maxims as constants with no properties and gradually add properties to understand 
 how the system handles different kinds of maxims. \<close>
 
+consts when_strapped_for_cash::t
+consts lie::os
+consts to_get_easy_cash::t
+abbreviation lie_maxim::maxim where 
+"lie_maxim \<equiv> (when_strapped_for_cash, lie, to_get_easy_cash)"
+
+abbreviation everyone_can't_lie where 
+"everyone_can't_lie \<equiv> \<forall>w. \<not> (\<forall>s. lie(s) w) "
+
+lemma lying_bad:
+  assumes everyone_can't_lie
+  assumes "\<forall>w. when_strapped_for_cash w"
+  assumes "\<forall>s. \<Turnstile> (well_formed lie_maxim s)"
+  shows "\<forall>s. \<Turnstile> (prohibited lie_maxim s)"
+proof-
+  have "\<forall>s. not_universalizable lie_maxim s"
+    by (simp add: assms(1) assms(2))
+  thus ?thesis
+    using FUL assms(3) by blast 
+
+  text "TODO (1) check that the whole theory works (2) try to justify these assumptions (3) ordinary 
+app test"
 
 subsection "Metaethical Tests"
 
@@ -591,31 +631,10 @@ lemma test\_2 is likely too strong because the quantifier quantifies into $M a$ 
 doesn't seem like this should make a difference, since $p$ never appears on the RHS expression. Let's
 see if Prof. Amin has insight.\<close>
 
-abbreviation imagine_a_world::"maxim\<Rightarrow>bool" where 
-"imagine_a_world \<equiv> \<lambda>M. (\<exists>w. \<not> w = cw \<and> (\<forall>p. (W M p) w))"
-\<comment>\<open>This abbreviation formalizes the idea that, for any maxim, some world where exist where the maxim 
-is universally willed.\<close>
-
-abbreviation not_contradictory::"maxim\<Rightarrow>bool" where 
-"not_contradictory \<equiv> \<lambda>(c, a, g). (\<forall>p w. \<not> ((c \<^bold>\<and> (a p)) \<^bold>\<rightarrow> \<^bold>\<bottom>) w)"
-\<comment>\<open>This abbreviation formalizes the idea of a non-contradictory maxim, defined as a maxim such that 
-no matter who wills it at what world, the combination of the circumstances and the action never 
-lead to a contradiction.\<close> 
-
 text \<open>axiomatization where imagination_works:"$\forall$M::maxim.  (not_contradictory M) \<longrightarrow>  (imagine_a_world M)"\<close>
 \<comment>\<open>This axiom says, effectively, that our imagination works. In other words, for every maxim, if it 
 isn't contradictory, there is some (imagined) world where it is universalized. This guarantees that the 
 FUL can't be vacuously true, since there is some world where the universalizability test is carried out.\<close>
-
-lemma True
-  nitpick[user_axioms, falsify=false] by simp 
-\<comment>\<open>Asserting that we can successfully imagine a non-contradictory maxim to be universalized still results
-in a consistent system.
-$\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
-
-  Empty assignment $\color{black}$\<close>
-abbreviation not_universalizable_modal::"maxim\<Rightarrow>s\<Rightarrow>bool"
-  where "not_universalizable_modal \<equiv> \<lambda>M s. (\<forall>w. \<forall>p. (W M p) w \<longrightarrow> \<not> E M s w)"
 
 text \<open>To fix this, I return to the text of @{cite KorsgaardFUL}$\footnote{p. 20}$, in which she describes the universalizability 
 test as taking place in an ``imagined" world where the maxim is universalized. In other words, the test
