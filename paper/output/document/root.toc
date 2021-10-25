@@ -23,7 +23,7 @@
 \contentsline {subsection}{\numberline {3.1}Logical Background}{42}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{52}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Application Tests}{55}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{57}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{61}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Related Work}{62}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{63}{section.5}%
+\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{61}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{66}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Related Work}{67}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{68}{section.5}%

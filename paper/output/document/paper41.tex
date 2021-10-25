@@ -185,9 +185,7 @@ evaluating an agent's behavior, since that's when ``acting from duty" starts to 
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}W\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
-\ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\isacommand{print{\isacharunderscore}theorems}\isamarkupfalse%
-%
+\ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
 Korsgaard claims that ``to will an end, rather than just
 wishing for it or wanting it, is to set yourself to be its cause" \cite[38]{sources}. To will a maxim
@@ -265,7 +263,7 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ universalized{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}universalized\ {\isasymequiv}\ {\isasymlambda}M{\isachardot}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ W\ M\ p\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}universalized\ {\isasymequiv}\ {\isasymlambda}M{\isachardot}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ holds{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
@@ -273,7 +271,7 @@ read a book to one-up your nemesis" is vacuously effective because it can never 
 \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ not{\isacharunderscore}universalizable\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}not{\isacharunderscore}universalizable\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isasymnot}\ {\isacharparenleft}holds\ M\ w{\isacharparenright}{\isacharparenright}\ {\isasymor}\ {\isacharparenleft}universalized\ M\ \ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}w{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}not{\isacharunderscore}universalizable\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}universalized\ M{\isacharparenright}\ \ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{The formula above reads ``at world $w$, if M is universalized and M is acted on (i.e. the circumstances 
 of M hold), then M is not effective." 
@@ -284,22 +282,7 @@ do not hold. At these worlds, the maxim is trivially effective and thus triviall
 consideration, a maxim with circumstances that ever fail to hold would be universalizable. Clearly 
 this is not a desirable conclusion, since maxims like ``When you need money, lie to get easy money"
 would be universalizable.%
-}\isanewline
-\isanewline
-\isacommand{abbreviation}\isamarkupfalse%
-\ imagine{\isacharunderscore}a{\isacharunderscore}world{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}imagine{\isacharunderscore}a{\isacharunderscore}world\ {\isasymequiv}\ {\isasymlambda}M{\isachardot}\ {\isacharparenleft}{\isasymexists}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{This abbreviation formalizes the idea that, for any maxim, some world where exist where the maxim 
-is universally willed.%
-}\isanewline
-\isanewline
-\isacommand{abbreviation}\isamarkupfalse%
-\ not{\isacharunderscore}contradictory{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}not{\isacharunderscore}contradictory\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ {\isacharparenleft}{\isasymforall}p\ w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}c\ \isactrlbold {\isasymand}\ {\isacharparenleft}a\ p{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\isanewline
-\isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ test{\isacharcolon}{\isachardoublequoteopen}{\isasymforall}M{\isachardot}\ not{\isacharunderscore}contradictory\ M\ {\isasymlongrightarrow}\ imagine{\isacharunderscore}a{\isacharunderscore}world\ M{\isachardoublequoteclose}%
+}%
 \begin{isamarkuptext}%
 As before, the concepts of prohibition and permissibility will be helpful here. The unit of 
 evaluation for my formalization of the FUL is the act of willing a maxim, which entails performing 
@@ -322,7 +305,7 @@ obligatory for a specific subject.}%
 will that maxim.%
 }%
 \begin{isamarkuptext}%
-One problem with prior formalization of the categorical imperative was that they didn't
+One problem with prior formalizations of the categorical imperative was that they didn't
 prohibit contradictory obligations, partially because DDL itself allows contradictory obligations. 
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
 can\footnote{Kohl points out that this principle is referred to as 
@@ -406,8 +389,9 @@ is prohibited (obligated not to) from willing the maxim.%
 \isatagproof
 \isacommand{using}\isamarkupfalse%
 \ O{\isacharunderscore}diamond\isanewline
-\ \ \isacommand{by}\isamarkupfalse%
-\ force%
+\ \ \isacommand{using}\isamarkupfalse%
+\ case{\isacharunderscore}prod{\isacharunderscore}conv\ no{\isacharunderscore}contradictions\ old{\isachardot}prod{\isachardot}case\ old{\isachardot}prod{\isachardot}case\ \isacommand{by}\isamarkupfalse%
+\ fastforce%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -436,14 +420,14 @@ writing collection)%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ well{\isacharunderscore}formed{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}i{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ w{\isachardot}\ {\isacharparenleft}{\isasymnot}\ {\isacharparenleft}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ g{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymnot}\ {\isacharparenleft}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ a\ s{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ {\isasymlambda}s{\isachardot}\ {\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymnot}\ \ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ g{\isacharparenright}\ w{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymnot}\ \ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ a\ s{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{This abbreviation formalizes the well-formedness of a maxim for a subject. The goal cannot be 
 already achieved in the circumstances and the subject cannot have already performed the act.%
 }\isanewline
 \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
-\ FUL\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}M{\isacharcolon}{\isacharcolon}maxim{\isachardot}\ {\isasymforall}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ M\ s\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}not{\isacharunderscore}universalizable\ M\ s\ {\isasymlongrightarrow}\ {\isasymTurnstile}\ prohibited\ M\ s\ {\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ FUL\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}M{\isacharcolon}{\isacharcolon}maxim{\isachardot}\ {\isasymforall}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ M\ s\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}not{\isacharunderscore}universalizable\ M\ s\ {\isasymlongrightarrow}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ M\ s{\isacharparenright}\ {\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{Let's try the exact same formalization of the FUL as above, except that it only applies to 
 maxims that are well-formed at every world.%
@@ -564,56 +548,120 @@ my custom formalization of the FUL. I will begin with some basic application tes
 I specify particular maxims as constants with no properties and gradually add properties to understand 
 how the system handles different kinds of maxims.%
 \end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
+to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
+the strength of her preferred interpretation of the FUL, the practical contradiction interpretation \cite{KorsgaardFUL}.
+There are two possible readings of this maxim, and I will show that my formalization can handle both. 
+Under the first reading, the act of falsely promising is read as
+as entering a pre-existing, implicit, social system of promising with no intention of upholding your 
+promise. Under the second reading, the act of falsely promising is equivalent to uttering the worlds 
+``I promise X" without intending to do X. The differences between these readings lies in the difference 
+between promising as an act with meaning in a larger social structure and the utterance ``I promise."
+
+Under the first reading, the maxim fails because falsely promising is no longer possible in a world where 
+everyone everyone does so. This is how the logical contradiction interpretation reads this maxim—falsely 
+promising is no longer possible when universalized because the institution of promising breaks down. 
+The practical contradiction view also prohibits this maxim because if falsely promising is not longer 
+possible, then it is no longer an effective way to achieve the end of getting some money. Below I 
+define some logical tools to formalize this reading of this maxim.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
+%
+\isamarkupcmt{Constant representing the circumstances ``when strapped for cash." Recall that the type of circumstances 
+is a term because circumstances can be true or false at a world.%
+}\isanewline
 \isacommand{consts}\isamarkupfalse%
-\ lie{\isacharcolon}{\isacharcolon}os\isanewline
+\ falsely{\isacharunderscore}promise{\isacharcolon}{\isacharcolon}os\isanewline
+%
+\isamarkupcmt{Constant representing the act ``make a false promise to pay a loan back." Recall that the type of
+an act is an open sentence because the sentence ``subject s performs act a" can be true or false at a world.%
+}\isanewline
 \isacommand{consts}\isamarkupfalse%
 \ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
-\isacommand{abbreviation}\isamarkupfalse%
-\ lie{\isacharunderscore}maxim{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}lie{\isacharunderscore}maxim\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcomma}\ lie{\isacharcomma}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Constant representing the goal ``to get some money." Recall that the type of a goal 
+is a term because a goal can be true or false at a world depending on whether it is achieved or not.%
+}\isanewline
 \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcomma}\ falsely{\isacharunderscore}promise{\isacharcomma}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Armed with the circumstances, act, and goal above, I can define the example maxim as a tuple.%
+}%
+\begin{isamarkuptext}%
+The logical objects above are ``empty," in the sense that I haven't specified any of their 
+relevant properties. I will define these properties as assumptions and will show that, if the maxim 
+above satisfies the assumed properties, it is prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ lie{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+{\isachardoublequoteopen}everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Under this reading, the problem with this maxim is that everyone can't
+falsely promise simultaneously because the institution of promising will break down. It's probably 
+possible to say something stronger than this (i.e. that if enough but not necessarily all people
+falsely promise promising is no longer possible), but for my purposes this will suffice. The above 
+formula reads, ``At all worlds, it is not the case that everyone falsely promises."%
+}\isanewline
 \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ circumstances{\isacharunderscore}hold\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}circumstances{\isacharunderscore}hold\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption narrows our scope of consideration to worlds where the circumstances of 
+being strapped for cash hold. This is important because, at worlds where the circumstances do not hold, 
+a maxim is trivially effective (since it's never acted on) and thus trivially universalizable. This 
+assumption also makes practical sense; when evaluating a maxim, an agent would care about it specifically
+at worlds where the circumstances hold, since these are the worlds where the maxim actually prescribes action.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption states that the maxim of falsely promising is well-formed. This breaks down into
+two individual assumptions. First, being strapped for cash can't imply falsely promising, which is plausible
+because many people won't falsely promise under conditions of poverty. Second, being strapped for cash
+can't imply getting ready cash, which is also plausible because people often fail to secure cash even 
+when they need it.%
+}%
+\begin{isamarkuptext}%
+Putting it all together, I want to show that if the three assumptions justified above hold, then 
+the constructed maxim is prohibited. Below is the proof%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
-\ lying{\isacharunderscore}bad{\isacharcolon}\isanewline
+\ lying{\isacharunderscore}bad{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\isanewline
 \ \ \isakeyword{assumes}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash\ cw{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ lie{\isacharunderscore}maxim\ s{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isadelimproof
-\ \ %
+%
 \endisadelimproof
 %
 \isatagproof
-\isacommand{using}\isamarkupfalse%
-\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
-\ auto%
-\endisatagproof
-{\isafoldproof}%
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}{\isacharparenright}\isanewline
 %
-\isadelimproof
-\isanewline
+\isamarkupcmt{I manually broke the proof into this intermediate lemma and the conclusion, and then Sledgehammer 
+automatically found a proof.%
+}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\ \isanewline
+\isacommand{qed}\isamarkupfalse%
 %
-\endisadelimproof
-\isanewline
-\isacommand{lemma}\isamarkupfalse%
-\ test{\isadigit{6}}{\isacharcolon}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ lie{\isacharunderscore}maxim\ s{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ lie{\isacharunderscore}maxim\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ lie{\isacharunderscore}maxim\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isadelimproof
-\ \ %
-\endisadelimproof
-%
-\isatagproof
-\isacommand{using}\isamarkupfalse%
-\ FUL\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
-\ blast%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -622,11 +670,155 @@ how the system handles different kinds of maxims.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-Action is impossible%
+Under the second reading of this maxim, the act ``falsely promising" refers to uttering the 
+sentence ``I promise to do X" with no intention of actually doing X\footnote{Note that under this 
+reading, the maxim isn't prohibited under the logical contradiction interpretation because making an 
+utterance is still possible even if eveyrone else makes that utterance. I will discuss this in detail 
+later in this section in the context of the difference between natural and conventional acts.}. 
+Under this reading, the practical contradiction interpretation prohibits this maxim because, in a world 
+where false promising is universalized, no one believes promises anymore, so the utterance is no longer 
+an effective way to get money. Below I formalize this reading of this maixm.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ believed{\isacharcolon}{\isacharcolon}os\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ {\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if everyone falsely promises, then no one is believed
+when promising.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}{\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isacharparenleft}falsely{\isacharunderscore}promise\ s{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if a promise is not believed, then it is not an effective
+way of getting easy cash.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ falsely{\isacharunderscore}promising{\isacharunderscore}bad{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\isanewline
+\ \ \isakeyword{assumes}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\isanewline
+%
+\isamarkupcmt{The above two assumptions are specific to this reading and justified above.%
+}\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+%
+\isamarkupcmt{These two assumptions applied to the first reading as well and were justified there.%
+}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{With some help, Isabelle is able to show that the maxim is prohibited under this reading as well.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This example demonstrates that my formalization is able to correctly prohibit this maxim, regardless
+of its reading. This is additionally important because the two readings of this maxim represent reading 
+the act as either a conventional or natural action, so my intrepretation can correctly handle both kinds
+of actions. Korsgaard draws a distinction between conventional acts and natural acts. Conventional acts 
+exist within a practice, which is "comprised of certain rules, and its existence (where it is not embodied in 
+an institution with sanctions) consists in the general acknowledgement and following of those rules" 
+\cite[10]{KorsgaardFUL}. For example, promising is a conventional act because it only exists as a 
+practice. Murder, on the other hand, is an example of a natural act because its existence only depends
+on the laws of nature\cite[11]{KorsgaardFUL}.
+
+This distinction is important because Korsgaard argues that only the practical contradiction view can 
+satisfactorily explain the wrongness of certain natural acts like murder\footnote{For more discussion 
+of Korsgaard's argument for the practical contradiction view, see Section Philosophical Writing}. 
+The practical contradiction view is thus stronger than the logical contradiction view because it can 
+explain the wrongness of both conventional and natural acts. 
+
+The fact that my interpretation can correctly show the wrongness of both conventional and natural acts
+is evidence for its correctness as a formalization of the practical contradiction interpretation. 
+The first reading of the example maxim reads the act 
+``making a false promise" as entering into an agreement within a socially established system of promising. 
+This is clearly a conventional act, and because it is a conventional act, it is not just contradictory
+when universalized but literally impossible because the practice breaks down. I capture this idea in the 
+assumption \isa{everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ falsely{\isacharunderscore}promise\ s\ w{\isacharparenright}}, which states that, at all worlds, not everyone can falsely promise since 
+otherwise the practice of promising would break down. The second reading, on the other hand, reads the 
+act of making a false promise as uttering the statement ``I promise to pay you back," while never intending 
+to fulfill this promise. This is a natural act because the act of uttering a sentence does not rely 
+on any conventions, merely the laws of nature governing how your mouth and vocal cords behave\footnote{
+Linguistic relativists may take issue with this claim and may argue that if the English language had 
+never developed, then making this utterance would be impossible. Even if this is true, the laws of 
+nature itself would not prohibit making the sounds corresponding to the English pronounciation of 
+this phrase, so the act would still not be impossible in the way that a conventional act can be.} 
+
+I show above that my formalization shows the wrongness of this maxim under both readings. Under the 
+first reading, promising becomes impossible, so both the logical and 
+practical contradiction interpretations prohibit the maxim. Under the second reading, promising is still
+possible, but becomes ineffective because people no longer interpret the utterance as creating a commitment.
+Under this view, only the practical contradiction interpretation succeeds in prohibiting the maxim. Thus, 
+not only does my formalization likely capture the practical contradiction interpretation (as opposed to 
+the teleological or logical contradiction interpretations), it also adequately handles both natural 
+and conventional acts.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Maxim is bad under PC interp%
+I can also use Isabelle to confirm that the two readings are different. If they were the same, 
+we would expect the assumptions corresponing to each to be equivalent. The RHS of the lemma below represents 
+the second reading and the LHS represents the first reading.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ readings{\isacharunderscore}are{\isacharunderscore}equivalent{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymand}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick finds a counterexample, showing that the two readings are different.
+\color{blue}
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Empty assignment
+\color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This completes the application tests for my formalization. I showed that my formalization correctly 
+handles an example from Korsgaard with two possible interpretations and also sufficiently handles both 
+conventional and natural acts.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -765,13 +957,13 @@ obligated at some world.%
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1 and card s = 2:
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1 and card s = 1:
 
   Free variables:
-    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
     c = ($\lambda x. \_$)($i_1$ := False)
     g = ($\lambda x. \_$)($i_1$ := False)
-    s = $s_2$\color{black}
+    s = $s_1$\color{black}
 Recall that Nitpick is a model checker that finds models making certain formulae true or false. In this 
 case, Nitpick finds a model satisfying the given formula (which simply requires that the sentence 
 ``s wills (c, a, g)'' is permissible but not obligator). This model consists of the above specifications 
@@ -815,7 +1007,7 @@ obligated at a world, it should be permissible at that world. Below I test this 
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ obligated{\isacharunderscore}then{\isacharunderscore}permissible{\isacharcolon}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O{\isacharbraceleft}W{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}permissible\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isacharparenright}\ s{\isacharparenright}\ w\ {\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O{\isacharbraceleft}W{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}permissible\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ {\isacharparenright}\ s{\isacharparenright}{\isacharparenright}\ w\ {\isachardoublequoteclose}\isanewline
 %
 \isadelimproof
 \ \ %
@@ -1047,13 +1239,13 @@ as well.%
 \isanewline
 %
 \isamarkupcmt{\color{blue}
-Nitpick found a counterexample for card i = 1 and card s = 1:
+Nitpick found a counterexample for card i = 1 and card s = 2:
 
   Free variables:
-    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
     c = ($\lambda x. \_$)($i_1$ := False)
     g = ($\lambda x. \_$)($i_1$ := False)
-    s = $s_1$
+    s = $s_2$
     w = undefined
 \color{black}
 This strange result does not hold; good!%
@@ -1214,535 +1406,684 @@ This strange result does not hold; good!%
 %:%186=134%:%
 %:%187=134%:%
 %:%188=135%:%
-%:%189=136%:%
-%:%192=138%:%
-%:%193=139%:%
-%:%194=140%:%
-%:%195=141%:%
-%:%196=142%:%
-%:%197=143%:%
-%:%198=144%:%
-%:%199=145%:%
-%:%200=146%:%
-%:%201=147%:%
-%:%202=148%:%
-%:%203=149%:%
-%:%204=150%:%
-%:%205=151%:%
-%:%206=152%:%
-%:%207=153%:%
-%:%208=154%:%
-%:%209=155%:%
-%:%210=156%:%
-%:%211=157%:%
-%:%212=158%:%
-%:%213=159%:%
-%:%214=160%:%
-%:%215=161%:%
-%:%216=162%:%
-%:%217=163%:%
-%:%218=164%:%
-%:%219=165%:%
-%:%220=166%:%
-%:%221=167%:%
-%:%222=168%:%
-%:%223=169%:%
-%:%224=170%:%
-%:%225=171%:%
-%:%226=172%:%
-%:%227=173%:%
-%:%228=174%:%
-%:%229=175%:%
-%:%230=176%:%
-%:%231=177%:%
-%:%232=178%:%
-%:%233=179%:%
-%:%234=180%:%
-%:%235=181%:%
-%:%236=182%:%
+%:%190=137%:%
+%:%191=138%:%
+%:%192=139%:%
+%:%193=140%:%
+%:%194=141%:%
+%:%195=142%:%
+%:%196=143%:%
+%:%197=144%:%
+%:%198=145%:%
+%:%199=146%:%
+%:%200=147%:%
+%:%201=148%:%
+%:%202=149%:%
+%:%203=150%:%
+%:%204=151%:%
+%:%205=152%:%
+%:%206=153%:%
+%:%207=154%:%
+%:%208=155%:%
+%:%209=156%:%
+%:%210=157%:%
+%:%211=158%:%
+%:%212=159%:%
+%:%213=160%:%
+%:%214=161%:%
+%:%215=162%:%
+%:%216=163%:%
+%:%217=164%:%
+%:%218=165%:%
+%:%219=166%:%
+%:%220=167%:%
+%:%221=168%:%
+%:%222=169%:%
+%:%223=170%:%
+%:%224=171%:%
+%:%225=172%:%
+%:%226=173%:%
+%:%227=174%:%
+%:%228=175%:%
+%:%229=176%:%
+%:%230=177%:%
+%:%231=178%:%
+%:%232=179%:%
+%:%233=180%:%
+%:%234=181%:%
+%:%236=184%:%
+%:%237=184%:%
 %:%238=185%:%
-%:%239=185%:%
-%:%240=186%:%
-%:%241=187%:%
-%:%244=189%:%
-%:%245=190%:%
-%:%246=191%:%
-%:%247=192%:%
-%:%248=193%:%
-%:%249=194%:%
-%:%250=195%:%
-%:%251=196%:%
-%:%252=197%:%
-%:%253=198%:%
-%:%254=199%:%
-%:%255=200%:%
-%:%256=201%:%
-%:%257=202%:%
-%:%258=203%:%
-%:%259=204%:%
-%:%260=205%:%
-%:%261=206%:%
-%:%262=207%:%
-%:%263=208%:%
-%:%264=209%:%
+%:%239=186%:%
+%:%242=188%:%
+%:%243=189%:%
+%:%244=190%:%
+%:%245=191%:%
+%:%246=192%:%
+%:%247=193%:%
+%:%248=194%:%
+%:%249=195%:%
+%:%250=196%:%
+%:%251=197%:%
+%:%252=198%:%
+%:%253=199%:%
+%:%254=200%:%
+%:%255=201%:%
+%:%256=202%:%
+%:%257=203%:%
+%:%258=204%:%
+%:%259=205%:%
+%:%260=206%:%
+%:%261=207%:%
+%:%262=208%:%
+%:%264=210%:%
+%:%265=210%:%
 %:%266=211%:%
-%:%267=211%:%
-%:%268=212%:%
+%:%267=212%:%
+%:%268=213%:%
 %:%269=213%:%
 %:%270=214%:%
-%:%271=214%:%
-%:%272=215%:%
+%:%271=215%:%
+%:%272=216%:%
 %:%273=216%:%
 %:%274=217%:%
-%:%275=217%:%
 %:%276=218%:%
-%:%278=219%:%
-%:%279=220%:%
-%:%280=221%:%
-%:%281=222%:%
-%:%282=223%:%
-%:%283=224%:%
-%:%284=225%:%
-%:%285=226%:%
-%:%286=227%:%
-%:%287=227%:%
-%:%288=228%:%
-%:%289=229%:%
-%:%290=229%:%
-%:%291=230%:%
-%:%293=231%:%
-%:%294=232%:%
-%:%295=232%:%
-%:%296=233%:%
-%:%297=234%:%
-%:%298=234%:%
-%:%299=235%:%
-%:%300=236%:%
-%:%301=237%:%
-%:%302=237%:%
-%:%304=239%:%
-%:%305=240%:%
-%:%306=241%:%
-%:%307=242%:%
-%:%308=243%:%
-%:%309=244%:%
-%:%310=245%:%
-%:%311=246%:%
-%:%313=248%:%
-%:%314=248%:%
-%:%315=249%:%
-%:%316=250%:%
-%:%317=251%:%
-%:%318=251%:%
-%:%319=252%:%
-%:%321=253%:%
-%:%322=254%:%
-%:%325=256%:%
-%:%326=257%:%
-%:%327=258%:%
-%:%328=259%:%
-%:%329=260%:%
-%:%330=261%:%
-%:%331=262%:%
-%:%332=263%:%
-%:%333=264%:%
-%:%334=265%:%
-%:%335=266%:%
-%:%336=267%:%
-%:%337=268%:%
-%:%338=269%:%
-%:%339=270%:%
-%:%340=271%:%
-%:%341=272%:%
-%:%342=273%:%
-%:%343=274%:%
-%:%344=275%:%
-%:%345=276%:%
-%:%346=277%:%
-%:%347=278%:%
-%:%348=279%:%
-%:%349=280%:%
-%:%351=282%:%
-%:%352=282%:%
-%:%353=283%:%
-%:%355=284%:%
-%:%356=285%:%
-%:%357=285%:%
-%:%358=286%:%
-%:%359=287%:%
-%:%360=287%:%
-%:%362=288%:%
-%:%363=289%:%
-%:%364=290%:%
-%:%372=292%:%
-%:%384=294%:%
-%:%385=295%:%
-%:%386=296%:%
-%:%387=297%:%
-%:%388=298%:%
-%:%389=299%:%
-%:%391=302%:%
-%:%392=302%:%
-%:%394=303%:%
-%:%395=304%:%
-%:%396=305%:%
-%:%397=306%:%
-%:%398=306%:%
-%:%399=307%:%
-%:%400=308%:%
-%:%401=308%:%
-%:%403=308%:%
-%:%407=308%:%
-%:%408=308%:%
-%:%409=309%:%
-%:%410=309%:%
-%:%419=311%:%
-%:%420=312%:%
-%:%421=313%:%
-%:%422=314%:%
-%:%423=315%:%
-%:%424=316%:%
-%:%425=317%:%
-%:%426=318%:%
-%:%427=319%:%
-%:%428=320%:%
-%:%429=321%:%
-%:%430=322%:%
-%:%431=323%:%
+%:%277=219%:%
+%:%278=220%:%
+%:%279=221%:%
+%:%280=222%:%
+%:%281=223%:%
+%:%282=224%:%
+%:%283=225%:%
+%:%284=226%:%
+%:%287=228%:%
+%:%288=229%:%
+%:%289=230%:%
+%:%290=231%:%
+%:%291=232%:%
+%:%292=233%:%
+%:%293=234%:%
+%:%294=235%:%
+%:%296=237%:%
+%:%297=237%:%
+%:%298=238%:%
+%:%299=239%:%
+%:%300=240%:%
+%:%301=240%:%
+%:%302=241%:%
+%:%304=242%:%
+%:%305=243%:%
+%:%308=245%:%
+%:%309=246%:%
+%:%310=247%:%
+%:%311=248%:%
+%:%312=249%:%
+%:%313=250%:%
+%:%314=251%:%
+%:%315=252%:%
+%:%316=253%:%
+%:%317=254%:%
+%:%318=255%:%
+%:%319=256%:%
+%:%320=257%:%
+%:%321=258%:%
+%:%322=259%:%
+%:%323=260%:%
+%:%324=261%:%
+%:%325=262%:%
+%:%326=263%:%
+%:%327=264%:%
+%:%328=265%:%
+%:%329=266%:%
+%:%330=267%:%
+%:%331=268%:%
+%:%332=269%:%
+%:%334=271%:%
+%:%335=271%:%
+%:%336=272%:%
+%:%338=273%:%
+%:%339=274%:%
+%:%340=274%:%
+%:%341=275%:%
+%:%342=276%:%
+%:%343=276%:%
+%:%345=277%:%
+%:%346=278%:%
+%:%347=279%:%
+%:%355=281%:%
+%:%367=283%:%
+%:%368=284%:%
+%:%369=285%:%
+%:%370=286%:%
+%:%371=287%:%
+%:%372=288%:%
+%:%374=291%:%
+%:%375=291%:%
+%:%377=292%:%
+%:%378=293%:%
+%:%379=294%:%
+%:%380=295%:%
+%:%381=295%:%
+%:%382=296%:%
+%:%383=297%:%
+%:%384=297%:%
+%:%386=297%:%
+%:%390=297%:%
+%:%391=297%:%
+%:%392=298%:%
+%:%393=298%:%
+%:%394=298%:%
+%:%403=300%:%
+%:%404=301%:%
+%:%405=302%:%
+%:%406=303%:%
+%:%407=304%:%
+%:%408=305%:%
+%:%409=306%:%
+%:%410=307%:%
+%:%411=308%:%
+%:%412=309%:%
+%:%413=310%:%
+%:%414=311%:%
+%:%415=312%:%
+%:%416=313%:%
+%:%417=314%:%
+%:%418=315%:%
+%:%419=316%:%
+%:%421=318%:%
+%:%422=318%:%
+%:%423=319%:%
+%:%425=320%:%
+%:%426=321%:%
+%:%427=321%:%
+%:%428=322%:%
+%:%429=323%:%
+%:%430=323%:%
 %:%432=324%:%
 %:%433=325%:%
-%:%434=326%:%
-%:%435=327%:%
-%:%437=329%:%
-%:%438=329%:%
-%:%439=330%:%
-%:%441=331%:%
-%:%442=332%:%
-%:%443=332%:%
-%:%444=333%:%
-%:%445=334%:%
-%:%446=334%:%
-%:%448=335%:%
-%:%449=336%:%
-%:%450=336%:%
-%:%451=337%:%
-%:%452=338%:%
-%:%453=338%:%
-%:%454=339%:%
-%:%455=339%:%
-%:%457=339%:%
-%:%461=339%:%
-%:%462=339%:%
-%:%464=340%:%
-%:%465=341%:%
-%:%466=342%:%
-%:%467=343%:%
-%:%468=344%:%
-%:%469=345%:%
-%:%470=346%:%
-%:%471=347%:%
-%:%472=348%:%
-%:%473=349%:%
-%:%474=350%:%
-%:%482=350%:%
-%:%483=351%:%
-%:%484=352%:%
-%:%485=352%:%
-%:%486=353%:%
-%:%487=354%:%
-%:%488=354%:%
-%:%489=355%:%
-%:%490=355%:%
-%:%492=355%:%
-%:%496=355%:%
-%:%497=355%:%
-%:%499=356%:%
-%:%500=357%:%
-%:%501=358%:%
-%:%502=359%:%
-%:%503=360%:%
-%:%504=361%:%
-%:%514=363%:%
-%:%515=364%:%
-%:%516=365%:%
-%:%517=366%:%
-%:%518=367%:%
-%:%519=368%:%
-%:%520=369%:%
-%:%521=370%:%
-%:%522=371%:%
-%:%523=372%:%
-%:%524=373%:%
-%:%525=374%:%
-%:%526=375%:%
-%:%527=376%:%
-%:%528=377%:%
-%:%529=378%:%
-%:%530=379%:%
-%:%531=380%:%
-%:%532=381%:%
-%:%533=382%:%
-%:%537=384%:%
-%:%538=385%:%
-%:%539=386%:%
-%:%540=387%:%
-%:%541=388%:%
-%:%550=390%:%
-%:%562=392%:%
-%:%563=393%:%
-%:%564=394%:%
-%:%565=395%:%
-%:%567=397%:%
-%:%568=397%:%
-%:%569=398%:%
-%:%570=398%:%
-%:%571=399%:%
-%:%572=399%:%
-%:%573=400%:%
-%:%574=400%:%
-%:%575=401%:%
-%:%576=402%:%
-%:%577=403%:%
-%:%578=403%:%
-%:%579=404%:%
-%:%580=405%:%
-%:%581=406%:%
-%:%582=406%:%
-%:%583=407%:%
-%:%584=408%:%
-%:%585=409%:%
-%:%588=410%:%
-%:%592=410%:%
-%:%593=410%:%
-%:%594=410%:%
-%:%599=410%:%
-%:%602=411%:%
-%:%603=412%:%
-%:%604=412%:%
-%:%605=413%:%
-%:%606=414%:%
-%:%607=415%:%
-%:%610=416%:%
-%:%614=416%:%
-%:%615=416%:%
-%:%616=416%:%
-%:%625=420%:%
-%:%629=422%:%
-%:%638=424%:%
-%:%650=426%:%
-%:%651=427%:%
-%:%652=428%:%
-%:%653=429%:%
-%:%654=430%:%
-%:%655=431%:%
-%:%656=432%:%
-%:%657=433%:%
-%:%658=434%:%
-%:%659=435%:%
-%:%660=436%:%
-%:%661=437%:%
-%:%662=438%:%
-%:%663=439%:%
-%:%664=440%:%
-%:%665=441%:%
-%:%666=442%:%
-%:%667=443%:%
-%:%668=444%:%
-%:%669=445%:%
-%:%671=447%:%
-%:%672=447%:%
-%:%673=448%:%
-%:%676=449%:%
-%:%680=449%:%
-%:%681=449%:%
-%:%686=449%:%
-%:%689=450%:%
-%:%690=451%:%
-%:%691=451%:%
-%:%692=452%:%
-%:%695=453%:%
-%:%699=453%:%
-%:%700=453%:%
-%:%705=453%:%
-%:%708=454%:%
-%:%709=455%:%
-%:%710=455%:%
-%:%711=456%:%
-%:%714=457%:%
-%:%718=457%:%
-%:%719=457%:%
-%:%724=457%:%
-%:%727=458%:%
-%:%728=459%:%
-%:%729=459%:%
-%:%730=460%:%
-%:%733=461%:%
-%:%737=461%:%
-%:%738=461%:%
-%:%747=463%:%
-%:%748=464%:%
-%:%749=465%:%
-%:%750=466%:%
-%:%751=467%:%
-%:%752=468%:%
-%:%753=469%:%
-%:%755=471%:%
-%:%756=471%:%
-%:%757=472%:%
-%:%758=473%:%
-%:%759=473%:%
-%:%761=473%:%
-%:%765=473%:%
-%:%766=473%:%
-%:%768=474%:%
-%:%769=475%:%
-%:%770=476%:%
-%:%771=477%:%
-%:%772=478%:%
-%:%773=479%:%
-%:%774=480%:%
-%:%775=481%:%
-%:%776=482%:%
-%:%777=483%:%
-%:%778=484%:%
-%:%788=486%:%
-%:%789=487%:%
-%:%791=489%:%
-%:%792=489%:%
-%:%793=490%:%
-%:%796=491%:%
-%:%800=491%:%
-%:%801=491%:%
-%:%803=492%:%
-%:%813=494%:%
-%:%814=495%:%
-%:%816=497%:%
-%:%817=497%:%
-%:%818=498%:%
-%:%821=499%:%
-%:%825=499%:%
-%:%826=499%:%
-%:%827=499%:%
-%:%829=500%:%
-%:%830=501%:%
-%:%840=503%:%
-%:%841=504%:%
-%:%842=505%:%
-%:%843=506%:%
-%:%844=507%:%
-%:%845=508%:%
-%:%846=509%:%
-%:%847=510%:%
-%:%848=511%:%
-%:%849=512%:%
-%:%850=513%:%
-%:%851=514%:%
-%:%855=516%:%
-%:%856=517%:%
-%:%857=518%:%
-%:%859=520%:%
-%:%860=520%:%
-%:%861=521%:%
-%:%862=522%:%
-%:%863=523%:%
-%:%864=523%:%
-%:%866=523%:%
-%:%870=523%:%
-%:%871=523%:%
-%:%873=524%:%
-%:%874=525%:%
-%:%875=526%:%
-%:%876=527%:%
-%:%877=528%:%
-%:%878=529%:%
-%:%879=530%:%
-%:%880=531%:%
-%:%881=532%:%
-%:%882=533%:%
-%:%892=535%:%
-%:%893=536%:%
-%:%894=537%:%
-%:%896=539%:%
-%:%897=539%:%
-%:%898=540%:%
-%:%899=541%:%
-%:%900=541%:%
-%:%902=541%:%
-%:%906=541%:%
-%:%907=541%:%
-%:%909=542%:%
-%:%910=543%:%
-%:%911=544%:%
-%:%912=545%:%
-%:%913=546%:%
-%:%914=547%:%
-%:%915=548%:%
-%:%916=549%:%
-%:%917=550%:%
-%:%918=551%:%
-%:%928=553%:%
-%:%929=554%:%
-%:%930=555%:%
-%:%931=556%:%
-%:%933=558%:%
-%:%934=558%:%
-%:%935=559%:%
-%:%938=560%:%
-%:%942=560%:%
-%:%943=560%:%
-%:%944=560%:%
-%:%946=561%:%
-%:%952=561%:%
-%:%955=562%:%
-%:%956=563%:%
-%:%957=563%:%
-%:%958=564%:%
-%:%961=565%:%
-%:%965=565%:%
-%:%966=565%:%
-%:%967=565%:%
-%:%969=566%:%
-%:%975=566%:%
-%:%978=567%:%
-%:%979=568%:%
-%:%980=568%:%
-%:%981=569%:%
-%:%982=570%:%
-%:%985=571%:%
-%:%989=571%:%
-%:%990=571%:%
-%:%991=571%:%
-%:%993=572%:%
-%:%994=573%:%
-%:%1004=575%:%
-%:%1005=576%:%
-%:%1006=577%:%
-%:%1007=578%:%
-%:%1008=579%:%
-%:%1009=580%:%
-%:%1010=581%:%
-%:%1019=583%:%
-%:%1031=585%:%
-%:%1032=586%:%
-%:%1033=587%:%
-%:%1034=588%:%
-%:%1036=590%:%
-%:%1037=590%:%
-%:%1038=591%:%
-%:%1039=592%:%
-%:%1040=592%:%
-%:%1042=592%:%
-%:%1046=592%:%
-%:%1047=592%:%
-%:%1049=593%:%
-%:%1050=594%:%
-%:%1051=595%:%
-%:%1052=596%:%
-%:%1053=597%:%
-%:%1054=598%:%
-%:%1055=599%:%
-%:%1056=600%:%
-%:%1057=601%:%
-%:%1058=602%:%
-%:%1059=603%:%
-%:%1060=603%:%
+%:%434=325%:%
+%:%435=326%:%
+%:%436=327%:%
+%:%437=327%:%
+%:%438=328%:%
+%:%439=328%:%
+%:%441=328%:%
+%:%445=328%:%
+%:%446=328%:%
+%:%448=329%:%
+%:%449=330%:%
+%:%450=331%:%
+%:%451=332%:%
+%:%452=333%:%
+%:%453=334%:%
+%:%454=335%:%
+%:%455=336%:%
+%:%456=337%:%
+%:%457=338%:%
+%:%458=339%:%
+%:%466=339%:%
+%:%467=340%:%
+%:%468=341%:%
+%:%469=341%:%
+%:%470=342%:%
+%:%471=343%:%
+%:%472=343%:%
+%:%473=344%:%
+%:%474=344%:%
+%:%476=344%:%
+%:%480=344%:%
+%:%481=344%:%
+%:%483=345%:%
+%:%484=346%:%
+%:%485=347%:%
+%:%486=348%:%
+%:%487=349%:%
+%:%488=350%:%
+%:%498=352%:%
+%:%499=353%:%
+%:%500=354%:%
+%:%501=355%:%
+%:%502=356%:%
+%:%503=357%:%
+%:%504=358%:%
+%:%505=359%:%
+%:%506=360%:%
+%:%507=361%:%
+%:%508=362%:%
+%:%509=363%:%
+%:%510=364%:%
+%:%511=365%:%
+%:%512=366%:%
+%:%513=367%:%
+%:%514=368%:%
+%:%515=369%:%
+%:%516=370%:%
+%:%517=371%:%
+%:%521=373%:%
+%:%522=374%:%
+%:%523=375%:%
+%:%524=376%:%
+%:%525=377%:%
+%:%534=379%:%
+%:%546=381%:%
+%:%547=382%:%
+%:%548=383%:%
+%:%549=384%:%
+%:%553=386%:%
+%:%554=387%:%
+%:%555=388%:%
+%:%556=389%:%
+%:%557=390%:%
+%:%558=391%:%
+%:%559=392%:%
+%:%560=393%:%
+%:%561=394%:%
+%:%562=395%:%
+%:%563=396%:%
+%:%564=397%:%
+%:%565=398%:%
+%:%566=399%:%
+%:%567=400%:%
+%:%568=401%:%
+%:%570=403%:%
+%:%571=403%:%
+%:%573=404%:%
+%:%574=405%:%
+%:%575=405%:%
+%:%576=406%:%
+%:%577=406%:%
+%:%579=407%:%
+%:%580=408%:%
+%:%581=408%:%
+%:%582=409%:%
+%:%583=409%:%
+%:%585=410%:%
+%:%586=411%:%
+%:%587=411%:%
+%:%588=412%:%
+%:%589=413%:%
+%:%590=413%:%
+%:%591=414%:%
+%:%593=415%:%
+%:%596=417%:%
+%:%597=418%:%
+%:%598=419%:%
+%:%600=421%:%
+%:%601=421%:%
+%:%602=422%:%
+%:%604=423%:%
+%:%605=424%:%
+%:%606=425%:%
+%:%607=426%:%
+%:%608=427%:%
+%:%609=427%:%
+%:%610=428%:%
+%:%611=429%:%
+%:%612=429%:%
+%:%613=430%:%
+%:%615=431%:%
+%:%616=432%:%
+%:%617=433%:%
+%:%618=434%:%
+%:%619=435%:%
+%:%620=435%:%
+%:%621=436%:%
+%:%622=437%:%
+%:%623=437%:%
+%:%624=438%:%
+%:%626=439%:%
+%:%627=440%:%
+%:%628=441%:%
+%:%629=442%:%
+%:%630=443%:%
+%:%633=445%:%
+%:%634=446%:%
+%:%636=448%:%
+%:%637=448%:%
+%:%638=449%:%
+%:%639=450%:%
+%:%640=451%:%
+%:%641=452%:%
+%:%648=453%:%
+%:%649=453%:%
+%:%650=454%:%
+%:%651=454%:%
+%:%652=455%:%
+%:%653=455%:%
+%:%655=456%:%
+%:%656=457%:%
+%:%657=457%:%
+%:%658=458%:%
+%:%659=458%:%
+%:%660=459%:%
+%:%661=459%:%
+%:%662=459%:%
+%:%663=460%:%
+%:%673=462%:%
+%:%674=463%:%
+%:%675=464%:%
+%:%676=465%:%
+%:%677=466%:%
+%:%678=467%:%
+%:%679=468%:%
+%:%680=469%:%
+%:%682=471%:%
+%:%683=471%:%
+%:%684=472%:%
+%:%685=472%:%
+%:%686=473%:%
+%:%688=474%:%
+%:%689=475%:%
+%:%690=475%:%
+%:%691=476%:%
+%:%692=477%:%
+%:%693=477%:%
+%:%694=478%:%
+%:%696=479%:%
+%:%697=480%:%
+%:%698=480%:%
+%:%699=481%:%
+%:%700=482%:%
+%:%701=482%:%
+%:%702=483%:%
+%:%703=484%:%
+%:%705=485%:%
+%:%706=485%:%
+%:%707=486%:%
+%:%708=487%:%
+%:%710=488%:%
+%:%711=488%:%
+%:%712=489%:%
+%:%719=490%:%
+%:%720=490%:%
+%:%721=491%:%
+%:%722=491%:%
+%:%723=492%:%
+%:%724=492%:%
+%:%725=492%:%
+%:%726=493%:%
+%:%727=493%:%
+%:%728=494%:%
+%:%729=494%:%
+%:%730=494%:%
+%:%731=495%:%
+%:%732=495%:%
+%:%734=496%:%
+%:%744=498%:%
+%:%745=499%:%
+%:%746=500%:%
+%:%747=501%:%
+%:%748=502%:%
+%:%749=503%:%
+%:%750=504%:%
+%:%751=505%:%
+%:%752=506%:%
+%:%753=507%:%
+%:%754=508%:%
+%:%755=509%:%
+%:%756=510%:%
+%:%757=511%:%
+%:%758=512%:%
+%:%759=513%:%
+%:%760=514%:%
+%:%761=515%:%
+%:%762=516%:%
+%:%763=517%:%
+%:%764=518%:%
+%:%765=519%:%
+%:%766=520%:%
+%:%767=521%:%
+%:%768=522%:%
+%:%769=523%:%
+%:%770=524%:%
+%:%771=525%:%
+%:%772=526%:%
+%:%773=527%:%
+%:%774=528%:%
+%:%775=529%:%
+%:%776=530%:%
+%:%777=531%:%
+%:%778=532%:%
+%:%779=533%:%
+%:%780=534%:%
+%:%781=535%:%
+%:%782=536%:%
+%:%783=537%:%
+%:%787=539%:%
+%:%788=540%:%
+%:%789=541%:%
+%:%791=543%:%
+%:%792=543%:%
+%:%793=544%:%
+%:%794=545%:%
+%:%795=545%:%
+%:%797=545%:%
+%:%801=545%:%
+%:%802=545%:%
+%:%804=546%:%
+%:%805=547%:%
+%:%806=548%:%
+%:%807=549%:%
+%:%808=550%:%
+%:%809=551%:%
+%:%819=554%:%
+%:%820=555%:%
+%:%821=556%:%
+%:%830=558%:%
+%:%842=560%:%
+%:%843=561%:%
+%:%844=562%:%
+%:%845=563%:%
+%:%846=564%:%
+%:%847=565%:%
+%:%848=566%:%
+%:%849=567%:%
+%:%850=568%:%
+%:%851=569%:%
+%:%852=570%:%
+%:%853=571%:%
+%:%854=572%:%
+%:%855=573%:%
+%:%856=574%:%
+%:%857=575%:%
+%:%858=576%:%
+%:%859=577%:%
+%:%860=578%:%
+%:%861=579%:%
+%:%863=581%:%
+%:%864=581%:%
+%:%865=582%:%
+%:%868=583%:%
+%:%872=583%:%
+%:%873=583%:%
+%:%878=583%:%
+%:%881=584%:%
+%:%882=585%:%
+%:%883=585%:%
+%:%884=586%:%
+%:%887=587%:%
+%:%891=587%:%
+%:%892=587%:%
+%:%897=587%:%
+%:%900=588%:%
+%:%901=589%:%
+%:%902=589%:%
+%:%903=590%:%
+%:%906=591%:%
+%:%910=591%:%
+%:%911=591%:%
+%:%916=591%:%
+%:%919=592%:%
+%:%920=593%:%
+%:%921=593%:%
+%:%922=594%:%
+%:%925=595%:%
+%:%929=595%:%
+%:%930=595%:%
+%:%939=597%:%
+%:%940=598%:%
+%:%941=599%:%
+%:%942=600%:%
+%:%943=601%:%
+%:%944=602%:%
+%:%945=603%:%
+%:%947=605%:%
+%:%948=605%:%
+%:%949=606%:%
+%:%950=607%:%
+%:%951=607%:%
+%:%953=607%:%
+%:%957=607%:%
+%:%958=607%:%
+%:%960=608%:%
+%:%961=609%:%
+%:%962=610%:%
+%:%963=611%:%
+%:%964=612%:%
+%:%965=613%:%
+%:%966=614%:%
+%:%967=615%:%
+%:%968=616%:%
+%:%969=617%:%
+%:%970=618%:%
+%:%980=620%:%
+%:%981=621%:%
+%:%983=623%:%
+%:%984=623%:%
+%:%985=624%:%
+%:%988=625%:%
+%:%992=625%:%
+%:%993=625%:%
+%:%995=626%:%
+%:%1005=628%:%
+%:%1006=629%:%
+%:%1008=631%:%
+%:%1009=631%:%
+%:%1010=632%:%
+%:%1013=633%:%
+%:%1017=633%:%
+%:%1018=633%:%
+%:%1019=633%:%
+%:%1021=634%:%
+%:%1022=635%:%
+%:%1032=637%:%
+%:%1033=638%:%
+%:%1034=639%:%
+%:%1035=640%:%
+%:%1036=641%:%
+%:%1037=642%:%
+%:%1038=643%:%
+%:%1039=644%:%
+%:%1040=645%:%
+%:%1041=646%:%
+%:%1042=647%:%
+%:%1043=648%:%
+%:%1047=650%:%
+%:%1048=651%:%
+%:%1049=652%:%
+%:%1051=654%:%
+%:%1052=654%:%
+%:%1053=655%:%
+%:%1054=656%:%
+%:%1055=657%:%
+%:%1056=657%:%
+%:%1058=657%:%
+%:%1062=657%:%
+%:%1063=657%:%
+%:%1065=658%:%
+%:%1066=659%:%
+%:%1067=660%:%
+%:%1068=661%:%
+%:%1069=662%:%
+%:%1070=663%:%
+%:%1071=664%:%
+%:%1072=665%:%
+%:%1073=666%:%
+%:%1074=667%:%
+%:%1084=669%:%
+%:%1085=670%:%
+%:%1086=671%:%
+%:%1088=673%:%
+%:%1089=673%:%
+%:%1090=674%:%
+%:%1091=675%:%
+%:%1092=675%:%
+%:%1094=675%:%
+%:%1098=675%:%
+%:%1099=675%:%
+%:%1101=676%:%
+%:%1102=677%:%
+%:%1103=678%:%
+%:%1104=679%:%
+%:%1105=680%:%
+%:%1106=681%:%
+%:%1107=682%:%
+%:%1108=683%:%
+%:%1109=684%:%
+%:%1110=685%:%
+%:%1120=687%:%
+%:%1121=688%:%
+%:%1122=689%:%
+%:%1123=690%:%
+%:%1125=692%:%
+%:%1126=692%:%
+%:%1127=693%:%
+%:%1130=694%:%
+%:%1134=694%:%
+%:%1135=694%:%
+%:%1136=694%:%
+%:%1138=695%:%
+%:%1144=695%:%
+%:%1147=696%:%
+%:%1148=697%:%
+%:%1149=697%:%
+%:%1150=698%:%
+%:%1153=699%:%
+%:%1157=699%:%
+%:%1158=699%:%
+%:%1159=699%:%
+%:%1161=700%:%
+%:%1167=700%:%
+%:%1170=701%:%
+%:%1171=702%:%
+%:%1172=702%:%
+%:%1173=703%:%
+%:%1174=704%:%
+%:%1177=705%:%
+%:%1181=705%:%
+%:%1182=705%:%
+%:%1183=705%:%
+%:%1185=706%:%
+%:%1186=707%:%
+%:%1196=709%:%
+%:%1197=710%:%
+%:%1198=711%:%
+%:%1199=712%:%
+%:%1200=713%:%
+%:%1201=714%:%
+%:%1202=715%:%
+%:%1211=717%:%
+%:%1223=719%:%
+%:%1224=720%:%
+%:%1225=721%:%
+%:%1226=722%:%
+%:%1228=724%:%
+%:%1229=724%:%
+%:%1230=725%:%
+%:%1231=726%:%
+%:%1232=726%:%
+%:%1234=726%:%
+%:%1238=726%:%
+%:%1239=726%:%
+%:%1241=727%:%
+%:%1242=728%:%
+%:%1243=729%:%
+%:%1244=730%:%
+%:%1245=731%:%
+%:%1246=732%:%
+%:%1247=733%:%
+%:%1248=734%:%
+%:%1249=735%:%
+%:%1250=736%:%
+%:%1251=737%:%
+%:%1252=737%:%

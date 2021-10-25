@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 OCT 2021 10:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 OCT 2021 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -417,13 +417,24 @@ Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
 
 [33] [34] [35] [36] [37] [38] [39] [40]) (./paper33.tex) (./paper41.tex
 [41] [42] [43] [44] [45] [46]
-Overfull \hbox (12.98518pt too wide) in paragraph at lines 216--223
+Overfull \hbox (12.98518pt too wide) in paragraph at lines 214--221
 \OT1/ptm/m/n/10.95 oblig-a-tory in con-text B (where the con-text is a set of w
 orlds) [[]].
  []
 
-[47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
-Overfull \hbox (18.04605pt too wide) in paragraph at lines 840--849
+[47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+Overfull \hbox (23.58006pt too wide) in paragraph at lines 693--694
+[][]\OT1/ptm/m/it/10 need[]to[]be[]believed $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm
+/m/it/10 w s$\OML/cmm/m/it/10 :$ $\OT1/cmr/m/n/10 ($$\OMS/cmsy/m/n/10 :$ \OT1/p
+tm/m/it/10 be-lieved$\OT1/cmr/m/n/10 ($\OT1/ptm/m/it/10 s$\OT1/cmr/m/n/10 )$ \O
+T1/ptm/m/it/10 w $[][]\OMS/cmsy/m/n/10 !$ $\OMS/cmsy/b/n/10 :$$\OT1/cmr/m/n/10 
+($$($\OT1/ptm/m/it/10 falsely[]promise s$\OT1/cmr/m/n/10 )$ $\OMS/cmsy/b/n/10 !
+$ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
+1/cmr/m/n/10 )$[] 
+ []
+
+[58] [59] [60] [61] [62] [63]
+Overfull \hbox (18.04605pt too wide) in paragraph at lines 1032--1041
 \OT1/ptm/m/n/10.95 base logic DDL, I can show the sen-tence $\OT1/cmr/m/n/10.95
  (\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/
 10.95 g ^ \OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f:\OML/cmm/m/it/10.95 A\OMS/
@@ -433,24 +444,24 @@ cmsy/m/n/10.95 g\OT1/cmr/m/n/10.95 )[](\OMS/cmsy/m/n/10.95 :\OT1/cmr/m/n/10.95
 y/m/n/10.95 g\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 w$
  []
 
-[59] [60] [61]) (./relatedwork.tex
+[64] [65]) (./relatedwork.tex [66]
 Overfull \hbox (6.088pt too wide) in paragraph at lines 45--55
 []\OT1/ptm/m/n/10.95 ] or par-tic-u-lar-ism [[], []].
  []
 
-[62]
+[67]
 Overfull \hbox (3.13147pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 physics [[], []]. Fuen-mayor and Benz-
  []
 
-) (./futurework.tex [63] [64]) [65] (./root.bbl [66] [67]
+) (./futurework.tex [68] [69]) [70] (./root.bbl [71] [72]
 Underfull \hbox (badness 6995) in paragraph at lines 129--132
 []\OT1/ptm/m/n/10.95 Kirchner, D., Benzm[]uller, C., and Zalta, E. N.
  []
 
-[68] [69] [70])
+[73] [74] [75])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [71]
+ [76]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
@@ -460,8 +471,8 @@ Package rerunfilecheck Info: File `root.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
- 7298 strings out of 480608
- 105070 string characters out of 5903631
+ 7306 strings out of 480608
+ 105141 string characters out of 5903631
  363832 words of memory out of 5000000
  22818 multiletter control sequences out of 15000+600000
  577646 words of font info for 125 fonts, out of 8000000 for 9000
@@ -478,17 +489,18 @@ e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/tim
-es/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a
-.pfb>
-Output written on root.pdf (71 pages, 323637 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
+urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times
+/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on root.pdf (76 pages, 342183 bytes).
 PDF statistics:
- 783 PDF objects out of 1000 (max. 8388607)
- 686 compressed objects within 7 object streams
- 185 named destinations out of 1000 (max. 500000)
+ 821 PDF objects out of 1000 (max. 8388607)
+ 717 compressed objects within 8 object streams
+ 193 named destinations out of 1000 (max. 500000)
  233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
