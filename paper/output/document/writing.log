@@ -1,10 +1,12 @@
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  28 OCT 2021 16:54
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**\nonstopmode\input{root.tex}
-(./root.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
+**writing
+(./writing.tex
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-03-06>
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
@@ -107,7 +109,31 @@ LaTeX Info: Redefining \] on input line 2860.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
@@ -135,10 +161,7 @@ Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-)))
+))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
@@ -158,10 +181,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
@@ -184,7 +203,7 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen149
+\@linkdim=\dimen151
 \Hy@linkcounter=\count188
 \Hy@pagecounter=\count189
 
@@ -216,7 +235,7 @@ Package hyperref Info: Bookmarks ON on input line 4800.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen150
+\XeTeXLinkMargin=\dimen152
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -226,8 +245,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count192
-\Field@Width=\dimen151
-\Fld@charsize=\dimen152
+\Field@Width=\dimen153
+\Fld@charsize=\dimen154
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -273,8 +292,8 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count198
 \l__pdf_internal_box=\box50
 )
-(./root.aux)
-\openout1 = `root.aux'.
+(./writing.aux)
+\openout1 = `writing.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
@@ -296,20 +315,29 @@ LaTeX Font Info:    ... okay on input line 44.
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count199
-\scratchdimen=\dimen153
+\scratchdimen=\dimen155
 \scratchbox=\box51
 \nofMPsegments=\count266
 \nofMParguments=\count267
 \everyMPshowfont=\toks22
 \MPscratchCnt=\count268
-\MPscratchDim=\dimen154
+\MPscratchDim=\dimen156
 \MPnumerator=\count269
 \makeMPintoPDFobject=\count270
 \everyMPtoPDFconversion=\toks23
-)
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 \AtBeginShipoutBox=\box52
 Package hyperref Info: Link coloring ON on input line 44.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -324,9 +352,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 44.
 LaTeX Info: Redefining \pageref on input line 44.
 LaTeX Info: Redefining \nameref on input line 44.
- (./root.out) (./root.out)
+ (./writing.out) (./writing.out)
 \@outlinefile=\write4
-\openout4 = `root.out'.
+\openout4 = `writing.out'.
 
 LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
 
@@ -339,168 +367,101 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./root.toc
+) (./writing.toc
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write5
-\openout5 = `root.toc'.
+\openout5 = `writing.toc'.
 
 
-[2] (./paper.tex
-Overfull \hbox (30.39597pt too wide) in paragraph at lines 36--44
-\OT1/ptm/m/n/10.95 per-form-ing com-plex eth-i-cal rea-son-ing. The field of ma
--chine ethics [[]]
+[2] (./threeflags.tex [3]
+Overfull \hbox (36.81137pt too wide) in paragraph at lines 75--80
+[]\OT1/ptm/m/n/10.95 While some crit-i-cize the FUL for its for-mal-ism and per
+-cieved ``steril-ity" $\OT1/cmr/m/n/10.95 [[]]$\OT1/ptm/m/n/10.95 ,
  []
 
-[3]
-Overfull \hbox (30.12245pt too wide) in paragraph at lines 65--72
-\OT1/ptm/m/n/10.95 an ex-ten-sion of Carmo and Jones' Dyadic De-on-tic Logic (D
-DL) [[]].
+[4] [5] [6] [7] [8]
+Overfull \hbox (10.14925pt too wide) in paragraph at lines 266--272
+\OT1/ptm/m/n/10.95 re-con-struct Ko-rs-gaard's ar-gu-ment for the prac-ti-cal c
+on-tra-dic-tion in-ter-pre-ta-tion. While
  []
 
-[4] [5] [6]
-Overfull \hbox (32.41122pt too wide) in paragraph at lines 209--214
-\OT1/ptm/m/n/10.95 Stan-dard de-on-tic logic [[], []]
+[9] [10] [11]) [12] (./upshot.tex [13]
+<AI_engine.png, id=229, 976.64874pt x 461.725pt>
+File: AI_engine.png Graphic file (type png)
+<use AI_engine.png>
+Package pdftex.def Info: AI_engine.png  used on input line 82.
+(pdftex.def)             Requested size: 390.65257pt x 184.68672pt.
+
+Overfull \hbox (30.65257pt too wide) in paragraph at lines 82--84
+ [][] 
  []
 
-[7] [8]) (./paper22.tex
-Overfull \hbox (0.31563pt too wide) in paragraph at lines 36--39
-\OT1/ptm/m/n/10.95 Isabelle/HOL is an in-ter-ac-tive proof as-sis-tant [[]] bui
-lt on Haskell
+[14 <./AI_engine.png>] [15] [16] [17] [18]
+Overfull \hbox (42.41144pt too wide) in paragraph at lines 252--259
+\OT1/ptm/m/n/10.95 formed by this tu-ple. While be-fore I added the ax-iom $\OM
+S/cmsy/m/n/10.95 8\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 c; a; g\OT1/cmr/m/n/1
+0.95 )[](\OML/cmm/m/it/10.95 c; a; g\OT1/cmr/m/n/10.95 )$\OT1/ptm/m/n/10.95 ,
  []
 
-
-Overfull \hbox (73.03392pt too wide) in paragraph at lines 40--43
-[]\OT1/ptm/m/n/10.95 I started my project by reim-ple-ment-ing Benz-mueller, Fa
-r-jami, and Par-ent's [[],
+[19] [20] [21] [22] [23] [24]
+Overfull \hbox (0.36082pt too wide) in paragraph at lines 399--405
+\OT1/ptm/m/n/10.95 [[], 2]. In-deed, even Chris-tensen ac-knowl-edges that to-t
+al self-confidence
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 4
-7.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [9]
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 8
-2.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
- [10] [11])
-(./paper224.tex [12] [13]
-Overfull \hbox (3.66676pt too wide) in paragraph at lines 365--368
-[][]\OT1/ptm/m/n/10 --- Is-abelle's proof-finding tool, Sledge-ham-mer [[]], co
-mes with
+[25] [26] [27] [28] [29]) [30] (./whykant.tex [31] [32] [33] [34] [35]
+Underfull \hbox (badness 4492) in paragraph at lines 232--232
+[][][]\OT1/ptm/m/n/9 There is long de-bate about what ex-actly makes an eth-i-c
+al the-ory con-se-quen-tial-ist
  []
 
-[14]) (./paper31.tex [15] [16] [17] [18] [19] [20] [21]
-Overfull \hbox (39.48538pt too wide) in paragraph at lines 588--591
-[]\OT1/ptm/m/n/10.95 The above is a rather weak no-tion of con-tra-dic-tory obl
-i-ga-tions. Ko-rs-gaard [[]]
+[36] [37] [38] [39] [40] [41]
+Overfull \hbox (42.61581pt too wide) in paragraph at lines 471--486
+\OT1/ptm/m/n/10.95 cepted as a char-ac-ter trait that "makes its pos-ses-sor go
+od" [[]].
  []
 
-[22] [23]) (./paper32.tex [24] [25] [26] [27] [28] [29] [30] [31] [32]
-Overfull \hbox (6.36386pt too wide) in paragraph at lines 563--565
-[][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 lying[]not[]possibly[]univers
-al$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 bool \OT1/ptm/b/n/10 where \OT1/ptm/m/
-it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
-0 =$$($$\OMS/cmsy/b/n/10 :$
+[42] [43] [44] [45]) [46] (./writing.bbl
+Underfull \hbox (badness 1412) in paragraph at lines 55--60
+[]\OT1/ptm/m/n/10.95 Hursthouse, R. and Pet-ti-grove, G. (2018).
  []
 
-
-Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
-[][] 
- []
-
-[33] [34] [35] [36] [37] [38] [39] [40]) (./paper33.tex) (./paper41.tex
-[41] [42] [43] [44] [45] [46]
-Overfull \hbox (12.98518pt too wide) in paragraph at lines 214--221
-\OT1/ptm/m/n/10.95 oblig-a-tory in con-text B (where the con-text is a set of w
-orlds) [[]].
- []
-
-[47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
-Overfull \hbox (23.58006pt too wide) in paragraph at lines 693--694
-[][]\OT1/ptm/m/it/10 need[]to[]be[]believed $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm
-/m/it/10 w s$\OML/cmm/m/it/10 :$ $\OT1/cmr/m/n/10 ($$\OMS/cmsy/m/n/10 :$ \OT1/p
-tm/m/it/10 be-lieved$\OT1/cmr/m/n/10 ($\OT1/ptm/m/it/10 s$\OT1/cmr/m/n/10 )$ \O
-T1/ptm/m/it/10 w $[][]\OMS/cmsy/m/n/10 !$ $\OMS/cmsy/b/n/10 :$$\OT1/cmr/m/n/10 
-($$($\OT1/ptm/m/it/10 falsely[]promise s$\OT1/cmr/m/n/10 )$ $\OMS/cmsy/b/n/10 !
-$ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
-1/cmr/m/n/10 )$[] 
- []
-
-[58] [59] [60] [61] [62] [63]
-Overfull \hbox (18.04605pt too wide) in paragraph at lines 1032--1041
-\OT1/ptm/m/n/10.95 base logic DDL, I can show the sen-tence $\OT1/cmr/m/n/10.95
- (\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/
-10.95 g ^ \OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f:\OML/cmm/m/it/10.95 A\OMS/
-cmsy/m/n/10.95 g\OT1/cmr/m/n/10.95 )[](\OMS/cmsy/m/n/10.95 :\OT1/cmr/m/n/10.95 
-(\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/1
-0.95 g[]\OML/cmm/m/it/10.95 P\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cms
-y/m/n/10.95 g\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 w$
- []
-
-[64] [65]) (./relatedwork.tex [66]
-Overfull \hbox (6.088pt too wide) in paragraph at lines 45--55
-[]\OT1/ptm/m/n/10.95 ] or par-tic-u-lar-ism [[], []].
- []
-
-[67]
-Overfull \hbox (3.13147pt too wide) in paragraph at lines 63--67
-\OT1/ptm/m/n/10.95 physics [[], []]. Fuen-mayor and Benz-
- []
-
-) (./futurework.tex [68] [69]) [70] (./root.bbl [71] [72]
-Underfull \hbox (badness 6995) in paragraph at lines 129--132
-[]\OT1/ptm/m/n/10.95 Kirchner, D., Benzm[]uller, C., and Zalta, E. N.
- []
-
-[73] [74] [75])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [76]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
- (./root.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
-Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 15ECAC857A095B0FBCEFD85EBCC784EF;2152.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+[47] [48])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
+ [49]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
+ (./writing.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
+Package rerunfilecheck Info: File `writing.out' has not changed.
+(rerunfilecheck)             Checksum: 050DA4AEEF2E321A7D37293CE616A423;1833.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 7306 strings out of 480608
- 105141 string characters out of 5903631
- 363832 words of memory out of 5000000
- 22818 multiletter control sequences out of 15000+600000
- 577646 words of font info for 125 fonts, out of 8000000 for 9000
+ 7390 strings out of 480608
+ 107120 string characters out of 5903631
+ 366379 words of memory out of 5000000
+ 22978 multiletter control sequences out of 15000+600000
+ 564544 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,33p,895b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,9n,31p,493b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
-ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
-urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.p
-fb>
-Output written on root.pdf (76 pages, 342185 bytes).
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on writing.pdf (49 pages, 237030 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 717 compressed objects within 8 object streams
- 193 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 483 compressed objects within 5 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 
