@@ -5,110 +5,104 @@ begin(*>*)
 
 section "Introduction"
 
-text \<open>In this section, I hope to explain why I choose to automate Kantian ethics, as opposed to another
-ethical theory. My general approach is to argue that Kantian ethics is easier and more natural to 
-formalize and automate than other theories. Given that my thesis is an early-stage, proof-of-concept
-for computational ethics, formalizing the most formal ethical theory makes sense. I don't have time 
-or space to evaluate every ethical theory, but I hope to sketch the spirit of consequentialist and virtue
-ethical theories and argue why they would be more difficult to formalize than Kantian ethics.  \<close>
+text \<open>In this section, I justify my choice to automate Kantian ethics, as opposed to virtue ethics or
+consequentialism. Kantian ethics is easy to formalize for three reasons. First, evaluating a maxim requires little 
+data about the world. Second, a maxim is relatively easy to represent to a computer. Third, while 
+any ethical theory has debates that automated ethics would need to take a stance on, these debates are 
+less frequent and less controversial for Kantian ethics. 
+
+The argument is not that no form of consequentialism or virtue ethics is tractable to automate, but 
+rather that Kantian ethics is easier. I do not present a comprehensive comparision
+of ethical theories, but instead sketch the basic principles that most consequentialist and virtue 
+ethical theories share. \<close>
 
 section "Kantian Ethics"
 
 subsection "Kant Crash Course"
 
-text "I will present a brief introduction to Kantian ethics. First, I will explain the concepts of 
-practical reason, the will, and maxims. I will then present Kant's argument that the only the will
-has authority over itself. Finally, I will argue that a will is, definitionally, only bound by those
-imperatives that are implied by practical reason itself. From there, I will present the three formulations
-of the categorical imperative, focusing on the Formula of Universal Law. My goal is not to present a 
-full defense of Kantian ethics, but instead to quickly sketch the argument in a way that conveys the
-concept of a maxim and of practical reason."
+text \<open>First, I explain the concepts of 
+practical reason, the will, and maxims. I then present Kant's argument that because the will is autonomous,
+only the will has authority over itself \cite{sources}. Finally, I argue that a will is definitionally only 
+bound by those imperatives that are implied by practical reason itself \cite{velleman}. From there, I present 
+the three formulations of the categorical imperative, focusing on the Formula of Universal Law (FUL) \cite{groundwork}. 
+This is not a full defense of Kantian ethics but is instead a quick sketch of one argument for the FUL.
+\<close>
 
-subsection "Kant is Easier to Formalize"
+subsection "Kant is Easy to Formalize"
 
-text "Armed with this understanding of Kantian ethics, I will argue that the FUL is easy to formalize
-because it is a purely formal principle that is only concerned with the form of a maxim. Essentially,
-evaluating action under the FUL merely requires formulating the maxim of that action. No other information
-beyond the form of the maxim is relevant to the test, so moral judgement can proceed with a very small
-amount of data about the action.
+text "The FUL is easy to formalize
+because it is a purely formal principle that is only evaluates the form of the maxim that an agent 
+acts on. No other information is relevant to the test, so moral judgement can proceed with a relatively small
+amount of data.
 "
 
-subsection "Flags Planted"
+subsection "Common Debates"
 
-text "Here, I will acknowledge that Kantian ethics has many debates and my project necessarily takes a 
-stance on some of them. Specifically, I take a stance on the correct way to interpret the FUL and 
-the definition of a maxim. I will note that the stances I take are generally accepted by most Kantians,
-and thus do not open my project to huge philosophical critcism, though some will still disagree with 
-my choices."
+text \<open>I acknowledge the debates\footnote{I have a separate piece of writing that provides a literature 
+review of these debates and justifies my stances. Would that fit here or somewhere else?} in Kantian 
+ethics that my project takes a stance on: the correct way to interpret the FUL and the definition of a 
+maxim. The stances I take are generally accepted by most Kantians, though some still disagree.\<close>
 
 section "Consequentialism"
 
 subsection "Consequentialism Crash Course"
 
-text "I will present a brief overview of different consequentialist theories. I will crudely define
+text \<open>I define
 a consequentialist theory as one that evaluates the consequences of an action, acknowledging that
-this definition itself is controversial. I will then present debates over what qualifies as a good
-consequence, which consequences to evaluates, and the aggregation of consequences across people."
+this definition itself is controversial \cite{consequentialismsep}. I then present the debates over theories of the good, which 
+consequences to evaluate, and the aggregation of consequences.\<close>
 
 subsection "Consequentialism is Hard to Formalize"
 
-subsubsection "Data About States of Affairs"
+subsubsection "Requires Lots of Data About States of Affairs"
 
-text \<open>Using debates about consequentialist theories of the good as a backdrop, I will argue that making
-a moral judgement in the consequentialist context requires data about the entire state of affairs following
-an action. Kantian ethics, on the other hand, merely requires the form of the maxim itself. This poses 
-many challenges. First, collecting this data is difficult. Second, in order to trust the system's
-judgements, we have to trust its theory of the good, but this is a point of contention. Third, a critic
-could not only question the system's theory of the good, they could also question the huge number of 
-judgements that will go into assigning each state of affairs a goodness measurement. 
+text \<open>Making a consequentialist moral judgement requires data about the entire state of affairs following
+an action, posing many challenges. First, collecting this data is difficult. Second, in order to trust 
+the system's judgements, we have to trust the ethical theory, its theory of the good, and the many
+judgements required to assign each state of affairs a goodness measurement \cite{utilsep}. \<close>
 
-Here I will note that Kantian ethics also needs to take stances on debates about interpretations of the 
-theory (and will point to one such debate about the meaning of the FUL).The larger point is that every
-ethical theory needs to ``plant such flags," but Kantian ethics plants fewer and less controversial flags.\<close>
+subsubsection "Tradeoff Between Aggregation vs Wholistic Evaluation"
 
-subsubsection "Aggregation vs Wholistic Evaluation"
-
-text \<open>Consequentialism also faces the further problem of aggregating goodness across people. On the 
-other hand, consequentialists who abandon aggregation must instead find some wholistic evaluation function
-for a state of affairs. Each approach poses challenges, with a tradeoff between the difficulty of aggregation
+text \<open>Consequentialism also faces the further problem of aggregating goodness across people. 
+Consequentialists who abandon aggregation must instead find some wholistic evaluation function
+for a state of affairs. There is a tradeoff between the difficulty of aggregation
 and the complexity of making judgements about an entire state of affairs, as opposed to about a single person.
-Again, a reasoner will need to plant flags in these debates and will need large, complicated datasets to 
-settle these questions.\<close>
+A reasoner will need large, complicated datasets to settle these questions.\<close>
 
 section "Virtue Ethics"
 
 subsection "Virtue Ethics Crash Course"
 
-text "I will focus my exposition of virtue ethics on the concept of virtue as those traits that are 
-good for the posessor. I will briefly explain Aristotle's eudaimonistic conception of virtue and present
-some examples of virtues (courage, temperance, equanimity)."
+text \<open>I understand the concept of virtue as those traits that are 
+good for the posessor \cite{vesep}. I briefly explain Aristotle's eudaimonistic conception of virtue and present
+some examples of virtues (courage, temperance, equanimity).\<close>
+
+subsection "Virtue Ethics is Hard to Formalize"
 
 subsubsection "What is Virtue?"
 
-text "I will present a common debate in virtue ethics over the exact list of virtues. I will argue that 
-automated virtue ethics will need to plant a flag in this messy, controversial debate. While most Kantians
-agree on one interpretation of the FUL, most virtue ethicists have their own unique interpretation of 
-what the virtues are."
+text "
+Automated virtue ethics will need to plant a flag in the messy, controversial debate over the exact
+list of virtues. While most Kantians agree on one interpretation of the FUL, most virtue ethicists 
+have their own interpretations of what the virtues are."
 
-subsubsection "How Do We Represent Moral Character?"
+subsubsection "Representing Moral Character is Difficult"
 
-text "Lastly, I will argue that automated virtue ethics has to evaluate moral character, which is much
-more challenging than evaluating maxims as in Kantian ethics. Moral character is a complex concept
-that human beings don't really understand how to represent to ourselves, let alone to make precise to 
-a computer."
+text "Automated virtue ethics has to evaluate moral character, which is much more challenging than 
+evaluating a maxim. Moral character is a complex concept to precisely represent to a computer."
 
-subsubsection "Machine Learning and Virtue Ethics?"
+subsubsection "Machine Learning and Virtue Ethics"
 
-text "Would love feedback on whether this fits here or in a separate, related work section. There's a 
-proposed connection between the ideas of cultivating habit, moral education, and mimicking virtuous action
-and the operation of machine learning, which learns and mimics patterns in datasets. There's been some
-work using machine learning to learn moral behavior from a dataset of actions tagged as ethical or not. 
-I want to present this as a valid alternative to my approach, with its own set of pros and cons. One 
-con I want to focus on is explainability, or the idea that machine learning algorithms have trouble
+text \<open>There is a connection between the ideas of cultivating habit and mimicking virtuous action
+and machine learning, which mimics patterns in datasets\footnote{Would love feedback on whether this should
+go here or in a Related Work section.}. There's been some
+work using machine learning to learn moral behavior from a dataset of actions tagged as ethical \cite{delphi}. 
+One drawback of this approach is the fact that machine learning algorithms have trouble
 explaining why they made the judgements they made and often pick up on patterns that human beings would 
-not see as significant or indicative of causation or any meaningful property of a dataset. In contrast,
+not see as indicative of causation. In contrast,
 my system can explain exactly which axioms and principles resulted in a maxim being obligated or prohibited
-and can even present human-reconstructable proofs of its results."
+and can even present human-reconstructable proofs of its results.\<close>
 
+(*<*)
 end
 (*>*)
