@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Kantian Ethics}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Kant Crash Course}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Kant is Easier to Formalize}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Flags Planted}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Consequentialism}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Consequentialism Crash Course}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Consequentialism is Hard to Formalize}{3}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Data About States of Affairs}{3}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Aggregation vs Wholistic Evaluation}{4}{subsubsection.3.2.2}%
+\contentsline {section}{\numberline {4}Virtue Ethics}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Virtue Ethics Crash Course}{4}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}What is Virtue?}{5}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}How Do We Represent Moral Character?}{5}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Machine Learning and Virtue Ethics?}{5}{subsubsection.4.1.3}%
