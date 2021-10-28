@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 OCT 2021 10:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  27 OCT 2021 23:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -387,7 +387,7 @@ on-tra-dic-tion in-ter-pre-ta-tion. While
  []
 
 [8] [9] [10]) [11] (./upshot.tex [12]
-<AI_engine.png, id=159, 976.64874pt x 461.725pt>
+<AI_engine.png, id=179, 976.64874pt x 461.725pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
 Package pdftex.def Info: AI_engine.png  used on input line 82.
@@ -410,23 +410,42 @@ Overfull \hbox (0.36082pt too wide) in paragraph at lines 399--405
 al self-confidence
  []
 
-[24] [25] [26] [27] [28]) (./writing.bbl [29] [30])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
- [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
+[24] [25] [26] [27] [28]) [29] (./whykant.tex [30] [31] [32] [33]
+Underfull \hbox (badness 4492) in paragraph at lines 180--180
+[][][]\OT1/ptm/m/n/9 There is long de-bate about what ex-actly makes an eth-i-c
+al the-ory con-se-quen-tial-ist
+ []
+
+[34] [35] [36] [37] [38] [39] [40]) [41] (./outline_whykant.tex [42] [43]
+[44] [45]) (./writing.bbl
+Underfull \hbox (badness 1412) in paragraph at lines 46--51
+[]\OT1/ptm/m/n/10.95 Hursthouse, R. and Pet-ti-grove, G. (2018).
+ []
+
+[46] [47])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
+ [48]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
  (./writing.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 66.
-Package rerunfilecheck Info: File `writing.out' has not changed.
-(rerunfilecheck)             Checksum: 0C25A73F15359DD712053D93E1CEA303;826.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 66.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
+
+
+Package rerunfilecheck Warning: File `writing.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `writing.out':
+(rerunfilecheck)             Before: C1560F35966F526D0DD05ED214180BCB;1073
+(rerunfilecheck)             After:  B6DCD2727F4670678558EFBD75E69C76;2170.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 7312 strings out of 480608
- 106148 string characters out of 5903631
- 365865 words of memory out of 5000000
- 22953 multiletter control sequences out of 15000+600000
- 564544 words of font info for 95 fonts, out of 8000000 for 9000
+ 7374 strings out of 480608
+ 106873 string characters out of 5903631
+ 366123 words of memory out of 5000000
+ 22965 multiletter control sequences out of 15000+600000
+ 566170 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,9n,31p,493b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -440,10 +459,10 @@ e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
 /texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on writing.pdf (31 pages, 199717 bytes).
+Output written on writing.pdf (48 pages, 234677 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 76 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 419 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
