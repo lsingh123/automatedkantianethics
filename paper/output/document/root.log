@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  28 OCT 2021 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  29 OCT 2021 13:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -107,14 +107,29 @@ LaTeX Info: Redefining \] on input line 2860.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
-.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
-Package: setspace 2011/12/19 v6.7a set line spacing
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen149
+\Gin@req@width=\dimen150
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -127,6 +142,15 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
 (./pdfsetup.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
@@ -135,10 +159,7 @@ Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
-)))
+))
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
@@ -158,10 +179,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
@@ -184,7 +201,7 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen149
+\@linkdim=\dimen151
 \Hy@linkcounter=\count188
 \Hy@pagecounter=\count189
 
@@ -216,7 +233,7 @@ Package hyperref Info: Bookmarks ON on input line 4800.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen150
+\XeTeXLinkMargin=\dimen152
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -226,8 +243,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count192
-\Field@Width=\dimen151
-\Fld@charsize=\dimen152
+\Field@Width=\dimen153
+\Fld@charsize=\dimen154
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -276,40 +293,49 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 (./root.aux)
 \openout1 = `root.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count199
-\scratchdimen=\dimen153
+\scratchdimen=\dimen155
 \scratchbox=\box51
 \nofMPsegments=\count266
 \nofMParguments=\count267
 \everyMPshowfont=\toks22
 \MPscratchCnt=\count268
-\MPscratchDim=\dimen154
+\MPscratchDim=\dimen156
 \MPnumerator=\count269
 \makeMPintoPDFobject=\count270
 \everyMPtoPDFconversion=\toks23
-)
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 \AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring ON on input line 44.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
+Package hyperref Info: Link coloring ON on input line 47.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -321,20 +347,20 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count271
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 47.
+LaTeX Info: Redefining \pageref on input line 47.
+LaTeX Info: Redefining \nameref on input line 47.
  (./root.out) (./root.out)
 \@outlinefile=\write4
 \openout4 = `root.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -397,7 +423,7 @@ mes with
  []
 
 [14]) (./paper31.tex [15] [16] [17] [18] [19] [20] [21]
-Overfull \hbox (39.48538pt too wide) in paragraph at lines 588--591
+Overfull \hbox (39.48538pt too wide) in paragraph at lines 608--611
 []\OT1/ptm/m/n/10.95 The above is a rather weak no-tion of con-tra-dic-tory obl
 i-ga-tions. Ko-rs-gaard [[]]
  []
@@ -410,20 +436,29 @@ it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
 0 =$$($$\OMS/cmsy/b/n/10 :$
  []
 
-
+[33]
 Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
 [][] 
  []
 
-[33] [34] [35] [36] [37] [38] [39] [40]) (./paper33.tex) (./paper41.tex
-[41] [42] [43] [44] [45] [46]
+[34] [35] [36] [37] [38] [39] [40]) (./paper33.tex [41]
+<goalstable.png, id=487, 727.71875pt x 281.05pt>
+File: goalstable.png Graphic file (type png)
+<use goalstable.png>
+Package pdftex.def Info: goalstable.png  used on input line 52.
+(pdftex.def)             Requested size: 291.08234pt x 112.418pt.
+ [42 <./goalstable.png>]
+
+LaTeX Warning: Citation `korsgaardFUL' on page 43 undefined on input line 96.
+
+[43] [44] [45] [46] [47]) (./paper41.tex [48] [49] [50] [51] [52] [53]
 Overfull \hbox (12.98518pt too wide) in paragraph at lines 214--221
 \OT1/ptm/m/n/10.95 oblig-a-tory in con-text B (where the con-text is a set of w
 orlds) [[]].
  []
 
-[47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
-Overfull \hbox (23.58006pt too wide) in paragraph at lines 693--694
+[54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64]
+Overfull \hbox (23.58006pt too wide) in paragraph at lines 672--673
 [][]\OT1/ptm/m/it/10 need[]to[]be[]believed $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm
 /m/it/10 w s$\OML/cmm/m/it/10 :$ $\OT1/cmr/m/n/10 ($$\OMS/cmsy/m/n/10 :$ \OT1/p
 tm/m/it/10 be-lieved$\OT1/cmr/m/n/10 ($\OT1/ptm/m/it/10 s$\OT1/cmr/m/n/10 )$ \O
@@ -433,49 +468,42 @@ $ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
 1/cmr/m/n/10 )$[] 
  []
 
-[58] [59] [60] [61] [62] [63]
-Overfull \hbox (18.04605pt too wide) in paragraph at lines 1032--1041
-\OT1/ptm/m/n/10.95 base logic DDL, I can show the sen-tence $\OT1/cmr/m/n/10.95
- (\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/
-10.95 g ^ \OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f:\OML/cmm/m/it/10.95 A\OMS/
-cmsy/m/n/10.95 g\OT1/cmr/m/n/10.95 )[](\OMS/cmsy/m/n/10.95 :\OT1/cmr/m/n/10.95 
-(\OML/cmm/m/it/10.95 O\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/1
-0.95 g[]\OML/cmm/m/it/10.95 P\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 A\OMS/cms
-y/m/n/10.95 g\OT1/cmr/m/n/10.95 ))\OML/cmm/m/it/10.95 w$
- []
-
-[64] [65]) (./relatedwork.tex [66]
+[65] [66] [67] [68] [69] [70] [71] [72]) (./relatedwork.tex
 Overfull \hbox (6.088pt too wide) in paragraph at lines 45--55
 []\OT1/ptm/m/n/10.95 ] or par-tic-u-lar-ism [[], []].
  []
 
-[67]
+[73]
 Overfull \hbox (3.13147pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 physics [[], []]. Fuen-mayor and Benz-
  []
 
-) (./futurework.tex [68] [69]) [70] (./root.bbl [71] [72]
-Underfull \hbox (badness 6995) in paragraph at lines 129--132
+) (./futurework.tex [74] [75]) [76] (./root.bbl [77] [78]
+Underfull \hbox (badness 6995) in paragraph at lines 143--146
 []\OT1/ptm/m/n/10.95 Kirchner, D., Benzm[]uller, C., and Zalta, E. N.
  []
 
-[73] [74] [75])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [76]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+[79] [80] [81])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+ [82]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  (./root.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 15ECAC857A095B0FBCEFD85EBCC784EF;2152.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+(rerunfilecheck)             Checksum: CA4AF369A848AE6AF12E2D57ECA207C5;2421.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  ) 
 Here is how much of TeX's memory you used:
- 7306 strings out of 480608
- 105141 string characters out of 5903631
- 363832 words of memory out of 5000000
- 22818 multiletter control sequences out of 15000+600000
- 577646 words of font info for 125 fonts, out of 8000000 for 9000
+ 7624 strings out of 480608
+ 109883 string characters out of 5903631
+ 369462 words of memory out of 5000000
+ 23102 multiletter control sequences out of 15000+600000
+ 577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,33p,895b,520s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -485,22 +513,23 @@ xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
 ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texliv
 e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
 2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf
--dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
-urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times
-/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.p
-fb>
-Output written on root.pdf (76 pages, 342185 bytes).
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/f
+onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw
+/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/ut
+mr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+
+Output written on root.pdf (82 pages, 406271 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 717 compressed objects within 8 object streams
- 193 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 881 PDF objects out of 1000 (max. 8388607)
+ 768 compressed objects within 8 object streams
+ 207 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

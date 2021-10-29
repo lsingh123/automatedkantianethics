@@ -30,8 +30,8 @@ This is not a full defense of Kantian ethics but is instead a quick sketch of on
 
 subsection "Kant is Easy to Formalize"
 
-text "The FUL is easy to formalize
-because it is a purely formal principle that is only evaluates the form of the maxim that an agent 
+text "The FUL is easy to formalize because it is a purely formal principle that is only evaluates the 
+form of the maxim that an agent 
 acts on. No other information is relevant to the test, so moral judgement can proceed with a relatively small
 amount of data.
 "

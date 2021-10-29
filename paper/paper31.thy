@@ -37,6 +37,10 @@ An immediate translation to DDL is that if $A$ is not necessary permissible then
 words, if we cannot universalize $P A$ (where universalizing is represented by the modal necessity 
 operator), then $A$ is prohibited. Let's add this as an axiom to our logic."
 
+lemma "\<Turnstile> ((\<^bold>\<not>(\<box> (P A))) \<^bold>\<rightarrow> (O {(\<^bold>\<not>A)}))"
+  by simp
+ 
+
 axiomatization where
 FUL_1: "\<Turnstile> ((\<^bold>\<not>(\<box> (P A))) \<^bold>\<rightarrow> (O {(\<^bold>\<not>A)}))"
 
@@ -61,6 +65,7 @@ lemma True nitpick [satisfy,user_axioms,format=2] oops
 \<comment> \<open>Nitpick tells us that the FUL is consistent\footnote{``oops" at the end of a lemma indicates that the 
 proof is left unfinished. It does not indicate that an error occurred. In this case, we aren't interested
 in proving True (the proof is trivial and automatic), hence the oops.}\<close>
+
 
 (*<*)
 lemma something_is_obligatory:
