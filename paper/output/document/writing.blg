@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: writing.aux
+The style file: apalike.bst
+Database file #1: root.bib
+Warning--empty booktitle in util2
+Warning--empty journal in dietrichson
+Warning--empty title in acton
+You've used 33 entries,
+            1935 wiz_defined-function locations,
+            665 strings with 7297 characters,
+and the built_in function-call counts, 11165 in all, are:
+= -- 1072
+> -- 350
+< -- 32
++ -- 118
+- -- 108
+* -- 845
+:= -- 1983
+add.period$ -- 99
+call.type$ -- 33
+change.case$ -- 209
+chr.to.int$ -- 33
+cite$ -- 36
+duplicate$ -- 497
+empty$ -- 881
+format.name$ -- 149
+if$ -- 2199
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 41
+newline$ -- 164
+num.names$ -- 107
+pop$ -- 231
+preamble$ -- 1
+purify$ -- 217
+quote$ -- 0
+skip$ -- 345
+stack$ -- 0
+substring$ -- 681
+swap$ -- 45
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 176
+warning$ -- 3
+while$ -- 92
+width$ -- 0
+write$ -- 414
+(There were 3 warnings)
