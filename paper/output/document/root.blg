@@ -1,11 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
-Case mismatch error between cite keys korsgaardFUL and KorsgaardFUL
----line 112 of file root.aux
- : \citation{korsgaardFUL
- :                       }
-I'm skipping whatever remains of this command
 The style file: apalike.bst
 Database file #1: root.bib
 Warning--empty booktitle in deon2
@@ -57,4 +52,4 @@ warning$ -- 8
 while$ -- 158
 width$ -- 0
 write$ -- 706
-(There was 1 error message)
+(There were 8 warnings)

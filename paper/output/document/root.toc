@@ -21,7 +21,7 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{39}{subsubsection.2.2.5}%
 \contentsline {subsection}{\numberline {2.3}Lessons Learned and Goals for Chapter 3}{41}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Goals From Prior Attempts}{42}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Goals From Philosophical Literature}{46}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Goals From Philosophical Literature}{45}{subsubsection.2.3.2}%
 \contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{49}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Logical Background}{49}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{58}{subsection.3.2}%

@@ -34,17 +34,17 @@
 %
 \begin{isamarkuptext}%
 In this chapter, I tested two prior attempts to formalize the Formula of Universal Law and found 
-that these attempts didn't actually capture the FUL correctly. Specifically, certain properties that 
-we expect to hold of the FUL didn't hold of these implementations. In an attempt to remedy these 
-shortcomings, I will present my own custom implementation of the FUL that satisfies these properties
-and represents a version of the FUL that is more faithful to the literature. Before presenting my 
-implementation, I first define some goals for my custom formalization based on learnings from prior
-attempt and from literature discussing the FUL.
+that these attempts didn't faithfully interpret the FUL. Specifically, certain properties that 
+we expect to hold of the FUL didn't hold in these implementations. In an attempt to remedy these 
+shortcomings, in the next chapter, I present my own custom implementation of the FUL that satisfies these properties
+and is thus more faithful to the literature. Before presenting my 
+implementation, I define some goals for my custom formalization based on learnings from prior
+attempts and from philosophical literature on the FUL.
 
 The results presented below are summarized in Figure \ref{fig:goalstable}. For each goal, I indicate which 
 interpretations successfully meet that goal. The fact that my custom formalization meets all the goals
-presented indicates that it improves on prior formalization attempts. Below I will explain and justify
-the goals, and in the next chapter I will present my custom formalization.%
+indicates that it improves on prior formalization attempts. Below I will explain and justify
+the goals.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{figure}
@@ -72,36 +72,39 @@ the custom formalization respectively..} \label{fig:goalstable}
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-\textbf{FUl Stronger than DDL} One simple objective that the naive formalization failed to meet is the fact that the FUL should
-not hold in the base logic, dyadic deontic logic. Recall that the naive formalization of the FUL\footnote{
-This formalization reads $\vDash ((\neg \square P A) \longrightarrow O \{\neg A\})$.} held in the 
-base logic, so adding it as an axiom didn't actually make the logic any stronger. This is troubling 
-because the base logic does not actually come equipped with the categorical imperative built-in. It 
-defines basic properties of obligation, such as ought implies can, but holds no axioms that represent
+\textbf{FUL Stronger than DDL} One simple objective that the naive formalization failed to meet is the fact that the FUL should
+not hold in the base logic (DDL). Recall that the naive formalization of the FUL\footnote{
+This formalization reads $\vDash ((\neg (\square P \{A\})) \longrightarrow O \{\neg A\})$.} held in the 
+base logic, so adding it as an axiom didn't make the logic any stronger. This is troubling 
+because the base logic does not come equipped with the categorical imperative built-in. It 
+defines basic properties of obligation, such as ought implies can, but contains no axioms that represent
 the formula of universal law. Therefore, if a formalization of the FUL holds in the 
-base logic, then it is too weak to be correct. The naive interpretation holds in DDL but Kroy's formalization
-does not. Because the naive interpretation is no stronger than DDL, it is essentially a control group
-because goals that hold in it hold in DDL itself.
+base logic, then it is too weak to actually represent the FUL. The naive interpretation holds in DDL but Kroy's formalization
+does not. Because the naive interpretation is no stronger than DDL, it is acts a control group equivalent
+to DDL itself.
 
 \medskip 
 
 \textbf{Obligation Universalizes Across People} Another property of the Formula of Universal Law that any implementation should satisfy is that obligation
 generalizes across people. In other words, if a maxim is obligated for one person, it is obligated
-for all other people as well because maxims are not person-specific. Velleman argues that, because 
-reason is accessible to everyone identically, obligations apply to all people \cite[25]{velleman}. 
+for all other people because maxims are not person-specific. Velleman argues that, because 
+reason is accessible to everyone identically, obligations apply to all people equually \cite[25]{velleman}. 
 When Kant describes the categorical imperative as the objective principle of the will, he is referring 
 to the fact that, as opposed to a subjective principle, the categorical imperative applies to all 
 rational agents equally $\cite[16]{groundwork}$. At its core, the FUL best handles, ``the temptation 
 to make oneself an exception: selfishness, meanness, advantagetaking, and disregard for the rights 
-of others" \cite[30]{korsgaardFUL}. Kroy latches onto this property and makes it the content of his
+of others" \cite[30]{KorsgaardFUL}. Kroy latches onto this property and makes it the content of his
 formalization, which essentially says that if an act is permissible for someone, it is permissible for 
-everyone. While Kroy's interpretation clearly satisfies this property, the naive interpretation does not.
+everyone.\footnote{Formally, $P\{A(s)\} \longrightarrow \forall p. P\{A(p)\}$} While Kroy's interpretation 
+clearly satisfies this property, the naive interpretation does not.
 
-\textbf{Contradictory Obligations} Another problem with prior formalizations of the categorical imperative was that they didn't
+\medskip
+
+\textbf{Contradictory Obligations} Another problem with prior formalizations was that they didn't
 prohibit contradictory obligations, partially because DDL itself allows contradictory obligations. 
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
-can\footnote{Kohl points out that this principle is referred to as 
-Kant's dictum or Kant's law in the literature. \cite[footnote 1]{kohl}}. Kohl reconstructs his argument for the principle as 
+can.\footnote{Kohl points out that this principle is referred to as 
+Kant's dictum or Kant's law in the literature \cite[footnote 1]{kohl}.} Kohl reconstructs his argument for the principle as 
 follows: if the will cannot comply with the moral law, then the moral law has no prescriptive authority 
 for the will \cite[703-4]{kohl}. This defeats the purpose of Kant's theory—to develop an unconditional, categorical imperative 
 for rational agents. Ought implies can requires that obligations never contradict, because an agent 
@@ -109,23 +112,22 @@ can't perform contradictory actions. Therefore, any ethical theory that respects
 and Kantian ethics in particular, must not result in conflicting obligations. 
 Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
 conflicting moral obligations are impossible under his theory \cite[V224]{metaphysicsintro}. Particularly, the categorical imperative generates 
-``strict negative laws of omission", which cannot conflict by definition\footnote{The 
+``strict negative laws of omission," which cannot conflict by definition \cite[45]{timmerman}. \footnote{The 
 kinds of obligations generated by the FUL are called ``perfect duties" which arise from ``contradictions 
 in conception," or maxims that we cannot even concieve of universalizing. These duties are always negative 
 and thus never conflict. Kant also presents ``imperfect duties," generated from ``contradictions in will,"
 or maxims that we can concieve of universalizing but would never want to. These duties tend to be broader, 
 such as ``improve oneself" or "help others," and are secondary to perfect duties. My project only analyzes 
-perfect duties, as these are stronger than imperfect duties.} \cite[45]{timmerman}.
+perfect duties, as these are always stronger than imperfect duties.}. Both the naive formalization and 
+Kroy's formalization allow contradictory obligations. 
 
-Neither the naive formalization nor Kroy's formalization disallow contradictory obligations. Additionally,
-during testing, I realized that contradictory obligations are closely related to two other properties
+During testing, I also realized that contradictory obligations are closely related to two other properties
 that also fail in both of these systems. First is the idea that obligation implies permissibility, or 
 that obligation is a stronger property than permissibility. If there are no contradictory obligations, 
 then this property holds because actions are either permissible or prohibited and obligation contradicts
-prohibition. Moreover, in a system with contradictory obligations, this property fails because A is
-obligated and prohibited and therefore not permisible. Indeed, formalizing this property below shows 
-that this follows from the definition of implication in propositional logic and Sledgehammer is able
-to show this property easily.
+prohibition. Moreover, in a system with contradictory obligations, this property fails because there is some
+A that is obligated but also prohibited and therefore not permisible. Indeed, formalizing this property below shows 
+that this follows from the definition of implication in propositional logic.
 
 \medskip%
 \end{isamarkuptext}\isamarkuptrue%
@@ -148,11 +150,11 @@ to show this property easily.
 %
 \begin{isamarkuptext}%
 \textbf{Distributive Property} Another property related to contradictory obligations is the distributive property for the obligation
-operator\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.}. This is 
+operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
 another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
 do both A and B". The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
 and you are obligated to do B." We think those English sentences mean the same thing, so they should mean 
-the same thing in this logic as well. Moreover, if that (rather intuitive) property holds, then contradictory
+the same thing in logic as well. Moreover, if that (rather intuitive) property holds, then contradictory
 obligations are impossible, as shown in the below proof.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
@@ -178,15 +180,15 @@ obligations are impossible, as shown in the below proof.%
 \begin{isamarkuptext}%
 Thus, while testing contradictory obligations, I also test the distributive property for the 
 obligation operator. Again, this property fails in the naive formalization and for Kroy's formalization.
-This property is a goal for my custom formalization.
+
 
 \medskip 
 
-\textbf{Un-universalizable Actions} The last goal inspired by prior attempts comes from a test performed for Kroy's formalization. Under 
-the naive, ethics 101 reading of the formula of universal law, it prohibits lying because, in a world 
+\textbf{Un-universalizable Actions} This goal is inspired by a test performed for Kroy's formalization. Under 
+a naive reading of the Formula of Universal Law, it prohibits lying because, in a world 
 where everyone simultaneously lies, lying is impossible. In other words, not everyone can simultaneously
 lie because the institution of lying and believing would break down. More precisely, the FUL should 
-show that actions that aren't universalizable are prohibited, because those acts cannot be willed in 
+show that actions that cannot possibly be universalized are prohibited, because those acts cannot be willed in 
 a world where they are universalized. This property fails to hold in both the naive formalization 
 and Kroy's formalization and is a goal for my custom formalization.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -210,19 +212,18 @@ and Kroy's formalization and is a goal for my custom formalization.%
 %
 \begin{isamarkuptext}%
 The goals above come from moral intuition, properties of Kantian ethics, and logical requirements. 
-Philosophers have robustly debated the meaning of the Formula of Universal Law, and the results of these 
-debates should be incorporated into a custom formalization of the categorical imperative. 
+In order to stay faithful to centuries of philosophical debate about the meaning of the Formula of 
+Universl Law, I also present some goals inpsired by this literature.
 
-\textbf{Maxims} First, note
-that Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any faithful formalization
-of the categorical imperative must evaluate maxims, not acts. This requires representing a maxim, which neither
-of the prior attempts do.
+\textbf{Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
+faithful formalization of the categorical imperative must evaluate maxims, not acts. This requires 
+representing a maxim and making it the input to the obligation operator, which neither of the prior attempts do.
 
 \medskip%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-\textbf{Practical Contradiction Interpretation} Second, Kantians debate the correct interpretation of the formula of universal law because Kant appears to 
+\textbf{Practical Contradiction Interpretation} Kantians debate the correct interpretation of the Formula of Universal Law because Kant appears to 
 interpret the universalizability test in different ways. Korsgaard argues for the practical contradiction 
 interpretation, broadly accepted as correct within the philosophical community $\cite[177]{ebelsduggan}$.
 Because her argument is broadly accepted, I will make it a goal to represent the practical contradiction
@@ -378,28 +379,28 @@ interpretation must still obey the earlier goal that non-universalizable acts be
 %:%128=84%:%
 %:%129=85%:%
 %:%130=86%:%
-%:%132=90%:%
-%:%133=90%:%
-%:%136=91%:%
-%:%140=91%:%
-%:%141=91%:%
-%:%150=93%:%
-%:%151=94%:%
+%:%131=87%:%
+%:%132=88%:%
+%:%134=92%:%
+%:%135=92%:%
+%:%138=93%:%
+%:%142=93%:%
+%:%143=93%:%
 %:%152=95%:%
 %:%153=96%:%
 %:%154=97%:%
 %:%155=98%:%
 %:%156=99%:%
+%:%157=100%:%
 %:%158=101%:%
-%:%159=101%:%
-%:%160=102%:%
+%:%160=103%:%
 %:%161=103%:%
-%:%164=104%:%
-%:%168=104%:%
-%:%169=104%:%
-%:%170=104%:%
-%:%179=106%:%
-%:%180=107%:%
+%:%162=104%:%
+%:%163=105%:%
+%:%166=106%:%
+%:%170=106%:%
+%:%171=106%:%
+%:%172=106%:%
 %:%181=108%:%
 %:%182=109%:%
 %:%183=110%:%
@@ -411,9 +412,9 @@ interpretation must still obey the earlier goal that non-universalizable acts be
 %:%189=116%:%
 %:%190=117%:%
 %:%191=118%:%
-%:%200=120%:%
-%:%212=122%:%
-%:%213=123%:%
+%:%192=119%:%
+%:%193=120%:%
+%:%202=122%:%
 %:%214=124%:%
 %:%215=125%:%
 %:%216=126%:%
@@ -422,7 +423,7 @@ interpretation must still obey the earlier goal that non-universalizable acts be
 %:%219=129%:%
 %:%220=130%:%
 %:%221=131%:%
-%:%225=135%:%
+%:%222=132%:%
 %:%226=136%:%
 %:%227=137%:%
 %:%228=138%:%
@@ -484,3 +485,4 @@ interpretation must still obey the earlier goal that non-universalizable acts be
 %:%284=194%:%
 %:%285=195%:%
 %:%286=196%:%
+%:%287=197%:%
