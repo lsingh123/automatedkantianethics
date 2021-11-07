@@ -1,0 +1,67 @@
+\begin{thebibliography}{}
+
+\bibitem[Abel et~al., 2016]{util1}
+Abel, D., MacGlashan, J., and Littman, M. (2016).
+\newblock Reinforcement learning as a framework for ethical decision making.
+\newblock In {\em AAAI Workshop: AI, Ethics, and Society}.
+
+\bibitem[Anderson et~al., 2004]{util2}
+Anderson, M., Anderson, S., and Armen, C. (2004).
+\newblock Towards machine ethics.
+
+\bibitem[Driver, 2014]{utilsep}
+Driver, J. (2014).
+\newblock {The History of Utilitarianism}.
+\newblock In Zalta, E.~N., editor, {\em The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2014
+  edition.
+
+\bibitem[Ebels-Duggan, 2012]{ebelsduggan}
+Ebels-Duggan, K. (2012).
+\newblock {\em Kantian Ethics}, chapter Kantian Ethics.
+\newblock Continuum.
+
+\bibitem[Hursthouse and Pettigrove, 2018]{vesep}
+Hursthouse, R. and Pettigrove, G. (2018).
+\newblock {Virtue Ethics}.
+\newblock In Zalta, E.~N., editor, {\em The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2018
+  edition.
+
+\bibitem[Jiang et~al., 2021]{delphi}
+Jiang, L., Hwang, J.~D., Bhagavatula, C., Bras, R.~L., Forbes, M., Borchardt,
+  J., Liang, J., Etzioni, O., Sap, M., and Choi, Y. (2021).
+\newblock Delphi: Towards machine ethics and norms.
+
+\bibitem[Kant, 1785]{groundwork}
+Kant, I. (1785).
+\newblock {\em Groundwork of the Metaphysics of Morals}.
+\newblock Cambridge University Press, Cambridge.
+
+\bibitem[Korsgaard, 1985]{KorsgaardFUL}
+Korsgaard, C. (1985).
+\newblock {Kant's Formula of Universal Law}.
+\newblock {\em Pacific Philosophical Quarterly}, 66:24--47.
+
+\bibitem[Korsgaard and O'Neill, 1996]{sources}
+Korsgaard, C.~M. and O'Neill, O. (1996).
+\newblock {\em The Sources of Normativity}.
+\newblock Cambridge University Press.
+
+\bibitem[Puiutta and Veith, 2020]{puiutta}
+Puiutta, E. and Veith, E.~M. (2020).
+\newblock Explainable reinforcement learning: A survey.
+
+\bibitem[Sinnott-Armstrong, 2021]{consequentialismsep}
+Sinnott-Armstrong, W. (2021).
+\newblock {Consequentialism}.
+\newblock In Zalta, E.~N., editor, {\em The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {F}all 2021
+  edition.
+
+\bibitem[Velleman, 2005]{velleman}
+Velleman, J.~D. (2005).
+\newblock {\em A Brief Introduction to Kantian Ethics}, page 16–44.
+\newblock Cambridge University Press.
+
+\end{thebibliography}

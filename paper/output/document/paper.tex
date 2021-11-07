@@ -34,52 +34,77 @@
 %
 \begin{isamarkuptext}%
 As artifical reasoners become increasingly powerful, computers become capable of
-performing complex ethical reasoning. The field of machine ethics \cite{mesurvey} is interesting for two reasons.
-First, the proliferation of artifically autonomous agents is creating and will continue to create a demand for 
+performing complex ethical reasoning. Moreover, as regulators and academics call for ``ethical AI,"
+the field of machine ethics becomes increasingly popular. Much prior work on machine ethics implements
+relatively simple philosophical theories, partially as an artifact of this work emerging out of
+Computer Science or Mathematics departments \cite{mesurvey}. Such work rarely capitalizes on the 
+centuries of philosophical debate discussing the ethical theories in question. In this thesis, I attempt
+to automate Kantian ethics, a sophisticated ethical theory, while staying faithful to philosophical
+literature on the subject.
+
+Automating a sophisticated ethical theory is interesting for two reasons. First, the proliferation of 
+artifically autonomous agents is creating and will continue to create a demand for 
 automated ethics. These agents must be able to reason about complex ethical theories 
-that withstand philosophical scrutiny. Second, just as automated mathematical reasoning gives mathematicians
-new powers, automated ethical reasoning is a tool that philosophers can use 
-when reasoning about ethics. Many contradictions or paradoxes with an ethical system may not be 
- obvious to the human eye, but can be easily tested using an automated theorem prover.
+that withstand philosophical scrutiny. Second, just as automated mathematical reasoning is a tool
+for mathematicians, automated ethical reasoning is a tool that philosophers can use 
+when reasoning about ethics. I argue that computational ethics can serve as another tool in a 
+philosopher's toolbox, like a thought experiment or counterexample.
 
 Modelling ethics without sacrificing the intracacies of an ethical theory is a 
 challenging computational and philosophical problem. Simple and intuitive computational approaches, 
 such as encoding ethics as a constraint satisfaction problem, fail to capture
-the complexity of most philosophically plausible systems. On the other hand, it is not immediately clear
-how to formalize many complex moral theories, like virtue ethics.
-
-Computational ethics also requires a sophisticated 
-ethical theory to model. Constraint satisfaction systems often default to some version of utiliarianism, 
+the complexity of most philosophically plausible systems. Constraint satisfaction systems often default to some version of utiliarianism, 
 the principle of doing the most good for the most people. Alternatively, they model basic moral 
 principles such as ``do not kill," without modelling the theory that these principles originated from.
 Modelling a more complex ethical theory will not only enable smarter philosophical machines, it will
 also empower philosophers to study more complex ethical issues with the computer's help. The entire
 field of philosophy is devoted to developing and testing robust ethical theories. Plausible machine
-ethics must draw on plausible moral philosophy.
+ethics must draw on plausible moral philosophy. Despite the importance of formalizing complex moral theories,
+it is not immediately clear how to formalize complex theories like virtue ethics.
 
-The ideal candidate ethical theory will be both philosophically interesting and easy to 
-formalize. Kantian ethics, often described as ``formal," has been often floated as such a candidate \cite{powers, BL, lin}. 
-The categorical imperative, Kant's universal law of morality, is a moral rule that can be used to 
-guide action. 
+Kantian ethics, often described as ``formal" due to its rigid, rule-based structure, has been often 
+floated as an attractive theory to automate \cite{powers, BL, lin}. This project's objective is to 
+automate Kantian ethics. Roughly, my approach is to represent Kantian
+ethics as an axioms in Carmo and Jones' Dyadic Deontic Logic (DDL), a modal logic designed to reason
+about concepts like obligation \cite{CJDDL}. Such a representation of Kantian ethics in a logic
+is called a ``formalization." I then embed this DDL formalization in higher-order logic 
+(HOL) and implement it in the Isabelle/HOL theorem prover  \cite{isabelle}. I can then use Isabelle 
+to automatically prove or disprove theorems (such as, ``murder is wrong") in my custom formalization, generating results
+derived from the categorical imperative. Essentially, the computer is performing ethical reasoning using
+the framework of Kantian ethics.
 
-This project's objective is to automate Kantian ethics. I present two different
-formalizations of Kant's categorical imperative implemented and tested in the Isabelle/HOL \cite{isabelle} theorem prover.
-I model each formalization  as an extension of Carmo and Jones' Dyadic Deontic Logic (DDL) \cite{CJDDL}. I then embed the corresponding 
-DDL formalization in higher-order logic (HOL) and implement it in Isabelle. Section 
-\ref{sec:naive} implements and tests the naive formalization, a ``control group" that is clearly implausible but 
-demonstrates the methods and tools of my approach. Section \ref{sec:kroy} implements a more sophisticated 
-formalization inspired by Moshe Kroy's partial formalization of the categorical imperative. 
+First, I recreate prior work implementing Dyadic Deontic Logic in Isabelle/HOL. Next, I present two 
+prior attempts to formalize Kantian ethics in modal logic. The first is a naive
+interpretation of Kant's categorical imperative that collapses to the base logic itself. The second is 
+Moshe Kroy's partial formalization of the categorical imperative. As part of this presentation, I also
+create a testing framework that can be used to evaluate these formalizations. In effect, my tests formalize
+expected properties of the categorical imperative (such as the fact that it prohibits murder) and test 
+whether or not these properties hold in a given formalization. My testing framework offers a method for
+evaluating different formalizations against moral intuitions and philosophical literature. Second, based on
+lessons learned from these prior formalization attempts, I contribute my own custom formalization of
+the categorical imperative. My testing framework demonstrates how my custom formalization improves upon
+the prior work. Third, I apply my system to an ethical dilemma to demonstrate its potential use. I also
+consider the philosophical implications and value of automated ethics, studying questions about the 
+possibility and responsibility of automated ethics.
 
 I contribute implementations of two different interpretations of the categorical imperative, 
 examples of how each implementation can be used to model and solve ethical scenarios, and tests that
 examine ethical and logical properties of the system, including logical consistency, consistency
-of obligation, and possibility of permissibility. The implementations themselves are usable models 
+of obligation, and possibility of permissibility. I also contribute a logical formalization of the categorical
+imperative that improves on previous work, an implementation of this formalization, and evidence of 
+its improvement. Lastly, I demonstrate how such a system could be applied. The implementations themselves are usable models 
 of ethical principles and the tests represent the kind of philosophical work that formalized ethics 
-can contribute.%
+can contribute.
+
+The rest of this project is structured as follows. In Chapter 1, I introduce the logical, computational, and 
+philosophical frameworks underlying my project. In Chapter 2, I implement and test prior formalizations of the categorical
+imperative. In Chapter 3, I contribute my own custom formalization and test it. Finally, in Chapter 4, 
+I apply my custom formalization to an example ethical dilemma.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-The goal of this project is to automate sophisticated ethical reasoning. This requires three
+In the rest of this chapter, I present the background necessary to undersand my work. The goal 
+of this project is to automate sophisticated ethical reasoning. This requires three
 components. First, the choice of an ethical theory that is both intuitively attractive and 
 lends itself to formalization. Second, the choice of formal logic to model the theory in. Third, the 
 choice of automation engine to implement the formal model in. Section \ref{sec:kant} introduces Kantian
@@ -327,129 +352,154 @@ and Parent warned me that this may become a problem if Isabelle's automated proo
 %:%76=48%:%
 %:%77=49%:%
 %:%78=50%:%
-%:%82=52%:%
-%:%83=53%:%
-%:%84=54%:%
-%:%85=55%:%
-%:%86=56%:%
-%:%87=57%:%
-%:%96=59%:%
-%:%108=61%:%
-%:%109=62%:%
-%:%110=63%:%
-%:%111=64%:%
-%:%112=65%:%
-%:%113=66%:%
-%:%114=67%:%
-%:%115=68%:%
-%:%116=69%:%
-%:%117=70%:%
-%:%118=71%:%
-%:%119=72%:%
-%:%120=73%:%
-%:%121=74%:%
-%:%122=75%:%
-%:%123=76%:%
-%:%124=77%:%
-%:%125=78%:%
-%:%126=79%:%
-%:%127=80%:%
-%:%128=81%:%
-%:%129=82%:%
-%:%130=83%:%
-%:%131=84%:%
-%:%132=85%:%
-%:%133=86%:%
-%:%134=87%:%
-%:%135=88%:%
-%:%136=89%:%
-%:%137=90%:%
-%:%138=91%:%
-%:%139=92%:%
-%:%140=93%:%
-%:%141=94%:%
-%:%142=95%:%
-%:%143=96%:%
-%:%144=97%:%
-%:%145=98%:%
-%:%146=99%:%
-%:%147=100%:%
-%:%148=101%:%
-%:%149=102%:%
-%:%150=103%:%
-%:%151=104%:%
-%:%152=105%:%
-%:%153=106%:%
-%:%154=107%:%
-%:%155=108%:%
-%:%156=109%:%
-%:%157=110%:%
-%:%158=111%:%
-%:%159=112%:%
-%:%160=113%:%
-%:%161=114%:%
-%:%162=115%:%
-%:%163=116%:%
-%:%164=117%:%
-%:%165=118%:%
-%:%166=119%:%
-%:%167=120%:%
-%:%168=121%:%
-%:%169=122%:%
-%:%170=123%:%
-%:%171=124%:%
-%:%172=125%:%
-%:%173=126%:%
-%:%174=127%:%
-%:%175=128%:%
-%:%176=129%:%
-%:%177=130%:%
-%:%178=131%:%
-%:%187=135%:%
-%:%191=137%:%
-%:%203=139%:%
-%:%204=140%:%
-%:%205=141%:%
-%:%206=142%:%
-%:%207=143%:%
-%:%208=144%:%
-%:%209=145%:%
-%:%210=146%:%
-%:%211=147%:%
-%:%212=148%:%
-%:%213=149%:%
-%:%214=150%:%
-%:%215=151%:%
-%:%216=152%:%
-%:%217=153%:%
-%:%218=154%:%
-%:%219=155%:%
-%:%220=156%:%
-%:%221=157%:%
-%:%222=158%:%
-%:%223=159%:%
-%:%224=160%:%
-%:%225=161%:%
-%:%226=162%:%
-%:%227=163%:%
-%:%228=164%:%
-%:%237=166%:%
-%:%249=168%:%
-%:%250=169%:%
-%:%251=170%:%
-%:%252=171%:%
-%:%253=172%:%
-%:%254=173%:%
-%:%255=174%:%
-%:%256=175%:%
-%:%257=176%:%
-%:%258=177%:%
-%:%259=178%:%
-%:%260=179%:%
-%:%261=180%:%
-%:%262=181%:%
-%:%263=182%:%
-%:%264=183%:%
-%:%265=184%:%
-%:%266=185%:%
-%:%267=186%:%
+%:%79=51%:%
+%:%80=52%:%
+%:%81=53%:%
+%:%82=54%:%
+%:%83=55%:%
+%:%84=56%:%
+%:%85=57%:%
+%:%86=58%:%
+%:%87=59%:%
+%:%88=60%:%
+%:%89=61%:%
+%:%90=62%:%
+%:%91=63%:%
+%:%92=64%:%
+%:%93=65%:%
+%:%94=66%:%
+%:%95=67%:%
+%:%96=68%:%
+%:%97=69%:%
+%:%98=70%:%
+%:%99=71%:%
+%:%100=72%:%
+%:%101=73%:%
+%:%102=74%:%
+%:%106=77%:%
+%:%107=78%:%
+%:%108=79%:%
+%:%109=80%:%
+%:%110=81%:%
+%:%111=82%:%
+%:%112=83%:%
+%:%121=85%:%
+%:%133=87%:%
+%:%134=88%:%
+%:%135=89%:%
+%:%136=90%:%
+%:%137=91%:%
+%:%138=92%:%
+%:%139=93%:%
+%:%140=94%:%
+%:%141=95%:%
+%:%142=96%:%
+%:%143=97%:%
+%:%144=98%:%
+%:%145=99%:%
+%:%146=100%:%
+%:%147=101%:%
+%:%148=102%:%
+%:%149=103%:%
+%:%150=104%:%
+%:%151=105%:%
+%:%152=106%:%
+%:%153=107%:%
+%:%154=108%:%
+%:%155=109%:%
+%:%156=110%:%
+%:%157=111%:%
+%:%158=112%:%
+%:%159=113%:%
+%:%160=114%:%
+%:%161=115%:%
+%:%162=116%:%
+%:%163=117%:%
+%:%164=118%:%
+%:%165=119%:%
+%:%166=120%:%
+%:%167=121%:%
+%:%168=122%:%
+%:%169=123%:%
+%:%170=124%:%
+%:%171=125%:%
+%:%172=126%:%
+%:%173=127%:%
+%:%174=128%:%
+%:%175=129%:%
+%:%176=130%:%
+%:%177=131%:%
+%:%178=132%:%
+%:%179=133%:%
+%:%180=134%:%
+%:%181=135%:%
+%:%182=136%:%
+%:%183=137%:%
+%:%184=138%:%
+%:%185=139%:%
+%:%186=140%:%
+%:%187=141%:%
+%:%188=142%:%
+%:%189=143%:%
+%:%190=144%:%
+%:%191=145%:%
+%:%192=146%:%
+%:%193=147%:%
+%:%194=148%:%
+%:%195=149%:%
+%:%196=150%:%
+%:%197=151%:%
+%:%198=152%:%
+%:%199=153%:%
+%:%200=154%:%
+%:%201=155%:%
+%:%202=156%:%
+%:%203=157%:%
+%:%212=161%:%
+%:%216=163%:%
+%:%228=165%:%
+%:%229=166%:%
+%:%230=167%:%
+%:%231=168%:%
+%:%232=169%:%
+%:%233=170%:%
+%:%234=171%:%
+%:%235=172%:%
+%:%236=173%:%
+%:%237=174%:%
+%:%238=175%:%
+%:%239=176%:%
+%:%240=177%:%
+%:%241=178%:%
+%:%242=179%:%
+%:%243=180%:%
+%:%244=181%:%
+%:%245=182%:%
+%:%246=183%:%
+%:%247=184%:%
+%:%248=185%:%
+%:%249=186%:%
+%:%250=187%:%
+%:%251=188%:%
+%:%252=189%:%
+%:%253=190%:%
+%:%262=192%:%
+%:%274=194%:%
+%:%275=195%:%
+%:%276=196%:%
+%:%277=197%:%
+%:%278=198%:%
+%:%279=199%:%
+%:%280=200%:%
+%:%281=201%:%
+%:%282=202%:%
+%:%283=203%:%
+%:%284=204%:%
+%:%285=205%:%
+%:%286=206%:%
+%:%287=207%:%
+%:%288=208%:%
+%:%289=209%:%
+%:%290=210%:%
+%:%291=211%:%
+%:%292=212%:%

@@ -72,8 +72,8 @@ In such a world, the input parser in my ethics engine would have to be automated
 that the parser translate the AI agent's internal representation to the appropriate logical representation.
 The input parser would need enough common sense reasoning to determine what circumstances are morally 
 relevant to a maxim. This is a question that, like all of ethics, philosophers debate robustly
-\footnote{Powers \cite{powers} identifies this as a challenge for automating Kantian ethics and briefly sketches 
-solutions from O'Neill \cite{constofreason}, Silber \cite{silber}, and Rawls \cite{rawlsconstructivism}. }. 
+\footnote{\citet{powers} identifies this as a challenge for automating Kantian ethics and briefly sketches 
+solutions from \citet{constofreason}, \citet{silber}, and \citet{rawlsconstructivism}. }. 
 It is likely that, just as different implementations of automated ethics choose 
 a particular ethical theory and implement it, different implementations of such an input parser would 
 need to adopt different interpretations of commonsense reasoning and morally relevant circumstances.
@@ -135,6 +135,13 @@ a circumstance, act, goal tuple (c, a, g) is well-formed if $(\neg (c \longright
 the act or the goal has already been accomplished in the given circumstances are ``vacuous" because 
 any prescriptions they generate have already been acted on or violated. The notion of a vacuous maxim
 has implications for debates about ethical self-doubt and self-confidence or self-respect.
+
+Below, I document the process used to arrive at the logical insight that the FUL is inconsistent if it
+holds for maxims in which $(c \longrightarrow a) \wedge (c \longrightarrow g)$. For those uninterested
+in the details of this exploration, it suffices to understand that I used Isabelle to show that if the 
+FUL holds for badly formed maxims, then it is inconsistent. After I realized that my formalization was 
+inconsistent, I made many failed attempts to diagnose and fix the problem before reaizing that the problem 
+lay in badly formed maxims. 
 
 \emph{Logical Insight}
 
@@ -417,7 +424,7 @@ Another, related benefit of computational ethics is that it makes formal ethics 
 Certain subfields, such as philosophy of language, see such benefit in precision that they already 
 use symbolic logic to represent philosophical concepts, just as mathematicians use symbolic logic to 
 represent mathematical concepts. Some of this work requres tedious pencil and paper proofs to prove 
-theorems, even when many of these theorems may not generate relevant philosophical insights. Ineractive 
+theorems, even when many of these theorems may not generate relevant philosophical insights. Interactive 
 theorem provers make formal logic more accessible. Isabelle can complete a proof, starting from first principles, 
 in a matter of seconds that would take a logician pages to complete. Similarly, Nitpick can generate 
 examples or counterexamples to a proposition in a brute force manner. The computer can generate hypotheses
