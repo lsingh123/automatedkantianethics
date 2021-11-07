@@ -33,15 +33,16 @@
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Isabelle/HOL is an interactive proof assistant \cite{isabelle} built on Haskell and Scala. It 
+The final component of my project is the automated theorem prover I use to automate my formalization.
+Isabelle/HOL is an interactive proof assistant built on Haskell and Scala \cite{isabelle}. It 
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
 automatic and interactive/manual theorem proving. 
 
-I started my project by reimplementing Benzmueller, Farjami, and Parent's \cite{BFP, logikey} implementation 
-of DDL in Isabelle/HOL. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
+I started my project by reimplementing Benzmueller, Farjami, and Parent's implementation 
+of DDL in Isabelle/HOL \cite{BFP, logikey}. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
 next few sections demonstrates the power of Isabelle.
 
-BFP use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
+Benzmueller, Farjami, and Parent use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
 constants in HOL and axioms as constraints on DDL models. This document will contain a subset of my 
 implementation that is particularly interesting and relevant to understanding the rest of the project. 
 For the complete implementation, see the source code in \isatt{paper22.thy}.%
@@ -112,8 +113,8 @@ The main accessibility relation that I will use is the $ob$ relation:%
 \begin{isamarkuptext}%
 For a semantic embedding, axioms are modelled as restrictions on models of the system. In this case,
 a model is specificied by the relevant accessibility relations, so it suffices to place conditions on 
-the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's \cite{BFP}
-implementation of Carmo and Jones's original axioms directly. Here's an example of an axiom:%
+the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's 
+implementation of Carmo and Jones's original axioms directly \citep{BFP}. Here's an example of an axiom:%
 \end{isamarkuptext}\isamarkuptrue%
 \isanewline
 \isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isanewline
@@ -213,7 +214,7 @@ Validity will be useful when discussing metalogical/ethical properties.%
 \begin{isamarkuptext}%
 One way to show that a semantic embedding is complete is to show that the syntactic specification
 of the theory (axioms) are valid for this semantics - so to show that every axiom holds at every 
-world. BFP \cite{BFP} provide a complete treatment of the completeness of their embedding, but I 
+world. Benzmueller, Farjami, and Parent provide a complete treatment of the completeness of their embedding, but I 
 will include selected axioms that are particularly interesting here. This section also demonstrates many
 of the relevant features of Isabelle/HOL for my project.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -283,97 +284,98 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%45=17%:%
 %:%46=18%:%
 %:%47=19%:%
-%:%56=22%:%
-%:%68=24%:%
-%:%70=26%:%
-%:%71=26%:%
-%:%72=26%:%
-%:%73=26%:%
+%:%48=20%:%
+%:%57=23%:%
+%:%69=25%:%
+%:%71=27%:%
+%:%72=27%:%
+%:%73=27%:%
 %:%74=27%:%
 %:%75=28%:%
-%:%76=28%:%
-%:%77=28%:%
-%:%78=28%:%
-%:%80=29%:%
+%:%76=29%:%
+%:%77=29%:%
+%:%78=29%:%
+%:%79=29%:%
 %:%81=30%:%
-%:%82=30%:%
-%:%85=44%:%
-%:%87=46%:%
-%:%88=46%:%
-%:%89=46%:%
-%:%90=46%:%
+%:%82=31%:%
+%:%83=31%:%
+%:%86=45%:%
+%:%88=47%:%
+%:%89=47%:%
+%:%90=47%:%
 %:%91=47%:%
-%:%92=47%:%
-%:%93=47%:%
-%:%101=51%:%
-%:%113=53%:%
+%:%92=48%:%
+%:%93=48%:%
+%:%94=48%:%
+%:%102=52%:%
 %:%114=54%:%
 %:%115=55%:%
 %:%116=56%:%
-%:%118=80%:%
+%:%117=57%:%
 %:%119=81%:%
 %:%120=82%:%
-%:%122=83%:%
+%:%121=83%:%
 %:%123=84%:%
 %:%124=85%:%
 %:%125=86%:%
-%:%126=86%:%
-%:%134=93%:%
-%:%146=95%:%
+%:%126=87%:%
+%:%127=87%:%
+%:%135=94%:%
 %:%147=96%:%
 %:%148=97%:%
 %:%149=98%:%
 %:%150=99%:%
 %:%151=100%:%
-%:%155=116%:%
-%:%157=117%:%
-%:%158=117%:%
+%:%152=101%:%
+%:%156=117%:%
+%:%158=118%:%
 %:%159=118%:%
 %:%160=119%:%
-%:%161=119%:%
+%:%161=120%:%
 %:%162=120%:%
-%:%164=122%:%
-%:%166=123%:%
-%:%167=123%:%
+%:%163=121%:%
+%:%165=123%:%
+%:%167=124%:%
 %:%168=124%:%
-%:%170=125%:%
-%:%171=125%:%
-%:%174=145%:%
+%:%169=125%:%
+%:%171=126%:%
+%:%172=126%:%
 %:%175=146%:%
-%:%177=147%:%
-%:%178=147%:%
+%:%176=147%:%
+%:%178=148%:%
 %:%179=148%:%
 %:%180=149%:%
-%:%181=149%:%
+%:%181=150%:%
 %:%182=150%:%
 %:%183=151%:%
-%:%184=151%:%
+%:%184=152%:%
 %:%185=152%:%
-%:%187=153%:%
-%:%190=155%:%
-%:%192=156%:%
-%:%193=156%:%
+%:%186=153%:%
+%:%188=154%:%
+%:%191=156%:%
+%:%193=157%:%
 %:%194=157%:%
-%:%202=166%:%
-%:%214=168%:%
+%:%195=158%:%
+%:%203=167%:%
 %:%215=169%:%
 %:%216=170%:%
 %:%217=171%:%
 %:%218=172%:%
-%:%222=174%:%
-%:%224=175%:%
-%:%225=175%:%
-%:%226=175%:%
-%:%228=175%:%
-%:%232=175%:%
-%:%233=175%:%
-%:%235=176%:%
+%:%219=173%:%
+%:%223=175%:%
+%:%225=176%:%
+%:%226=176%:%
+%:%227=176%:%
+%:%229=176%:%
+%:%233=176%:%
+%:%234=176%:%
 %:%236=177%:%
-%:%237=177%:%
-%:%239=178%:%
+%:%237=178%:%
+%:%238=178%:%
 %:%240=179%:%
 %:%241=180%:%
-%:%251=182%:%
+%:%242=181%:%
 %:%252=183%:%
 %:%253=184%:%
 %:%254=185%:%
+%:%255=186%:%

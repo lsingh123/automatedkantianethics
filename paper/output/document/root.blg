@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: root.aux
+The style file: abbrvnat.bst
+Database file #1: root.bib
+Warning--empty booktitle in deon2
+Warning--empty year in deon1
+Warning--empty booktitle in util2
+Warning--empty journal in dietrichson
+Warning--empty title in acton
+Warning--can't use both author and editor fields in metaphysicsintro
+Warning--empty publisher in lin
+Warning--empty booktitle in sledgehammer
+You've used 67 entries,
+            2773 wiz_defined-function locations,
+            1043 strings with 14675 characters,
+and the built_in function-call counts, 27452 in all, are:
+= -- 2510
+> -- 1182
+< -- 68
++ -- 419
+- -- 351
+* -- 1943
+:= -- 4256
+add.period$ -- 263
+call.type$ -- 67
+change.case$ -- 301
+chr.to.int$ -- 66
+cite$ -- 142
+duplicate$ -- 1475
+empty$ -- 2502
+format.name$ -- 450
+if$ -- 5875
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 83
+newline$ -- 395
+num.names$ -- 282
+pop$ -- 679
+preamble$ -- 1
+purify$ -- 248
+quote$ -- 0
+skip$ -- 1036
+stack$ -- 0
+substring$ -- 781
+swap$ -- 179
+text.length$ -- 12
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 642
+warning$ -- 8
+while$ -- 258
+width$ -- 0
+write$ -- 975
+(There were 8 warnings)

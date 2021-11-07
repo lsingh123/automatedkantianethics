@@ -26,7 +26,7 @@ text_raw \<open>
 the custom formalization respectively..} \label{fig:goalstable}
 \end{figure}\<close>
 
-subsubsection "Goals From Prior Attempts"
+subsubsection \<open>Goals From Prior Attempts \label{sec:priorgoals}\<close>
 
 text \<open>\textbf{FUL Stronger than DDL} One simple objective that the naive formalization failed to meet is the fact that the FUL should
 not hold in the base logic (DDL). Recall that the naive formalization of the FUL\footnote{
@@ -47,7 +47,7 @@ for all other people because maxims are not person-specific. Velleman argues tha
 reason is accessible to everyone identically, obligations apply to all people equually \cite[25]{velleman}. 
 When Kant describes the categorical imperative as the objective principle of the will, he is referring 
 to the fact that, as opposed to a subjective principle, the categorical imperative applies to all 
-rational agents equally $\cite[16]{groundwork}$. At its core, the FUL best handles, ``the temptation 
+rational agents equally \cite[16]{groundwork}. At its core, the FUL best handles, ``the temptation 
 to make oneself an exception: selfishness, meanness, advantagetaking, and disregard for the rights 
 of others" \cite[30]{KorsgaardFUL}. Kroy latches onto this property and makes it the content of his
 formalization, which essentially says that if an act is permissible for someone, it is permissible for 
@@ -135,7 +135,7 @@ representing a maxim and making it the input to the obligation operator, which n
 
 text \<open>\textbf{Practical Contradiction Interpretation} Kantians debate the correct interpretation of the Formula of Universal Law because Kant appears to 
 interpret the universalizability test in different ways. Korsgaard argues for the practical contradiction 
-interpretation, broadly accepted as correct within the philosophical community $\cite[177]{ebelsduggan}$.
+interpretation, broadly accepted as correct within the philosophical community \cite[177]{ebelsduggan}.
 Because her argument is broadly accepted, I will make it a goal to represent the practical contradiction
 interpretation of the FUL in my custom formalization. The naive formalization and Kroy's formalization
 clearly do not meet this goal.
@@ -145,7 +145,7 @@ she believes that the text partially supports this interpretation, her argument 
 derives its strength from the plausibility of the practical contradiction interpretation.
 
 Recall that the formula of universal law is “act only in accordance with that maxim through which you can at the 
-same time will that it become a universal law” $\cite[4:421]{groundwork}$. To determine if a maxim can be willed as a 
+same time will that it become a universal law” \cite[4:421]{groundwork}. To determine if a maxim can be willed as a 
 universal law, one must use the “universalizability test,” which requires imagining a world in which 
 everyone for all of time has willed the maxim. If willing the maxim in such a world generates a contradiction, 
 then the action is prohibited. There are three interpretations of what sort of contradiction is necessary: 

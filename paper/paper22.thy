@@ -5,15 +5,16 @@
 
 subsection \<open>Isabelle/HOL Implementation \label{sec:isabelle}\<close>
 
-text \<open>Isabelle/HOL is an interactive proof assistant @{cite isabelle} built on Haskell and Scala. It 
+text \<open>The final component of my project is the automated theorem prover I use to automate my formalization.
+Isabelle/HOL is an interactive proof assistant built on Haskell and Scala @{cite isabelle}. It 
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
 automatic and interactive/manual theorem proving. 
 
-I started my project by reimplementing Benzmueller, Farjami, and Parent's \cite{BFP, logikey} implementation 
-of DDL in Isabelle/HOL. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
+I started my project by reimplementing Benzmueller, Farjami, and Parent's implementation 
+of DDL in Isabelle/HOL \cite{BFP, logikey}. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
 next few sections demonstrates the power of Isabelle.
 
-BFP use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
+Benzmueller, Farjami, and Parent use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
 constants in HOL and axioms as constraints on DDL models. This document will contain a subset of my 
 implementation that is particularly interesting and relevant to understanding the rest of the project. 
 For the complete implementation, see the source code in @{file paper22.thy}.
@@ -52,8 +53,8 @@ subsubsection Axiomatization
 
 text \<open>For a semantic embedding, axioms are modelled as restrictions on models of the system. In this case,
 a model is specificied by the relevant accessibility relations, so it suffices to place conditions on 
-the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's @{cite BFP}
-implementation of Carmo and Jones's original axioms directly. Here's an example of an axiom:\<close>
+the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's 
+implementation of Carmo and Jones's original axioms directly \citep{BFP}. Here's an example of an axiom:\<close>
 
 (*<*)
 axiomatization where
@@ -167,7 +168,7 @@ subsubsection "Syntactic Properties"
 
 text \<open>One way to show that a semantic embedding is complete is to show that the syntactic specification
 of the theory (axioms) are valid for this semantics - so to show that every axiom holds at every 
-world. BFP @{cite BFP} provide a complete treatment of the completeness of their embedding, but I 
+world. Benzmueller, Farjami, and Parent provide a complete treatment of the completeness of their embedding, but I 
 will include selected axioms that are particularly interesting here. This section also demonstrates many
 of the relevant features of Isabelle/HOL for my project.\<close>
 

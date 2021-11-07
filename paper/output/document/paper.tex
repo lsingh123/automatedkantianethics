@@ -37,7 +37,7 @@ As artifical reasoners become increasingly powerful, computers become capable of
 performing complex ethical reasoning. Moreover, as regulators and academics call for ``ethical AI,"
 the field of machine ethics becomes increasingly popular. Much prior work on machine ethics implements
 relatively simple philosophical theories, partially as an artifact of this work emerging out of
-Computer Science or Mathematics departments \cite{mesurvey}. Such work rarely capitalizes on the 
+Computer Science or Mathematics departments \citep{mesurvey}. Such work rarely capitalizes on the 
 centuries of philosophical debate discussing the ethical theories in question. In this thesis, I attempt
 to automate Kantian ethics, a sophisticated ethical theory, while staying faithful to philosophical
 literature on the subject.
@@ -63,12 +63,12 @@ ethics must draw on plausible moral philosophy. Despite the importance of formal
 it is not immediately clear how to formalize complex theories like virtue ethics.
 
 Kantian ethics, often described as ``formal" due to its rigid, rule-based structure, has been often 
-floated as an attractive theory to automate \cite{powers, BL, lin}. This project's objective is to 
+floated as an attractive theory to automate \citep{powers, BL, lin}. This project's objective is to 
 automate Kantian ethics. Roughly, my approach is to represent Kantian
-ethics as an axioms in Carmo and Jones' Dyadic Deontic Logic (DDL), a modal logic designed to reason
-about concepts like obligation \cite{CJDDL}. Such a representation of Kantian ethics in a logic
+ethics as an axiom in Carmo and Jones' Dyadic Deontic Logic (DDL), a modal logic designed to reason
+about concepts like obligation \citep{CJDDL}. Such a representation of Kantian ethics in a logic
 is called a ``formalization." I then embed this DDL formalization in higher-order logic 
-(HOL) and implement it in the Isabelle/HOL theorem prover  \cite{isabelle}. I can then use Isabelle 
+(HOL) and implement it in the Isabelle/HOL theorem prover  \citep{isabelle}. I can then use Isabelle 
 to automatically prove or disprove theorems (such as, ``murder is wrong") in my custom formalization, generating results
 derived from the categorical imperative. Essentially, the computer is performing ethical reasoning using
 the framework of Kantian ethics.
@@ -108,9 +108,11 @@ of this project is to automate sophisticated ethical reasoning. This requires th
 components. First, the choice of an ethical theory that is both intuitively attractive and 
 lends itself to formalization. Second, the choice of formal logic to model the theory in. Third, the 
 choice of automation engine to implement the formal model in. Section \ref{sec:kant} introduces Kantian
-ethics, Section \ref{sec:DDL} explains Carmo and Jones's Dyadic Deontic Logic \cite{CJDDL} as a 
+ethics, Section \ref{sec:DDL} explains Carmo and Jones's Dyadic Deontic Logic as a 
 base logic, and Section \ref{sec:isabelle} presents the Isabelle/HOL implementation of the logic.%
 \end{isamarkuptext}\isamarkuptrue%
+%
+\input{whykant}
 %
 \isadelimdocument
 %
@@ -118,7 +120,7 @@ base logic, and Section \ref{sec:isabelle} presents the Isabelle/HOL implementat
 %
 \isatagdocument
 %
-\isamarkupsubsection{Kantian Ethics \label{sec:kant}%
+\isamarkupsubsection{Dyadic Deontic Logic \label{sec:DDL}%
 }
 \isamarkuptrue%
 %
@@ -130,77 +132,8 @@ base logic, and Section \ref{sec:isabelle} presents the Isabelle/HOL implementat
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Kantian ethics is an attractive choice of ethical theory to automate. Kant's writings inspired much of Western analytic philosophy. 
-In addition to the rich neo-Kantian program, almost all major philosophical traditions after Kant have
-engaged with his work. Much of Western libertarian political thought is inspired by Kant's deontology,
-and his ethics have bled into household ethical thought. Deontology is seen as one of the three major 
-schools of Western analytic ethics.
-
-Understanding the ethic's potential for formalization requires understanding Kant's system. Kant argues 
-that if morality exists, it must take the form of an inviolable rule, which he calls the ``categorical
-imperative." He presents three formulations of the categorical imperative, as well as a robust defense
-of them in his seminal work on ethics \cite{groundwork}. He argues that all three formulations are 
-equivalent. 
-
-The first formulation of the categorical imperative is the ``Formula of Universal Law." 
-
-$\textbf{Definition}$ \emph{(Formula of Universal Law)}
-
-\emph{I ought never to act except in such a way that I could also will that my maxim should become a universal law} \cite{groundwork}
-
-A ``maxim" is a moral rule such as, ``I can murder someone to take their job". ``Willing" a maxim is 
-equivalent to acting on that rule. The FUL creates a thought experiment called the universalizability 
-test: to decide if a maxim is permissible, imagine what would happen if everyone willed that maxim. 
-If your imagined world yields a contradiction, the maxim is prohibited\footnote{There is another case here.
-What happens if the imagined world does not yield a logical contradiction, but is still undesirable? Kant 
-distinguishes between these cases as contradictions in conception and contradictions in will. Both yield moral
-prohibitions, but contradictions in conception generate stronger contradictions and therefore stronger obligations. 
-This paper will focus entirely on contradictions in conception, for this is the only kind of contradiction 
-for which a strict logical interpretation makes sense. For a complete treatment of the difference, see \cite{groundwork, KorsgaardFUL}}. Intuitively, the FUL asks 
-the question, "What would happen if everyone did that?" \cite{KorsgaardFUL}. 
-
-As an example, let's apply the universalizability test to the maxim of murdering others to take their job.
-Universalized, anyone who wants a job can murder the person currently holding that job. It is contradictory
-to simultaneously will that I acquire a job (through murder) and also that someone can take that job from me 
-whenever they want (also by murder). The maxim thwarts its own end, and is thus internally contradictory.
- Therefore, this maxim is prohibited.
-
-The universalizability test makes the ``formal" nature of Kant's ethics immediately clear. Formal 
-logic has the tools to universalize a maxim (apply a universal quantifier) and to test for 
-contradictions (test for inconsistency). 
-
-Kant also presents two additional formulations of the categorical imperative. 
-
-$\textbf{Definition}$ \emph{(Formula of Humanity)}
-
-\emph{The Formula of Humanity (FUH)
-is to act in such a way ``that you use humanity, whether in your own person or in the person
-of any other, always at the same time as an end, never merely as a means."}\cite{groundwork}
-
-\medskip 
-
-$\textbf{Definition}$ \emph{(Kingdom of Ends)}
-
-\emph{The third formulation of the categorical imperative states that ``we should so act that we may 
-think of ourselves as legislating universal laws through our maxims."}\cite{KorsgaardFUL}
-
-The last two formulations are not as obviously formal as the FUL, but they can still be
-modelled in logic. Because Kantian ethics presents a series of rules, a logical system can encode 
-the theory by modelling each rule as an axiom.
-
-The above outline is a brief and incomplete picture of a rich philosophical tradition. Kantian scholars
-debate the meaning of each formulation of the categorical imperative and develop views far more 
-nuanced than those above. For the purposes of this paper, I will adopt Kant's three original 
-formulations presented above. Note additionally that Kantian ethics is widely disputed. I do not present 
-a defense of Kant's ethic in this paper. My approach to formalizing ethics can be applied to other 
-theories as well.  
-
-This paper aims to formalize Kant's ethic as faithfully as possible. This is an important choice. 
-While it is tempting to modify or simplify an ethical theory in seemingly insignificant way, these 
-choices often have ramifications. The entire field of neo-Kantian thought 
-has been exploring versions of Kant's ethical theory for centuries. I will not attempt to present a 
-radically new conception of Kant's ethic, but will instead draw on philosophical expertise regarding
-the content and justification of the categorical imperative.%
+I formalize Kantian ethics by representing it as an axiom on top of a base logic. In this section, 
+I present the logical background necessary to understand my work and my choice of base logic.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -208,10 +141,6 @@ the content and justification of the categorical imperative.%
 \endisadelimdocument
 %
 \isatagdocument
-%
-\isamarkupsubsection{Dyadic Deontic Logic \label{sec:DDL}%
-}
-\isamarkuptrue%
 %
 \isamarkupsubsubsection{Deontic Logic%
 }
@@ -226,13 +155,13 @@ the content and justification of the categorical imperative.%
 %
 \begin{isamarkuptext}%
 Traditional modal logics include the necessitation operator, denoted as $\Box$. In simple modal logic
-using the Kripke semantics s \cite{cresswell}, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors. 
-These logics also usually contain the $\diamond$ operator, representing possibility, where
+using the Kripke semantics, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors \cite{cresswell}. 
+These logics usually also contain the possibility operator $\diamond$, where
  $\diamond p \iff \sim \Box \sim p$. Additionally, modal logics include operators of propositional 
 logic like $\sim, \wedge, \vee, \rightarrow$.
 
 A deontic logic is a special kind of modal logic designed to reason about obligation. Standard deontic
-logic \cite{cresswell, sep-logic-deontic} replaces $\Box$ with the obligation operator
+logic \citep{cresswell, sep-logic-deontic} replaces $\Box$ with the obligation operator
 $O$, and $\diamond$ with the permissibility operator $P$. Using the Kripke semantics for $O$, $O p$ 
 is true at $w$ if $p$ is true at all  ideal deontic alternatives to $w$. The $O$ operator in SDL
 takes a single argument (the formula that is obligatory), and is thus called a monadic deontic operator.
@@ -247,7 +176,7 @@ Chisholm paradox. Consider the following statements: \begin{enumerate}
 \end{enumerate} 
 These premises contradict themselves, because items (2)-(4) imply that Tom ought not help his neighbors. The 
 contradiction results because the logic cannot handle violations of duty mixed with
-conditionals. \cite{chisholm, ctd}
+conditionals. \citep{chisholm, ctd}
 }. 
 In situations where duty is violated, the logic breaks down 
 and produces paradoxical results. Thus, I use an improved deontic logic instead of SDL for this work.%
@@ -285,7 +214,7 @@ These notions are accompanied by the corresponding modal operators $\Box_a, \dia
 These operators use a Kripke semantics, with the functions $av$ and $pv$ mapping a world $w$ to the set 
 of corresponding actual or possible versions of $w$. 
 
-For more of fine-grained properties of DDL see \cite{CJDDL} or this project's source code. DDL is a heavy logic and contains modal operators 
+For more of fine-grained properties of DDL see \citep{CJDDL} or this project's source code. DDL is a heavy logic and contains modal operators 
 that aren't necessary for my analysis. While this expressivity is powerful, it may also cause performance
 impacts. DDL has a large set of axioms involving quantification over complex higher-order
 logical expressions. Proofs involving these axioms will be computationally expensive.  Benzmueller 
@@ -383,123 +312,54 @@ and Parent warned me that this may become a problem if Isabelle's automated proo
 %:%110=81%:%
 %:%111=82%:%
 %:%112=83%:%
-%:%121=85%:%
-%:%133=87%:%
-%:%134=88%:%
+%:%115=85%:%
+%:%123=87%:%
 %:%135=89%:%
 %:%136=90%:%
-%:%137=91%:%
-%:%138=92%:%
-%:%139=93%:%
-%:%140=94%:%
-%:%141=95%:%
-%:%142=96%:%
-%:%143=97%:%
-%:%144=98%:%
-%:%145=99%:%
-%:%146=100%:%
-%:%147=101%:%
-%:%148=102%:%
-%:%149=103%:%
-%:%150=104%:%
-%:%151=105%:%
-%:%152=106%:%
-%:%153=107%:%
-%:%154=108%:%
-%:%155=109%:%
-%:%156=110%:%
-%:%157=111%:%
-%:%158=112%:%
-%:%159=113%:%
-%:%160=114%:%
-%:%161=115%:%
-%:%162=116%:%
-%:%163=117%:%
-%:%164=118%:%
-%:%165=119%:%
-%:%166=120%:%
-%:%167=121%:%
-%:%168=122%:%
-%:%169=123%:%
-%:%170=124%:%
-%:%171=125%:%
-%:%172=126%:%
-%:%173=127%:%
-%:%174=128%:%
-%:%175=129%:%
-%:%176=130%:%
-%:%177=131%:%
-%:%178=132%:%
-%:%179=133%:%
-%:%180=134%:%
-%:%181=135%:%
-%:%182=136%:%
-%:%183=137%:%
-%:%184=138%:%
-%:%185=139%:%
-%:%186=140%:%
-%:%187=141%:%
-%:%188=142%:%
-%:%189=143%:%
-%:%190=144%:%
-%:%191=145%:%
-%:%192=146%:%
-%:%193=147%:%
-%:%194=148%:%
-%:%195=149%:%
-%:%196=150%:%
-%:%197=151%:%
-%:%198=152%:%
-%:%199=153%:%
-%:%200=154%:%
-%:%201=155%:%
-%:%202=156%:%
-%:%203=157%:%
-%:%212=161%:%
-%:%216=163%:%
-%:%228=165%:%
-%:%229=166%:%
-%:%230=167%:%
-%:%231=168%:%
-%:%232=169%:%
-%:%233=170%:%
-%:%234=171%:%
-%:%235=172%:%
-%:%236=173%:%
-%:%237=174%:%
-%:%238=175%:%
-%:%239=176%:%
-%:%240=177%:%
-%:%241=178%:%
-%:%242=179%:%
-%:%243=180%:%
-%:%244=181%:%
-%:%245=182%:%
-%:%246=183%:%
-%:%247=184%:%
-%:%248=185%:%
-%:%249=186%:%
-%:%250=187%:%
-%:%251=188%:%
-%:%252=189%:%
-%:%253=190%:%
-%:%262=192%:%
-%:%274=194%:%
-%:%275=195%:%
-%:%276=196%:%
-%:%277=197%:%
-%:%278=198%:%
-%:%279=199%:%
-%:%280=200%:%
-%:%281=201%:%
-%:%282=202%:%
-%:%283=203%:%
-%:%284=204%:%
-%:%285=205%:%
-%:%286=206%:%
-%:%287=207%:%
-%:%288=208%:%
-%:%289=209%:%
-%:%290=210%:%
-%:%291=211%:%
-%:%292=212%:%
+%:%145=92%:%
+%:%157=95%:%
+%:%158=96%:%
+%:%159=97%:%
+%:%160=98%:%
+%:%161=99%:%
+%:%162=100%:%
+%:%163=101%:%
+%:%164=102%:%
+%:%165=103%:%
+%:%166=104%:%
+%:%167=105%:%
+%:%168=106%:%
+%:%169=107%:%
+%:%170=108%:%
+%:%171=109%:%
+%:%172=110%:%
+%:%173=111%:%
+%:%174=112%:%
+%:%175=113%:%
+%:%176=114%:%
+%:%177=115%:%
+%:%178=116%:%
+%:%179=117%:%
+%:%180=118%:%
+%:%181=119%:%
+%:%182=120%:%
+%:%191=122%:%
+%:%203=124%:%
+%:%204=125%:%
+%:%205=126%:%
+%:%206=127%:%
+%:%207=128%:%
+%:%208=129%:%
+%:%209=130%:%
+%:%210=131%:%
+%:%211=132%:%
+%:%212=133%:%
+%:%213=134%:%
+%:%214=135%:%
+%:%215=136%:%
+%:%216=137%:%
+%:%217=138%:%
+%:%218=139%:%
+%:%219=140%:%
+%:%220=141%:%
+%:%221=142%:%

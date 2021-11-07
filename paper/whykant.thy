@@ -3,7 +3,7 @@
 
 begin(*>*)
 
-section "Why Kantian Ethics"
+subsection "Why Kantian Ethics"
 
 text \<open>
 In this thesis, I automate Kantian ethics. In 2006, Powers posited that deontological theories are 
@@ -26,9 +26,9 @@ as an early proof-of-concept for computational ethics, I choose to automate an e
 poses fewer challenges than others.
 \<close>
 
-subsection "Kantian Ethics"
+subsubsection "Kantian Ethics"
 
-subsubsection "Crash Course on Kantian Ethics"
+text \<open>\textbf{Crash Course on Kantian Ethics}\<close>
 
 text \<open>Kant's theory is centered on practical reason, which is the kind of reason that we 
 use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant's most influential 
@@ -77,7 +77,7 @@ choice, see Section Why FUL}.
 
 The first formulation of the categorical imperative is the
 Formula of Universal Law (FUL), which reads, ``act only according to that maxim through which you can 
-at the same time will that it become a universal law" $\cite[34]{groundwork}$. This formulation
+at the same time will that it become a universal law" \cite[34]{groundwork}. This formulation
 generates the universalizability test, which tests the moral value of a maxim by 
 imagining a world in which it becomes a universal law and attempting to will the maxim in that world.
 If there is a contradiction in willing the maxim in a world in which everyone universally wills the maxim,
@@ -95,11 +95,11 @@ as opposed to some external authority.
 
 The second formulation of the categorical imperative is the formula of humanity (FUH): ``So act that you use humanity, 
 in your own person, as well as in the person of any other, always at the same time as an end, never merely 
-as a means." $\cite[41]{groundwork}$. This formulation is often understood as requiring us to 
+as a means." \cite[41]{groundwork}. This formulation is often understood as requiring us to 
 acknowledge and respect the dignity of every other person. The third formulation of the categorical 
 imperative is the formula of autonomy (FOA), which Korsgaard summarizes in her introduction to the Groundwork 
 as, ``we should so act that we may think of ourselves as legislating universal laws through our 
-maxims" $\cite[28]{korsgaardintro}$. While closely related to the FUL, the FOA presents morality as the activity of 
+maxims" \cite[28]{korsgaardintro}. While closely related to the FUL, the FOA presents morality as the activity of 
 perfectly rational agents in an ideal ``kingdom of ends," guided by what Kant calls the ``laws of freedom."
 
 The above is not meant to serve as a full defense of Kant's ethical theory, as that is outside the scope
@@ -108,7 +108,7 @@ of offering context for the implementation of the FUL I present later in the the
 the structure of Kant's argument also reveals facts about his theory that make it an ideal candidate 
 for formalization.\<close>
 
-subsubsection "Ease of Automation"
+text \<open>\textbf{Ease of Automation}\<close>
 
 text \<open>Kantian ethics is natural to formalize because the categorical imperative, particularly the FUL, 
 is a formal principle of practical reason. In other words, the FUL is a property of reason related 
@@ -145,7 +145,7 @@ consequentialism or virtue ethics, these debates are considered close to settled
 or consequentialism, Kantian ethics is relatively easier to formalize.
  \<close>
 
-subsection "Consequentialism"
+subsubsection "Consequentialism"
 
 text \<open>A consequentialist ethical theory is, broadly speaking, any ethical theory that evaluates an action by evaluating 
 its consequences. \footnote{There is long debate about what exactly makes an ethical theory consequentialist \cite{consequentialismsep}. 
@@ -157,7 +157,7 @@ of an action from the maxim that is acted on. Some debates in the consequentiali
 which consequences of an action matter, what exactly constitutes a ``good" consequence, and how we can 
 aggregate the consequences of an action over all the individuals involved. \<close>
 
-subsubsection "Which Consequences Matter"
+text\<open>\textbf{Which Consequences Matter}\<close>
 
 text \<open>Because consequentialism evaluates the state of affairs following an action, this kind of ethical 
 reasoning requires more knowledge
@@ -205,7 +205,7 @@ The challenge of understanding and representing the circumstances of action is n
 but is particularly acute for consequentialism. Kantian ethicists robustly debate which circumstances 
 of an action are ``morally relevant" and should be included in the formulation of the maxim.\footnote{Powers 
 \cite{powers} identifies this as a challenge for automating Kantian ethics and briefly sketches 
-solutions from O'Neill \cite{constofreason}, Silber \cite{silber}, and Rawls \cite{rawlsconstructivism}. } Those 
+solutions from O'Neill \citet{constofreason}, Silber \citet{silber}, and Rawls \citet{rawlsconstructivism}. } Those 
 using my system will need to automatically or manually formulate maxims, a process that involves 
 common-sense reasoning to determine which circumstances, act, and goal tuples the agent is adopting.
 \footnote{For more on the challenge of parsing of ethical dilemmas into maxims, see Section AI Ethics}
@@ -217,7 +217,7 @@ their judgements to the situation in which an act is performed to some extent, b
 requires far more knowledge about the world than Kantian ethics.\<close>
 
 
-subsubsection "Theory of the Good"
+text \<open>\textbf{Theory of the Good}\<close>
 
 text \<open>Another debate that an automated consequentialist reasoner would need to take a stance on is
 the question of what qualifies as a ``good consequence," or what the theory of the good is. Hedonists associate
@@ -245,7 +245,7 @@ which requires massive common-sense, increases room for doubting the system's ju
 the judgements. This is a tractable problem, but is much more difficult than the Kantian task of formulating
 and evaluating a maxim.\<close>
 
-subsubsection "Aggregation"
+text \<open>\textbf{Aggregation}\<close>
 
 text \<open>Once an automated consequentialist agent assigns a goodness measurement to each person in a state of affairs, it 
 must also calculate an overall goodness measurement for the state of affairs. One approach to assigning
@@ -274,7 +274,7 @@ the door to those who disagree with this definition, or needs to evaluate the go
 of affairs, which is a complex and data-intensive philosophical and technical challenge.
 \<close>
 
-subsubsection "Prior Attempts to Formalize Consequentialism"
+text \<open>\textbf{Prior Attempts to Formalize Consequentialism}\<close>
 
 text \<open>None of the challenges described above are intractable or capture the full literature of 
 all variations of consequentialism. I do not argue that consequentialism is 
@@ -299,9 +299,9 @@ similar problems because, at some point, a useful automated consequentialist mor
 to resolve the above debates. 
 \<close>
 
-subsection "Virtue Ethics"
+subsubsection "Virtue Ethics"
 
-subsubsection "What Is Virtue"
+text \<open>\textbf{What Is Virtue}\<close>
 
 text \<open>The virtue ethical tradition places the virtues, or those traits that constitute a 
 good moral character, at the center. Virtue ethicists evaluate actions based on the character traits 
@@ -319,7 +319,7 @@ An automated virtue ethical agent will need to commit to a particular theory of 
 itself up to criticism from those who disagree with this theory of the virtues. Unlike Kantian ethicists, 
 who generally agree on the meaning of the FUL, virtue ethicists robustly debate which character traits qualify as virtues.\<close>
 
-subsubsection "Evaluating Moral Character"
+text \<open>\textbf{Evaluating Moral Character}\<close>
 
 text \<open>Another difficulty with automating virtue ethics is that the unit of evaluation for a virtue ethical
 theory is often a person's entire moral character. While Kantians evaluate the maxim of an act and utilitarians
@@ -332,7 +332,7 @@ of affairs, but virtue ethics poses a conceptual problem about the formal nature
 Formalizing the concept of character appears to require significant philosophical and computational
 progress, whereas Kantian ethics immediately presents a formal rule to implement. \<close>
 
-subsubsection "Machine Learning and Virtue Ethics"
+text \<open>\textbf{Machine Learning and Virtue Ethics}\<close>
 
 text \<open>One potential appeal of virtue ethics is that many virtue ethical theories involve some form of 
 moral habit, which seems to suggest a machine learning approach. Artistotle, for example, argued 
