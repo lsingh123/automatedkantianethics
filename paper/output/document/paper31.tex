@@ -62,7 +62,7 @@ the categorical imperative.%
 \begin{isamarkuptext}%
 This section presents a simple and intuitive formalization of the Formula of Universal Law (FUL). 
 This naive formalization will hold in the base logic itself, so this formalization does not actually
-improve upon a plain deontic logic at all. This section serves two purposes. First, the naive formalization
+improve upon an ordinary deontic logic at all. This section serves two purposes. First, the naive formalization
 is a toy example that demonstrates the implementation and testing process that will be used for the more 
 complex formalizations presented later in Chapters 2 and 3. Second, this formalization is effectively
 a control group used to determine which properties of obligaition hold in the base logic. Future formalizations
@@ -146,7 +146,7 @@ the definitions of the modal operators in DDL, so term rewriting suffices to com
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-The general process of an implementation of a formalization of the FUL will be to represent the 
+The general process of implementing a formalization of the FUL will be to represent the 
 formalization as a sentence in my logic, as above, and then to add the formalization as an axiom to 
 the logic. Kant's ethical theory is rule based, so it involves applying the categorical
 imperative to solve ethical dilemmas. In logic, this is equivalent to adopting the categorical imperative as 
@@ -162,7 +162,7 @@ of the moral law \cite{idealtheory}.
 
 Because my naive formalization holds in the base logic, adding it as an axiom does not make the logic
 any more powerful. No new theorems can be derived using the naive formalization that could not already
-be derived in the base logic. Thus, this section serves as a``control group." Tests performed in this
+be derived in the base logic. Thus, this section serves as a ``control group." Tests performed in this
 section establish which properties of obligation don't hold in the base logic. The fact that these 
 tests will pass for the later, more sophisticated formalizations will serve as evidence for the superiority
 of these formalizations over the base logic.%
@@ -324,7 +324,7 @@ the possibility of permissibility as one test for my formalizations.%
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1:
 
   Skolem constant:
     A =($\lambda x. \_$)($i_1$ := False) \color{black}%
@@ -333,6 +333,17 @@ the possibility of permissibility as one test for my formalizations.%
 \isamarkupcmt{I want to show that there exists a model where there is some formula A that is permissible, or, 
 in English, that permissibility is possible. Nitpick finds a model where the above formula holds, 
 so permissibility is indeed possible.%
+}\isanewline
+%
+\isamarkupcmt{Quick note on how to read Nitpick results. Nitpick is Isabelle's model checker, and it can either 
+time out, find a model that satisfies the given theorem, or find a counterexample that disproves
+the given theorem. It will then provide the corresponsing model by specifying model components. For readability, 
+all terms except for the free variables are hidden. This model has cardinality 1 for the world (i) type.
+The term `A' is defined as false at world $i_1$.%
+}\isanewline
+%
+\isamarkupcmt{These details will be elided for most Nitpick examples, but this provides guidance on how to interpret
+the output.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -417,9 +428,9 @@ $\textbf{Conflicting Obligations}$%
 %
 \begin{isamarkuptext}%
 The next set of tests will focus on conflicting obligations. There is some debate about Kant's
-personal stance on conflicting obligations, but neo-Kantian agree that the FUL itself cannot obligate
+personal stance on conflicting obligations, but neo-Kantians agree that the FUL itself cannot obligate
 conflicting actions. For more complete discussion of conflicting obligations in Kantian literature, 
-see \ref{sec:priorgoals}. I will first test whether or not, for some arbitrary action, Nitpick can find
+see Section \ref{sec:priorgoals}. I will first test whether or not, for some arbitrary action, Nitpick can find
 a model in which that action is both obligated and prohibited.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
@@ -467,7 +478,7 @@ a model in which that action is both obligated and prohibited.%
 %
 \begin{isamarkuptext}%
 The above is a rather weak notion of contradictory obligations. Korsgaard additionally argues that Kantian 
-ethics also has the stronger property that if two maxims imply a contradiction, they must not be willed \cite{KorsgaardFUL}.
+ethics also has the stronger property that if two maxims imply a contradiction, they must not be willed \citep{KorsgaardFUL}.
 I test this property below. Because this property is stronger than the previous test, and the previous 
 test failed, this test will also fail.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -527,11 +538,10 @@ and you are obligated to do B." We think those English sentences mean the same t
 the same thing in our logic as well. This ``distributive" property of obligation is another test.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
-\ distribute{\isacharunderscore}obligations{\isacharcolon}\isanewline
-\ \ \isakeyword{assumes}\ \ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+\ distributive{\isacharunderscore}property{\isacharunderscore}for{\isacharunderscore}obligation{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}\ {\isasymequiv}\ {\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{nitpick}\isamarkupfalse%
-\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
 \ %
 \endisadelimproof
@@ -543,8 +553,8 @@ the same thing in our logic as well. This ``distributive" property of obligation
 \isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 2:
 
   Free variables:
-    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
-    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)
+    B = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)\color{black}
 Once again, this tests fails in the control group.%
 }%
 \endisatagproof
@@ -576,13 +586,6 @@ fails to track intuition about ethics.%
 \ simp\isanewline
 %
 \isamarkupcmt{This means that if something is possibly prohibited, it is in fact prohibited.%
-}\isanewline
-%
-\isamarkupcmt{This is a direct consequence\footnote{For a manual proof, see the Appendix.} of the naive formalization, but it's not clear to me that this is 
-actually how we think about ethics. For example, imagine an alternate universe where smiling at 
-someone is considered an incredibly rude and disrespectful gesture. In this universe, I am probably 
-prohibited from smiling at people, but this doesn't mean that in this current universe, smiling is 
-morally wrong.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -592,9 +595,17 @@ morally wrong.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
+This is a direct consequence\footnote{For a manual proof, see the Appendix.} of the naive formalization, but it's not clear to me that this is
+actually how we think about ethics. For example, imagine an alternate universe where smiling at 
+someone is considered an incredibly rude and disrespectful gesture. In this universe, I am probably 
+prohibited from smiling at people, but this doesn't mean that in this current universe, smiling is 
+morally wrong.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
 The ``ought implies can" principle is attributed to Kant\footnote{The exact philosophical credence of this view is disputed, but the rough idea holds nonetheless. See \cite{kohl} for more.}
  and is rather intuitive: you can't be obligated to do the impossible. Deontic 
-logics evolved specifically from this principle, so this should hold in the base logic \cite{cresswell}.%
+logics evolved specifically from this principle, so this should hold in the base logic \citep{cresswell}.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ ought{\isacharunderscore}implies{\isacharunderscore}can{\isacharcolon}\isanewline
@@ -607,14 +618,19 @@ logics evolved specifically from this principle, so this should hold in the base
 \isatagproof
 \isacommand{using}\isamarkupfalse%
 \ O{\isacharunderscore}diamond\ \isacommand{by}\isamarkupfalse%
-\ blast\isanewline
-%
+\ blast%
 \endisatagproof
 {\isafoldproof}%
 %
 \isadelimproof
 %
 \endisadelimproof
+%
+\begin{isamarkuptext}%
+This test passes in the base logic, and will thus hold in all future formalizations as well. 
+Therefore, it's an interesting property but not actually useful in evaluating different formalizations 
+of the FUL.%
+\end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimproof
 %
@@ -660,37 +676,35 @@ logics evolved specifically from this principle, so this should hold in the base
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-STARTHERE One category of tests involves specified models to encode certain facts 
-into the system and then ask questions about obligations. Without specifying the model, we are limited 
-to showing high-level metaethical facts. Let's start with analyzing an obvious example - that murder is 
-wrong.%
+The second category of tests I will consider is Application tests, which involve specifying models
+to encode certain facts into the system, and then asking questions about obligations. Metaethical tests
+focus on properties that apply to all acts, circumstances, and actors, but application tests focus
+on specific acts. Let's start with analyzing an obvious example - that murder is 
+wrong.
+
+First, I will define murder as a constant below. Notice that right now, this constant is just a term. 
+I haven't specified any properties of murder, so as of now, it's interchangeable with any other term. 
+Application tests generally define an act and then define properties of the act (e.g. if X is murdered,
+X dies). The tests aim to show that acts with certain properties are either obligated or prohibited.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ M{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ murder{\isacharunderscore}wrong{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}murder{\isacharunderscore}wrong\ {\isasymequiv}\ {\isasymTurnstile}{\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isadelimproof
-%
-\endisadelimproof
-%
-\isatagproof
-%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-\isanewline
-%
-\endisadelimproof
+\isamarkupcmt{This abbreviation merely represents the statement that murder is prohibited.%
+}%
+\begin{isamarkuptext}%
+I will now define properties of murder and see if they achieve the desired result that murder
+is prohibited. First, I start with the rather basic property that murder is prohibited in some 
+world, or that murder is possibly wrong. This is quite a strong assumption because it gives the system
+a moral fact about a kind of prohibition against murder. Ideally, an ethical theory can take nonmoral
+facts about murder (like murder kills) and use these to generate a moral judgement about the wrongness of 
+murder. This property is much stronger than the assumptions that we make in ordinary moral
+reasoning and thus should be more than enough to show that murder is wrong.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ possibly{\isacharunderscore}murder{\isacharunderscore}wrong{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}possibly{\isacharunderscore}murder{\isacharunderscore}wrong\ {\isasymequiv}\ {\isacharparenleft}{\isasymdiamond}\ {\isacharparenleft}O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ M{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ cw{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{These are very simple properties. \isa{poss{\isacharunderscore}murder{\isacharunderscore}wrong} is an abbreviation for the axiom
-that there is some world where murder might be prohibited. Even this is quite a strong assumption - 
-ideally we'd want to give the system nonmoral facts about murder (like a definition) and then make 
-moral claims.%
-}\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ wrong{\isacharunderscore}if{\isacharunderscore}possibly{\isacharunderscore}wrong{\isacharcolon}\isanewline
@@ -704,7 +718,7 @@ moral claims.%
 \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 %
-\isamarkupcmt{This lemma gets to the ``heart" of this naive interpretation. We really want to say that if something
+\isamarkupcmt{This lemma gets to the ``heart" of this naive interpretation. If something
  isn't necessarily obligated, it's not obligated anywhere.%
 }%
 \endisatagproof
@@ -715,31 +729,42 @@ moral claims.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-The above example does exactly what we expect it to: we show that if something is wrong somewhere 
-it's wrong everywhere. That being said, it seems like quite a weak claim. We assumed a very strong, moral 
-fact about murder (that it is wrong somewhere), so it's not surprise that we were able to reach our desired conclusion.%
+The above example does exactly what I expect it to: it shows that if something is wrong somewhere 
+it's wrong everywhere. That being said, it seems like quite a weak claim. I assumed a very strong, moral 
+fact about murder (that it is wrong somewhere), so it's not surprise that I was able to show the wrongness 
+of murder.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Let's try a weaker assumption: Not everyone can lie.%
+Let's try a different example using a much weaker, nonmoral assumption. Kant argues that the FUL
+prohibits lying.\footnote{Specifically, he prohibits making a false promise in order to get some cash \cite[idk page no]{groundwork}.}
+In this example, I will define lying as a term such that not everyone can lie simultaneously. This is 
+one of Kant's canonical examples of the universalizability test. Lying fails the universalizability 
+test because, in a world where everyone lied, no one would believe each other anymore, so the very system 
+or truth-telling would break down, making lying impossible. I can represent this reasoning in my logic 
+as the assumption that not everyone can lie simultaneously. 
+
+To fully capture this idea, I need some notion of
+a person, so that I can argue that not all people can lie simultaneously.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ person\isanewline
 \isacommand{consts}\isamarkupfalse%
 \ lie{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}person{\isasymRightarrow}t{\isachardoublequoteclose}\isanewline
 \isacommand{consts}\isamarkupfalse%
-\ me{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}person{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{Notice that this machinery is quite empty. We don't give axioms about what a person can or can't do.%
-}\isanewline
-\isanewline
+\ me{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}person{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+Again, this machinery is quite empty because it doesn't specify any axioms about what a person can 
+or cannot do. In future formalizations, I will define a more robust notion of a person, but the naive 
+formalization has no conception of a person.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ lying{\isacharunderscore}not{\isacharunderscore}universal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}x{\isachardot}\ lie{\isacharparenleft}x{\isacharparenright}\ w{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
-This is a rough translation of failure of the universalizability test: we will test the maxim universally,
-as represented by the universal quantifier in the first conjunct, and simultaneously \cite{simul}, as represented by 
-the second conjunct. The FUL tells us that if this sentence is true, then lying should be prohibited. 
-Let's test it.%
+This is a rough translation of failure of the universalizability test: I  test the maxim universally,
+as represented by the universal quantifier in the first conjunct, and simultaneously, as represented by 
+the second conjunct \citep{simul}. The FUL says that if this sentence is true, then lying should be prohibited. 
+Therefore, the above sentence should imply that lying is prohibited.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ breaking{\isacharunderscore}promises{\isacharcolon}\isanewline
@@ -756,21 +781,9 @@ Let's test it.%
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{\color{blue} Nitpick found a counterexample for card person = 2 and card i = 2:
+\isamarkupcmt{\color{blue}Nitpick found a counterexample for card i = 1 and card person = 1:
 
-  Free variable:
-    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False)) \color{black}%
-}\isanewline
-%
-\isamarkupcmt{Quick note on how to read Nitpick results. Nitpick will either say that it found a ``model" or a ``counterexample" in 
-the first line. It will then provide a model by specifying model components. For readability, all except for the 
-free variables are hidden. This model has cardinality 2 for the person and world (i) types. The term \texttt{lie} is 
-defined for people $p_1$ and $p_2$. $p_1$ lies at world $i_1$ and does not lie at world $i_2$. $p_2$ does
-the opposite.%
-}\isanewline
-%
-\isamarkupcmt{These details will be elided for most Nitpick examples, but this provides guidance on how to interpret
-the output.%
+  Empty assignment \color{black}%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -780,17 +793,25 @@ the output.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-This formula isn't valid. While the FUL should tell us that lying is prohibited, the fact that it 
+This test fails. The FUL should say that lying is prohibited and the fact that it
 doesn't demonstrates the weakness of this naive formulation of the categorical imperative. Kant's version of
-the FUL universalizes across people, as we did in the definition of \isa{lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}x{\isachardot}\ lie\ x\ w{\isacharparenright}\ {\isasymand}\ lie\ me\ w{\isacharparenright}}. The 
-naive formalization universalizes across worlds using the $\Box$ operator, so it makes sense that it can't
-handle this example appropriately.
+the FUL universalizes across people, as in the definition of \isa{lying{\isacharunderscore}not{\isacharunderscore}universal\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}x{\isachardot}\ lie\ x\ w{\isacharparenright}\ {\isasymand}\ lie\ me\ w{\isacharparenright}}. When universalizing
+an act, Kant imagines a world in which all \emph{people} perform the act. The naive formalization, 
+on the other hand, universalizes an act across \emph{worlds} because it uses the $\Box$ operator
+to represent universalization. This is the philosophical error that makes the naive 
+formalization so naive, and future formalizations will need to remedy this error.
+This serves as an example of the kind of reasoning that 
+Isabelle empowers us to do. Even this simple argument has philosophical consequences. It tells us that
+reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
+agents, leads to counterintuitive conclusions.
 
-The above implies that the FUL should prescribe consistent obligations across people. If our formalization
-doesn't, clearly something has gone wrong somewhere. Let's test that!%
+Additionally, Kant argued that obligations are not person-specific but instead apply equally to all 
+rational agents.\footnote{For a philosophical analysis of this idea, see Section \ref{sec:priorgoals}}
+Thus, any formalization of the categorical should generate obligations that are consistent across people.
+This next step analyzes this property.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
-\ universalizability{\isacharcolon}\isanewline
+\ equal{\isacharunderscore}obligations{\isacharcolon}\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}{\isacharparenleft}lie{\isacharparenleft}me{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isachardoublequoteclose}\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}x{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}{\isacharparenleft}lie{\isacharparenleft}x{\isacharparenright}{\isacharparenright}{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{nitpick}\isamarkupfalse%
@@ -818,12 +839,20 @@ doesn't, clearly something has gone wrong somewhere. Let's test that!%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-This lemma demonstrates the problem with the naive interpretation. The FUL universalizes across people
-but the naive formalization universalizes across worlds. Because this interpretation is so naive, it is 
-limited in its power. However, this serves as an example of the kind of reasoning that 
-Isabelle empowers us to do. Even this simple argument has philosophical consequences. It tells us that
-reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
-agents, leads to counterintuitive conclusions.%
+In this section, I presented the framework I will use to implement and test different interpretations
+of the categorical imperative. An implementation consists of some necessary logical background, a 
+representation of the FUL using that logical background, and a logical system that adds that representation
+as an axiom. To test such an implementation, I design a ``test suite" that consists of properties of 
+the categorical imperative verified by philosophical literature. I demonstrated the performance of 
+these tests in my base logic, which serves as a control group. 
+
+I will evaluate more sophisticated formalizations of the FUL using this testing framework. The properties
+I test will remain more or less consisten across different formalizations, but the exact logical representation
+of the tests will depend on the specifics of a particular implementation. In the next section, I will 
+implement Moshe Kroy's formalization of the FUL and evaluate it using this testing framework. Finally, 
+I will use the results of these tests to define clear goals for a custom formalization of the categorical 
+imperative. These goals represent areas of improvement over previous formalizations, and I will justify
+them using philosophical literature.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -831,7 +860,6 @@ agents, leads to counterintuitive conclusions.%
 \endisadelimtheory
 %
 \isatagtheory
-\isacommand{end}\isamarkupfalse%
 %
 \endisatagtheory
 {\isafoldtheory}%
@@ -839,7 +867,6 @@ agents, leads to counterintuitive conclusions.%
 \isadelimtheory
 %
 \endisadelimtheory
-\isanewline
 %
 \end{isabellebody}%
 \endinput
@@ -981,243 +1008,275 @@ agents, leads to counterintuitive conclusions.%
 %:%333=188%:%
 %:%334=189%:%
 %:%335=190%:%
-%:%345=192%:%
-%:%346=193%:%
-%:%347=194%:%
-%:%348=195%:%
-%:%350=197%:%
-%:%351=197%:%
-%:%352=198%:%
-%:%353=199%:%
-%:%354=200%:%
-%:%355=200%:%
+%:%336=190%:%
+%:%338=191%:%
+%:%339=192%:%
+%:%340=193%:%
+%:%341=194%:%
+%:%342=195%:%
+%:%343=195%:%
+%:%345=196%:%
+%:%346=197%:%
+%:%356=199%:%
 %:%357=200%:%
-%:%361=200%:%
-%:%362=200%:%
-%:%364=201%:%
-%:%365=202%:%
-%:%366=203%:%
-%:%367=204%:%
-%:%368=204%:%
-%:%370=205%:%
-%:%380=207%:%
-%:%381=208%:%
-%:%382=209%:%
-%:%384=211%:%
-%:%385=211%:%
-%:%386=212%:%
-%:%387=213%:%
-%:%388=214%:%
-%:%389=214%:%
+%:%358=201%:%
+%:%359=202%:%
+%:%361=204%:%
+%:%362=204%:%
+%:%363=205%:%
+%:%364=206%:%
+%:%365=207%:%
+%:%366=207%:%
+%:%368=207%:%
+%:%372=207%:%
+%:%373=207%:%
+%:%375=208%:%
+%:%376=209%:%
+%:%377=210%:%
+%:%378=211%:%
+%:%379=211%:%
+%:%381=212%:%
 %:%391=214%:%
-%:%395=214%:%
-%:%396=214%:%
-%:%398=215%:%
-%:%399=216%:%
-%:%400=217%:%
-%:%401=218%:%
-%:%402=218%:%
-%:%404=219%:%
-%:%405=220%:%
-%:%415=222%:%
-%:%419=224%:%
-%:%420=225%:%
-%:%421=226%:%
-%:%422=227%:%
-%:%423=228%:%
-%:%425=230%:%
-%:%426=230%:%
-%:%427=231%:%
-%:%428=232%:%
-%:%429=233%:%
-%:%430=233%:%
+%:%392=215%:%
+%:%393=216%:%
+%:%395=218%:%
+%:%396=218%:%
+%:%397=219%:%
+%:%398=220%:%
+%:%399=221%:%
+%:%400=221%:%
+%:%402=221%:%
+%:%406=221%:%
+%:%407=221%:%
+%:%409=222%:%
+%:%410=223%:%
+%:%411=224%:%
+%:%412=225%:%
+%:%413=225%:%
+%:%415=226%:%
+%:%416=227%:%
+%:%426=229%:%
+%:%430=231%:%
+%:%431=232%:%
 %:%432=233%:%
-%:%436=233%:%
-%:%437=233%:%
-%:%439=234%:%
-%:%440=235%:%
-%:%441=236%:%
-%:%442=237%:%
-%:%443=237%:%
-%:%445=238%:%
-%:%446=238%:%
-%:%469=253%:%
-%:%470=254%:%
-%:%471=255%:%
-%:%472=256%:%
-%:%474=258%:%
-%:%475=258%:%
-%:%476=259%:%
-%:%477=260%:%
-%:%478=261%:%
-%:%479=262%:%
-%:%480=263%:%
-%:%481=263%:%
-%:%488=264%:%
-%:%489=264%:%
-%:%490=265%:%
-%:%491=265%:%
-%:%492=266%:%
-%:%493=266%:%
-%:%494=267%:%
-%:%495=267%:%
-%:%496=267%:%
-%:%497=267%:%
-%:%499=268%:%
-%:%500=269%:%
-%:%501=269%:%
-%:%502=270%:%
-%:%503=270%:%
-%:%504=270%:%
-%:%506=271%:%
-%:%507=272%:%
-%:%508=273%:%
-%:%509=274%:%
+%:%433=234%:%
+%:%434=235%:%
+%:%436=237%:%
+%:%437=237%:%
+%:%438=238%:%
+%:%439=239%:%
+%:%440=240%:%
+%:%441=240%:%
+%:%443=240%:%
+%:%447=240%:%
+%:%448=240%:%
+%:%450=241%:%
+%:%451=242%:%
+%:%452=243%:%
+%:%453=244%:%
+%:%454=244%:%
+%:%456=245%:%
+%:%457=245%:%
+%:%480=260%:%
+%:%481=261%:%
+%:%482=262%:%
+%:%483=263%:%
+%:%485=265%:%
+%:%486=265%:%
+%:%487=266%:%
+%:%488=267%:%
+%:%489=268%:%
+%:%490=269%:%
+%:%491=270%:%
+%:%492=270%:%
+%:%499=271%:%
+%:%500=271%:%
+%:%501=272%:%
+%:%502=272%:%
+%:%503=273%:%
+%:%504=273%:%
+%:%505=274%:%
+%:%506=274%:%
+%:%507=274%:%
+%:%508=274%:%
 %:%510=275%:%
-%:%511=275%:%
-%:%513=276%:%
-%:%523=278%:%
-%:%524=279%:%
-%:%525=280%:%
-%:%526=281%:%
-%:%527=282%:%
-%:%529=284%:%
-%:%530=284%:%
-%:%531=285%:%
-%:%532=286%:%
-%:%533=287%:%
-%:%534=287%:%
+%:%511=276%:%
+%:%512=276%:%
+%:%513=277%:%
+%:%514=277%:%
+%:%515=277%:%
+%:%517=278%:%
+%:%518=279%:%
+%:%519=280%:%
+%:%520=281%:%
+%:%521=282%:%
+%:%522=282%:%
+%:%524=283%:%
+%:%534=285%:%
+%:%535=286%:%
 %:%536=287%:%
-%:%540=287%:%
-%:%541=287%:%
-%:%543=288%:%
-%:%544=289%:%
-%:%545=290%:%
-%:%546=291%:%
-%:%547=292%:%
-%:%548=293%:%
-%:%558=295%:%
-%:%562=297%:%
-%:%563=298%:%
-%:%564=299%:%
-%:%566=301%:%
-%:%567=301%:%
-%:%568=302%:%
-%:%571=303%:%
-%:%575=303%:%
-%:%576=303%:%
-%:%578=304%:%
-%:%579=304%:%
-%:%581=305%:%
-%:%582=306%:%
-%:%583=307%:%
-%:%584=308%:%
+%:%537=288%:%
+%:%538=289%:%
+%:%540=291%:%
+%:%541=291%:%
+%:%542=292%:%
+%:%543=293%:%
+%:%544=293%:%
+%:%546=293%:%
+%:%550=293%:%
+%:%551=293%:%
+%:%553=294%:%
+%:%554=295%:%
+%:%555=296%:%
+%:%556=297%:%
+%:%557=298%:%
+%:%558=299%:%
+%:%568=301%:%
+%:%572=303%:%
+%:%573=304%:%
+%:%574=305%:%
+%:%576=307%:%
+%:%577=307%:%
+%:%578=308%:%
+%:%581=309%:%
 %:%585=309%:%
-%:%595=311%:%
-%:%596=312%:%
-%:%597=313%:%
-%:%599=315%:%
-%:%600=315%:%
-%:%601=316%:%
-%:%604=317%:%
-%:%608=317%:%
-%:%609=317%:%
-%:%610=317%:%
-%:%651=337%:%
-%:%663=339%:%
-%:%664=340%:%
-%:%665=341%:%
-%:%666=342%:%
-%:%668=344%:%
-%:%669=344%:%
-%:%670=345%:%
-%:%671=345%:%
+%:%586=309%:%
+%:%588=310%:%
+%:%598=312%:%
+%:%599=313%:%
+%:%600=314%:%
+%:%601=315%:%
+%:%602=316%:%
+%:%606=318%:%
+%:%607=319%:%
+%:%608=320%:%
+%:%610=322%:%
+%:%611=322%:%
+%:%612=323%:%
+%:%615=324%:%
+%:%619=324%:%
+%:%620=324%:%
+%:%621=324%:%
+%:%630=326%:%
+%:%631=327%:%
+%:%632=328%:%
+%:%667=347%:%
+%:%679=349%:%
+%:%680=350%:%
+%:%681=351%:%
+%:%682=352%:%
 %:%683=353%:%
-%:%686=354%:%
-%:%687=354%:%
-%:%689=355%:%
-%:%690=356%:%
-%:%691=357%:%
-%:%692=358%:%
-%:%693=358%:%
-%:%694=359%:%
-%:%695=360%:%
-%:%696=360%:%
-%:%697=361%:%
-%:%700=362%:%
-%:%704=362%:%
-%:%705=362%:%
-%:%707=363%:%
-%:%708=364%:%
-%:%718=366%:%
-%:%719=367%:%
-%:%720=368%:%
-%:%724=370%:%
-%:%726=372%:%
-%:%727=372%:%
-%:%728=373%:%
-%:%729=373%:%
-%:%730=374%:%
-%:%731=374%:%
-%:%733=375%:%
-%:%734=375%:%
-%:%735=376%:%
-%:%736=377%:%
-%:%737=377%:%
-%:%739=379%:%
-%:%740=380%:%
-%:%741=381%:%
-%:%742=382%:%
-%:%744=384%:%
-%:%745=384%:%
-%:%746=385%:%
-%:%747=386%:%
-%:%748=387%:%
-%:%749=387%:%
-%:%752=388%:%
-%:%756=388%:%
-%:%757=388%:%
-%:%759=389%:%
-%:%760=390%:%
-%:%761=391%:%
-%:%762=392%:%
-%:%763=392%:%
-%:%765=393%:%
-%:%766=394%:%
-%:%767=395%:%
-%:%768=396%:%
-%:%769=397%:%
-%:%770=397%:%
-%:%772=398%:%
-%:%773=399%:%
-%:%783=401%:%
-%:%784=402%:%
-%:%785=403%:%
-%:%786=404%:%
-%:%787=405%:%
-%:%788=406%:%
-%:%789=407%:%
-%:%790=408%:%
-%:%792=410%:%
-%:%793=410%:%
-%:%794=411%:%
-%:%795=412%:%
-%:%796=413%:%
-%:%797=413%:%
-%:%799=413%:%
-%:%803=413%:%
-%:%804=413%:%
-%:%806=414%:%
-%:%807=415%:%
-%:%808=416%:%
-%:%809=417%:%
-%:%810=418%:%
-%:%811=419%:%
-%:%821=421%:%
-%:%822=422%:%
-%:%823=423%:%
-%:%824=424%:%
-%:%825=425%:%
-%:%826=426%:%
-%:%834=430%:%
-%:%842=430%:%
+%:%684=354%:%
+%:%685=355%:%
+%:%686=356%:%
+%:%687=357%:%
+%:%688=358%:%
+%:%690=360%:%
+%:%691=360%:%
+%:%692=361%:%
+%:%693=361%:%
+%:%695=362%:%
+%:%698=364%:%
+%:%699=365%:%
+%:%700=366%:%
+%:%701=367%:%
+%:%702=368%:%
+%:%703=369%:%
+%:%704=370%:%
+%:%706=372%:%
+%:%707=372%:%
+%:%708=373%:%
+%:%709=374%:%
+%:%710=374%:%
+%:%711=375%:%
+%:%714=376%:%
+%:%718=376%:%
+%:%719=376%:%
+%:%721=377%:%
+%:%722=378%:%
+%:%732=380%:%
+%:%733=381%:%
+%:%734=382%:%
+%:%735=383%:%
+%:%739=385%:%
+%:%740=386%:%
+%:%741=387%:%
+%:%742=388%:%
+%:%743=389%:%
+%:%744=390%:%
+%:%745=391%:%
+%:%746=392%:%
+%:%747=393%:%
+%:%748=394%:%
+%:%750=397%:%
+%:%751=397%:%
+%:%752=398%:%
+%:%753=398%:%
+%:%754=399%:%
+%:%755=399%:%
+%:%757=401%:%
+%:%758=402%:%
+%:%759=403%:%
+%:%761=405%:%
+%:%762=405%:%
+%:%764=407%:%
+%:%765=408%:%
+%:%766=409%:%
+%:%767=410%:%
+%:%769=412%:%
+%:%770=412%:%
+%:%771=413%:%
+%:%772=414%:%
+%:%773=415%:%
+%:%774=415%:%
+%:%777=416%:%
+%:%781=416%:%
+%:%782=416%:%
+%:%784=417%:%
+%:%785=418%:%
+%:%786=419%:%
+%:%796=421%:%
+%:%797=422%:%
+%:%798=423%:%
+%:%799=424%:%
+%:%800=425%:%
+%:%801=426%:%
+%:%802=427%:%
+%:%803=428%:%
+%:%804=429%:%
+%:%805=430%:%
+%:%806=431%:%
+%:%807=432%:%
+%:%808=433%:%
+%:%809=434%:%
+%:%810=435%:%
+%:%811=436%:%
+%:%813=438%:%
+%:%814=438%:%
+%:%815=439%:%
+%:%816=440%:%
+%:%817=441%:%
+%:%818=441%:%
+%:%820=441%:%
+%:%824=441%:%
+%:%825=441%:%
+%:%827=442%:%
+%:%828=443%:%
+%:%829=444%:%
+%:%830=445%:%
+%:%831=446%:%
+%:%832=447%:%
+%:%842=449%:%
+%:%843=450%:%
+%:%844=451%:%
+%:%845=452%:%
+%:%846=453%:%
+%:%847=454%:%
+%:%848=455%:%
+%:%849=456%:%
+%:%850=457%:%
+%:%851=458%:%
+%:%852=459%:%
+%:%853=460%:%
+%:%854=461%:%
+%:%855=462%:%

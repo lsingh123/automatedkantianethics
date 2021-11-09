@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  7 NOV 2021 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 NOV 2021 10:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -402,8 +402,8 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 83.
  [23] [24]
 [25]) (./paper224.tex [26] [27]) (./paper31.tex [28] [29] [30] [31] [32]
-[33] [34] [35] [36] [37] [38]) (./paper32.tex [39] [40] [41] [42] [43] [44]
-[45] [46] [47]
+[33] [34] [35] [36] [37] [38] [39] [40]) (./paper32.tex [41] [42] [43] [44]
+[45] [46] [47] [48] [49]
 Overfull \hbox (6.36386pt too wide) in paragraph at lines 563--565
 [][]\OT1/ptm/b/n/10 abbreviation \OT1/ptm/m/it/10 lying[]not[]possibly[]univers
 al$\OT1/cmr/m/n/10 :$$:$\OT1/ptm/m/it/10 bool \OT1/ptm/b/n/10 where \OT1/ptm/m/
@@ -411,20 +411,20 @@ it/10 lying[]not[]possibly[]universal $\OMS/cmsy/m/n/10 ^^Q$ $j[]\OT1/cmr/m/n/1
 0 =$$($$\OMS/cmsy/b/n/10 :$
  []
 
-[48]
+
 Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
 [][] 
  []
 
-[49] [50] [51] [52] [53] [54] [55]) (./paper33.tex [56]
-<goalstable.png, id=689, 727.71875pt x 281.05pt>
+[50] [51] [52] [53] [54] [55] [56] [57]) (./paper33.tex
+<goalstable.png, id=700, 727.71875pt x 281.05pt>
 File: goalstable.png Graphic file (type png)
 <use goalstable.png>
 Package pdftex.def Info: goalstable.png  used on input line 52.
 (pdftex.def)             Requested size: 291.08234pt x 112.418pt.
- [57 <./goalstable.png>] [58] [59] [60] [61] [62]) (./paper41.tex [63] [64] [65
-] [66] [67] [68]
-[69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79]
+ [58] [59 <./goalstable.png>] [60] [61] [62] [63] [64]) (./paper41.tex [65] [66
+] [67] [68] [69]
+[70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]
 Overfull \hbox (23.58006pt too wide) in paragraph at lines 672--673
 [][]\OT1/ptm/m/it/10 need[]to[]be[]believed $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm
 /m/it/10 w s$\OML/cmm/m/it/10 :$ $\OT1/cmr/m/n/10 ($$\OMS/cmsy/m/n/10 :$ \OT1/p
@@ -435,22 +435,22 @@ $ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
 1/cmr/m/n/10 )$[] 
  []
 
-[80] [81] [82] [83] [84] [85] [86] [87]) (./relatedwork.tex [88]
+[81] [82] [83] [84] [85] [86] [87] [88]) (./relatedwork.tex [89]
 Overfull \hbox (0.24031pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 Benz-mueller [][]Fuen-mayor and Benzm[]uller[][] ([][]2018[]
 []) have im-ple-mented Gewirth's prin-
  []
 
-) (./futurework.tex [89] [90]) [91] (./root.bbl [92] [93] [94] [95] [96]
-[97])
+) (./futurework.tex [90] [91]) [92] (./root.bbl [93] [94] [95] [96] [97]
+[98])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
- [98]
+ [99]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 0ED57E1D1062BD060795476875823F8A;2648.
+(rerunfilecheck)             Checksum: 2B4349EF4667DAB33AE5D841E2D90A77;2649.
 
 
 LaTeX Warning: There were undefined references.
@@ -458,10 +458,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
  ) 
 Here is how much of TeX's memory you used:
- 8135 strings out of 480608
- 116953 string characters out of 5903631
- 373931 words of memory out of 5000000
- 23568 multiletter control sequences out of 15000+600000
+ 8139 strings out of 480608
+ 116998 string characters out of 5903631
+ 375004 words of memory out of 5000000
+ 23569 multiletter control sequences out of 15000+600000
  577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,34p,895b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -485,10 +485,10 @@ st/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts
 /times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/ut
 mr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on root.pdf (98 pages, 445830 bytes).
+Output written on root.pdf (99 pages, 449276 bytes).
 PDF statistics:
- 1180 PDF objects out of 1200 (max. 8388607)
- 1048 compressed objects within 11 object streams
- 246 named destinations out of 1000 (max. 500000)
+ 1194 PDF objects out of 1200 (max. 8388607)
+ 1061 compressed objects within 11 object streams
+ 249 named destinations out of 1000 (max. 500000)
  286 words of extra memory for PDF output out of 10000 (max. 10000000)
 

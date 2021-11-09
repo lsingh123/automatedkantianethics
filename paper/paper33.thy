@@ -119,7 +119,7 @@ show that actions that cannot possibly be universalized are prohibited, because 
 a world where they are universalized. This property fails to hold in both the naive formalization 
 and Kroy's formalization and is a goal for my custom formalization.\<close>
 
-subsubsection "Goals From Philosophical Literature"
+subsubsection \<open>Goals From Philosophical Literature \label{sec:litgoals}\<close>
 
 text \<open>The goals above come from moral intuition, properties of Kantian ethics, and logical requirements. 
 In order to stay faithful to centuries of philosophical debate about the meaning of the Formula of 

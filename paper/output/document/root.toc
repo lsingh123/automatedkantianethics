@@ -16,20 +16,20 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Formalization }{29}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Metaethical Tests }{32}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}Application Tests }{37}{subsubsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{40}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{40}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{44}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{45}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{50}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{54}{subsubsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.3}Lessons Learned and Goals for Chapter 3}{56}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Goals From Prior Attempts }{57}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Goals From Philosophical Literature}{60}{subsubsection.2.3.2}%
-\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{64}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Logical Background}{64}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{73}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Application Tests}{77}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{83}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{87}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Related Work}{88}{section.4}%
-\contentsline {section}{\numberline {5}Future Work}{89}{section.5}%
+\contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{41}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{41}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{45}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{47}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{52}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{55}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Lessons Learned and Goals for Chapter 3}{58}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Goals From Prior Attempts }{59}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Goals From Philosophical Literature }{62}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{65}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Logical Background}{65}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{75}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Application Tests}{78}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{84}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{89}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Related Work}{89}{section.4}%
+\contentsline {section}{\numberline {5}Future Work}{91}{section.5}%

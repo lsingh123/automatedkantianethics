@@ -18,7 +18,7 @@ subsection \<open>Naive Formalization of the Formula of Universal Law \label{sec
 
 text "This section presents a simple and intuitive formalization of the Formula of Universal Law (FUL). 
 This naive formalization will hold in the base logic itself, so this formalization does not actually
-improve upon a plain deontic logic at all. This section serves two purposes. First, the naive formalization
+improve upon an ordinary deontic logic at all. This section serves two purposes. First, the naive formalization
 is a toy example that demonstrates the implementation and testing process that will be used for the more 
 complex formalizations presented later in Chapters 2 and 3. Second, this formalization is effectively
 a control group used to determine which properties of obligaition hold in the base logic. Future formalizations
@@ -62,7 +62,7 @@ lemma "\<forall>A. \<Turnstile> (FUL_naive A)"
 using the ``simp" tool, which is Isabelle's term rewriting engine. In this case, the result follows from
 the definitions of the modal operators in DDL, so term rewriting suffices to complete the proof.\<close>
 
-text \<open>The general process of an implementation of a formalization of the FUL will be to represent the 
+text \<open>The general process of implementing a formalization of the FUL will be to represent the 
 formalization as a sentence in my logic, as above, and then to add the formalization as an axiom to 
 the logic. Kant's ethical theory is rule based, so it involves applying the categorical
 imperative to solve ethical dilemmas. In logic, this is equivalent to adopting the categorical imperative as 
@@ -78,7 +78,7 @@ of the moral law @{cite idealtheory}.
 
 Because my naive formalization holds in the base logic, adding it as an axiom does not make the logic
 any more powerful. No new theorems can be derived using the naive formalization that could not already
-be derived in the base logic. Thus, this section serves as a``control group." Tests performed in this
+be derived in the base logic. Thus, this section serves as a ``control group." Tests performed in this
 section establish which properties of obligation don't hold in the base logic. The fact that these 
 tests will pass for the later, more sophisticated formalizations will serve as evidence for the superiority
 of these formalizations over the base logic.\<close>
@@ -181,13 +181,20 @@ the possibility of permissibility as one test for my formalizations.\<close>
   lemma permissible:
     shows "\<exists>A. ((\<^bold>\<not> (O {A})) \<^bold>\<and> (\<^bold>\<not> (O {\<^bold>\<not> A}))) w"
     nitpick [user_axioms, falsify=false] oops
-\<comment>\<open>\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+\<comment>\<open>\color{blue}Nitpick found a model for card i = 1:
 
   Skolem constant:
     A =($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 \<comment>\<open>I want to show that there exists a model where there is some formula A that is permissible, or, 
 in English, that permissibility is possible. Nitpick finds a model where the above formula holds, 
 so permissibility is indeed possible.\<close>
+\<comment>\<open>Quick note on how to read Nitpick results. Nitpick is Isabelle's model checker, and it can either 
+time out, find a model that satisfies the given theorem, or find a counterexample that disproves
+the given theorem. It will then provide the corresponsing model by specifying model components. For readability, 
+all terms except for the free variables are hidden. This model has cardinality 1 for the world (i) type.
+The term `A' is defined as false at world $i_1$. \<close>
+\<comment>\<open>These details will be elided for most Nitpick examples, but this provides guidance on how to interpret
+the output.\<close>
 
     text \<open>Another similar property is that for any arbitrary action A, there is a model that makes 
 it permissible. This property is actually not desirable, because if A is "murder" then the CI should require that 
@@ -222,9 +229,9 @@ this test passes.\<close>
   text \<open>$\textbf{Conflicting Obligations}$\<close>
 
   text \<open>The next set of tests will focus on conflicting obligations. There is some debate about Kant's
-personal stance on conflicting obligations, but neo-Kantian agree that the FUL itself cannot obligate
+personal stance on conflicting obligations, but neo-Kantians agree that the FUL itself cannot obligate
 conflicting actions. For more complete discussion of conflicting obligations in Kantian literature, 
-see \ref{sec:priorgoals}. I will first test whether or not, for some arbitrary action, Nitpick can find
+see Section \ref{sec:priorgoals}. I will first test whether or not, for some arbitrary action, Nitpick can find
 a model in which that action is both obligated and prohibited.\<close>
 
 lemma conflicting_obligations:
@@ -251,7 +258,7 @@ lemma removing_conflicting_obligations:
 \<comment>\<open>We can disallow conflicting obligations and the system is still consistent - that's good.\<close>(*>*)
 
   text \<open>The above is a rather weak notion of contradictory obligations. Korsgaard additionally argues that Kantian 
-ethics also has the stronger property that if two maxims imply a contradiction, they must not be willed @{cite KorsgaardFUL}.
+ethics also has the stronger property that if two maxims imply a contradiction, they must not be willed \citep{KorsgaardFUL}.
 I test this property below. Because this property is stronger than the previous test, and the previous 
 test failed, this test will also fail.\<close>
 
@@ -281,15 +288,14 @@ do both A and B". The rough English translation of $O\{A\} \wedge O\{B\}$ is ``y
 and you are obligated to do B." We think those English sentences mean the same thing, so they should mean 
 the same thing in our logic as well. This ``distributive" property of obligation is another test.\<close>
 
-lemma distribute_obligations:
-  assumes  "\<Turnstile> (O {A} \<^bold>\<and> O {B})"
-  shows "\<Turnstile> O {A \<^bold>\<and> B}"
-  nitpick [user_axioms] oops
+lemma distributive_property_for_obligation:
+  shows "\<Turnstile> (O {A} \<^bold>\<and> O {B}) \<equiv> \<Turnstile> O {A \<^bold>\<and> B}"
+  nitpick[user_axioms] oops
 \<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 2:
 
   Free variables:
-    A = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)
-    B = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}
+    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)
+    B = ($\lambda x. \_$)($i_1$ := True, $i_2$ := False)\color{black}
 Once again, this tests fails in the control group.\<close>
 
   text \<open>$\textbf{Miscellaneous Properties}$\<close>
@@ -302,7 +308,8 @@ lemma FUL_alternate:
   shows "\<Turnstile> ((\<diamond> (O {\<^bold>\<not> A})) \<^bold>\<rightarrow> (O {\<^bold>\<not> A}))"
   by simp
 \<comment> \<open>This means that if something is possibly prohibited, it is in fact prohibited.\<close>
-\<comment> \<open>This is a direct consequence\footnote{For a manual proof, see the Appendix.} of the naive formalization, but it's not clear to me that this is 
+
+text \<open>This is a direct consequence\footnote{For a manual proof, see the Appendix.} of the naive formalization, but it's not clear to me that this is
 actually how we think about ethics. For example, imagine an alternate universe where smiling at 
 someone is considered an incredibly rude and disrespectful gesture. In this universe, I am probably 
 prohibited from smiling at people, but this doesn't mean that in this current universe, smiling is 
@@ -310,12 +317,15 @@ morally wrong.\<close>
 
 text \<open>The ``ought implies can" principle is attributed to Kant\footnote{The exact philosophical credence of this view is disputed, but the rough idea holds nonetheless. See @{cite kohl} for more.}
  and is rather intuitive: you can't be obligated to do the impossible. Deontic 
-logics evolved specifically from this principle, so this should hold in the base logic @{cite cresswell}. \<close>
+logics evolved specifically from this principle, so this should hold in the base logic @{cite [cite_macro=citep] cresswell}. \<close>
 
 lemma ought_implies_can:
   shows "\<forall>A. \<Turnstile> (O {A} \<^bold>\<rightarrow> (\<diamond>A))"
   using O_diamond by blast
 
+text \<open>This test passes in the base logic, and will thus hold in all future formalizations as well. 
+Therefore, it's an interesting property but not actually useful in evaluating different formalizations 
+of the FUL.\<close>
 (*<*)
 
 lemma distribute_obligations_if:
@@ -336,78 +346,96 @@ to also hold of O.\<close>(*>*)
 
 subsubsection \<open>Application Tests \label{sec:app_tests_naive}\<close>
 
-text " STARTHERE One category of tests involves specified models to encode certain facts 
-into the system and then ask questions about obligations. Without specifying the model, we are limited 
-to showing high-level metaethical facts. Let's start with analyzing an obvious example - that murder is 
-wrong."
+text "The second category of tests I will consider is Application tests, which involve specifying models
+to encode certain facts into the system, and then asking questions about obligations. Metaethical tests
+focus on properties that apply to all acts, circumstances, and actors, but application tests focus
+on specific acts. Let's start with analyzing an obvious example - that murder is 
+wrong.
+
+First, I will define murder as a constant below. Notice that right now, this constant is just a term. 
+I haven't specified any properties of murder, so as of now, it's interchangeable with any other term. 
+Application tests generally define an act and then define properties of the act (e.g. if X is murdered,
+X dies). The tests aim to show that acts with certain properties are either obligated or prohibited. "
 
 consts M::"t"
 abbreviation murder_wrong::"bool" where "murder_wrong \<equiv> \<Turnstile>(O {\<^bold>\<not> M})"
+\<comment>\<open>This abbreviation merely represents the statement that murder is prohibited.\<close>
 
-(*<*)
-lemma something_is_obligatory_2:
-  assumes murder_wrong
-  shows "\<forall> w. \<exists> A. O {A} w"
-  using assms by auto
-\<comment> \<open>It works this time, but I think ``murder wrong" might be too strong of an assumption\<close>(*>*)
+text \<open>I will now define properties of murder and see if they achieve the desired result that murder
+is prohibited. First, I start with the rather basic property that murder is prohibited in some 
+world, or that murder is possibly wrong. This is quite a strong assumption because it gives the system
+a moral fact about a kind of prohibition against murder. Ideally, an ethical theory can take nonmoral
+facts about murder (like murder kills) and use these to generate a moral judgement about the wrongness of 
+murder. This property is much stronger than the assumptions that we make in ordinary moral
+reasoning and thus should be more than enough to show that murder is wrong. \<close>
 
 abbreviation possibly_murder_wrong::"bool" where "possibly_murder_wrong \<equiv> (\<diamond> (O {\<^bold>\<not> M})) cw"
-\<comment>\<open>These are very simple properties. @{text poss_murder_wrong} is an abbreviation for the axiom
-that there is some world where murder might be prohibited. Even this is quite a strong assumption - 
-ideally we'd want to give the system nonmoral facts about murder (like a definition) and then make 
-moral claims.\<close>
 
 lemma wrong_if_possibly_wrong:
   shows "possibly_murder_wrong \<longrightarrow> murder_wrong"
   by simp
-\<comment>\<open>This lemma gets to the ``heart" of this naive interpretation. We really want to say that if something
+\<comment>\<open>This lemma gets to the ``heart" of this naive interpretation. If something
  isn't necessarily obligated, it's not obligated anywhere.\<close>
 
-text "The above example does exactly what we expect it to: we show that if something is wrong somewhere 
-it's wrong everywhere. That being said, it seems like quite a weak claim. We assumed a very strong, moral 
-fact about murder (that it is wrong somewhere), so it's not surprise that we were able to reach our desired conclusion."
+text "The above example does exactly what I expect it to: it shows that if something is wrong somewhere 
+it's wrong everywhere. That being said, it seems like quite a weak claim. I assumed a very strong, moral 
+fact about murder (that it is wrong somewhere), so it's not surprise that I was able to show the wrongness 
+of murder."
 
-text "Let's try a weaker assumption: Not everyone can lie."
+text \<open>Let's try a different example using a much weaker, nonmoral assumption. Kant argues that the FUL
+prohibits lying.\footnote{Specifically, he prohibits making a false promise in order to get some cash \cite[idk page no]{groundwork}.}
+In this example, I will define lying as a term such that not everyone can lie simultaneously. This is 
+one of Kant's canonical examples of the universalizability test. Lying fails the universalizability 
+test because, in a world where everyone lied, no one would believe each other anymore, so the very system 
+or truth-telling would break down, making lying impossible. I can represent this reasoning in my logic 
+as the assumption that not everyone can lie simultaneously. 
+
+To fully capture this idea, I need some notion of
+a person, so that I can argue that not all people can lie simultaneously.
+\<close>
 
 typedecl person
 consts lie::"person\<Rightarrow>t"
 consts me::"person"
-\<comment>\<open>Notice that this machinery is quite empty. We don't give axioms about what a person can or can't do.\<close>
+
+text \<open>Again, this machinery is quite empty because it doesn't specify any axioms about what a person can 
+or cannot do. In future formalizations, I will define a more robust notion of a person, but the naive 
+formalization has no conception of a person.\<close>
 
 abbreviation lying_not_universal::"bool" where "lying_not_universal \<equiv> \<forall>w. \<not> ((\<forall>x. lie(x) w) \<and> (lie(me) w))"
 
-text "This is a rough translation of failure of the universalizability test: we will test the maxim universally,
-as represented by the universal quantifier in the first conjunct, and simultaneously @{cite simul}, as represented by 
-the second conjunct. The FUL tells us that if this sentence is true, then lying should be prohibited. 
-Let's test it."
+text "This is a rough translation of failure of the universalizability test: I  test the maxim universally,
+as represented by the universal quantifier in the first conjunct, and simultaneously, as represented by 
+the second conjunct @{cite [cite_macro=citep] simul}. The FUL says that if this sentence is true, then lying should be prohibited. 
+Therefore, the above sentence should imply that lying is prohibited."
 
 lemma breaking_promises:
   assumes lying_not_universal
   shows "(O {\<^bold>\<not> (lie(me))}) cw"
   nitpick [user_axioms]
   oops
-\<comment>\<open>\color{blue} Nitpick found a counterexample for card person = 2 and card i = 2:
+\<comment>\<open>\color{blue}Nitpick found a counterexample for card i = 1 and card person = 1:
 
-  Free variable:
-    lie = ($\lambda x. \_$)($p_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := False), $p_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False)) \color{black}\<close>
-\<comment>\<open>Quick note on how to read Nitpick results. Nitpick will either say that it found a ``model" or a ``counterexample" in 
-the first line. It will then provide a model by specifying model components. For readability, all except for the 
-free variables are hidden. This model has cardinality 2 for the person and world (i) types. The term \texttt{lie} is 
-defined for people $p_1$ and $p_2$. $p_1$ lies at world $i_1$ and does not lie at world $i_2$. $p_2$ does
-the opposite.\<close>
-\<comment>\<open>These details will be elided for most Nitpick examples, but this provides guidance on how to interpret
-the output.\<close>
+  Empty assignment \color{black}\<close>
 
-  text \<open>This formula isn't valid. While the FUL should tell us that lying is prohibited, the fact that it 
+  text \<open>This test fails. The FUL should say that lying is prohibited and the fact that it
 doesn't demonstrates the weakness of this naive formulation of the categorical imperative. Kant's version of
-the FUL universalizes across people, as we did in the definition of @{abbrev lying_not_universal}. The 
-naive formalization universalizes across worlds using the $\Box$ operator, so it makes sense that it can't
-handle this example appropriately.
+the FUL universalizes across people, as in the definition of @{abbrev lying_not_universal}. When universalizing
+an act, Kant imagines a world in which all \emph{people} perform the act. The naive formalization, 
+on the other hand, universalizes an act across \emph{worlds} because it uses the $\Box$ operator
+to represent universalization. This is the philosophical error that makes the naive 
+formalization so naive, and future formalizations will need to remedy this error.
+This serves as an example of the kind of reasoning that 
+Isabelle empowers us to do. Even this simple argument has philosophical consequences. It tells us that
+reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
+agents, leads to counterintuitive conclusions.
 
-The above implies that the FUL should prescribe consistent obligations across people. If our formalization
-doesn't, clearly something has gone wrong somewhere. Let's test that!\<close>
+Additionally, Kant argued that obligations are not person-specific but instead apply equally to all 
+rational agents.\footnote{For a philosophical analysis of this idea, see Section \ref{sec:priorgoals}}
+Thus, any formalization of the categorical should generate obligations that are consistent across people.
+This next step analyzes this property. \<close>
 
-lemma universalizability:
+lemma equal_obligations:
   assumes "\<Turnstile> O {(lie(me))}"
   shows "\<forall>x. \<Turnstile> (O {(lie(x))})"
   nitpick [user_axioms] oops
@@ -418,15 +446,23 @@ lemma universalizability:
   Skolem constant:
     x = $p_2$ \color{black}\<close>
 
-  text \<open>This lemma demonstrates the problem with the naive interpretation. The FUL universalizes across people
-but the naive formalization universalizes across worlds. Because this interpretation is so naive, it is 
-limited in its power. However, this serves as an example of the kind of reasoning that 
-Isabelle empowers us to do. Even this simple argument has philosophical consequences. It tells us that
-reading the FUL as a claim about consistency across possible worlds, instead of consistency across 
-agents, leads to counterintuitive conclusions.\<close>
+  text \<open>In this section, I presented the framework I will use to implement and test different interpretations
+of the categorical imperative. An implementation consists of some necessary logical background, a 
+representation of the FUL using that logical background, and a logical system that adds that representation
+as an axiom. To test such an implementation, I design a ``test suite" that consists of properties of 
+the categorical imperative verified by philosophical literature. I demonstrated the performance of 
+these tests in my base logic, which serves as a control group. 
+
+I will evaluate more sophisticated formalizations of the FUL using this testing framework. The properties
+I test will remain more or less consisten across different formalizations, but the exact logical representation
+of the tests will depend on the specifics of a particular implementation. In the next section, I will 
+implement Moshe Kroy's formalization of the FUL and evaluate it using this testing framework. Finally, 
+I will use the results of these tests to define clear goals for a custom formalization of the categorical 
+imperative. These goals represent areas of improvement over previous formalizations, and I will justify
+them using philosophical literature.\<close>
 
 
-
+(*<*)
 end
 (*>*)
 
