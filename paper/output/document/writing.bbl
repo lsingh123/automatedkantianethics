@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,13 @@
 D.~Abel, J.~MacGlashan, and M.~Littman.
 \newblock Reinforcement learning as a framework for ethical decision making.
 \newblock In \emph{AAAI Workshop: AI, Ethics, and Society}, 2016.
+
+\bibitem[Alexander and Moore(2021)]{sepdeont}
+L.~Alexander and M.~Moore.
+\newblock {Deontological Ethics}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2021
+  edition, 2021.
 
 \bibitem[Anderson et~al.(2004)Anderson, Anderson, and Armen]{util2}
 M.~Anderson, S.~Anderson, and C.~Armen.
@@ -25,12 +32,6 @@ Aristotle.
 H.~Bok.
 \newblock \emph{Freedom and Responsibility}.
 \newblock Princeton University Press, 1998.
-
-\bibitem[Buzzard(2021)]{buzzardvideo}
-K.~Buzzard.
-\newblock How do you convince mathematicians a theorem prover is worth their
-  time?
-\newblock Talk at IOHK, January 2021.
 
 \bibitem[Christensen(2007)]{christensen}
 D.~Christensen.
@@ -64,23 +65,12 @@ A.~C. Ewing.
 \newblock ISSN 00318191, 1469817X.
 \newblock URL \url{http://www.jstor.org/stable/3750106}.
 
-\bibitem[Harrison et~al.(2014)Harrison, Urban, and Wiedijk]{historyofITP}
-J.~Harrison, J.~Urban, and F.~Wiedijk.
-\newblock History of interactive theorem proving.
-\newblock In \emph{Computational Logic}, 2014.
-
 \bibitem[Hursthouse and Pettigrove(2018)]{vesep}
 R.~Hursthouse and G.~Pettigrove.
 \newblock {Virtue Ethics}.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2018
   edition, 2018.
-
-\bibitem[Jiang et~al.(2021)Jiang, Hwang, Bhagavatula, Bras, Forbes, Borchardt,
-  Liang, Etzioni, Sap, and Choi]{delphi}
-L.~Jiang, J.~D. Hwang, C.~Bhagavatula, R.~L. Bras, M.~Forbes, J.~Borchardt,
-  J.~Liang, O.~Etzioni, M.~Sap, and Y.~Choi.
-\newblock Delphi: Towards machine ethics and norms, 2021.
 
 \bibitem[Johnson and Cureton(2021)]{sepkant}
 R.~Johnson and A.~Cureton.

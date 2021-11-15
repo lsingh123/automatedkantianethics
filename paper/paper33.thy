@@ -23,7 +23,7 @@ text_raw \<open>
 \centering
 \includegraphics[scale=0.4]{goalstable.png}
 \caption{Table indicating which goals are met by the naive formalization, Kroy's formalization, and 
-the custom formalization respectively..} \label{fig:goalstable}
+the custom formalization respectively.} \label{fig:goalstable}
 \end{figure}\<close>
 
 subsubsection \<open>Goals From Prior Attempts \label{sec:priorgoals}\<close>
@@ -133,68 +133,32 @@ representing a maxim and making it the input to the obligation operator, which n
 
 \<close>
 
-text \<open>\textbf{Practical Contradiction Interpretation} Kantians debate the correct interpretation of the Formula of Universal Law because Kant appears to 
-interpret the universalizability test in different ways. Korsgaard argues for the practical contradiction 
-interpretation, broadly accepted as correct within the philosophical community \cite[177]{ebelsduggan}.
-Because her argument is broadly accepted, I will make it a goal to represent the practical contradiction
-interpretation of the FUL in my custom formalization. The naive formalization and Kroy's formalization
-clearly do not meet this goal.
+text \<open>\textbf{Conventional Acts}
+Kantians debate over the most philosophically sound interpretation of the Formula of Universal Law.
+One litmus test that Korsgaard introduces makes a distinction between conventional and natural acts \citep{KorsgaardFUL}. 
+A conventional act is one like promising, which relies on the convention of promising, in which we all
+implicitly understand a promise as a commitment. Conventional acts are generally easier to show the 
+wrongness of because there are worlds in which these acts are impossible; namely, worlds in which the 
+convention does not exist. For example, the common argument against falsely promising is that if 
+everyone were to falsely promise, the convention of promising would fall apart because people wouldn't believe
+each other anymore, so falsely promising is prohibited. Despite the relative ease of this property,
+it fails in both the naive and Kroy's interpretations, demonstrating the weakness of these 
+formalizations. This property will hold for my custom formalization.
 
-Below, I briefly reconstruct Korsgaard's argument for the practical contradiction interpretation. While 
-she believes that the text partially supports this interpretation, her argument is philosophical and 
-derives its strength from the plausibility of the practical contradiction interpretation.
+\medskip 
 
-Recall that the formula of universal law is “act only in accordance with that maxim through which you can at the 
-same time will that it become a universal law” \cite[4:421]{groundwork}. To determine if a maxim can be willed as a 
-universal law, one must use the “universalizability test,” which requires imagining a world in which 
-everyone for all of time has willed the maxim. If willing the maxim in such a world generates a contradiction, 
-then the action is prohibited. There are three interpretations of what sort of contradiction is necessary: 
-(1) the teleological view, prohibiting actions that conflict with some assumed teleological end when 
-universalized, (2) the logical contradiction view, prohibiting maxims that are logically impossible 
-when universalized (such as the lying example discussed earlier), and (3) the practical contradiction view, prohibiting maxims that are self-defeating 
-when universalized.
+\textbf{Natural Acts}
+The more difficult kind of act to show the wrongness of is a natural act, like murder or violence. 
+These acts can never be logically impossible; even if everyone murders or acts violently, murder and 
+violence will still be possible. This property of natural acts makes it difficult for interpretations of
+the FUL to show the wrongness of violence. Both the naive and Kroy's interpretations fail to show
+the wrongness of natural acts (in fact, they fail to show the weaker wrongness of conventional acts). 
+This property will hold for the custom formalization. I will show the wrongness of both natural and 
+conventional acts by formalizing Korsgaard's practical contradiction interpretation of the FUL, which 
+is widely accepted as the canonical interpretation of the FUL \citep{KorsgaardFUL}. I will explain this 
+decision in greater detail in the next chapter, where I present my custom formalization.
 
-Under the logical contradiction interpretation, falsely promising to repay a loan to get some quick cash
-fails the universalizability test because, in such a world, the practice of promising would die out so 
-making a false promise would be impossible. Korsgaard appeals to Dietrichson @{cite dietrichson} to construct the example of 
-a mother killing her children that tend to cry more than average so that she can get some 
-sleep at night. Universalizing this maxim does not generate a logical contradiction, but it is clearly 
-morally wrong. The problem here is that killing is a natural action, which Korsgaard distinguishes from 
-a practice, like promising. Natural actions will never be logically impossible, so the logical contradiction 
-view fails to prohibit them.
-
-Under the teleological contradiction interpretation, a maxim is prohibited if it undercuts some natural 
-or assigned purpose for some practice, act, or object. For example, the purpose of promising is to 
-create a system of mutual trust and false promising undercuts this purpose and is thus prohibited. The problem 
-with this view is that it assumes that the agent is committed, either because of their own goals or 
-because of some property of a rational will, to some teleological system. Acton formulates Hegel's argument that @{cite acton},
-an agent doesn't have to be committed to promising as a system of mutual trust. Korsgaard concludes that 
-assigning teleological purposes to actions is difficult because ``such purposes may have
-nothing to do with what the agent wants or ought rationally to want, or even with what
-any human being wants." If the agent is not committed to the purpose, then will not see a contradiction 
-in willing an act that violates this purpose.
-
-This difficulty with the teleological contradiction interpretation drives Korsgaard to look for purposes
-that an agent must necessarily be committed to, and she concludes that this must be the purpose of the 
-maxim itself. By willing a maxim, an agent commits themselves to the goal of the maxim, and thus cannot 
-rationally will a system in which this goal is undercut. This system satisfactorily handles natural actions
-like those of the sleep-deprived mother: in willing the end of sleeping through the night, she is 
-implicitly willing that she be alive in order to secure and enjoy her sleep. If any mother is allowed to kill
-any loud child, then she cannot be secure in the possession of her life, because her own mother may have 
-grown frustrated with her crying. Her willing this maxim thwarts the end that she sought to secure. 
-
-The practical contradiction interpretation not only addresses the problems with the first two 
-interpretations, it also offers a much more satisfying explanation of why certain maxims are immoral. 
-The problem is not the existence of a contradiction itself, but instead the fact that these maxims 
-involve parasitic behavior on social conditions that the agent seeks to benefit from. The false promiser 
-simultaneously wants to abuse the system of promising and benefit from it, and is thus making an exception 
-of themselves. It is this kind of free-riding that the universalizability test seeks to draw out. The test
-raises the same kinds of objections that the question ``What if everyone did that?" seeks to draw out.
-
-Note that the practical contradiction interpretation is strictly stronger than the logical contradiction
-interpretation. Actions that are not universalizble, like lying, are also not effective means to any end
-when universalized because they become impossible. Therefore, a formalization of the practical contradiction
-interpretation must still obey the earlier goal that non-universalizable acts be prohibited.  \<close>
+\<close>
 
  
 (*<*)

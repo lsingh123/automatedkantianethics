@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{64}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,13 @@
 D.~Abel, J.~MacGlashan, and M.~Littman.
 \newblock Reinforcement learning as a framework for ethical decision making.
 \newblock In \emph{AAAI Workshop: AI, Ethics, and Society}, 2016.
+
+\bibitem[Alexander and Moore(2021)]{sepdeont}
+L.~Alexander and M.~Moore.
+\newblock {Deontological Ethics}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2021
+  edition, 2021.
 
 \bibitem[Anderson and Anderson(2014)]{deon2}
 M.~Anderson and S.~Anderson.
@@ -110,30 +117,12 @@ M.~J. Cresswell and G.~E. Hughes.
 \newblock \emph{A New Introduction to Modal Logic}.
 \newblock Routledge, 1996.
 
-\bibitem[Dietrichson(1964)]{dietrichson}
-P.~Dietrichson.
-\newblock When is a maxim fully universalizable ?
-\newblock 55\penalty0 (1-4):\penalty0 143--170, 1964.
-\newblock \doi{doi:10.1515/kant.1964.55.1-4.143}.
-\newblock URL \url{https://doi.org/10.1515/kant.1964.55.1-4.143}.
-
 \bibitem[Driver(2014)]{utilsep}
 J.~Driver.
 \newblock {The History of Utilitarianism}.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2014
   edition, 2014.
-
-\bibitem[Ebels-Duggan(2012)]{ebelsduggan}
-K.~Ebels-Duggan.
-\newblock \emph{Kantian Ethics}, chapter Kantian Ethics.
-\newblock Continuum, 2012.
-
-\bibitem[Ewing(1972)]{acton}
-A.~C. Ewing.
-\newblock \emph{Philosophy}, 47\penalty0 (180):\penalty0 173--175, 1972.
-\newblock ISSN 00318191, 1469817X.
-\newblock URL \url{http://www.jstor.org/stable/3750106}.
 
 \bibitem[Fuenmayor and Benzmüller(2018)]{gewirth}
 D.~Fuenmayor and C.~Benzmüller.
@@ -169,12 +158,6 @@ R.~Hursthouse and G.~Pettigrove.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2018
   edition, 2018.
-
-\bibitem[Jiang et~al.(2021)Jiang, Hwang, Bhagavatula, Bras, Forbes, Borchardt,
-  Liang, Etzioni, Sap, and Choi]{delphi}
-L.~Jiang, J.~D. Hwang, C.~Bhagavatula, R.~L. Bras, M.~Forbes, J.~Borchardt,
-  J.~Liang, O.~Etzioni, M.~Sap, and Y.~Choi.
-\newblock Delphi: Towards machine ethics and norms, 2021.
 
 \bibitem[Kant(1785)]{groundwork}
 I.~Kant.

@@ -3,48 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: writing.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
+Warning--I didn't find a database entry for "sepdeon"
 Warning--empty booktitle in util2
 Warning--empty journal in dietrichson
 Warning--empty title in acton
-You've used 33 entries,
+You've used 31 entries,
             2773 wiz_defined-function locations,
-            808 strings with 8710 characters,
-and the built_in function-call counts, 12722 in all, are:
-= -- 1120
-> -- 533
+            801 strings with 8412 characters,
+and the built_in function-call counts, 11675 in all, are:
+= -- 1047
+> -- 425
 < -- 32
-+ -- 193
-- -- 160
-* -- 879
-:= -- 1998
-add.period$ -- 120
-call.type$ -- 33
-change.case$ -- 143
-chr.to.int$ -- 33
-cite$ -- 69
-duplicate$ -- 693
-empty$ -- 1224
-format.name$ -- 201
-if$ -- 2691
++ -- 156
+- -- 125
+* -- 785
+:= -- 1833
+add.period$ -- 116
+call.type$ -- 31
+change.case$ -- 126
+chr.to.int$ -- 31
+cite$ -- 65
+duplicate$ -- 662
+empty$ -- 1159
+format.name$ -- 166
+if$ -- 2483
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 41
-newline$ -- 190
-num.names$ -- 140
-pop$ -- 363
+newline$ -- 181
+num.names$ -- 134
+pop$ -- 318
 preamble$ -- 1
-purify$ -- 118
+purify$ -- 102
 quote$ -- 0
-skip$ -- 452
+skip$ -- 416
 stack$ -- 0
-substring$ -- 341
-swap$ -- 53
+substring$ -- 337
+swap$ -- 49
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 308
+type$ -- 286
 warning$ -- 3
-while$ -- 125
+while$ -- 120
 width$ -- 0
-write$ -- 460
-(There were 3 warnings)
+write$ -- 440
+(There were 4 warnings)
