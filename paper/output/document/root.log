@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  15 NOV 2021 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  15 NOV 2021 18:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -424,8 +424,8 @@ Package pdftex.def Info: goalstable.png  used on input line 52.
 (pdftex.def)             Requested size: 283.05249pt x 125.26576pt.
  [62 <./goalstable.png>] [63] [64] [65] [66]) (./paper41.tex [67] [68] [69] [70
 ] [71] [72] [73]
-[74] [75] [76] [77] [78] [79] [80] [81] [82]
-Overfull \hbox (23.58006pt too wide) in paragraph at lines 672--673
+[74] [75] [76] [77] [78] [79]) (./paper412.tex [80] [81] [82]
+Overfull \hbox (23.58006pt too wide) in paragraph at lines 186--187
 [][]\OT1/ptm/m/it/10 need[]to[]be[]believed $\OMS/cmsy/m/n/10 ^^Q$ $8 $\OT1/ptm
 /m/it/10 w s$\OML/cmm/m/it/10 :$ $\OT1/cmr/m/n/10 ($$\OMS/cmsy/m/n/10 :$ \OT1/p
 tm/m/it/10 be-lieved$\OT1/cmr/m/n/10 ($\OT1/ptm/m/it/10 s$\OT1/cmr/m/n/10 )$ \O
@@ -443,25 +443,25 @@ Overfull \hbox (0.24031pt too wide) in paragraph at lines 63--67
 
 ) (./futurework.tex [92] [93]) [94] (./root.bbl [95] [96] [97] [98] [99]
 [100])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
  [101]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
  (./root.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 Package rerunfilecheck Info: File `root.out' has not changed.
 (rerunfilecheck)             Checksum: 88C3B529B6765523EF5D01277B8288E5;2735.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 78.
  ) 
 Here is how much of TeX's memory you used:
- 8132 strings out of 480608
- 116879 string characters out of 5903631
- 374842 words of memory out of 5000000
- 23561 multiletter control sequences out of 15000+600000
+ 8135 strings out of 480608
+ 116913 string characters out of 5903631
+ 374841 words of memory out of 5000000
+ 23562 multiletter control sequences out of 15000+600000
  577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,34p,895b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -487,7 +487,7 @@ ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (101 pages, 483336 bytes).
+Output written on root.pdf (101 pages, 483287 bytes).
 PDF statistics:
  1210 PDF objects out of 1440 (max. 8388607)
  1072 compressed objects within 11 object streams
