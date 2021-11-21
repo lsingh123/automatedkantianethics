@@ -46,32 +46,42 @@ abbreviation lie::"maxim\<Rightarrow>bool" where
     (a) the act requires knowingly uttering a falsehood 
     (b) the end requires that some person $p$ believe the false statement $t$\<close>
 
+consts me::s
+consts c::t
+consts m::maxim
+
 lemma lying_not_universalizable_general:
+  assumes "lie m"
   assumes "\<forall>t w. ((\<forall>p. utter_falsehood p t w) \<longrightarrow> (\<forall>p. \<^bold>\<not> (believe p t) w))"
 \<comment>\<open>Assumption that if everyone utters t as a false statement, then no one will believe t.
 Assumes all false promises utter the same statement, but we can deal with that issue later.\<close>
   assumes "\<forall>w. c w"
-  shows "\<forall>m. (lie m \<longrightarrow> not_universalizable m me)"
+  assumes "\<forall>p w. W m p w"
+  shows "(not_universalizable m me)"
   nitpick[user_axioms]
 proof - 
-  fix m c a g 
+  fix a g 
   assume "m \<equiv> (c::t, a::os, g::t)"
   assume "lie m"
 \<comment>\<open>Assume that some fixed maxim $m = (c, a, g)$ is a maxim about lying\<close>
   assume "\<forall>p w. W m p w"
 \<comment>\<open>Assume that all people will this lying maxim\<close>
   have "\<exists>t. \<forall>s w. a s w \<longrightarrow> knowingly_utter_falsehood s t w"
-    using \<open>case m of (c, a, g) \<Rightarrow> \<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t) \<and> (\<exists>p. \<Turnstile>g\<^bold>\<rightarrow>believe p t)\<close> \<open>m \<equiv> (c, a, g)\<close> by auto
+    by (smt \<open>m \<equiv> (c, a, g)\<close> assms(1) case_prod_beta fst_conv snd_conv)
   have "\<exists>t. \<forall>p w. c w \<longrightarrow> \<^bold>\<not> (believe p t) w"
-    using \<open>\<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t)\<close> \<open>\<forall>p. \<Turnstile>W m p\<close> \<open>m \<equiv> (c, a, g)\<close> by force
+    by (metis (mono_tags, lifting) \<open>\<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t)\<close> \<open>m \<equiv> (c, a, g)\<close> assms(4) case_prod_beta fst_conv snd_conv)
   have "\<exists>t p. \<forall>w. \<not> (believe p t) w \<longrightarrow> \<not> g w"
-    using \<open>case m of (c, a, g) \<Rightarrow> \<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t) \<and> (\<exists>p. \<Turnstile>g\<^bold>\<rightarrow>believe p t)\<close> \<open>m \<equiv> (c, a, g)\<close> by fastforce
+    by (smt \<open>m \<equiv> (c, a, g)\<close> assms(1) case_prod_beta snd_conv)
   have "\<Turnstile>c \<^bold>\<rightarrow> \<^bold>\<not> g"
     using \<open>\<forall>p. \<Turnstile>W m p\<close> \<open>case m of (c, a, g) \<Rightarrow> \<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t) \<and> (\<exists>p. \<Turnstile>g\<^bold>\<rightarrow>believe p t)\<close> \<open>m \<equiv> (c, a, g)\<close> by auto
-  have "\<forall>p. \<Turnstile> (c \<^bold>\<rightarrow> a s)"
+  have "\<forall>p. \<Turnstile> (c \<^bold>\<rightarrow> a p)"
     using \<open>\<forall>p. \<Turnstile>W m p\<close> \<open>m \<equiv> (c, a, g)\<close> by auto
-  have "\<forall>s. \<Turnstile> \<^bold>\<not> ((c \<^bold>\<rightarrow> a s) \<^bold>\<rightarrow> g)"
-\<comment>\<open>for next time, how can these last two co-exist?\<close>
+  have "\<forall>s. \<Turnstile> (c \<^bold>\<rightarrow> a s) \<^bold>\<and> (\<^bold>\<not> g)"
+    using \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>implies_os (\<lambda>p. c) a\<close> assms(3) by auto
+  have "\<forall>s. \<Turnstile>\<^bold>\<not> ( (c \<^bold>\<rightarrow> a s) \<^bold>\<rightarrow> g) "
+    using \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>implies_os (\<lambda>p. c) a\<close> assms(3) by blast
+  have "not_universalizable m me"
+    by (simp add: \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>m \<equiv> (c, a, g)\<close> assms(3))
 
 
 consts believe::"s\<Rightarrow>t\<Rightarrow>t"
