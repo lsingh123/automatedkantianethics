@@ -4,6 +4,7 @@ The top-level auxiliary file: root.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
 Warning--I didn't find a database entry for "sepme"
+Warning--I didn't find a database entry for "KorsgaaardRTL"
 Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
@@ -12,7 +13,7 @@ Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
 You've used 64 entries,
             2773 wiz_defined-function locations,
-            1025 strings with 14259 characters,
+            1027 strings with 14285 characters,
 and the built_in function-call counts, 25998 in all, are:
 = -- 2389
 > -- 1084
@@ -51,4 +52,4 @@ warning$ -- 6
 while$ -- 246
 width$ -- 0
 write$ -- 935
-(There were 7 warnings)
+(There were 8 warnings)

@@ -17,7 +17,7 @@ ethical reasoner like the one I build in practice. Finally, I will also philosop
 applications like these. Specifically, I will consider to what extent humans should let computers do 
 ethical reasoning on our behalf. \<close>
 
-subsection \<open>Right to Lie \label{sec:rtl}\<close>
+subsection \<open>Preliminary Lying Work \label{sec:lyingprelim}\<close>
 
 text \<open>In this section, I draw on examples of ethical reasoning as presented in Korsgaard's right to lie.
 She analyzes the example of someone who shows up at your door and asks, "Is Sara home?" Unbeknownst to them, 
@@ -161,6 +161,126 @@ off the ground. I will aim to use as lean and uncontroversial of a common sense 
 to achieve results as robust and powerful as possible. This serves as evidence for the ease of automating
 Kantian ethics, an example of what additional work my system requires, and a demonstration of the contributions
 that I make.  \<close>
+
+text \<open>Now that I have formalized Korsgaard's sketch of an argument for why lying is prohibited, I will 
+implement her argument for why jokes are permissible. Specifically, she considers a joke a story that is 
+false and argues that joking is permissible because ``the universal practice of lying in the context of jokes
+does not interfere with the purpose of jokes, which is to amuse and does not depend on
+deception" \citep[4]{KorsgaardRTL}. Let's define a joke.\<close>
+
+abbreviation joke::"maxim\<Rightarrow>bool" where 
+"joke \<equiv> \<lambda> (c, a, g).  \<exists>t. (a \<^bold>\<longrightarrow> (\<lambda>s. knowingly_utter_falsehood s t)) \<and> \<not> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> (believe p t)) w)"
+
+text \<open>This definition of a joke merely defines a joke as a falsehood uttered for some purpose that 
+emph{doesn't} require deception, where deception involves someone believing the uttered falsehood. Notice 
+that this is quite a thin definition of a joke; it doesn't require any conception of humor but merely
+distinguishes jokes from lies. As far as common sense reasoning goes, this is a relatively thin proposition. 
+I will now demonstrate that this conception of a joke is sufficient to show that joking is permissible.
+
+I will reuse some of the logical structure from the lying example, namely the maxim $m$ and subject $me$. 
+I will also reuse the same assumptions to show that, under the same set of ``common sense" facts, lying is
+prohibited but joking is not.\<close>
+
+lemma joking_not_prohibited:
+  fixes c
+  fixes a
+  fixes g
+  assumes "m \<equiv> (c::t, a::os, g::t)"
+  assumes "\<forall>w. \<forall>s. well_formed m s w"
+\<comment>\<open>Initial set-up, m is a well-formed maxim composed of some circumstances, act, and goal.\<close>
+  assumes "joke m"
+\<comment>\<open>$m$ is a maxim about joking. Precisely, it is a maxim in which the action is to knowingly utter a 
+falsehood and the goal does not require that someone believe this falsehood.\<close>
+  assumes "\<forall>t w. ((\<forall>p. utter_falsehood p t w) \<longrightarrow> (\<forall>p. \<^bold>\<not> (believe p t) w))"
+\<comment>\<open>Assumption that if everyone utters false statement t, then no one will believe t. Recall that this
+is the most significant piece of common sense reasoning necessary for this example.\<close>
+  assumes "\<forall>w. c w"
+\<comment>\<open>Restrict our focus to worlds in which the circumstances hold, as these are the morally interesting 
+worlds for this example. Basically an irrelevant technical detail. \<close>
+  shows "\<Turnstile> (permissible m me)"
+  by (smt assms(1) assms(2) assms(3) case_prod_conv)
+
+text \<open>To summarize, in this section I introduce the role of common sense reasoning in my system and 
+demonstrate the kind of common sense facts necessary to show that lying is generally prohibited and 
+jokes are permissible. I conclude that this kind of sophisticated ethical reasoning requires relatively
+thin common sense facts and robust definitions of the terms involved. Thus, while common sense reasoning 
+is an obstacle that must be overcome for my system to be used, it is not insurmountable.  \<close>
+
+subsection \<open>Lying to a Liar \label{sec:lyingtoliar}\<close>
+
+text \<open>Once Korsgaard does some preliminary work differentiating between lies and jokes, she begins the 
+meat of her argument, which examines the case of the murderer at the door. Recall that the murderer
+appears at your door and asks if their intended victim is at home. Ordinary intuition requires that it 
+is at the very least permissible (if not obligatory) to lie to the murderer in order to protect the 
+victim. Korsgaard notes that a murderer who wishes to find their victim cannot simply announce their
+intentions to murder; instead, he must ``must suppose that you do not know who he is and
+what he has in mind" \citep[5]{KorsgaaardRTL}. Thus, she can modify the maxim in question and specifies
+that when someone lies to you, you are allowed to lie to them. The maxim of lying to the murderer is 
+thus actually the maxim of lying to a liar, which she argues is permissible. In this section, I will 
+formalize her argument for lying to a liar.\<close>
+
+consts murderer::s
+consts not_a_murderer::t
+consts victim_not_home::t
+consts when_at_my_door::t
+consts find_victim::t
+consts protect_victim::t
+abbreviation murderers_maxim::maxim where 
+"murderers_maxim \<equiv> (when_at_my_door, \<lambda>s. knowingly_utter_falsehood s not_a_murderer, find_victim)"
+abbreviation murderer_at_door::t where 
+"murderer_at_door \<equiv> W murderers_maxim murderer"
+abbreviation my_maxim::maxim where 
+"my_maxim \<equiv> (murderer_at_door,  \<lambda>s. knowingly_utter_falsehood s victim_not_home, protect_victim)"
+
+text \<open>First, I will show that using the same common sense reasoning justified above, the murderer's
+maxim is prohibited.\<close>
+
+lemma murderers_maxim_prohibited:
+  assumes "\<forall>w. well_formed murderers_maxim murderer w"
+\<comment>\<open>Initial set-up, the murderer's maxim is a well-formed maxim composed of some circumstances, act, and goal.\<close>
+  assumes "\<Turnstile> (find_victim \<^bold>\<rightarrow> (believe me not_a_murderer))"
+  assumes "\<forall>t w. ((\<forall>p. utter_falsehood p t w) \<longrightarrow> (\<forall>p. \<^bold>\<not> (believe p t) w))"
+\<comment>\<open>Assumption that if everyone utters false statement t, then no one will believe t. Recall that this
+is the most significant piece of common sense reasoning necessary for this example.\<close>
+  assumes "\<forall>w. when_at_my_door w"
+\<comment>\<open>Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
+these are the morally interesting worlds for this example. Basically an irrelevant technical detail. \<close>
+  shows "\<Turnstile> (prohibited murderers_maxim murderer)"   
+proof - 
+\<comment>\<open>Again, this proof is too heavy for Isabelle to finish on its own, so I needed to specify some
+intermediate steps. The same intermediate steps as above sufficed.\<close>
+  have "(\<forall>p w. (W murderers_maxim p) w) \<longrightarrow> (\<Turnstile> (find_victim \<^bold>\<rightarrow> (\<^bold>\<not> find_victim)))"
+    using assms(2) assms(4) by auto
+   have "not_universalizable murderers_maxim murderer"
+     using assms(2) assms(4) by auto
+   thus ?thesis
+     using FUL assms(1) by blast
+ qed
+
+
+lemma lying_to_liar_permissible:
+  assumes "\<Turnstile> (well_formed murderers_maxim murderer)"
+  assumes "\<Turnstile> (well_formed my_maxim me)"
+  shows True oops
+
+text \<open>
+let M be the murderer and me be you.
+when M lies to you, you can lie to M. 
+
+when M knowingly utters a falsehood with the goal of you believing the falsehood, you can lie to M.
+
+when M knowingly utters falsehood T with the goal of you believing T, you can knowingly
+utter falsehood K with the goal of M believing K.
+
+let circumstances C = when M knowingly utters falsehood T with the goal of you believing T
+let A = knowingly utter falsehood K with the goal of M believing K
+everyone adopts maxim, "C -> A" 
+if everyone adopts maxim "C->A", if they believe you believe C, then won't believe A (specifically K) (modify the universal lying assumption)
+M doesn't believe you believe C
+so M will believe A (might need to add this as an axiom)
+
+
+\<close>
 
 (*<*)
 

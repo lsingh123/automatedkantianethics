@@ -52,7 +52,7 @@ ethical reasoning on our behalf.%
 %
 \isatagdocument
 %
-\isamarkupsubsection{Right to Lie \label{sec:rtl}%
+\isamarkupsubsection{Preliminary Lying Work \label{sec:lyingprelim}%
 }
 \isamarkuptrue%
 %
@@ -258,6 +258,222 @@ Kantian ethics, an example of what additional work my system requires, and a dem
 that I make.%
 \end{isamarkuptext}\isamarkuptrue%
 %
+\begin{isamarkuptext}%
+Now that I have formalized Korsgaard's sketch of an argument for why lying is prohibited, I will 
+implement her argument for why jokes are permissible. Specifically, she considers a joke a story that is 
+false and argues that joking is permissible because ``the universal practice of lying in the context of jokes
+does not interfere with the purpose of jokes, which is to amuse and does not depend on
+deception" \citep[4]{KorsgaardRTL}. Let's define a joke.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ joke{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}joke\ {\isasymequiv}\ {\isasymlambda}\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ \ {\isasymexists}t{\isachardot}\ {\isacharparenleft}a\ \isactrlbold {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isasymnot}\ {\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}g\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+This definition of a joke merely defines a joke as a falsehood uttered for some purpose that 
+emph{doesn't} require deception, where deception involves someone believing the uttered falsehood. Notice 
+that this is quite a thin definition of a joke; it doesn't require any conception of humor but merely
+distinguishes jokes from lies. As far as common sense reasoning goes, this is a relatively thin proposition. 
+I will now demonstrate that this conception of a joke is sufficient to show that joking is permissible.
+
+I will reuse some of the logical structure from the lying example, namely the maxim $m$ and subject $me$. 
+I will also reuse the same assumptions to show that, under the same set of ``common sense" facts, lying is
+prohibited but joking is not.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ joking{\isacharunderscore}not{\isacharunderscore}prohibited{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ c\isanewline
+\ \ \isakeyword{fixes}\ a\isanewline
+\ \ \isakeyword{fixes}\ g\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}m\ {\isasymequiv}\ {\isacharparenleft}c{\isacharcolon}{\isacharcolon}t{\isacharcomma}\ a{\isacharcolon}{\isacharcolon}os{\isacharcomma}\ g{\isacharcolon}{\isacharcolon}t{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isasymforall}s{\isachardot}\ well{\isacharunderscore}formed\ m\ s\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Initial set-up, m is a well-formed maxim composed of some circumstances, act, and goal.%
+}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}joke\ m{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{$m$ is a maxim about joking. Precisely, it is a maxim in which the action is to knowingly utter a 
+falsehood and the goal does not require that someone believe this falsehood.%
+}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Assumption that if everyone utters false statement t, then no one will believe t. Recall that this
+is the most significant piece of common sense reasoning necessary for this example.%
+}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ c\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstances hold, as these are the morally interesting 
+worlds for this example. Basically an irrelevant technical detail.%
+}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}permissible\ m\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}smt\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ case{\isacharunderscore}prod{\isacharunderscore}conv{\isacharparenright}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+To summarize, in this section I introduce the role of common sense reasoning in my system and 
+demonstrate the kind of common sense facts necessary to show that lying is generally prohibited and 
+jokes are permissible. I conclude that this kind of sophisticated ethical reasoning requires relatively
+thin common sense facts and robust definitions of the terms involved. Thus, while common sense reasoning 
+is an obstacle that must be overcome for my system to be used, it is not insurmountable.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Lying to a Liar \label{sec:lyingtoliar}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Once Korsgaard does some preliminary work differentiating between lies and jokes, she begins the 
+meat of her argument, which examines the case of the murderer at the door. Recall that the murderer
+appears at your door and asks if their intended victim is at home. Ordinary intuition requires that it 
+is at the very least permissible (if not obligatory) to lie to the murderer in order to protect the 
+victim. Korsgaard notes that a murderer who wishes to find their victim cannot simply announce their
+intentions to murder; instead, he must ``must suppose that you do not know who he is and
+what he has in mind" \citep[5]{KorsgaaardRTL}. Thus, she can modify the maxim in question and specifies
+that when someone lies to you, you are allowed to lie to them. The maxim of lying to the murderer is 
+thus actually the maxim of lying to a liar, which she argues is permissible. In this section, I will 
+formalize her argument for lying to a liar.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ murderer{\isacharcolon}{\isacharcolon}s\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharcolon}{\isacharcolon}t\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ victim{\isacharunderscore}not{\isacharunderscore}home{\isacharcolon}{\isacharcolon}t\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door{\isacharcolon}{\isacharcolon}t\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ find{\isacharunderscore}victim{\isacharcolon}{\isacharcolon}t\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ protect{\isacharunderscore}victim{\isacharcolon}{\isacharcolon}t\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ murderers{\isacharunderscore}maxim{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}murderers{\isacharunderscore}maxim\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door{\isacharcomma}\ {\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharcomma}\ find{\isacharunderscore}victim{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ murderer{\isacharunderscore}at{\isacharunderscore}door{\isacharcolon}{\isacharcolon}t\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}murderer{\isacharunderscore}at{\isacharunderscore}door\ {\isasymequiv}\ W\ murderers{\isacharunderscore}maxim\ murderer{\isachardoublequoteclose}\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ my{\isacharunderscore}maxim{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}my{\isacharunderscore}maxim\ {\isasymequiv}\ {\isacharparenleft}murderer{\isacharunderscore}at{\isacharunderscore}door{\isacharcomma}\ \ {\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ victim{\isacharunderscore}not{\isacharunderscore}home{\isacharcomma}\ protect{\isacharunderscore}victim{\isacharparenright}{\isachardoublequoteclose}%
+\begin{isamarkuptext}%
+First, I will show that using the same common sense reasoning justified above, the murderer's
+maxim is prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ murderers{\isacharunderscore}maxim{\isacharunderscore}prohibited{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ murderers{\isacharunderscore}maxim\ murderer\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Initial set-up, the murderer's maxim is a well-formed maxim composed of some circumstances, act, and goal.%
+}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}find{\isacharunderscore}victim\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ me\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Assumption that if everyone utters false statement t, then no one will believe t. Recall that this
+is the most significant piece of common sense reasoning necessary for this example.%
+}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
+these are the morally interesting worlds for this example. Basically an irrelevant technical detail.%
+}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}prohibited\ murderers{\isacharunderscore}maxim\ murderer{\isacharparenright}{\isachardoublequoteclose}\ \ \ \isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+\ {\isacharminus}\ \isanewline
+%
+\isamarkupcmt{Again, this proof is too heavy for Isabelle to finish on its own, so I needed to specify some
+intermediate steps. The same intermediate steps as above sufficed.%
+}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}p\ w{\isachardot}\ {\isacharparenleft}W\ murderers{\isacharunderscore}maxim\ p{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymTurnstile}\ {\isacharparenleft}find{\isacharunderscore}victim\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ find{\isacharunderscore}victim{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}not{\isacharunderscore}universalizable\ murderers{\isacharunderscore}maxim\ murderer{\isachardoublequoteclose}\isanewline
+\ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\ \isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ lying{\isacharunderscore}to{\isacharunderscore}liar{\isacharunderscore}permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ murderers{\isacharunderscore}maxim\ murderer{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ my{\isacharunderscore}maxim\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ True%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+let M be the murderer and me be you.
+when M lies to you, you can lie to M. 
+
+when M knowingly utters a falsehood with the goal of you believing the falsehood, you can lie to M.
+
+when M knowingly utters falsehood T with the goal of you believing T, you can knowingly
+utter falsehood K with the goal of M believing K.
+
+let circumstances C = when M knowingly utters falsehood T with the goal of you believing T
+let A = knowingly utter falsehood K with the goal of M believing K
+everyone adopts maxim, "C -> A" 
+if everyone adopts maxim "C->A", if they believe you believe C, then won't believe A (specifically K) (modify the universal lying assumption)
+M doesn't believe you believe C
+so M will believe A (might need to add this as an axiom)%
+\end{isamarkuptext}\isamarkuptrue%
+%
 \isadelimdocument
 %
 \endisadelimdocument
@@ -456,3 +672,144 @@ that I make.%
 %:%256=161%:%
 %:%257=162%:%
 %:%258=163%:%
+%:%262=165%:%
+%:%263=166%:%
+%:%264=167%:%
+%:%265=168%:%
+%:%266=169%:%
+%:%268=171%:%
+%:%269=171%:%
+%:%270=172%:%
+%:%272=174%:%
+%:%273=175%:%
+%:%274=176%:%
+%:%275=177%:%
+%:%276=178%:%
+%:%277=179%:%
+%:%278=180%:%
+%:%279=181%:%
+%:%280=182%:%
+%:%282=184%:%
+%:%283=184%:%
+%:%284=185%:%
+%:%285=186%:%
+%:%286=187%:%
+%:%287=188%:%
+%:%288=189%:%
+%:%290=190%:%
+%:%291=190%:%
+%:%292=191%:%
+%:%294=192%:%
+%:%295=193%:%
+%:%296=193%:%
+%:%297=194%:%
+%:%299=195%:%
+%:%300=196%:%
+%:%301=196%:%
+%:%302=197%:%
+%:%304=198%:%
+%:%305=199%:%
+%:%306=199%:%
+%:%307=200%:%
+%:%310=201%:%
+%:%314=201%:%
+%:%315=201%:%
+%:%324=203%:%
+%:%325=204%:%
+%:%326=205%:%
+%:%327=206%:%
+%:%328=207%:%
+%:%337=209%:%
+%:%349=211%:%
+%:%350=212%:%
+%:%351=213%:%
+%:%352=214%:%
+%:%353=215%:%
+%:%354=216%:%
+%:%355=217%:%
+%:%356=218%:%
+%:%357=219%:%
+%:%358=220%:%
+%:%360=222%:%
+%:%361=222%:%
+%:%362=223%:%
+%:%363=223%:%
+%:%364=224%:%
+%:%365=224%:%
+%:%366=225%:%
+%:%367=225%:%
+%:%368=226%:%
+%:%369=226%:%
+%:%370=227%:%
+%:%371=227%:%
+%:%372=228%:%
+%:%373=228%:%
+%:%374=229%:%
+%:%375=230%:%
+%:%376=230%:%
+%:%377=231%:%
+%:%378=232%:%
+%:%379=232%:%
+%:%380=233%:%
+%:%382=235%:%
+%:%383=236%:%
+%:%385=238%:%
+%:%386=238%:%
+%:%387=239%:%
+%:%389=240%:%
+%:%390=240%:%
+%:%391=241%:%
+%:%392=242%:%
+%:%394=243%:%
+%:%395=244%:%
+%:%396=244%:%
+%:%397=245%:%
+%:%399=246%:%
+%:%400=247%:%
+%:%401=247%:%
+%:%402=248%:%
+%:%409=249%:%
+%:%410=249%:%
+%:%412=250%:%
+%:%413=251%:%
+%:%414=251%:%
+%:%415=252%:%
+%:%416=252%:%
+%:%417=253%:%
+%:%418=253%:%
+%:%419=253%:%
+%:%420=254%:%
+%:%421=254%:%
+%:%422=255%:%
+%:%423=255%:%
+%:%424=255%:%
+%:%425=256%:%
+%:%426=256%:%
+%:%427=257%:%
+%:%428=257%:%
+%:%429=257%:%
+%:%430=258%:%
+%:%436=258%:%
+%:%439=259%:%
+%:%440=260%:%
+%:%441=261%:%
+%:%442=261%:%
+%:%443=262%:%
+%:%444=263%:%
+%:%445=264%:%
+%:%447=264%:%
+%:%451=264%:%
+%:%461=267%:%
+%:%462=268%:%
+%:%463=269%:%
+%:%464=270%:%
+%:%465=271%:%
+%:%466=272%:%
+%:%467=273%:%
+%:%468=274%:%
+%:%469=275%:%
+%:%470=276%:%
+%:%471=277%:%
+%:%472=278%:%
+%:%473=279%:%
+%:%474=280%:%
