@@ -27,8 +27,9 @@ protect her from the murderer. However, the categorical imperative seems to proh
 circumstances. More specifically, when universalized, lies will no longer be believed, so it seems 
 like lying could never be an effective way of achieving any goal when universalized. Korsgaard points out
 that ``we believe what is said to us in a given context because most of the time people in that context 
-say what they really think" \citep[4]{KorsgaardRTL}. Let's formalize the notion of belief as Korsgaard
-understands it.\<close>
+say what they really think" \citep[4]{KorsgaardRTL}. First, I will formalize this argument.
+
+The first step in formalizing this argument is defining the relevant terms.\<close>
 
 consts believe::"s\<Rightarrow>t\<Rightarrow>t"
 \<comment>\<open>Person s::subject believes sentence t::term\<close>
@@ -39,21 +40,35 @@ abbreviation utter_falsehood::"s\<Rightarrow>t\<Rightarrow>t" where
 abbreviation knowingly_utter_falsehood::"s\<Rightarrow>t\<Rightarrow>t" where
 "knowingly_utter_falsehood s t \<equiv> (utter_falsehood s t) \<^bold>\<and> (\<^bold>\<not> (believe s t))"
 \<comment>\<open>Person s::subject utters a falsehood t::term if they utter t and t is false.\<close>
-abbreviation implies_os::"os\<Rightarrow>os\<Rightarrow>bool" where 
-"implies_os a b \<equiv> \<forall>s w. a s w \<longrightarrow> b s w "
+
+(*<*)
+abbreviation implies_os::"os\<Rightarrow>os\<Rightarrow>bool" ("_\<^bold>\<longrightarrow>_") where 
+"implies_os a b \<equiv> \<forall>s w. a s w \<longrightarrow> b s w "(*>*)
+
 abbreviation lie::"maxim\<Rightarrow>bool" where 
-"lie \<equiv> \<lambda> (c, a, g). \<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t) \<and> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> believe p t) w)"
+"lie \<equiv> \<lambda> (c, a, g). \<exists>t. (a \<^bold>\<longrightarrow> (\<lambda>s. knowingly_utter_falsehood s t)) \<and> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> believe p t) w)"
 \<comment>\<open>A maxim is a lie if 
     (a) the act requires knowingly uttering a falsehood 
     (b) the end requires that some person $p$ believe the false statement $t$\<close>
 
+text \<open>To avoid focus on the case of conscious, intentional wrongdoing, I focus on ``knowing lies," 
+in which the speaker is aware that they are lying. It is uncontroversial that an act is a knowing lie
+if the speaker utters a false statement that they do not believe. The second half of this definition, which 
+requires that the goal of the action of lying be to decieve, is inspired by  Korsgaard's interpretation 
+of a lie, which understands a lie as a kind of falsehood that is usually effective \emph{because} it decieves
+\citep[4]{KorsgaardRTL}. \<close>
+
+text \<open>With the above logical background, I can now show that maxims that involve lying are prohibited.
+First, I define the subject and maxim at hand.\<close>
+
 consts me::s
-\<comment>\<open>I am trying to reason abot my obligations so I will define myself as a specific subject.\<close>
+\<comment>\<open>I am trying to reason about my obligations so I will define myself as a specific subject.\<close>
 consts m::maxim
 \<comment>\<open>I will also define a maxim $m$. My goal is to show that if $m$ is a maxim about lying, then $m$
 is prohibited.\<close>
 
-\<comment>\<open>I will now show that if $m$ is a maxim about lying, then $m$ is prohibited.\<close>
+text \<open>The following lemma shows the common sense necessary to determine that lying is prohibited. \<close>
+
 lemma lying_prohibited:
   fixes c
   fixes a
@@ -145,81 +160,13 @@ This section will provide additional examples of the kinds of commons sense requ
 off the ground. I will aim to use as lean and uncontroversial of a common sense database as possible
 to achieve results as robust and powerful as possible. This serves as evidence for the ease of automating
 Kantian ethics, an example of what additional work my system requires, and a demonstration of the contributions
-that I make.
-   \<close>
+that I make.  \<close>
 
-consts believe::"s\<Rightarrow>t\<Rightarrow>t"
-definition lie::"s\<Rightarrow>t\<Rightarrow>t" where "lie person statement \<equiv> (say person statement) \<^bold>\<and> (\<^bold>\<not> (believe person statement))"
-
-consts when_strapped_for_cash::t
-consts will_pay_back::t
-definition falsely_promise::os where "falsely_promise \<equiv> \<lambda>p. lie p will_pay_back"
-consts to_get_easy_cash::t
-
-definition lie_maxim::maxim where "lie_maxim \<equiv> (when_strapped_for_cash, falsely_promise, to_get_easy_cash)"
-
-lemma test1:
-  assumes "\<forall>p::s. \<forall>w. (will lie_maxim p w)"
-  shows "\<forall>p w. (when_strapped_for_cash \<^bold>\<rightarrow> \<^bold>\<not> (believe p will_pay_back)) w"
-  by (metis (no_types, lifting) assms falsely_promise_def lie_def lie_maxim_def prod.simps(2))
-\<comment>\<open>Is this evidence that something significant is going on?\<close>
-
-text \<open>The above attempt doesn't quite work because in this case we're just believing that statement holds.
-wait isn't that correct? maybe i should do something like (say x statement (x) -> believe p statement (x))? 
-and say that this property holds if no one lies. or say that if everyone lies then this property doesn't
-hold. does that work? STATEMENT should be person specific. hm....
-
-How can I say that X property holds for the majority of subjects? Do I need to define some constant
-set of subjects and only ever quantify over that constant set? That requires a lot of changes to 4.1....
-
-Is there a way for me to gather all people. Or I could just say that if everyone lies then no one 
-will believe. and that's a weaker definition of believe\<close>
+(*<*)
 
 
-consts believe2::"s\<Rightarrow>t\<Rightarrow>t"
-consts statement::"t"
-abbreviation lie2::"s\<Rightarrow>t" where 
-"lie2 \<equiv>  \<lambda>p.((say p statement) \<^bold>\<and> (\<^bold>\<not> (believe2 p statement)))"
-consts me::"s"
-
-abbreviation falsely_promise2 where 
-"falsely_promise2 \<equiv> (when_strapped_for_cash, lie2, to_get_easy_cash)"
-lemma test3:
-  assumes "\<forall>p w. will falsely_promise2 p w"
-\<comment>\<open>Universalizability assumption\<close>
-  assumes "\<forall>p c s. \<Turnstile> ((c \<^bold>\<rightarrow> (lie2 p)) \<^bold>\<rightarrow> (c \<^bold>\<rightarrow> (\<^bold>\<not> (believe2 p (say s statement)))))"
-\<comment>\<open>If everyone lies, no one will believe each other.
-Maybe I can try different versions of this assumption? If I lie I won't believe anyone else? \<close>
-  shows "\<forall>p. \<Turnstile> when_strapped_for_cash \<^bold>\<rightarrow> (\<^bold>\<not> (believe2 p (say me statement)))"
-  using assms(1) assms(2) by auto
-
-lemma test4:
-  assumes "\<forall>p. \<Turnstile> ((\<^bold>\<not> (believe2 p (say me statement))) \<^bold>\<rightarrow> (\<^bold>\<not> to_get_easy_cash))"
-  assumes "\<forall>p c s. \<Turnstile> ((c \<^bold>\<rightarrow> (lie2 p)) \<^bold>\<rightarrow> (c \<^bold>\<rightarrow> (\<^bold>\<not> (believe2 p (say s statement)))))"
-  assumes "\<Turnstile> universalized falsely_promise2"
-  shows "not_universalizable falsely_promise2 me"
-proof -
-  have "\<forall>p. \<Turnstile> when_strapped_for_cash \<^bold>\<rightarrow> (\<^bold>\<not> (believe2 p (say me statement)))"
-    using assms(2) assms(3) by auto
-  then have "\<exists>p. \<Turnstile> ( to_get_easy_cash \<^bold>\<rightarrow> believe2 p (say me statement))"
-    using assms(1) by blast
 
    
-
-
-abbreviation no_one_believes where 
-"no_one_believes statement w \<equiv> (\<forall>p s. (\<^bold>\<not> (believe2 p (say s statement))) w)"
-\<comment>\<open>No matter which person $s$ says statement, no person $p$ will believe $s$. \<close>
-abbreviation test2 where 
-"test2 \<equiv> \<forall>statement w. (\<forall>p. lie p statement w) \<longrightarrow> (no_one_believes statement w)"
-
-text \<open>
-The maxim is "when I am strapped for cash, I will falsely promise to pay someone back in order to 
-get some quick cash." 
-- for all people p, p being strapped for cash -> p falsely promises 
-- `` -> p says (p will pay back) and p does not believe (p will pay back)
-- for all p, context c -> lie p statement then context c -> don't believe (p says statement)
-\<close>
 
 
 
@@ -261,6 +208,5 @@ subsection "Murderer Example"
 subsection "Ordinary Ethical Reasoning"
 
 subsection "Philosophical Analysis of Applications"
-(*<*)
 end
 (*>*)
