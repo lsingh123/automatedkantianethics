@@ -47,42 +47,42 @@ abbreviation lie::"maxim\<Rightarrow>bool" where
     (b) the end requires that some person $p$ believe the false statement $t$\<close>
 
 consts me::s
-consts c::t
+\<comment>\<open>I am trying to reason abot my obligations so I will define myself as a specific subject.\<close>
 consts m::maxim
+\<comment>\<open>I will also define a maxim $m$. My goal is to show that if $m$ is a maxim about lying, then $m$
+is prohibited.\<close>
 
-lemma lying_not_universalizable_general:
+\<comment>\<open>I will now show that if $m$ is a maxim about lying, then $m$ is prohibited.\<close>
+lemma lying_prohibited:
+  fixes c
+  fixes a
+  fixes g
+  assumes "m \<equiv> (c::t, a::os, g::t)"
+  assumes "\<forall>w. \<forall>s. well_formed m s w"
+\<comment>\<open>Initial set-up, m is a well-formed maxim composed of some circumstances, act, and goal.\<close>
   assumes "lie m"
+\<comment>\<open>$m$ is a maxim about lying. Precisely, it is a maxim in which the action is to knowingly utter a 
+falsehood and the goal requires that someone believe this falsehood.\<close>
   assumes "\<forall>t w. ((\<forall>p. utter_falsehood p t w) \<longrightarrow> (\<forall>p. \<^bold>\<not> (believe p t) w))"
-\<comment>\<open>Assumption that if everyone utters t as a false statement, then no one will believe t.
-Assumes all false promises utter the same statement, but we can deal with that issue later.\<close>
+\<comment>\<open>Assumption that if everyone utters false statement t, then no one will believe t.\<close>
   assumes "\<forall>w. c w"
-  assumes "\<forall>p w. W m p w"
-  shows "(not_universalizable m me)"
-  nitpick[user_axioms]
+\<comment>\<open>Restrict our focus to worlds in which the circumstances hold, as these are the morally interesting 
+worlds for this example. Basically an irrelevant technical detail. \<close>
+  shows "\<Turnstile> (prohibited m me)"
 proof - 
-  fix a g 
-  assume "m \<equiv> (c::t, a::os, g::t)"
-  assume "lie m"
-\<comment>\<open>Assume that some fixed maxim $m = (c, a, g)$ is a maxim about lying\<close>
-  assume "\<forall>p w. W m p w"
-\<comment>\<open>Assume that all people will this lying maxim\<close>
-  have "\<exists>t. \<forall>s w. a s w \<longrightarrow> knowingly_utter_falsehood s t w"
-    by (smt \<open>m \<equiv> (c, a, g)\<close> assms(1) case_prod_beta fst_conv snd_conv)
-  have "\<exists>t. \<forall>p w. c w \<longrightarrow> \<^bold>\<not> (believe p t) w"
-    by (metis (mono_tags, lifting) \<open>\<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t)\<close> \<open>m \<equiv> (c, a, g)\<close> assms(4) case_prod_beta fst_conv snd_conv)
-  have "\<exists>t p. \<forall>w. \<not> (believe p t) w \<longrightarrow> \<not> g w"
-    by (smt \<open>m \<equiv> (c, a, g)\<close> assms(1) case_prod_beta snd_conv)
-  have "\<Turnstile>c \<^bold>\<rightarrow> \<^bold>\<not> g"
-    using \<open>\<forall>p. \<Turnstile>W m p\<close> \<open>case m of (c, a, g) \<Rightarrow> \<exists>t. implies_os a (\<lambda>s. knowingly_utter_falsehood s t) \<and> (\<exists>p. \<Turnstile>g\<^bold>\<rightarrow>believe p t)\<close> \<open>m \<equiv> (c, a, g)\<close> by auto
-  have "\<forall>p. \<Turnstile> (c \<^bold>\<rightarrow> a p)"
-    using \<open>\<forall>p. \<Turnstile>W m p\<close> \<open>m \<equiv> (c, a, g)\<close> by auto
-  have "\<forall>s. \<Turnstile> (c \<^bold>\<rightarrow> a s) \<^bold>\<and> (\<^bold>\<not> g)"
-    using \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>implies_os (\<lambda>p. c) a\<close> assms(3) by auto
-  have "\<forall>s. \<Turnstile>\<^bold>\<not> ( (c \<^bold>\<rightarrow> a s) \<^bold>\<rightarrow> g) "
-    using \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>implies_os (\<lambda>p. c) a\<close> assms(3) by blast
+  have "(\<forall>p w. (W m p) w) \<longrightarrow> (\<Turnstile> (c \<^bold>\<rightarrow> (\<^bold>\<not> g)))"
+    by (smt assms(1) assms(2) assms(5) case_prod_beta fst_conv old.prod.exhaust snd_conv)
+\<comment>\<open>Unlike many of the other proofs in this project, this proof was a little heavier and required some manual
+work to produce. I divided the proof into the intermediate steps shown here, and Isabelle was able to do 
+the rest! This step says that if $m$ is universalized, then the circumstances won't lead to the goal, 
+which is quite close to the idea of the maxim not being universalizable.\<close>
   have "not_universalizable m me"
-    by (simp add: \<open>\<Turnstile>c\<^bold>\<rightarrow>\<^bold>\<not> g\<close> \<open>m \<equiv> (c, a, g)\<close> assms(3))
+    by (metis (mono_tags, lifting) assms(1) assms(2) case_prod_beta fst_conv snd_conv)
+  thus ?thesis
+    using FUL assms(2) by blast 
+qed
 
+text \<open>\<close>
 
 consts believe::"s\<Rightarrow>t\<Rightarrow>t"
 definition lie::"s\<Rightarrow>t\<Rightarrow>t" where "lie person statement \<equiv> (say person statement) \<^bold>\<and> (\<^bold>\<not> (believe person statement))"
