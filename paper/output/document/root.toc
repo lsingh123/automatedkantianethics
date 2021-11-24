@@ -33,7 +33,8 @@
 \contentsline {subsection}{\numberline {3.4}Metaethical Tests}{86}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{91}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Applications }{91}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Preliminary Lying Work }{92}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{99}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Related Work}{101}{section.5}%
-\contentsline {section}{\numberline {6}Future Work}{103}{section.6}%
+\contentsline {subsection}{\numberline {4.1}Simple Lying Examples }{94}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{100}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Philosophical Analysis: Is Automated Ethics a Good Idea?}{106}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Related Work}{106}{section.5}%
+\contentsline {section}{\numberline {6}Future Work}{107}{section.6}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 NOV 2021 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 NOV 2021 13:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -417,7 +417,7 @@ Overfull \hbox (100.0398pt too wide) in paragraph at lines 609--610
  []
 
 [54] [55] [56] [57] [58] [59] [60]) (./paper33.tex [61]
-<goalstable.png, id=744, 707.64375pt x 313.17pt>
+<goalstable.png, id=749, 707.64375pt x 313.17pt>
 File: goalstable.png Graphic file (type png)
 <use goalstable.png>
 Package pdftex.def Info: goalstable.png  used on input line 52.
@@ -435,49 +435,43 @@ $ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
 1/cmr/m/n/10 )$[] 
  []
 
-[83] [84] [85] [86] [87] [88] [89] [90]) (./application.tex [91] [92] [93]
+[83] [84] [85] [86] [87] [88] [89] [90]) (./application.tex
 
-Package natbib Warning: Citation `sepme' on page 94 undefined on input line 198
-.
-
-[94] [95] [96] [97] [98]
-
-Package natbib Warning: Citation `KorsgaaardRTL' on page 99 undefined on input 
-line 355.
+Package natbib Warning: Citation `sepme' on page 91 undefined on input line 38.
 
 
-Overfull \hbox (1.36784pt too wide) in paragraph at lines 349--359
-\OT1/ptm/m/n/10.95 Once Ko-rs-gaard does some pre-lim-i-nary work dif-fer-en-ti
--at-ing be-tween lies and jokes,
- []
+[91] [92] [93] [94] [95] [96] [97] [98] [99]
 
+Package natbib Warning: Citation `KorsgaaardRTL' on page 100 undefined on input
+ line 380.
 
-Overfull \hbox (31.67818pt too wide) in paragraph at lines 379--381
+[100]
+Overfull \hbox (31.67818pt too wide) in paragraph at lines 439--440
 [][]\OT1/ptm/m/it/10 my[]maxim $\OMS/cmsy/m/n/10 ^^Q$ $\OT1/cmr/m/n/10 ($\OT1/p
 tm/m/it/10 murderer[]at[]door$\OML/cmm/m/it/10 ;$  $^^U$\OT1/ptm/m/it/10 s$\OML
 /cmm/m/it/10 :$ \OT1/ptm/m/it/10 knowingly[]utter[]falsehood s victim[]not[]hom
-e$\OML/cmm/m/it/10 ;$ \OT1/ptm/m/it/10 protect[]victim$\OT1/cmr/m/n/10 )$ 
+e$\OML/cmm/m/it/10 ;$ \OT1/ptm/m/it/10 protect[]victim$\OT1/cmr/m/n/10 )$[] 
  []
 
-[99] [100]) (./relatedwork.tex [101]
+[101] [102] [103] [104]) (./relatedwork.tex [105] [106]
 Overfull \hbox (0.24031pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 Benz-mueller [][]Fuen-mayor and Benzm[]uller[][] ([][]2018[]
 []) have im-ple-mented Gewirth's prin-
  []
 
-) (./futurework.tex [102] [103]) [104] (./root.bbl [105] [106] [107] [108]
-[109] [110])
+) (./futurework.tex [107] [108]) [109] (./root.bbl [110] [111] [112] [113]
+[114] [115])
 
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
-[111]
+[116]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 8CE349081B3BECA4BCB4C89E5E595C3B;2923.
+(rerunfilecheck)             Checksum: 3A6E1444A62BE7F41045FF48D929FED4;3028.
 
 
 LaTeX Warning: There were undefined references.
@@ -485,10 +479,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 8157 strings out of 480608
- 117168 string characters out of 5903631
- 374976 words of memory out of 5000000
- 23569 multiletter control sequences out of 15000+600000
+ 8169 strings out of 480608
+ 117335 string characters out of 5903631
+ 375012 words of memory out of 5000000
+ 23573 multiletter control sequences out of 15000+600000
  577338 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,34p,895b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -514,10 +508,10 @@ ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (111 pages, 504145 bytes).
+Output written on root.pdf (116 pages, 515387 bytes).
 PDF statistics:
- 1280 PDF objects out of 1440 (max. 8388607)
- 1131 compressed objects within 12 object streams
- 263 named destinations out of 1000 (max. 500000)
- 318 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1315 PDF objects out of 1440 (max. 8388607)
+ 1161 compressed objects within 12 object streams
+ 271 named destinations out of 1000 (max. 500000)
+ 326 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -44,6 +44,13 @@ K.~D. Ashley and B.~M. McLaren.
   Advances in Case-Based Reasoning}, EWCBR '94, page 181–197, Berlin,
   Heidelberg, 1994. Springer-Verlag.
 \newblock ISBN 3540603646.
+
+\bibitem[Baltag and Renne(2016)]{seplogicbelief}
+A.~Baltag and B.~Renne.
+\newblock {Dynamic Epistemic Logic}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2016
+  edition, 2016.
 
 \bibitem[Bentzen and Lindner(2018)]{BL}
 M.~M. Bentzen and F.~Lindner.
