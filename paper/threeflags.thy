@@ -61,7 +61,23 @@ stakes for my choice of the FUL are greatly reduced. If all formulations are equ
 lends the exact same power as a formalization of the second or third formulation of the categorical 
 imperative. In fact, future work could formalize the other formulas and try to prove that they 
 are identical. Kant believes that his argument for the equality of the formulas is analytical, and
-if he is correct, it should be possible to recreate the argument in logic.\<close>
+if he is correct, it should be possible to recreate the argument in logic.
+
+Those who do not believe that all three formulations of the categorical imperative are equivalent may
+understand the FUL as the strongest or most foundational, and thus an appropriate initial choice for 
+formalizations. Korsgaard characterizes the three formulations of the categorical
+imperative according to Rawls' general and special conception of justice. The general conception applies
+universally and can never be violated and the special conception represents an ideal for us to
+live towards. For example, the special conception may require that we prefer some job applicants
+over others in order to remedy historical injustice, and the general conception may require that such
+inequalities always operate in the service of the least privileged \citep[19]{KorsgaardRTL}. Korsgaard
+argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
+Humanity represents his special conception. The FUL's prescriptions can never be violated, even in the most
+non-ideal circumstances imaginable, but the FUH is merely a standard to live towards that might not be 
+achieved. In this sense, the FUL generates stronger requirements than the other two formulations and is 
+thus the bare minimum of Kant's ethics. Because the FUL's prescriptions outweigh those of the other two formulations,
+formalizing it creates a functional, minimum ethical theory that can serve as a foundation for implementations
+of other aspects of Kant's ethics. \<close>
 
 section "Definition of a Maxim"
 

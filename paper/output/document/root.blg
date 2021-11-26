@@ -3,8 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
-Warning--I didn't find a database entry for "sepme"
-Warning--I didn't find a database entry for "KorsgaaardRTL"
 Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
@@ -13,7 +11,7 @@ Warning--empty publisher in lin
 Warning--empty booktitle in sledgehammer
 You've used 65 entries,
             2773 wiz_defined-function locations,
-            1032 strings with 14447 characters,
+            1029 strings with 14416 characters,
 and the built_in function-call counts, 26438 in all, are:
 = -- 2428
 > -- 1109
@@ -52,4 +50,4 @@ warning$ -- 6
 while$ -- 250
 width$ -- 0
 write$ -- 949
-(There were 8 warnings)
+(There were 6 warnings)
