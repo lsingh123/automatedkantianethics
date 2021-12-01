@@ -34,14 +34,14 @@
 %
 \begin{isamarkuptext}%
 In this chapter, I 
-demonstrate my system's ability to formalize longer, more complicated ethical arguments and understand 
+demonstrate my system's ability to formalize longer, more complicated ethical arguments and present 
 the additional capabilities necessary to use my system in practice. In Chapter 2
 and Chapter 3, I performed metaethical reasoning while testing different formalizations of the FUL. Metaethical
 reasoning analyzes properties of moral thought itself and involves questions about the nature of ethical
 truth. This kind of reasoning contrasts with ``applied 
 ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
 what an agent should or should not do. Applied ethical reasoning is relevant with respect to an agent's
-particular situation, not just an an ethical theory as an abstract entity. In previous chapters' application tests,
+particular situation, not just to an ethical theory as an abstract entity. In previous chapters' application tests,
 I performed some toy examples of applied ethical reasoning, but in this chapter, I expore how my system can 
 perform extended applied ethical reasoning. Metaethical reasoning is most interesting to philosophers 
 who are trying to formulate the ``best" theory of ethics. Applied ethical reasoning, on the other hand, 
@@ -59,7 +59,7 @@ evaluating the permissibility of lying needs some robust definition of the term 
 understanding about the activities of communication and truth telling. Kantians specifically describe
 this common sense as ``postulates of rationality" that are nontrivial and nonnormative, but still
 part of the process of practical reasoning itself \citep{silber}. \citet{powers} notes that common sense 
-is a hurder for an automated Kantian ethical agent. In this chapter, I attempt to tackle this challenge and
+is a hurdle for an automated Kantian ethical agent. In this chapter, I attempt to tackle this challenge and
 endow my system with this kind of common sense in the specific case of lying. In order for my 
 system to be used to perform applied ethical reasoning, it will need to be equipped with a database
 of common sense facts and definitions as I present in this chapter. My system will contribute the core
@@ -116,6 +116,15 @@ sophisticated ethical reasoning, but on the other, the quality of this reasoning
 the common sense database and the input maxim. Thus, my system \emph{could} make smart ethical judgements 
 in practice, but getting to that point will require a robust, trusted common sense database and maxim
 formulator.
+
+In this paper, I contribute an implementation of the Formula of Universal Law that, when equipped with 
+relatively thin common sense facts, can performed nuanced, sophisticated ethical reasoning. When given 
+as input a maxim in the format specified in Chapter 3, my system can show that the maxim is permissible, 
+obligatory, or prohibited. It can provide a verifiable proof of its judgement and a human-readable list
+of the facts or axioms it used to reach its conclusion. My system is faithful to philosophical literatire
+on Kantian ethics and serves as the first step towards a fully or partially automated ethical AI agent. 
+It also establishes the power and potential of computational ethics, or the use of computational tools
+for ethical investigation, as explored in this section's Applied Ethical reasoning. 
 
 \emph{Stick a bit here about the philosophical work that will go in this section}%
 \end{isamarkuptext}\isamarkuptrue%
@@ -272,8 +281,8 @@ worlds for this example. A technical detail.%
 \ \ \ \ \isacommand{by}\isamarkupfalse%
 \ {\isacharparenleft}smt\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{5}}{\isacharparenright}\ case{\isacharunderscore}prod{\isacharunderscore}beta\ fst{\isacharunderscore}conv\ old{\isachardot}prod{\isachardot}exhaust\ snd{\isacharunderscore}conv{\isacharparenright}\isanewline
 %
-\isamarkupcmt{Unlike many of the other proofs in this project, this proof was a little heavier and required some manual
-work to produce. I divided the proof into the intermediate steps shown here, and Isabelle was able to do 
+\isamarkupcmt{Unlike many of the other proofs in this project, this proof is a little heavier and requires some manual
+work to produce. After I divide the proof into the intermediate steps shown here, and Isabelle is able to do 
 the rest. This step says that if $m$ is universalized, then the circumstances won't lead to the goal, 
 which is quite close to the idea of the maxim not being universalizable.%
 }\isanewline
@@ -304,7 +313,7 @@ Now that I have formalized Korsgaard's argument for why lying is prohibited, I w
 implement her argument for why jokes are permissible. Specifically, she defines a joke as a story that is 
 false and argues that joking is permissible because ``the universal practice of lying in the context of jokes
 does not interfere with the purpose of jokes, which is to amuse and does not depend on
-deception" \citep[4]{KorsgaardRTL}. First, I define a joke..%
+deception" \citep[4]{KorsgaardRTL}. First, I define a joke.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ joke{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
@@ -359,16 +368,60 @@ worlds for this example. An irrelevant technical detail.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-This completes my implementation of Korsgaard's first interpretation of lying. Using the convention
-of lying assumption formalized in this section, I show that lying is generally prohibited but joking
-is permissible. Notice that this is already a sophisticated kind of ethical reasoning. The sophistication
-necessary to distinguish between lying and joking is a direct consequence of my system's use of a robust
-conception of a maxim, which encodes the goal of an act as part of the maxim being evaluated. This kind 
-of ethical reasoning also requires relatively few and uncontroversial common sense facts. The deepest
+One potential worry with the above argument is the fact that my definition of joke requires that 
+achieving the goal of a joke does not rely on anyone believing the falsehood told in the joke. On its face, 
+this is not a complete representation of a joke; the ordinary conception of a joke would be something like 
+a false statement uttered with the goal of amusing. I define the goal of the joke as not requiring that 
+anyone believe the false statement to distinguish it from lying, which has deception as the goal. I 
+intentionally avoid providing robust formalizations of both deception and amusement; instead I present a 
+thin conception that relies entirely on the concept of belief. This conception does not require any notion
+of humor, satire, intention, or malice, all of which are concepts that may be necessary to define 
+amusement and deception completely. 
+
+The fact that my system shows that lies are prohibited and jokes are permissible with these things 
+conceptions of amusement and deception shows that my system isolates a necessary and sufficient property 
+of a class of maxims that fail the universalizability test. Because my definitions of a lie and joke
+only differ in whether or not their goal requires that someone believe the falsehood in question, the
+theorems proved in this section show that, in order for a maxim with the act of knowingly uttering a falsehood
+to be prohobited, the goal requires that someone believe the falsehood is a necessary and sufficient condition. 
+This logical fact derived by my system tracks a fact implicit in Korsgaard's argument and in most Kantian accounts
+of lying: the wrongness of lying is derived from the requirement that someone believe the falsehood. 
+The logical reality that this property is necessary and sufficient to generate a prohibition reflects
+a deep philosohopical explanation of \emph{why} certain maxims about uttering falsehood fail the universalizability
+test and why others pass. In simple terms, universalizing uttering a falsehood makes belief in that 
+falsehood impossible, so any maxims with goals that require believing in the falsehood will be prohibited.
+
+This account not only describes the kind of maxims that fail or pass the universalizability test, it 
+also provides a guide to constructing permissible maxims about uttering falsehoods. As an example, 
+consider the idea of throwing a surprise birthday party. At first glance, the maxim of action is 
+something like, ``When it is my friend's birthday, I will secretly plan a party so that I can surprise
+them." The goal ``so that I can surprise them" clearly requires that your friend believe the falsehood that 
+you are not planning a party, else the surprise would be ruined. The analysis above seems to imply that 
+Kantian ethics would prohibit surprise parties, which is a sad conclusion for birthday-lovers everywhere. 
+Noticing that the problem with this maxim is that the goal requires belief
+in a falsehood provides a way to rescue the beloved concept of surprise parties. When throwing a 
+surprise party, the ultimate objective is \emph{not} to surprise your friend, but is to celebrate
+your friend and help them have a fun birthday. If someone ruins the surprise, but the party is still fun
+and the birthday person still feels loved, then we would consider such a party a success! Someone who
+called this party a failure clearly would be missing the point of a surprise party. Thus, the goal of 
+a surprise party is not the surprise itself, but rather to celebrate the birthday person. Thus modified, 
+the goal no longer requires belief in the falsehood and thus passes the universalizability test. 
+
+The implications of this section are twofold. First, my system is capable of performing ethical reasoning
+sophisticated enough to show that lying is prohibited but joking is not. The sophistication
+necessary to distinguish between lying and joking was a direct consequence of my system's use of a robust
+conception of a maxim, which encoded the goal of an act as part of the maxim being evaluated. Second, 
+in the process of making this argument precise, my system isolated a necessary and sufficient condition 
+of a maxim about uttering a falsehood being prohibited: that the goal require that someone believe
+the falsehood. This condition both made an long-standing argument in Kantian ethics more precise
+and can guide the correct formulation of future maxims. In other words, an insight generated by the 
+computer provides value to ethicists. 
+
+Moreover, all of the reasoning in this chapter required relatively few and uncontroversial common sense facts. The deepest
 assumption required was that, if everyone lies about a given statement, no one will believe that 
 statement. This assumption is not merely definitional; it does encode some synthetic knowledge about the 
 world, but it is relatively uncontroversial. Indeed, it is so well-accepted that Korsgaard does not 
-bother to justify it in her argument. These examples demonstrate that, while common sense reasoning 
+bother to justify it in her argument. These examples showed that, while common sense reasoning 
 is an obstacle that must be overcome for my system to be used in practice, it is surmountable.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -480,8 +533,8 @@ Effectively, this tests that the assumption is indeed strong enough to prohibit 
 %
 \isamarkupcmt{Assumption that, in order for the murderer to find their victim, you must not believe that he is a murderer.
 This is an example of the kind of situation-specific common sense reasoning necessary to use my system.
-Again, this is an uncontroversial statement; the murderer assumes that if you knew he was a murderer, you 
-would not disclose the victim's location to him. SHOULD I SAY MORE HERE?%
+Again, this is Korsgaard's uncontroversial assumption; the murderer assumes that if you knew he was a murderer, you 
+would not disclose the victim's location to him.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
@@ -568,8 +621,8 @@ saying a false sentence, then I won't believe that sentence.%
 person2 believes they are in the given circumstances, then person1 believes person2 performs the act. In other words, person1 will believe that 
 person2 wills the maxim. I will refer to this as the ``convention of willing" assumption. This follows
 directly from Korsgaard's conception of universalizability: when a maxim is universalized, everyone 
-wills it. Korsgaard assumes that if everyone wills a maxim, they also believe that everyone else wills it.
-DO I NEED TO SAY MORE HERE?%
+wills it and thus notices the pattern of everyone willing it. If you observe that many do X in circumstances C,
+you will assume that everyone does X in circumstance C.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ murderer{\isacharunderscore}at{\isacharunderscore}door\ w{\isachardoublequoteclose}\isanewline
 %
@@ -662,10 +715,10 @@ these are the morally interesting worlds for this example. An irrelevant technic
 \begin{isamarkuptext}%
 This concludes my examination of the maxim of lying to a liar. I was able to show that, by
 modifying the common sense facts used, my system can show that lying to a liar is permissible, but lying 
-in order to find a victim is not. The assumptions used in this example are a little more robust, but still
-ultimately uncontroversial. Indeed, they are direct consequences of Korsgaard's definition of willing 
+in order to find a victim is not. The assumptions used in this example were a little more robust, but still
+ultimately uncontroversial because they were direct consequences of Korsgaard's definition of willing 
 and of ordinary definitions of lying. These thin assumptions were sufficient to generate moral conclusions
-that Kantian scholars debate robustly. Indeed, armed with this common sense, my system generated 
+that Kantian scholars debate robustly. Armed with this common sense, my system generated 
 a conclusion that many critics of Kant failed to see.
 
 While it is true that lying to the murderer should be permissible, Korsgaard notes that many will want
@@ -673,7 +726,7 @@ to say something stronger, like the fact that lying to the murderer is obligator
 the intended victim \citep[15]{KorsgaardRTL}. It seems like we would be doing something wrong if I revealed the victim's
 location, knowing that this revelation would cost them their life. Korsgaard solves this problem by 
 noting that, while the FUL shows that lying to the murderer permissible, other parts of Kant's ethics
-will show that it is obligatory. Recall that Kant presents perfect and imperfect duties,
+show that it is obligatory. Recall that Kant presents perfect and imperfect duties,
 where the former are strict, inviolable, and specific and the latter are broader prescriptions for action.
 Perfect duties always supersede imperfect duties when the two conflict.
 For example, the duty to not murder is a perfect duty and the duty to give to charity is an imperfect duty. 
@@ -691,12 +744,12 @@ Kant's ethical theory that I formalize and demonstrates that I have faithfully i
 \begin{isamarkuptext}%
 While this example demonstrates the power of my system (when equipped with some common sense), it 
 also shows how vital the role of the common sense reasoning is. Slight, intuitive changes in the common
-sense facts can achieve totally different conclusions about lying. This represents an obstacle to 
+sense facts achieved totally different conclusions about lying. This represents an obstacle to 
 fully automated ethical reasoning; such an agent would need a trusted database of common 
 sense facts, which is still an unsolved problem. My work is one step towards such an agent, but the 
 importance of common sense means that much progress must be made in order to completely automate ethics.
 
-The reasoning of this section also demonstrates one additional place where a Kantian must make vital judgements:
+The reasoning of this section also demonstrated one additional place where a Kantian must make vital judgements:
 the formulation of the maxim itself. Korsgaard's argument for the permissibility of lying to a 
 murderer hinged on a clever formulation of the maxim highlighting a particular facet of the circumstances, 
 namely that the murderer is lying to you. Indeed, there is robust debate in the literature on what
@@ -710,7 +763,7 @@ the circumstances, any maxim can evade universalization.
 
 The Kantian response to this criticism is to require that the circumstances included in the formulation
 of the maxim be ``morally relevant." In the example above, my purple shirt and the date clearly have no bearing on 
-the moral status of lying. On the other hand, consider the maxim ``When I am unmeployed, I will murder
+the moral status of lying. On the other hand, consider the maxim, ``When I am unmeployed, I will murder
 someone in order to take their job." The circumstances of being unmeployed clearly have some bearing on the moral
 relevance of the murder in question; they speak to the motivation for the murder. While this view seems 
 to track how we actually perform moral reasoning, it leaves open the question of how to determine
@@ -723,8 +776,8 @@ best when they make a good faith effort to isolate the \emph{principle} of their
 ``surface intent" \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
 is universally consistent, so it is at its most effective when an agent accurately formulates the principle
 they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
-thinking about their own action. In the example above, the circumstances of wearing a purple shirt don't
-the principle of the liar's action. They are clearly a disingenous attempt to evade the universalizability
+thinking about their own action. In the example above, the circumstances of wearing a purple shirt don't reflect
+the principle of the liar's action. Their inclusion is clearly a disingenous attempt to evade the universalizability
 test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
 gymnastics.
 
@@ -742,7 +795,7 @@ in Section ?? that this kind of input parsing work should be left to human being
 major technical and philosophical progress must be made to automate this portion of the system. 
 
 The formulation of a maxim and the common sense database pose the two greatest challenges to the adoption
-of my system in practice. In this chapter, I argue that using manual, human involvement, these challenges
+of my system in practice. In this chapter, I argued that using manual, human involvement, these challenges
 can be overcome in relatively uncontroversial ways. They are also ripe areas for future work.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -865,16 +918,16 @@ can be overcome in relatively uncontroversial ways. They are also ripe areas for
 %:%118=90%:%
 %:%119=91%:%
 %:%120=92%:%
-%:%129=94%:%
-%:%141=96%:%
-%:%142=97%:%
-%:%143=98%:%
-%:%144=99%:%
-%:%145=100%:%
-%:%146=101%:%
-%:%147=102%:%
-%:%148=103%:%
-%:%149=104%:%
+%:%121=93%:%
+%:%122=94%:%
+%:%123=95%:%
+%:%124=96%:%
+%:%125=97%:%
+%:%126=98%:%
+%:%127=99%:%
+%:%128=100%:%
+%:%129=101%:%
+%:%138=103%:%
 %:%150=105%:%
 %:%151=106%:%
 %:%152=107%:%
@@ -883,437 +936,490 @@ can be overcome in relatively uncontroversial ways. They are also ripe areas for
 %:%155=110%:%
 %:%156=111%:%
 %:%157=112%:%
+%:%158=113%:%
 %:%159=114%:%
-%:%160=114%:%
-%:%162=115%:%
-%:%163=116%:%
-%:%164=117%:%
-%:%165=118%:%
-%:%166=119%:%
-%:%167=120%:%
-%:%168=121%:%
-%:%169=121%:%
-%:%170=122%:%
-%:%171=123%:%
-%:%172=123%:%
-%:%174=124%:%
-%:%175=124%:%
-%:%176=125%:%
-%:%177=125%:%
-%:%178=126%:%
-%:%180=127%:%
-%:%181=127%:%
-%:%182=128%:%
-%:%183=128%:%
-%:%184=129%:%
-%:%186=130%:%
-%:%187=131%:%
-%:%188=132%:%
-%:%189=132%:%
-%:%190=137%:%
-%:%191=138%:%
-%:%192=138%:%
-%:%193=139%:%
-%:%195=140%:%
-%:%196=141%:%
-%:%197=142%:%
-%:%200=144%:%
-%:%201=145%:%
-%:%202=146%:%
-%:%203=147%:%
-%:%204=148%:%
-%:%205=149%:%
-%:%206=150%:%
-%:%210=152%:%
-%:%211=153%:%
-%:%213=155%:%
-%:%214=155%:%
-%:%216=156%:%
-%:%217=156%:%
-%:%218=157%:%
-%:%219=157%:%
-%:%221=158%:%
-%:%222=159%:%
-%:%223=159%:%
-%:%224=160%:%
-%:%225=160%:%
-%:%227=161%:%
-%:%230=163%:%
-%:%231=164%:%
-%:%232=165%:%
-%:%233=166%:%
-%:%235=168%:%
-%:%236=168%:%
-%:%237=169%:%
-%:%238=170%:%
-%:%240=171%:%
-%:%241=171%:%
-%:%242=172%:%
-%:%244=173%:%
-%:%245=174%:%
-%:%246=174%:%
-%:%247=175%:%
-%:%249=176%:%
-%:%250=177%:%
-%:%251=178%:%
-%:%252=179%:%
-%:%253=180%:%
-%:%254=181%:%
-%:%255=181%:%
-%:%256=182%:%
-%:%258=183%:%
-%:%259=184%:%
-%:%260=184%:%
-%:%261=185%:%
-%:%268=186%:%
-%:%269=186%:%
-%:%270=187%:%
-%:%271=187%:%
-%:%272=188%:%
-%:%273=188%:%
-%:%275=189%:%
-%:%276=190%:%
-%:%277=191%:%
-%:%278=192%:%
-%:%279=192%:%
-%:%280=193%:%
-%:%281=193%:%
-%:%282=194%:%
-%:%283=194%:%
-%:%284=195%:%
-%:%285=195%:%
-%:%286=196%:%
-%:%287=196%:%
-%:%288=196%:%
-%:%290=197%:%
-%:%291=198%:%
-%:%292=198%:%
-%:%293=199%:%
-%:%303=201%:%
-%:%304=202%:%
-%:%305=203%:%
-%:%306=204%:%
-%:%307=205%:%
-%:%309=207%:%
-%:%310=207%:%
-%:%311=208%:%
-%:%313=210%:%
-%:%314=211%:%
-%:%315=212%:%
-%:%316=213%:%
-%:%317=214%:%
-%:%318=215%:%
+%:%160=115%:%
+%:%161=116%:%
+%:%162=117%:%
+%:%163=118%:%
+%:%164=119%:%
+%:%165=120%:%
+%:%166=121%:%
+%:%168=123%:%
+%:%169=123%:%
+%:%171=124%:%
+%:%172=125%:%
+%:%173=126%:%
+%:%174=127%:%
+%:%175=128%:%
+%:%176=129%:%
+%:%177=130%:%
+%:%178=130%:%
+%:%179=131%:%
+%:%180=132%:%
+%:%181=132%:%
+%:%183=133%:%
+%:%184=133%:%
+%:%185=134%:%
+%:%186=134%:%
+%:%187=135%:%
+%:%189=136%:%
+%:%190=136%:%
+%:%191=137%:%
+%:%192=137%:%
+%:%193=138%:%
+%:%195=139%:%
+%:%196=140%:%
+%:%197=141%:%
+%:%198=141%:%
+%:%199=146%:%
+%:%200=147%:%
+%:%201=147%:%
+%:%202=148%:%
+%:%204=149%:%
+%:%205=150%:%
+%:%206=151%:%
+%:%209=153%:%
+%:%210=154%:%
+%:%211=155%:%
+%:%212=156%:%
+%:%213=157%:%
+%:%214=158%:%
+%:%215=159%:%
+%:%219=161%:%
+%:%220=162%:%
+%:%222=164%:%
+%:%223=164%:%
+%:%225=165%:%
+%:%226=165%:%
+%:%227=166%:%
+%:%228=166%:%
+%:%230=167%:%
+%:%231=168%:%
+%:%232=168%:%
+%:%233=169%:%
+%:%234=169%:%
+%:%236=170%:%
+%:%239=172%:%
+%:%240=173%:%
+%:%241=174%:%
+%:%242=175%:%
+%:%244=177%:%
+%:%245=177%:%
+%:%246=178%:%
+%:%247=179%:%
+%:%249=180%:%
+%:%250=180%:%
+%:%251=181%:%
+%:%253=182%:%
+%:%254=183%:%
+%:%255=183%:%
+%:%256=184%:%
+%:%258=185%:%
+%:%259=186%:%
+%:%260=187%:%
+%:%261=188%:%
+%:%262=189%:%
+%:%263=190%:%
+%:%264=190%:%
+%:%265=191%:%
+%:%267=192%:%
+%:%268=193%:%
+%:%269=193%:%
+%:%270=194%:%
+%:%277=195%:%
+%:%278=195%:%
+%:%279=196%:%
+%:%280=196%:%
+%:%281=197%:%
+%:%282=197%:%
+%:%284=198%:%
+%:%285=199%:%
+%:%286=200%:%
+%:%287=201%:%
+%:%288=201%:%
+%:%289=202%:%
+%:%290=202%:%
+%:%291=203%:%
+%:%292=203%:%
+%:%293=204%:%
+%:%294=204%:%
+%:%295=205%:%
+%:%296=205%:%
+%:%297=205%:%
+%:%299=206%:%
+%:%300=207%:%
+%:%301=207%:%
+%:%302=208%:%
+%:%312=210%:%
+%:%313=211%:%
+%:%314=212%:%
+%:%315=213%:%
+%:%316=214%:%
+%:%318=216%:%
 %:%319=216%:%
 %:%320=217%:%
-%:%321=218%:%
 %:%322=219%:%
+%:%323=220%:%
 %:%324=221%:%
-%:%325=221%:%
-%:%326=222%:%
-%:%327=223%:%
-%:%329=224%:%
-%:%330=224%:%
-%:%331=225%:%
-%:%333=226%:%
-%:%334=227%:%
-%:%335=227%:%
-%:%336=228%:%
-%:%338=229%:%
-%:%339=229%:%
-%:%340=230%:%
-%:%342=231%:%
-%:%343=232%:%
-%:%344=232%:%
-%:%345=233%:%
-%:%348=234%:%
-%:%352=234%:%
-%:%353=234%:%
-%:%362=236%:%
-%:%363=237%:%
-%:%364=238%:%
-%:%365=239%:%
-%:%366=240%:%
-%:%367=241%:%
-%:%368=242%:%
-%:%369=243%:%
-%:%370=244%:%
+%:%325=222%:%
+%:%326=223%:%
+%:%327=224%:%
+%:%328=225%:%
+%:%329=226%:%
+%:%330=227%:%
+%:%331=228%:%
+%:%333=230%:%
+%:%334=230%:%
+%:%335=231%:%
+%:%336=232%:%
+%:%338=233%:%
+%:%339=233%:%
+%:%340=234%:%
+%:%342=235%:%
+%:%343=236%:%
+%:%344=236%:%
+%:%345=237%:%
+%:%347=238%:%
+%:%348=238%:%
+%:%349=239%:%
+%:%351=240%:%
+%:%352=241%:%
+%:%353=241%:%
+%:%354=242%:%
+%:%357=243%:%
+%:%361=243%:%
+%:%362=243%:%
 %:%371=245%:%
 %:%372=246%:%
-%:%381=249%:%
-%:%393=251%:%
-%:%394=252%:%
-%:%395=253%:%
-%:%396=254%:%
-%:%397=255%:%
-%:%398=256%:%
-%:%399=257%:%
-%:%400=258%:%
-%:%401=259%:%
-%:%402=260%:%
-%:%403=261%:%
-%:%404=262%:%
-%:%405=263%:%
-%:%406=264%:%
-%:%407=265%:%
-%:%408=266%:%
-%:%409=267%:%
-%:%410=268%:%
-%:%411=269%:%
-%:%412=270%:%
-%:%414=272%:%
-%:%415=272%:%
-%:%417=273%:%
-%:%418=273%:%
-%:%419=274%:%
-%:%420=274%:%
-%:%422=275%:%
-%:%423=276%:%
-%:%424=277%:%
-%:%425=277%:%
-%:%426=278%:%
-%:%427=278%:%
-%:%429=279%:%
-%:%430=279%:%
-%:%431=280%:%
-%:%432=280%:%
-%:%434=281%:%
-%:%435=281%:%
-%:%436=282%:%
-%:%437=282%:%
-%:%438=283%:%
-%:%440=284%:%
-%:%441=285%:%
-%:%442=286%:%
-%:%443=286%:%
-%:%444=287%:%
-%:%445=288%:%
-%:%446=288%:%
-%:%448=289%:%
-%:%449=289%:%
-%:%450=290%:%
-%:%451=290%:%
-%:%452=291%:%
-%:%454=292%:%
-%:%455=292%:%
-%:%456=293%:%
-%:%457=293%:%
-%:%459=294%:%
-%:%460=294%:%
-%:%461=295%:%
-%:%462=295%:%
-%:%463=296%:%
-%:%465=297%:%
-%:%466=298%:%
-%:%469=300%:%
-%:%470=301%:%
-%:%471=302%:%
-%:%473=304%:%
-%:%474=304%:%
-%:%475=305%:%
-%:%477=306%:%
-%:%478=306%:%
-%:%479=307%:%
-%:%481=308%:%
-%:%482=309%:%
-%:%483=310%:%
-%:%484=311%:%
-%:%485=311%:%
-%:%486=312%:%
-%:%488=313%:%
-%:%489=313%:%
-%:%490=314%:%
-%:%492=315%:%
-%:%493=316%:%
-%:%494=316%:%
-%:%495=317%:%
-%:%502=318%:%
-%:%503=318%:%
-%:%505=319%:%
-%:%506=320%:%
-%:%507=321%:%
-%:%508=322%:%
-%:%509=322%:%
-%:%510=323%:%
-%:%511=323%:%
-%:%512=324%:%
-%:%513=324%:%
-%:%514=324%:%
-%:%515=325%:%
-%:%516=325%:%
-%:%517=326%:%
-%:%518=326%:%
-%:%519=326%:%
-%:%520=327%:%
-%:%521=327%:%
-%:%522=328%:%
-%:%523=328%:%
-%:%524=328%:%
-%:%525=329%:%
-%:%535=331%:%
-%:%536=332%:%
-%:%537=333%:%
-%:%538=334%:%
-%:%539=335%:%
-%:%540=336%:%
-%:%541=337%:%
-%:%542=338%:%
-%:%543=339%:%
-%:%545=341%:%
-%:%546=341%:%
-%:%547=342%:%
-%:%548=343%:%
-%:%550=344%:%
-%:%551=344%:%
-%:%552=345%:%
-%:%554=346%:%
-%:%555=347%:%
-%:%556=347%:%
-%:%557=348%:%
-%:%559=349%:%
-%:%560=350%:%
-%:%561=351%:%
-%:%562=352%:%
-%:%563=353%:%
-%:%564=353%:%
-%:%565=354%:%
-%:%567=355%:%
-%:%568=356%:%
-%:%569=357%:%
-%:%570=358%:%
-%:%571=359%:%
-%:%572=360%:%
-%:%573=360%:%
-%:%574=361%:%
-%:%576=362%:%
-%:%577=363%:%
-%:%578=363%:%
-%:%579=364%:%
-%:%582=365%:%
-%:%586=365%:%
-%:%587=365%:%
-%:%588=365%:%
-%:%590=366%:%
-%:%591=367%:%
-%:%592=368%:%
-%:%602=370%:%
-%:%603=371%:%
-%:%604=372%:%
-%:%606=374%:%
-%:%607=374%:%
-%:%608=375%:%
-%:%610=376%:%
-%:%611=376%:%
-%:%612=377%:%
-%:%614=378%:%
-%:%615=378%:%
-%:%616=379%:%
-%:%618=380%:%
-%:%619=380%:%
-%:%620=381%:%
-%:%622=382%:%
-%:%623=382%:%
-%:%624=383%:%
-%:%626=384%:%
-%:%627=385%:%
-%:%628=385%:%
-%:%629=386%:%
-%:%636=387%:%
-%:%637=387%:%
-%:%638=388%:%
-%:%639=388%:%
-%:%640=389%:%
-%:%641=389%:%
-%:%642=389%:%
-%:%643=390%:%
-%:%644=390%:%
-%:%645=391%:%
-%:%646=391%:%
-%:%647=391%:%
-%:%648=392%:%
-%:%649=392%:%
-%:%650=393%:%
-%:%651=393%:%
-%:%652=393%:%
-%:%653=394%:%
-%:%663=396%:%
-%:%664=397%:%
-%:%665=398%:%
-%:%666=399%:%
-%:%667=400%:%
-%:%668=401%:%
-%:%669=402%:%
-%:%670=403%:%
-%:%671=404%:%
-%:%672=405%:%
-%:%673=406%:%
-%:%674=407%:%
-%:%675=408%:%
-%:%676=409%:%
-%:%677=410%:%
-%:%678=411%:%
-%:%679=412%:%
-%:%680=413%:%
-%:%681=414%:%
-%:%682=415%:%
-%:%683=416%:%
-%:%684=417%:%
-%:%685=418%:%
-%:%686=419%:%
-%:%687=420%:%
-%:%688=421%:%
-%:%692=424%:%
-%:%693=425%:%
-%:%694=426%:%
-%:%695=427%:%
-%:%696=428%:%
-%:%697=429%:%
-%:%698=430%:%
-%:%699=431%:%
-%:%700=432%:%
-%:%701=433%:%
-%:%702=434%:%
-%:%703=435%:%
-%:%704=436%:%
-%:%705=437%:%
-%:%706=438%:%
-%:%707=439%:%
-%:%708=440%:%
-%:%709=441%:%
-%:%710=442%:%
-%:%711=443%:%
-%:%712=444%:%
-%:%713=445%:%
-%:%714=446%:%
-%:%715=447%:%
-%:%716=448%:%
-%:%717=449%:%
-%:%718=450%:%
-%:%719=451%:%
-%:%720=452%:%
-%:%721=453%:%
-%:%722=454%:%
-%:%723=455%:%
-%:%724=456%:%
-%:%725=457%:%
-%:%726=458%:%
-%:%727=459%:%
-%:%728=460%:%
-%:%729=461%:%
-%:%730=462%:%
-%:%731=463%:%
-%:%732=464%:%
-%:%733=465%:%
-%:%734=466%:%
-%:%735=467%:%
-%:%736=468%:%
-%:%737=469%:%
-%:%738=470%:%
-%:%739=471%:%
-%:%740=472%:%
-%:%741=473%:%
-%:%742=474%:%
-%:%743=475%:%
-%:%744=476%:%
+%:%373=247%:%
+%:%374=248%:%
+%:%375=249%:%
+%:%376=250%:%
+%:%377=251%:%
+%:%378=252%:%
+%:%379=253%:%
+%:%380=254%:%
+%:%381=255%:%
+%:%382=256%:%
+%:%383=257%:%
+%:%384=258%:%
+%:%385=259%:%
+%:%386=260%:%
+%:%387=261%:%
+%:%388=262%:%
+%:%389=263%:%
+%:%390=264%:%
+%:%391=265%:%
+%:%392=266%:%
+%:%393=267%:%
+%:%394=268%:%
+%:%395=269%:%
+%:%396=270%:%
+%:%397=271%:%
+%:%398=272%:%
+%:%399=273%:%
+%:%400=274%:%
+%:%401=275%:%
+%:%402=276%:%
+%:%403=277%:%
+%:%404=278%:%
+%:%405=279%:%
+%:%406=280%:%
+%:%407=281%:%
+%:%408=282%:%
+%:%409=283%:%
+%:%410=284%:%
+%:%411=285%:%
+%:%412=286%:%
+%:%413=287%:%
+%:%414=288%:%
+%:%415=289%:%
+%:%416=290%:%
+%:%417=291%:%
+%:%418=292%:%
+%:%419=293%:%
+%:%420=294%:%
+%:%421=295%:%
+%:%422=296%:%
+%:%423=297%:%
+%:%424=298%:%
+%:%425=299%:%
+%:%434=302%:%
+%:%446=304%:%
+%:%447=305%:%
+%:%448=306%:%
+%:%449=307%:%
+%:%450=308%:%
+%:%451=309%:%
+%:%452=310%:%
+%:%453=311%:%
+%:%454=312%:%
+%:%455=313%:%
+%:%456=314%:%
+%:%457=315%:%
+%:%458=316%:%
+%:%459=317%:%
+%:%460=318%:%
+%:%461=319%:%
+%:%462=320%:%
+%:%463=321%:%
+%:%464=322%:%
+%:%465=323%:%
+%:%467=325%:%
+%:%468=325%:%
+%:%470=326%:%
+%:%471=326%:%
+%:%472=327%:%
+%:%473=327%:%
+%:%475=328%:%
+%:%476=329%:%
+%:%477=330%:%
+%:%478=330%:%
+%:%479=331%:%
+%:%480=331%:%
+%:%482=332%:%
+%:%483=332%:%
+%:%484=333%:%
+%:%485=333%:%
+%:%487=334%:%
+%:%488=334%:%
+%:%489=335%:%
+%:%490=335%:%
+%:%491=336%:%
+%:%493=337%:%
+%:%494=338%:%
+%:%495=339%:%
+%:%496=339%:%
+%:%497=340%:%
+%:%498=341%:%
+%:%499=341%:%
+%:%501=342%:%
+%:%502=342%:%
+%:%503=343%:%
+%:%504=343%:%
+%:%505=344%:%
+%:%507=345%:%
+%:%508=345%:%
+%:%509=346%:%
+%:%510=346%:%
+%:%512=347%:%
+%:%513=347%:%
+%:%514=348%:%
+%:%515=348%:%
+%:%516=349%:%
+%:%518=350%:%
+%:%519=351%:%
+%:%522=353%:%
+%:%523=354%:%
+%:%524=355%:%
+%:%526=357%:%
+%:%527=357%:%
+%:%528=358%:%
+%:%530=359%:%
+%:%531=359%:%
+%:%532=360%:%
+%:%534=361%:%
+%:%535=362%:%
+%:%536=363%:%
+%:%537=364%:%
+%:%538=364%:%
+%:%539=365%:%
+%:%541=366%:%
+%:%542=366%:%
+%:%543=367%:%
+%:%545=368%:%
+%:%546=369%:%
+%:%547=369%:%
+%:%548=370%:%
+%:%555=371%:%
+%:%556=371%:%
+%:%558=372%:%
+%:%559=373%:%
+%:%560=374%:%
+%:%561=375%:%
+%:%562=375%:%
+%:%563=376%:%
+%:%564=376%:%
+%:%565=377%:%
+%:%566=377%:%
+%:%567=377%:%
+%:%568=378%:%
+%:%569=378%:%
+%:%570=379%:%
+%:%571=379%:%
+%:%572=379%:%
+%:%573=380%:%
+%:%574=380%:%
+%:%575=381%:%
+%:%576=381%:%
+%:%577=381%:%
+%:%578=382%:%
+%:%588=384%:%
+%:%589=385%:%
+%:%590=386%:%
+%:%591=387%:%
+%:%592=388%:%
+%:%593=389%:%
+%:%594=390%:%
+%:%595=391%:%
+%:%596=392%:%
+%:%598=394%:%
+%:%599=394%:%
+%:%600=395%:%
+%:%601=396%:%
+%:%603=397%:%
+%:%604=397%:%
+%:%605=398%:%
+%:%607=399%:%
+%:%608=400%:%
+%:%609=400%:%
+%:%610=401%:%
+%:%612=402%:%
+%:%613=403%:%
+%:%614=404%:%
+%:%615=405%:%
+%:%616=406%:%
+%:%617=406%:%
+%:%618=407%:%
+%:%620=408%:%
+%:%621=409%:%
+%:%622=410%:%
+%:%623=411%:%
+%:%624=412%:%
+%:%625=413%:%
+%:%626=413%:%
+%:%627=414%:%
+%:%629=415%:%
+%:%630=416%:%
+%:%631=416%:%
+%:%632=417%:%
+%:%635=418%:%
+%:%639=418%:%
+%:%640=418%:%
+%:%641=418%:%
+%:%643=419%:%
+%:%644=420%:%
+%:%645=421%:%
+%:%655=423%:%
+%:%656=424%:%
+%:%657=425%:%
+%:%659=427%:%
+%:%660=427%:%
+%:%661=428%:%
+%:%663=429%:%
+%:%664=429%:%
+%:%665=430%:%
+%:%667=431%:%
+%:%668=431%:%
+%:%669=432%:%
+%:%671=433%:%
+%:%672=433%:%
+%:%673=434%:%
+%:%675=435%:%
+%:%676=435%:%
+%:%677=436%:%
+%:%679=437%:%
+%:%680=438%:%
+%:%681=438%:%
+%:%682=439%:%
+%:%689=440%:%
+%:%690=440%:%
+%:%691=441%:%
+%:%692=441%:%
+%:%693=442%:%
+%:%694=442%:%
+%:%695=442%:%
+%:%696=443%:%
+%:%697=443%:%
+%:%698=444%:%
+%:%699=444%:%
+%:%700=444%:%
+%:%701=445%:%
+%:%702=445%:%
+%:%703=446%:%
+%:%704=446%:%
+%:%705=446%:%
+%:%706=447%:%
+%:%716=449%:%
+%:%717=450%:%
+%:%718=451%:%
+%:%719=452%:%
+%:%720=453%:%
+%:%721=454%:%
+%:%722=455%:%
+%:%723=456%:%
+%:%724=457%:%
+%:%725=458%:%
+%:%726=459%:%
+%:%727=460%:%
+%:%728=461%:%
+%:%729=462%:%
+%:%730=463%:%
+%:%731=464%:%
+%:%732=465%:%
+%:%733=466%:%
+%:%734=467%:%
+%:%735=468%:%
+%:%736=469%:%
+%:%737=470%:%
+%:%738=471%:%
+%:%739=472%:%
+%:%740=473%:%
+%:%741=474%:%
 %:%745=477%:%
 %:%746=478%:%
-%:%755=480%:%
+%:%747=479%:%
+%:%748=480%:%
+%:%749=481%:%
+%:%750=482%:%
+%:%751=483%:%
+%:%752=484%:%
+%:%753=485%:%
+%:%754=486%:%
+%:%755=487%:%
+%:%756=488%:%
+%:%757=489%:%
+%:%758=490%:%
+%:%759=491%:%
+%:%760=492%:%
+%:%761=493%:%
+%:%762=494%:%
+%:%763=495%:%
+%:%764=496%:%
+%:%765=497%:%
+%:%766=498%:%
+%:%767=499%:%
+%:%768=500%:%
+%:%769=501%:%
+%:%770=502%:%
+%:%771=503%:%
+%:%772=504%:%
+%:%773=505%:%
+%:%774=506%:%
+%:%775=507%:%
+%:%776=508%:%
+%:%777=509%:%
+%:%778=510%:%
+%:%779=511%:%
+%:%780=512%:%
+%:%781=513%:%
+%:%782=514%:%
+%:%783=515%:%
+%:%784=516%:%
+%:%785=517%:%
+%:%786=518%:%
+%:%787=519%:%
+%:%788=520%:%
+%:%789=521%:%
+%:%790=522%:%
+%:%791=523%:%
+%:%792=524%:%
+%:%793=525%:%
+%:%794=526%:%
+%:%795=527%:%
+%:%796=528%:%
+%:%797=529%:%
+%:%798=530%:%
+%:%799=531%:%
+%:%808=533%:%

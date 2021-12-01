@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  26 NOV 2021 12:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 NOV 2021 19:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -436,24 +436,24 @@ $ \OT1/ptm/m/it/10 to[]get[]easy[]cash$\OT1/cmr/m/n/10 )$\OT1/ptm/m/it/10 w$\OT
  []
 
 [83] [84] [85] [86] [87] [88] [89] [90]) (./application.tex [91] [92] [93]
-[94] [95] [96] [97] [98] [99] [100] [101]
-Overfull \hbox (31.67818pt too wide) in paragraph at lines 462--463
+[94] [95] [96] [97] [98] [99] [100] [101] [102] [103]
+Overfull \hbox (31.67818pt too wide) in paragraph at lines 515--516
 [][]\OT1/ptm/m/it/10 my[]maxim $\OMS/cmsy/m/n/10 ^^Q$ $\OT1/cmr/m/n/10 ($\OT1/p
 tm/m/it/10 murderer[]at[]door$\OML/cmm/m/it/10 ;$  $^^U$\OT1/ptm/m/it/10 s$\OML
 /cmm/m/it/10 :$ \OT1/ptm/m/it/10 knowingly[]utter[]falsehood s victim[]not[]hom
 e$\OML/cmm/m/it/10 ;$ \OT1/ptm/m/it/10 protect[]victim$\OT1/cmr/m/n/10 )$[] 
  []
 
-[102] [103] [104] [105] [106] [107] [108]) (./relatedwork.tex [109] [110]
+[104] [105] [106] [107] [108] [109] [110] [111]) (./relatedwork.tex [112]
 Overfull \hbox (0.24031pt too wide) in paragraph at lines 63--67
 \OT1/ptm/m/n/10.95 Benz-mueller [][]Fuen-mayor and Benzm[]uller[][] ([][]2018[]
 []) have im-ple-mented Gewirth's prin-
  []
 
-) (./futurework.tex [111] [112]) [113] (./root.bbl [114] [115] [116] [117]
-[118] [119])
+) (./futurework.tex [113] [114]) [115] (./root.bbl [116] [117] [118] [119]
+[120] [121])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
- [120]
+ [122]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 79.
@@ -467,8 +467,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 79.
  ) 
 Here is how much of TeX's memory you used:
- 8174 strings out of 480608
- 117379 string characters out of 5903631
+ 8176 strings out of 480608
+ 117395 string characters out of 5903631
  375012 words of memory out of 5000000
  23573 multiletter control sequences out of 15000+600000
  577338 words of font info for 124 fonts, out of 8000000 for 9000
@@ -496,10 +496,10 @@ ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist
 ype1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on root.pdf (120 pages, 523959 bytes).
+Output written on root.pdf (122 pages, 528181 bytes).
 PDF statistics:
- 1345 PDF objects out of 1440 (max. 8388607)
- 1187 compressed objects within 12 object streams
- 276 named destinations out of 1000 (max. 500000)
+ 1355 PDF objects out of 1440 (max. 8388607)
+ 1195 compressed objects within 12 object streams
+ 278 named destinations out of 1000 (max. 500000)
  326 words of extra memory for PDF output out of 10000 (max. 10000000)
 

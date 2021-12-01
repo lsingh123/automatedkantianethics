@@ -6,14 +6,14 @@ begin(*>*)
 section \<open>Applications \label{sec:applications}\<close>
 
 text \<open>In this chapter, I 
-demonstrate my system's ability to formalize longer, more complicated ethical arguments and understand 
+demonstrate my system's ability to formalize longer, more complicated ethical arguments and present 
 the additional capabilities necessary to use my system in practice. In Chapter 2
 and Chapter 3, I performed metaethical reasoning while testing different formalizations of the FUL. Metaethical
 reasoning analyzes properties of moral thought itself and involves questions about the nature of ethical
 truth. This kind of reasoning contrasts with ``applied 
 ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
 what an agent should or should not do. Applied ethical reasoning is relevant with respect to an agent's
-particular situation, not just an an ethical theory as an abstract entity. In previous chapters' application tests,
+particular situation, not just to an ethical theory as an abstract entity. In previous chapters' application tests,
 I performed some toy examples of applied ethical reasoning, but in this chapter, I expore how my system can 
 perform extended applied ethical reasoning. Metaethical reasoning is most interesting to philosophers 
 who are trying to formulate the ``best" theory of ethics. Applied ethical reasoning, on the other hand, 
@@ -31,7 +31,7 @@ evaluating the permissibility of lying needs some robust definition of the term 
 understanding about the activities of communication and truth telling. Kantians specifically describe
 this common sense as ``postulates of rationality" that are nontrivial and nonnormative, but still
 part of the process of practical reasoning itself \citep{silber}. \citet{powers} notes that common sense 
-is a hurder for an automated Kantian ethical agent. In this chapter, I attempt to tackle this challenge and
+is a hurdle for an automated Kantian ethical agent. In this chapter, I attempt to tackle this challenge and
 endow my system with this kind of common sense in the specific case of lying. In order for my 
 system to be used to perform applied ethical reasoning, it will need to be equipped with a database
 of common sense facts and definitions as I present in this chapter. My system will contribute the core
@@ -88,6 +88,15 @@ sophisticated ethical reasoning, but on the other, the quality of this reasoning
 the common sense database and the input maxim. Thus, my system \emph{could} make smart ethical judgements 
 in practice, but getting to that point will require a robust, trusted common sense database and maxim
 formulator.
+
+In this paper, I contribute an implementation of the Formula of Universal Law that, when equipped with 
+relatively thin common sense facts, can performed nuanced, sophisticated ethical reasoning. When given 
+as input a maxim in the format specified in Chapter 3, my system can show that the maxim is permissible, 
+obligatory, or prohibited. It can provide a verifiable proof of its judgement and a human-readable list
+of the facts or axioms it used to reach its conclusion. My system is faithful to philosophical literatire
+on Kantian ethics and serves as the first step towards a fully or partially automated ethical AI agent. 
+It also establishes the power and potential of computational ethics, or the use of computational tools
+for ethical investigation, as explored in this section's Applied Ethical reasoning. 
 
 \emph{Stick a bit here about the philosophical work that will go in this section} \<close>
 
@@ -186,8 +195,8 @@ worlds for this example. A technical detail. \<close>
 proof - 
   have "(\<forall>p w. (W m p) w) \<longrightarrow> (\<Turnstile> (c \<^bold>\<rightarrow> (\<^bold>\<not> g)))"
     by (smt assms(1) assms(2) assms(5) case_prod_beta fst_conv old.prod.exhaust snd_conv)
-\<comment>\<open>Unlike many of the other proofs in this project, this proof was a little heavier and required some manual
-work to produce. I divided the proof into the intermediate steps shown here, and Isabelle was able to do 
+\<comment>\<open>Unlike many of the other proofs in this project, this proof is a little heavier and requires some manual
+work to produce. After I divide the proof into the intermediate steps shown here, and Isabelle is able to do 
 the rest. This step says that if $m$ is universalized, then the circumstances won't lead to the goal, 
 which is quite close to the idea of the maxim not being universalizable.\<close>
   have "not_universalizable m me"
@@ -202,7 +211,7 @@ text \<open>Now that I have formalized Korsgaard's argument for why lying is pro
 implement her argument for why jokes are permissible. Specifically, she defines a joke as a story that is 
 false and argues that joking is permissible because ``the universal practice of lying in the context of jokes
 does not interfere with the purpose of jokes, which is to amuse and does not depend on
-deception" \citep[4]{KorsgaardRTL}. First, I define a joke..\<close>
+deception" \citep[4]{KorsgaardRTL}. First, I define a joke.\<close>
 
 abbreviation joke::"maxim\<Rightarrow>bool" where 
 "joke \<equiv> \<lambda> (c, a, g).  \<exists>t. (a \<^bold>\<longrightarrow> (\<lambda>s. knowingly_utter_falsehood s t)) \<and> \<not> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> (believe p t)) w)"
@@ -233,16 +242,60 @@ worlds for this example. An irrelevant technical detail. \<close>
   shows "\<Turnstile> (permissible m me)"
   by (smt assms(1) assms(2) assms(3) case_prod_conv)
 
-text \<open>This completes my implementation of Korsgaard's first interpretation of lying. Using the convention
-of lying assumption formalized in this section, I show that lying is generally prohibited but joking
-is permissible. Notice that this is already a sophisticated kind of ethical reasoning. The sophistication
-necessary to distinguish between lying and joking is a direct consequence of my system's use of a robust
-conception of a maxim, which encodes the goal of an act as part of the maxim being evaluated. This kind 
-of ethical reasoning also requires relatively few and uncontroversial common sense facts. The deepest
+text \<open>One potential worry with the above argument is the fact that my definition of joke requires that 
+achieving the goal of a joke does not rely on anyone believing the falsehood told in the joke. On its face, 
+this is not a complete representation of a joke; the ordinary conception of a joke would be something like 
+a false statement uttered with the goal of amusing. I define the goal of the joke as not requiring that 
+anyone believe the false statement to distinguish it from lying, which has deception as the goal. I 
+intentionally avoid providing robust formalizations of both deception and amusement; instead I present a 
+thin conception that relies entirely on the concept of belief. This conception does not require any notion
+of humor, satire, intention, or malice, all of which are concepts that may be necessary to define 
+amusement and deception completely. 
+
+The fact that my system shows that lies are prohibited and jokes are permissible with these things 
+conceptions of amusement and deception shows that my system isolates a necessary and sufficient property 
+of a class of maxims that fail the universalizability test. Because my definitions of a lie and joke
+only differ in whether or not their goal requires that someone believe the falsehood in question, the
+theorems proved in this section show that, in order for a maxim with the act of knowingly uttering a falsehood
+to be prohobited, the goal requires that someone believe the falsehood is a necessary and sufficient condition. 
+This logical fact derived by my system tracks a fact implicit in Korsgaard's argument and in most Kantian accounts
+of lying: the wrongness of lying is derived from the requirement that someone believe the falsehood. 
+The logical reality that this property is necessary and sufficient to generate a prohibition reflects
+a deep philosohopical explanation of \emph{why} certain maxims about uttering falsehood fail the universalizability
+test and why others pass. In simple terms, universalizing uttering a falsehood makes belief in that 
+falsehood impossible, so any maxims with goals that require believing in the falsehood will be prohibited.
+
+This account not only describes the kind of maxims that fail or pass the universalizability test, it 
+also provides a guide to constructing permissible maxims about uttering falsehoods. As an example, 
+consider the idea of throwing a surprise birthday party. At first glance, the maxim of action is 
+something like, ``When it is my friend's birthday, I will secretly plan a party so that I can surprise
+them." The goal ``so that I can surprise them" clearly requires that your friend believe the falsehood that 
+you are not planning a party, else the surprise would be ruined. The analysis above seems to imply that 
+Kantian ethics would prohibit surprise parties, which is a sad conclusion for birthday-lovers everywhere. 
+Noticing that the problem with this maxim is that the goal requires belief
+in a falsehood provides a way to rescue the beloved concept of surprise parties. When throwing a 
+surprise party, the ultimate objective is \emph{not} to surprise your friend, but is to celebrate
+your friend and help them have a fun birthday. If someone ruins the surprise, but the party is still fun
+and the birthday person still feels loved, then we would consider such a party a success! Someone who
+called this party a failure clearly would be missing the point of a surprise party. Thus, the goal of 
+a surprise party is not the surprise itself, but rather to celebrate the birthday person. Thus modified, 
+the goal no longer requires belief in the falsehood and thus passes the universalizability test. 
+
+The implications of this section are twofold. First, my system is capable of performing ethical reasoning
+sophisticated enough to show that lying is prohibited but joking is not. The sophistication
+necessary to distinguish between lying and joking was a direct consequence of my system's use of a robust
+conception of a maxim, which encoded the goal of an act as part of the maxim being evaluated. Second, 
+in the process of making this argument precise, my system isolated a necessary and sufficient condition 
+of a maxim about uttering a falsehood being prohibited: that the goal require that someone believe
+the falsehood. This condition both made an long-standing argument in Kantian ethics more precise
+and can guide the correct formulation of future maxims. In other words, an insight generated by the 
+computer provides value to ethicists. 
+
+Moreover, all of the reasoning in this chapter required relatively few and uncontroversial common sense facts. The deepest
 assumption required was that, if everyone lies about a given statement, no one will believe that 
 statement. This assumption is not merely definitional; it does encode some synthetic knowledge about the 
 world, but it is relatively uncontroversial. Indeed, it is so well-accepted that Korsgaard does not 
-bother to justify it in her argument. These examples demonstrate that, while common sense reasoning 
+bother to justify it in her argument. These examples showed that, while common sense reasoning 
 is an obstacle that must be overcome for my system to be used in practice, it is surmountable.
 \<close>
 
@@ -307,8 +360,8 @@ lemma murderers_maxim_prohibited:
   assumes "\<Turnstile> (find_victim \<^bold>\<rightarrow> (believe me not_a_murderer))"
 \<comment>\<open>Assumption that, in order for the murderer to find their victim, you must not believe that he is a murderer.
 This is an example of the kind of situation-specific common sense reasoning necessary to use my system.
-Again, this is an uncontroversial statement; the murderer assumes that if you knew he was a murderer, you 
-would not disclose the victim's location to him. SHOULD I SAY MORE HERE?\<close>
+Again, this is Korsgaard's uncontroversial assumption; the murderer assumes that if you knew he was a murderer, you 
+would not disclose the victim's location to him.\<close>
   assumes "\<forall>t w. ((\<forall>p. utter_falsehood p t w) \<longrightarrow> (\<forall>p. \<^bold>\<not> (believe p t) w))"
 \<comment>\<open>The convention of lying common sense assumption from above.\<close>
   assumes "\<forall>w. when_at_my_door w"
@@ -356,8 +409,8 @@ saying a false sentence, then I won't believe that sentence.\<close>
 person2 believes they are in the given circumstances, then person1 believes person2 performs the act. In other words, person1 will believe that 
 person2 wills the maxim. I will refer to this as the ``convention of willing" assumption. This follows
 directly from Korsgaard's conception of universalizability: when a maxim is universalized, everyone 
-wills it. Korsgaard assumes that if everyone wills a maxim, they also believe that everyone else wills it.
-DO I NEED TO SAY MORE HERE? \<close>
+wills it and thus notices the pattern of everyone willing it. If you observe that many do X in circumstances C,
+you will assume that everyone does X in circumstance C.\<close>
   assumes "\<forall>w. murderer_at_door w"
 \<comment>\<open>Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
 these are the morally interesting worlds for this example. An irrelevant technical detail. \<close>
@@ -395,10 +448,10 @@ qed
 
 text \<open>This concludes my examination of the maxim of lying to a liar. I was able to show that, by
 modifying the common sense facts used, my system can show that lying to a liar is permissible, but lying 
-in order to find a victim is not. The assumptions used in this example are a little more robust, but still
-ultimately uncontroversial. Indeed, they are direct consequences of Korsgaard's definition of willing 
+in order to find a victim is not. The assumptions used in this example were a little more robust, but still
+ultimately uncontroversial because they were direct consequences of Korsgaard's definition of willing 
 and of ordinary definitions of lying. These thin assumptions were sufficient to generate moral conclusions
-that Kantian scholars debate robustly. Indeed, armed with this common sense, my system generated 
+that Kantian scholars debate robustly. Armed with this common sense, my system generated 
 a conclusion that many critics of Kant failed to see.
 
 While it is true that lying to the murderer should be permissible, Korsgaard notes that many will want
@@ -406,7 +459,7 @@ to say something stronger, like the fact that lying to the murderer is obligator
 the intended victim \citep[15]{KorsgaardRTL}. It seems like we would be doing something wrong if I revealed the victim's
 location, knowing that this revelation would cost them their life. Korsgaard solves this problem by 
 noting that, while the FUL shows that lying to the murderer permissible, other parts of Kant's ethics
-will show that it is obligatory. Recall that Kant presents perfect and imperfect duties,
+show that it is obligatory. Recall that Kant presents perfect and imperfect duties,
 where the former are strict, inviolable, and specific and the latter are broader prescriptions for action.
 Perfect duties always supersede imperfect duties when the two conflict.
 For example, the duty to not murder is a perfect duty and the duty to give to charity is an imperfect duty. 
@@ -423,12 +476,12 @@ Kant's ethical theory that I formalize and demonstrates that I have faithfully i
 
 text \<open>While this example demonstrates the power of my system (when equipped with some common sense), it 
 also shows how vital the role of the common sense reasoning is. Slight, intuitive changes in the common
-sense facts can achieve totally different conclusions about lying. This represents an obstacle to 
+sense facts achieved totally different conclusions about lying. This represents an obstacle to 
 fully automated ethical reasoning; such an agent would need a trusted database of common 
 sense facts, which is still an unsolved problem. My work is one step towards such an agent, but the 
 importance of common sense means that much progress must be made in order to completely automate ethics.
 
-The reasoning of this section also demonstrates one additional place where a Kantian must make vital judgements:
+The reasoning of this section also demonstrated one additional place where a Kantian must make vital judgements:
 the formulation of the maxim itself. Korsgaard's argument for the permissibility of lying to a 
 murderer hinged on a clever formulation of the maxim highlighting a particular facet of the circumstances, 
 namely that the murderer is lying to you. Indeed, there is robust debate in the literature on what
@@ -442,7 +495,7 @@ the circumstances, any maxim can evade universalization.
 
 The Kantian response to this criticism is to require that the circumstances included in the formulation
 of the maxim be ``morally relevant." In the example above, my purple shirt and the date clearly have no bearing on 
-the moral status of lying. On the other hand, consider the maxim ``When I am unmeployed, I will murder
+the moral status of lying. On the other hand, consider the maxim, ``When I am unmeployed, I will murder
 someone in order to take their job." The circumstances of being unmeployed clearly have some bearing on the moral
 relevance of the murder in question; they speak to the motivation for the murder. While this view seems 
 to track how we actually perform moral reasoning, it leaves open the question of how to determine
@@ -455,8 +508,8 @@ best when they make a good faith effort to isolate the \emph{principle} of their
 ``surface intent" \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
 is universally consistent, so it is at its most effective when an agent accurately formulates the principle
 they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
-thinking about their own action. In the example above, the circumstances of wearing a purple shirt don't
-the principle of the liar's action. They are clearly a disingenous attempt to evade the universalizability
+thinking about their own action. In the example above, the circumstances of wearing a purple shirt don't reflect
+the principle of the liar's action. Their inclusion is clearly a disingenous attempt to evade the universalizability
 test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
 gymnastics.
 
@@ -474,7 +527,7 @@ in Section ?? that this kind of input parsing work should be left to human being
 major technical and philosophical progress must be made to automate this portion of the system. 
 
 The formulation of a maxim and the common sense database pose the two greatest challenges to the adoption
-of my system in practice. In this chapter, I argue that using manual, human involvement, these challenges
+of my system in practice. In this chapter, I argued that using manual, human involvement, these challenges
 can be overcome in relatively uncontroversial ways. They are also ripe areas for future work.   \<close>
 
 subsection "Philosophical Analysis: Is Automated Ethics a Good Idea?"
