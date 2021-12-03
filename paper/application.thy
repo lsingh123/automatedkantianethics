@@ -14,8 +14,8 @@ truth. This kind of reasoning contrasts with ``applied
 ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
 what an agent should or should not do. Applied ethical reasoning is relevant with respect to an agent's
 particular situation, not just to an ethical theory as an abstract entity. In previous chapters' application tests,
-I performed some toy examples of applied ethical reasoning, but in this chapter, I expore how my system can 
-perform extended applied ethical reasoning. Metaethical reasoning is most interesting to philosophers 
+I performed some toy examples of applied ethical reasoning, but this chapter is an extended exploration of
+my system's ability to perform applied ethical reasoning. Metaethical reasoning is most interesting to philosophers 
 who are trying to formulate the ``best" theory of ethics. Applied ethical reasoning, on the other hand, 
 is useful to ordinary people who are trying to decide how to live their lives. In order for automated 
 ethics to guide AI agents, it must perform applied ethical reasoning. 
@@ -53,8 +53,8 @@ Related Work for a survey of the common sense required in prior work.} Most prio
 sidestep this question, whereas I contribute an prototype implementation of one kind of common sense reasoning.
 
 The specific kind of common sense reasoning required appears to be a challenge 
-for automating Kantian ethics, and perhaps a reason that consequentialist or virtue ethical automated
-agents would be within closer reach for automation. Ultimately, Kantian ethics is still
+for automating Kantian ethics, and may imply that consequentialist or virtue ethical automated
+agents are within closer reach for automation. Ultimately, Kantian ethics is still
 easiest to automate because it will require fewer, less controversial common sense facts than other ethical
 systems. As the examples in this section demonstrate, Kantian ethics requires a definition of lying (which any other 
 theory would also requires) and the knowledge that if everyone lies in a given context, no one will believe 
@@ -79,7 +79,7 @@ I manually implement Korsgaard's formulation of certain maxims, and I will later
 of maxims is, at present, the way forward. 
 
 This chapter will provide additional examples of the kinds of common sense facts and maxim formulation required to get my system
-off the ground. I will aim to use as lean and uncontroversial of a common sense database as possible
+off the ground. I will aim to use a lean and uncontroversial common sense database
 to achieve robust and powerful results. This serves as evidence for the ease of automating
 Kantian ethics, an example of what additional work my system requires, and a demonstration of the contributions
 that I make. These examples demonstrate that nuanced common sense facts and maxims can cause my system to contribute 
@@ -147,7 +147,7 @@ abbreviation implies_os::"os\<Rightarrow>os\<Rightarrow>bool" ("_\<^bold>\<longr
 abbreviation lie::"maxim\<Rightarrow>bool" where 
 "lie \<equiv> \<lambda> (c, a, g). \<exists>t. (a \<^bold>\<longrightarrow> (\<lambda>s. knowingly_utter_falsehood s t)) \<and> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> (believe p t)) w)"
 \<comment>\<open>Using the above definitions, I can characterize a maxim as a lie if 
-    (a) the act requires knowingly uttering a falsehood 
+    (a) the act requires knowingly uttering a falsehood and,
     (b) the end requires that some person $p$ believe the false statement $t$.\<close>
 
 text \<open>To avoid unintentional wrongdoing, I focus on ``knowing lies," 
@@ -466,7 +466,7 @@ For example, the duty to not murder is a perfect duty and the duty to give to ch
 The FUL generates perfect duties and Kant's extended theory of virtues generates imperfect duties. The details
 of this theory and these distinctions are outside the scope of this paper, but the crucial note is that 
 other parts of Kant's ethical theory generate the obligation to lie to the murderer. I chose
-to formalize the FUL because it is, in some sense, the strongest of the formulations of the categorical
+to formalize the FUL because it is, in some sense, the strongest of version of the categorical
 imperative. An even more sophisticated Kantian reasoner could formalize his theory of virtue and his
 other formulatations of the categorical imperative in order to generate the obligation to lie to the murderer, 
 but the FUL is the strongest and most foundational of these principles. The fact that my system merely
@@ -495,8 +495,8 @@ the circumstances, any maxim can evade universalization.
 
 The Kantian response to this criticism is to require that the circumstances included in the formulation
 of the maxim be ``morally relevant." In the example above, my purple shirt and the date clearly have no bearing on 
-the moral status of lying. On the other hand, consider the maxim, ``When I am unmeployed, I will murder
-someone in order to take their job." The circumstances of being unmeployed clearly have some bearing on the moral
+the moral status of lying. On the other hand, consider the maxim, ``When I am unemployed, I will murder
+someone in order to take their job." The circumstances of being unemployed clearly have some bearing on the moral
 relevance of the murder in question; they speak to the motivation for the murder. While this view seems 
 to track how we actually perform moral reasoning, it leaves open the question of how to determine
 which circumstances are morally relevant. Here, O'Niell reminds us that the Formula of Universal Law is 
@@ -508,8 +508,8 @@ best when they make a good faith effort to isolate the \emph{principle} of their
 ``surface intent" \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
 is universally consistent, so it is at its most effective when an agent accurately formulates the principle
 they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
-thinking about their own action. In the example above, the circumstances of wearing a purple shirt don't reflect
-the principle of the liar's action. Their inclusion is clearly a disingenous attempt to evade the universalizability
+thinking about their own action. In the example above, the circumstance of wearing a purple shirt doesn't reflect
+the principle of the liar's action. Its inclusion is clearly a disingenous attempt to evade the universalizability
 test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
 gymnastics.
 
