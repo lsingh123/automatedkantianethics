@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  26 NOV 2021 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 DEC 2021 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -154,7 +154,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 Here is how much of TeX's memory you used:
  1879 strings out of 480608
  26225 string characters out of 5903631
- 271765 words of memory out of 5000000
+ 272765 words of memory out of 5000000
  17810 multiletter control sequences out of 15000+600000
  537533 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -163,7 +163,7 @@ Here is how much of TeX's memory you used:
 nc}</usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on abstract.pdf (1 page, 34738 bytes).
+Output written on abstract.pdf (1 page, 35105 bytes).
 PDF statistics:
  21 PDF objects out of 1000 (max. 8388607)
  14 compressed objects within 1 object stream
