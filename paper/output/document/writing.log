@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  15 NOV 2021 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  5 DEC 2021 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -374,16 +374,17 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./writing.toc)
+) (./writing.toc
+[1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write5
 \openout5 = `writing.toc'.
 
-[1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2] (./threeflags.tex [3] [4] [5] [6] [7] [8] [9] [10] [11]) [12] (./upshot.tex
 [13]
-<AI_engine.png, id=214, 921.4425pt x 359.3425pt>
+<AI_engine.png, id=232, 921.4425pt x 359.3425pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
 Package pdftex.def Info: AI_engine.png  used on input line 82.
@@ -410,7 +411,8 @@ l.63 \input{upshot}
                    
 ? 
 [28] (./whykant.tex [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
-[40] [41] [42] [43] [44] [45] [46]) [47] (./writing.bbl [48] [49])
+[40] [41] [42] [43] [44] [45] [46]) [47] (./whycomputationalethics.tex [48]
+[49] [50] [51] [52] [53]) [54] (./writing.bbl [55] [56])
 
 ! LaTeX Error: \begin{isapar} on input line 487 ended by \end{document}.
 
@@ -418,18 +420,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 \end{document}
+l.76 \end{document}
                    
 ? 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
-[50]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+[57]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  (./writing.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `writing.out' has not changed.
-(rerunfilecheck)             Checksum: 7E80AD9C574F85026E548444FA9E106C;1172.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
+(rerunfilecheck)             Checksum: 0D28A917761E204F9EEA1DF52D3A0CE4;1385.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  )
 (\end occurred inside a group at level 3)
 
@@ -438,10 +440,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
 ### semi simple group (level 1) entered at line 2 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7759 strings out of 480608
- 111871 string characters out of 5903631
- 371523 words of memory out of 5000000
- 23348 multiletter control sequences out of 15000+600000
+ 7791 strings out of 480608
+ 112327 string characters out of 5903631
+ 372635 words of memory out of 5000000
+ 23363 multiletter control sequences out of 15000+600000
  564544 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,8n,31p,493b,721s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -463,10 +465,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/font
 s/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/ur
 w/times/utmri8a.pfb>
-Output written on writing.pdf (50 pages, 260693 bytes).
+Output written on writing.pdf (57 pages, 277504 bytes).
 PDF statistics:
- 612 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 122 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 675 PDF objects out of 1000 (max. 8388607)
+ 594 compressed objects within 6 object streams
+ 137 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

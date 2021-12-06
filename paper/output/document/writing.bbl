@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -27,6 +27,12 @@ Aristotle.
 \newblock The nicomachean ethics.
 \newblock \emph{Journal of Hellenic Studies}, 77:\penalty0 172, 1951.
 \newblock \doi{10.2307/628662}.
+
+\bibitem[Benzmüller and Woltzenlogel~Paleo(2016)]{godelincon}
+C.~Benzmüller and B.~Woltzenlogel~Paleo.
+\newblock The inconsistency in gödel's ontological argument: A success story
+  for ai in metaphysics.
+\newblock 07 2016.
 
 \bibitem[Bok(1998)]{bok}
 H.~Bok.
@@ -91,6 +97,11 @@ P.~Kitcher.
   2003.
 \newblock \doi{10.5840/philtopics2003311/29}.
 
+\bibitem[Korsgaard(1986)]{KorsgaardRTL}
+C.~Korsgaard.
+\newblock {The Right to Lie: Kant on Dealing with Evil}.
+\newblock \emph{Philosophy and Public Affairs}, 15:\penalty0 325--249, 1986.
+
 \bibitem[Korsgaard(2012)]{korsgaardintro}
 C.~Korsgaard.
 \newblock \emph{Groundwork of the Metaphysics of Morals}, chapter Introduction.
@@ -108,6 +119,13 @@ C.~M. Korsgaard and O.~O'Neill.
 \newblock \emph{The Sources of Normativity}.
 \newblock Cambridge University Press, 1996.
 \newblock \doi{10.1017/CBO9780511554476}.
+
+\bibitem[Licklider(1960)]{licklider}
+J.~C.~R. Licklider.
+\newblock Man-computer symbiosis.
+\newblock \emph{IRE Transactions on Human Factors in Electronics},
+  HFE-1\penalty0 (1):\penalty0 4--11, 1960.
+\newblock \doi{10.1109/THFE2.1960.4503259}.
 
 \bibitem[McRae(2013)]{mcrae}
 E.~McRae.

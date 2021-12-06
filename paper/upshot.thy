@@ -405,7 +405,7 @@ departments, technical progress could turn computational ethics into an easy-to-
 that doesn't require any specialized progamming or logical knowledge.
 
 The first contribution of computational ethics is precision \footnote{TODO: this article discusses 
-benefits of precision: $https://www-jstor-org.ezp-prod1.hul.harvard.edu/stable/pdf/2024318.pdf?refreqid=excelsior%3Aee9f16263a31b3e2d4fe548e8c5c823f$}. Much of analytic philosophy involves 
+benefits of precision: bookmarked}. Much of analytic philosophy involves 
 making a particular concept precise. Thought experiments, arguments, counterexamples, and examples 
 illustrate features of a concept in the hope of making the concept itself more precise. Computational 
 ethics can help philosophers reach this goal of precision in another, potentially easier, way. 
