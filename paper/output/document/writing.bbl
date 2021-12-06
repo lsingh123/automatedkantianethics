@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -39,6 +39,12 @@ H.~Bok.
 \newblock \emph{Freedom and Responsibility}.
 \newblock Princeton University Press, 1998.
 
+\bibitem[Buzzard(2021)]{buzzardvideo}
+K.~Buzzard.
+\newblock How do you convince mathematicians a theorem prover is worth their
+  time?
+\newblock Talk at IOHK, January 2021.
+
 \bibitem[Christensen(2007)]{christensen}
 D.~Christensen.
 \newblock Epistemic self-respect.
@@ -70,6 +76,11 @@ A.~C. Ewing.
 \newblock \emph{Philosophy}, 47\penalty0 (180):\penalty0 173--175, 1972.
 \newblock ISSN 00318191, 1469817X.
 \newblock URL \url{http://www.jstor.org/stable/3750106}.
+
+\bibitem[Harrison et~al.(2014)Harrison, Urban, and Wiedijk]{historyofITP}
+J.~Harrison, J.~Urban, and F.~Wiedijk.
+\newblock History of interactive theorem proving.
+\newblock In \emph{Computational Logic}, 2014.
 
 \bibitem[Hursthouse and Pettigrove(2018)]{vesep}
 R.~Hursthouse and G.~Pettigrove.
