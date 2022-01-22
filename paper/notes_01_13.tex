@@ -1,0 +1,182 @@
+Rawls Lectures on the History of Moral Philosophy p. 166
+"It is a serious misconception to think of the CI-procedure as an algorithm intended to yield, more 
+or less mechanically, a correct judgment. There is no such algorithm, and Kant knows this. It is 
+equally a misconception to think of this procedure as a set of debating rules that can trap liars
+and cheats, scoundrels and cynics, into exposing their hand. There are no
+such rules."
+- why not? rawls doesn't really explain himself
+
+O'Neill Universal Laws and Ends in Themselves p. 343
+"The three formulations are all offered as tests that agents can apply to
+ proposals for action. The Categorical Imperative is nowhere proposed as a
+ principle that will by itself generate or entail a universal moral code. It is not
+ a moral algorithm (unlike the Principle of Utility) but (supposedly) a
+ criterion of moral action for agents who act freely, so may start with
+ various possible proposals for action. The common assumption of the three
+ principles is that there is some way by which agents can filter these initial
+ proposals to check whether they are morally acceptable. Each formulation
+ of the Categorical Imperative is offered as an answer to the agent's question
+ "What ought I do?",3 on the assumption that agents will have certain ten
+ tative plans, proposals and policies which they can consider, revise or re
+ ject?or endorse and pursue."
+her arguments:
+-can only test given maxims, can't magically produce moral action 
+-assumes that there is some input and answers the question "What should I do?" among given options
+  - that is exactly what my system does 
+  - the model is that, like a human, an AI navigating the world has options and has to decide among them
+
+p.345
+"Fifth, since the implementation of maxims will differ according to cir
+ cumstances, a test on maxims is not and cannot be enough to determine the
+ Tightness or wrongness of particular acts (their "legality"); it can only
+ reveal the moral quality or worth of maxims (so is in Kant's terms a test of
+ "morality"). Kant defines duty not (as would be common today) as out
+ ward performance of a certain sort, but as action that embodies a good will
+ i.e., action on a maxim of a certain sort. (397) However, although moral
+ worth is more fundamental than Tightness in Kant's theory, Tightness and
+ wrongness are more easily ascertainable. This is simply a corollary of the
+ opacity of our self knowledge. If we are unsure what the maxim of a given
+ act is, we cannot be sure whether it is morally worthy. Despite their best ef
+ forts at principled and self-conscious action, agents are prey to self
+ deception and selective perception. This is not rare or exotic but com
+ monplace?we are repeatedly tempted to ascribe maxims that place acts and
+ agents in a more flattering or a more lurid light. By contrast, it would be
+ relatively easy // we had a test to identify morally worthy maxims to deter
+ mine whether an agent who acted on such a maxim would have acted in a
+ specific way in those circumstances. In his most pessimistic moments Kant
+ doubts whether we can ever know that a morally worthy action has been
+ done, which would mean that we can never judge the morality of acts. This
+ pessimism need not stop us from judging whether acts that conform to such
+ maxims have been done?provided that we have a criterion for identifying
+ morally worthy maxims.5 The various formulations of the Categorical Im
+ perative are supposed to provide this criterion"
+-only evaluates whether or not maxims are morally worthy, but doesn't evaluate action. to evaluate 
+action, you have to decide what the maxim of action is and evaluate it
+  - in the model above, the AI has options and has to decide which to take, like a human. Section ??
+concedes that determining the maxim to pass as input to my system is a challenge and possible limitation
+of my system, and this is part of the challenge of formulating a maxim, which this criqitue also 
+says is a challenge.
+  - Nonetheless, there is some value to providing a criterion for identifying morally worthy maxims. 
+Perhaps we (and machines) are not always mistaken about the maxim of action. Perhaps the maxims are chosen
+from some pre-populated, manually entered database. Identifying morally relevant maxims is one step 
+towards automated ethics but not the whole puzzle and that's ok. 
+p.349-350 describes what the role of the FUL is 
+- most practical reasoning doesn't involve literally using the CI to evaluate maxims - we have some 
+prior knowledge from moral advice and guidance about which maxims are good or bad
+- FUL merely tells you how to distinguish maxims of duty from maxims that are not of duty, but practical
+reason is the process of determining which maxim a particular action in a particular situation conforms with
+  - this provides a clue as to how you can implement an input parser - maybe we have some prior database of 
+actions or action-maxim mappings and we extrapolate from there 
+  - either way, we agree. my project tells you how to distinguish maxims of duty, and then actually 
+using that to guide action requires an additional step
+  - moreover, human beings need an "almanac" or prior set of maxims that are of duty or not because we
+have limited reasoning capacity but computers can totally just rederive which maxims are good or bad
+constantly. that way computers can use both testimony and proof!
+- tradeoff: computation vs common sense so partnership is the best approach 
+
+seems crazy but need an argument given computes can simulate human brain 
+
+herman (available for pickup) TBD
+
+Tafani
+p3 "In Kant's lexicon, it is a matter of constructing machines whose
+characteristic is not goodness, but holiness, that is, knowledge of moral
+norms and the infallible and automatic adaptation of their actions to them"
+
+Kant is easy bc:
+p. 4 -> only requires rationality to behave morally (cognitivism)
+no moral dilemmas bc no conflicting obligations
+FUL seems computational
+
+three challenges:
+1. difficult/impossible for computer to check for contradiction under FUL
+2. "the difficulty of selecting, from a given maxim, the relevant elements for its
+universalization" (circumstance/formulation of the maxim)
+3. how do you actually understand the universalized world -> need empirical and psychological knowledge
+I solve the first and (kind of) second challenges
+"universal diffusion of lying" is an empirical or anthropological truth
+Herman -> moral rules of relevance -> human agent knows which features of the maxim are morally relevant 
+
+p. 8 -> Kant says that people know their duty and we need philosophy to remind them and mitigate bad-faith efforts
+"For Kant, the identification of the criterion of moral judgement is therefore
+not a procedure by which someone who is ignorant of the moral law can
+find out what his duty is (Singer, 1973, p. 298), or by which a computer
+system can be programmed to morality; it constitutes the analysis of
+common moral judgement, i.e. the reconstruction of what every man
+automatically does when he finds himself morally evaluating a maxim. The
+Kantian test is therefore as useless for machines as it is for anyone who does
+not already know what to do."
+
+his examples are cases where there is a temptation to make an exception just for me 
+it's a reaffirmation in a moment of weakness, not a way to derive duty from scratch
+"However useful it may be from a psychological
+point of view, in moments of weakness, such a reaffirmation of the
+universal validity of the moral law does not, by itself, lead to the definition
+of what, concretely, must be done, since it is compatible - as a mere
+requirement of universality - with countless alternative definitions of the
+content of the moral law"
+
+p. 8 "It is true - as O'Neill observes - that a check on the contradictory nature of
+the universalised maxim requires a common sense consideration of the
+empirical consequences, which a machine is therefore unable to perform,
+and it is true that even a common sense test can give false positive results. It
+is true that even a test based on common sense can give false positive
+results. But this is not due to a weakness in the formulation of the test,
+which would therefore need to be fine-tuned, but rather to a distortion of the
+function attributed by Kant to the test by those who attempt to use it to
+regulate the behaviour of humans or machines from scratch. "
+- O'Neill says that you need some common sense or practical reason or judgement to perform the UT
+- this is true and also why it gives false-positives
+- BUT the false-positives are a result of using the test WRONG, in a bad-faith manner
+- you CAN arbitrary specify maxims.but you're not supposed to
+- you're not supposed to try to circumvent the test - the point is not to put in arbitrary maxims
+- instead, the point is to put in maxims of which you have some notion of rightness or wrongness
+and the test will confirm it and remind you what your duty is
+
+
+outline:
+1. philosophers like to assert that ethics is not the right kind of thing to be automated (e.g. Rawls). 
+      But this has to be justified - after all, computers can mimic human brain activity entirely, so cognitivists
+      have to argue why ethics is out of reach of computation but addition, emotion, thought, and language aren't
+
+2. one reason, from O'Niell is that the FUL can only test given maxims but can't actually prescribe
+moral action because moral action also requires a specific attitude towards the moral law
+      That's ok! Current computers aren't rational beings so they can't actually behave morally, but
+      they can act on the maxim that has moral worth in a particular situation. We can't judge a computer
+      as "acting from duty" but we might still think that a computer acting on morally worthy maxims 
+      is a better thing for society than computers not acting on morally worthy maxims.
+
+      Also, this doesn'tindict CE. 
+
+3. Moreover, even evaluating a particular maxim requires that the maxim be given as input. Specifically,
+human beings navigating the world are faced with choices, and if they want to use the FUL, they have to
+extract their potential maxims from their choices. O'Neill says 
+that even Kant identifies this as challenging for human beings, and Tafani also identifies this as a 
+challenge for Kantian machine ethics.
+      This is a challenge I also identify! Formulating the input maxim for my system. See the discussion 
+      in Section Upshot about this. Roughly, I argue that either a human being can take over or we can 
+      develop heuristics. Moreover, there's still some value to having a machine that can apply the CI
+      test to given maxims and future work can work on the input parser. Also doesn't indict CE.
+
+4. Finally, Tafani and O'Niell also argue that the FUL is not SUPPOSED to generate ethics from scratch.
+O'Niell notes that human beings come equipped with an almanac of right and wrong maxims and that
+the fUL tests these. Human beings don't actually repeatedly apply the UT.
+      Cool! Computers don't have human limitations, so they can actually repeatedly apply the CI test, 
+      essentially checking their work and rederiving the moral worth of a maxim every time they consider it.
+      There's a tradeoff here: humans have common sense but computational limits, so they use the common 
+      sense to avoid repeating calculations. computers have no common sense but (Compared to humans)
+      no computational limits, so they can perform the calculation over and over again instead of
+      "remembering" it. almanac == cultural memory of rightness and wrongness
+
+5. Tafani takes it one step further by arguing that we actually know which maxims are right
+and which ones are wrong and the UT is just supposed to strengthen our resolve to behave morally whenever
+we are tempted to make an exception of ourselves. Indeed, bad-faith attempts to pass the UT work - see 
+the example of the tailoring objection given by O'Niell. 
+    This, combined with the almanac, actually give us some insight into how we can solve the challenge
+    of making an input parser. Specifically, we can learn some set of maxims and maybe assign each a 
+    "rightness score" indicating how confident we are that it is right or wrong and THEN use the automated
+    FUL to test these maxims. You can imagine a deep-learning type system that, based on some database
+    mapping actions to maxims, can extract a maxim from a situation as well as its rightness score
+    and then pass these as input to the FUL test. The output of the FUL test can in turn reinforce or
+    rething the rightness score.
+                                          

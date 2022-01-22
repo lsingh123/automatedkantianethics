@@ -1,4 +1,4 @@
-(*<*) theory paper41
+(*<*) theory paper_pretty
   imports  paper22 paper224
 
 begin(*>*)
@@ -300,12 +300,14 @@ abbreviation well_formed::"maxim\<Rightarrow>s\<Rightarrow>i\<Rightarrow>bool" w
 already achieved in the circumstances and the subject cannot have already performed the act.\<close>
 
 abbreviation FUL where 
-"FUL \<equiv> \<forall>M::maxim. \<forall>s::s. (\<forall>w. well_formed M s w) \<longrightarrow> (not_universalizable M s \<longrightarrow> \<Turnstile> (prohibited M s) )"
-\<comment>\<open>Let's try the exact same formalization of the FUL as above, except that it only applies to 
-maxims that are well-formed at every world.\<close>
+"FUL \<equiv> \<forall>M::maxim. \<forall>s::s. (\<forall>w. well_formed M s w) \<longrightarrow> 
+(not_universalizable M s \<longrightarrow> \<Turnstile> (prohibited M s) )"
 
 lemma "FUL"
   nitpick[user_axioms, falsify=true] oops
+
+
+
 \<comment>\<open>The FUL does not hold in DDL, because nitpick is able to find a model for my system in which it is 
 false. If the FUL were already a theorem of the system, adding it wouldn't make the system any more 
 powerful, so this is the desired result.
@@ -323,7 +325,7 @@ axiomatization where FUL:FUL
 lemma True
   nitpick[user_axioms, falsify=false] by simp
 \<comment>\<open>Nitpick is able to find a model in which all axioms are satisfied, 
-so this version of the FUL is consistent.
+so this formalization of the FUL is consistent.
 
 $\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
 
