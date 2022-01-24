@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -150,6 +150,13 @@ G.~E. Moore.
 \newblock \emph{Principia Ethica}.
 \newblock Dover Publications, 1903.
 
+\bibitem[O'Neill(1989)]{oneilluniversallaws}
+O.~O'Neill.
+\newblock Universal laws and ends-in-themselves.
+\newblock \emph{The Monist}, 72\penalty0 (3):\penalty0 341--361, 1989.
+\newblock ISSN 00269662.
+\newblock URL \url{http://www.jstor.org/stable/27903145}.
+
 \bibitem[O'Neill(1990)]{constofreason}
 O.~O'Neill.
 \newblock \emph{Constructions of Reason: Explorations of Kant's Practical
@@ -180,6 +187,11 @@ J.~Rawls.
   1980.
 \newblock ISSN 0022362X.
 \newblock URL \url{http://www.jstor.org/stable/2025790}.
+
+\bibitem[Rawls(2000)]{rawlslectures}
+J.~Rawls.
+\newblock Lectures on the history of moral philosophy.
+\newblock \emph{Critica}, 35\penalty0 (104):\penalty0 121--145, 2000.
 
 \bibitem[Robeyns(2005)]{robeyns}
 I.~Robeyns.
@@ -215,6 +227,17 @@ N.~E. Snow.
 \newblock \emph{The Oxford Handbook of Virtue}.
 \newblock Oxford University Press, 2017.
 
+\bibitem[Tafani(2021)]{tafani}
+D.~Tafani.
+\newblock L&#8217;imperativo categorico come algoritmo. kant e l&#8217;etica
+  delle macchine.
+\newblock \emph{Sistemi intelligenti, Rivista quadrimestrale di scienze
+  cognitive e di intelligenza artificiale}, \penalty0 (2/2021):\penalty0
+  377--392, 2021.
+\newblock ISSN 1120-9550.
+\newblock \doi{10.1422/101195}.
+\newblock URL \url{https://www.rivisteweb.it/doi/10.1422/101195}.
+
 \bibitem[Velleman(2005)]{velleman}
 J.~D. Velleman.
 \newblock \emph{A Brief Introduction to Kantian Ethics}, page 16–44.
@@ -225,5 +248,17 @@ J.~D. Velleman.
 A.~W. Wood.
 \newblock \emph{Kant\textquoteright{}s Ethical Thought}.
 \newblock Cambridge University Press, 1999.
+
+\bibitem[Yamazaki et~al.(2021)Yamazaki, Igarashi, and Yamaura]{brainsimulation}
+T.~Yamazaki, J.~Igarashi, and H.~Yamaura.
+\newblock Human-scale brain simulation via supercomputer: A case study on the
+  cerebellum.
+\newblock \emph{Neuroscience}, 462:\penalty0 235--246, 2021.
+\newblock ISSN 0306-4522.
+\newblock \doi{https://doi.org/10.1016/j.neuroscience.2021.01.014}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S030645222100021X}.
+\newblock In Memoriam: Masao Ito—A Visionary Neuroscientist with a Passion
+  for the Cerebellum.
 
 \end{thebibliography}

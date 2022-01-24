@@ -3,49 +3,51 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: writing.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
+Warning--I didn't find a database entry for "oneilluniversallaw"
 Warning--empty booktitle in util2
 Warning--empty booktitle in godelincon
 Warning--empty journal in dietrichson
 Warning--empty title in acton
-You've used 36 entries,
+Warning--there's a number but no volume in tafani
+You've used 40 entries,
             2773 wiz_defined-function locations,
-            828 strings with 9048 characters,
-and the built_in function-call counts, 13545 in all, are:
-= -- 1208
-> -- 506
-< -- 36
-+ -- 185
-- -- 149
-* -- 912
-:= -- 2118
-add.period$ -- 132
-call.type$ -- 36
-change.case$ -- 149
-chr.to.int$ -- 36
-cite$ -- 76
-duplicate$ -- 763
-empty$ -- 1346
-format.name$ -- 197
-if$ -- 2884
+            865 strings with 9995 characters,
+and the built_in function-call counts, 15329 in all, are:
+= -- 1391
+> -- 566
+< -- 39
++ -- 207
+- -- 167
+* -- 1057
+:= -- 2397
+add.period$ -- 153
+call.type$ -- 40
+change.case$ -- 167
+chr.to.int$ -- 40
+cite$ -- 85
+duplicate$ -- 844
+empty$ -- 1506
+format.name$ -- 219
+if$ -- 3259
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 45
-newline$ -- 207
-num.names$ -- 154
-pop$ -- 374
+missing$ -- 49
+newline$ -- 236
+num.names$ -- 170
+pop$ -- 397
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 134
 quote$ -- 0
-skip$ -- 484
+skip$ -- 536
 stack$ -- 0
-substring$ -- 380
-swap$ -- 57
+substring$ -- 484
+swap$ -- 61
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 341
-warning$ -- 4
-while$ -- 137
+type$ -- 385
+warning$ -- 5
+while$ -- 156
 width$ -- 0
-write$ -- 503
-(There were 4 warnings)
+write$ -- 573
+(There were 6 warnings)
