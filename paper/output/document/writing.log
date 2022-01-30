@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 JAN 2022 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 JAN 2022 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -417,17 +417,17 @@ ism for de-riv-ing all morally
  []
 
 [60] [61]
-<inputparser.png, id=655, 780.9175pt x 508.90125pt>
+<inputparser.png, id=654, 780.9175pt x 508.90125pt>
 File: inputparser.png Graphic file (type png)
 <use inputparser.png>
-Package pdftex.def Info: inputparser.png  used on input line 153.
+Package pdftex.def Info: inputparser.png  used on input line 137.
 (pdftex.def)             Requested size: 390.4578pt x 254.45pt.
 
-Overfull \hbox (30.4578pt too wide) in paragraph at lines 153--155
+Overfull \hbox (30.4578pt too wide) in paragraph at lines 137--139
  [][] 
  []
 
-) [62] [63 <./inputparser.png>] (./writing.bbl [64] [65] [66]
+[62 <./inputparser.png>]) [63] (./writing.bbl [64] [65] [66]
 ! Misplaced alignment tab character &.
 l.232 \newblock L&
                   #8217;imperativo categorico come algoritmo. kant e l&#8217...
@@ -492,7 +492,7 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/tex
 mf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on writing.pdf (67 pages, 344091 bytes).
+Output written on writing.pdf (67 pages, 344195 bytes).
 PDF statistics:
  783 PDF objects out of 1000 (max. 8388607)
  688 compressed objects within 7 object streams

@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage{outlines}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+ \usepackage{relsize}
+
+
+\normalfont
+
+
+\begin{document}
+
+\textbf{Legend:}
+
+$\color{red} \mathbf{\times} \color{black}$ = To be written \hfill \emph{5 pages}
+ 
+$\color{yellow} \mathbf{\approx} \color{black}$ = Needs jiggling (was written for the paper, is outdated) \hfill \emph{19 pages}
+
+$\color{green} \mathbf{\checkmark} \color{black}$ = Complete (except for polishing, entry and exit, etc.) \hfill \emph{32 pages}
+
+\hfill \emph{Total page count: 60 pages}
+
+\begin{outline}[enumerate]
+\1 Abstract (1 page) \hfill $\color{red} \mathbf{\times} \color{black}$
+ 
+\1 Introduction (5 pages) \hfill $\color{yellow} \mathbf{\approx} \color{black}$
+\2 Problem and Motivation 
+\3 Artifical agents are becoming increasingly autonomous and are making increasingly consequential 
+decisions. These are ethical decisions. Thus, we should use the centuries of existing literature on
+ethics to help us help computers make them.
+\2 My Idea/Contributions 
+\3 I present an implementation of automated ethical reasoning according to Kantian ethics that is 
+faithful to philosophical literature. (include AI ethics diagram)
+\3 In Section 3a, I make a philosophical argument for why Kantian ethics, a kind of rule-based 
+deontology, is the most natural of the three major ethical traditions (deontology, virtue ethics, 
+consequentialism) to automate.
+\3 In Section 4a, I formalize a philosophically accepted version of 
+the categorical imperative in DDL. 
+\3 In Section 4b, I implement my formalization in Isabelle/HOL. My implementation 
+includes axioms and definitions that can prove that appropriately represented sentences are permissible, 
+obligatory, or prohibited. It can also return a list of facts used in the proof and, in some cases, 
+an Isar-style human readable proof. 
+\3 In Sections 5a and 5b, I demonstrate my system's power and flexibility by 
+using it to produce nuanced answers to two well-known Kantian ethical dilemmas. I show that, because 
+my system draws on definitions of Kantian ethics presented in philosophical literature, it is able to 
+perform sophisticated moral reasoning. 
+\3 In Section 4c, I present a testing framework that can evaluate how faithful an implementation 
+of automated Kantian ethics is to philosophical literature. My testing framework shows that my formalization 
+is more philosophically accurate than prior work. This testing approach can be generalized to evaluate any 
+implementation of automated Kantian ethics and to perform test-driven development for automated ethics.
+\3 In Section 6a, I demonstrate how my system can be used to generate novel(?) philosophical
+insights, thus showing that computational tools can help philosophers better study philosophy.
+
+\1 Methods (10 pages) \hfill $\color{green} \mathbf{\checkmark} \color{black}$
+\2 Why Kantian Ethics (7 pages)
+\3 Consequentialism takes too much data
+\3 Virtue Ethics requires representing ``character" and ``attitude" to a computer
+\3 Deontology/Kantian Ethics is formal and the least-data intensive
+\2 Dyadic Deontic Logic (2 pages) 
+\2 Isabelle/HOL (1 page) 
+\3 What it is, what it lets you do
+
+\1 Implementing a novel formalization of the categorical imperative (12 pages)
+\2 The Formalization (6 pages) \hfill $\color{green} \mathbf{\checkmark} \color{black}$
+\3 Defining a Maxim (adopting O'Neill's definition) 
+\3 Practical Contradiction Interpretation (summarizing Korsgaard's argument)
+\3 The Formalization Itself 
+\2 Testing Framework (6 pages)  \hfill $\color{yellow} \mathbf{\approx} \color{black}$
+\3 Comparision to other attempts (control group and Kroy's prior formalization)
+\3 Presenting the tests
+\4 For each test, I will present both its philosophical justification and the code that runs the test.
+
+\1 Applications (12 pages) \hfill $\color{green} \mathbf{\checkmark} \color{black}$
+\2 Lying vs Joking (6 pages)
+\3 Philosophical explanation of the argument for why the FUL prohibits joking
+\3 My Approach (using thin common sense facts and assumptions)
+\3 Code running the example
+\2 Murderer Example (6 pages)
+\3 Philosophical explanation of the dilemma of the murderer at your door
+\3 My Approach 
+\3 Code running the example
+\3 Discussion of the need for and challenge of automating common sense 
+
+\1 Discussion (20 pages)
+\2 Computational Ethics (8 pages) \hfill $\color{yellow} \mathbf{\approx} \color{black}$
+\3 Example of the philosophical insight (well-formed maxims, potential application to philosophy of doubt)
+\3 Arguing that computational tools can be valuable to philosophers
+\2 Limitations (2 pages) \hfill $\color{red} \mathbf{\times} \color{black}$
+\3 The Need for Common Sense 
+\3 Formulating an Input Maxim
+\3 The AI ethics diagram and what else is needed to use the system in practice
+\2 Is Automated Kantian Ethics Even Possible? (4 pages)
+\2 Related Work (4 pages) \hfill $\color{green} \mathbf{\checkmark} \color{black}$
+\2 Conclusion (2 pages) \hfill $\color{red} \mathbf{\times} \color{black}$
+\3 The idea of a computer doing ethical reasoning is scary, but insofar as people are going to keep
+building increasingly autonomous machines, it's better that they mimic ethical behavior. 
+\3 This is a proof-of-concept, but given computational progress and society's recognition of the need for
+AI ethics, we will see lots of progress and maybe someday this can actually be practical and usable.
+
+\1 References 
+
+\1 Appendix 
+\2 Full implementation of DDL
+\2 Running the tests on the control group 
+\2 Running the tests on Kroy's formalization
+\2 Extra code from custom formalization and tests
+\2 What kind of computational ethics is a good idea? 
+
+
+\end{outline}
+\end{document}
+
