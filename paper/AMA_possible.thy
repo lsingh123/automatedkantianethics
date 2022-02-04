@@ -1,5 +1,5 @@
 (*<*) theory AMA_possible
-  imports  paper41
+  imports "paper41"
 
 begin(*>*)
 

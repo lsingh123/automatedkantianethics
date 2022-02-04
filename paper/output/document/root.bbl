@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,13 +9,6 @@
 D.~Abel, J.~MacGlashan, and M.~Littman.
 \newblock Reinforcement learning as a framework for ethical decision making.
 \newblock In \emph{AAAI Workshop: AI, Ethics, and Society}, 2016.
-
-\bibitem[Alexander and Moore(2021)]{sepdeont}
-L.~Alexander and M.~Moore.
-\newblock {Deontological Ethics}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2021
-  edition, 2021.
 
 \bibitem[Anderson and Anderson(2014)]{deon2}
 M.~Anderson and S.~Anderson.
@@ -31,40 +24,22 @@ M.~Anderson, S.~Anderson, and C.~Armen.
 \newblock Towards machine ethics.
 \newblock 07 2004.
 
-\bibitem[Aristotle(1951)]{aristotle}
-Aristotle.
-\newblock The nicomachean ethics.
-\newblock \emph{Journal of Hellenic Studies}, 77:\penalty0 172, 1951.
-\newblock \doi{10.2307/628662}.
+\bibitem[Arkoudas et~al.(2005)Arkoudas, Bringsjord, and
+  Bello]{logicprogramming}
+K.~Arkoudas, S.~Bringsjord, and P.~Bello.
+\newblock Toward ethical robots via mechanized deontic logic.
+\newblock \emph{AAAI Fall Symposium - Technical Report}, 01 2005.
 
-\bibitem[Ashley and McLaren(1994)]{particularism1}
-K.~D. Ashley and B.~M. McLaren.
-\newblock A cbr knowledge representation for practical ethics.
-\newblock In \emph{Selected Papers from the Second European Workshop on
-  Advances in Case-Based Reasoning}, EWCBR '94, page 181–197, Berlin,
-  Heidelberg, 1994. Springer-Verlag.
-\newblock ISBN 3540603646.
-
-\bibitem[Baltag and Renne(2016)]{seplogicbelief}
-A.~Baltag and B.~Renne.
-\newblock {Dynamic Epistemic Logic}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2016
-  edition, 2016.
-
-\bibitem[Bentzen and Lindner(2018)]{BL}
-M.~M. Bentzen and F.~Lindner.
-\newblock A formalization of kant's second formulation of the categorical
-  imperative.
-\newblock \emph{CoRR}, abs/1801.03160, 2018.
-\newblock URL \url{http://arxiv.org/abs/1801.03160}.
-
-\bibitem[Benzm{\"{u}}ller and Paleo(2013)]{godel}
-C.~Benzm{\"{u}}ller and B.~W. Paleo.
-\newblock Formalization, mechanization and automation of g{\"{o}}del's proof of
-  god's existence.
-\newblock \emph{CoRR}, abs/1308.4526, 2013.
-\newblock URL \url{http://arxiv.org/abs/1308.4526}.
+\bibitem[Awad et~al.(2020)Awad, Dsouza, Shariff, Rahwan, and
+  Bonnefon]{moralmachineonline}
+E.~Awad, S.~Dsouza, A.~Shariff, I.~Rahwan, and J.-F. Bonnefon.
+\newblock Universals and variations in moral decisions made in 42 countries by
+  70,000 participants.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 117\penalty0
+  (5):\penalty0 2332--2337, 2020.
+\newblock ISSN 0027-8424.
+\newblock \doi{10.1073/pnas.1911517117}.
+\newblock URL \url{https://www.pnas.org/content/117/5/2332}.
 
 \bibitem[Benzm{\"{u}}ller et~al.(2019)Benzm{\"{u}}ller, Parent, and van~der
   Torre]{logikey}
@@ -85,27 +60,9 @@ C.~Benzm{\"u}ller, A.~Farjami, and X.~Parent.
 \newblock ISBN 978-3-030-70083-6.
 \newblock \doi{10.1007/978-3-030-70084-3}.
 
-\bibitem[Blanchette and Nipkow(2010)]{nitpick}
-J.~C. Blanchette and T.~Nipkow.
-\newblock \emph{Nitpick: A Counterexample Generator for Higher-Order Logic
-  Based on a Relational Model Finder}, volume 6172, page 131–146.
-\newblock Springer Berlin Heidelberg, 2010.
-\newblock ISBN 9783642140518.
-\newblock \doi{10.1007/978-3-642-14052-5_11}.
-\newblock URL \url{http://link.springer.com/10.1007/978-3-642-14052-5_11}.
-
-\bibitem[Blanchette et~al.(2011)Blanchette, B\"{o}hme, and Paulson]{smt}
-J.~C. Blanchette, S.~B\"{o}hme, and L.~C. Paulson.
-\newblock Extending sledgehammer with smt solvers.
-\newblock In \emph{Proceedings of the 23rd International Conference on
-  Automated Deduction}, CADE'11, page 116–130, Berlin, Heidelberg, 2011.
-  Springer-Verlag.
-\newblock ISBN 9783642224379.
-
-\bibitem[Bok(1998)]{bok}
-H.~Bok.
-\newblock \emph{Freedom and Responsibility}.
-\newblock Princeton University Press, 1998.
+\bibitem[Berberich and Diepold(2018)]{berberich}
+N.~Berberich and K.~Diepold.
+\newblock The virtuous machine - old ethics for new technology?, 2018.
 
 \bibitem[Carmo and Jones(2013)]{CJDDL}
 J.~Carmo and A.~Jones.
@@ -113,135 +70,52 @@ J.~Carmo and A.~Jones.
   conditionals.
 \newblock \emph{J. Log. Comput.}, 23:\penalty0 585--626, 2013.
 
-\bibitem[Chisholm(1963)]{chisholm}
-R.~M. Chisholm.
-\newblock Contrary-to-duty imperatives and deontic logic.
-\newblock \emph{Analysis (Oxford)}, 24\penalty0 (2):\penalty0 33--36, 1963.
-\newblock ISSN 0003-2638.
+\bibitem[Cervantes et~al.(2013)Cervantes, Rodríguez, López, and
+  Ramos]{biology}
+J.-A. Cervantes, L.-F. Rodríguez, S.~López, and F.~Ramos.
+\newblock A biologically inspired computational model of moral decision making
+  for autonomous agents.
+\newblock In \emph{2013 IEEE 12th International Conference on Cognitive
+  Informatics and Cognitive Computing}, pages 111--117, 2013.
+\newblock \doi{10.1109/ICCI-CC.2013.6622232}.
+
+\bibitem[Cloos(2005)]{cloos}
+C.~Cloos.
+\newblock The utilibot project: An autonomous mobile robot based on
+  utilitarianism.
+\newblock \emph{AAAI Fall Symposium - Technical Report}, 01 2005.
 
 \bibitem[Cresswell and Hughes(1996)]{cresswell}
 M.~J. Cresswell and G.~E. Hughes.
 \newblock \emph{A New Introduction to Modal Logic}.
 \newblock Routledge, 1996.
 
-\bibitem[Driver(2014)]{utilsep}
-J.~Driver.
-\newblock {The History of Utilitarianism}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2014
-  edition, 2014.
+\bibitem[Davenport(2014)]{davenport}
+D.~Davenport.
+\newblock Moral mechanisms.
+\newblock \emph{Philosophy and Technology}, 27\penalty0 (1):\penalty0 47--60,
+  2014.
+\newblock \doi{10.1007/s13347-013-0147-2}.
 
-\bibitem[Fuenmayor and Benzmüller(2018)]{gewirth}
-D.~Fuenmayor and C.~Benzmüller.
-\newblock Formalisation and evaluation of alan gewirth's proof for the
-  principle of generic consistency in isabelle/hol.
-\newblock \emph{Archive of Formal Proofs}, Oct. 2018.
-\newblock ISSN 2150-914x.
-\newblock \url{https://isa-afp.org/entries/GewirthPGCProof.html}, Formal proof
-  development.
+\bibitem[Foot(1967)]{foot}
+P.~Foot.
+\newblock The problem of abortion and the doctrine of the double effect.
+\newblock \emph{Oxford Review}, 5:\penalty0 5--15, 1967.
 
-\bibitem[Govindarajulu and Bringsjord(2017)]{dde}
-N.~S. Govindarajulu and S.~Bringsjord.
-\newblock On automating the doctrine of double effect.
-\newblock \emph{CoRR}, abs/1703.08922, 2017.
-\newblock URL \url{http://arxiv.org/abs/1703.08922}.
+\bibitem[Gabriel(2020)]{gabriel}
+I.~Gabriel.
+\newblock Artificial intelligence, values, and alignment.
+\newblock \emph{Minds and Machines}, 30\penalty0 (3):\penalty0 411–437, Sep
+  2020.
+\newblock ISSN 1572-8641.
+\newblock \doi{10.1007/s11023-020-09539-2}.
+\newblock URL \url{http://dx.doi.org/10.1007/s11023-020-09539-2}.
 
-\bibitem[Guarini(2006)]{particularism2}
-M.~Guarini.
-\newblock Particularism and the classification and reclassification of moral
-  cases.
-\newblock \emph{IEEE Intelligent Systems}, 21\penalty0 (4):\penalty0 22--28,
-  2006.
-\newblock \doi{10.1109/MIS.2006.76}.
-
-\bibitem[Hintikka(1962)]{hintikka}
-J.~Hintikka.
-\newblock \emph{Knowledge and Belief}.
-\newblock Cornell University Press, 1962.
-
-\bibitem[Hursthouse and Pettigrove(2018)]{vesep}
-R.~Hursthouse and G.~Pettigrove.
-\newblock {Virtue Ethics}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2018
-  edition, 2018.
-
-\bibitem[Kant(1785)]{groundwork}
-I.~Kant.
-\newblock \emph{Groundwork of the Metaphysics of Morals}.
-\newblock Cambridge University Press, Cambridge, 1785.
-
-\bibitem[Kant(2017)]{metaphysicsintro}
-I.~Kant.
-\newblock \emph{Introduction}, pages ix--xxix.
-\newblock Cambridge Texts in the History of Philosophy. Cambridge University
-  Press, 2 edition, 2017.
-\newblock \doi{10.1017/9781316091388.002}.
-
-\bibitem[Kemp(1958)]{kemp}
-J.~Kemp.
-\newblock Kant's examples of the categorical imperative.
-\newblock \emph{The Philosophical Quarterly (1950-)}, 8\penalty0 (30):\penalty0
-  63--71, 1958.
-\newblock ISSN 00318094, 14679213.
-\newblock URL \url{http://www.jstor.org/stable/2216857}.
-
-\bibitem[Kirchner et~al.(2019)Kirchner, Benzm{\"{u}}ller, and
-  Zalta]{metaphysics1}
-D.~Kirchner, C.~Benzm{\"{u}}ller, and E.~N. Zalta.
-\newblock Computer science and metaphysics: {A} cross-fertilization.
-\newblock \emph{CoRR}, abs/1905.00787, 2019.
-\newblock URL \url{http://arxiv.org/abs/1905.00787}.
-
-\bibitem[Kitcher(2003)]{whatisamaxim}
-P.~Kitcher.
-\newblock What is a maxim?
-\newblock \emph{Philosophical Topics}, 31\penalty0 (1/2):\penalty0 215--243,
-  2003.
-\newblock \doi{10.5840/philtopics2003311/29}.
-
-\bibitem[Kleingeld(2017)]{simul}
-P.~Kleingeld.
-\newblock Contradiction and kant’s formula of universal law.
-\newblock \emph{Kant-Studien}, 108\penalty0 (1):\penalty0 89--115, 2017.
-\newblock \doi{doi:10.1515/kant-2017-0006}.
-\newblock URL \url{https://doi.org/10.1515/kant-2017-0006}.
-
-\bibitem[Kohl(2015)]{kohl}
-M.~Kohl.
-\newblock Kant and 'ought implies can'.
-\newblock \emph{The Philosophical Quarterly (1950-)}, 65\penalty0
-  (261):\penalty0 690--710, 2015.
-\newblock ISSN 00318094, 14679213.
-\newblock URL \url{http://www.jstor.org/stable/24672780}.
-
-\bibitem[Korsgaard(1985)]{KorsgaardFUL}
-C.~Korsgaard.
-\newblock {Kant's Formula of Universal Law}.
-\newblock \emph{Pacific Philosophical Quarterly}, 66:\penalty0 24--47, 1985.
-
-\bibitem[Korsgaard(1986)]{KorsgaardRTL}
-C.~Korsgaard.
-\newblock {The Right to Lie: Kant on Dealing with Evil}.
-\newblock \emph{Philosophy and Public Affairs}, 15:\penalty0 325--249, 1986.
-
-\bibitem[Korsgaard(2012)]{korsgaardintro}
-C.~Korsgaard.
-\newblock \emph{Groundwork of the Metaphysics of Morals}, chapter Introduction.
-\newblock Cambridge University Press, Cambridge, 2012.
-
-\bibitem[Korsgaard(2005)]{actingforareason}
-C.~M. Korsgaard.
-\newblock Acting for a reason.
-\newblock \emph{Danish Yearbook of Philosophy}, 40\penalty0 (1):\penalty0
-  11--35, 2005.
-\newblock \doi{10.1163/24689300\_0400103}.
-
-\bibitem[Korsgaard and O'Neill(1996)]{sources}
-C.~M. Korsgaard and O.~O'Neill.
-\newblock \emph{The Sources of Normativity}.
-\newblock Cambridge University Press, 1996.
-\newblock \doi{10.1017/CBO9780511554476}.
+\bibitem[Jiang et~al.(2021)Jiang, Hwang, Bhagavatula, Bras, Forbes, Borchardt,
+  Liang, Etzioni, Sap, and Choi]{delphi}
+L.~Jiang, J.~D. Hwang, C.~Bhagavatula, R.~L. Bras, M.~Forbes, J.~Borchardt,
+  J.~Liang, O.~Etzioni, M.~Sap, and Y.~Choi.
+\newblock Delphi: Towards machine ethics and norms, 2021.
 
 \bibitem[Kroy(1976)]{kroy}
 M.~Kroy.
@@ -251,133 +125,10 @@ M.~Kroy.
 \newblock \doi{doi:10.1515/kant.1976.67.1-4.192}.
 \newblock URL \url{https://doi.org/10.1515/kant.1976.67.1-4.192}.
 
-\bibitem[Lewis(1973{\natexlab{a}})]{lewiscausality}
-D.~Lewis.
-\newblock Causation.
-\newblock \emph{Journal of Philosophy}, 70\penalty0 (17):\penalty0 556--567,
-  1973{\natexlab{a}}.
-\newblock \doi{10.2307/2025310}.
-
-\bibitem[Lewis(1973{\natexlab{b}})]{lewiscounterfactuals}
-D.~Lewis.
-\newblock \emph{Counterfactuals}.
-\newblock Blackwell, 1973{\natexlab{b}}.
-
-\bibitem[Lin et~al.(2012)Lin, Abney, and Bekey]{lin}
-P.~Lin, K.~Abney, and G.~A. Bekey.
-\newblock \emph{Robotics, Ethical Theory, and Metaethics: A Guide for the
-  Perplexed}, pages 35--52.
-\newblock 2012.
-
-\bibitem[McNamara and Van De~Putte(2021)]{sep-logic-deontic}
-P.~McNamara and F.~Van De~Putte.
-\newblock {Deontic Logic}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, spring 2021
-  edition, 2021.
-
-\bibitem[McRae(2013)]{mcrae}
-E.~McRae.
-\newblock Equanimity and intimacy: A buddhist-feminist approach to the
-  elimination of bias.
-\newblock \emph{Sophia}, 52\penalty0 (3):\penalty0 447--462, 2013.
-\newblock \doi{10.1007/s11841-013-0376-y}.
-
-\bibitem[Menzies and Beebee(2020)]{sepcausation}
-P.~Menzies and H.~Beebee.
-\newblock {Counterfactual Theories of Causation}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2020
-  edition, 2020.
-
-\bibitem[MONTAGUE(1970)]{neighborhood2}
-R.~MONTAGUE.
-\newblock Universal grammar.
-\newblock \emph{Theoria}, 36\penalty0 (3):\penalty0 373--398, 1970.
-\newblock \doi{https://doi.org/10.1111/j.1755-2567.1970.tb00434.x}.
-\newblock URL
-  \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1755-2567.1970.tb00434.x}.
-
-\bibitem[Moore(1903)]{moorepe}
-G.~E. Moore.
-\newblock \emph{Principia Ethica}.
-\newblock Dover Publications, 1903.
-
 \bibitem[Nipkow et~al.(2002)Nipkow, Paulson, and Wenzel]{isabelle}
 T.~Nipkow, L.~C. Paulson, and M.~Wenzel.
 \newblock \emph{Isabelle/HOL: A Proof Assistant for Higher Order Logic}.
 \newblock Springer-Verlag Berlin Heidelberg, Berlin, 2002.
-
-\bibitem[O'Neill(1990)]{constofreason}
-O.~O'Neill.
-\newblock \emph{Constructions of Reason: Explorations of Kant's Practical
-  Philosophy}.
-\newblock Cambridge University Press, 1990.
-\newblock \doi{10.1017/CBO9781139173773}.
-
-\bibitem[O'Neill(2009)]{idealtheory}
-O.~O'Neill.
-\newblock \emph{Bounds of Justice}.
-\newblock Cambridge University Press, December 2009.
-
-\bibitem[O'Neill(2013)]{actingonprinciple}
-O.~O'Neill.
-\newblock \emph{Acting on Principle: An Essay on Kantian Ethics}.
-\newblock Cambridge University Press, 2013.
-
-\bibitem[Paulson and Blanchette(2015)]{sledgehammer}
-L.~Paulson and J.~Blanchette.
-\newblock Three years of experience with sledgehammer, a practical link between
-  automatic and interactive theorem provers.
-\newblock 02 2015.
-\newblock \doi{10.29007/tnfd}.
-
-\bibitem[{Powers}(2006)]{powers}
-T.~M. {Powers}.
-\newblock Prospects for a kantian machine.
-\newblock \emph{IEEE Intelligent Systems}, 21\penalty0 (4):\penalty0 46--51,
-  2006.
-\newblock \doi{10.1109/MIS.2006.77}.
-
-\bibitem[Puiutta and Veith(2020)]{puiutta}
-E.~Puiutta and E.~M. Veith.
-\newblock Explainable reinforcement learning: A survey, 2020.
-
-\bibitem[Rawls(1980)]{rawlsconstructivism}
-J.~Rawls.
-\newblock Kantian constructivism in moral theory.
-\newblock \emph{The Journal of Philosophy}, 77\penalty0 (9):\penalty0 515--572,
-  1980.
-\newblock ISSN 0022362X.
-\newblock URL \url{http://www.jstor.org/stable/2025790}.
-
-\bibitem[Robeyns(2005)]{robeyns}
-I.~Robeyns.
-\newblock The capability approach: a theoretical survey.
-\newblock \emph{Journal of Human Development}, 6\penalty0 (1):\penalty0
-  93--117, 2005.
-\newblock \doi{10.1080/146498805200034266}.
-\newblock URL \url{https://doi.org/10.1080/146498805200034266}.
-
-\bibitem[Rönnedal(2019)]{ctd}
-D.~Rönnedal.
-\newblock Contrary-to-duty paradoxes and counterfactual deontic logic.
-\newblock \emph{Philosophia}, 47, 09 2019.
-\newblock \doi{10.1007/s11406-018-0036-0}.
-
-\bibitem[Scott(1970)]{neighborhood1}
-D.~Scott.
-\newblock Advice on modal logic.
-\newblock In K.~Lambert, editor, \emph{Philosophical Problems in Logic: Some
-  Recent Developments}, pages 143--173. D. Reidel, 1970.
-
-\bibitem[Silber(1974)]{silber}
-J.~R. Silber.
-\newblock Procedural formalism in kant's ethics.
-\newblock \emph{The Review of Metaphysics}, 28\penalty0 (2):\penalty0 197--236,
-  1974.
-\newblock ISSN 00346632.
-\newblock URL \url{http://www.jstor.org/stable/20126622}.
 
 \bibitem[Sinnott-Armstrong(2021)]{consequentialismsep}
 W.~Sinnott-Armstrong.
@@ -386,53 +137,23 @@ W.~Sinnott-Armstrong.
   Philosophy}. Metaphysics Research Lab, Stanford University, {F}all 2021
   edition, 2021.
 
-\bibitem[Snow(2017)]{snow}
-N.~E. Snow.
-\newblock \emph{The Oxford Handbook of Virtue}.
-\newblock Oxford University Press, 2017.
+\bibitem[Vincent(2021)]{verge}
+J.~Vincent.
+\newblock The ai oracle of delphi uses the problems of reddit to offer dubious
+  moral advice.
+\newblock 2021.
 
-\bibitem[Solt(1984)]{solt}
-K.~Solt.
-\newblock Deontic alternative worlds and the truth-value of 'oa'.
-\newblock \emph{Logique et Analyse}, 27\penalty0 (107):\penalty0 349--351,
-  1984.
-\newblock ISSN 00245836, 22955836.
-\newblock URL \url{http://www.jstor.org/stable/44084096}.
+\bibitem[Wallach and Allen(2008)]{moralmachine}
+W.~Wallach and C.~Allen.
+\newblock \emph{Moral Machines: Teaching Robots Right From Wrong}.
+\newblock Oxford University Press, 2008.
 
-\bibitem[Stephenson et~al.(2019)Stephenson, Sergot, and Evans]{io}
-A.~Stephenson, M.~Sergot, and R.~Evans.
-\newblock Formalizing kant's rules: a logic of conditional imperatives and
-  permissives.
-\newblock \emph{Journal of Philosophical Logic}, 49, November 2019.
-\newblock URL \url{https://eprints.soton.ac.uk/432344/}.
-
-\bibitem[Timmermann(2013)]{timmerman}
-J.~Timmermann.
-\newblock Kantian dilemmas? moral conflict in kant’s ethical theory.
-\newblock \emph{Archiv für Geschichte der Philosophie}, 95\penalty0
-  (1):\penalty0 36--64, 2013.
-\newblock \doi{doi:10.1515/agph-2013-0002}.
-\newblock URL \url{https://doi.org/10.1515/agph-2013-0002}.
-
-\bibitem[Tolmeijer et~al.(2021)Tolmeijer, Kneer, Sarasua, Christen, and
-  Bernstein]{mesurvey}
-S.~Tolmeijer, M.~Kneer, C.~Sarasua, M.~Christen, and A.~Bernstein.
-\newblock Implementations in machine ethics.
-\newblock \emph{ACM Computing Surveys}, 53\penalty0 (6):\penalty0 1–38, Feb
-  2021.
-\newblock ISSN 1557-7341.
-\newblock \doi{10.1145/3419633}.
-\newblock URL \url{http://dx.doi.org/10.1145/3419633}.
-
-\bibitem[Velleman(2005)]{velleman}
-J.~D. Velleman.
-\newblock \emph{A Brief Introduction to Kantian Ethics}, page 16–44.
-\newblock Cambridge University Press, 2005.
-\newblock \doi{10.1017/CBO9780511498862.002}.
-
-\bibitem[Wood(1999)]{kantsethicalthought}
-A.~W. Wood.
-\newblock \emph{Kant\textquoteright{}s Ethical Thought}.
-\newblock Cambridge University Press, 1999.
+\bibitem[Winfield et~al.(2014)Winfield, Blum, and Liu]{winfield}
+A.~Winfield, C.~Blum, and W.~Liu.
+\newblock Towards an ethical robot: Internal models, consequences and ethical
+  action selection.
+\newblock volume 8717, 09 2014.
+\newblock ISBN 978-3-319-10400-3.
+\newblock \doi{10.1007/978-3-319-10401-0_8}.
 
 \end{thebibliography}

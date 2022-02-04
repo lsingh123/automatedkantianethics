@@ -1,5 +1,5 @@
 (*<*) theory threeflags
-  imports paper41
+  imports "paper41"
 
 begin(*>*)
 

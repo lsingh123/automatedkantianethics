@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{isabelle,isabellesym, amsmath}
-\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{ebgaramond}
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{natbib}
@@ -11,9 +12,15 @@
 \newcommand{\isactrlemph}[1]{\emph{#1}}
 \usepackage{setspace}
 \doublespacing
+\usepackage{geometry}
+\geometry{margin=1.5in}
+\usepackage{titlesec}
+\usepackage{xcolor}
 
+\definecolor{crimson}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
 
-
+\titleformat{\section}
+  {\Huge\bfseries\color{crimson}}{\thesection}{1em}{}
 % further packages required for unusual symbols (see also
 % isabellesym.sty), use only when needed
 
@@ -48,32 +55,55 @@
 
 \begin{document}
 
-\title{Automating Kantian Ethics}
-\author{Lavanya Singh}
+
+% School color found from university's graphic identity site:
+% http://isites.harvard.edu/icb/icb.do?keyword=k75408&pageid=icb.page392732
+
+\renewcommand{\maketitle}{
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{100pt}
+	\begin{center}
+	\Huge \textcolor{crimson}{Automated Kantian Ethics: A Faithful Implementation and Testing Framework} \normalsize \\
+	\vspace{100pt}
+	\textsc{a Senior Thesis presented \\ by\\
+	Lavanya Singh\\ to\\ The Departments of Computer Science and Philosophy\\
+	\vspace{12pt}
+	in partial fulfillment of the requirements\\
+	for the degree of\\ Bachelor of Arts with Honors \\
+	\vspace{12pt}
+	Harvard University\\ Cambridge, Massachussetts\\
+	May\ 2022}
+	\end{center} \vspace*{\fill}
+}
 \maketitle
+\pagenumbering{gobble}
+
+\newpage 
+
+\begin{center}
+\textsc{ABSTRACT} \\
+\end{center}
+
+\input{thesis_0_abstract}
+
+\newpage
 
 \tableofcontents
 
-\newpage
-
 % sane default for proof documents
-\parindent 0pt\parskip 0.5ex
+\parskip 0.5ex
 
 % generated text of all theories
-\input{paper}
-\input{paper22}
-\input{paper224}
-\input{paper31}
-\input{paper32}
-\input{paper33}
-\input{paper41}
-\input{paper412}
-\input{application}
-\input{relatedwork}
-\input{futurework}
 \newpage
+\pagenumbering{arabic}
+\input{thesis_1_intro}
 
 
+
+\newpage
 % optional bibliography
 \bibliography{root}
 \end{document}

@@ -1,11 +1,11 @@
 (*<*) theory upshot
-  imports paper41 paper224
+  imports "paper41" "paper224"
 
 begin(*>*)
 
 section "Philosophical Contributions"
 
-text \<open>I argue that computational ethics should be useful for and interesting to philosophers for two 
+text \<open>TESTESTESTI argue that computational ethics should be useful for and interesting to philosophers for two 
 reasons. First, it could serve as the basis for AI agents with the capacity for philosophically sophisticated 
 ethical reasoning. For example, my project contributes an implementation of the Formula of Universal Law
 that an AI agent could use to reason about the world using the categorical imperative. Second, computational 
