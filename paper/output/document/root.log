@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 FEB 2022 22:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  5 FEB 2022 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -566,15 +566,13 @@ ut line 25.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
 (Font)              scaled to size 24.88pt on input line 25.
  [1]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
 
-Package natbib Warning: Citation `csp' on page 2 undefined on input line 80.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -583,28 +581,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <8> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 90.
+nput line 95.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 8.0pt on input line 90.
+(Font)              scaled to size 8.0pt on input line 95.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <9> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 91.
+nput line 96.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 9.0pt on input line 91.
+(Font)              scaled to size 9.0pt on input line 96.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <6> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 91.
+nput line 96.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 6.0pt on input line 91.
+(Font)              scaled to size 6.0pt on input line 96.
  [2] [3]
+Overfull \hbox (1.78224pt too wide) in paragraph at lines 128--132
+\T1/EBGaramond-OsF/regular/n/10.95 and ap-pli-ca-tion tests in-spired by philo-
+soph-i-cal lit-er-a-ture. This test-ing frame-work shows
+ []
+
 [4] [5]) [6] (./root.bbl [7] [8])
-
-Package natbib Warning: There were undefined citations.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
-[9]
+ [9]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
@@ -614,13 +614,13 @@ Package rerunfilecheck Info: File `root.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
  ) 
 Here is how much of TeX's memory you used:
- 9518 strings out of 480608
- 139699 string characters out of 5903631
- 410179 words of memory out of 5000000
- 25163 multiletter control sequences out of 15000+600000
+ 9526 strings out of 480608
+ 139797 string characters out of 5903631
+ 410277 words of memory out of 5000000
+ 25169 multiletter control sequences out of 15000+600000
  617286 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,67p,244b,625s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,8n,67p,244b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_ljow5q.en
 c}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_tcdnmr.en
 c}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_byuyni.en
@@ -633,10 +633,10 @@ nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb>
-Output written on root.pdf (13 pages, 452412 bytes).
+Output written on root.pdf (13 pages, 453690 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 

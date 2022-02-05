@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -96,6 +96,21 @@ D.~Davenport.
 \newblock \emph{Philosophy and Technology}, 27\penalty0 (1):\penalty0 47--60,
   2014.
 \newblock \doi{10.1007/s13347-013-0147-2}.
+
+\bibitem[Dennis et~al.(2016)Dennis, Fisher, Slavkovik, and Webster]{csp}
+L.~Dennis, M.~Fisher, M.~Slavkovik, and M.~Webster.
+\newblock Formal verification of ethical choices in autonomous systems.
+\newblock \emph{Robotics and Autonomous Systems}, 77:\penalty0 1--14, 2016.
+\newblock ISSN 0921-8890.
+\newblock \doi{https://doi.org/10.1016/j.robot.2015.11.012}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0921889015003000}.
+
+\bibitem[Eubanks(2018)]{eubanks}
+V.~Eubanks.
+\newblock \emph{Automating Inequality: How High-Tech Tools Profile, Police, and
+  Punish the Poor}.
+\newblock St. Martin's Press, 2018.
 
 \bibitem[Foot(1967)]{foot}
 P.~Foot.

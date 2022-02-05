@@ -3,51 +3,50 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
-Warning--I didn't find a database entry for "csp"
 Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
-You've used 23 entries,
+You've used 25 entries,
             2773 wiz_defined-function locations,
-            740 strings with 8673 characters,
-and the built_in function-call counts, 10116 in all, are:
-= -- 866
-> -- 601
-< -- 17
-+ -- 204
-- -- 181
-* -- 796
-:= -- 1583
-add.period$ -- 83
-call.type$ -- 23
-change.case$ -- 126
-chr.to.int$ -- 23
-cite$ -- 51
-duplicate$ -- 481
-empty$ -- 850
-format.name$ -- 216
-if$ -- 2113
+            752 strings with 9080 characters,
+and the built_in function-call counts, 10963 in all, are:
+= -- 940
+> -- 650
+< -- 18
++ -- 221
+- -- 196
+* -- 863
+:= -- 1722
+add.period$ -- 92
+call.type$ -- 25
+change.case$ -- 136
+chr.to.int$ -- 25
+cite$ -- 55
+duplicate$ -- 522
+empty$ -- 919
+format.name$ -- 233
+if$ -- 2289
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 23
-newline$ -- 135
-num.names$ -- 96
-pop$ -- 283
+missing$ -- 26
+newline$ -- 148
+num.names$ -- 104
+pop$ -- 304
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 114
 quote$ -- 0
-skip$ -- 354
+skip$ -- 382
 stack$ -- 0
-substring$ -- 213
-swap$ -- 43
+substring$ -- 229
+swap$ -- 45
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 238
+type$ -- 255
 warning$ -- 5
-while$ -- 83
+while$ -- 90
 width$ -- 0
-write$ -- 317
-(There were 6 warnings)
+write$ -- 348
+(There were 5 warnings)
