@@ -1,9 +1,9 @@
 (*<*) theory thesis_1_intro
-  imports "paper41"
+  imports Main
 
 begin(*>*)
 
-section "Introduction"
+section \<open>Introduction\label{intro}\<close>
 
 text \<open> As AI agents become more sophisticated and less dependent on humans, interest begins to mount
 in the development of computers that can perform ethical reasoning, also known as automated moral agents. 

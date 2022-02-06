@@ -1,5 +1,5 @@
 (*<*) theory thesis_0_abstract
-  imports "paper41"
+  imports Main
 
 begin(*>*)
 

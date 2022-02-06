@@ -1,0 +1,40 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Choice of Ethical Theory}{6}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Deontological Ethics}{7}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Consequentialism}{9}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Virtue Ethics}{15}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Kantian Ethics}{18}{subsubsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.2}Dyadic Deontic Logic }{24}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Deontic Logic}{24}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Dyadic Deontic Logic}{25}{subsubsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.3}Isabelle/HOL Implementation }{26}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}System Definition}{26}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Axiomatization}{27}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Syntax}{27}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Syntactic Properties}{29}{subsubsection.1.3.4}%
+\contentsline {section}{\numberline {2}Prior Formalizations of The Categorical Imperative}{32}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Naive Formalization of the Formula of Universal Law }{32}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Formalization }{33}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Metaethical Tests }{35}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Application Tests }{41}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Kroy's Formalization of the Categorical Imperative }{45}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Logical Background }{45}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}The Categorical Imperative }{49}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Application Tests}{50}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Metaethical Tests }{55}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Miscellaneous Tests }{59}{subsubsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.3}Lessons Learned and Goals for Chapter 3}{61}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Goals From Prior Attempts }{62}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Goals From Philosophical Literature }{66}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Novel Formalization of the Categorical Imperative}{67}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Logical Background}{67}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Formalizing the FUL}{76}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Application Tests}{80}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Metaethical Tests}{86}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Formalization Specific Tests}{91}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Applications }{91}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Simple Lying Examples }{95}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{103}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Philosophical Analysis: Is Automated Ethics a Good Idea?}{112}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Related Work}{112}{section.5}%
+\contentsline {section}{\numberline {6}Future Work}{113}{section.6}%

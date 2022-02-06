@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{47}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,13 @@
 D.~Abel, J.~MacGlashan, and M.~Littman.
 \newblock Reinforcement learning as a framework for ethical decision making.
 \newblock In \emph{AAAI Workshop: AI, Ethics, and Society}, 2016.
+
+\bibitem[Alexander and Moore(2021)]{sepdeont}
+L.~Alexander and M.~Moore.
+\newblock {Deontological Ethics}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2021
+  edition, 2021.
 
 \bibitem[Anderson and Anderson(2014)]{deon2}
 M.~Anderson and S.~Anderson.
@@ -23,6 +30,12 @@ M.~Anderson and S.~L. Anderson.
 M.~Anderson, S.~Anderson, and C.~Armen.
 \newblock Towards machine ethics.
 \newblock 07 2004.
+
+\bibitem[Aristotle(1951)]{aristotle}
+Aristotle.
+\newblock The nicomachean ethics.
+\newblock \emph{Journal of Hellenic Studies}, 77:\penalty0 172, 1951.
+\newblock \doi{10.2307/628662}.
 
 \bibitem[Arkoudas et~al.(2005)Arkoudas, Bringsjord, and
   Bello]{logicprogramming}
@@ -64,6 +77,15 @@ C.~Benzm{\"u}ller, A.~Farjami, and X.~Parent.
 N.~Berberich and K.~Diepold.
 \newblock The virtuous machine - old ethics for new technology?, 2018.
 
+\bibitem[Blanchette and Nipkow(2010)]{nitpick}
+J.~C. Blanchette and T.~Nipkow.
+\newblock \emph{Nitpick: A Counterexample Generator for Higher-Order Logic
+  Based on a Relational Model Finder}, volume 6172, page 131–146.
+\newblock Springer Berlin Heidelberg, 2010.
+\newblock ISBN 9783642140518.
+\newblock \doi{10.1007/978-3-642-14052-5_11}.
+\newblock URL \url{http://link.springer.com/10.1007/978-3-642-14052-5_11}.
+
 \bibitem[Carmo and Jones(2013)]{CJDDL}
 J.~Carmo and A.~Jones.
 \newblock Completeness and decidability results for a logic of contrary-to-duty
@@ -78,6 +100,12 @@ J.-A. Cervantes, L.-F. Rodríguez, S.~López, and F.~Ramos.
 \newblock In \emph{2013 IEEE 12th International Conference on Cognitive
   Informatics and Cognitive Computing}, pages 111--117, 2013.
 \newblock \doi{10.1109/ICCI-CC.2013.6622232}.
+
+\bibitem[Chisholm(1963)]{chisholm}
+R.~M. Chisholm.
+\newblock Contrary-to-duty imperatives and deontic logic.
+\newblock \emph{Analysis (Oxford)}, 24\penalty0 (2):\penalty0 33--36, 1963.
+\newblock ISSN 0003-2638.
 
 \bibitem[Cloos(2005)]{cloos}
 C.~Cloos.
@@ -106,6 +134,13 @@ L.~Dennis, M.~Fisher, M.~Slavkovik, and M.~Webster.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0921889015003000}.
 
+\bibitem[Driver(2014)]{utilsep}
+J.~Driver.
+\newblock {The History of Utilitarianism}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2014
+  edition, 2014.
+
 \bibitem[Eubanks(2018)]{eubanks}
 V.~Eubanks.
 \newblock \emph{Automating Inequality: How High-Tech Tools Profile, Police, and
@@ -126,11 +161,34 @@ I.~Gabriel.
 \newblock \doi{10.1007/s11023-020-09539-2}.
 \newblock URL \url{http://dx.doi.org/10.1007/s11023-020-09539-2}.
 
+\bibitem[Hume(2007)]{hume}
+D.~Hume.
+\newblock \emph{An Enquiry Concerning Human Understanding and Other Writings}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem[Hursthouse and Pettigrove(2018)]{vesep}
+R.~Hursthouse and G.~Pettigrove.
+\newblock {Virtue Ethics}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2018
+  edition, 2018.
+
 \bibitem[Jiang et~al.(2021)Jiang, Hwang, Bhagavatula, Bras, Forbes, Borchardt,
   Liang, Etzioni, Sap, and Choi]{delphi}
 L.~Jiang, J.~D. Hwang, C.~Bhagavatula, R.~L. Bras, M.~Forbes, J.~Borchardt,
   J.~Liang, O.~Etzioni, M.~Sap, and Y.~Choi.
 \newblock Delphi: Towards machine ethics and norms, 2021.
+
+\bibitem[Kant(1785)]{groundwork}
+I.~Kant.
+\newblock \emph{Groundwork of the Metaphysics of Morals}.
+\newblock Cambridge University Press, Cambridge, 1785.
+
+\bibitem[Korsgaard and O'Neill(1996)]{sources}
+C.~M. Korsgaard and O.~O'Neill.
+\newblock \emph{The Sources of Normativity}.
+\newblock Cambridge University Press, 1996.
+\newblock \doi{10.1017/CBO9780511554476}.
 
 \bibitem[Kroy(1976)]{kroy}
 M.~Kroy.
@@ -140,10 +198,83 @@ M.~Kroy.
 \newblock \doi{doi:10.1515/kant.1976.67.1-4.192}.
 \newblock URL \url{https://doi.org/10.1515/kant.1976.67.1-4.192}.
 
+\bibitem[McNamara and Van De~Putte(2021)]{sep-logic-deontic}
+P.~McNamara and F.~Van De~Putte.
+\newblock {Deontic Logic}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, spring 2021
+  edition, 2021.
+
+\bibitem[McRae(2013)]{mcrae}
+E.~McRae.
+\newblock Equanimity and intimacy: A buddhist-feminist approach to the
+  elimination of bias.
+\newblock \emph{Sophia}, 52\penalty0 (3):\penalty0 447--462, 2013.
+\newblock \doi{10.1007/s11841-013-0376-y}.
+
+\bibitem[MONTAGUE(1970)]{neighborhood2}
+R.~MONTAGUE.
+\newblock Universal grammar.
+\newblock \emph{Theoria}, 36\penalty0 (3):\penalty0 373--398, 1970.
+\newblock \doi{https://doi.org/10.1111/j.1755-2567.1970.tb00434.x}.
+\newblock URL
+  \url{https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1755-2567.1970.tb00434.x}.
+
+\bibitem[Moore(1903)]{moorepe}
+G.~E. Moore.
+\newblock \emph{Principia Ethica}.
+\newblock Dover Publications, 1903.
+
 \bibitem[Nipkow et~al.(2002)Nipkow, Paulson, and Wenzel]{isabelle}
 T.~Nipkow, L.~C. Paulson, and M.~Wenzel.
 \newblock \emph{Isabelle/HOL: A Proof Assistant for Higher Order Logic}.
 \newblock Springer-Verlag Berlin Heidelberg, Berlin, 2002.
+
+\bibitem[O'Neill(1990)]{constofreason}
+O.~O'Neill.
+\newblock \emph{Constructions of Reason: Explorations of Kant's Practical
+  Philosophy}.
+\newblock Cambridge University Press, 1990.
+\newblock \doi{10.1017/CBO9781139173773}.
+
+\bibitem[{Powers}(2006)]{powers}
+T.~M. {Powers}.
+\newblock Prospects for a kantian machine.
+\newblock \emph{IEEE Intelligent Systems}, 21\penalty0 (4):\penalty0 46--51,
+  2006.
+\newblock \doi{10.1109/MIS.2006.77}.
+
+\bibitem[Puiutta and Veith(2020)]{puiutta}
+E.~Puiutta and E.~M. Veith.
+\newblock Explainable reinforcement learning: A survey, 2020.
+
+\bibitem[Rawls(1980)]{rawlsconstructivism}
+J.~Rawls.
+\newblock Kantian constructivism in moral theory.
+\newblock \emph{The Journal of Philosophy}, 77\penalty0 (9):\penalty0 515--572,
+  1980.
+\newblock ISSN 0022362X.
+\newblock URL \url{http://www.jstor.org/stable/2025790}.
+
+\bibitem[Rönnedal(2019)]{ctd}
+D.~Rönnedal.
+\newblock Contrary-to-duty paradoxes and counterfactual deontic logic.
+\newblock \emph{Philosophia}, 47, 09 2019.
+\newblock \doi{10.1007/s11406-018-0036-0}.
+
+\bibitem[Scott(1970)]{neighborhood1}
+D.~Scott.
+\newblock Advice on modal logic.
+\newblock In K.~Lambert, editor, \emph{Philosophical Problems in Logic: Some
+  Recent Developments}, pages 143--173. D. Reidel, 1970.
+
+\bibitem[Silber(1974)]{silber}
+J.~R. Silber.
+\newblock Procedural formalism in kant's ethics.
+\newblock \emph{The Review of Metaphysics}, 28\penalty0 (2):\penalty0 197--236,
+  1974.
+\newblock ISSN 00346632.
+\newblock URL \url{http://www.jstor.org/stable/20126622}.
 
 \bibitem[Sinnott-Armstrong(2021)]{consequentialismsep}
 W.~Sinnott-Armstrong.
@@ -151,6 +282,19 @@ W.~Sinnott-Armstrong.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {F}all 2021
   edition, 2021.
+
+\bibitem[Stang(2021)]{kantnoumena}
+N.~F. Stang.
+\newblock {Kant’s Transcendental Idealism}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {S}pring 2021
+  edition, 2021.
+
+\bibitem[Velleman(2005)]{velleman}
+J.~D. Velleman.
+\newblock \emph{A Brief Introduction to Kantian Ethics}, page 16–44.
+\newblock Cambridge University Press, 2005.
+\newblock \doi{10.1017/CBO9780511498862.002}.
 
 \bibitem[Vincent(2021)]{verge}
 J.~Vincent.

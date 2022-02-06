@@ -20,7 +20,13 @@
 \definecolor{crimson}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
 
 \titleformat{\section}
-  {\Huge\bfseries\color{crimson}}{\thesection}{1em}{}
+  {\upshape\Huge\bfseries\color{crimson}}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\upshape\Large\bfseries\color{crimson}}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\upshape\large\bfseries\color{crimson}}{\thesubsubsection}{1em}{}
 % further packages required for unusual symbols (see also
 % isabellesym.sty), use only when needed
 
@@ -100,7 +106,8 @@
 \newpage
 \pagenumbering{arabic}
 \input{thesis_1_intro}
-
+\newpage 
+\input{thesis_2_methods}
 
 
 \newpage

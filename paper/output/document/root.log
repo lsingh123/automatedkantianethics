@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  5 FEB 2022 10:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  6 FEB 2022 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -388,22 +388,22 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 (./root.aux)
 \openout1 = `root.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 \c@mv@tabular=\count270
 \c@mv@boldtabular=\count271
 
@@ -464,7 +464,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box53
-Package hyperref Info: Link coloring ON on input line 56.
+Package hyperref Info: Link coloring ON on input line 62.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -477,9 +477,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count278
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
-LaTeX Info: Redefining \nameref on input line 56.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
  (./root.out) (./root.out)
 \@outlinefile=\write4
 \openout4 = `root.out'.
@@ -487,15 +487,15 @@ LaTeX Info: Redefining \nameref on input line 56.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <24.88> not avai
 lable
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 81.
+nput line 87.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 24.88pt on input line 81.
+(Font)              scaled to size 24.88pt on input line 87.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/sc' in size <10.95> not ava
 ilable
 (Font)              Font shape `T1/EBGaramond-OsF/regular/sc' tried instead on 
-input line 81.
+input line 87.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/sc' will be
-(Font)              scaled to size 10.95pt on input line 81.
+(Font)              scaled to size 10.95pt on input line 87.
  [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./thes
@@ -528,14 +528,14 @@ with the same identifier (name{page.}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.92 \newpage
+l.98 \newpage
               [3]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <24.88> not avai
 lable
 (Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
-t line 94.
+t line 100.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
-(Font)              scaled to size 24.88pt on input line 94.
+(Font)              scaled to size 24.88pt on input line 100.
  (./root.toc
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <10.95> not avai
 lable
@@ -543,7 +543,16 @@ lable
 t line 1.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
 (Font)              scaled to size 10.95pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 \openout5 = `root.toc'.
 
@@ -551,33 +560,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 \newpage
-               [4] (./thesis_1_intro.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' in size <24.88> not ava
-ilable
-(Font)              Font shape `T1/EBGaramond-OsF/regular/it' tried instead on 
-input line 25.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/it' will be
-(Font)              scaled to size 24.88pt on input line 25.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/it' in size <24.88> not ava
-ilable
-(Font)              Font shape `T1/EBGaramond-OsF/bold/it' tried instead on inp
-ut line 25.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
-(Font)              scaled to size 24.88pt on input line 25.
- [1]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
-
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
-
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+l.106 \newpage
+               [4] (./thesis_1_intro.tex [1]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <8> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
@@ -602,41 +586,105 @@ Overfull \hbox (1.78224pt too wide) in paragraph at lines 128--132
 soph-i-cal lit-er-a-ture. This test-ing frame-work shows
  []
 
-[4] [5]) [6] (./root.bbl [7] [8])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
- [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
+[4] [5]) [6] (./thesis_2_methods.tex
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <14.4> not avail
+able
+(Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
+nput line 63.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
+(Font)              scaled to size 14.4pt on input line 63.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <14.4> not avail
+able
+(Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
+t line 63.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
+(Font)              scaled to size 14.4pt on input line 63.
+ [7]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <12> not availab
+le
+(Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
+nput line 107.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
+(Font)              scaled to size 12.0pt on input line 107.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <12> not availab
+le
+(Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
+t line 107.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
+(Font)              scaled to size 12.0pt on input line 107.
+ [8] [9] [10] [11] [12] [13] [14]
+[15] [16] [17] [18] [19] [20]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
+26.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <10> not availab
+le
+(Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
+t line 649.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
+(Font)              scaled to size 10.0pt on input line 649.
+ [21]
+Overfull \hbox (25.20966pt too wide) in paragraph at lines 725--731
+\T1/EBGaramond-OsF/regular/n/10.95 sented as a HOL for-mula. Is-abelle au-to-ma
+t-i-cally un-folds for-mu-lae de-fined with the \T1/cmtt/m/n/10.95 abbreviation
+
+ []
+
+[22]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/it' in size <10> not availa
+ble
+(Font)              Font shape `T1/EBGaramond-OsF/bold/it' tried instead on inp
+ut line 741.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
+(Font)              scaled to size 10.0pt on input line 741.
+ [23]) [24] (./root.bbl [25] [26] [27] [28])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
  (./root.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 109.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 116.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 116.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: A02D95553E30B97FF125B1AA17CF9044;47.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 109.
+(rerunfilecheck)             Checksum: CDC7044362C348FA2F0C1B81DFC6831B;893.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 116.
  ) 
 Here is how much of TeX's memory you used:
- 9526 strings out of 480608
- 139797 string characters out of 5903631
- 410277 words of memory out of 5000000
- 25169 multiletter control sequences out of 15000+600000
- 617286 words of font info for 76 fonts, out of 8000000 for 9000
+ 9746 strings out of 480608
+ 143384 string characters out of 5903631
+ 412416 words of memory out of 5000000
+ 25301 multiletter control sequences out of 15000+600000
+ 656536 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,8n,67p,244b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_ljow5q.en
-c}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_tcdnmr.en
-c}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_byuyni.en
-c}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-
-Bold.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ebgaramond/EBGa
-ramond-BoldItalic.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/eb
-garamond/EBGaramond-Italic.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
-public/ebgaramond/EBGaramond-Regular.pfb></usr/local/texlive/2020/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msam10.pfb>
-Output written on root.pdf (13 pages, 453690 bytes).
+ 41i,8n,67p,731b,623s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_ljow5q.enc}
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_tcdnmr.enc}
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_byuyni.enc}
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bo
+ld.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ebgaramond/EBGara
+mond-Italic.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ebgaramo
+nd/EBGaramond-Regular.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symb
+ols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/
+sftt1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sf
+tt1095.pfb>
+Output written on root.pdf (33 pages, 535471 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 548 PDF objects out of 1000 (max. 8388607)
+ 491 compressed objects within 5 object streams
+ 111 named destinations out of 1000 (max. 500000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 
