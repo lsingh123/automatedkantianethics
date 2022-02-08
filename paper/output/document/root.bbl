@@ -1,4 +1,4 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{51}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -219,13 +219,6 @@ M.~Kroy.
 \newblock \emph{Kant-Studien}, 67\penalty0 (1-4):\penalty0 192--209, 1976.
 \newblock \doi{doi:10.1515/kant.1976.67.1-4.192}.
 \newblock URL \url{https://doi.org/10.1515/kant.1976.67.1-4.192}.
-
-\bibitem[McNamara and Van De~Putte(2021)]{sep-logic-deontic}
-P.~McNamara and F.~Van De~Putte.
-\newblock {Deontic Logic}.
-\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
-  Philosophy}. Metaphysics Research Lab, Stanford University, spring 2021
-  edition, 2021.
 
 \bibitem[McRae(2013)]{mcrae}
 E.~McRae.

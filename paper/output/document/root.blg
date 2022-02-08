@@ -8,45 +8,45 @@ Warning--empty year in deon1
 Warning--empty booktitle in util2
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
-You've used 52 entries,
+You've used 51 entries,
             2773 wiz_defined-function locations,
-            919 strings with 12514 characters,
-and the built_in function-call counts, 21401 in all, are:
-= -- 1894
-> -- 1025
-< -- 51
-+ -- 357
-- -- 305
-* -- 1524
-:= -- 3341
-add.period$ -- 196
-call.type$ -- 52
-change.case$ -- 247
-chr.to.int$ -- 52
-cite$ -- 109
-duplicate$ -- 1133
-empty$ -- 1943
-format.name$ -- 383
-if$ -- 4557
+            914 strings with 12358 characters,
+and the built_in function-call counts, 20961 in all, are:
+= -- 1855
+> -- 1000
+< -- 50
++ -- 349
+- -- 298
+* -- 1494
+:= -- 3271
+add.period$ -- 192
+call.type$ -- 51
+change.case$ -- 241
+chr.to.int$ -- 51
+cite$ -- 107
+duplicate$ -- 1109
+empty$ -- 1902
+format.name$ -- 373
+if$ -- 4461
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 62
-newline$ -- 299
-num.names$ -- 226
-pop$ -- 585
+missing$ -- 61
+newline$ -- 294
+num.names$ -- 220
+pop$ -- 572
 preamble$ -- 1
-purify$ -- 202
+purify$ -- 198
 quote$ -- 0
-skip$ -- 783
+skip$ -- 769
 stack$ -- 0
-substring$ -- 507
-swap$ -- 119
+substring$ -- 505
+swap$ -- 118
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 502
+type$ -- 491
 warning$ -- 5
-while$ -- 195
+while$ -- 191
 width$ -- 0
-write$ -- 734
+write$ -- 720
 (There were 5 warnings)
