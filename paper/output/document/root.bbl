@@ -1,4 +1,4 @@
-\begin{thebibliography}{47}
+\begin{thebibliography}{52}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -141,6 +141,11 @@ J.~Driver.
   Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2014
   edition, 2014.
 
+\bibitem[Ebels-Duggan(2012)]{ebelsduggan}
+K.~Ebels-Duggan.
+\newblock \emph{Kantian Ethics}, chapter Kantian Ethics.
+\newblock Continuum, 2012.
+
 \bibitem[Eubanks(2018)]{eubanks}
 V.~Eubanks.
 \newblock \emph{Automating Inequality: How High-Tech Tools Profile, Police, and
@@ -179,10 +184,27 @@ L.~Jiang, J.~D. Hwang, C.~Bhagavatula, R.~L. Bras, M.~Forbes, J.~Borchardt,
   J.~Liang, O.~Etzioni, M.~Sap, and Y.~Choi.
 \newblock Delphi: Towards machine ethics and norms, 2021.
 
+\bibitem[Johnson and Cureton(2021)]{sepkant}
+R.~Johnson and A.~Cureton.
+\newblock {Kant’s Moral Philosophy}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {S}pring 2021
+  edition, 2021.
+
 \bibitem[Kant(1785)]{groundwork}
 I.~Kant.
 \newblock \emph{Groundwork of the Metaphysics of Morals}.
 \newblock Cambridge University Press, Cambridge, 1785.
+
+\bibitem[Korsgaard(1986)]{KorsgaardRTL}
+C.~Korsgaard.
+\newblock {The Right to Lie: Kant on Dealing with Evil}.
+\newblock \emph{Philosophy and Public Affairs}, 15:\penalty0 325--249, 1986.
+
+\bibitem[Korsgaard(2012)]{korsgaardintro}
+C.~Korsgaard.
+\newblock \emph{Groundwork of the Metaphysics of Morals}, chapter Introduction.
+\newblock Cambridge University Press, Cambridge, 2012.
 
 \bibitem[Korsgaard and O'Neill(1996)]{sources}
 C.~M. Korsgaard and O.~O'Neill.
@@ -236,6 +258,11 @@ O.~O'Neill.
   Philosophy}.
 \newblock Cambridge University Press, 1990.
 \newblock \doi{10.1017/CBO9781139173773}.
+
+\bibitem[O'Neill(2013)]{actingonprinciple}
+O.~O'Neill.
+\newblock \emph{Acting on Principle: An Essay on Kantian Ethics}.
+\newblock Cambridge University Press, 2013.
 
 \bibitem[{Powers}(2006)]{powers}
 T.~M. {Powers}.

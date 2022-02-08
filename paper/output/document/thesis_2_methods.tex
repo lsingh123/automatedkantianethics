@@ -386,49 +386,45 @@ I will extend this argument to general bottom-up approaches in Section Related W
 \begin{isamarkuptext}%
 In this paper I focus on Kantian ethics, a specific branch of deontology. Kant's theory is centered 
 on practical reason, which is the kind of reason that we 
-use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant's most influential 
-text on ethics, he explains that rational beings are unique because we can act ``in accordance with 
+use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
+rational beings are unique because we can act ``in accordance with 
 the representations of laws" \citep[4:412]{groundwork}. In contrast, a ball thrown into the air acts 
 according to the laws of physics. It cannot ask itself, ``Should I fall back to the ground?" 
 It simply falls. A rational being, on the other hand, can ask, ``Should I act on this reason?" 
 As Korsgaard describes it, when choosing which desire to act on, ``it is as if there is something over 
 and above all of your desires, something which is you, and which chooses which desire to act on" \citep[100]{sources}. 
 Rational beings are set apart by this reflective capacity. A rational being's behavior is purposive and 
-their actions are guided by practical reason. They have reasons for acting, even when these reasons may be 
-opaque to them. This operation of practical reason is what Kant calls the will. 
+their actions are guided by practical reason. They have reasons for acting, even when these reasons are
+opaque to them. This reflective choosing, or operation of practical reason, is what Kant calls the will. 
 
 The will operates by adopting, or willing, maxims, which are its perceived reasons for acting. Kant defines a maxim as 
 the ``subjective principle of willing," or the reason that the will \emph{subjectively} gives 
-to itself for acting \citep[16 footnote 1]{groundwork}. There is debate about what exactly must be 
-included in a maxim, but many philosophers agree that a maxim consists of some combination of circumstances, 
+to itself for acting \citep[16 footnote 1]{groundwork}. Many philosophers agree that a maxim consists 
+of some combination of circumstances, 
 act, and goal.\footnote{For more discussion of the definition of a maxim, see Section What Is a Maxim}
 One example of a maxim is ``When I am hungry, I will eat a doughnut in order to satisfy my sweet tooth." 
 When an agent wills this maxim, they decide to act on it. They commit themselves to the end in the maxim 
 (e.g. satisfying your sweet tooth). They represent their action, to themselves, as following the 
 principle given by this maxim. Because a maxim captures an agent's principle of action, Kant evaluates
-maxims as obligatory, prohibited, or permissible. He argues that certain maxims have a form or logical structure 
-that requires any rational agent to will them, and these maxims are obligatory. 
+maxims as obligatory, prohibited, or permissible. He argues that the form of certain maxims 
+requires any rational agent to will them, and these maxims are obligatory. 
 
 The form of an obligatory maxim is given by the categorical imperative. 
 An imperative is a command, such as ``Close the door" or ``Eat the doughnut in order to satisfy your 
 sweet tooth." An imperative is categorical if it holds unconditionally for all rational agents under all 
-circumstances. Kant argues that the moral law must be a categorical imperative, for otherwise it would 
-not have the force that makes it a moral law \citep[5]{groundwork}. In order for an imperative to be 
-categorical, it must be derived from the will's authority over itself. Our wills are autonomous, so 
-the only thing that can have unconditional authority over a rational will is 
-the rational will itself. In Velleman's version of this argument, he claims that no one else can tell you what 
-to do because you can always ask why you 
+circumstances. Kant argues that the moral law must be a categorical imperative \citep[5]{groundwork}. 
+In order for an imperative to be categorical, it must be derived from the will's authority over itself. 
+Our wills are autonomous, so the only thing that can have unconditional authority over a rational will is 
+the will itself. No one else can tell you what to do because you can always ask why you 
 should obey their authority. The only authority that you cannot question is the authority of your own 
 practical reason. To question this authority is to demand a reason for acting for reasons, which 
 concedes the authority of reason itself \citep[23]{velleman}. Therefore, the only possible candidates 
 for the categorical imperative are those rules that are required of the will because it is a will. 
-The categorical imperative must be a property of practical reason itself.
 
 Armed with this understanding of practical reason, Kant presents the categorical 
 imperative. He presents three ``formulations" or versions of the categorical imperative and goes on to 
 argue that all three formulations are equivalent. In this project, I focus on the first formulation,
-the Formula of Universal Law.\footnote{For more on this 
-choice, see Section Why FUL.}
+the Formula of Universal Law, and I explain this choice in Section \ref{whyful}.
 
 The first formulation of the categorical imperative is the
 Formula of Universal Law (FUL), which reads, ``act only according to that maxim through which you can 
@@ -437,19 +433,19 @@ generates the universalizability test, which tests the moral value of a maxim by
 imagining a world in which it becomes a universal law and attempting to will the maxim in that world.
 If there is a contradiction in willing the maxim in a world in which everyone universally wills the maxim,
 the maxim is prohibited. 
+
 Velleman presents a concise argument for the FUL. He argues that reason is universally shared among reasoners. For 
 example, all reasoners have equal access to the arithmetic logic that shows that ``2+2=4" \cite[29]{velleman}. The chain of 
 reasoning that makes this statement true is not specific to any person, but is universal across people. 
 Therefore, if I have sufficient reason to will a maxim, so does every other rational agent. There is 
 nothing special about the operation of my practical reason that other reasoners don't have access to. 
-Practical reason is shared, so in adopting a maxim, I implicitly state that all reasoners
+In adopting a maxim, I implicitly state that all reasoners
 across time also have reason to adopt that maxim. Therefore, because I act on reasons, I must obey the 
 FUL. Notice that this fulfills the above criterion for a categorical imperative: the FUL is derived from 
 a property of practical reason itself and thus derives authority from the will's authority over itself, 
 as opposed to some external authority.
 
-The above is not meant to serve as a full defense or articulation of Kant's ethical theory, as that is outside the scope
-of this thesis. Instead, I briefly reconstruct a sketch of Kant's ethical theory in the hopes 
+The above is not meant to serve as a full defense or articulation of Kant's ethical theory. Instead, I briefly reconstruct a sketch of Kant's ethical theory in the hopes 
 of offering context for the implementation of the FUL I present later in the thesis. Additionally, understanding 
 the structure of Kant's theory also reveals why it is an ideal candidate 
 for formalization.%
@@ -461,29 +457,26 @@ for formalization.%
 %
 \begin{isamarkuptext}%
 Kantian ethics is an especially candidate for formalization because the categorical imperative, particularly the FUL, 
-is a property of reason related to the form or structure of a maxim, or a formal principle of practical
-reason. It does not require any situational knowledge or contingent beyond the circumstances included
+is a property of reason related to the form or structure of a maxim. It does not require any situational 
+knowledge beyond the circumstances included
 in the maxim itself and thus requires far less contingent facts than other ethical theories.
-Instead, it is purely a property of the proposed principle for action. This formalism makes Kantian
-ethics an attractive candidate for formalization. While other ethical theories often rely on many facts about 
+While other ethical theories often rely on many facts about 
 the world or the actor, Kantian ethics simply relies on the form of a given maxim. A computer evaluating 
-a maxim doesn't require any knowledge about the world beyond what is contained in a maxim. A maxim 
-is the only input that the computer needs to make a moral judgement. Automating 
+a maxim doesn't require any knowledge about the world beyond what is contained in a maxim. Automating 
 Kantian ethics merely requires making the notion of a maxim precise and representing it to the computer. 
 This distinguishes Kantian ethics from consequentialism and virtue ethics, which, as I argued above, 
 require far more knowledge about the world or the agent to reach a moral decision.
 
 Not only does evaluating Kantian ethics focus on a maxim, a maxim itself is an object
-with a thin representation for a computer, as compares to more complex objects like states of 
+with a thin representation for a computer, as compared to more complex objects like states of 
 affairs or moral character. Later in my project, I argue that a maxim can be represented simply as 
 a tuple of circumstances, act, and goal.\footnote{For more, see Section What is a Maxim?} This representation
 is simple and efficient, especially when compared to the representation of a causal chain or a state of 
-affairs or moral character. A maxim is a principle with a well-defined form, so representing a maxim
-to the computer merely requires capturing this form. This property not only reduces the computational complexity
-(in terms of time and space) of representing a maxim, it also make the system easier for human reasoners
+affairs or moral character. This property not only reduces the computational complexity
+(in terms of time and space) of representing a maxim, but it also make the system easier for human reasoners
 to interact with. A person crafting an input to a Kantian automated agent needs to reason about relatively
 simple units of evaluation, as opposed to the more complex features that consequentialism and virtue
-ethics require. I will make the comparision to consequentialism and virtue ethics explicit below.%
+ethics require.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
@@ -491,33 +484,110 @@ ethics require. I will make the comparision to consequentialism and virtue ethic
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-My choices to interpret maxims and the Formula of Universal Law in a particular way represent debates
-in Kantian ethics over the meanings of these terms that I take a stance on. Another debate in Kantian 
+One debate in Kantian 
 ethics is the role of ``common-sense" reasoning. Kantian ethics requires common-sense reasoning to 
 determine which circumstances are ``morally relevant" in the formulation of a maxim. Many misunderstandings
 in Kantian ethics are due to badly formulated maxims, so this question is important for an ethical 
-reasoner to answer. My system does not need to answer this question because I assume a well-formed
+reasoner to answer.\footnote{For example, critics of Kantian ethics worry that the maxim, ``When I am a
+man, I will marry a man because I want to spend my life with him" fails the universalizability
+test because if all men only married men, sexual reproduction would stop. This argument implies 
+that Kantian ethics is homophobic. Kantians often respond by arguing that the correct formulation of 
+this maxim is, ``When I love a man, I will marry him because I want to spend my life with him," which
+is universalizable because if everyone marries who they love, some men will marry women.} 
+My system does not need to answer this question because I assume a well-formed
 maxim as input and apply the categorical imperative to this input, but if my system were ever to be used
 in a faully automated agent, answering this question would require significant computational and philosophical
 work. For more, see Section AI Ethics.
 
-Common-sense reasoning is also relevant in applying the universalizability test itself. Consider an example
-maxim tested using the Formula of Universal Law: ``When broke, I will falsely promise to repay a loan
+Common-sense reasoning is also relevant when applying the universalizability test itself. Consider the example
+maxim: ``When broke, I will falsely promise to repay a loan
 to get some quick cash." This maxim fails the universalizability test because in a world where everyone
 falsely promises to repay loans, no one will believe promises anymore, so the maxim will no longer serve
 its intended purpose (getting some quick cash). Making this judgement requires understanding enough about
 the system of promising to realize that it breaks down if everyone abuses it in this manner. This is a
-kind of common sense reasoning that an automated Kantian agent would need. This need is not unique to 
-Kantian ethics; consequentialists agents need this kind of common sense to determine the consequences of 
-an action and virtue ethical agents need this kind of common sense to determine which virtues an action
-reflects. Making any ethical judgement requires relatively robust conceptions of the action or situation
+kind of common sense reasoning that an automated Kantian agent would need. This need is not unique to
+Kantian ethics; consequentialists agents need common sense to determine the consequences of 
+an action and virtue ethical agents need common sense to determine which virtues an action
+reflects. Making any ethical judgement requires robust conceptions of the action
 at hand, falsely promising in this case. The advantage of Kantian ethics is that this is all the common 
 sense that it requires, whereas a consequentialist or virtue ethical agent will require much more. All
-moral theories evaluating falsely promising will a robust definition of the convention of promising, 
-but consequentialism and virtue ethics will also require additional information about consequences or character
+moral theories evaluating falsely promising will a robust definition of promising, 
+but consequentialism and virtue ethics will also require additional information
 that Kantian ethics will not. Thus, although the need for common sense poses a challenge to automated
-Kantian ethics, this challenge is more acute for consequentialism or virtue ethics so Kantian ethics remains
- within the closest reach of automation.%
+Kantian ethics, this challenge is more acute for consequentialism or virtue ethics.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{The Formula of Universal Law \label{whyful}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Earlier I mentioned that Kant presents three formulations, or versions, 
+of what he calls the ``supreme law of morality," but I focus on the first of these three. In this section, 
+I argue that the Formula of Universal Law, specifically, is the easiest part of Kantian ethics to automate
+and the most generalizable.
+
+The first formulation of the categorical imperative is the
+formula of universal law (FUL), which reads, ``act only according to that maxim through which you can 
+at the same time will that it become a universal law." \cite[34]{groundwork} This formulation
+generates the universalizability test, which ``tests" the moral value of a maxim by 
+imagining a world in which it becomes a universal law and attempting to will the maxim in that world. The 
+second formulation of the categorical imperative is the formula of humanity (FUH): ``So act that you use humanity, 
+in your own person, as well as in the person of any other, always at the same time as an end, never merely 
+as a means." \cite[41]{groundwork}. This formulation is often understood as requiring us to 
+acknowledge and respect the dignity of every other person. The third formulation of the categorical 
+imperative is the formula of autonomy (FOA), which Korsgaard describes
+as, ``we should so act that we may think of ourselves as legislating universal laws through our 
+maxims" \cite[28]{korsgaardintro}. While closely related to the FUL, the FOA presents morality as the activity of 
+perfectly rational agents in an ideal ``kingdom of ends," guided by what Kant calls the ``laws of freedom."
+
+I choose to focus on the FUL\footnote{The FUL is often seen as emblematic of Kantian constructivism \cite[173]{ebelsduggan}. 
+My project is not committed to Kantian constructivism. I believe that computational ethics is likely a 
+valuable tool for any ethicist, and I make the case for Kantian ethics specifically.},
+ because it is the most formal and thus the easiest to formalize and implement. 
+Onora O'Neill explains that the formalism of the FUL allows 
+for greater precision in philosophical arguments analyzing its implications and power \cite[33]{actingonprinciple}. This precision 
+is particularly useful in a computational context because any formalism necessarily makes its content 
+precise. The FUL's existing precision reduces ambiguity, allowing me to remain faithful to philosophical
+literature on Kant. Precision reduces the need to make choices to resolve debates 
+and ambiguities. Minimizing these choices minimizes 
+arbitrariness in my formalization and puts it on solid philosophical footing.
+
+Though Kantians study all formulations of the categorical imperative, Kant argues in Groundwork 
+that the three formulations of the categorical imperative are equivalent \cite{groundwork}. While this 
+argument is disputed \cite{sepkant}, for those who believe it, the
+stakes for my choice of the FUL are greatly reduced. If all formulations are equivalent, then a formalization of the FUL
+lends the exact same power as a formalization of the second or third formulation of the categorical 
+imperative. 
+
+Those who do not believe that all three formulations of the categorical imperative are equivalent
+understand the FUL as the strongest or most foundational, and thus an appropriate initial choice for 
+formalizations. Korsgaard characterizes the three formulations of the categorical
+imperative according to Rawls' general and special conception of justice. The general conception applies
+universally and can never be violated, while the special conception represents an ideal for us to
+live towards. For example, the special conception may require that we prefer some job applicants
+over others in order to remedy historical injustice, and the general conception may require that such
+inequalities always operate in the service of the least privileged \citep[19]{KorsgaardRTL}. Korsgaard
+argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
+Humanity represents his special conception. The FUL's prescriptions can never be violated, even in the most
+non-ideal circumstances imaginable, but the FUH is merely a standard to live towards that might not be 
+achieved. Thus, he FUL generates stronger requirements than the other two formulations and is 
+the bare minimum of Kant's ethics. Because the FUL's prescriptions outweigh those of the other two formulations,
+formalizing it creates a functional, minimum ethical theory that can serve as a foundation for implementations
+of other aspects of Kant's ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -544,19 +614,21 @@ I present the logical background necessary to understand my work and my choice o
 %
 \begin{isamarkuptext}%
 Traditional modal logics include the necessitation operator, denoted as $\Box$. In simple modal logic
-using the Kripke semantics, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors \cite{cresswell}. 
+using the Kripke semantics, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors, 
+and it represents the concept of necessary truth \citep{cresswell}. 
 These logics usually also contain the possibility operator $\diamond$, where
- $\diamond p \iff \sim \Box \sim p$. Additionally, modal logics include operators of propositional 
-logic like $\sim, \wedge, \vee, \rightarrow$.
+ $\diamond p \iff \sim \Box \sim p$. $\diamond p$ means that the statement $p$ is possibly true. 
+Additionally, modal logics include standard operators of propositional logic like $\sim, \wedge, \vee, \rightarrow$.
 
-A deontic logic is a special kind of modal logic designed to reason about obligation. Standard deontic
-logic \citep{cresswell, sep-logic-deontic} replaces $\Box$ with the obligation operator
-$O$, and $\diamond$ with the permissibility operator $P$. Using the Kripke semantics for $O$, $O p$ 
-is true at $w$ if $p$ is true at all  ideal deontic alternatives to $w$. The $O$ operator in SDL
+A deontic logic is a special kind of modal logic designed to reason about moral obligation. Standard deontic
+logic replaces $\Box$ with the obligation operator
+$O$, and $\diamond$ with the permissibility operator $P$ \citep{cresswell, sep-logic-deontic}. Using the Kripke semantics for $O$, $O p$ 
+is true at $w$ if $p$ is true at all  ideal deontic alternatives to $w$, and thus represents the 
+concept of moral necessity or necessary requirements. The $O$ operator in SDL
 takes a single argument (the formula that is obligatory), and is thus called a monadic deontic operator.
 
  While SDL is appreciable for its simplicity, it suffers a variety of well-documented paradoxes, 
-including contrary-to-duty paradoxes \footnote{The paradigm case of a contrary-to-duty paradox is the 
+including contrary-to-duty paradoxes. \footnote{The paradigm case of a contrary-to-duty paradox is the 
 Chisholm paradox. Consider the following statements: \begin{enumerate}
 \item It ought to be that Tom helps his neighbors
 \item It ought to be that if Tom helps his neighbors, he tells them he is coming
@@ -566,29 +638,36 @@ Chisholm paradox. Consider the following statements: \begin{enumerate}
 These premises contradict themselves, because items (2)-(4) imply that Tom ought not help his neighbors. The 
 contradiction results because the logic cannot handle violations of duty mixed with
 conditionals. \citep{chisholm, ctd}
-}. 
-In situations where duty is violated, the logic breaks down 
+}. In situations where duty is violated, the logic breaks down 
 and produces paradoxical results. Thus, I use an improved deontic logic instead of SDL for this work.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-I use as my base logic Carmo and Jones's dyadic deontic logic, or DDL, which improves on SDL \cite{CJDDL}. 
+I use as my base logic Carmo and Jones's dyadic deontic logic, or DDL, which improves on SDL \citep{CJDDL}. 
 It introduces a dyadic obligation operator $O\{A \vert B\}$ 
-to represent the sentence ``A is obligated in the context B". This gracefully handles contrary-to-duty
-conditionals. The obligation operator uses a neighborhood semantics \cite{neighborhood1, neighborhood2}, instead of the Kripke semantics. 
-Carmo and Jones define a function $ob$ that maps from worlds to sets of sets of worlds. Intuitively, 
-each world is mapped to the set of propositions obligated at that world, where a proposition $p$ is defined as 
-the worlds at which the $p$ is true.
+to represent the sentence ``A is obligated in the context B". The introduction of context allows DDL to
+gracefully handle contrary-to-duty conditionals by modifying the context. The obligation operator uses 
+a neighborhood semantics, instead of the Kripke semantics \citep{neighborhood1, neighborhood2}. While Kripke
+semantics requires that an obligated proposition hold at all worlds, the neighborhood semantics defines
+a different set of neighbors, or morally relevant alternatives, for each world. To represent this,
+Carmo and Jones define a function $ob$ that maps from a given context (or world) to the propositions 
+that are obligatory at this world, where a proposition $p$ is defined as 
+the worlds at which the $p$ is true. DDL is thus both modal and deontic; statements about obligations are
+true or false at a world according to the neighbordhood 
+semantics, and different obligations may hold at different worlds. This property is particularly relevant to my work because the universalizability test
+requires reasoning about alternative worlds, such as the world of the universalized maxim.
 
-DDL also includes other modal operators. In addition to $\Box$ and $\diamond$, DDL also has a notion
+DDL also includes modal operators. In addition to $\Box$ and $\diamond$, DDL also has a notion
 of actual obligation and possible obligation, represented by operators $O_a$ and $O_p$ respectively. 
 These notions are accompanied by the corresponding modal operators $\Box_a, \diamond_a, \Box_p, \diamond_p$. 
 These operators use a Kripke semantics, with the functions $av$ and $pv$ mapping a world $w$ to the set 
-of corresponding actual or possible versions of $w$. 
+of corresponding actual or possible versions of $w$. These operators are not relevant to the work in 
+this thesis, but this additional expressivity could be used to extend my project to incorporate 
+more sophisticated ethical concepts like counterfactuals.
 
-For more of fine-grained properties of DDL see \citep{CJDDL} or this project's source code. DDL is a heavy logic and contains modal operators 
+For more of fine-grained properties of DDL see \citet{CJDDL} or this project's source code. DDL is a heavy logic and contains modal operators 
 that aren't necessary for my analysis. While this expressivity is powerful, it may also cause performance
-impacts. DDL has a large set of axioms involving quantification over complex higher-order
+issues. DDL has a large set of axioms involving quantification over complex higher-order
 logical expressions. Proofs involving these axioms will be computationally expensive. I do not run 
 into performance issues in my system, but future work may choose to embed a less complicated logic.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -612,18 +691,11 @@ into performance issues in my system, but future work may choose to embed a less
 %
 \begin{isamarkuptext}%
 The final component of my project is the automated theorem prover I use to automate my formalization.
-Isabelle/HOL is an interactive proof assistant built on Haskell and Scala \cite{isabelle}. It 
+Isabelle/HOL is an interactive proof assistant built on Haskell and Scala \citep{isabelle}. It 
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
-automatic and interactive/manual theorem proving. 
-
-I started my project by reimplementing Benzmueller, Farjami, and Parent's implementation 
-of DDL in Isabelle/HOL \cite{BFP, logikey}. This helped me learn how to use Isabelle/HOL, and the implementation showcased in the 
-next few sections demonstrates the power of Isabelle.
-
-Benzmueller, Farjami, and Parent use a shallow semantic embedding. This kind of embedding models the semantics of DDL as 
-constants in HOL and axioms as constraints on DDL models. This document will contain a subset of my 
-implementation that is particularly interesting and relevant to understanding the rest of the project. 
-For the complete implementation, see the source code in \isatt{paper22.thy}.%
+automatic and interactive/manual theorem proving. To demonstrate the power and usage of Isabelle and 
+make DDL more precise, I walk through my reimplementation
+of Benzmueller, Farjami, and Parent's implementation of DDL in Isabelle/HOL \cite{BFP, logikey}.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -644,7 +716,9 @@ For the complete implementation, see the source code in \isatt{paper22.thy}.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-The first step in embedding a logic in Isabelle is defining the relevant terms and types.%
+The first step in embedding a logic in Isabelle is defining the relevant terms and types. Commands
+to do this include \texttt{typedecl}, which declares a new type, \texttt{type\_synonym}, which defines
+an abbreviation for a complex type, and \texttt{consts}, which defines a constant.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ i\ %
@@ -657,11 +731,12 @@ The first step in embedding a logic in Isabelle is defining the relevant terms a
 }\isanewline
 %
 \isamarkupcmt{A set of formulae is defined by its truth value at a set of worlds. For example, the set \{True\}
-would be true at any set of worlds.%
+is true at any set of worlds.%
 }\isanewline
 %
 \begin{isamarkuptext}%
-The main accessibility relation that I will use is the $ob$ relation:%
+The $ob$ function described in Section \ref{ddl} is used to determine which propositions are obligatory
+in which contexts.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ ob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ {\isacharparenleft}t\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ \ %
@@ -689,19 +764,19 @@ The main accessibility relation that I will use is the $ob$ relation:%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-For a semantic embedding, axioms are modelled as restrictions on models of the system. In this case,
-a model is specificied by the relevant accessibility relations, so it suffices to place conditions on 
-the accessibility relations. These axioms can be quite unweildy, so luckily I was able to lift BFP's 
-implementation of Carmo and Jones's original axioms directly \citep{BFP}. Here's an example of an axiom:%
+In a semantic embedding, axioms are modelled as restrictions on models of the system. In this case,
+a model is specificied by the relevant accessibility relations (such as $ob$), so it suffices to place conditions on 
+the accessibility relations. Isabelle allows users to create new axiomatizations on top of its base
+logic (HOL) and use these axioms in proofs. Here's an example of an axiom:%
 \end{isamarkuptext}\isamarkuptrue%
-\isanewline
-\isakeyword{and}\ ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isanewline
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}ax{\isacharunderscore}{\isadigit{5}}d{\isacharcolon}\ {\isachardoublequoteopen}{\isasymforall}X\ Y\ Z{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}w{\isachardot}\ Y{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymand}\ ob{\isacharparenleft}X{\isacharparenright}{\isacharparenleft}Y{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ X{\isacharparenleft}w{\isacharparenright}{\isasymlongrightarrow}Z{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ \isanewline
 \ \ {\isasymlongrightarrow}ob{\isacharparenleft}Z{\isacharparenright}{\isacharparenleft}{\isasymlambda}w{\isachardot}{\isacharparenleft}Z{\isacharparenleft}w{\isacharparenright}\ {\isasymand}\ {\isasymnot}X{\isacharparenleft}w{\isacharparenright}{\isacharparenright}\ {\isasymor}\ Y{\isacharparenleft}w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{If some subset Y of X is obligatory in the context X, then in a larger context Z,
- any obligatory proposition must either be in Y or in Z-X. Intuitively, expanding the context can't 
+\isamarkupcmt{If some subset $Y$ of $X$ is obligatory in the context $X$, then in a larger context $Z$,
+ any obligatory proposition must either be in $Y$ or in $Z \setminus X$. Intuitively, expanding the context can't 
 cause something unobligatory to become obligatory, so the obligation operator is monotonically increasing
- with respect to changing contexts.%
+with respect to changing contexts.%
 }\isanewline
 %
 \isadelimdocument
@@ -722,16 +797,17 @@ cause something unobligatory to become obligatory, so the obligation operator is
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-The syntax that I will work with is defined as abbreviations. Each DDL operator is represented 
+The axiomatization above defined the semantics of DDL and, as demonstrated by the example axiom,
+was unwieldly. In my work, I mostly perform syntactic proofs, so I must define the syntax of the logic.
+Isabelle already knows the axioms of this logic, so I can define the syntax as abbreviations for different
+formulas involving the axioms above. Each DDL operator is represented
 as a HOL formula. Isabelle automatically unfolds formulae defined with the \isatt{abbreviation} command 
 whenever they are applied. While the shallow embedding is performant (because it uses Isabelle's original 
-syntax tree), abbreviations may hurt performance. In some complicated proofs, we want to control definition
-unfolding. Benzmueller and Parent told me that the performance cost of abbreviations can 
-be mitigated using a definition instead.%
+syntax tree), abbreviations may hurt performance.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Modal operators will be useful for my purposes, but the implementation is pretty standard.%
+Modal operators will be useful for my purposes, and this how they are implemented.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlbox{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
@@ -740,7 +816,7 @@ Modal operators will be useful for my purposes, but the implementation is pretty
 \ ddldiamond{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t\ {\isasymRightarrow}\ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymdiamond}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymdiamond}A\ {\isasymequiv}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isasymbox}{\isacharparenleft}\isactrlbold {\isasymnot}A{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}%
 \begin{isamarkuptext}%
-The most important operator for our purposes is the obligation operator.%
+The most important operator for my project is the obligation operator.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlob{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O{\isacharbraceleft}{\isacharunderscore}{\isacharbar}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
@@ -751,7 +827,7 @@ The most important operator for our purposes is the obligation operator.%
 %
 \begin{isamarkuptext}%
 While DDL is powerful because of its support for a dyadic obligation operator, in many cases 
-we need a monadic obligation operator. Below is some syntactic sugar for a monadic obligation operator.%
+I only need a monadic obligation operator. Below is some syntactic sugar for a monadic obligation operator.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddltrue{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlbold {\isasymtop}{\isachardoublequoteclose}{\isacharparenright}\isanewline
@@ -763,7 +839,7 @@ we need a monadic obligation operator. Below is some syntactic sugar for a monad
 \ ddlob{\isacharunderscore}normal{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}O\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}{\isacharparenright}\ {\isasymequiv}\ {\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}\isactrlbold {\isasymtop}{\isacharbraceright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Intuitively, the context \texttt{True} is the widest context possible because \texttt{True} holds at all worlds.%
+\isamarkupcmt{Intuitively, the context $True$ is the widest context possible because $True$ holds at all worlds.%
 }%
 \begin{isamarkuptext}%
 Validity will be useful when discussing metalogical/ethical properties.%
@@ -772,33 +848,14 @@ Validity will be useful when discussing metalogical/ethical properties.%
 \ ddlvalid{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}bool{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymTurnstile}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymTurnstile}A\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ A\ w{\isachardoublequoteclose}\isanewline
 %
-\isadelimdocument
-%
-\endisadelimdocument
-%
-\isatagdocument
-%
-\isamarkupsubsubsection{Syntactic Properties%
-}
-\isamarkuptrue%
-%
-\endisatagdocument
-{\isafolddocument}%
-%
-\isadelimdocument
-%
-\endisadelimdocument
+\isamarkupcmt{A proposition is valid if it is true at all worlds.%
+}\isanewline
 %
 \begin{isamarkuptext}%
-One way to show that a semantic embedding is complete is to show that the syntactic specification
-of the theory (axioms) are valid for this semantics - so to show that every axiom holds at every 
-world. Benzmueller, Farjami, and Parent provide a complete treatment of the completeness of their embedding, but I 
-will include selected axioms that are particularly interesting here. This section also demonstrates many
-of the relevant features of Isabelle/HOL for my project.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-\textbf{Consistency}%
+Benemueller, Farjami, and Parent provide a proof of the completeness of the above embedding \citep{BFP}.
+Isabelle allows us to check consistency immediately using Nitpick, a model checker \citep{nitpick}.
+Nitpick can find satisfying models for a particular lemma using the \texttt{satisfy} option and it can 
+find counterexamples. I use it extensively in proofs in this prokect.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ True\ \isacommand{nitpick}\isamarkupfalse%
@@ -811,8 +868,8 @@ of the relevant features of Isabelle/HOL for my project.%
 \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 %
-\isamarkupcmt{Isabelle has built-in support for Nitpick, a model checker. 
-Nitpick successfully found a model satisfying these axioms so the system is consistent.%
+\isamarkupcmt{This an example of a typical Nitpick output. In this case, Nitpick successfully found a model 
+satisfying these axioms so the system is consistent.%
 }\isanewline
 %
 \isamarkupcmt{\color{blue} Nitpick found a model for card i = 1:
@@ -827,10 +884,9 @@ Nitpick successfully found a model satisfying these axioms so the system is cons
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-Nitpick \cite{nitpick} can generate models or countermodels, so it's useful to falsify potential
-theorems, as well as to show consistency. {\color{red} by simp} indicates the proof method. In this 
-case, {\color{red} simp} indicates the Simplification proof method, which involves unfolding definitions
-and applying theorems directly. HOL has $True$ as a theorem, which is why this theorem was so easy to prove.%
+In the proof above, {\color{red} by simp} indicates the use of the Simplification proof method, 
+which involves unfolding definitions and applying theorems directly. HOL has $True$ as a theorem,
+which is why this theorem was so easy to prove.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -1135,11 +1191,11 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%449=322%:%
 %:%450=323%:%
 %:%451=324%:%
-%:%452=325%:%
-%:%453=326%:%
-%:%454=327%:%
-%:%455=328%:%
-%:%459=330%:%
+%:%455=326%:%
+%:%459=328%:%
+%:%460=329%:%
+%:%461=330%:%
+%:%462=331%:%
 %:%463=332%:%
 %:%464=333%:%
 %:%465=334%:%
@@ -1157,44 +1213,47 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%477=346%:%
 %:%478=347%:%
 %:%479=348%:%
-%:%480=349%:%
-%:%481=350%:%
-%:%482=351%:%
-%:%483=352%:%
-%:%484=353%:%
-%:%485=354%:%
-%:%486=355%:%
-%:%490=359%:%
-%:%494=361%:%
-%:%495=362%:%
-%:%496=363%:%
-%:%497=364%:%
-%:%498=365%:%
-%:%499=366%:%
-%:%500=367%:%
-%:%501=368%:%
-%:%502=369%:%
-%:%503=370%:%
-%:%504=371%:%
-%:%505=372%:%
-%:%506=373%:%
-%:%507=374%:%
-%:%508=375%:%
-%:%509=376%:%
-%:%510=377%:%
-%:%511=378%:%
-%:%512=379%:%
-%:%513=380%:%
-%:%514=381%:%
-%:%515=382%:%
-%:%516=383%:%
-%:%517=384%:%
-%:%518=385%:%
-%:%519=386%:%
-%:%520=387%:%
-%:%529=390%:%
-%:%541=392%:%
-%:%542=393%:%
+%:%483=351%:%
+%:%487=353%:%
+%:%488=354%:%
+%:%489=355%:%
+%:%490=356%:%
+%:%491=357%:%
+%:%492=358%:%
+%:%493=359%:%
+%:%494=360%:%
+%:%495=361%:%
+%:%496=362%:%
+%:%497=363%:%
+%:%498=364%:%
+%:%499=365%:%
+%:%500=366%:%
+%:%501=367%:%
+%:%502=368%:%
+%:%503=369%:%
+%:%504=370%:%
+%:%505=371%:%
+%:%506=372%:%
+%:%507=373%:%
+%:%508=374%:%
+%:%509=375%:%
+%:%510=376%:%
+%:%511=377%:%
+%:%512=378%:%
+%:%513=379%:%
+%:%514=380%:%
+%:%515=381%:%
+%:%516=382%:%
+%:%517=383%:%
+%:%526=385%:%
+%:%538=388%:%
+%:%539=389%:%
+%:%540=390%:%
+%:%541=391%:%
+%:%542=392%:%
+%:%543=393%:%
+%:%544=394%:%
+%:%545=395%:%
 %:%546=396%:%
 %:%547=397%:%
 %:%548=398%:%
@@ -1221,28 +1280,28 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%569=419%:%
 %:%570=420%:%
 %:%571=421%:%
-%:%575=423%:%
-%:%576=424%:%
-%:%577=425%:%
-%:%578=426%:%
-%:%579=427%:%
-%:%580=428%:%
-%:%581=429%:%
-%:%582=430%:%
-%:%583=431%:%
-%:%584=432%:%
-%:%585=433%:%
-%:%586=434%:%
-%:%587=435%:%
-%:%588=436%:%
-%:%589=437%:%
-%:%590=438%:%
-%:%591=439%:%
-%:%592=440%:%
-%:%593=441%:%
-%:%602=444%:%
-%:%614=446%:%
-%:%615=447%:%
+%:%572=422%:%
+%:%573=423%:%
+%:%574=424%:%
+%:%575=425%:%
+%:%576=426%:%
+%:%577=427%:%
+%:%578=428%:%
+%:%579=429%:%
+%:%580=430%:%
+%:%581=431%:%
+%:%582=432%:%
+%:%583=433%:%
+%:%584=434%:%
+%:%585=435%:%
+%:%586=436%:%
+%:%587=437%:%
+%:%588=438%:%
+%:%589=439%:%
+%:%590=440%:%
+%:%599=442%:%
+%:%611=444%:%
+%:%612=445%:%
 %:%616=448%:%
 %:%617=449%:%
 %:%618=450%:%
@@ -1254,97 +1313,150 @@ and applying theorems directly. HOL has $True$ as a theorem, which is why this t
 %:%624=456%:%
 %:%625=457%:%
 %:%626=458%:%
-%:%635=461%:%
-%:%647=463%:%
-%:%649=465%:%
-%:%650=465%:%
-%:%651=465%:%
-%:%652=465%:%
-%:%653=466%:%
-%:%654=467%:%
-%:%655=467%:%
-%:%656=467%:%
-%:%657=467%:%
-%:%659=468%:%
-%:%660=469%:%
-%:%661=469%:%
-%:%664=483%:%
-%:%666=485%:%
-%:%667=485%:%
-%:%668=485%:%
-%:%669=485%:%
-%:%670=486%:%
-%:%671=486%:%
-%:%672=486%:%
-%:%680=490%:%
-%:%692=492%:%
-%:%693=493%:%
-%:%694=494%:%
-%:%695=495%:%
-%:%697=519%:%
-%:%698=520%:%
-%:%699=521%:%
-%:%701=522%:%
-%:%702=523%:%
-%:%703=524%:%
-%:%704=525%:%
-%:%705=525%:%
-%:%713=532%:%
-%:%725=534%:%
-%:%726=535%:%
-%:%727=536%:%
-%:%728=537%:%
-%:%729=538%:%
-%:%730=539%:%
-%:%734=555%:%
-%:%736=556%:%
-%:%737=556%:%
-%:%738=557%:%
-%:%739=558%:%
-%:%740=558%:%
-%:%741=559%:%
-%:%743=561%:%
-%:%745=562%:%
-%:%746=562%:%
-%:%747=563%:%
-%:%749=564%:%
-%:%750=564%:%
-%:%753=584%:%
-%:%754=585%:%
-%:%756=586%:%
-%:%757=586%:%
-%:%758=587%:%
-%:%759=588%:%
-%:%760=588%:%
-%:%761=589%:%
-%:%762=590%:%
-%:%763=590%:%
-%:%764=591%:%
-%:%766=592%:%
-%:%769=594%:%
-%:%771=595%:%
-%:%772=595%:%
-%:%773=596%:%
-%:%781=605%:%
-%:%793=607%:%
-%:%794=608%:%
-%:%795=609%:%
-%:%796=610%:%
-%:%797=611%:%
-%:%801=613%:%
-%:%803=614%:%
-%:%804=614%:%
-%:%805=614%:%
-%:%807=614%:%
-%:%811=614%:%
+%:%627=459%:%
+%:%628=460%:%
+%:%629=461%:%
+%:%630=462%:%
+%:%631=463%:%
+%:%632=464%:%
+%:%633=465%:%
+%:%634=466%:%
+%:%635=467%:%
+%:%636=468%:%
+%:%637=469%:%
+%:%638=470%:%
+%:%639=471%:%
+%:%640=472%:%
+%:%641=473%:%
+%:%642=474%:%
+%:%646=476%:%
+%:%647=477%:%
+%:%648=478%:%
+%:%649=479%:%
+%:%650=480%:%
+%:%651=481%:%
+%:%652=482%:%
+%:%653=483%:%
+%:%654=484%:%
+%:%655=485%:%
+%:%656=486%:%
+%:%657=487%:%
+%:%658=488%:%
+%:%659=489%:%
+%:%660=490%:%
+%:%661=491%:%
+%:%662=492%:%
+%:%663=493%:%
+%:%664=494%:%
+%:%665=495%:%
+%:%666=496%:%
+%:%667=497%:%
+%:%668=498%:%
+%:%669=499%:%
+%:%670=500%:%
+%:%671=501%:%
+%:%672=502%:%
+%:%681=505%:%
+%:%693=507%:%
+%:%694=508%:%
+%:%695=509%:%
+%:%696=510%:%
+%:%697=511%:%
+%:%698=512%:%
+%:%707=515%:%
+%:%719=517%:%
+%:%720=518%:%
+%:%721=519%:%
+%:%723=521%:%
+%:%724=521%:%
+%:%725=521%:%
+%:%726=521%:%
+%:%727=522%:%
+%:%728=523%:%
+%:%729=523%:%
+%:%730=523%:%
+%:%731=523%:%
+%:%733=524%:%
+%:%734=525%:%
+%:%735=525%:%
+%:%738=539%:%
+%:%739=540%:%
+%:%741=542%:%
+%:%742=542%:%
+%:%743=542%:%
+%:%744=542%:%
+%:%745=543%:%
+%:%746=543%:%
+%:%747=543%:%
+%:%755=547%:%
+%:%767=549%:%
+%:%768=550%:%
+%:%769=551%:%
+%:%770=552%:%
+%:%772=554%:%
+%:%773=554%:%
+%:%773=577%:%
+%:%774=578%:%
+%:%776=579%:%
+%:%777=580%:%
+%:%778=581%:%
+%:%779=582%:%
+%:%780=582%:%
+%:%788=589%:%
+%:%800=591%:%
+%:%801=592%:%
+%:%802=593%:%
+%:%803=594%:%
+%:%804=595%:%
+%:%805=596%:%
+%:%806=597%:%
+%:%810=613%:%
 %:%812=614%:%
+%:%813=614%:%
 %:%814=615%:%
 %:%815=616%:%
 %:%816=616%:%
-%:%818=617%:%
-%:%819=618%:%
-%:%820=619%:%
-%:%830=621%:%
-%:%831=622%:%
-%:%832=623%:%
-%:%833=624%:%
+%:%817=617%:%
+%:%819=619%:%
+%:%821=620%:%
+%:%822=620%:%
+%:%823=621%:%
+%:%825=622%:%
+%:%826=622%:%
+%:%829=642%:%
+%:%830=643%:%
+%:%832=644%:%
+%:%833=644%:%
+%:%834=645%:%
+%:%835=646%:%
+%:%836=646%:%
+%:%837=647%:%
+%:%838=648%:%
+%:%839=648%:%
+%:%840=649%:%
+%:%842=650%:%
+%:%845=652%:%
+%:%847=653%:%
+%:%848=653%:%
+%:%849=654%:%
+%:%851=655%:%
+%:%852=655%:%
+%:%855=663%:%
+%:%856=664%:%
+%:%857=665%:%
+%:%858=666%:%
+%:%860=669%:%
+%:%861=669%:%
+%:%862=669%:%
+%:%864=669%:%
+%:%868=669%:%
+%:%869=669%:%
+%:%871=670%:%
+%:%872=671%:%
+%:%873=671%:%
+%:%875=672%:%
+%:%876=673%:%
+%:%877=674%:%
+%:%887=676%:%
+%:%888=677%:%
+%:%889=678%:%
