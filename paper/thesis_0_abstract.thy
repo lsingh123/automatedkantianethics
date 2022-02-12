@@ -13,8 +13,8 @@ of machines that can perform ethical reasoning. Much prior work in automated eth
 problem from a computational perspective and rarely engages with philosophical literature on ethics, despite
 its clear relevance to the development of AI agents that can
 responsibly navigate the world. All decisions are moral decisions, including those that AI agents are actively 
-making today. If automated ethics draws on sophisticated philosophical literature, it will make the ethical reasoning
-underlying such decisions nuanced, precise and reliable. However, faithfully translating complex ethical theories
+making today. If automated ethics draws on sophisticated philosophical literature, the ethical reasoning
+underlying such decisions will be more nuanced, precise, consistent, and trustworthy. However, faithfully translating complex ethical theories
 from natural language to the rigid syntax of a computer program poses technical and philosophical 
 challenges. 
 
@@ -27,10 +27,11 @@ in the Isabelle/HOL theorem prover, and develop a testing framework to evaluate 
 my implementation coheres with expected properties of Kantian ethics, as established in the literature. 
 I also use my system to reason about two ethical dilemmas used to criticize Kantian ethics: the difference
 between lying and joking and the example of a murderer knocking on your door asking about the location of their
-intended victim. 
+intended victim. Finally, I examine the philosophical implications of this system, exploring its limitations 
+and its potential to help both AI agents and human beings better reason about ethics. 
 
 Armed with relatively uncontroversial facts about the world, my system is able to correctly
-resolve these moral dilemmas because it is grounded in philosophical literature.
+resolve complex moral dilemmas because it is grounded in philosophical literature.
 Moreover, because I automate an explicit ethical theory, the ethical reasoning underlying my system's judgements
 is interpretable by a human being. I implement this ethical theory using the Isabelle/HOL interactive theorem prover, which can 
 list the axioms and theorems used in a proof, so my system is explainable. This work serves as an early 

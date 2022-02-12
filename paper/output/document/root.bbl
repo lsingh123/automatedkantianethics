@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{58}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -86,6 +86,11 @@ J.~C. Blanchette and T.~Nipkow.
 \newblock \doi{10.1007/978-3-642-14052-5_11}.
 \newblock URL \url{http://link.springer.com/10.1007/978-3-642-14052-5_11}.
 
+\bibitem[Bok(1998)]{bok}
+H.~Bok.
+\newblock \emph{Freedom and Responsibility}.
+\newblock Princeton University Press, 1998.
+
 \bibitem[Carmo and Jones(2013)]{CJDDL}
 J.~Carmo and A.~Jones.
 \newblock Completeness and decidability results for a logic of contrary-to-duty
@@ -133,6 +138,13 @@ L.~Dennis, M.~Fisher, M.~Slavkovik, and M.~Webster.
 \newblock \doi{https://doi.org/10.1016/j.robot.2015.11.012}.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0921889015003000}.
+
+\bibitem[Dietrichson(1964)]{dietrichson}
+P.~Dietrichson.
+\newblock When is a maxim fully universalizable ?
+\newblock 55\penalty0 (1-4):\penalty0 143--170, 1964.
+\newblock \doi{doi:10.1515/kant.1964.55.1-4.143}.
+\newblock URL \url{https://doi.org/10.1515/kant.1964.55.1-4.143}.
 
 \bibitem[Driver(2014)]{utilsep}
 J.~Driver.
@@ -196,6 +208,13 @@ I.~Kant.
 \newblock \emph{Groundwork of the Metaphysics of Morals}.
 \newblock Cambridge University Press, Cambridge, 1785.
 
+\bibitem[Kitcher(2003)]{whatisamaxim}
+P.~Kitcher.
+\newblock What is a maxim?
+\newblock \emph{Philosophical Topics}, 31\penalty0 (1/2):\penalty0 215--243,
+  2003.
+\newblock \doi{10.5840/philtopics2003311/29}.
+
 \bibitem[Korsgaard(1986)]{KorsgaardRTL}
 C.~Korsgaard.
 \newblock {The Right to Lie: Kant on Dealing with Evil}.
@@ -219,6 +238,24 @@ M.~Kroy.
 \newblock \emph{Kant-Studien}, 67\penalty0 (1-4):\penalty0 192--209, 1976.
 \newblock \doi{doi:10.1515/kant.1976.67.1-4.192}.
 \newblock URL \url{https://doi.org/10.1515/kant.1976.67.1-4.192}.
+
+\bibitem[Lewis(1973{\natexlab{a}})]{lewiscausality}
+D.~Lewis.
+\newblock Causation.
+\newblock \emph{Journal of Philosophy}, 70\penalty0 (17):\penalty0 556--567,
+  1973{\natexlab{a}}.
+\newblock \doi{10.2307/2025310}.
+
+\bibitem[Lewis(1973{\natexlab{b}})]{lewiscounterfactuals}
+D.~Lewis.
+\newblock \emph{Counterfactuals}.
+\newblock Blackwell, 1973{\natexlab{b}}.
+
+\bibitem[Lukowicz(2019)]{loop}
+P.~Lukowicz.
+\newblock The challenge of human centric ai.
+\newblock \emph{Digitale Welt}, 3:\penalty0 9--10, 10 2019.
+\newblock \doi{10.1007/s42354-019-0200-0}.
 
 \bibitem[McRae(2013)]{mcrae}
 E.~McRae.
@@ -334,5 +371,10 @@ A.~Winfield, C.~Blum, and W.~Liu.
 \newblock volume 8717, 09 2014.
 \newblock ISBN 978-3-319-10400-3.
 \newblock \doi{10.1007/978-3-319-10401-0_8}.
+
+\bibitem[Wood(1999)]{kantsethicalthought}
+A.~W. Wood.
+\newblock \emph{Kant\textquoteright{}s Ethical Thought}.
+\newblock Cambridge University Press, 1999.
 
 \end{thebibliography}

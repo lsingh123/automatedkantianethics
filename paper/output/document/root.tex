@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{natbib}
+\usepackage{amsthm}
 \bibliographystyle{abbrvnat}
 \setcitestyle{authoryear,open={(},close={)}}
 \normalfont
@@ -18,6 +19,9 @@
 \usepackage{xcolor}
 \interfootnotelinepenalty=10000
 \definecolor{crimson}{rgb}{0.6471, 0.1098, 0.1882} % Crimson
+
+\newtheorem{definition}{Definition}
+
 
 \titleformat{\section}
   {\upshape\Huge\bfseries\color{crimson}}{\thesection}{1em}{}
@@ -108,6 +112,10 @@
 \input{thesis_1_intro}
 \newpage 
 \input{thesis_2_methods}
+\newpage
+\input{thesis_3_implementation}
+\newpage 
+\input{appendix}
 
 
 \newpage

@@ -1,16 +1,46 @@
-(*<*) theory appendix imports paper224
-
-begin (*>*)
-
-section "Appendix"
-
-subsection \<open>Maxims and Motives \label{maximmotive}\<close>
-
-text \<open>
+%
+\begin{isabellebody}%
+\setisabellecontext{appendix}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Appendix%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Maxims and Motives \label{maximmotive}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
 $\emph{Exclusion of Motive}$
 
 Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim @{cite whatisamaxim}. This additional component is read 
+behind performing the maxim \cite{whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
 Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
 in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
@@ -31,34 +61,75 @@ justice to the rich notion of motive requires modelling the operation of practic
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
 models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.\<close>
-
-(*<*)
-subsection "Conjunctions in DDL"
-
-\<comment> \<open>Assume that O\{A \wedge B\} \iff O\{A\} \wedge O\{B\}. This implies the following theorem:\<close>
-
-lemma contradictory_obligations:
-  assumes "\<Turnstile>(O {(A \<^bold>\<and> B)} \<^bold>\<equiv> (O {A} \<^bold>\<and> O {B}))"
-  shows "\<Turnstile>(\<^bold>\<not> ((O {A}) \<^bold>\<and> (O {\<^bold>\<not> A})))"
-  nitpick[user_axioms]
-  oops
-\<comment> \<open>What is the cause of the above strangeness?\<close>
-\<comment> \<open>This very intuitive theorem holds in my logic but not in BFP's\<close>
-\<comment> \<open>It's clear that this theorem results in the strange results above.\<close>
-\<comment> \<open>Conclusion: There is a bug in my embedding\<close>
-\<comment>\<open>Nitpick found a counterexample for card i = 2:
-
-  Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\<close>
-
-
-text "Sidebar: the above theorem is really intuitive - it seems like we wouldn't want 
-contradictory things to be obligatory in any logic. But for some reason, not only is it not
-a theorem of Carmo and Jones' logic, it actually implies some strange conclusions, including 
-that everything is either permissible or obligatory. It's not clear to me from a semantic 
-perspective why this would be the case. In fact this theorem seems like a desirable 
-property. Potential avenue for exploration"
-
-
-end(*>*)
+evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper/appendix.thy%:%
+%:%24=5%:%
+%:%28=7%:%
+%:%40=10%:%
+%:%41=11%:%
+%:%42=12%:%
+%:%43=13%:%
+%:%44=14%:%
+%:%45=15%:%
+%:%46=16%:%
+%:%47=17%:%
+%:%48=18%:%
+%:%49=19%:%
+%:%50=20%:%
+%:%51=21%:%
+%:%52=22%:%
+%:%53=23%:%
+%:%54=24%:%
+%:%55=25%:%
+%:%56=26%:%
+%:%57=27%:%
+%:%58=28%:%
+%:%59=29%:%
+%:%60=30%:%
+%:%61=31%:%
+%:%62=32%:%
+%:%63=33%:%
+%:%64=34%:%

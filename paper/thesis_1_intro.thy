@@ -15,13 +15,12 @@ an intersection fails to notice pedestrians in the crosswalk until it is too lat
 can either continue on its course, running over and killing three pedestrians, or it can swerve to 
 hit the car in the next lane, killing the single passenger inside it. While this example is (hopefully) 
 not typical of the operation of a self-driving car, every decision that such an AI agent makes, from 
-avoiding congested freeways to carpooling, is morally tinged. AI agents routinely make decisions with 
+avoiding congested freeways to carpooling, is morally tinged. Not only do AI agents routinely make decisions with 
 ethical implications without explicitly performing ethical
-reasoning and, in many cases, without human supervision. For example, the Alleghany Family Screening 
+reasoning, in many cases, they do so without human supervision. For example, the Alleghany Family Screening 
 tool can automatically trigger an investigation into a potential case of child neglect, a decision that 
 can uproot entire families and is known to be biased against poor people of color \citep{eubanks}. 
-Not only are machines making moral decisions without actually performing ethical reasoning, they're 
-doing so without human involvement. This motivates the need for machine ethics (also called automated ethics), 
+This motivates the need for machine ethics (also called automated ethics), 
 or the study of how to develop machines that can perform robust, sophisticated ethical reasoning. 
 
 Machine ethicists recognize the need for automated ethics and have made both theoretical 
@@ -29,14 +28,15 @@ Machine ethicists recognize the need for automated ethics and have made both the
 (\citep{logicprogramming}, \citep{biology}, \citep{delphi}, \citep{winfield}) towards automating ethics. 
 However, prior work in machine ethics using popular ethical theories like deontology (\citep{deon2}, \citep{deon1}), 
 consequentialism (\citep{util1}, \citep{util2}, \citep{cloos}), and virtue ethics \citep{berberich} rarely 
-engages with philosophical literature and thus misses philosophers' insights. Even the above example of 
+engages with philosophical literature and thus often misses philosophers' insights. Even the above example of 
 the malfunctioning self-driving car is an instance of Phillipa Foot's trolley problem, 
 in which a bystander watching a runaway trolley can pull a lever to kill one instead of three \citep{foot}. 
 Decades of philosophical debate have developed ethical theories that can offer nuanced and 
-consistent answers to the trolley problem. The trolley problem demonstrates that the moral dilemmas 
+consistent answers to the trolley problem. Like the trolley problem, the moral dilemmas 
 that artifical agents face are not entirely new, so solutions to these problems should take advantage of philosophical 
-progress. The more faithful that automated ethics is to philosophical literature, the more reliable and 
-nuanced it will be.
+progress. Philosophers are devoted to the creation of better ethical theories, so the 
+more faithful that automated ethics is to philosophical literature, the more nuanced, precise, consistent, and
+therefore trustworthy it will be.
 
 A lack of engagement with prior philosophical literature also makes automated moral agents less 
 explainable, or interpretable by human observers. One example of this is Delphi, a language model that uses deep 
@@ -62,10 +62,10 @@ fact that ethical theories are almost always described in natural language and m
 precise enough to represent to a computer. Even once ethics is translated from natural 
 language to program syntax, the factual background given to the machine, such as the description of 
 an ethical dilemma, is equally as important in determining the machine's decisions. Another complication
-is that philosophers do not agree that on a single choice of ethical theory. Even philosophers who
-agree that a specific ethical theory, like Kantian ethics, is true, debate the theory's 
+is that philosophers do not agree that on a single choice of ethical theory. Philosophers who
+so agree that a specific ethical theory, like Kantian ethics, is true, still debate the theory's 
 details.\footnote{For examples of these debates in the case of Kantian ethics, see Section Joking
-and Section Murderer.} Even once reasoning within a 
+and Section Murderer.} Moreover, even once reasoning within a 
 particular ethical theory is automated, those who disagree with that theory will disagree with the 
 system's judgements.
 
@@ -138,7 +138,8 @@ theorem provers are designed to be interpretable, my system is explainable. Isab
 the axioms and facts it used to generate an ethical judgement, and, in some cases, construct 
 human-readable proofs. In Sections Joking and Murderer, I use my system to arrive at 
 sophisticated solutions to two ethical dilemmas often used in critiques of Kantian ethics. Because 
-my system is faithful to philosophical literature, it is able to provide nuanced answers to these paradoxes. 
+my system is faithful to philosophical literature, it is able to provide nuanced answers to these paradoxes
+that require a deep understanding of Kantian ethics. 
 
 In addition to presenting the above logic and implementation, I also contribute a testing framework 
 that evaluates how well my formalization coheres with philosophical literature. I formalize expected 
@@ -162,9 +163,9 @@ make philosophical progress. I demonstrate the potential of computational ethics
 philosophical insight about which kinds of maxims are appropriate for ethical consideration that I 
 discovered using my system. The process of building and interacting with a computer that can reason 
 about ethics helped me, a human philosopher, arrive at a philosophical conclusion that has implications for practical
-reason and philosophy of doubt. Thus, my system can be used in two distinct ways. First, to help
+reason and philosophy of doubt. Thus, my system can be used in two distinct ways. First, my system can help
 automated agents navigate the world, which I will refer to as automated ethics or machine ethics interchangeably. Second, 
-to help human philosophers reason about philosophy, which I call computational ethics.
+my system help human philosophers reason about philosophy, which I call computational ethics.
 \<close>
 
 (*<*)

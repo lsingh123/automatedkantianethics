@@ -504,12 +504,751 @@ performance. On the other hand, it doesn't use the full expressivity of DDL. If 
 later on, one option is to tweak the FUL to use this expressivity.%
 \end{isamarkuptext}\isamarkuptrue%
 %
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Application Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+As with the naive formalization and Kroy's formalization, I will apply my testing framework to 
+my custom formalization of the FUL. I will begin with some basic application tests. In these tests, 
+I specify particular maxims as constants with no properties and gradually add properties to understand 
+how the system handles different kinds of maxims.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
+to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
+the strength of her preferred interpretation of the FUL, the practical contradiction interpretation \cite{KorsgaardFUL}.
+There are two possible readings of this maxim, and I will show that my formalization can handle both. 
+Under the first reading, the act of falsely promising is read as
+as entering a pre-existing, implicit, social system of promising with no intention of upholding your 
+promise. Under the second reading, the act of falsely promising is equivalent to uttering the worlds 
+``I promise X" without intending to do X. The differences between these readings lies in the difference 
+between promising as an act with meaning in a larger social structure and the utterance ``I promise."
+
+Under the first reading, the maxim fails because falsely promising is no longer possible in a world where 
+everyone everyone does so. This is how the logical contradiction interpretation reads this maxim—falsely 
+promising is no longer possible when universalized because the institution of promising breaks down. 
+The practical contradiction view also prohibits this maxim because if falsely promising is not longer 
+possible, then it is no longer an effective way to achieve the end of getting some money. Below I 
+define some logical tools to formalize this reading of this maxim.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
+%
+\isamarkupcmt{Constant representing the circumstances ``when strapped for cash." Recall that the type of circumstances 
+is a term because circumstances can be true or false at a world.%
+}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ falsely{\isacharunderscore}promise{\isacharcolon}{\isacharcolon}os\isanewline
+%
+\isamarkupcmt{Constant representing the act ``make a false promise to pay a loan back." Recall that the type of
+an act is an open sentence because the sentence ``subject s performs act a" can be true or false at a world.%
+}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
+%
+\isamarkupcmt{Constant representing the goal ``to get some money." Recall that the type of a goal 
+is a term because a goal can be true or false at a world depending on whether it is achieved or not.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcomma}\ falsely{\isacharunderscore}promise{\isacharcomma}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Armed with the circumstances, act, and goal above, I can define the example maxim as a tuple.%
+}%
+\begin{isamarkuptext}%
+The logical objects above are ``empty," in the sense that I haven't specified any of their 
+relevant properties. I will define these properties as assumptions and will show that, if the maxim 
+above satisfies the assumed properties, it is prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Under this reading, the problem with this maxim is that everyone can't
+falsely promise simultaneously because the institution of promising will break down. It's probably 
+possible to say something stronger than this (i.e. that if enough but not necessarily all people
+falsely promise promising is no longer possible), but for my purposes this will suffice. The above 
+formula reads, ``At all worlds, it is not the case that everyone falsely promises."%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ circumstances{\isacharunderscore}hold\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}circumstances{\isacharunderscore}hold\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption narrows our scope of consideration to worlds where the circumstances of 
+being strapped for cash hold. This is important because, at worlds where the circumstances do not hold, 
+a maxim is trivially effective (since it's never acted on) and thus trivially universalizable. This 
+assumption also makes practical sense; when evaluating a maxim, an agent would care about it specifically
+at worlds where the circumstances hold, since these are the worlds where the maxim actually prescribes action.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption states that the maxim of falsely promising is well-formed. This breaks down into
+two individual assumptions. First, being strapped for cash can't imply falsely promising, which is plausible
+because many people won't falsely promise under conditions of poverty. Second, being strapped for cash
+can't imply getting ready cash, which is also plausible because people often fail to secure cash even 
+when they need it.%
+}%
+\begin{isamarkuptext}%
+Putting it all together, I want to show that if the three assumptions justified above hold, then 
+the constructed maxim is prohibited. Below is the proof%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ lying{\isacharunderscore}bad{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}{\isacharparenright}\isanewline
+%
+\isamarkupcmt{I manually broke the proof into this intermediate lemma and the conclusion, and then Sledgehammer 
+automatically found a proof.%
+}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\ \isanewline
+\isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Under the second reading of this maxim, the act ``falsely promising" refers to uttering the 
+sentence ``I promise to do X" with no intention of actually doing X\footnote{Note that under this 
+reading, the maxim isn't prohibited under the logical contradiction interpretation because making an 
+utterance is still possible even if eveyrone else makes that utterance. I will discuss this in detail 
+later in this section in the context of the difference between natural and conventional acts.}. 
+Under this reading, the practical contradiction interpretation prohibits this maxim because, in a world 
+where false promising is universalized, no one believes promises anymore, so the utterance is no longer 
+an effective way to get money. Below I formalize this reading of this maixm.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ believed{\isacharcolon}{\isacharcolon}os\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ {\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if everyone falsely promises, then no one is believed
+when promising.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}{\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isacharparenleft}falsely{\isacharunderscore}promise\ s{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if a promise is not believed, then it is not an effective
+way of getting easy cash.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ falsely{\isacharunderscore}promising{\isacharunderscore}bad{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\isanewline
+\ \ \isakeyword{assumes}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\isanewline
+%
+\isamarkupcmt{The above two assumptions are specific to this reading and justified above.%
+}\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+%
+\isamarkupcmt{These two assumptions applied to the first reading as well and were justified there.%
+}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{With some help, Isabelle is able to show that the maxim is prohibited under this reading as well.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This example demonstrates that my formalization is able to correctly prohibit this maxim, regardless
+of its reading. This is additionally important because the two readings of this maxim represent reading 
+the act as either a conventional or natural action, so my intrepretation can correctly handle both kinds
+of actions. Korsgaard draws a distinction between conventional acts and natural acts. Conventional acts 
+exist within a practice, which is "comprised of certain rules, and its existence (where it is not embodied in 
+an institution with sanctions) consists in the general acknowledgement and following of those rules" 
+\cite[10]{KorsgaardFUL}. For example, promising is a conventional act because it only exists as a 
+practice. Murder, on the other hand, is an example of a natural act because its existence only depends
+on the laws of nature\cite[11]{KorsgaardFUL}.
+
+This distinction is important because Korsgaard argues that only the practical contradiction view can 
+satisfactorily explain the wrongness of certain natural acts like murder\footnote{For more discussion 
+of Korsgaard's argument for the practical contradiction view, see Section Philosophical Writing}. 
+The practical contradiction view is thus stronger than the logical contradiction view because it can 
+explain the wrongness of both conventional and natural acts. 
+
+The fact that my interpretation can correctly show the wrongness of both conventional and natural acts
+is evidence for its correctness as a formalization of the practical contradiction interpretation. 
+The first reading of the example maxim reads the act 
+``making a false promise" as entering into an agreement within a socially established system of promising. 
+This is clearly a conventional act, and because it is a conventional act, it is not just contradictory
+when universalized but literally impossible because the practice breaks down. I capture this idea in the 
+assumption \isa{everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ falsely{\isacharunderscore}promise\ s\ w{\isacharparenright}}, which states that, at all worlds, not everyone can falsely promise since 
+otherwise the practice of promising would break down. The second reading, on the other hand, reads the 
+act of making a false promise as uttering the statement ``I promise to pay you back," while never intending 
+to fulfill this promise. This is a natural act because the act of uttering a sentence does not rely 
+on any conventions, merely the laws of nature governing how your mouth and vocal cords behave\footnote{
+Linguistic relativists may take issue with this claim and may argue that if the English language had 
+never developed, then making this utterance would be impossible. Even if this is true, the laws of 
+nature itself would not prohibit making the sounds corresponding to the English pronounciation of 
+this phrase, so the act would still not be impossible in the way that a conventional act can be.} 
+
+I show above that my formalization shows the wrongness of this maxim under both readings. Under the 
+first reading, promising becomes impossible, so both the logical and 
+practical contradiction interpretations prohibit the maxim. Under the second reading, promising is still
+possible, but becomes ineffective because people no longer interpret the utterance as creating a commitment.
+Under this view, only the practical contradiction interpretation succeeds in prohibiting the maxim. Thus, 
+not only does my formalization likely capture the practical contradiction interpretation (as opposed to 
+the teleological or logical contradiction interpretations), it also adequately handles both natural 
+and conventional acts.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+I can also use Isabelle to confirm that the two readings are different. If they were the same, 
+we would expect the assumptions corresponing to each to be equivalent. The RHS of the lemma below represents 
+the second reading and the LHS represents the first reading.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ readings{\isacharunderscore}are{\isacharunderscore}equivalent{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymand}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick finds a counterexample, showing that the two readings are different.
+\color{blue}
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Empty assignment
+\color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This completes the application tests for my formalization. I showed that my formalization correctly 
+handles an example from Korsgaard with two possible interpretations and also sufficiently handles both 
+conventional and natural acts.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Metaethical Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Recall that metaethical tests test formal properties of the system that apply to any maxim, not 
+just those specified in the application tests. In this section I adapt the metaethical tests developed 
+in previous sections to my formalization of the categorical imperative. I preserved the philosophical 
+goal of each test but modified them to test the stronger, richer notion of a maxim.
+
+The first set of tests consider how obligation generalizes, first across worlds and then across
+people. As expected, the tests below show that both wrongness (prohibition) and rightness (obligation)
+generalize across both worlds and people. In other words, if something is obligated at some world, it 
+is obligated at every world and if something is obligated for some person, then it is obligated for 
+every person. 
+
+Generalization across worlds is a consequence of the fact that my interpretation does not make use of the 
+modal nature of DDL. In particular, I do not use any property of the world when prescribing obligations 
+at that world.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}wrong{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}g{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymexists}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ p{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ right{\isacharunderscore}if{\isacharunderscore}right{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}g{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymexists}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharbar}\ c{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ p\ {\isacharbar}\ c{\isacharbraceright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}wrong{\isacharunderscore}somewhere{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}c\ g{\isachardot}\ {\isasymexists}w{\isadigit{1}}{\isachardot}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w{\isadigit{1}}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}w{\isadigit{2}}{\isachardot}\ \ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w{\isadigit{2}}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ right{\isacharunderscore}if{\isacharunderscore}right{\isacharunderscore}somewhere{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}c\ g{\isachardot}\ {\isasymexists}w{\isadigit{1}}{\isachardot}\ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharbar}\ c{\isacharbraceright}\ w{\isadigit{1}}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}w{\isadigit{2}}{\isachardot}\ \ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharbar}\ c{\isacharbraceright}\ w{\isadigit{2}}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+As expected, obligation generalizes across people and worlds. In the next set of tests, I will 
+analyze basic properties of permissibility, obligation, and prohibition. 
+
+First, I verify that the logic allows
+for permissible maxims, as this is a problem that prior iterations ran into. Below, I use Nitpick to 
+find a model in which there is a circumstance, act, goal tuple that is permissible but not 
+obligated at some world.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}{\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue}Nitpick found a model for card i = 1 and card s = 1:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_1$\color{black}
+Recall that Nitpick is a model checker that finds models making certain formulae true or false. In this 
+case, Nitpick finds a model satisfying the given formula (which simply requires that the sentence 
+``s wills (c, a, g)'' is permissible but not obligator). This model consists of the above specifications 
+of a, c, g, and s.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+I also expect that any arbitrary maxim should be either permissible or prohibited, since all 
+acts are either permissible or prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ perm{\isacharunderscore}or{\isacharunderscore}prohibited{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}permissible\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymor}\ {\isacharparenleft}prohibited\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This simple test passes immediately by the definitions of  permissible and prohibited.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Obligation should be strictly stronger than permissibility. In other words, if a maxim is 
+obligated at a world, it should be permissible at that world. Below I test this property.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ obligated{\isacharunderscore}then{\isacharunderscore}permissible{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}O{\isacharbraceleft}W{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}{\isacharparenleft}permissible\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ {\isacharparenright}\ s{\isacharparenright}{\isacharparenright}\ w\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+%
+\isamarkupcmt{This test passes and Isabelle is able to find a proof for the fact that all obligatory maxims are 
+also permissible.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The above test failed under Kroy's formalization of the categorical imperative and is thus evidence 
+that my formalization improves upon Kroy's. Interestingly, this new test passes because of the additional
+added axiom that prohibits contradictory obligations (recall that Kroy's formalization allowed contradictory
+obligations).%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+Next, I will test if the formalization allows for vacuous obligations or modal collapse. These 
+tests are sanity checks confirmed that the obligation operator is doesn't collapse. First, I will check 
+that any arbitrary term isn't obligated.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ arbitrary{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{fixes}\ c\ A{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O{\isacharbraceleft}A{\isacharbar}c{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharequal}true{\isacharcomma}\ falsify{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{This test passes—Nitpick finds a model where A isn't obligated in circumstances c.
+\color{blue} Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    A = ($\lambda x. \_$)($i_1$ := True)
+    c = ($\lambda x. \_$)($i_1$ := False) \color{blue}
+Previous iterations of this test used the monadic obligation operator, which tests the term in the 
+context ``True" (equivalently the set of all worlds since True holds everywhere). In this iteration, 
+I test the term in a context c, because my formalization uses the dyadic obligation operator and must 
+thus specify circumstances.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This is exactly the expected result. Any arbitrary action $A$ isn't obligated. A slightly 
+        stronger property is ``modal collapse," or whether or not `$A$ happens' implies `$A$ is obligated'. 
+The proposition below should be falsifiable.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ modal{\isacharunderscore}collapse{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharequal}true{\isacharcomma}\ falsify{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick finds a counterexample, so willing doesn't imply obligation, so this test passes. 
+\color{blue}Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_2$
+    w = $i_1$\color{black}
+Once again, I modify this test to use the dyadic obligation operator instead of the monadic operator.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The final set of tests deal with ought implies can and conflicting obligations. Recall that I 
+specifically added an axiom in my formalization to disallow contradictory obligations, so I expect 
+these tests to pass. Kroy's formalization fails these tests, so this is another area of improvement 
+over Kroy's formalization.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ ought{\isacharunderscore}implies{\isacharunderscore}can{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymdiamond}\ W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This test is a lemma of DDL itself, so it's no surprise that this test passes.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}{\isacharbar}\ c{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This test passes immediately by the new axiom prohibited contradictory obligations.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ implied{\isacharunderscore}contradiction{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}W\ {\isacharparenleft}c{\isadigit{1}}{\isacharcomma}\ a{\isadigit{1}}{\isacharcomma}\ g{\isadigit{1}}{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isadigit{2}}{\isacharcomma}\ a{\isadigit{2}}{\isacharcomma}\ g{\isadigit{2}}{\isacharparenright}\ s{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}\isactrlbold {\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}W{\isacharparenleft}c{\isadigit{1}}{\isacharcomma}\ a{\isadigit{1}}{\isacharcomma}\ g{\isadigit{1}}{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}W{\isacharparenleft}c{\isadigit{2}}{\isacharcomma}\ a{\isadigit{2}}{\isacharcomma}\ g{\isadigit{2}}{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{Recall that the we also expect the stronger property that the combination of obligatory maxims can't
+ imply a contradiction. The added axiom also makes this test pass.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ distribution{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ fastforce%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+The metaethical test suite ran on both Kroy's formalization and my formalizaion show two clear 
+improvements. First, my formalization shows that obligatory maxims are permissible, whereas Kroy's 
+paradoxically does not. Second, my formalization doesn't allow contradictory maxims, but Kroy's does. 
+Both of these improvements are derived from the new axiom I added in my formalization that disallows 
+contradictory obligations. Additionally, my formalization also improves on Kroy's by staying faithful to the 
+strongest interpretation of the FUL, Korsgaard's practical contradiction interpretation. (maybe stick 
+philosophical writing here or above?)%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Formalization Specific Tests%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+In this section, I explore tests specific to my formalization of the categorical imperative. First, 
+in my previous (buggy) implementation of DDL, prohibiting contradictory obligation led to the strange 
+result that all permissible actions are obligatory. I will test if this bug appears in this implementation 
+as well.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ bug{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}permissible\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ w\ {\isasymlongrightarrow}\ O{\isacharbraceleft}W{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharbar}\ c{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{\color{blue}
+Nitpick found a counterexample for card i = 1 and card s = 2:
+
+  Free variables:
+    a = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False), $s_2$ := ($\lambda x. \_$)($i_1$ := False))
+    c = ($\lambda x. \_$)($i_1$ := False)
+    g = ($\lambda x. \_$)($i_1$ := False)
+    s = $s_2$
+    w = undefined
+\color{black}
+This strange result does not hold; good!%
+}\isanewline
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
 \isadelimtheory
 %
 \endisadelimtheory
 %
 \isatagtheory
-\isacommand{end}\isamarkupfalse%
 %
 \endisatagtheory
 {\isafoldtheory}%
@@ -517,7 +1256,6 @@ later on, one option is to tweak the FUL to use this expressivity.%
 \isadelimtheory
 %
 \endisadelimtheory
-\isanewline
 %
 \end{isabellebody}%
 \endinput
@@ -891,5 +1629,422 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%502=355%:%
 %:%503=356%:%
 %:%504=357%:%
-%:%512=359%:%
-%:%520=359%:%
+%:%513=360%:%
+%:%525=362%:%
+%:%526=363%:%
+%:%527=364%:%
+%:%528=365%:%
+%:%532=367%:%
+%:%533=368%:%
+%:%534=369%:%
+%:%535=370%:%
+%:%536=371%:%
+%:%537=372%:%
+%:%538=373%:%
+%:%539=374%:%
+%:%540=375%:%
+%:%541=376%:%
+%:%542=377%:%
+%:%543=378%:%
+%:%544=379%:%
+%:%545=380%:%
+%:%546=381%:%
+%:%547=382%:%
+%:%549=384%:%
+%:%550=384%:%
+%:%552=385%:%
+%:%553=386%:%
+%:%554=386%:%
+%:%555=387%:%
+%:%556=387%:%
+%:%558=388%:%
+%:%559=389%:%
+%:%560=389%:%
+%:%561=390%:%
+%:%562=390%:%
+%:%564=391%:%
+%:%565=392%:%
+%:%566=392%:%
+%:%567=393%:%
+%:%568=394%:%
+%:%569=394%:%
+%:%570=395%:%
+%:%572=396%:%
+%:%575=398%:%
+%:%576=399%:%
+%:%577=400%:%
+%:%579=402%:%
+%:%580=402%:%
+%:%581=403%:%
+%:%583=404%:%
+%:%584=405%:%
+%:%585=406%:%
+%:%586=407%:%
+%:%587=408%:%
+%:%588=408%:%
+%:%589=409%:%
+%:%590=410%:%
+%:%591=410%:%
+%:%592=411%:%
+%:%594=412%:%
+%:%595=413%:%
+%:%596=414%:%
+%:%597=415%:%
+%:%598=416%:%
+%:%599=416%:%
+%:%600=417%:%
+%:%601=418%:%
+%:%602=418%:%
+%:%603=419%:%
+%:%605=420%:%
+%:%606=421%:%
+%:%607=422%:%
+%:%608=423%:%
+%:%609=424%:%
+%:%612=426%:%
+%:%613=427%:%
+%:%615=429%:%
+%:%616=429%:%
+%:%617=430%:%
+%:%618=431%:%
+%:%619=432%:%
+%:%620=433%:%
+%:%627=434%:%
+%:%628=434%:%
+%:%629=435%:%
+%:%630=435%:%
+%:%631=436%:%
+%:%632=436%:%
+%:%634=437%:%
+%:%635=438%:%
+%:%636=438%:%
+%:%637=439%:%
+%:%638=439%:%
+%:%639=440%:%
+%:%640=440%:%
+%:%641=440%:%
+%:%642=441%:%
+%:%652=443%:%
+%:%653=444%:%
+%:%654=445%:%
+%:%655=446%:%
+%:%656=447%:%
+%:%657=448%:%
+%:%658=449%:%
+%:%659=450%:%
+%:%661=452%:%
+%:%662=452%:%
+%:%663=453%:%
+%:%664=453%:%
+%:%665=454%:%
+%:%667=455%:%
+%:%668=456%:%
+%:%669=456%:%
+%:%670=457%:%
+%:%671=458%:%
+%:%672=458%:%
+%:%673=459%:%
+%:%675=460%:%
+%:%676=461%:%
+%:%677=461%:%
+%:%678=462%:%
+%:%679=463%:%
+%:%680=463%:%
+%:%681=464%:%
+%:%682=465%:%
+%:%684=466%:%
+%:%685=466%:%
+%:%686=467%:%
+%:%687=468%:%
+%:%689=469%:%
+%:%690=469%:%
+%:%691=470%:%
+%:%698=471%:%
+%:%699=471%:%
+%:%700=472%:%
+%:%701=472%:%
+%:%702=473%:%
+%:%703=473%:%
+%:%704=473%:%
+%:%705=474%:%
+%:%706=474%:%
+%:%707=475%:%
+%:%708=475%:%
+%:%709=475%:%
+%:%710=476%:%
+%:%711=476%:%
+%:%713=477%:%
+%:%723=479%:%
+%:%724=480%:%
+%:%725=481%:%
+%:%726=482%:%
+%:%727=483%:%
+%:%728=484%:%
+%:%729=485%:%
+%:%730=486%:%
+%:%731=487%:%
+%:%732=488%:%
+%:%733=489%:%
+%:%734=490%:%
+%:%735=491%:%
+%:%736=492%:%
+%:%737=493%:%
+%:%738=494%:%
+%:%739=495%:%
+%:%740=496%:%
+%:%741=497%:%
+%:%742=498%:%
+%:%743=499%:%
+%:%744=500%:%
+%:%745=501%:%
+%:%746=502%:%
+%:%747=503%:%
+%:%748=504%:%
+%:%749=505%:%
+%:%750=506%:%
+%:%751=507%:%
+%:%752=508%:%
+%:%753=509%:%
+%:%754=510%:%
+%:%755=511%:%
+%:%756=512%:%
+%:%757=513%:%
+%:%758=514%:%
+%:%759=515%:%
+%:%760=516%:%
+%:%761=517%:%
+%:%762=518%:%
+%:%766=520%:%
+%:%767=521%:%
+%:%768=522%:%
+%:%770=524%:%
+%:%771=524%:%
+%:%772=525%:%
+%:%773=526%:%
+%:%774=526%:%
+%:%776=526%:%
+%:%780=526%:%
+%:%781=526%:%
+%:%783=527%:%
+%:%784=528%:%
+%:%785=529%:%
+%:%786=530%:%
+%:%787=531%:%
+%:%788=532%:%
+%:%798=535%:%
+%:%799=536%:%
+%:%800=537%:%
+%:%809=539%:%
+%:%821=541%:%
+%:%822=542%:%
+%:%823=543%:%
+%:%824=544%:%
+%:%825=545%:%
+%:%826=546%:%
+%:%827=547%:%
+%:%828=548%:%
+%:%829=549%:%
+%:%830=550%:%
+%:%831=551%:%
+%:%832=552%:%
+%:%833=553%:%
+%:%834=554%:%
+%:%836=556%:%
+%:%837=556%:%
+%:%838=557%:%
+%:%841=558%:%
+%:%845=558%:%
+%:%846=558%:%
+%:%851=558%:%
+%:%854=559%:%
+%:%855=560%:%
+%:%856=560%:%
+%:%857=561%:%
+%:%860=562%:%
+%:%864=562%:%
+%:%865=562%:%
+%:%870=562%:%
+%:%873=563%:%
+%:%874=564%:%
+%:%875=564%:%
+%:%876=565%:%
+%:%879=566%:%
+%:%883=566%:%
+%:%884=566%:%
+%:%889=566%:%
+%:%892=567%:%
+%:%893=568%:%
+%:%894=568%:%
+%:%895=569%:%
+%:%898=570%:%
+%:%902=570%:%
+%:%903=570%:%
+%:%912=572%:%
+%:%913=573%:%
+%:%914=574%:%
+%:%915=575%:%
+%:%916=576%:%
+%:%917=577%:%
+%:%918=578%:%
+%:%920=580%:%
+%:%921=580%:%
+%:%922=581%:%
+%:%923=582%:%
+%:%924=582%:%
+%:%926=582%:%
+%:%930=582%:%
+%:%931=582%:%
+%:%933=583%:%
+%:%934=584%:%
+%:%935=585%:%
+%:%936=586%:%
+%:%937=587%:%
+%:%938=588%:%
+%:%939=589%:%
+%:%940=590%:%
+%:%941=591%:%
+%:%942=592%:%
+%:%943=593%:%
+%:%953=595%:%
+%:%954=596%:%
+%:%956=598%:%
+%:%957=598%:%
+%:%958=599%:%
+%:%961=600%:%
+%:%965=600%:%
+%:%966=600%:%
+%:%968=601%:%
+%:%978=603%:%
+%:%979=604%:%
+%:%981=606%:%
+%:%982=606%:%
+%:%983=607%:%
+%:%986=608%:%
+%:%990=608%:%
+%:%991=608%:%
+%:%992=608%:%
+%:%994=609%:%
+%:%995=610%:%
+%:%1005=612%:%
+%:%1006=613%:%
+%:%1007=614%:%
+%:%1008=615%:%
+%:%1012=617%:%
+%:%1013=618%:%
+%:%1014=619%:%
+%:%1016=621%:%
+%:%1017=621%:%
+%:%1018=622%:%
+%:%1019=623%:%
+%:%1020=624%:%
+%:%1021=624%:%
+%:%1023=624%:%
+%:%1027=624%:%
+%:%1028=624%:%
+%:%1030=625%:%
+%:%1031=626%:%
+%:%1032=627%:%
+%:%1033=628%:%
+%:%1034=629%:%
+%:%1035=630%:%
+%:%1036=631%:%
+%:%1037=632%:%
+%:%1038=633%:%
+%:%1039=634%:%
+%:%1049=636%:%
+%:%1050=637%:%
+%:%1051=638%:%
+%:%1053=640%:%
+%:%1054=640%:%
+%:%1055=641%:%
+%:%1056=642%:%
+%:%1057=642%:%
+%:%1059=642%:%
+%:%1063=642%:%
+%:%1064=642%:%
+%:%1066=643%:%
+%:%1067=644%:%
+%:%1068=645%:%
+%:%1069=646%:%
+%:%1070=647%:%
+%:%1071=648%:%
+%:%1072=649%:%
+%:%1073=650%:%
+%:%1074=651%:%
+%:%1075=652%:%
+%:%1085=654%:%
+%:%1086=655%:%
+%:%1087=656%:%
+%:%1088=657%:%
+%:%1090=659%:%
+%:%1091=659%:%
+%:%1092=660%:%
+%:%1095=661%:%
+%:%1099=661%:%
+%:%1100=661%:%
+%:%1101=661%:%
+%:%1103=662%:%
+%:%1109=662%:%
+%:%1112=663%:%
+%:%1113=664%:%
+%:%1114=664%:%
+%:%1115=665%:%
+%:%1118=666%:%
+%:%1122=666%:%
+%:%1123=666%:%
+%:%1124=666%:%
+%:%1126=667%:%
+%:%1132=667%:%
+%:%1135=668%:%
+%:%1136=669%:%
+%:%1137=669%:%
+%:%1138=670%:%
+%:%1139=671%:%
+%:%1142=672%:%
+%:%1146=672%:%
+%:%1147=672%:%
+%:%1148=672%:%
+%:%1150=673%:%
+%:%1151=674%:%
+%:%1157=674%:%
+%:%1160=675%:%
+%:%1161=676%:%
+%:%1162=676%:%
+%:%1163=677%:%
+%:%1164=678%:%
+%:%1167=679%:%
+%:%1171=679%:%
+%:%1172=679%:%
+%:%1173=679%:%
+%:%1182=681%:%
+%:%1183=682%:%
+%:%1184=683%:%
+%:%1185=684%:%
+%:%1186=685%:%
+%:%1187=686%:%
+%:%1188=687%:%
+%:%1197=689%:%
+%:%1209=691%:%
+%:%1210=692%:%
+%:%1211=693%:%
+%:%1212=694%:%
+%:%1214=696%:%
+%:%1215=696%:%
+%:%1216=697%:%
+%:%1217=698%:%
+%:%1218=698%:%
+%:%1220=698%:%
+%:%1224=698%:%
+%:%1225=698%:%
+%:%1227=699%:%
+%:%1228=700%:%
+%:%1229=701%:%
+%:%1230=702%:%
+%:%1231=703%:%
+%:%1232=704%:%
+%:%1233=705%:%
+%:%1234=706%:%
+%:%1235=707%:%
+%:%1236=708%:%
+%:%1237=709%:%
+%:%1238=709%:%
