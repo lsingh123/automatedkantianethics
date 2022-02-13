@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{68}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -178,6 +178,11 @@ I.~Gabriel.
 \newblock \doi{10.1007/s11023-020-09539-2}.
 \newblock URL \url{http://dx.doi.org/10.1007/s11023-020-09539-2}.
 
+\bibitem[Hintikka(1962)]{hintikka}
+J.~Hintikka.
+\newblock \emph{Knowledge and Belief}.
+\newblock Cornell University Press, 1962.
+
 \bibitem[Hume(2007)]{hume}
 D.~Hume.
 \newblock \emph{An Enquiry Concerning Human Understanding and Other Writings}.
@@ -208,12 +213,40 @@ I.~Kant.
 \newblock \emph{Groundwork of the Metaphysics of Morals}.
 \newblock Cambridge University Press, Cambridge, 1785.
 
+\bibitem[Kant(2017)]{metaphysicsintro}
+I.~Kant.
+\newblock \emph{Introduction}, pages ix--xxix.
+\newblock Cambridge Texts in the History of Philosophy. Cambridge University
+  Press, 2 edition, 2017.
+\newblock \doi{10.1017/9781316091388.002}.
+
+\bibitem[Kemp(1958)]{kemp}
+J.~Kemp.
+\newblock Kant's examples of the categorical imperative.
+\newblock \emph{The Philosophical Quarterly (1950-)}, 8\penalty0 (30):\penalty0
+  63--71, 1958.
+\newblock ISSN 00318094, 14679213.
+\newblock URL \url{http://www.jstor.org/stable/2216857}.
+
 \bibitem[Kitcher(2003)]{whatisamaxim}
 P.~Kitcher.
 \newblock What is a maxim?
 \newblock \emph{Philosophical Topics}, 31\penalty0 (1/2):\penalty0 215--243,
   2003.
 \newblock \doi{10.5840/philtopics2003311/29}.
+
+\bibitem[Kohl(2015)]{kohl}
+M.~Kohl.
+\newblock Kant and 'ought implies can'.
+\newblock \emph{The Philosophical Quarterly (1950-)}, 65\penalty0
+  (261):\penalty0 690--710, 2015.
+\newblock ISSN 00318094, 14679213.
+\newblock URL \url{http://www.jstor.org/stable/24672780}.
+
+\bibitem[Korsgaard(1985)]{KorsgaardFUL}
+C.~Korsgaard.
+\newblock {Kant's Formula of Universal Law}.
+\newblock \emph{Pacific Philosophical Quarterly}, 66:\penalty0 24--47, 1985.
 
 \bibitem[Korsgaard(1986)]{KorsgaardRTL}
 C.~Korsgaard.
@@ -224,6 +257,13 @@ C.~Korsgaard.
 C.~Korsgaard.
 \newblock \emph{Groundwork of the Metaphysics of Morals}, chapter Introduction.
 \newblock Cambridge University Press, Cambridge, 2012.
+
+\bibitem[Korsgaard(2005)]{actingforareason}
+C.~M. Korsgaard.
+\newblock Acting for a reason.
+\newblock \emph{Danish Yearbook of Philosophy}, 40\penalty0 (1):\penalty0
+  11--35, 2005.
+\newblock \doi{10.1163/24689300\_0400103}.
 
 \bibitem[Korsgaard and O'Neill(1996)]{sources}
 C.~M. Korsgaard and O.~O'Neill.
@@ -294,6 +334,18 @@ O.~O'Neill.
 \newblock \emph{Acting on Principle: An Essay on Kantian Ethics}.
 \newblock Cambridge University Press, 2013.
 
+\bibitem[Paulson and Blanchette(2015)]{sledgehammer}
+L.~Paulson and J.~Blanchette.
+\newblock Three years of experience with sledgehammer, a practical link between
+  automatic and interactive theorem provers.
+\newblock 02 2015.
+\newblock \doi{10.29007/tnfd}.
+
+\bibitem[Paulson(1999)]{blast}
+L.~C. Paulson.
+\newblock A generic tableau prover and its integration with isabelle.
+\newblock \emph{J. Univers. Comput. Sci.}, 5:\penalty0 73--87, 1999.
+
 \bibitem[{Powers}(2006)]{powers}
 T.~M. {Powers}.
 \newblock Prospects for a kantian machine.
@@ -340,12 +392,28 @@ W.~Sinnott-Armstrong.
   Philosophy}. Metaphysics Research Lab, Stanford University, {F}all 2021
   edition, 2021.
 
+\bibitem[Solt(1984)]{solt}
+K.~Solt.
+\newblock Deontic alternative worlds and the truth-value of 'oa'.
+\newblock \emph{Logique et Analyse}, 27\penalty0 (107):\penalty0 349--351,
+  1984.
+\newblock ISSN 00245836, 22955836.
+\newblock URL \url{http://www.jstor.org/stable/44084096}.
+
 \bibitem[Stang(2021)]{kantnoumena}
 N.~F. Stang.
 \newblock {Kant’s Transcendental Idealism}.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {S}pring 2021
   edition, 2021.
+
+\bibitem[Timmermann(2013)]{timmerman}
+J.~Timmermann.
+\newblock Kantian dilemmas? moral conflict in kant’s ethical theory.
+\newblock \emph{Archiv für Geschichte der Philosophie}, 95\penalty0
+  (1):\penalty0 36--64, 2013.
+\newblock \doi{doi:10.1515/agph-2013-0002}.
+\newblock URL \url{https://doi.org/10.1515/agph-2013-0002}.
 
 \bibitem[Velleman(2005)]{velleman}
 J.~D. Velleman.

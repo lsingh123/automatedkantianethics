@@ -7,47 +7,49 @@ Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
 Warning--empty journal in dietrichson
+Warning--can't use both author and editor fields in metaphysicsintro
+Warning--empty booktitle in sledgehammer
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
-You've used 58 entries,
+You've used 68 entries,
             2773 wiz_defined-function locations,
-            961 strings with 13028 characters,
-and the built_in function-call counts, 23434 in all, are:
-= -- 2081
-> -- 1070
-< -- 57
-+ -- 378
-- -- 319
-* -- 1664
-:= -- 3661
-add.period$ -- 218
-call.type$ -- 58
-change.case$ -- 266
-chr.to.int$ -- 57
-cite$ -- 122
-duplicate$ -- 1249
-empty$ -- 2154
-format.name$ -- 401
-if$ -- 4979
+            1035 strings with 14583 characters,
+and the built_in function-call counts, 27356 in all, are:
+= -- 2463
+> -- 1181
+< -- 68
++ -- 421
+- -- 352
+* -- 1939
+:= -- 4267
+add.period$ -- 260
+call.type$ -- 68
+change.case$ -- 306
+chr.to.int$ -- 67
+cite$ -- 144
+duplicate$ -- 1459
+empty$ -- 2539
+format.name$ -- 446
+if$ -- 5819
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 71
-newline$ -- 334
-num.names$ -- 248
-pop$ -- 633
+missing$ -- 83
+newline$ -- 395
+num.names$ -- 288
+pop$ -- 709
 preamble$ -- 1
-purify$ -- 219
+purify$ -- 250
 quote$ -- 0
-skip$ -- 853
+skip$ -- 990
 stack$ -- 0
-substring$ -- 606
-swap$ -- 127
-text.length$ -- 10
+substring$ -- 789
+swap$ -- 146
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 553
-warning$ -- 6
-while$ -- 219
+type$ -- 653
+warning$ -- 8
+while$ -- 263
 width$ -- 0
-write$ -- 817
-(There were 6 warnings)
+write$ -- 968
+(There were 8 warnings)

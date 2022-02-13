@@ -33,12 +33,11 @@
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-In this section, I present the details of my implementation of automated Kantian ethics. I take
-a logic-programming approach in which I formalize the FUL in Dyadic Deontic Logic and then implement 
-this logic in Isabelle/HOl. I 
-also present my testing framework, which demonstrates one way to evaluate how faithful an implementation
+In this section, I present the details of my implementation of automated Kantian ethics. I first 
+formalize the FUL in Dyadic Deontic Logic and then implement this logic in Isabelle/HOl. I 
+also present a testing framework that can evaluate how faithful an implementation
 of automated ethics is to philosophical literature. This testing framework shows that my system outperforms
-two other possible implementations of automated Kantian Ethics.%
+two other possible implementations of automated Kantian ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -84,38 +83,37 @@ of these concepts, drawn from philosophical literature.%
 %
 \begin{isamarkuptext}%
 Kantian ethics is centered on practical reason because it is action-guiding; the categorical
-imperative is a moral rule that agents can use to decide between potential actions. Thus, before I even
+imperative is a moral rule that agents can use to decide between potential actions. Thus, before I 
 begin to formalize a specific formulation of the categorical imperative, I must define the notions of 
-subjects and actions. Concretely, I need to add logical background so that my logic can express sentences 
-like, ``x does action.''%
+subjects and actions. I need to add logical background so that my logic can express sentences 
+of the form, ``x does action.''%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ s\ %
-\isamarkupcmt{I declare a new type, $s$ as the type for a ``subject,'' i.e. the subject of a sentence.%
+\isamarkupcmt{I declare a new type $s$ as the type for a ``subject,'' as in the subject of a sentence.%
 }%
 \begin{isamarkuptext}%
 The \texttt{typedecl} keyword indicates that I am defining a new atomic type, which is not composed
-of pre-existing types but is instead a new kind of thing altogether. I try to minimize the number of 
-atomic types, so this will be one of the few new types that I define. To define a subject, it suffices
-to declare a new type to represent a subject, as that is all that is needed to apply the Formula of
-Universal Law. Notice that I have not defined any properties of this type, such as the idea that a subject
-must be rational or human. Throughout my project, I will use bare syntactic units like types and constants 
-to define new ideas and will add the minimum necessary definitions, or ``thin'' definitions, to achieve the desired results.
-By avoiding complex definitions of a subject, I can avoid murky philosophical debates about the nature
-of agency and reduce the potential for controversy or errors. 
+of pre-existing types but is instead a new kind of object altogether. To define a subject, it suffices
+to declare a new type to represent a subject without specifying any of its complex properties, such as the idea that a subject
+must be rational or human. Instead of providing a complete definition of subject, which would require wading into murky
+philosophical debates about the nature of agency, I will provide a ``thin'' definition which includes
+only the minimum necessary properties to apply the FUL. Throughout my project, I will use bare syntactic units like types and constants
+to define new ideas and will add thin definitions to achieve the desired results.
 
-In this interpretation, the defining feature of a subject is that it can act, a relatively uncontroversial
-notion. I represent that below by allowing subjects to substitute into sentences, a property that I will use 
-to represent the notion of different people performing certain actions.%
+In this interpretation, it suffices to make the defining feature of a subject that it can act. 
+I represent that below by allowing subjects to substitute into sentences, a property that I will use 
+to represent the idea that different people can perform the same actions.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
-\ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\ %
+\ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
+%
 \isamarkupcmt{To model the idea of a subject being substituted into an action, I 
 define \texttt{type\_synonym} $os$ for an open sentence. An open sentence takes as input a subject and 
-returns a complete or ``closed'' DDL formula by, binding the free variable in the sentence to the input. 
+returns a complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. 
 For example, ``runs'' is an open sentence that can be instantiated with subject, ``Sara'' to create
-the DDL term ``Sara runs,'' which can be true or false at a world. An open sentence itself is not
-the kind of thing that can be true or false at a world, so it is not truth-apt, but when an action is 
+the DDL term ``Sara runs,'' which can be true or false at a world. An open sentence itself is not truth-apt,
+ot the kind of thing that can be true or false at a world. When an action is 
 substituted into an open sentence, the resulting term is truth apt. ``Runs'' is not the kind of thing 
 that can be true or false, but ``Sara runs'' is a sentence that can be true or false.%
 }%
@@ -139,12 +137,19 @@ that can be true or false, but ``Sara runs'' is a sentence that can be true or f
 \begin{isamarkuptext}%
 Recall from Section \ref{whyful} that I formalize a version of the categorical imperative called
 the Formula of Universal, which reads ``act only according to that maxim by which you can at the same 
-time will that it should become a universal law'' \cite{groundwork}. In order to faithfully formalize
-the FUL, I must make precise the notions of of ``willing a maxim'' and violating the FUL. I draw on 
+time will that it should become a universal law'' \citep{groundwork}. In order to faithfully formalize
+the FUL, I must make precise what it means to will a maxim and violate the FUL. I draw on 
 reliable definitions of willing, maxims, and the FUL from Kantian literature and represent them in DDL.
+Throughout this section, I will use one of Kant's most famous maxims as an example to demonstrate
+my formalization.
+
+\begin{example}[False Promising]\label{falsepromise}
+  The false promising example maxim reads, ``When I am broke, I wil falsely promise to repay a loan 
+to get some easy cash.''
+\end{example}
 
 The central unit of evaluation for Kantian ethics is a ``maxim,'' which Kant defines as ``the subjective 
-principle of willing,'' or the principle that the agent understands themselves as acting on \cite{groundwork}. 
+principle of willing,'' or the principle that the agent understands themselves as acting on \citep{groundwork}. 
 Modern Kantians differ in their interpretations of this definition. I adopt O'Neill's view, derived from 
 Kant's example maxims, that a maxim includes the act, the circumstances, and the agent's purpose of 
 acting or goal \citep{actingonprinciple}. 
@@ -174,17 +179,20 @@ is an action-guiding rule and thus naturally includes an act and the circumstanc
 it should be performed, which are often referred to as ``morally relevant circumstances'' \citep[37]{actingonprinciple}. 
 She also includes a purpose, end, or goal in the maxim because human activity, is guided by a rational will, 
 and is thus inherently purposive \citep[4:428]{groundwork}. A rational will does not act randomly (else it would not be rational), 
-but instead in the pursuit of ends which it deems valuable\footnote{Some argue that a maxim should also
-include the agent's motive or motivation and I address this concern in Appendix \ref{maximmotive}.}. The inclusion a maxim's end is essential for the version of the FUL
+but instead in the pursuit of ends which it deems valuable.\footnote{Some argue that a maxim should also
+include the agent's motive or motivation and I address this concern in Appendix \ref{maximmotive}.} The inclusion a maxim's end is essential for the version of the FUL
 that I will implement, explained in Section Practical Contradiction.
 
 \color{red} SHOULD THIS GO HERE OR IN THE LIMITATIONS SECTION OF THE DISCUSSION
+
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
-relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection" \citep[217]{whatisamaxim} \footnote{Kitcher
-cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection.}, 
-under which maxims are arbitrarily specified to pass the FUL. For example, the maxim ``When my name is Jane Doe,
-I will lie to get some easy money," is universalizable, but is clearly a false positive. One solution to 
-this problem is to argue that the circumstance ``When my name is Jane Doe" is not morally relevant 
+relevant circumstance for a particular maxim. This is gives rise to ``the tailoring objection", 
+under which maxims are arbitrarily specified to pass the FUL  \citep[217]{whatisamaxim}. \footnote{Kitcher
+cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection.} For example, the maxim ``When my name is Jane Doe
+and I am wearing a purple shirt and it is Tuesday morning, I will murder my boss so I can take their job," 
+is universalizable but is clearly a false positive because we think that murder for professional gain is wrong. 
+One solution to this problem is to argue that the circumstance ``When my name is Jane Doe and I am wearing a 
+purple shirt and it is Tuesday morning" is not morally relevant 
 to the act and goal. This solution requires determining what qualifies as a relevant circumstance.
 
 O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
@@ -208,7 +216,7 @@ garbage into the test, the test will return garbage out.
 
 Another solution to this problem may be to develop heuristics to classify circumstances as morally 
 relevant. For example, one such attempt could define a moral closeness relation between an action, a 
-goal, and circumstances. This heuristic would define morally relevant circumstance as those that 
+goal, and circumstances. This heuristic would define morally relevant circumstances as those that 
 reach a certain closeness threshhold with the action and the goal. Determining morally relevant
 circumstances, either using heuristics or human involvement, is a ripe area for future work.
 \color{black}
@@ -227,7 +235,7 @@ At all worlds $w$, if the circumstances hold at that world, agent $s$ performs a
 
 \end{definition}
 
-If I will the example maxim above about falsely promising to pay a loan, then whenever I need cash, 
+If I will example \nameref{falsepromise} maxim about falsely promising to pay a loan, then whenever I need cash, 
 I will falsely promise to repay a loan. I can represent this definition using the following Isabelle
 formula.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -235,7 +243,7 @@ formula.%
 \ will\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim\ {\isasymRightarrow}\ s{\isasymRightarrow}\ \ t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}W\ {\isacharunderscore}\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}will\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ {\isacharparenleft}c\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}a\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{An agent $s$ wills a maxim iff in the circumstances, $s$ performs the action, or $s$ substituted
+\isamarkupcmt{An agent $s$ wills a maxim if in the circumstances, $s$ performs the action, or $s$ substituted
 into the open sentence $a$ is true. This is an Isabelle \texttt{abbreviation}, which is syntactic
 sugar for an Isabelle formula. The type of this formula is $maxim \rightarrow s \rightarrow t$, so it 
 takes as input a maxim and a subject and returns the term, ``s wills maxim.''%
@@ -246,7 +254,7 @@ takes as input a maxim and a subject and returns the term, ``s wills maxim.''%
 %
 \isatagdocument
 %
-\isamarkupsubsubsection{Practical Contradiction Interpretation \label{praccon}%
+\isamarkupsubsubsection{Practical Contradiction Interpretation of the FUL \label{praccon}%
 }
 \isamarkuptrue%
 %
@@ -258,7 +266,7 @@ takes as input a maxim and a subject and returns the term, ``s wills maxim.''%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-In order to actually evaluate the moral status of a maxim, I must precise the idea of failing
+In order to evaluate the moral status of a maxim, I must precise the idea of failing
 the universalizability test or a non-universalizable maxim.  Kantians debate the correct interpretation of 
 the Formula of Universal Law because Kant himself appears to interpret the criterion in different ways. 
 My project uses Korsgaard's practical contradiction interpretation, broadly accepted as correct within 
@@ -268,7 +276,8 @@ Recall that the Formula of Universal Law is to “act only in accordance with th
 you can at the same time will that it become a universal law” \citep{groundwork}. To determine if a 
 maxim can be willed as a universal law, we can use the “universalizability test”, which requires 
 imagining a world in which everyone has willed the maxim. If willing the maxim in such a world 
-generates a contradiction, then the action is prohibited. 
+generates a contradiction, then the action is prohibited. In the case of the example maxim about 
+lying to 
 
 One interpretation of the FUL, the logical contradiction interpretation, prohibits maxims that are 
 logically impossible when universalized. Under this view, falsely promising to repay a loan fails the 
@@ -293,7 +302,7 @@ The practical contradiction interpretation offers a satisfying explanation of \e
 maxims are immoral. These maxims involve parasitic behavior on social conditions that the agent seeks 
 to benefit from. The false promiser simultaneously wants to abuse the system of promising and benefit 
 from it, and is thus making an exception of themselves. The test formalizes the kinds of objections 
-that the question ``what if everyone did that?'' seeks to draw out.
+that the question ``What if everyone did that?'' seeks to draw out.
 
 Using the practical contradiction interpretation, the FUL states, ``If, when universalized, a maxim is 
 not effective, then it is prohibited.'' This requires defining effectiveness and universalization. 
@@ -324,72 +333,128 @@ would not be achieved \citep{lewiscausality}.\footnote{Thank you for Jeremy Zuck
 think about causality in this way.}  Note that nothing else changes about this
 counterfactual world—the circumstances are identical and we neither added additional theorems nor 
 specified the model any further. This represents Lewis's idea of "comparative similarity,"  where 
-a counterfactual is true if it holds at the most similar world \cite{lewiscounterfactuals}. 
+a counterfactual is true if it holds at the most similar world \citep{lewiscounterfactuals}. 
 In our case, this is just the world where everything is the same except the maxim is not acted on.
 Combining these ideas, this definition of effective states that a maxim is effective if the 
-maxim being acted on by a subject is the necessary and sufficient cause of the goal.%
+maxim being acted on by a subject is the necessary and sufficient cause of the goal.
+
+Next, I define what it means for a maxim to be universalized. Recall that the universalizability 
+test requires imagining a world in which everyone wills a maxim. Therefore, a maxim is universalized
+when everyone wills the maxim. 
+
+\begin{definition}[Universalized]
+  For a maxim $M$ and agent $s$,
+
+  $$\text{\emph{universalized}} \, M  \equiv \forall w \, (\forall p \, \text{\emph{will}} \, M \, p)$$
+\end{definition}
+
+I can once again represent this as an abbreviation in Isabelle.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ universalized{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}universalized\ {\isasymequiv}\ {\isasymlambda}M{\isachardot}\ {\isacharparenleft}{\isasymlambda}w{\isachardot}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ {\isacharparenleft}W\ M\ p{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\isanewline
-\isacommand{abbreviation}\isamarkupfalse%
-\ holds{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}holds\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ c{\isachardoublequoteclose}\isanewline
-\isanewline
+%
+\isamarkupcmt{The abbreviation $universalized$ takes a maxim as input and returns a term which is true at a world 
+if all people at that world will the maxim.%
+}\isanewline
+%
+\begin{isamarkuptext}%
+With the above definitions of effective and universalization, I can define what it means for 
+a maxim to not be universalizable. This is the core of the FUL; it states that if a maxim is not 
+universalizable, it is prohibited. The practical contradiction interpretation states that a  maxim is 
+not universalizable if, when universalized, it is no longer effective.
+
+\begin{definition}[Not Universalizable]
+For a maxim $M$ and agent $s$,
+
+$$not\_universalizable \, M \, s  \equiv [ \text{\emph{universalized}} M \longrightarrow \neg \, \text{\emph{effective}} \, M \, s ]$$
+
+A maxim is not universalizable when, if everyone wills the maxim, then it is no longer effective.
+\end{definition}
+
+I implement this definition in Isabelle using another abbreviaion.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ not{\isacharunderscore}universalizable\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}not{\isacharunderscore}universalizable\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}universalized\ M{\isacharparenright}\ \ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}E\ M\ s{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{The formula above reads ``at world $w$, if M is universalized and M is acted on (i.e. the circumstances 
-of M hold), then M is not effective." 
-Notice that the antecedent specifies that the circumstances hold at the given world. 
-When evaluating if a maxim is universalizable or not, we want to ignore worlds where the circumstance 
-do not hold. At these worlds, the maxim is trivially effective and thus trivially universalizable. If we didn't exclude such worlds from 
-consideration, a maxim with circumstances that ever fail to hold would be universalizable. Clearly 
-this is not a desirable conclusion, since maxims like ``When you need money, lie to get easy money"
-would be universalizable.%
+\isamarkupcmt{The formula above reads ``at world $w$, if M is universalized, then M is not effective.''%
 }%
 \begin{isamarkuptext}%
-As before, the concepts of prohibition and permissibility will be helpful here. The unit of 
-evaluation for my formalization of the FUL is the act of willing a maxim, which entails performing 
-the maxim's act in the relevant circumstances. Therefore, I will say that, just as the act of willing a
- maxim can be obligatory for a subject, it can be prohibited or permissible for a subject.\footnote{In 
-the rest of this section, for convenience, I will use the phrase ``subject s willing maxim M is obligatory" 
+The final set of definitions necessary to implement the FUL are obligation, permissibility, 
+and prohibition. To judge an action, my system evaluates the moral status of the action 
+``person $s$ wills maxim $M$.'' This action can be obligated, prohibited, or permissible.
+I will use the phrase ``subject s willing maxim M is obligatory" 
 interchangeably with ``maxim M is obligatory for subject s." I will use ``maxim M is obligatory" to 
-refer to M being obligatory for any arbitrary subject, which I will show to be equivalent to M being 
-obligatory for a specific subject.}%
+refer to M being obligatory for any arbitrary subject, which I is equivalent to M being 
+obligatory for a specific subject.\footnote{The full proof for this result is in Appendix Extra Tests}. 
+
+\begin{definition}[Obligation]
+
+Let maxim $M$ be composed of the circumstances, act, goal tuple $C, A, G$ and let $s$ be an arbitrary agent.
+
+$$obligated \, M \, s \equiv O\{ will \, (C, A, G) \, s \, | \, C\}$$
+
+\end{definition}
+
+The action ``$s$ wills $M$'' is the first argument passed to the dyadic obligation operator and is 
+thus the action that is shown to be obligated or not. The second argument passed to the obligation 
+operator represents the context in which the obligation holds and is thus naturally the maxim's circumstances.
+This definition does not require any additional syntactic sugar, since it merely uses the dyadic obligation
+operator in a clever way. Using this definition, I can define prohibition and permissibility.
+
+\begin{definition}[Prohibition and Permissibility] Let maxim $M$ be composed of the circumstances, act, 
+goal tuple $C, A, G$ and let $s$ be an arbitrary agent.\footnote{Technically, a maxim is not a boolean 
+type, so the term $\neg M$ is not type correct. The expression $obligated \, \neg M$ merely provides 
+intuition for the meaning of prohibition, but the exact definition is given by 
+$O\{ \neg will \, (C, A, G) \, s \, | \, C\}$.}
+
+\newcommand*{\approxident}{%
+  \mathrel{\vcenter{\offinterlineskip
+  \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
+
+$$ prohibited \, M \, s \approxident obligated \, \neg M \, \equiv O\{ \neg will \, (C, A, G) \, s \, | \, C\}$$
+
+$$permissible \, M \, s \equiv \neg prohibited \, M \, s \equiv \neg O\{ \neg will \, (C, A, G) \, s \, | \, C\}$$
+
+\end{definition} 
+
+Once again, I represent these definitions as abbreviations in Isabelle.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ prohibited{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}prohibited\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isachardot}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}will\ {\isacharparenleft}c{\isacharcomma}a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{A maxim is prohibited for a subject $s$ if its negation is obligated for $s$. It is morally wrong 
+for an agent to will a prohibited maxim.%
+}\isanewline
 \isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}t{\isachardoublequoteclose}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}permissible\ {\isasymequiv}\ {\isasymlambda}M\ s{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}prohibited\ M\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{I will say that a maxim is permissible for a subject if it is not prohibited for that subject to 
-will that maxim.%
+\isamarkupcmt{A maxim is permissible for a subject $s$ if it is not prohibited for $s$. It is morally acceptable 
+for an agent to will or not will a permissible maxim.%
 }%
 \begin{isamarkuptext}%
-When analyzing the naive formalization and Kroy's formalization, I learned that DDL and the prior 
-formalizations allow contradictory obligations. This is a major weakness of these systems, and my 
-formalization should fix this. To do so, I will add as an axiom the idea that obligations cannot 
-contradict each other or their internal circumstances. Formally, conflicting obligations are defined below.%
+One additional piece of logical background necessary before I implement the FUL is the 
+notion of contradictory obligations. Many deontic logics, including DDL, allow contradictory
+obligations. As I will explain in Section Tests, Kantian ethics never prescribes contradictory
+obligations, so I will add this as an axiom.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ non{\isacharunderscore}contradictory\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}non{\isacharunderscore}contradictory\ A\ B\ c\ w\ {\isasymequiv}\ {\isacharparenleft}{\isacharparenleft}O{\isacharbraceleft}A{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}B{\isacharbar}c{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isasymnot}{\isacharparenleft}{\isacharparenleft}A\ \isactrlbold {\isasymand}\ {\isacharparenleft}B\ \isactrlbold {\isasymand}\ c{\isacharparenright}{\isacharparenright}\ w\ {\isasymlongrightarrow}\ False{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Terms A and B are non contradictory in circumstances c if, when A and B are obligated in circumstances 
-c, the conjunction of A, B, and c, does not imply False.%
+\isamarkupcmt{Terms $A$ and $B$ are non contradictory in circumstances $c$ if, when $A$ and $B$ are obligated in circumstances 
+$c$, the conjunction of $A$, $B$, and $c$, does not imply $False$.%
 }\isanewline
 \isanewline
 \isacommand{axiomatization}\isamarkupfalse%
 \ \isakeyword{where}\ no{\isacharunderscore}contradictions{\isacharcolon}{\isachardoublequoteopen}{\isasymforall}A{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}B{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}w{\isacharcolon}{\isacharcolon}i{\isachardot}\ non{\isacharunderscore}contradictory\ A\ B\ c\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{This axiom formalizes the idea that, for any terms A, B, and circumstances c, A and B must be 
-non-contradictory in circumstances c at all worlds. Intuitively, this axiom requires that obligations 
+\isamarkupcmt{This axiom formalizes the idea that, for any terms $A$, $B$, and circumstances $c$, $A$, and $B$ must be 
+non-contradictory in circumstances $c$ at all worlds. Intuitively, this axiom requires that obligations 
 do not conflict.%
 }%
 \isadelimdocument
@@ -398,7 +463,7 @@ do not conflict.%
 %
 \isatagdocument
 %
-\isamarkupsubsection{Formalizing the FUL%
+\isamarkupsubsubsection{Formalizing the FUL%
 }
 \isamarkuptrue%
 %
@@ -410,12 +475,10 @@ do not conflict.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Below is my first attempt at formalizing Korgsaard's definition of the practical contradiction
-interpretation:  a maxim is not universalizable 
-if, in the world where the maxim becomes the standard practice (i.e. everyone acts on the maxim), the
-agent's attempt to use the maxim's act to achieve the maxim's goal is frustrated. In other words, if 
-the maxim is universally willed (captured by applying a universal qunatifier and the will function 
-to the maxim on the LHS), then it is no longer effective for the subject $s$ (RHS above).%
+With this logical background, I can begin to implement the Formula of Universal Law, as defined 
+by the practical contradiction interpretation, which states that a maxim is prohibited if it is ineffective
+when universalized. A first attempt to formalize the FUL simply translates this into Isabelle's syntax
+using the abbreviations above.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ FUL{\isadigit{0}}{\isacharcolon}{\isacharcolon}bool\ \isakeyword{where}\ {\isachardoublequoteopen}FUL{\isadigit{0}}\ {\isasymequiv}\ {\isasymforall}\ c\ a\ g\ s{\isachardot}\ not{\isacharunderscore}universalizable\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isasymlongrightarrow}\ {\isasymTurnstile}{\isacharparenleft}{\isacharparenleft}prohibited\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
@@ -423,9 +486,12 @@ to the maxim on the LHS), then it is no longer effective for the subject $s$ (RH
 \isamarkupcmt{This representation of the Formula of Universal Law reads, ``For all circumstances, goals, acts, 
 and subjects, if the maxim of the subject performing the act for the goal in the circumstances is not 
 universalizable (as defined above), then, at all worlds, in those circumstances, the subject 
-is prohibited (obligated not to) from willing the maxim.%
-}\isanewline
-\isanewline
+is prohibited (obligated not to) from willing the maxim.''%
+}%
+\begin{isamarkuptext}%
+I can immediately determine if this version of the FUL is sensical by checking if it is consistent.
+If \texttt{FUL0} implies False, then it is inconsistent.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ {\isachardoublequoteopen}FUL{\isadigit{0}}\ {\isasymlongrightarrow}\ False{\isachardoublequoteclose}%
 \isadelimproof
@@ -446,23 +512,28 @@ is prohibited (obligated not to) from willing the maxim.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-FUL0 is not consistent, and sledgehammer is able to prove this by showing that it implies a contradiction 
-usig axiom O\_diamond, which is \isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A}. This axiom captures 
-the idea that an obligation can't contradict its context. This is particularly problematic if the goal or 
-action of a maxim are equivalent to its circumstances. In other words, if the maxim has already been 
+FUL0 is not consistent, and Isabelle's proof-finding tool, Sledgehammer, is able to prove this by showing that it implies a contradiction 
+usig axiom \texttt{O\_diamond}\footnote{The full axiom reads \isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A}.} \citep{sledgehammer}. 
+This axiom captures the idea that an obligation can't contradict its context. This is particularly problematic 
+if the goal or action of a maxim are equivalent to its circumstances. In other words, if the maxim has already been 
 acted on or the goal has already been achieved, then prohibiting it is impossible. 
 In any model that has at least one term, it is possible to construct a maxim where the circumstances, goal, 
 and act (once a subject acts on it) are all that same term, resulting in a contradiction. 
 
-To get around this, I will exclude what I call ``badly formed maxims," which are those maxims such that the goal has already been 
-achieved or the act has already been acted on. Under my formalization, such maxims are 
-not well-formed. To understand why, I return to Korsgaard's and O'Neill's interpretations of a maxim as a practical
-guide to action. A maxim is a practical principle that guides how we behave in everyday life. A 
-principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast," is not 
-practically relevant. No agent would ever need to act on such a principle. It is not contradictory
-or prohibited, but it is the wrong kind of question to be asking. It is not a 
-well-formed maxim, so the categorical imperative does not apply to it. (more explanation in philosophical 
-writing collection)%
+This motivates the exclusion of what I call ``badly formed maxims," which are those maxims such that 
+the goal has already been achieved or the act has already been acted on. Under my formalization, such maxims are
+not well-formed. 
+
+\begin{definition}[Well-Formed Maxim]
+A maxim is well-formed if the circumstances do not contain the act and goal. For a maxim $(C, A, G)$, and subject $s$, 
+$$ \text{\emph{well\_formed}} \, (C, A, G) \, s \equiv \forall w \, (\neg (C \longrightarrow G) \wedge \neg (C \longrightarrow A \, s)) \, w$$
+
+\end{definition}
+
+For example, the maxim ``When I eat breakfast, I will eat breakfast to eat breakfast'' is not well-formed 
+because the circumstance ``when I eat breakfast'' contains the act and goal. Well-formedness is not 
+discussed in the literature, but if I require that the FUL only holds for well-formed maxim, it will now
+be consistent.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ well{\isacharunderscore}formed{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}i{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
@@ -470,20 +541,22 @@ writing collection)%
 %
 \isamarkupcmt{This abbreviation formalizes the well-formedness of a maxim for a subject. The goal cannot be 
 already achieved in the circumstances and the subject cannot have already performed the act.%
-}\isanewline
-\isanewline
+}%
+\begin{isamarkuptext}%
+If I modify \texttt{FUL0} to only hold for well-formed maxims, it becomes consistent.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ FUL\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}M{\isacharcolon}{\isacharcolon}maxim{\isachardot}\ {\isasymforall}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ M\ s\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}not{\isacharunderscore}universalizable\ M\ s\ {\isasymlongrightarrow}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ M\ s{\isacharparenright}\ {\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Let's try the exact same formalization of the FUL as above, except that it only applies to 
-maxims that are well-formed at every world.%
+\isamarkupcmt{This formalization states that if a maxim is well-formed, then if it is not universalizable, 
+it is prohibited.%
 }\isanewline
 \isanewline
 \isacommand{lemma}\isamarkupfalse%
 \ {\isachardoublequoteopen}FUL{\isachardoublequoteclose}\isanewline
 \ \ \isacommand{nitpick}\isamarkupfalse%
-{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}true{\isacharbrackright}%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
 \isadelimproof
 \ %
 \endisadelimproof
@@ -492,45 +565,10 @@ maxims that are well-formed at every world.%
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{The FUL does not hold in DDL, because nitpick is able to find a model for my system in which it is 
-false. If the FUL were already a theorem of the system, adding it wouldn't make the system any more 
-powerful, so this is the desired result.
-
-$\color{blue}$ Nitpick found a counterexample for card s = 1 and card i = 1:
-
-  Skolem constants:
-    M = (($\lambda x. \_$)($i_1$ := True), ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := False)), ($\lambda x. \_$)
-         ($i_1$ := False))
-    $\lambda$ w. p = ($\lambda x. \_$)($i_1$ := $s_1$)
-    s = $s_1$ $\color{black}$%
-}%
-\endisatagproof
-{\isafoldproof}%
-%
-\isadelimproof
-%
-\endisadelimproof
-\isanewline
-\isanewline
-\isacommand{axiomatization}\isamarkupfalse%
-\ \isakeyword{where}\ FUL{\isacharcolon}FUL\isanewline
-\isanewline
-\isacommand{lemma}\isamarkupfalse%
-\ True\isanewline
-\ \ \isacommand{nitpick}\isamarkupfalse%
-{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharcomma}\ falsify{\isacharequal}false{\isacharbrackright}%
-\isadelimproof
-\ %
-\endisadelimproof
-%
-\isatagproof
-\isacommand{by}\isamarkupfalse%
-\ simp\isanewline
-%
-\isamarkupcmt{Nitpick is able to find a model in which all axioms are satisfied, 
-so this version of the FUL is consistent.
-
-$\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
+\isamarkupcmt{Nitpick is Isabelle's countermodel checker, and I can use it to quickly check that an axiom is 
+consistent \citep{nitpick}. If Nitpick can find a model in which the axioms of DDL hold and the FUL is 
+true then it is consistent.
+$\color{blue}$ Nitpick found a model for card $i$ = 1 and card $s$ = 2:
 
   Empty assignment $\color{black}$%
 }%
@@ -542,42 +580,392 @@ $\color{blue}$ Nitpick found a model for card i = 1 and card s = 1:
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-During the process of making FUL0 consistent, I used Isabelle to gain philosophical insights 
-about vacuous maxims. This process is an example of the power of computational tools to aid
-philosophical progress. I used Nitpick and Sledgehammer to quickly test if a small tweak 
-to FUL0 fixed the inconsistency or if I was still able to derive a contradiction.  I then realized that if 
-I defined the circumstances, act, and goal as constants, then FUL0 was indeed consistent. After some 
-experimentation, Prof. Amin correctly pointed out that as constants, these three entities were 
-distinct. However, when merely quantifying over (c, a, g), all members of a tuple could be equivalent. Within
-a minute, I could formalize this notion, add it to FUL0, and test if it solved the problem. The fact 
-that it did spurred my philosophical insight about vacuous maxims. 
+Above, I used Isabelle and my logic to show that if the FUL holds for badly formed maxims then 
+it is inconsistent. This is not just a logical property of my system, but it also has philosophical
+significance that coheres with Korsgaard's and O'Neill's interpretations of a maxim as a practical
+guide to action \citep{actingforareason,actingonprinciple}. A maxim is a practical principle that guides how we behave in everyday life. A 
+principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast,'' is not 
+practically relevant. No agent would ever need to act on such a principle. It is neither contradictory
+nor prohibited, and it is the wrong kind of question to be asking. It is not a 
+well-formed maxim, so the categorical imperative cannot apply to it. 
 
-The logic confirmed that certain kinds
+The fact that Isabelle revealed a philosophical insight about which kinds of maxims are well-formed
+enough to evaluate using the categorical imperative is an example of the power of computational tools to aid
+philosophical progress. Nitpick and Sledgehammer helped me confirm that certain kinds
 of circumstance, act, goal tuples are too badly formed for the categorical imperative to logically 
 apply to them. The realization of this subtle problem would have been incredibly difficult without 
-computational tools. The syntax and typing of Isabelle/HOL forced me to bind the free-variable $M$
-in the FUL in different ways and allowed me to quickly test many bindings. The discovery of this 
-logical inconsistency then enabled a philosophical insight about which kinds of maxims make sense as 
-practical principles. This is one way to do computational ethics: model a system in a logic, use 
-computational tools to refine and debug the logic, and then use insights about the logic to derive 
-insights about the ethical phenonema it is modelling. This procedure parallels the use of proofs in 
-theoretical math to understand the mathematical objects they model.%
+computational tools, and serves as evidence of the power of computational ethics. I discuss the philosophical
+properties and implications of well-formed maxims and the power of computational ethics further in
+Chapter Discussion in Section Computational Ethics.
+
+Now that I have a consistent version of the FUL, I can complete my implementation by adding it as an axiom.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{axiomatization}\isamarkupfalse%
+\ \isakeyword{where}\ FUL{\isacharcolon}FUL%
+\begin{isamarkuptext}%
+This concludes my implementation of the Formula of Universal Law in Isabelle/HOL. My implementation
+consistents of necessary logical background, first formalized in DDL and then implemented in Isabelle.
+The code snippets in this chapter are a subset of the over 100 lines of Isabelle/HOL code necessary to
+complete this implementation. In Section \nameref{testing} and Chapter Applications, I demonstrate how this
+implementation can be tested and used to make moral judgements.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Tests\label{testing}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+In addition to an implementation of automated Kantian ethics, I also contribute a testing framework 
+to evaluate how well my implementation coheres with philosophical literature. This testing architecture 
+makes the notion of ``philosophical faithfulness'' precise. Each test consists of a sentence in my logic 
+and an expected outcome, where the possible outcomes are proving or refuting the sentence. For example, 
+one such sentence is that obligations cannot contradict each other. To run the tests, I attempt to
+ prove or refute each test sentence in my logic.  Because these tests are derived from moral 
+intuition and philosophical literature, they evaluate how reliable my system is.
+
+The test framework can be expanded by adding more test sentences. This test framework can also guide 
+implementations of other parts of Kantian ethics or other ethical theories. As I was implementing my 
+formalization, I checked it against the testing framework, performing test-driven development automated 
+ethics. Running the tests on my implementation alone consisted of approximately 400 lines of Isabelle code.
+
+I use my testing framework to show that my formalization and implementation of Kantian ethics outperforms 
+raw DDL with no other axioms added (a control group) and Kroy's prior attempt at formalizing 
+(but not implementing) the FUL, which I implement\footnote{I present the complete implementation in 
+Appendix \nameref{kroy_appendix}} in Isabelle \citep{kroy}. My implementation outperforms 
+both other implementations. Full test results are summarized in Figure \ref{table}. Below, I briefly 
+explain some noable tests.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{figure}
+\centering
+\includegraphics[scale=0.4]{goalstable.png}
+\caption{Table showing which tests each implementation passes. The naive interpretation is raw DDL, 
+Kroy is based on Moshe Kroy's formalization of the FUL, and the custom formalization is my novel implementation.} \label{table}
+\end{figure}
+%
+\begin{isamarkuptext}%
+\textbf{FUL Stronger than DDL} The FUL should not hold in raw DDL, which I use a control group. 
+If the FUL holds in the base logic, then adding it as an axiom doesn't make the logic any stronger, 
+which is troubling because the base logic does not come equipped with the categorical imperative built-in. It 
+defines basic properties of obligation, such as ought implies can, but contains no axioms that represent
+the formula of universal law. Therefore, if a formalization of the FUL holds in the 
+base logic, then it is too weak to actually represent the FUL. Both Kroy's formalization
+and my implementation do not hold in the base logic, and thus represent some progress over the control group.
+To test this property, I used Nitpick to find a countermodel in which my version of the FUL does not hold. 
+I performed this test before adding the FUL as an axiom, since after adding it no countermodel will
+be possible.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-One potential problem with my formalization is that it does not use the modal nature of the system. 
-All of the properties that the FUL investigates hold at all worlds, in effect removing the modal nature 
-of the system. This approach simplifies logical and therefore computational complexity, improving 
-performance. On the other hand, it doesn't use the full expressivity of DDL. If I run into problems 
-later on, one option is to tweak the FUL to use this expressivity.%
+\medskip
+\noindent \textbf{Obligation Universalizes Across People} The obligations prescribed by the Formula of Universal Law
+should generalize across people. In other words, if a maxim is obligated for one person, it is obligated
+for all other people because maxims are not person-specific. Velleman argues that, because 
+reason is accessible to everyone identically, obligations apply to all people equually \citep[25]{velleman}. 
+When Kant describes the categorical imperative as the objective principle of the will, he is referring 
+to the fact that, as opposed to a subjective principle, the categorical imperative applies to all 
+rational agents equally \citep[16]{groundwork}. At its core, the FUL best handles, ``the temptation 
+to make oneself an exception: selfishness, meanness, advantagetaking, and disregard for the rights 
+of others'' \citep[30]{KorsgaardFUL}. Kroy makes this property the center of his
+formalization, which essentially says that if an act is permissible for someone, it is permissible for 
+everyone.\footnote{Formally, $P\{A(s)\} \longrightarrow \forall p. P\{A(p)\}$} Kroy's interpretation and 
+my interpretation satisfy this property, but the naive interpretation does not. Below I show how I 
+ran this test for my interpreation.%
 \end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ wrong{\isacharunderscore}if{\isacharunderscore}wrong{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}g{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}a{\isachardot}\ {\isasymexists}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \ O{\isacharbraceleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ p{\isacharparenright}\ {\isacharbar}\ c{\isacharbraceright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This lemma shows that if a maxim (c, a, g) is wrong for subject $s$ at a world, then it is wrong
+for all people at $s$. Isabelle automatically completed this proof using the \texttt{blast} method, 
+which implements a generic tableau prover, a proof method that operates on lists of formulae using 
+rules for conjunction, disjunction, universal quantification, and existential quantification \citep{blast}.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ right{\isacharunderscore}if{\isacharunderscore}right{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ {\isasymforall}c{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}g{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymexists}s{\isacharcolon}{\isacharcolon}s{\isachardot}\ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ s\ {\isacharbar}\ c{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \ O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ M{\isacharcomma}\ g{\isacharparenright}\ p\ {\isacharbar}\ c{\isacharbraceright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This lemma shows that if a maxim (c, a, g) is right for subject $s$ at a world, then it is wrong
+for all people at $s$. The proof similarly proceeds using \texttt{blast}. I represent my tests as 
+lemmas, that I expect Isabelle to either prove or refute. The statement following the keyword \texttt{shows}
+is the sentence of the lemma, and the proof follows the \texttt{by} keyword.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+\noindent \textbf{Contradictory Obligations} DDL itself allows contradictory obligations, but contradictory obligations
+make obeying the prescriptions of an ethical theory impossible.
+Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
+can\footnote{Kohl points out that this principle is referred to as 
+Kant's dictum or Kant's law in the literature \citep[footnote 1]{kohl}.}. Kohl reconstructs his argument for the principle as 
+follows: if the will cannot comply with the moral law, then the moral law has no prescriptive authority 
+for the will \citep[703-4]{kohl}. This defeats the purpose of Kant's theory, which is to develop an unconditional, categorical imperative 
+for rational agents. Ought implies can requires that obligations never contradict, because an agent 
+can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
+and Kantian ethics in particular, must not result in conflicting obligations. 
+Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
+conflicting moral obligations are impossible under his theory \citep[V224]{metaphysicsintro}. Particularly, the categorical imperative generates 
+``strict negative laws of omission,'' which cannot conflict by definition \citep[45]{timmerman}.\footnote{The 
+kinds of obligations generated by the FUL are called ``perfect duties'' which arise from ``contradictions 
+in conception,'' or maxims that we cannot even concieve of universalizing. These duties are always negative 
+and thus never conflict. Kant also presents ``imperfect duties,'' generated from ``contradictions in will,''
+or maxims that we can concieve of universalizing but would never want to. These duties tend to be broader, 
+such as ``improve oneself" or "help others," and are secondary to perfect duties. My project only analyzes 
+perfect duties, as these are always stronger than imperfect duties.} Both the naive formalization and 
+Kroy's formalization allow contradictory obligations, but I explicitly add an axiom to my formalization
+that prohibits contradictory obligations.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ conflicting{\isacharunderscore}obligations{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}\isactrlbold {\isasymnot}{\isacharparenleft}W\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s{\isacharparenright}{\isacharbar}\ c{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This test passes immediately by the new axiom that prohibits contradictory obligations.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+\isanewline
+%
+\endisadelimproof
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ implied{\isacharunderscore}contradiction{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isacharparenleft}{\isacharparenleft}{\isacharparenleft}W\ {\isacharparenleft}c{\isadigit{1}}{\isacharcomma}\ a{\isadigit{1}}{\isacharcomma}\ g{\isadigit{1}}{\isacharparenright}\ s{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}W\ {\isacharparenleft}c{\isadigit{2}}{\isacharcomma}\ a{\isadigit{2}}{\isacharcomma}\ g{\isadigit{2}}{\isacharparenright}\ s{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymbottom}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}\isactrlbold {\isasymnot}\ {\isacharparenleft}O{\isacharbraceleft}W{\isacharparenleft}c{\isadigit{1}}{\isacharcomma}\ a{\isadigit{1}}{\isacharcomma}\ g{\isadigit{1}}{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}\ \isactrlbold {\isasymand}\ O{\isacharbraceleft}W{\isacharparenleft}c{\isadigit{2}}{\isacharcomma}\ a{\isadigit{2}}{\isacharcomma}\ g{\isadigit{2}}{\isacharparenright}\ s{\isacharbar}c{\isacharbraceright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{This stronger property states that the combination of obligatory maxims can't
+ imply a contradiction and should hold for the same reasons that contradictory obligations aren't
+allowed. The added axiom also makes this test pass.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+During testing, I also realized that contradictory obligations are closely related to two other properties
+that also fail in both prior attempts. First is the idea that obligation implies permissibility, or 
+that obligation is a stronger property than permissibility. If there are no contradictory obligations, 
+then this property holds because actions are either permissible or prohibited and obligation contradicts
+prohibition. Moreover, in a system with contradictory obligations, this property fails because there is some
+A that is obligated but also prohibited and therefore not permisible. Formalizing this property below shows 
+that this follows from the definition of implication in propositional logic.
+
+\medskip%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}\ \isactrlbold {\isasymequiv}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymrightarrow}\ \isactrlbold {\isasymnot}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}A{\isacharbraceright}{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{by}\isamarkupfalse%
+\ simp\isanewline
+%
+\isamarkupcmt{\texttt{simp} is the simplification tactic, which unfolds definitions to complete a proof. The 
+left-hand side states that $A$ is both obligated and prohibited, and is equivalent to the right-hand side, 
+which states that $A$ is obligated but not permissible.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+\noindent \textbf{Distributive Property} Another property related to contradictory obligations is the distributive property for the obligation
+operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
+another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
+do both A and B". The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
+and you are obligated to do B." We think those English sentences mean the same thing, so they should mean 
+the same thing in logic as well. Moreover, if that (rather intuitive) property holds, then contradictory
+obligations are impossible, as shown in the below proof.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ distributive{\isacharunderscore}implies{\isacharunderscore}no{\isacharunderscore}contradictions{\isacharcolon}\ \isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}A\ B{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}\ \isactrlbold {\isasymequiv}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}A{\isachardot}\ {\isasymTurnstile}{\isacharparenleft}\ \isactrlbold {\isasymnot}{\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}\isactrlbold {\isasymnot}\ A{\isacharbraceright}{\isacharparenright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ O{\isacharunderscore}diamond\ assms\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+%
+\isamarkupcmt{The \texttt{assumes} keyword indicates assumptions used when proving a lemma. I use it here to 
+capture the idea of metalogical implication. With the assumption, the lemma above reads, ``If the distributive
+property holds in this logic, then obligations cannot contradict."%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Again, this test fails in the naive formalization and for Kroy's formalization, but
+passes for my interpretation because I require that obligations don't contradict as an axiom.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ distribution{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}O\ {\isacharbraceleft}A{\isacharbraceright}\ \isactrlbold {\isasymand}\ O\ {\isacharbraceleft}B{\isacharbraceright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ O\ {\isacharbraceleft}A\ \isactrlbold {\isasymand}\ B{\isacharbraceright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+\ \ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{using}\isamarkupfalse%
+\ assms\ no{\isacharunderscore}contradictions\ \isacommand{by}\isamarkupfalse%
+\ fastforce\isanewline
+%
+\isamarkupcmt{Once again, the proof proceeds almost immediately using the new axiom.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+\medskip 
+
+\noindent \textbf{Un-universalizable Actions} Recall that under 
+the logical contradiction interpretation of the Formula of Universal Law, it prohibits lying because, in a world 
+where everyone simultaneously lies, lying is impossible. In other words, not everyone can simultaneously
+lie because the institution of lying and believing would break down. In Section \nameref{praccon}, 
+I recreated Korsgaard's argument for why the logical contradiction interpretation is weaker than what the
+Formula of Universal Law should actually require. Therefore, any implementation of the FUL should be 
+able to show that the actions prohibited by the logical contradiction interpretation are prohibited, 
+because the actions prohibited by the practical contradiction interpretation are a superset of these.
+The FUL should show that actions that cannot possibly be universalized are prohibited, because those acts cannot be willed in 
+a world where they are universalized. This property fails to hold in both the naive formalization 
+and Kroy's formalization, but holds for my custom formalization. Showing that this property holds
+for my formalization required significant logical background is presented in Appendix \ref{weirdtests}%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+\noindent \textbf{Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
+faithful formalization of the categorical imperative must evaluate maxims, not acts. This requires 
+representing a maxim and making it the input to the obligation operator, which neither of the prior 
+attempts do. Because my implementation includes the notion of a maxim, it is able to perform sophisticated 
+reasoning as demonstrated in Sections \nameref{joking} and \nameref{murderer}. Staying faithful to the philosophical 
+literature enables my system to make more reliable judgements.
+
+\medskip%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+\noindent \textbf{Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
+Korsgaard makes a distinction between conventional and natural acts \citep{KorsgaardFUL}. 
+A conventional act like promising relies on a convention, like the 
+convention that a promise is a commitment, whereas a natural act is possible simply because of the laws 
+of the natural world. It is easier to show the wrongness of conventional acts because there are worlds 
+in which these acts are impossible; namely, worlds in which the convention does not exist. For example, 
+the common argument against falsely promising is that if everyone were to falsely promise, the convention 
+of promising would fall apart because people wouldn't believe each other, so falsely promising is prohibited. 
+It is more difficult to show the wrongness of a natural act, like murder or violence. These acts can 
+never be logically impossible; even if everyone murders or acts violently, murder and violence will 
+still be possible, so it is difficult to show that they violate the FUL. 
+
+Both the naive and Kroy's interpretations fail to show the wrongness of conventional or natural acts. 
+My system shows the wrongness of both natural and conventional acts because it is faithful to Korsgaard's 
+practical contradiction interpretation of the FUL, which is the canonical interpretation of the 
+FUL \citep{KorsgaardFUL}. This test passes due to the results shown in Chapter Applications, where I
+use my system to reason about two ethical dilemmas, one which involves conventional acts and the other which
+involves natural acts.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
 %
 \isadelimtheory
 %
 \endisadelimtheory
 %
 \isatagtheory
-\isacommand{end}\isamarkupfalse%
 %
 \endisatagtheory
 {\isafoldtheory}%
@@ -585,7 +973,6 @@ later on, one option is to tweak the FUL to use this expressivity.%
 \isadelimtheory
 %
 \endisadelimtheory
-\isanewline
 %
 \end{isabellebody}%
 \endinput
@@ -596,21 +983,21 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%38=10%:%
 %:%39=11%:%
 %:%40=12%:%
-%:%41=13%:%
-%:%50=15%:%
+%:%49=14%:%
+%:%61=16%:%
 %:%62=17%:%
 %:%63=18%:%
 %:%64=19%:%
-%:%65=20%:%
-%:%74=22%:%
+%:%73=21%:%
+%:%85=23%:%
 %:%86=24%:%
 %:%87=25%:%
 %:%88=26%:%
 %:%89=27%:%
-%:%90=28%:%
-%:%92=30%:%
-%:%93=30%:%
-%:%94=30%:%
+%:%91=29%:%
+%:%92=29%:%
+%:%93=29%:%
+%:%96=31%:%
 %:%97=32%:%
 %:%98=33%:%
 %:%99=34%:%
@@ -621,20 +1008,19 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%104=39%:%
 %:%105=40%:%
 %:%106=41%:%
-%:%107=42%:%
 %:%108=43%:%
-%:%109=44%:%
-%:%111=46%:%
-%:%112=46%:%
+%:%109=43%:%
+%:%111=44%:%
+%:%112=45%:%
 %:%113=46%:%
 %:%114=47%:%
 %:%115=48%:%
 %:%116=49%:%
 %:%117=50%:%
 %:%118=51%:%
-%:%119=52%:%
-%:%120=53%:%
-%:%128=55%:%
+%:%126=53%:%
+%:%138=55%:%
+%:%139=56%:%
 %:%140=57%:%
 %:%141=58%:%
 %:%142=59%:%
@@ -653,21 +1039,21 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%155=72%:%
 %:%156=73%:%
 %:%157=74%:%
-%:%159=77%:%
+%:%158=75%:%
+%:%159=76%:%
 %:%160=77%:%
-%:%162=78%:%
-%:%163=79%:%
-%:%164=80%:%
-%:%165=81%:%
-%:%166=82%:%
+%:%161=78%:%
+%:%162=79%:%
+%:%164=82%:%
+%:%165=82%:%
 %:%167=83%:%
 %:%168=84%:%
 %:%169=85%:%
-%:%172=87%:%
-%:%173=88%:%
-%:%174=89%:%
-%:%175=90%:%
-%:%176=91%:%
+%:%170=86%:%
+%:%171=87%:%
+%:%172=88%:%
+%:%173=89%:%
+%:%174=90%:%
 %:%177=92%:%
 %:%178=93%:%
 %:%179=94%:%
@@ -724,22 +1110,22 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%230=145%:%
 %:%231=146%:%
 %:%232=147%:%
+%:%233=148%:%
 %:%234=149%:%
-%:%235=149%:%
-%:%236=150%:%
-%:%238=151%:%
-%:%239=152%:%
-%:%240=153%:%
-%:%241=154%:%
-%:%249=156%:%
-%:%261=158%:%
-%:%262=159%:%
-%:%263=160%:%
-%:%264=161%:%
-%:%265=162%:%
-%:%266=163%:%
-%:%267=164%:%
-%:%268=165%:%
+%:%235=150%:%
+%:%236=151%:%
+%:%237=152%:%
+%:%238=153%:%
+%:%239=154%:%
+%:%240=155%:%
+%:%242=157%:%
+%:%243=157%:%
+%:%244=158%:%
+%:%246=159%:%
+%:%247=160%:%
+%:%248=161%:%
+%:%249=162%:%
+%:%257=164%:%
 %:%269=166%:%
 %:%270=167%:%
 %:%271=168%:%
@@ -782,188 +1168,426 @@ later on, one option is to tweak the FUL to use this expressivity.%
 %:%308=205%:%
 %:%309=206%:%
 %:%310=207%:%
-%:%312=210%:%
+%:%311=208%:%
+%:%312=209%:%
 %:%313=210%:%
 %:%314=211%:%
-%:%316=212%:%
-%:%317=213%:%
-%:%320=215%:%
-%:%321=216%:%
-%:%322=217%:%
-%:%323=218%:%
-%:%324=219%:%
-%:%325=220%:%
-%:%326=221%:%
-%:%327=222%:%
-%:%328=223%:%
+%:%315=212%:%
+%:%316=213%:%
+%:%317=214%:%
+%:%318=215%:%
+%:%319=216%:%
+%:%321=219%:%
+%:%322=219%:%
+%:%323=220%:%
+%:%325=221%:%
+%:%326=222%:%
 %:%329=224%:%
 %:%330=225%:%
+%:%331=226%:%
 %:%332=227%:%
-%:%333=227%:%
-%:%334=228%:%
-%:%335=229%:%
-%:%336=230%:%
-%:%337=230%:%
-%:%338=231%:%
-%:%339=232%:%
-%:%340=233%:%
-%:%341=233%:%
-%:%342=234%:%
-%:%344=235%:%
-%:%345=236%:%
-%:%346=237%:%
-%:%347=238%:%
-%:%348=239%:%
-%:%349=240%:%
-%:%350=241%:%
-%:%351=242%:%
-%:%354=244%:%
-%:%355=245%:%
-%:%356=246%:%
-%:%357=247%:%
-%:%358=248%:%
-%:%359=249%:%
-%:%360=250%:%
-%:%361=251%:%
-%:%363=253%:%
-%:%364=253%:%
-%:%365=254%:%
-%:%366=255%:%
-%:%367=256%:%
-%:%368=256%:%
-%:%369=257%:%
-%:%371=258%:%
-%:%372=259%:%
-%:%375=262%:%
-%:%376=263%:%
-%:%377=264%:%
-%:%378=265%:%
-%:%380=267%:%
-%:%381=267%:%
-%:%382=268%:%
-%:%384=269%:%
-%:%385=270%:%
-%:%386=270%:%
-%:%387=271%:%
-%:%388=272%:%
-%:%389=272%:%
-%:%391=273%:%
-%:%392=274%:%
-%:%393=275%:%
-%:%401=277%:%
-%:%413=279%:%
-%:%414=280%:%
-%:%415=281%:%
-%:%416=282%:%
-%:%417=283%:%
-%:%418=284%:%
-%:%420=287%:%
-%:%421=287%:%
-%:%423=288%:%
-%:%424=289%:%
-%:%425=290%:%
-%:%426=291%:%
-%:%427=291%:%
-%:%428=292%:%
-%:%429=293%:%
-%:%430=293%:%
-%:%432=293%:%
-%:%436=293%:%
-%:%437=293%:%
-%:%438=294%:%
-%:%439=294%:%
-%:%440=294%:%
-%:%449=296%:%
-%:%450=297%:%
-%:%451=298%:%
-%:%452=299%:%
-%:%453=300%:%
-%:%454=301%:%
-%:%455=302%:%
-%:%456=303%:%
-%:%457=304%:%
-%:%458=305%:%
-%:%459=306%:%
-%:%460=307%:%
-%:%461=308%:%
-%:%462=309%:%
-%:%463=310%:%
-%:%464=311%:%
-%:%465=312%:%
-%:%467=314%:%
-%:%468=314%:%
-%:%469=315%:%
-%:%471=316%:%
-%:%472=317%:%
-%:%473=317%:%
-%:%474=318%:%
-%:%475=319%:%
-%:%476=319%:%
-%:%477=320%:%
-%:%479=321%:%
-%:%480=322%:%
-%:%481=322%:%
-%:%482=323%:%
-%:%483=324%:%
-%:%484=324%:%
-%:%485=325%:%
-%:%486=325%:%
-%:%488=325%:%
-%:%492=325%:%
-%:%493=325%:%
-%:%495=326%:%
-%:%496=327%:%
-%:%497=328%:%
-%:%498=329%:%
-%:%499=330%:%
-%:%500=331%:%
-%:%501=332%:%
-%:%502=333%:%
-%:%503=334%:%
-%:%504=335%:%
-%:%505=336%:%
-%:%513=336%:%
-%:%514=337%:%
-%:%515=338%:%
-%:%516=338%:%
-%:%517=339%:%
-%:%518=340%:%
-%:%519=340%:%
-%:%520=341%:%
-%:%521=341%:%
-%:%523=341%:%
-%:%527=341%:%
-%:%528=341%:%
-%:%530=342%:%
-%:%531=343%:%
-%:%532=344%:%
-%:%533=345%:%
-%:%534=346%:%
-%:%535=347%:%
-%:%545=349%:%
-%:%546=350%:%
-%:%547=351%:%
-%:%548=352%:%
-%:%549=353%:%
-%:%550=354%:%
-%:%551=355%:%
-%:%552=356%:%
-%:%553=357%:%
-%:%554=358%:%
-%:%555=359%:%
-%:%556=360%:%
-%:%557=361%:%
-%:%558=362%:%
-%:%559=363%:%
-%:%560=364%:%
-%:%561=365%:%
-%:%562=366%:%
-%:%563=367%:%
-%:%564=368%:%
-%:%568=370%:%
-%:%569=371%:%
-%:%570=372%:%
-%:%571=373%:%
-%:%572=374%:%
-%:%580=376%:%
-%:%588=376%:%
+%:%333=228%:%
+%:%334=229%:%
+%:%335=230%:%
+%:%336=231%:%
+%:%337=232%:%
+%:%338=233%:%
+%:%339=234%:%
+%:%340=235%:%
+%:%341=236%:%
+%:%342=237%:%
+%:%343=238%:%
+%:%344=239%:%
+%:%345=240%:%
+%:%346=241%:%
+%:%347=242%:%
+%:%348=243%:%
+%:%349=244%:%
+%:%350=245%:%
+%:%351=246%:%
+%:%353=249%:%
+%:%354=249%:%
+%:%355=250%:%
+%:%357=251%:%
+%:%358=252%:%
+%:%359=252%:%
+%:%362=258%:%
+%:%363=259%:%
+%:%364=260%:%
+%:%365=261%:%
+%:%366=262%:%
+%:%367=263%:%
+%:%368=264%:%
+%:%369=265%:%
+%:%370=266%:%
+%:%371=267%:%
+%:%372=268%:%
+%:%373=269%:%
+%:%374=270%:%
+%:%375=271%:%
+%:%377=273%:%
+%:%378=273%:%
+%:%379=274%:%
+%:%381=275%:%
+%:%384=277%:%
+%:%385=278%:%
+%:%386=279%:%
+%:%387=280%:%
+%:%388=281%:%
+%:%389=282%:%
+%:%390=283%:%
+%:%391=284%:%
+%:%392=285%:%
+%:%393=286%:%
+%:%394=287%:%
+%:%395=288%:%
+%:%396=289%:%
+%:%397=290%:%
+%:%398=291%:%
+%:%399=292%:%
+%:%400=293%:%
+%:%401=294%:%
+%:%402=295%:%
+%:%403=296%:%
+%:%404=297%:%
+%:%405=298%:%
+%:%406=299%:%
+%:%407=300%:%
+%:%408=301%:%
+%:%409=302%:%
+%:%410=303%:%
+%:%411=304%:%
+%:%412=305%:%
+%:%413=306%:%
+%:%414=307%:%
+%:%415=308%:%
+%:%416=309%:%
+%:%417=310%:%
+%:%418=311%:%
+%:%419=312%:%
+%:%420=313%:%
+%:%421=314%:%
+%:%422=315%:%
+%:%424=317%:%
+%:%425=317%:%
+%:%426=318%:%
+%:%428=319%:%
+%:%429=320%:%
+%:%430=320%:%
+%:%431=321%:%
+%:%432=322%:%
+%:%433=322%:%
+%:%434=323%:%
+%:%436=324%:%
+%:%437=325%:%
+%:%440=327%:%
+%:%441=328%:%
+%:%442=329%:%
+%:%443=330%:%
+%:%445=332%:%
+%:%446=332%:%
+%:%447=333%:%
+%:%449=334%:%
+%:%450=335%:%
+%:%451=335%:%
+%:%452=336%:%
+%:%453=337%:%
+%:%454=337%:%
+%:%456=338%:%
+%:%457=339%:%
+%:%458=340%:%
+%:%466=342%:%
+%:%478=344%:%
+%:%479=345%:%
+%:%480=346%:%
+%:%481=347%:%
+%:%483=350%:%
+%:%484=350%:%
+%:%486=351%:%
+%:%487=352%:%
+%:%488=353%:%
+%:%489=354%:%
+%:%492=356%:%
+%:%493=357%:%
+%:%495=359%:%
+%:%496=359%:%
+%:%498=359%:%
+%:%502=359%:%
+%:%503=359%:%
+%:%504=360%:%
+%:%505=360%:%
+%:%506=360%:%
+%:%515=362%:%
+%:%516=363%:%
+%:%517=364%:%
+%:%518=365%:%
+%:%519=366%:%
+%:%520=367%:%
+%:%521=368%:%
+%:%522=369%:%
+%:%523=370%:%
+%:%524=371%:%
+%:%525=372%:%
+%:%526=373%:%
+%:%527=374%:%
+%:%528=375%:%
+%:%529=376%:%
+%:%530=377%:%
+%:%531=378%:%
+%:%532=379%:%
+%:%533=380%:%
+%:%534=381%:%
+%:%535=382%:%
+%:%536=383%:%
+%:%538=385%:%
+%:%539=385%:%
+%:%540=386%:%
+%:%542=387%:%
+%:%543=388%:%
+%:%546=390%:%
+%:%548=392%:%
+%:%549=392%:%
+%:%550=393%:%
+%:%552=394%:%
+%:%553=395%:%
+%:%554=395%:%
+%:%555=396%:%
+%:%556=397%:%
+%:%557=397%:%
+%:%558=398%:%
+%:%559=398%:%
+%:%561=398%:%
+%:%565=398%:%
+%:%566=398%:%
+%:%568=399%:%
+%:%569=400%:%
+%:%570=401%:%
+%:%571=402%:%
+%:%572=403%:%
+%:%573=404%:%
+%:%583=406%:%
+%:%584=407%:%
+%:%585=408%:%
+%:%586=409%:%
+%:%587=410%:%
+%:%588=411%:%
+%:%589=412%:%
+%:%590=413%:%
+%:%591=414%:%
+%:%592=415%:%
+%:%593=416%:%
+%:%594=417%:%
+%:%595=418%:%
+%:%596=419%:%
+%:%597=420%:%
+%:%598=421%:%
+%:%599=422%:%
+%:%600=423%:%
+%:%601=424%:%
+%:%603=426%:%
+%:%604=426%:%
+%:%606=428%:%
+%:%607=429%:%
+%:%608=430%:%
+%:%609=431%:%
+%:%610=432%:%
+%:%619=434%:%
+%:%631=436%:%
+%:%632=437%:%
+%:%633=438%:%
+%:%634=439%:%
+%:%635=440%:%
+%:%636=441%:%
+%:%637=442%:%
+%:%638=443%:%
+%:%639=444%:%
+%:%640=445%:%
+%:%641=446%:%
+%:%642=447%:%
+%:%643=448%:%
+%:%644=449%:%
+%:%645=450%:%
+%:%646=451%:%
+%:%647=452%:%
+%:%648=453%:%
+%:%649=454%:%
+%:%652=458%:%
+%:%653=459%:%
+%:%654=460%:%
+%:%655=461%:%
+%:%656=462%:%
+%:%657=463%:%
+%:%660=465%:%
+%:%661=466%:%
+%:%662=467%:%
+%:%663=468%:%
+%:%664=469%:%
+%:%665=470%:%
+%:%666=471%:%
+%:%667=472%:%
+%:%668=473%:%
+%:%669=474%:%
+%:%673=476%:%
+%:%674=477%:%
+%:%675=478%:%
+%:%676=479%:%
+%:%677=480%:%
+%:%678=481%:%
+%:%679=482%:%
+%:%680=483%:%
+%:%681=484%:%
+%:%682=485%:%
+%:%683=486%:%
+%:%684=487%:%
+%:%685=488%:%
+%:%686=489%:%
+%:%688=491%:%
+%:%689=491%:%
+%:%690=492%:%
+%:%693=493%:%
+%:%697=493%:%
+%:%698=493%:%
+%:%700=494%:%
+%:%701=495%:%
+%:%702=496%:%
+%:%703=497%:%
+%:%709=497%:%
+%:%712=498%:%
+%:%713=499%:%
+%:%714=499%:%
+%:%715=500%:%
+%:%718=501%:%
+%:%722=501%:%
+%:%723=501%:%
+%:%725=502%:%
+%:%726=503%:%
+%:%727=504%:%
+%:%728=505%:%
+%:%738=507%:%
+%:%739=508%:%
+%:%740=509%:%
+%:%741=510%:%
+%:%742=511%:%
+%:%743=512%:%
+%:%744=513%:%
+%:%745=514%:%
+%:%746=515%:%
+%:%747=516%:%
+%:%748=517%:%
+%:%749=518%:%
+%:%750=519%:%
+%:%751=520%:%
+%:%752=521%:%
+%:%753=522%:%
+%:%754=523%:%
+%:%755=524%:%
+%:%756=525%:%
+%:%757=526%:%
+%:%758=527%:%
+%:%760=529%:%
+%:%761=529%:%
+%:%762=530%:%
+%:%765=531%:%
+%:%769=531%:%
+%:%770=531%:%
+%:%771=531%:%
+%:%773=532%:%
+%:%779=532%:%
+%:%782=533%:%
+%:%783=534%:%
+%:%784=534%:%
+%:%785=535%:%
+%:%786=536%:%
+%:%789=537%:%
+%:%793=537%:%
+%:%794=537%:%
+%:%795=537%:%
+%:%797=538%:%
+%:%798=539%:%
+%:%799=540%:%
+%:%809=542%:%
+%:%810=543%:%
+%:%811=544%:%
+%:%812=545%:%
+%:%813=546%:%
+%:%814=547%:%
+%:%815=548%:%
+%:%816=549%:%
+%:%817=550%:%
+%:%819=553%:%
+%:%820=553%:%
+%:%823=554%:%
+%:%827=554%:%
+%:%828=554%:%
+%:%830=555%:%
+%:%831=556%:%
+%:%832=557%:%
+%:%842=559%:%
+%:%843=560%:%
+%:%844=561%:%
+%:%845=562%:%
+%:%846=563%:%
+%:%847=564%:%
+%:%848=565%:%
+%:%850=567%:%
+%:%851=567%:%
+%:%852=568%:%
+%:%853=569%:%
+%:%856=570%:%
+%:%860=570%:%
+%:%861=570%:%
+%:%862=570%:%
+%:%864=571%:%
+%:%865=572%:%
+%:%866=573%:%
+%:%876=575%:%
+%:%877=576%:%
+%:%879=578%:%
+%:%880=578%:%
+%:%881=579%:%
+%:%882=580%:%
+%:%885=581%:%
+%:%889=581%:%
+%:%890=581%:%
+%:%891=581%:%
+%:%893=582%:%
+%:%903=584%:%
+%:%904=585%:%
+%:%905=586%:%
+%:%906=587%:%
+%:%907=588%:%
+%:%908=589%:%
+%:%909=590%:%
+%:%910=591%:%
+%:%911=592%:%
+%:%912=593%:%
+%:%913=594%:%
+%:%914=595%:%
+%:%915=596%:%
+%:%916=597%:%
+%:%920=601%:%
+%:%921=602%:%
+%:%922=603%:%
+%:%923=604%:%
+%:%924=605%:%
+%:%925=606%:%
+%:%926=607%:%
+%:%927=608%:%
+%:%931=611%:%
+%:%932=612%:%
+%:%933=613%:%
+%:%934=614%:%
+%:%935=615%:%
+%:%936=616%:%
+%:%937=617%:%
+%:%938=618%:%
+%:%939=619%:%
+%:%940=620%:%
+%:%941=621%:%
+%:%942=622%:%
+%:%943=623%:%
+%:%944=624%:%
+%:%945=625%:%
+%:%946=626%:%
+%:%947=627%:%
+%:%948=628%:%

@@ -1,0 +1,520 @@
+%
+\begin{isabellebody}%
+\setisabellecontext{appendix{\isacharunderscore}{\isadigit{2}}}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Testing Un-Universalizable Actions \label{weirdtests}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
+to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
+the strength of her preferred interpretation of the FUL, the practical contradiction interpretation \cite{KorsgaardFUL}.
+There are two possible readings of this maxim, and I will show that my formalization can handle both. 
+Under the first reading, the act of falsely promising is read as
+as entering a pre-existing, implicit, social system of promising with no intention of upholding your 
+promise. Under the second reading, the act of falsely promising is equivalent to uttering the worlds 
+``I promise X" without intending to do X. The differences between these readings lies in the difference 
+between promising as an act with meaning in a larger social structure and the utterance ``I promise."
+
+Under the first reading, the maxim fails because falsely promising is no longer possible in a world where 
+everyone everyone does so. This is how the logical contradiction interpretation reads this maxim—falsely 
+promising is no longer possible when universalized because the institution of promising breaks down. 
+The practical contradiction view also prohibits this maxim because if falsely promising is not longer 
+possible, then it is no longer an effective way to achieve the end of getting some money. Below I 
+define some logical tools to formalize this reading of this maxim.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
+%
+\isamarkupcmt{Constant representing the circumstances ``when strapped for cash." Recall that the type of circumstances 
+is a term because circumstances can be true or false at a world.%
+}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ falsely{\isacharunderscore}promise{\isacharcolon}{\isacharcolon}os\isanewline
+%
+\isamarkupcmt{Constant representing the act ``make a false promise to pay a loan back." Recall that the type of
+an act is an open sentence because the sentence ``subject s performs act a" can be true or false at a world.%
+}\isanewline
+\isacommand{consts}\isamarkupfalse%
+\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharcolon}{\isacharcolon}t\isanewline
+%
+\isamarkupcmt{Constant representing the goal ``to get some money." Recall that the type of a goal 
+is a term because a goal can be true or false at a world depending on whether it is achieved or not.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharcolon}{\isacharcolon}maxim\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash{\isacharcomma}\ falsely{\isacharunderscore}promise{\isacharcomma}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Armed with the circumstances, act, and goal above, I can define the example maxim as a tuple.%
+}%
+\begin{isamarkuptext}%
+The logical objects above are ``empty," in the sense that I haven't specified any of their 
+relevant properties. I will define these properties as assumptions and will show that, if the maxim 
+above satisfies the assumed properties, it is prohibited.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{abbreviation}\isamarkupfalse%
+\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Under this reading, the problem with this maxim is that everyone can't
+falsely promise simultaneously because the institution of promising will break down. It's probably 
+possible to say something stronger than this (i.e. that if enough but not necessarily all people
+falsely promise promising is no longer possible), but for my purposes this will suffice. The above 
+formula reads, ``At all worlds, it is not the case that everyone falsely promises."%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ circumstances{\isacharunderscore}hold\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}circumstances{\isacharunderscore}hold\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ when{\isacharunderscore}strapped{\isacharunderscore}for{\isacharunderscore}cash\ w{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption narrows our scope of consideration to worlds where the circumstances of 
+being strapped for cash hold. This is important because, at worlds where the circumstances do not hold, 
+a maxim is trivially effective (since it's never acted on) and thus trivially universalizable. This 
+assumption also makes practical sense; when evaluating a maxim, an agent would care about it specifically
+at worlds where the circumstances hold, since these are the worlds where the maxim actually prescribes action.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This assumption states that the maxim of falsely promising is well-formed. This breaks down into
+two individual assumptions. First, being strapped for cash can't imply falsely promising, which is plausible
+because many people won't falsely promise under conditions of poverty. Second, being strapped for cash
+can't imply getting ready cash, which is also plausible because people often fail to secure cash even 
+when they need it.%
+}%
+\begin{isamarkuptext}%
+Putting it all together, I want to show that if the three assumptions justified above hold, then 
+the constructed maxim is prohibited. Below is the proof%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ lying{\isacharunderscore}bad{\isacharunderscore}{\isadigit{1}}{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{by}\isamarkupfalse%
+\ {\isacharparenleft}simp\ add{\isacharcolon}\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}{\isacharparenright}\isanewline
+%
+\isamarkupcmt{I manually broke the proof into this intermediate lemma and the conclusion, and then Sledgehammer 
+automatically found a proof.%
+}\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\ \isanewline
+\isacommand{qed}\isamarkupfalse%
+%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+Under the second reading of this maxim, the act ``falsely promising" refers to uttering the 
+sentence ``I promise to do X" with no intention of actually doing X\footnote{Note that under this 
+reading, the maxim isn't prohibited under the logical contradiction interpretation because making an 
+utterance is still possible even if eveyrone else makes that utterance. I will discuss this in detail 
+later in this section in the context of the difference between natural and conventional acts.}. 
+Under this reading, the practical contradiction interpretation prohibits this maxim because, in a world 
+where false promising is universalized, no one believes promises anymore, so the utterance is no longer 
+an effective way to get money. Below I formalize this reading of this maixm.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{consts}\isamarkupfalse%
+\ believed{\isacharcolon}{\isacharcolon}os\ \isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}falsely{\isacharunderscore}promise{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ {\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if everyone falsely promises, then no one is believed
+when promising.%
+}\isanewline
+\isanewline
+\isacommand{abbreviation}\isamarkupfalse%
+\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ \isakeyword{where}\ \isanewline
+{\isachardoublequoteopen}need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ {\isasymforall}w\ s{\isachardot}\ {\isacharparenleft}{\isasymnot}\ believed{\isacharparenleft}s{\isacharparenright}\ w\ {\isasymlongrightarrow}\ \isactrlbold {\isasymnot}{\isacharparenleft}{\isacharparenleft}falsely{\isacharunderscore}promise\ s{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ to{\isacharunderscore}get{\isacharunderscore}easy{\isacharunderscore}cash{\isacharparenright}w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{This abbreviation formalizes the idea that if a promise is not believed, then it is not an effective
+way of getting easy cash.%
+}\isanewline
+\isanewline
+\isacommand{lemma}\isamarkupfalse%
+\ falsely{\isacharunderscore}promising{\isacharunderscore}bad{\isacharunderscore}{\isadigit{2}}{\isacharcolon}\isanewline
+\ \ \isakeyword{assumes}\ false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\isanewline
+\ \ \isakeyword{assumes}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\isanewline
+%
+\isamarkupcmt{The above two assumptions are specific to this reading and justified above.%
+}\isanewline
+\ \ \isakeyword{assumes}\ circumstances{\isacharunderscore}hold\isanewline
+\ \ \isakeyword{assumes}\ example{\isacharunderscore}is{\isacharunderscore}well{\isacharunderscore}formed\isanewline
+%
+\isamarkupcmt{These two assumptions applied to the first reading as well and were justified there.%
+}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ {\isasymTurnstile}\ {\isacharparenleft}prohibited\ false{\isacharunderscore}promising\ s{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\isatagproof
+\isacommand{proof}\isamarkupfalse%
+{\isacharminus}\isanewline
+\ \ \isacommand{have}\isamarkupfalse%
+\ {\isachardoublequoteopen}{\isasymforall}s{\isachardot}\ not{\isacharunderscore}universalizable\ false{\isacharunderscore}promising\ s{\isachardoublequoteclose}\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ auto\isanewline
+\ \ \isacommand{thus}\isamarkupfalse%
+\ {\isacharquery}thesis\isanewline
+\ \ \ \ \isacommand{using}\isamarkupfalse%
+\ FUL\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
+\ blast\isanewline
+\isacommand{qed}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{With some help, Isabelle is able to show that the maxim is prohibited under this reading as well.%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+%
+\begin{isamarkuptext}%
+This example demonstrates that my formalization is able to correctly prohibit this maxim, regardless
+of its reading. This is additionally important because the two readings of this maxim represent reading 
+the act as either a conventional or natural action, so my intrepretation can correctly handle both kinds
+of actions. Korsgaard draws a distinction between conventional acts and natural acts. Conventional acts 
+exist within a practice, which is "comprised of certain rules, and its existence (where it is not embodied in 
+an institution with sanctions) consists in the general acknowledgement and following of those rules" 
+\cite[10]{KorsgaardFUL}. For example, promising is a conventional act because it only exists as a 
+practice. Murder, on the other hand, is an example of a natural act because its existence only depends
+on the laws of nature\cite[11]{KorsgaardFUL}.
+
+This distinction is important because Korsgaard argues that only the practical contradiction view can 
+satisfactorily explain the wrongness of certain natural acts like murder\footnote{For more discussion 
+of Korsgaard's argument for the practical contradiction view, see Section Philosophical Writing}. 
+The practical contradiction view is thus stronger than the logical contradiction view because it can 
+explain the wrongness of both conventional and natural acts. 
+
+The fact that my interpretation can correctly show the wrongness of both conventional and natural acts
+is evidence for its correctness as a formalization of the practical contradiction interpretation. 
+The first reading of the example maxim reads the act 
+``making a false promise" as entering into an agreement within a socially established system of promising. 
+This is clearly a conventional act, and because it is a conventional act, it is not just contradictory
+when universalized but literally impossible because the practice breaks down. I capture this idea in the 
+assumption \isa{appendix{\isacharunderscore}{\isadigit{2}}{\isachardot}everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie\ {\isasymequiv}\ {\isasymforall}w{\isachardot}\ {\isasymnot}\ {\isacharparenleft}{\isasymforall}s{\isachardot}\ appendix{\isacharunderscore}{\isadigit{2}}{\isachardot}falsely{\isacharunderscore}promise\ s\ w{\isacharparenright}}, which states that, at all worlds, not everyone can falsely promise since 
+otherwise the practice of promising would break down. The second reading, on the other hand, reads the 
+act of making a false promise as uttering the statement ``I promise to pay you back," while never intending 
+to fulfill this promise. This is a natural act because the act of uttering a sentence does not rely 
+on any conventions, merely the laws of nature governing how your mouth and vocal cords behave\footnote{
+Linguistic relativists may take issue with this claim and may argue that if the English language had 
+never developed, then making this utterance would be impossible. Even if this is true, the laws of 
+nature itself would not prohibit making the sounds corresponding to the English pronounciation of 
+this phrase, so the act would still not be impossible in the way that a conventional act can be.} 
+
+I show above that my formalization shows the wrongness of this maxim under both readings. Under the 
+first reading, promising becomes impossible, so both the logical and 
+practical contradiction interpretations prohibit the maxim. Under the second reading, promising is still
+possible, but becomes ineffective because people no longer interpret the utterance as creating a commitment.
+Under this view, only the practical contradiction interpretation succeeds in prohibiting the maxim. Thus, 
+not only does my formalization likely capture the practical contradiction interpretation (as opposed to 
+the teleological or logical contradiction interpretations), it also adequately handles both natural 
+and conventional acts.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+I can also use Isabelle to confirm that the two readings are different. If they were the same, 
+we would expect the assumptions corresponing to each to be equivalent. The RHS of the lemma below represents 
+the second reading and the LHS represents the first reading.%
+\end{isamarkuptext}\isamarkuptrue%
+\isacommand{lemma}\isamarkupfalse%
+\ readings{\isacharunderscore}are{\isacharunderscore}equivalent{\isacharcolon}\isanewline
+\ \ \isakeyword{shows}\ {\isachardoublequoteopen}false{\isacharunderscore}promising{\isacharunderscore}not{\isacharunderscore}believed\ {\isasymand}\ need{\isacharunderscore}to{\isacharunderscore}be{\isacharunderscore}believed\ {\isasymequiv}\ everyone{\isacharunderscore}can{\isacharprime}t{\isacharunderscore}lie{\isachardoublequoteclose}\isanewline
+\ \ \isacommand{nitpick}\isamarkupfalse%
+{\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
+\isadelimproof
+\ %
+\endisadelimproof
+%
+\isatagproof
+\isacommand{oops}\isamarkupfalse%
+\isanewline
+%
+\isamarkupcmt{Nitpick finds a counterexample, showing that the two readings are different.
+\color{blue}
+Nitpick found a counterexample for card i = 1 and card s = 1:
+
+  Empty assignment
+\color{black}%
+}%
+\endisatagproof
+{\isafoldproof}%
+%
+\isadelimproof
+%
+\endisadelimproof
+\isanewline
+%
+\isadelimtheory
+\isanewline
+%
+\endisadelimtheory
+%
+\isatagtheory
+\isacommand{end}\isamarkupfalse%
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper/appendix_2.thy%:%
+%:%24=5%:%
+%:%36=7%:%
+%:%37=8%:%
+%:%38=9%:%
+%:%39=10%:%
+%:%40=11%:%
+%:%41=12%:%
+%:%42=13%:%
+%:%43=14%:%
+%:%44=15%:%
+%:%45=16%:%
+%:%46=17%:%
+%:%47=18%:%
+%:%48=19%:%
+%:%49=20%:%
+%:%50=21%:%
+%:%51=22%:%
+%:%53=24%:%
+%:%54=24%:%
+%:%56=25%:%
+%:%57=26%:%
+%:%58=26%:%
+%:%59=27%:%
+%:%60=27%:%
+%:%62=28%:%
+%:%63=29%:%
+%:%64=29%:%
+%:%65=30%:%
+%:%66=30%:%
+%:%68=31%:%
+%:%69=32%:%
+%:%70=32%:%
+%:%71=33%:%
+%:%72=34%:%
+%:%73=34%:%
+%:%74=35%:%
+%:%76=36%:%
+%:%79=38%:%
+%:%80=39%:%
+%:%81=40%:%
+%:%83=42%:%
+%:%84=42%:%
+%:%85=43%:%
+%:%87=44%:%
+%:%88=45%:%
+%:%89=46%:%
+%:%90=47%:%
+%:%91=48%:%
+%:%92=48%:%
+%:%93=49%:%
+%:%94=50%:%
+%:%95=50%:%
+%:%96=51%:%
+%:%98=52%:%
+%:%99=53%:%
+%:%100=54%:%
+%:%101=55%:%
+%:%102=56%:%
+%:%103=56%:%
+%:%104=57%:%
+%:%105=58%:%
+%:%106=58%:%
+%:%107=59%:%
+%:%109=60%:%
+%:%110=61%:%
+%:%111=62%:%
+%:%112=63%:%
+%:%113=64%:%
+%:%116=66%:%
+%:%117=67%:%
+%:%119=69%:%
+%:%120=69%:%
+%:%121=70%:%
+%:%122=71%:%
+%:%123=72%:%
+%:%124=73%:%
+%:%131=74%:%
+%:%132=74%:%
+%:%133=75%:%
+%:%134=75%:%
+%:%135=76%:%
+%:%136=76%:%
+%:%138=77%:%
+%:%139=78%:%
+%:%140=78%:%
+%:%141=79%:%
+%:%142=79%:%
+%:%143=80%:%
+%:%144=80%:%
+%:%145=80%:%
+%:%146=81%:%
+%:%156=83%:%
+%:%157=84%:%
+%:%158=85%:%
+%:%159=86%:%
+%:%160=87%:%
+%:%161=88%:%
+%:%162=89%:%
+%:%163=90%:%
+%:%165=92%:%
+%:%166=92%:%
+%:%167=93%:%
+%:%168=93%:%
+%:%169=94%:%
+%:%171=95%:%
+%:%172=96%:%
+%:%173=96%:%
+%:%174=97%:%
+%:%175=98%:%
+%:%176=98%:%
+%:%177=99%:%
+%:%179=100%:%
+%:%180=101%:%
+%:%181=101%:%
+%:%182=102%:%
+%:%183=103%:%
+%:%184=103%:%
+%:%185=104%:%
+%:%186=105%:%
+%:%188=106%:%
+%:%189=106%:%
+%:%190=107%:%
+%:%191=108%:%
+%:%193=109%:%
+%:%194=109%:%
+%:%195=110%:%
+%:%202=111%:%
+%:%203=111%:%
+%:%204=112%:%
+%:%205=112%:%
+%:%206=113%:%
+%:%207=113%:%
+%:%208=113%:%
+%:%209=114%:%
+%:%210=114%:%
+%:%211=115%:%
+%:%212=115%:%
+%:%213=115%:%
+%:%214=116%:%
+%:%215=116%:%
+%:%217=117%:%
+%:%227=119%:%
+%:%228=120%:%
+%:%229=121%:%
+%:%230=122%:%
+%:%231=123%:%
+%:%232=124%:%
+%:%233=125%:%
+%:%234=126%:%
+%:%235=127%:%
+%:%236=128%:%
+%:%237=129%:%
+%:%238=130%:%
+%:%239=131%:%
+%:%240=132%:%
+%:%241=133%:%
+%:%242=134%:%
+%:%243=135%:%
+%:%244=136%:%
+%:%245=137%:%
+%:%246=138%:%
+%:%247=139%:%
+%:%248=140%:%
+%:%249=141%:%
+%:%250=142%:%
+%:%251=143%:%
+%:%252=144%:%
+%:%253=145%:%
+%:%254=146%:%
+%:%255=147%:%
+%:%256=148%:%
+%:%257=149%:%
+%:%258=150%:%
+%:%259=151%:%
+%:%260=152%:%
+%:%261=153%:%
+%:%262=154%:%
+%:%263=155%:%
+%:%264=156%:%
+%:%265=157%:%
+%:%266=158%:%
+%:%270=160%:%
+%:%271=161%:%
+%:%272=162%:%
+%:%274=164%:%
+%:%275=164%:%
+%:%276=165%:%
+%:%277=166%:%
+%:%278=166%:%
+%:%280=166%:%
+%:%284=166%:%
+%:%285=166%:%
+%:%287=167%:%
+%:%288=168%:%
+%:%289=169%:%
+%:%290=170%:%
+%:%291=171%:%
+%:%292=172%:%
+%:%300=173%:%
+%:%303=174%:%
+%:%308=175%:%
