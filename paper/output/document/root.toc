@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {3}Implementation Details}{26}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Formalization and Implementation of the FUL}{26}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Logical Background}{26}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Maxim }{27}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2}Maxims }{27}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}Practical Contradiction Interpretation of the FUL }{30}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Formalizing the FUL}{35}{subsubsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.2}Tests}{38}{subsection.3.2}%
