@@ -19,63 +19,38 @@ indict logic-programming-based automated ethics more generally. My thesis seeks 
 both present a specific implementation of automated ethics but also to argue for a particular approach 
 to automating ethical reasoning and these choices are relevant to the former goal but not to the latter.   \<close>
 
-subsection \<open>Kantian Ethics \label{whykant}\<close>
+subsection \<open>Choice to Automate Kantian Ethics \label{whykant}\<close>
 
 text \<open>
 In this thesis, I automate Kantian ethics. In 2006, Powers posited that deontological theories are 
 attractive candidates for automation because rules are generally computationally tractable \cite[1]{powers}. 
-Intuitively, algorithms are rules or procedures for problem solving and deontology offers one such 
+Intuitively, algorithms are rules or procedures for problem solving and Kantian ethics (which is one kind 
+of deontological theory) offers one such 
 procedure for the problem of making ethical judgements. I will make this intuition precise by
-arguing that deontological ethics is natural to formalize because rules generally require little additional
-data about the world and are usually easy to represent to a computer. All ethical traditions have debates that an 
-automated ethical system will need to take a stance on, but these debates are less frequent and controversial
-for deontological ethics than for consequentialism and virtue ethics.
+arguing that Kantian ethics is natural to formalize because it prescribes moral rules that require 
+little additional data about the world and are easy to represent to a computer. I argue that, compared to 
+consequentialism and virtue ethics,\footnote{Technically, virtue ethics and
+consequentialism are broad ethical traditions, while Kantian ethics is a specific ethical theory within
+the deontological tradition, but``if any philosopher is regarded as central
+to deontological moral theories, it is surely Immanuel Kant" \citep{sepdeont}. Out of the three major ethical
+traditions, deontology has the most central representative in the form of Kant. Deontology's comparatively 
+greater focus on Kant means that my choice of Kant as a guiding figure is less controversial for deontologists 
+than, for example, the choice of Bentham as the guiding figure of consequentialism.} Kantian ethics is 
+more amenable to automation.
 
-I do not aim to show that deontology is the only tractable theory to automate or
+I do not aim to show that Kantian ethics is the only tractable theory to automate or
 to present a comprehensive overview of all consequentialist or virtue ethical theories. Instead, I 
 present a sample of some approaches in each tradition and argue that deontology is more straightforward 
 to formalize than these approaches. Insofar as my project serves 
 as an early proof-of-concept, I choose to automate an ethical theory that 
-poses fewer challenges than others.
+poses fewer challenges than others. All ethical traditions have debates that an 
+automated ethical system will need to take a stance on, but these debates are less frequent and controversial
+for Kantian ethics than for consequentialism and virtue ethics.
 
-I first present deontological ethics, then consequentialism, and finally virtue ethics. For each 
+I first present consequentialism, then virtue ethics, and finally Kantian ethics. For each 
 tradition, I present a crash course for non-philosophers and then explain some obstacles to automation, 
-arguing that these obstacles are weakest in the case of deontology. Finally, I will present the specific 
-deontological theory I am automating (Kantian ethics) and will argue that it is comparatively easier
-to formalize. 
+arguing that these obstacles are weakest in the case of Kantian ethics. 
 \<close>
-
-subsubsection \<open>Deontological Ethics\label{deontology}\<close>
-
-text \<open>Deontological theories evaluate actions as permissible, obligatory, or prohibited and judge actions 
-not on their consequences, but rather on ``confirmity with a moral norm" \citep{sepdeont}. In other words, 
-deontological theories define a set of moral rules and evaluate actions using
-these rules. Deontologists believe that we should never violate any moral law. A wrong
-choice is wrong, regardless of its consequences. \<close>
-
-text \<open>Deontology is an attractive candidate for formalization because computers tend to 
-understand rules; programming languages are designed to teach computers algorithms. Deontological
-ethical theories give inviolable rules that an automated agent can apply. Moreover, because deontological 
-theories focus on the action itself, they require relatively little data. A deontological moral judgement does not require
-as much information about context, consequences, or moral character as the other theories presented later in this
-section. All that matters is the action and some limited set of circumstances in which it is performed. 
-
-Like all ethical traditions, deontology has debates that any implementation of automated deontological
-ethics must resolve. Deontologists disagree about whether ethics should focus on agents' actions or 
-on the rights of those impacted by an action. Different deontological theories have different conceptions 
-of what an action is, from the physical act itself to the agent's mental state at the time of acting 
-to the principle upon which the agent acted. 
-
-While these debates are open, ``if any philosopher is regarded as central
-to deontological moral theories, it is surely Immanuel Kant" \citep{sepdeont}. Out of the three ethical
-traditions considered in this section, deontology has the most central representative in the form of 
-Kant. In this paper, I will 
-formalize Kantian ethics. Deontology's comparatively greater focus on Kant means that the choice of 
-Kant as a guiding figure will be less controversial to deontologists than, for example, the choice of Bentham
-as the guiding figure of consequentialism. Moreover, at the end of this section, I also argue that 
-internal debates in the part of Kantian ethics that I focus on tend to be less controversial than those
-in the consequentialist or virtue ethical traditions. \<close>
-
 
 subsubsection "Consequentialism"
 
@@ -92,7 +67,7 @@ aggregate the consequences of an action over all the individuals involved. \<clo
 text\<open>\noindent \textbf{Which Consequences Matter}\<close>
 
 text \<open>Because consequentialism evaluates the state of affairs following an action, this kind of ethical 
-reasoning requires more knowledge about the state of the world than deontology. Consequentialism
+reasoning requires more knowledge about the state of the world than Kantian ethics. Consequentialism
 requires knowledge about some or all consequences following an action. This requires that an automated 
 ethical system somehow collect a subset of the infinite consquences of following an action, a difficult, 
 if not impossible, task. Moreover, compiling this database of consequences requires 
@@ -102,20 +77,20 @@ and philosophers continue to debate the possiblity of knowing an event's true ca
 that first causes, or noumena, are unknowable by human beings \citep{kantnoumena}.} by an action and
 determining the state of the world before and after an action. As acts become
 more complex and affect more people, the computational time and space required to calculate and store
-their consequences increases. Deontology, on the other hand, does not suffer this scaling
-challenge because acts that affect 1 person and acts that affect 1 million people share the same
-representation.
+their consequences increases. Kantian ethics, on the other hand, does not suffer this scaling
+challenge because it evaluates the acts themselves, and acts that affect 1 person and acts that 
+affect 1 million people share the same representation.
 
 The challenge of representing the circumstances of action is not unique to consequentialism, but is particularly acute in this case. 
 Kantian ethicists robustly debate which circumstances of an action are ``morally relevant'' when evaluating an action's moral worth.\footnote{ 
 \citet{powers} identifies this as a challenge for automating Kantian ethics and briefly sketches 
-solutions from \citet{constofreason}, \citet{silber}, and \citet{rawlsconstructivism}. For more on 
-morally relevant circumstances, see Section WhatIsAMaxim.} Because deontology merely evaluates a 
+solutions from \citet{constofreason}, \citet{silber}, and \citet{rawlsconstructivism}. For my approach to
+morally relevant circumstances, see Section \ref{whatisamaxim}.} Because deontology merely evaluates a 
 single action, the surface of this debate is much smaller than debates about circumstances and 
 consequences in a consequentialist system. An automated consequentialist system must make such 
 judgements about the act itself, the circumstances in which it is performed, and the circumstances 
 following the act. All ethical theories relativize their judgements to the situation in which an act 
-is performed, but consequentialism requires far more knowledge about the world than deontology.\<close>
+is performed, but consequentialism requires far more knowledge about the world than Kantian ethics.\<close>
 
 
 text \<open>\noindent \textbf{Theory of the Good}\<close>
@@ -130,11 +105,12 @@ Most theories of the good require that a moral reasoner understand complex featu
 individuals' preferences, desires, or sensations in order to evaluate a moral action, making automated
 consequentialist ethics difficult. Evaluating a state of affairs requires many controversial
 judgements about whether a state of affairs actually satisifes the relevant criteria for goodness. 
-Perfect knowledge of tens of thousands of 
-people's pleasure or preferences or welfare or rights is impossible. Either a human being 
+Perfect knowledge of tens of thousands of people's pleasure or preferences or welfare or rights is 
+difficult, if not impossible.\footnote{Even if it were possible, collecting this kind of data poses 
+privacy and surveillance risks.} Either a human being 
 assigns values to states of affairs, which doesn't scale, or the machine does, 
 which requires massive common-sense and increases room for doubting the system's judgements. This may be 
-a tractable problem, but it is much more difficult than the equivalent deontological task of formulating
+a tractable problem, but it is much more difficult than the equivalent Kantian task of formulating
 and evaluating an action.\<close>
 
 text \<open>\noindent \textbf{Aggregation}\<close>
@@ -185,37 +161,37 @@ text \<open>Virtue ethics places the virtues, or traits that constitute a good m
 their possessor good, at the center \citep{vesep}. For example, Aristotle describes virtues as the 
 traits that enable human flourishing. Just as consequentialists define ``good'' consequences, virtue 
 ethicists present a list of virtues, such as the Buddhist virtue of equanimity \citep{mcrae}. An automated virtue 
-ethical agent will need to commit to a particular theory of the virtues, a controversial choice. 
+ethical agent will need to commit to a list and definitions of the virtues, a controversial choice. 
 Virtue ethicists robustly debate which traits qualify as virtues, what each virtue actually means, and 
-what kinds of feelings or attitudes must accompany virtuous action.
-
+what kinds of feelings or attitudes must accompany virtuous action. 
 \<close>
 
 text \<open>Another difficulty with automating virtue ethics is that the unit of evaluation for virtue ethics
-is often a person's entire moral character. While deontologists evaluate the act itself, virtue ethicists 
+is often a person's entire moral character. While Kantians evaluate the act itself, virtue ethicists 
 evaluate the actor's moral character and their 
 disposition towards the act. If states of affairs
 require complex representations, an agent's ethical character and disposition are even more difficult
 to represent to a computer. This is more than just a data-collecting problem; it is a conceptual problem 
 about the formal nature of moral character.
 Formalizing the concept of character appears to require significant philosophical and computational
-progress, whereas deontology immediately presents a formal rule to implement. \<close>
+progress, whereas Kantian ethics immediately presents a formal rule to implement. \<close>
 
 text \<open>\noindent \textbf{Prior Work in Machine Learning and Virtue Ethics}\<close>
 
 text \<open>One potential appeal of virtue ethics is that many virtue ethical theories involve some notion of 
 moral habit, which seems to be amenable to a machine learning approach. Artistotle, for example, argued 
 that cultivating virtuous action requires making such action habitual through moral education \citep{aristotle}. This
-implies that ethical behavior can be learned from some dataset of virtuous acts, either those 
-prescribed by a moral teacher or those that a virtuous ideal agent would undertake. These 
+implies that ethical behavior can be learned from some dataset of virtuous acts, such as
+those that an ideally virtuous agent would undertake. These 
 theories seem to point towards a machine learning approach to automated ethics, in which ethics is 
 learned from a dataset of acts tagged as virtuous or not virtuous. 
 
 Just as prior work in consequentialism takes implicit or explicit stances on debates in consequentialist
 literature, so does work in machine learning-based virtue ethics. For example, the training 
 dataset with acts labelled as virtuous or not virtuous will contain an implicit view on what the virtues
-are and how certain acts impact an agent's moral character. Because there is no canonical list of virtues
-that virtue ethicists accept, this implicit view will likely be controversial.
+are and how certain acts impact an agent's moral character. Because there is no canonical list of all virtues
+that virtue ethicists accept, this implicit view will likely be controversial. Even virtue ethicists agree
+that certain traits, like courage, are virtues debate the exact definitions of these traits.
 
 Machine learning approaches like the Delphi system \citep{delphi} mentioned in Chapter \ref{intro} also may suffer explanability 
 problems that my logic-programming, theorem-prover
@@ -228,13 +204,13 @@ allowing a human being to reconstruct the proof independently if they wish. This
 intractable problem for machine learning approaches to computational ethics, but is one reason to 
 prefer logical approaches.\footnote{This argument about explanability is in the context of virtue ethics and 
 machine learning. It also applies to a broader class of work in automated ethics 
-that uses ``bottom-up" approaches, in which a system learns moral judgements from prior judgements. 
+that uses a ``bottom-up" approach, in which a system learns moral judgements from prior judgements. 
 I will extend this argument to general bottom-up approaches in Section Related Work.}
  \<close>
 
 subsubsection \<open>Kantian Ethics \label{kantianethics}\<close>
 
-text \<open>In this paper I focus on Kantian ethics, a specific branch of deontology. Kant's theory is centered 
+text \<open>In this paper I focus on Kantian ethics. Kant's theory is centered 
 on practical reason, which is the kind of reason that we 
 use to decide what to do and the source of our agency. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
 rational beings are unique because we act ``in accordance with 
@@ -273,7 +249,7 @@ for the categorical imperative are those rules that are required of the will bec
 
 Armed with this understanding of practical reason, Kant presents the categorical 
 imperative. He presents three ``formulations" or versions of the categorical imperative. In this project, 
-I focus on the first formulation, the Formula of Universal Law, and I explain this choice in Section \ref{whyful}.
+I focus on the first formulation, the Formula of Universal Law, and I justify this choice in Section \ref{whyful}.
 
 The Formula of Universal Law (FUL) states, ``act only according to that maxim through which you can 
 at the same time will that it become a universal law'' \cite[34]{groundwork}. This formulation
@@ -295,7 +271,7 @@ a property of practical reason itself and thus derives authority from the will's
 
 text \<open>\noindent \textbf{Ease of Automation}\<close>
 
-text \<open>Kantian ethics is an especially candidate for formalization because the categorical imperative, particularly the FUL, 
+text \<open>Kantian ethics is an especially attractive candidate for formalization because the categorical imperative, particularly the FUL, 
 is a property of reason related to the form or structure of a maxim. It does not require any situational 
 knowledge beyond the circumstances included
 in the maxim itself and thus requires fewer contingent facts than other ethical theories.
@@ -306,12 +282,11 @@ Kantian ethics merely requires making the notion of a maxim precise and represen
 This distinguishes Kantian ethics from consequentialism and virtue ethics, which
 require far more knowledge about the world or the agent to reach a moral decision.
 
-Not only does evaluating Kantian ethics focus on a maxim, a maxim itself is an object
-with a thin representation for a computer, as compared to more complex objects like states of 
-affairs or moral character. Later in my project, I argue that a maxim can be represented simply as 
-a tuple of circumstances, act, and goal.\footnote{For more, see Section What is a Maxim?} This representation
-is simple and efficient, especially when compared to the representation of a causal chain or a state of 
-affairs or moral character. This property not only reduces the computational complexity
+A maxim itself is an object with a thin representation for a computer, as compared to more complex 
+objects like states of affairs or moral character. Later in my project, I argue that a maxim can be 
+represented simply as a tuple of circumstances, act, and goal.\footnote{For more, see Section \ref{whatisamaxim}.} 
+This representation is simple and efficient, especially when compared to the representations of a causal 
+chain or a state of affairs or moral character. This property not only reduces the computational complexity
 (in terms of time and space) of representing a maxim, but it also makes the system easier for human reasoners
 to interact with. A person crafting an input to a Kantian automated agent needs to reason about relatively
 simple units of evaluation, as opposed to the more complex features that consequentialism and virtue
@@ -320,9 +295,10 @@ ethics require.
 
 text \<open>\noindent \textbf{Difficulties in Automation}\<close>
 
-text \<open>One debate in Kantian 
-ethics is the role of ``common-sense'' reasoning. Kantian ethics requires common-sense reasoning to 
-determine which circumstances are ``morally relevant'' in the formulation of a maxim. Many misunderstandings
+text \<open>Kantians disgaree on how much ``common-sense'', or factual and situational background, is necessary
+to apply Kantian ethics. Common-sense is needed when formulating a maxim and when determining if a maxim
+violates the Formula of Universal Law. Determining which circumstances are ``morally relevant'' in the 
+formulation of a maxim requires factual background and some definition of relevance. Many misunderstandings
 in Kantian ethics are due to badly formulated maxims, so this question is important for an ethical 
 reasoner to answer.\footnote{For example, critics of Kantian ethics worry that the maxim, ``When I am a
 man, I will marry a man because I want to spend my life with him'' fails the universalizability
@@ -330,7 +306,7 @@ test because if all men only married men, sexual reproduction would stop. This a
 that Kantian ethics is homophobic. Kantians often respond by arguing that the correct formulation of 
 this maxim is, ``When I love a man, I will marry him because I want to spend my life with him,'' which
 is universalizable because if everyone marries who they love, some men will marry women and others will
-marry men.} My system does not need to answer this question because I assume a well-formed
+marry men.} My system does not need to answer this question because I assume a properly crafted
 maxim as input and apply the categorical imperative to this input. Using my system in a fully automated
 moral agent will require answering this question, a challenging computational and philosophical task. 
 
@@ -343,11 +319,12 @@ the system of promising to realize that it breaks down if everyone abuses it in 
 kind of common sense reasoning that an automated Kantian agent would need. This need is not unique to
 Kantian ethics; consequentialists agents need common sense to determine the consequences of 
 an action and virtue ethical agents need common sense to determine which virtues an action
-reflects. Making any ethical judgement requires robust conceptions of the action
-at hand, falsely promising in this case. The advantage of Kantian ethics is that this is all the common 
-sense that it requires, whereas a consequentialist or virtue ethical agent will require much more\footnote{
+reflects. For example, in the case of virtue ethics, in order to see that saving a baby from a lion 
+requires courage, we must have enough background knowledge to know that lions are scary. Making any 
+ethical judgement requires robust conceptions of the action at hand. Kantian ethics requires far less common sense 
+than a consequentialist or virtue ethical agent.\footnote{
 In Sections Lying and Murderer, I also use my system to demonstrate that Kantian ethics requires relatively thin conceptions 
-of concepts like falsely promising.}. All
+of concepts like falsely promising.} All
 moral theories evaluating falsely promising will a robust definition of promising, 
 but consequentialism and virtue ethics will also require additional information
 that Kantian ethics will not. Thus, although the need for common sense poses a challenge to automated
@@ -374,10 +351,8 @@ maxims'' \cite[28]{korsgaardintro}. While closely related to the FUL, the FOA pr
 perfectly rational agents in an ideal ``kingdom of ends,'' guided by what Kant calls the ``laws of freedom.''
 
 I choose to focus on the FUL\footnote{The FUL is often seen as emblematic of Kantian constructivism \cite[173]{ebelsduggan}. 
-My project is not committed to Kantian constructivism. I believe that computational ethics is likely a 
-valuable tool for any ethicist, and I make the case for Kantian ethics specifically.},
- because it is the most formal and thus the easiest to formalize and implement. 
-Onora O'Neill explains that the formalism of the FUL allows 
+My project is not committed to Kantian constructivism.}, because it is the most formal and thus the 
+easiest to formalize and implement. Onora O'Neill explains that the formalism of the FUL allows 
 for greater precision in philosophical arguments analyzing its implications and power \cite[33]{actingonprinciple}. This precision 
 is particularly useful in a computational context because any formalism necessarily makes its content 
 precise. The FUL's precision reduces ambiguity, allowing me to remain faithful to philosophical

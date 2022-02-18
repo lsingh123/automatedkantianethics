@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  15 FEB 2022 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  17 FEB 2022 23:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -533,20 +533,13 @@ ilable
 input line 18.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/it' will be
 (Font)              scaled to size 10.95pt on input line 18.
-
-Overfull \hbox (4.89839pt too wide) in paragraph at lines 46--53
-\T1/EBGaramond-OsF/regular/n/10.95 rectly re-solve com-plex moral dilem-mas be-
-cause it is grounded in philo-soph-i-cal lit-er-a-ture. More-
- []
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 \end{isamarkuptext}
-                        \isamarkuptrue% [2])pdfTeX warning (ext4): destination 
-with the same identifier (name{page.}) has been already used, duplicate ignored
-
+l.61 \end{isabellebody}
+                       % [2])pdfTeX warning (ext4): destination with the same i
+dentifier (name{page.}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.102 \newpage
@@ -577,7 +570,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26 ...taethical Tests }{55}{subsubsection.A.2.4}
+l.26 ...ellaneous Tests }{57}{subsubsection.A.2.5}
                                                   % [4])
 \tf@toc=\write5
 \openout5 = `root.toc'.
@@ -626,15 +619,15 @@ t line 58.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
 (Font)              scaled to size 14.4pt on input line 58.
  [7] [8] [9] [10] [11] [12] [13] [14]
-[15] [16] [17]
-Overfull \hbox (0.29205pt too wide) in paragraph at lines 513--524
+[15] [16]
+Overfull \hbox (0.29205pt too wide) in paragraph at lines 469--480
 []\T1/EBGaramond-OsF/regular/n/10.95 The first for-mu-la-tion of the cat-e-gor-
 i-cal im-per-a-tive is the for-mula of uni-ver-sal law (FUL),
  []
 
-[18] [19] [20] [21]
+[17] [18] [19] [20]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
-89.
+45.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -642,31 +635,31 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <10> not availab
 le
 (Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
-t line 692.
+t line 648.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
-(Font)              scaled to size 10.0pt on input line 692.
- [22]
+(Font)              scaled to size 10.0pt on input line 648.
+ [21]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/it' in size <10> not availa
 ble
 (Font)              Font shape `T1/EBGaramond-OsF/bold/it' tried instead on inp
-ut line 779.
+ut line 735.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
-(Font)              scaled to size 10.0pt on input line 779.
- [23]
-[24]) [25] (./thesis_3_implementation.tex [26]
+(Font)              scaled to size 10.0pt on input line 735.
+ [22]
+[23]) [24] (./thesis_3_implementation.tex [25]
 Overfull \hbox (3.27634pt too wide) in paragraph at lines 150--152
 [][]\T1/EBGaramond-OsF/bold/n/10.95 Example 1 \T1/EBGaramond-OsF/regular/n/10.9
 5 (False Promis-ing)\T1/EBGaramond-OsF/bold/n/10.95 . []\T1/EBGaramond-OsF/regu
 lar/it/10.95 The false promis-ing ex-am-ple maxim reads, ``When I am strapped
  []
 
-[27] [28]
+[26] [27]
 Overfull \hbox (2.93208pt too wide) in paragraph at lines 201--208
 []\T1/EBGaramond-OsF/regular/n/10.95 O'Neill seems to ac-knowl-edge the dif-fi-
 culty of de-ter-min-ing rel-e-vant cir-cum-stances when
  []
 
-[29]
+[28]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' in size <8> not availab
 le
 (Font)              Font shape `T1/EBGaramond-OsF/regular/it' tried instead on 
@@ -679,7 +672,7 @@ le
 input line 232.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/it' will be
 (Font)              scaled to size 6.0pt on input line 232.
- [30] [31] [32]
+ [29] [30] [31]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <9> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
@@ -688,16 +681,16 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
 (Font)              scaled to size 9.0pt on input line 387.
 
 
-LaTeX Warning: Reference `tests' on page 33 undefined on input line 387.
+LaTeX Warning: Reference `tests' on page 32 undefined on input line 387.
 
-[33]
+[32]
 Underfull \hbox (badness 1472) in paragraph at lines 405--405
 [][][]\T1/EBGaramond-OsF/regular/n/9 Technically, a maxim is not a boolean type
 , so the term $\OMS/cmsy/m/n/9 :\OML/cmm/m/it/9 M$ \T1/EBGaramond-OsF/regular/n
 /9 is not type cor-rect. The ex-pres-sion
  []
 
-[34] [35]
+[33] [34]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' in size <9> not availab
 le
 (Font)              Font shape `T1/EBGaramond-OsF/regular/it' tried instead on 
@@ -710,27 +703,27 @@ le
 ut line 510.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
 (Font)              scaled to size 9.0pt on input line 510.
- [36]
+ [35]
 Overfull \hbox (7.23547pt too wide) in paragraph at lines 546--550
 [][]\T1/EBGaramond-OsF/regular/n/10 --- This for-mal-iza-tion states that if a 
 maxim is well-formed, then if it is not uni-ver-sal-iz-able, it is prohibited.[
 ] 
  []
 
-[37] [38]
-<goalstable.png, id=674, 707.64375pt x 313.17pt>
+[36] [37]
+<goalstable.png, id=664, 707.64375pt x 313.17pt>
 File: goalstable.png Graphic file (type png)
 <use goalstable.png>
 Package pdftex.def Info: goalstable.png  used on input line 657.
 (pdftex.def)             Requested size: 283.05249pt x 125.26576pt.
- [39 <./goalstable.png>] [40] [41] [42]
+ [38 <./goalstable.png>] [39] [40] [41]
 
-LaTeX Warning: Reference `joking' on page 43 undefined on input line 929.
+LaTeX Warning: Reference `joking' on page 42 undefined on input line 929.
 
 
-LaTeX Warning: Reference `murderer' on page 43 undefined on input line 929.
+LaTeX Warning: Reference `murderer' on page 42 undefined on input line 929.
 
-[43]) [44] (./appendix.tex [45] [46] [47]
+[42]) [43] (./appendix.tex [44] [45] [46]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <7> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
@@ -743,25 +736,25 @@ e
 nput line 226.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
 (Font)              scaled to size 5.0pt on input line 226.
- [48] [49]
+ [47] [48]
 
-LaTeX Warning: Reference `sec:app_tests_naive' on page 50 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 49 undefined on input li
 ne 474.
 
 
-LaTeX Warning: Reference `sec:meta_tests_naive' on page 50 undefined on input l
+LaTeX Warning: Reference `sec:meta_tests_naive' on page 49 undefined on input l
 ine 474.
 
-[50]
+[49]
 
-LaTeX Warning: Reference `sec:app_tests_naive' on page 51 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 50 undefined on input li
 ne 490.
 
 
-LaTeX Warning: Reference `sec:app_tests_naive' on page 51 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 50 undefined on input li
 ne 529.
 
-[51] [52]
+[50] [51]
 Overfull \hbox (22.72354pt too wide) in paragraph at lines 636--638
 [][]\T1/EBGaramond-OsF/bold/n/10 abbreviation \T1/EBGaramond-OsF/regular/it/10 
 lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
@@ -771,23 +764,23 @@ lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
 F/regular/it/10 everyone[]lies$\OT1/cmr/m/n/10 )$$)$[] 
  []
 
-[53]
+[52]
 Overfull \hbox (41.64908pt too wide) in paragraph at lines 682--683
 [][] 
  []
 
-[54] [55]
+[53] [54]
 
-LaTeX Warning: Reference `sec:meta_tests_naive' on page 56 undefined on input l
+LaTeX Warning: Reference `sec:meta_tests_naive' on page 55 undefined on input l
 ine 883.
 
-[56] [57] [58] [59]
+[55] [56] [57] [58]
 Overfull \hbox (2.9081pt too wide) in paragraph at lines 1192--1196
 \T1/EBGaramond-OsF/regular/n/10 ``For all peo-ple, A is ob-li-gated." The stron
 ger con-se-quent is ``A is ob-li-gated for all peo-ple simultaneously."[] 
  []
 
-[60]) (./appendix_2.tex [61] [62] [63]
+[59]) (./appendix_2.tex [60] [61] [62]
 Overfull \hbox (5.38054pt too wide) in paragraph at lines 227--236
 []\T1/EBGaramond-OsF/regular/n/10.95 This ex-am-ple demon-strates that my for-m
 al-iza-tion is able to cor-rectly pro-hibit this maxim,
@@ -799,15 +792,15 @@ Overfull \hbox (0.31702pt too wide) in paragraph at lines 227--236
 tion-ally im-por-tant be-cause the two read-ings of this maxim
  []
 
-[64] [65]) [66] (./root.bbl [67] [68] [69] [70] [71] [72])
+[63] [64]) [65] (./root.bbl [66] [67] [68] [69] [70] [71])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
- [73]
+ [72]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: 163098B54944F571A346D98AD31570D0;2041.
+(rerunfilecheck)             Checksum: 0E3C5CA13D6F529929B0C9830C94BA3E;1980.
 
 
 LaTeX Warning: There were undefined references.
@@ -815,10 +808,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 126.
  ) 
 Here is how much of TeX's memory you used:
- 10080 strings out of 480608
- 148089 string characters out of 5903631
- 415564 words of memory out of 5000000
- 25498 multiletter control sequences out of 15000+600000
+ 10077 strings out of 480608
+ 148042 string characters out of 5903631
+ 415513 words of memory out of 5000000
+ 25496 multiletter control sequences out of 15000+600000
  706930 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,67p,957b,664s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -851,10 +844,10 @@ nts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-
 super/sftt1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-su
 per/sftt1095.pfb>
-Output written on root.pdf (78 pages, 857553 bytes).
+Output written on root.pdf (77 pages, 855594 bytes).
 PDF statistics:
- 1075 PDF objects out of 1200 (max. 8388607)
- 959 compressed objects within 10 object streams
- 228 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1066 PDF objects out of 1200 (max. 8388607)
+ 951 compressed objects within 10 object streams
+ 227 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

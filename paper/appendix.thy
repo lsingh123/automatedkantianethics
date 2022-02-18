@@ -8,6 +8,9 @@ subsection \<open>Maxims and Motives \label{maximmotive}\<close>
 
 text \<open>
 
+Add something about how I don't like KG's view because it's weaker, action will end up including
+circumstances, it would have made my life easier but you can't apply it 
+
 Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
 behind performing the maxim @{cite whatisamaxim}. This additional component is read 
 as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."

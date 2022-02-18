@@ -154,7 +154,12 @@ Moshe Kroy's prior attempt at formalizing Kantian ethics in deontic logic \citep
 As it stands, my implementation can evaluate the moral status of sentences represented in my logic. 
 Given an appropriate input, my project returns a value indicating if the action is obligatory 
 (its negation violates the FUL), permissible (consistent with the FUL), or prohibited (violates the FUL) 
-by proving or refuting a theorem in my logic. 
+by proving or refuting a theorem in my logic. Because the logic underlying these judgements is grounded
+in philosophical literature, my system can correctly resolve complex moral dilemmas with only relatively uncontroversial
+facts about the world. Moreover, because I automate an explicit ethical theory, the ethical reasoning 
+underlying my system's judgements is interpretable by a human being. I implement this ethical theory 
+using the Isabelle/HOL interactive theorem prover, which can list the axioms and theorems used in a 
+proof, so my system is explainable. 
 
 A machine that can evaluate the moral status of a maxim can not only help machines better reason about ethics, 
 but it can also help philosophers 
@@ -166,6 +171,7 @@ about ethics helped me, a human philosopher, arrive at a philosophical conclusio
 reason and philosophy of doubt. Thus, my system can be used in two distinct ways. First, my system can help
 automated agents navigate the world, which I will refer to as automated ethics or machine ethics interchangeably. Second, 
 my system help human philosophers reason about philosophy, which I call computational ethics.
+
 \<close>
 
 (*<*)

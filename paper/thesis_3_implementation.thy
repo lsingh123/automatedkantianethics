@@ -72,7 +72,10 @@ The central unit of evaluation for Kantian ethics is a ``maxim,'' which Kant def
 principle of willing,'' or the principle that the agent understands themselves as acting on \citep{groundwork}. 
 Modern Kantians differ in their interpretations of this definition. I adopt O'Neill's view, derived from 
 Kant's example maxims, that a maxim includes the act, the circumstances, and the agent's purpose of 
-acting or goal \citep{actingonprinciple}. 
+acting or goal \citep{actingonprinciple}. Other potential views include Korsgaard's view, which omits 
+the circumstances, and Kitcher's view, which adds a motivation \citep{actingforareason, kitcher}. I 
+address the limitations of these approaches in Appendix \ref{maximmotive}.
+
 
 \begin{definition}[Maxim]
     A maxim is a circumstance, act, goal tuple (C, A, G), read as ``In circumstances C, act A for goal G.''
@@ -97,16 +100,13 @@ is an action-guiding rule and thus naturally includes an act and the circumstanc
 it should be performed \citep[37]{actingonprinciple}. 
 She also includes a purpose, end, or goal in the maxim because human activity is guided by a rational will
 and is thus inherently purposive \citep[4:428]{groundwork}. A rational will does not act randomly (else it would not be rational), 
-but instead in the pursuit of ends which it deems valuable.\footnote{Some argue that a maxim should also
-include the agent's motive or motivation and I address this concern in Appendix \ref{maximmotive}.} The inclusion a maxim's end is essential for the version of the FUL
-that I will implement, explained in Section \ref{praccon}.
-
-\color{red} SHOULD THIS GO HERE OR IN THE LIMITATIONS SECTION OF THE DISCUSSION
+but instead in the pursuit of ends which it deems valuable. The inclusion a maxim's end is essential 
+for the version of the FUL that I will implement, explained in Section \ref{praccon}.
 
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
 relevant circumstance for a particular maxim. This gives rise to ``the tailoring objection,'' 
 under which maxims are arbitrarily specified to pass the FUL  \citep[217]{whatisamaxim}. \footnote{Kitcher
-cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection.} For example, the maxim ``When my name is Jane Doe
+cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection \cite{kitcher}.} For example, the maxim ``When my name is Jane Doe
 and I am wearing a purple shirt and it is Tuesday morning, I will murder my boss so I can take their job,'' 
 is universalizable but is clearly a false positive because we think that murder for professional gain is wrong. 
 One solution to this problem is to argue that the circumstance ``When my name is Jane Doe and I am wearing a 
@@ -134,9 +134,10 @@ human puts garbage into the test, the test will return garbage out.
 Another solution is to develop heuristics to classify circumstances as morally 
 relevant. For example, one such attempt could define a moral closeness relation between an action, a 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
-reach a certain closeness threshhold with the action and the goal. Determining morally relevant
+reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
+define some set of morally important entities, and classify morally relevant circumstances as those
+that involve morally important entities. Determining morally relevant
 circumstances, either using heuristics or human involvement, is a ripe area for future work.
-\color{black}
 
 With this robust representation of a maxim, I can now define willing. To will a maxim is to adopt it 
 as a principle to live by, or to commit oneself to the maxim's action for the 
@@ -191,7 +192,7 @@ impossible so the logical contradiction view cannot prohibit it.
 
 As an alternative to the logical contradiction view, Korsgaard endorses the practical contradiction view, 
 which prohibits maxims that are self-defeating, or ineffective, when universalized. By willing a maxim, 
-an agent commits themselves to the maxim's goal, and thus cannot rationally will that this goal be 
+you commit yourself to the maxim's goal, and thus cannot rationally will that this goal be 
 undercut. This interpretation can prohibit natural acts like those of the sleep-deprived mother: in 
 willing the end of sleeping, she is implicitly willing that she is alive. If all mothers kill all 
 loud children, then she cannot be secure in the possession of her life, because her own mother would 
@@ -405,8 +406,10 @@ it is inconsistent. This is not only a logical property of my system, but it als
 significance that coheres with Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action \citep{actingforareason,actingonprinciple}. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast,'' is not 
-practically relevant. No agent would ever need to act on such a principle. It is neither contradictory
-nor prohibited, and it is the wrong kind of question to be asking. It is not a 
+practically relevant. No agent would ever need to act on such a principle. Morality helps agents decide
+whether to act on a potential principle of action, but no agent would need to ask
+``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" It is neither contradictory
+nor prohibited, and it is the wrong kind of principle to be evaluating. It is not a
 well-formed maxim, so the categorical imperative cannot apply to it. 
 
 The fact that Isabelle revealed a philosophical insight about which kinds of maxims are well-formed
@@ -515,7 +518,7 @@ can.\footnote{Kohl points out that this principle is referred to as
 Kant's dictum or Kant's law in the literature \citep[footnote 1]{kohl}.} Kohl reconstructs Kant's argument for this principle as 
 follows: if the will cannot comply with the moral law, then the moral law has no prescriptive authority 
 for the will \citep[703-4]{kohl}. This defeats the purpose of Kant's theory, which is to develop an unconditional, categorical imperative 
-for rational agents. Ought implies can requires that obligations never contradict, because an agent 
+for rational agents. Ought implies can requires that obligations never contradict each other, because an agent 
 can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
 and Kantian ethics in particular, must not result in conflicting obligations. 
 Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
@@ -626,7 +629,7 @@ still be possible, so it is difficult to show that they violate the FUL.
 Both raw DDL and Kroy's interpretation fail to show the wrongness of conventional or natural acts. 
 My system shows the wrongness of both natural and conventional acts because it is faithful to Korsgaard's 
 practical contradiction interpretation of the FUL, which is the canonical interpretation of the 
-FUL \citep{KorsgaardFUL}. I run this test in Chapter Applications, where I
+FUL \citep{ebelsduggan, KorsgaardFUL}. I run this test in Chapter Applications, where I
 use my system to reason about two ethical dilemmas, one which involves conventional acts and the other which
 involves natural acts. I present an additional example demonstrating that my implementation passes
 this test in Appendix \ref{weirdtests}.
