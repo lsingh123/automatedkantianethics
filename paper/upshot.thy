@@ -203,6 +203,9 @@ goal. The logical insight was that if FUL holds for maxims in which $(c \longrig
 
 \emph{Philosophical Insight}
 
+SAY INCERDIBLE DIFFICULT WITHUT COMPUTER because computer looks for edge cases and makes assumptions precise.
+it's an insight precisely because philosophers would never think of this edge case bc it's stupid.
+
 Once I realized this logical property, I tried to understand its philosophical plausibility. I 
 wanted to philosophically test the hypothesis that maxims in which  $(c \longrightarrow a) \vee 
 (c \longrightarrow g)$ are not valid inputs to the FUL. I concluded that because vacuous maxims neither 

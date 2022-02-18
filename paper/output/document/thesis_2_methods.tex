@@ -172,8 +172,9 @@ Most theories of the good require that a moral reasoner understand complex featu
 individuals' preferences, desires, or sensations in order to evaluate a moral action, making automated
 consequentialist ethics difficult. Evaluating a state of affairs requires many controversial
 judgements about whether a state of affairs actually satisifes the relevant criteria for goodness. 
-Perfect knowledge of tens of thousands of 
-people's pleasure or preferences or welfare or rights is impossible. Either a human being 
+Perfect knowledge of tens of thousands of people's pleasure or preferences or welfare or rights is 
+difficult, if not impossible.\footnote{Even if it were possible, collecting this kind of data poses 
+privacy and surveillance risks.} Either a human being 
 assigns values to states of affairs, which doesn't scale, or the machine does, 
 which requires massive common-sense and increases room for doubting the system's judgements. This may be 
 a tractable problem, but it is much more difficult than the equivalent Kantian task of formulating
@@ -249,7 +250,7 @@ Virtue ethics places the virtues, or traits that constitute a good moral charact
 their possessor good, at the center \citep{vesep}. For example, Aristotle describes virtues as the 
 traits that enable human flourishing. Just as consequentialists define ``good'' consequences, virtue 
 ethicists present a list of virtues, such as the Buddhist virtue of equanimity \citep{mcrae}. An automated virtue 
-ethical agent will need to commit to a particular theory of the virtues, a controversial choice. 
+ethical agent will need to commit to a list and definitions of the virtues, a controversial choice. 
 Virtue ethicists robustly debate which traits qualify as virtues, what each virtue actually means, and 
 what kinds of feelings or attitudes must accompany virtuous action.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -275,15 +276,16 @@ One potential appeal of virtue ethics is that many virtue ethical theories invol
 moral habit, which seems to be amenable to a machine learning approach. Artistotle, for example, argued 
 that cultivating virtuous action requires making such action habitual through moral education \citep{aristotle}. This
 implies that ethical behavior can be learned from some dataset of virtuous acts, such as
-those that an ideal virtuous agent would undertake. These 
+those that an ideally virtuous agent would undertake. These 
 theories seem to point towards a machine learning approach to automated ethics, in which ethics is 
 learned from a dataset of acts tagged as virtuous or not virtuous. 
 
 Just as prior work in consequentialism takes implicit or explicit stances on debates in consequentialist
 literature, so does work in machine learning-based virtue ethics. For example, the training 
 dataset with acts labelled as virtuous or not virtuous will contain an implicit view on what the virtues
-are and how certain acts impact an agent's moral character. Because there is no canonical list of virtues
-that virtue ethicists accept, this implicit view will likely be controversial.
+are and how certain acts impact an agent's moral character. Because there is no canonical list of all virtues
+that virtue ethicists accept, this implicit view will likely be controversial. Even virtue ethicists agree
+that certain traits, like courage, are virtues debate the exact definitions of these traits.
 
 Machine learning approaches like the Delphi system \citep{delphi} mentioned in Chapter \ref{intro} also may suffer explanability 
 problems that my logic-programming, theorem-prover
@@ -296,7 +298,7 @@ allowing a human being to reconstruct the proof independently if they wish. This
 intractable problem for machine learning approaches to computational ethics, but is one reason to 
 prefer logical approaches.\footnote{This argument about explanability is in the context of virtue ethics and 
 machine learning. It also applies to a broader class of work in automated ethics 
-that uses ``bottom-up" approaches, in which a system learns moral judgements from prior judgements. 
+that uses a ``bottom-up" approach, in which a system learns moral judgements from prior judgements. 
 I will extend this argument to general bottom-up approaches in Section Related Work.}%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -357,7 +359,7 @@ for the categorical imperative are those rules that are required of the will bec
 
 Armed with this understanding of practical reason, Kant presents the categorical 
 imperative. He presents three ``formulations" or versions of the categorical imperative. In this project, 
-I focus on the first formulation, the Formula of Universal Law, and I explain this choice in Section \ref{whyful}.
+I focus on the first formulation, the Formula of Universal Law, and I justify this choice in Section \ref{whyful}.
 
 The Formula of Universal Law (FUL) states, ``act only according to that maxim through which you can 
 at the same time will that it become a universal law'' \cite[34]{groundwork}. This formulation
@@ -382,7 +384,7 @@ a property of practical reason itself and thus derives authority from the will's
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Kantian ethics is an especially candidate for formalization because the categorical imperative, particularly the FUL, 
+Kantian ethics is an especially attractive candidate for formalization because the categorical imperative, particularly the FUL, 
 is a property of reason related to the form or structure of a maxim. It does not require any situational 
 knowledge beyond the circumstances included
 in the maxim itself and thus requires fewer contingent facts than other ethical theories.
@@ -409,11 +411,13 @@ ethics require.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-One debate in Kantian 
-ethics is the role of ``common-sense'' reasoning. Kantian ethics requires common-sense reasoning to 
-determine which circumstances are ``morally relevant'' in the formulation of a maxim. Many misunderstandings
-in Kantian ethics are due to badly formulated maxims, so this question is important for an ethical 
-reasoner to answer.\footnote{For example, critics of Kantian ethics worry that the maxim, ``When I am a
+One challenge for automating Kantian ethics is the need for ``common-sense'', or factual and 
+situational background. Common-sense is needed when formulating a maxim and when determining if a maxim 
+violates the Formula of Universal Law. Maxims include the circumstances in which they apply and
+determining which circumstances are ``morally relevant'' to a maxim requires factual background. 
+Many misunderstandings in Kantian ethics are due to badly formulated maxims, so this question is 
+important for an ethical reasoner to answer.\footnote{For example, critics of Kantian ethics worry 
+that the maxim, ``When I am a
 man, I will marry a man because I want to spend my life with him'' fails the universalizability
 test because if all men only married men, sexual reproduction would stop. This argument implies 
 that Kantian ethics is homophobic. Kantians often respond by arguing that the correct formulation of 
@@ -421,9 +425,10 @@ this maxim is, ``When I love a man, I will marry him because I want to spend my 
 is universalizable because if everyone marries who they love, some men will marry women and others will
 marry men.} My system does not need to answer this question because I assume a properly crafted
 maxim as input and apply the categorical imperative to this input. Using my system in a fully automated
-moral agent will require answering this question, a challenging computational and philosophical task. 
+moral agent will require answering this question, a challenging computational and philosophical task.\footnote{I
+discuss this problem in greater detail in Section \ref{whatisamaxim} and Section Limitations.} 
 
-Common-sense reasoning is also relevant when applying the universalizability test itself. Consider the example
+Common sense is also relevant when applying the universalizability test itself. Consider the example
 maxim ``When broke, I will falsely promise to repay a loan
 to get some quick cash.'' This maxim fails the universalizability test because in a world where everyone
 falsely promises to repay loans, no one will believe promises anymore, so the maxim will no longer serve
@@ -432,13 +437,14 @@ the system of promising to realize that it breaks down if everyone abuses it in 
 kind of common sense reasoning that an automated Kantian agent would need. This need is not unique to
 Kantian ethics; consequentialists agents need common sense to determine the consequences of 
 an action and virtue ethical agents need common sense to determine which virtues an action
-reflects. Making any ethical judgement requires robust conceptions of the action
-at hand, falsely promising in this case. The advantage of Kantian ethics is that this is all the common 
-sense that it requires, whereas a consequentialist or virtue ethical agent will require much more\footnote{
+reflects. For example, in the case of virtue ethics, in order to see that saving a baby from a lion 
+requires courage, a reasoner must have enough background knowledge to know that lions are scary. Making any 
+ethical judgement requires robust conceptions of the action at hand. Kantian ethics requires far less common sense 
+than a consequentialist or virtue ethical agent.\footnote{
 In Sections Lying and Murderer, I also use my system to demonstrate that Kantian ethics requires relatively thin conceptions 
-of concepts like falsely promising.}. All
+of concepts like falsely promising.} All
 moral theories evaluating falsely promising will a robust definition of promising, 
-but consequentialism and virtue ethics will also require additional information
+but consequentialism and virtue ethics will require additional information
 that Kantian ethics will not. Thus, although the need for common sense poses a challenge to automated
 Kantian ethics, this challenge is more acute for consequentialism or virtue ethics.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -479,10 +485,8 @@ maxims'' \cite[28]{korsgaardintro}. While closely related to the FUL, the FOA pr
 perfectly rational agents in an ideal ``kingdom of ends,'' guided by what Kant calls the ``laws of freedom.''
 
 I choose to focus on the FUL\footnote{The FUL is often seen as emblematic of Kantian constructivism \cite[173]{ebelsduggan}. 
-My project is not committed to Kantian constructivism. I believe that computational ethics is likely a 
-valuable tool for any ethicist, and I make the case for Kantian ethics specifically.},
- because it is the most formal and thus the easiest to formalize and implement. 
-Onora O'Neill explains that the formalism of the FUL allows 
+My project is not committed to Kantian constructivism.}, because it is the most formal and thus the 
+easiest to formalize and implement. Onora O'Neill explains that the formalism of the FUL allows 
 for greater precision in philosophical arguments analyzing its implications and power \cite[33]{actingonprinciple}. This precision 
 is particularly useful in a computational context because any formalism necessarily makes its content 
 precise. The FUL's precision reduces ambiguity, allowing me to remain faithful to philosophical
@@ -923,8 +927,8 @@ which is why this theorem was so easy to prove.%
 %:%178=111%:%
 %:%179=112%:%
 %:%180=113%:%
-%:%184=115%:%
-%:%188=117%:%
+%:%181=114%:%
+%:%185=116%:%
 %:%189=118%:%
 %:%190=119%:%
 %:%191=120%:%
@@ -941,8 +945,8 @@ which is why this theorem was so easy to prove.%
 %:%202=131%:%
 %:%203=132%:%
 %:%204=133%:%
-%:%208=136%:%
-%:%212=139%:%
+%:%205=134%:%
+%:%209=137%:%
 %:%213=140%:%
 %:%214=141%:%
 %:%215=142%:%
@@ -958,382 +962,386 @@ which is why this theorem was so easy to prove.%
 %:%225=152%:%
 %:%226=153%:%
 %:%227=154%:%
-%:%236=157%:%
-%:%248=159%:%
+%:%228=155%:%
+%:%237=158%:%
 %:%249=160%:%
 %:%250=161%:%
 %:%251=162%:%
 %:%252=163%:%
 %:%253=164%:%
 %:%254=165%:%
-%:%258=169%:%
-%:%259=170%:%
-%:%260=171%:%
-%:%261=172%:%
-%:%262=173%:%
-%:%263=174%:%
-%:%264=175%:%
-%:%265=176%:%
-%:%266=177%:%
-%:%270=179%:%
-%:%274=181%:%
-%:%275=182%:%
-%:%276=183%:%
-%:%277=184%:%
-%:%278=185%:%
-%:%279=186%:%
-%:%280=187%:%
-%:%281=188%:%
-%:%282=189%:%
-%:%283=190%:%
-%:%284=191%:%
-%:%285=192%:%
-%:%286=193%:%
-%:%287=194%:%
-%:%288=195%:%
-%:%289=196%:%
-%:%290=197%:%
-%:%291=198%:%
-%:%292=199%:%
-%:%293=200%:%
-%:%294=201%:%
-%:%295=202%:%
-%:%296=203%:%
-%:%297=204%:%
-%:%298=205%:%
-%:%299=206%:%
-%:%300=207%:%
-%:%309=210%:%
-%:%321=212%:%
-%:%322=213%:%
-%:%323=214%:%
-%:%324=215%:%
-%:%325=216%:%
-%:%326=217%:%
-%:%327=218%:%
-%:%328=219%:%
-%:%329=220%:%
-%:%330=221%:%
-%:%331=222%:%
-%:%332=223%:%
-%:%333=224%:%
-%:%334=225%:%
-%:%335=226%:%
-%:%336=227%:%
-%:%337=228%:%
-%:%338=229%:%
-%:%339=230%:%
-%:%340=231%:%
-%:%341=232%:%
-%:%342=233%:%
-%:%343=234%:%
-%:%344=235%:%
-%:%345=236%:%
-%:%346=237%:%
-%:%347=238%:%
-%:%348=239%:%
-%:%349=240%:%
-%:%350=241%:%
-%:%351=242%:%
-%:%352=243%:%
-%:%353=244%:%
-%:%354=245%:%
-%:%355=246%:%
-%:%356=247%:%
-%:%357=248%:%
-%:%358=249%:%
-%:%359=250%:%
-%:%360=251%:%
-%:%361=252%:%
-%:%362=253%:%
-%:%363=254%:%
-%:%364=255%:%
-%:%365=256%:%
-%:%366=257%:%
-%:%367=258%:%
-%:%368=259%:%
-%:%369=260%:%
-%:%370=261%:%
-%:%371=262%:%
-%:%372=263%:%
-%:%373=264%:%
-%:%374=265%:%
-%:%375=266%:%
-%:%376=267%:%
-%:%377=268%:%
-%:%381=271%:%
-%:%385=273%:%
-%:%386=274%:%
-%:%387=275%:%
-%:%388=276%:%
-%:%389=277%:%
-%:%390=278%:%
-%:%391=279%:%
-%:%392=280%:%
-%:%393=281%:%
-%:%394=282%:%
-%:%395=283%:%
-%:%396=284%:%
-%:%397=285%:%
-%:%398=286%:%
-%:%399=287%:%
-%:%400=288%:%
-%:%401=289%:%
-%:%402=290%:%
-%:%403=291%:%
-%:%404=292%:%
-%:%408=295%:%
-%:%412=297%:%
-%:%413=298%:%
-%:%414=299%:%
-%:%415=300%:%
-%:%416=301%:%
-%:%417=302%:%
-%:%418=303%:%
-%:%419=304%:%
-%:%420=305%:%
-%:%421=306%:%
-%:%422=307%:%
-%:%423=308%:%
-%:%424=309%:%
-%:%425=310%:%
-%:%426=311%:%
-%:%427=312%:%
-%:%428=313%:%
-%:%429=314%:%
-%:%430=315%:%
-%:%431=316%:%
-%:%432=317%:%
-%:%433=318%:%
-%:%434=319%:%
-%:%435=320%:%
-%:%436=321%:%
-%:%437=322%:%
-%:%438=323%:%
-%:%439=324%:%
-%:%440=325%:%
-%:%441=326%:%
-%:%442=327%:%
-%:%443=328%:%
-%:%452=330%:%
-%:%464=333%:%
-%:%465=334%:%
-%:%466=335%:%
-%:%467=336%:%
-%:%468=337%:%
-%:%469=338%:%
-%:%470=339%:%
-%:%471=340%:%
-%:%472=341%:%
-%:%473=342%:%
-%:%474=343%:%
-%:%475=344%:%
-%:%476=345%:%
-%:%477=346%:%
-%:%478=347%:%
-%:%479=348%:%
-%:%480=349%:%
-%:%481=350%:%
-%:%482=351%:%
-%:%483=352%:%
-%:%484=353%:%
-%:%485=354%:%
-%:%486=355%:%
-%:%487=356%:%
-%:%488=357%:%
-%:%489=358%:%
-%:%490=359%:%
-%:%491=360%:%
-%:%492=361%:%
-%:%493=362%:%
-%:%494=363%:%
-%:%495=364%:%
-%:%496=365%:%
-%:%497=366%:%
-%:%498=367%:%
-%:%499=368%:%
-%:%500=369%:%
-%:%501=370%:%
-%:%502=371%:%
-%:%503=372%:%
-%:%504=373%:%
-%:%505=374%:%
-%:%506=375%:%
-%:%507=376%:%
-%:%508=377%:%
-%:%509=378%:%
-%:%510=379%:%
-%:%511=380%:%
-%:%512=381%:%
-%:%513=382%:%
-%:%514=383%:%
-%:%523=385%:%
-%:%535=387%:%
-%:%536=388%:%
+%:%255=166%:%
+%:%259=169%:%
+%:%260=170%:%
+%:%261=171%:%
+%:%262=172%:%
+%:%263=173%:%
+%:%264=174%:%
+%:%265=175%:%
+%:%266=176%:%
+%:%267=177%:%
+%:%271=179%:%
+%:%275=181%:%
+%:%276=182%:%
+%:%277=183%:%
+%:%278=184%:%
+%:%279=185%:%
+%:%280=186%:%
+%:%281=187%:%
+%:%282=188%:%
+%:%283=189%:%
+%:%284=190%:%
+%:%285=191%:%
+%:%286=192%:%
+%:%287=193%:%
+%:%288=194%:%
+%:%289=195%:%
+%:%290=196%:%
+%:%291=197%:%
+%:%292=198%:%
+%:%293=199%:%
+%:%294=200%:%
+%:%295=201%:%
+%:%296=202%:%
+%:%297=203%:%
+%:%298=204%:%
+%:%299=205%:%
+%:%300=206%:%
+%:%301=207%:%
+%:%302=208%:%
+%:%311=211%:%
+%:%323=213%:%
+%:%324=214%:%
+%:%325=215%:%
+%:%326=216%:%
+%:%327=217%:%
+%:%328=218%:%
+%:%329=219%:%
+%:%330=220%:%
+%:%331=221%:%
+%:%332=222%:%
+%:%333=223%:%
+%:%334=224%:%
+%:%335=225%:%
+%:%336=226%:%
+%:%337=227%:%
+%:%338=228%:%
+%:%339=229%:%
+%:%340=230%:%
+%:%341=231%:%
+%:%342=232%:%
+%:%343=233%:%
+%:%344=234%:%
+%:%345=235%:%
+%:%346=236%:%
+%:%347=237%:%
+%:%348=238%:%
+%:%349=239%:%
+%:%350=240%:%
+%:%351=241%:%
+%:%352=242%:%
+%:%353=243%:%
+%:%354=244%:%
+%:%355=245%:%
+%:%356=246%:%
+%:%357=247%:%
+%:%358=248%:%
+%:%359=249%:%
+%:%360=250%:%
+%:%361=251%:%
+%:%362=252%:%
+%:%363=253%:%
+%:%364=254%:%
+%:%365=255%:%
+%:%366=256%:%
+%:%367=257%:%
+%:%368=258%:%
+%:%369=259%:%
+%:%370=260%:%
+%:%371=261%:%
+%:%372=262%:%
+%:%373=263%:%
+%:%374=264%:%
+%:%375=265%:%
+%:%376=266%:%
+%:%377=267%:%
+%:%378=268%:%
+%:%379=269%:%
+%:%383=272%:%
+%:%387=274%:%
+%:%388=275%:%
+%:%389=276%:%
+%:%390=277%:%
+%:%391=278%:%
+%:%392=279%:%
+%:%393=280%:%
+%:%394=281%:%
+%:%395=282%:%
+%:%396=283%:%
+%:%397=284%:%
+%:%398=285%:%
+%:%399=286%:%
+%:%400=287%:%
+%:%401=288%:%
+%:%402=289%:%
+%:%403=290%:%
+%:%404=291%:%
+%:%405=292%:%
+%:%406=293%:%
+%:%410=296%:%
+%:%414=298%:%
+%:%415=299%:%
+%:%416=300%:%
+%:%417=301%:%
+%:%418=302%:%
+%:%419=303%:%
+%:%420=304%:%
+%:%421=305%:%
+%:%422=306%:%
+%:%423=307%:%
+%:%424=308%:%
+%:%425=309%:%
+%:%426=310%:%
+%:%427=311%:%
+%:%428=312%:%
+%:%429=313%:%
+%:%430=314%:%
+%:%431=315%:%
+%:%432=316%:%
+%:%433=317%:%
+%:%434=318%:%
+%:%435=319%:%
+%:%436=320%:%
+%:%437=321%:%
+%:%438=322%:%
+%:%439=323%:%
+%:%440=324%:%
+%:%441=325%:%
+%:%442=326%:%
+%:%443=327%:%
+%:%444=328%:%
+%:%445=329%:%
+%:%446=330%:%
+%:%447=331%:%
+%:%448=332%:%
+%:%449=333%:%
+%:%458=335%:%
+%:%470=338%:%
+%:%471=339%:%
+%:%472=340%:%
+%:%473=341%:%
+%:%474=342%:%
+%:%475=343%:%
+%:%476=344%:%
+%:%477=345%:%
+%:%478=346%:%
+%:%479=347%:%
+%:%480=348%:%
+%:%481=349%:%
+%:%482=350%:%
+%:%483=351%:%
+%:%484=352%:%
+%:%485=353%:%
+%:%486=354%:%
+%:%487=355%:%
+%:%488=356%:%
+%:%489=357%:%
+%:%490=358%:%
+%:%491=359%:%
+%:%492=360%:%
+%:%493=361%:%
+%:%494=362%:%
+%:%495=363%:%
+%:%496=364%:%
+%:%497=365%:%
+%:%498=366%:%
+%:%499=367%:%
+%:%500=368%:%
+%:%501=369%:%
+%:%502=370%:%
+%:%503=371%:%
+%:%504=372%:%
+%:%505=373%:%
+%:%506=374%:%
+%:%507=375%:%
+%:%508=376%:%
+%:%509=377%:%
+%:%510=378%:%
+%:%511=379%:%
+%:%512=380%:%
+%:%513=381%:%
+%:%514=382%:%
+%:%515=383%:%
+%:%516=384%:%
+%:%517=385%:%
+%:%518=386%:%
+%:%527=388%:%
+%:%539=390%:%
 %:%540=391%:%
-%:%541=392%:%
-%:%542=393%:%
-%:%543=394%:%
-%:%544=395%:%
-%:%545=396%:%
-%:%546=397%:%
-%:%547=398%:%
-%:%548=399%:%
-%:%549=400%:%
-%:%550=401%:%
-%:%551=402%:%
-%:%552=403%:%
-%:%553=404%:%
-%:%554=405%:%
-%:%555=406%:%
-%:%556=407%:%
-%:%557=408%:%
-%:%558=409%:%
-%:%559=410%:%
-%:%560=411%:%
-%:%561=412%:%
-%:%562=413%:%
-%:%563=414%:%
-%:%564=415%:%
-%:%565=416%:%
-%:%566=417%:%
-%:%567=418%:%
-%:%571=420%:%
-%:%572=421%:%
-%:%573=422%:%
-%:%574=423%:%
-%:%575=424%:%
-%:%576=425%:%
-%:%577=426%:%
-%:%578=427%:%
-%:%579=428%:%
-%:%580=429%:%
-%:%581=430%:%
-%:%582=431%:%
-%:%583=432%:%
-%:%584=433%:%
-%:%585=434%:%
-%:%586=435%:%
-%:%587=436%:%
-%:%588=437%:%
-%:%589=438%:%
-%:%590=439%:%
-%:%591=440%:%
-%:%592=441%:%
-%:%593=442%:%
-%:%594=443%:%
-%:%595=444%:%
-%:%596=445%:%
-%:%597=446%:%
-%:%606=449%:%
-%:%618=451%:%
-%:%619=452%:%
-%:%620=453%:%
-%:%621=454%:%
-%:%622=455%:%
-%:%623=456%:%
-%:%632=459%:%
-%:%644=461%:%
-%:%645=462%:%
-%:%646=463%:%
-%:%648=465%:%
+%:%544=394%:%
+%:%545=395%:%
+%:%546=396%:%
+%:%547=397%:%
+%:%548=398%:%
+%:%549=399%:%
+%:%550=400%:%
+%:%551=401%:%
+%:%552=402%:%
+%:%553=403%:%
+%:%554=404%:%
+%:%555=405%:%
+%:%556=406%:%
+%:%557=407%:%
+%:%558=408%:%
+%:%559=409%:%
+%:%560=410%:%
+%:%561=411%:%
+%:%562=412%:%
+%:%563=413%:%
+%:%564=414%:%
+%:%565=415%:%
+%:%566=416%:%
+%:%567=417%:%
+%:%568=418%:%
+%:%569=419%:%
+%:%570=420%:%
+%:%571=421%:%
+%:%575=423%:%
+%:%576=424%:%
+%:%577=425%:%
+%:%578=426%:%
+%:%579=427%:%
+%:%580=428%:%
+%:%581=429%:%
+%:%582=430%:%
+%:%583=431%:%
+%:%584=432%:%
+%:%585=433%:%
+%:%586=434%:%
+%:%587=435%:%
+%:%588=436%:%
+%:%589=437%:%
+%:%590=438%:%
+%:%591=439%:%
+%:%592=440%:%
+%:%593=441%:%
+%:%594=442%:%
+%:%595=443%:%
+%:%596=444%:%
+%:%597=445%:%
+%:%598=446%:%
+%:%599=447%:%
+%:%600=448%:%
+%:%601=449%:%
+%:%610=452%:%
+%:%622=454%:%
+%:%623=455%:%
+%:%624=456%:%
+%:%625=457%:%
+%:%626=458%:%
+%:%627=459%:%
+%:%636=462%:%
+%:%648=464%:%
 %:%649=465%:%
-%:%650=465%:%
-%:%651=465%:%
-%:%653=466%:%
-%:%654=467%:%
-%:%655=467%:%
-%:%656=468%:%
+%:%650=466%:%
+%:%652=468%:%
+%:%653=468%:%
+%:%654=468%:%
+%:%655=468%:%
 %:%657=469%:%
-%:%658=469%:%
-%:%659=469%:%
-%:%660=469%:%
-%:%662=470%:%
-%:%663=471%:%
-%:%664=471%:%
-%:%667=485%:%
-%:%668=486%:%
-%:%669=487%:%
-%:%671=489%:%
+%:%658=470%:%
+%:%659=470%:%
+%:%660=471%:%
+%:%661=472%:%
+%:%662=472%:%
+%:%663=472%:%
+%:%664=472%:%
+%:%666=473%:%
+%:%667=474%:%
+%:%668=474%:%
+%:%671=488%:%
 %:%672=489%:%
-%:%673=489%:%
-%:%674=489%:%
-%:%675=490%:%
-%:%676=490%:%
-%:%677=490%:%
-%:%680=494%:%
-%:%681=495%:%
-%:%682=496%:%
-%:%683=497%:%
-%:%685=499%:%
+%:%673=490%:%
+%:%675=492%:%
+%:%676=492%:%
+%:%677=492%:%
+%:%678=492%:%
+%:%679=493%:%
+%:%680=493%:%
+%:%681=493%:%
+%:%684=497%:%
+%:%685=498%:%
 %:%686=499%:%
-%:%687=523%:%
-%:%688=524%:%
-%:%690=525%:%
+%:%687=500%:%
+%:%689=502%:%
+%:%690=502%:%
 %:%691=526%:%
 %:%692=527%:%
-%:%693=528%:%
 %:%694=528%:%
-%:%702=535%:%
-%:%714=537%:%
-%:%715=538%:%
-%:%716=539%:%
-%:%717=540%:%
-%:%718=541%:%
-%:%719=542%:%
-%:%720=543%:%
-%:%724=559%:%
-%:%726=560%:%
-%:%727=560%:%
-%:%728=561%:%
-%:%730=562%:%
+%:%695=529%:%
+%:%696=530%:%
+%:%697=531%:%
+%:%698=531%:%
+%:%706=538%:%
+%:%718=540%:%
+%:%719=541%:%
+%:%720=542%:%
+%:%721=543%:%
+%:%722=544%:%
+%:%723=545%:%
+%:%724=546%:%
+%:%728=562%:%
+%:%730=563%:%
 %:%731=563%:%
-%:%732=563%:%
-%:%733=564%:%
-%:%734=564%:%
-%:%735=565%:%
-%:%737=566%:%
-%:%740=568%:%
-%:%742=569%:%
-%:%743=569%:%
-%:%744=570%:%
-%:%746=571%:%
-%:%747=571%:%
-%:%750=591%:%
-%:%751=592%:%
-%:%753=593%:%
-%:%754=593%:%
-%:%755=594%:%
-%:%756=595%:%
-%:%757=595%:%
+%:%732=564%:%
+%:%734=565%:%
+%:%735=566%:%
+%:%736=566%:%
+%:%737=567%:%
+%:%738=567%:%
+%:%739=568%:%
+%:%741=569%:%
+%:%744=571%:%
+%:%746=572%:%
+%:%747=572%:%
+%:%748=573%:%
+%:%750=574%:%
+%:%751=574%:%
+%:%754=594%:%
+%:%755=595%:%
+%:%757=596%:%
 %:%758=596%:%
 %:%759=597%:%
-%:%760=597%:%
+%:%760=598%:%
 %:%761=598%:%
-%:%763=599%:%
+%:%762=599%:%
+%:%763=600%:%
 %:%764=600%:%
+%:%765=601%:%
 %:%767=602%:%
-%:%769=603%:%
-%:%770=603%:%
-%:%771=604%:%
-%:%773=605%:%
-%:%774=605%:%
-%:%777=613%:%
-%:%778=614%:%
-%:%779=615%:%
-%:%780=616%:%
-%:%782=619%:%
-%:%783=619%:%
+%:%768=603%:%
+%:%771=605%:%
+%:%773=606%:%
+%:%774=606%:%
+%:%775=607%:%
+%:%777=608%:%
+%:%778=608%:%
+%:%781=616%:%
+%:%782=617%:%
+%:%783=618%:%
 %:%784=619%:%
-%:%786=619%:%
-%:%790=619%:%
-%:%791=619%:%
-%:%793=620%:%
-%:%794=621%:%
-%:%795=621%:%
-%:%797=622%:%
-%:%798=623%:%
+%:%786=622%:%
+%:%787=622%:%
+%:%788=622%:%
+%:%790=622%:%
+%:%794=622%:%
+%:%795=622%:%
+%:%797=623%:%
+%:%798=624%:%
 %:%799=624%:%
-%:%809=626%:%
-%:%810=627%:%
-%:%811=628%:%
+%:%801=625%:%
+%:%802=626%:%
+%:%803=627%:%
+%:%813=629%:%
+%:%814=630%:%
+%:%815=631%:%

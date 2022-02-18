@@ -5,7 +5,9 @@ begin(*>*)
 
 section "Is Automated Kantian Ethics Possible?"
 
-text \<open>Many philosophers are averse to the idea that a computer could perform ethical 
+text \<open>SAY THAT ALSO APPLIES TO VIRTUE ETHICS AND THAT MIMICING IS GOOD
+
+Many philosophers are averse to the idea that a computer could perform ethical
 reasoning or that the categorical imperative could provide an algorithm for
 moral judgement. For example, Rawls asserts, ``it is a serious misconception to think of the CI-procedure 
 as an algorithm intended to yield, more or less mechanically, a correct judgment. There is no such 

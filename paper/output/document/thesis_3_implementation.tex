@@ -155,7 +155,10 @@ The central unit of evaluation for Kantian ethics is a ``maxim,'' which Kant def
 principle of willing,'' or the principle that the agent understands themselves as acting on \citep{groundwork}. 
 Modern Kantians differ in their interpretations of this definition. I adopt O'Neill's view, derived from 
 Kant's example maxims, that a maxim includes the act, the circumstances, and the agent's purpose of 
-acting or goal \citep{actingonprinciple}. 
+acting or goal \citep{actingonprinciple}. Other potential views include Korsgaard's view, which omits 
+the circumstances, and Kitcher's view, which adds a motivation \citep{actingforareason, kitcher}. I 
+address the limitations of these approaches in Appendix \ref{maximmotive}.
+
 
 \begin{definition}[Maxim]
     A maxim is a circumstance, act, goal tuple (C, A, G), read as ``In circumstances C, act A for goal G.''
@@ -182,16 +185,13 @@ is an action-guiding rule and thus naturally includes an act and the circumstanc
 it should be performed \citep[37]{actingonprinciple}. 
 She also includes a purpose, end, or goal in the maxim because human activity is guided by a rational will
 and is thus inherently purposive \citep[4:428]{groundwork}. A rational will does not act randomly (else it would not be rational), 
-but instead in the pursuit of ends which it deems valuable.\footnote{Some argue that a maxim should also
-include the agent's motive or motivation and I address this concern in Appendix \ref{maximmotive}.} The inclusion a maxim's end is essential for the version of the FUL
-that I will implement, explained in Section \ref{praccon}.
-
-\color{red} SHOULD THIS GO HERE OR IN THE LIMITATIONS SECTION OF THE DISCUSSION
+but instead in the pursuit of ends which it deems valuable. The inclusion a maxim's end is essential 
+for the version of the FUL that I will implement, explained in Section \ref{praccon}.
 
 O'Neill's inclusion of circumstances is potentially controversial because it leaves open the question of what qualifies as a 
 relevant circumstance for a particular maxim. This gives rise to ``the tailoring objection,'' 
 under which maxims are arbitrarily specified to pass the FUL  \citep[217]{whatisamaxim}. \footnote{Kitcher
-cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection.} For example, the maxim ``When my name is Jane Doe
+cites \citet{kantsethicalthought} as offering an example of a false positive due to this objection \cite{kitcher}.} For example, the maxim ``When my name is Jane Doe
 and I am wearing a purple shirt and it is Tuesday morning, I will murder my boss so I can take their job,'' 
 is universalizable but is clearly a false positive because we think that murder for professional gain is wrong. 
 One solution to this problem is to argue that the circumstance ``When my name is Jane Doe and I am wearing a 
@@ -219,9 +219,10 @@ human puts garbage into the test, the test will return garbage out.
 Another solution is to develop heuristics to classify circumstances as morally 
 relevant. For example, one such attempt could define a moral closeness relation between an action, a 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
-reach a certain closeness threshhold with the action and the goal. Determining morally relevant
+reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
+define some set of morally important entities, and classify morally relevant circumstances as those
+that involve morally important entities. Determining morally relevant
 circumstances, either using heuristics or human involvement, is a ripe area for future work.
-\color{black}
 
 With this robust representation of a maxim, I can now define willing. To will a maxim is to adopt it 
 as a principle to live by, or to commit oneself to the maxim's action for the 
@@ -294,7 +295,7 @@ impossible so the logical contradiction view cannot prohibit it.
 
 As an alternative to the logical contradiction view, Korsgaard endorses the practical contradiction view, 
 which prohibits maxims that are self-defeating, or ineffective, when universalized. By willing a maxim, 
-an agent commits themselves to the maxim's goal, and thus cannot rationally will that this goal be 
+you commit yourself to the maxim's goal, and thus cannot rationally will that this goal be 
 undercut. This interpretation can prohibit natural acts like those of the sleep-deprived mother: in 
 willing the end of sleeping, she is implicitly willing that she is alive. If all mothers kill all 
 loud children, then she cannot be secure in the possession of her life, because her own mother would 
@@ -582,8 +583,10 @@ it is inconsistent. This is not only a logical property of my system, but it als
 significance that coheres with Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action \citep{actingforareason,actingonprinciple}. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast,'' is not 
-practically relevant. No agent would ever need to act on such a principle. It is neither contradictory
-nor prohibited, and it is the wrong kind of question to be asking. It is not a 
+practically relevant. No agent would ever need to act on such a principle. Morality helps agents decide
+whether to act on a potential principle of action, but no agent would need to ask
+``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" It is neither contradictory
+nor prohibited, and it is the wrong kind of principle to be evaluating. It is not a
 well-formed maxim, so the categorical imperative cannot apply to it. 
 
 The fact that Isabelle revealed a philosophical insight about which kinds of maxims are well-formed
@@ -654,7 +657,7 @@ explain some notable tests.%
 %
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{goalstable.png}
+\includegraphics[scale=0.6]{goalstable.png}
 \caption{Table showing which tests each implementation passes. The naive interpretation is raw DDL, 
 Kroy is based on Moshe Kroy's formalization of the FUL, and the custom formalization is my novel implementation.} \label{table}
 \end{figure}
@@ -741,14 +744,14 @@ for all people at that world. The proof similarly proceeds using \texttt{blast}.
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Contradictory Obligations} Contradictory obligations
+\noindent \textbf{Obligations Never Contradict} Contradictory obligations
 make obeying the prescriptions of an ethical theory impossible.
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
 can.\footnote{Kohl points out that this principle is referred to as 
 Kant's dictum or Kant's law in the literature \citep[footnote 1]{kohl}.} Kohl reconstructs Kant's argument for this principle as 
 follows: if the will cannot comply with the moral law, then the moral law has no prescriptive authority 
 for the will \citep[703-4]{kohl}. This defeats the purpose of Kant's theory, which is to develop an unconditional, categorical imperative 
-for rational agents. Ought implies can requires that obligations never contradict, because an agent 
+for rational agents. Ought implies can requires that obligations never contradict each other, because an agent 
 can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
 and Kantian ethics in particular, must not result in conflicting obligations. 
 Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
@@ -844,7 +847,7 @@ which states that $A$ is obligated but not permissible.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Distributive Property} Another property related to contradictory obligations is the distributive property for the obligation
+\noindent \textbf{Distributive Property for Obligations Holds} Another property related to contradictory obligations is the distributive property for the obligation
 operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
 another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
 do both A and B''. The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
@@ -907,7 +910,7 @@ passes for my interpretation because I require that obligations don't contradict
 \begin{isamarkuptext}%
 \medskip 
 
-\noindent \textbf{Un-universalizable Actions} Recall that 
+\noindent \textbf{Prohibits Actions That Are Impossible to Universalize} Recall that 
 the logical contradiction interpretation of the Formula of Universal Law prohibits lying because in a world 
 where everyone simultaneously lies, lying is impossible. In other words, not everyone can simultaneously
 lie because the institution of lying and believing would break down. In Section \ref{praccon}, 
@@ -922,7 +925,7 @@ for my formalization required significant logical background and the full code i
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
+\noindent \textbf{Robust Representation of Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
 faithful formalization of the categorical imperative must evaluate maxims, not acts. This requires 
 representing a maxim and making it the input to the obligation operator, which only my implementation 
 does. Because my implementation includes the notion of a maxim, it is able to perform sophisticated 
@@ -933,7 +936,7 @@ literature enables my system to make more reliable judgements.
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
+\noindent \textbf{Can Prohibit Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
 Korsgaard makes a distinction between conventional and natural acts \citep{KorsgaardFUL}. 
 A conventional act like promising relies on a convention, like the 
 convention that a promise is a commitment, whereas a natural act is possible simply because of the laws 
@@ -948,7 +951,7 @@ still be possible, so it is difficult to show that they violate the FUL.
 Both raw DDL and Kroy's interpretation fail to show the wrongness of conventional or natural acts. 
 My system shows the wrongness of both natural and conventional acts because it is faithful to Korsgaard's 
 practical contradiction interpretation of the FUL, which is the canonical interpretation of the 
-FUL \citep{KorsgaardFUL}. I run this test in Chapter Applications, where I
+FUL \citep{ebelsduggan, KorsgaardFUL}. I run this test in Chapter Applications, where I
 use my system to reason about two ethical dilemmas, one which involves conventional acts and the other which
 involves natural acts. I present an additional example demonstrating that my implementation passes
 this test in Appendix \ref{weirdtests}.%
@@ -1053,19 +1056,19 @@ this test in Appendix \ref{weirdtests}.%
 %:%163=80%:%
 %:%164=81%:%
 %:%165=82%:%
-%:%167=85%:%
+%:%166=83%:%
+%:%167=84%:%
 %:%168=85%:%
-%:%170=86%:%
-%:%171=87%:%
-%:%172=88%:%
+%:%170=88%:%
+%:%171=88%:%
 %:%173=89%:%
 %:%174=90%:%
 %:%175=91%:%
 %:%176=92%:%
 %:%177=93%:%
-%:%180=95%:%
-%:%181=96%:%
-%:%182=97%:%
+%:%178=94%:%
+%:%179=95%:%
+%:%180=96%:%
 %:%183=98%:%
 %:%184=99%:%
 %:%185=100%:%
@@ -1123,15 +1126,15 @@ this test in Appendix \ref{weirdtests}.%
 %:%237=152%:%
 %:%238=153%:%
 %:%239=154%:%
-%:%241=156%:%
-%:%242=156%:%
+%:%240=155%:%
+%:%242=157%:%
 %:%243=157%:%
-%:%245=158%:%
+%:%244=158%:%
 %:%246=159%:%
 %:%247=160%:%
 %:%248=161%:%
-%:%256=163%:%
-%:%268=165%:%
+%:%249=162%:%
+%:%257=164%:%
 %:%269=166%:%
 %:%270=167%:%
 %:%271=168%:%
@@ -1182,12 +1185,12 @@ this test in Appendix \ref{weirdtests}.%
 %:%316=213%:%
 %:%317=214%:%
 %:%318=215%:%
-%:%320=218%:%
-%:%321=218%:%
+%:%319=216%:%
+%:%321=219%:%
 %:%322=219%:%
-%:%324=220%:%
+%:%323=220%:%
 %:%325=221%:%
-%:%328=223%:%
+%:%326=222%:%
 %:%329=224%:%
 %:%330=225%:%
 %:%331=226%:%
@@ -1209,13 +1212,13 @@ this test in Appendix \ref{weirdtests}.%
 %:%347=242%:%
 %:%348=243%:%
 %:%349=244%:%
-%:%351=247%:%
-%:%352=247%:%
+%:%350=245%:%
+%:%352=248%:%
 %:%353=248%:%
-%:%355=249%:%
+%:%354=249%:%
 %:%356=250%:%
-%:%357=250%:%
-%:%360=256%:%
+%:%357=251%:%
+%:%358=251%:%
 %:%361=257%:%
 %:%362=258%:%
 %:%363=259%:%
@@ -1226,11 +1229,11 @@ this test in Appendix \ref{weirdtests}.%
 %:%368=264%:%
 %:%369=265%:%
 %:%370=266%:%
-%:%372=268%:%
-%:%373=268%:%
+%:%371=267%:%
+%:%373=269%:%
 %:%374=269%:%
-%:%376=270%:%
-%:%379=272%:%
+%:%375=270%:%
+%:%377=271%:%
 %:%380=273%:%
 %:%381=274%:%
 %:%382=275%:%
@@ -1263,36 +1266,36 @@ this test in Appendix \ref{weirdtests}.%
 %:%409=302%:%
 %:%410=303%:%
 %:%411=304%:%
-%:%413=306%:%
-%:%414=306%:%
+%:%412=305%:%
+%:%414=307%:%
 %:%415=307%:%
-%:%417=308%:%
+%:%416=308%:%
 %:%418=309%:%
-%:%419=309%:%
+%:%419=310%:%
 %:%420=310%:%
 %:%421=311%:%
-%:%422=311%:%
+%:%422=312%:%
 %:%423=312%:%
-%:%425=313%:%
+%:%424=313%:%
 %:%426=314%:%
-%:%429=316%:%
+%:%427=315%:%
 %:%430=317%:%
 %:%431=318%:%
 %:%432=319%:%
-%:%434=321%:%
-%:%435=321%:%
+%:%433=320%:%
+%:%435=322%:%
 %:%436=322%:%
-%:%438=323%:%
+%:%437=323%:%
 %:%439=324%:%
-%:%440=324%:%
+%:%440=325%:%
 %:%441=325%:%
 %:%442=326%:%
-%:%443=326%:%
-%:%445=327%:%
+%:%443=327%:%
+%:%444=327%:%
 %:%446=328%:%
 %:%447=329%:%
-%:%455=331%:%
-%:%467=333%:%
+%:%448=330%:%
+%:%456=332%:%
 %:%468=334%:%
 %:%469=335%:%
 %:%470=336%:%
@@ -1300,23 +1303,23 @@ this test in Appendix \ref{weirdtests}.%
 %:%472=338%:%
 %:%473=339%:%
 %:%474=340%:%
-%:%476=343%:%
-%:%477=343%:%
-%:%479=344%:%
+%:%475=341%:%
+%:%477=344%:%
+%:%478=344%:%
 %:%480=345%:%
 %:%481=346%:%
 %:%482=347%:%
-%:%485=349%:%
+%:%483=348%:%
 %:%486=350%:%
-%:%488=352%:%
-%:%489=352%:%
-%:%491=352%:%
-%:%495=352%:%
-%:%496=352%:%
+%:%487=351%:%
+%:%489=353%:%
+%:%490=353%:%
+%:%492=353%:%
+%:%496=353%:%
 %:%497=353%:%
-%:%498=353%:%
-%:%499=353%:%
-%:%508=355%:%
+%:%498=354%:%
+%:%499=354%:%
+%:%500=354%:%
 %:%509=356%:%
 %:%510=357%:%
 %:%511=358%:%
@@ -1341,34 +1344,34 @@ this test in Appendix \ref{weirdtests}.%
 %:%530=377%:%
 %:%531=378%:%
 %:%532=379%:%
-%:%534=381%:%
-%:%535=381%:%
+%:%533=380%:%
+%:%535=382%:%
 %:%536=382%:%
-%:%538=383%:%
+%:%537=383%:%
 %:%539=384%:%
-%:%542=386%:%
-%:%544=388%:%
-%:%545=388%:%
+%:%540=385%:%
+%:%543=387%:%
+%:%545=389%:%
 %:%546=389%:%
-%:%548=390%:%
+%:%547=390%:%
 %:%549=391%:%
-%:%550=391%:%
+%:%550=392%:%
 %:%551=392%:%
 %:%552=393%:%
-%:%553=393%:%
+%:%553=394%:%
 %:%554=394%:%
-%:%555=394%:%
-%:%557=394%:%
-%:%561=394%:%
-%:%562=394%:%
-%:%564=395%:%
+%:%555=395%:%
+%:%556=395%:%
+%:%558=395%:%
+%:%562=395%:%
+%:%563=395%:%
 %:%565=396%:%
 %:%566=397%:%
 %:%567=398%:%
 %:%568=399%:%
 %:%569=400%:%
 %:%570=401%:%
-%:%580=403%:%
+%:%571=402%:%
 %:%581=404%:%
 %:%582=405%:%
 %:%583=406%:%
@@ -1387,17 +1390,17 @@ this test in Appendix \ref{weirdtests}.%
 %:%596=419%:%
 %:%597=420%:%
 %:%598=421%:%
+%:%599=422%:%
 %:%600=423%:%
-%:%601=423%:%
-%:%603=425%:%
+%:%601=424%:%
+%:%603=426%:%
 %:%604=426%:%
-%:%605=427%:%
 %:%606=428%:%
 %:%607=429%:%
-%:%616=431%:%
-%:%628=433%:%
-%:%629=434%:%
-%:%630=435%:%
+%:%608=430%:%
+%:%609=431%:%
+%:%610=432%:%
+%:%619=434%:%
 %:%631=436%:%
 %:%632=437%:%
 %:%633=438%:%
@@ -1420,15 +1423,15 @@ this test in Appendix \ref{weirdtests}.%
 %:%650=455%:%
 %:%651=456%:%
 %:%652=457%:%
-%:%655=461%:%
-%:%656=462%:%
-%:%657=463%:%
+%:%653=458%:%
+%:%654=459%:%
+%:%655=460%:%
 %:%658=464%:%
 %:%659=465%:%
 %:%660=466%:%
-%:%663=468%:%
-%:%664=469%:%
-%:%665=470%:%
+%:%661=467%:%
+%:%662=468%:%
+%:%663=469%:%
 %:%666=471%:%
 %:%667=472%:%
 %:%668=473%:%
@@ -1436,9 +1439,9 @@ this test in Appendix \ref{weirdtests}.%
 %:%670=475%:%
 %:%671=476%:%
 %:%672=477%:%
-%:%676=479%:%
-%:%677=480%:%
-%:%678=481%:%
+%:%673=478%:%
+%:%674=479%:%
+%:%675=480%:%
 %:%679=482%:%
 %:%680=483%:%
 %:%681=484%:%
@@ -1450,33 +1453,33 @@ this test in Appendix \ref{weirdtests}.%
 %:%687=490%:%
 %:%688=491%:%
 %:%689=492%:%
+%:%690=493%:%
 %:%691=494%:%
-%:%692=494%:%
-%:%693=495%:%
-%:%696=496%:%
-%:%700=496%:%
-%:%701=496%:%
-%:%703=497%:%
-%:%704=498%:%
-%:%705=499%:%
-%:%706=499%:%
-%:%708=500%:%
-%:%709=501%:%
-%:%710=502%:%
+%:%692=495%:%
+%:%694=497%:%
+%:%695=497%:%
+%:%696=498%:%
+%:%699=499%:%
+%:%703=499%:%
+%:%704=499%:%
+%:%706=500%:%
+%:%707=501%:%
+%:%708=502%:%
+%:%709=502%:%
 %:%711=503%:%
-%:%717=503%:%
-%:%720=504%:%
-%:%721=505%:%
-%:%722=505%:%
-%:%723=506%:%
-%:%726=507%:%
-%:%730=507%:%
-%:%731=507%:%
-%:%733=508%:%
-%:%734=509%:%
-%:%744=511%:%
-%:%745=512%:%
-%:%746=513%:%
+%:%712=504%:%
+%:%713=505%:%
+%:%714=506%:%
+%:%720=506%:%
+%:%723=507%:%
+%:%724=508%:%
+%:%725=508%:%
+%:%726=509%:%
+%:%729=510%:%
+%:%733=510%:%
+%:%734=510%:%
+%:%736=511%:%
+%:%737=512%:%
 %:%747=514%:%
 %:%748=515%:%
 %:%749=516%:%
@@ -1495,75 +1498,75 @@ this test in Appendix \ref{weirdtests}.%
 %:%762=529%:%
 %:%763=530%:%
 %:%764=531%:%
+%:%765=532%:%
 %:%766=533%:%
-%:%767=533%:%
-%:%768=534%:%
-%:%771=535%:%
-%:%775=535%:%
-%:%776=535%:%
-%:%777=535%:%
-%:%779=536%:%
-%:%785=536%:%
-%:%788=537%:%
-%:%789=538%:%
-%:%790=538%:%
-%:%791=539%:%
-%:%792=540%:%
-%:%795=541%:%
-%:%799=541%:%
-%:%800=541%:%
-%:%801=541%:%
-%:%803=542%:%
-%:%804=543%:%
-%:%805=544%:%
-%:%815=546%:%
-%:%816=547%:%
-%:%817=548%:%
+%:%767=534%:%
+%:%769=536%:%
+%:%770=536%:%
+%:%771=537%:%
+%:%774=538%:%
+%:%778=538%:%
+%:%779=538%:%
+%:%780=538%:%
+%:%782=539%:%
+%:%788=539%:%
+%:%791=540%:%
+%:%792=541%:%
+%:%793=541%:%
+%:%794=542%:%
+%:%795=543%:%
+%:%798=544%:%
+%:%802=544%:%
+%:%803=544%:%
+%:%804=544%:%
+%:%806=545%:%
+%:%807=546%:%
+%:%808=547%:%
 %:%818=549%:%
 %:%819=550%:%
 %:%820=551%:%
 %:%821=552%:%
 %:%822=553%:%
-%:%824=556%:%
+%:%823=554%:%
+%:%824=555%:%
 %:%825=556%:%
-%:%828=557%:%
-%:%832=557%:%
-%:%833=557%:%
-%:%835=558%:%
-%:%836=559%:%
-%:%837=560%:%
-%:%847=562%:%
-%:%848=563%:%
-%:%849=564%:%
+%:%827=559%:%
+%:%828=559%:%
+%:%831=560%:%
+%:%835=560%:%
+%:%836=560%:%
+%:%838=561%:%
+%:%839=562%:%
+%:%840=563%:%
 %:%850=565%:%
 %:%851=566%:%
 %:%852=567%:%
 %:%853=568%:%
+%:%854=569%:%
 %:%855=570%:%
-%:%856=570%:%
-%:%857=571%:%
-%:%858=572%:%
-%:%861=573%:%
-%:%865=573%:%
-%:%866=573%:%
-%:%867=573%:%
-%:%869=574%:%
-%:%870=575%:%
-%:%871=576%:%
-%:%881=578%:%
-%:%882=579%:%
+%:%856=571%:%
+%:%858=573%:%
+%:%859=573%:%
+%:%860=574%:%
+%:%861=575%:%
+%:%864=576%:%
+%:%868=576%:%
+%:%869=576%:%
+%:%870=576%:%
+%:%872=577%:%
+%:%873=578%:%
+%:%874=579%:%
 %:%884=581%:%
-%:%885=581%:%
-%:%886=582%:%
-%:%887=583%:%
-%:%890=584%:%
-%:%894=584%:%
-%:%895=584%:%
-%:%896=584%:%
-%:%898=585%:%
-%:%908=587%:%
-%:%909=588%:%
-%:%910=589%:%
+%:%885=582%:%
+%:%887=584%:%
+%:%888=584%:%
+%:%889=585%:%
+%:%890=586%:%
+%:%893=587%:%
+%:%897=587%:%
+%:%898=587%:%
+%:%899=587%:%
+%:%901=588%:%
 %:%911=590%:%
 %:%912=591%:%
 %:%913=592%:%
@@ -1575,17 +1578,17 @@ this test in Appendix \ref{weirdtests}.%
 %:%919=598%:%
 %:%920=599%:%
 %:%921=600%:%
-%:%925=604%:%
-%:%926=605%:%
-%:%927=606%:%
+%:%922=601%:%
+%:%923=602%:%
+%:%924=603%:%
 %:%928=607%:%
 %:%929=608%:%
 %:%930=609%:%
 %:%931=610%:%
 %:%932=611%:%
-%:%936=614%:%
-%:%937=615%:%
-%:%938=616%:%
+%:%933=612%:%
+%:%934=613%:%
+%:%935=614%:%
 %:%939=617%:%
 %:%940=618%:%
 %:%941=619%:%
@@ -1602,3 +1605,6 @@ this test in Appendix \ref{weirdtests}.%
 %:%952=630%:%
 %:%953=631%:%
 %:%954=632%:%
+%:%955=633%:%
+%:%956=634%:%
+%:%957=635%:%

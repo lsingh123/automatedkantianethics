@@ -463,7 +463,7 @@ explain some notable tests.
 text_raw \<open>
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{goalstable.png}
+\includegraphics[scale=0.6]{goalstable.png}
 \caption{Table showing which tests each implementation passes. The naive interpretation is raw DDL, 
 Kroy is based on Moshe Kroy's formalization of the FUL, and the custom formalization is my novel implementation.} \label{table}
 \end{figure}\<close>
@@ -511,7 +511,7 @@ lemma right_if_right_for_someone:
 \<comment>\<open>This lemma shows that if a maxim $(c, a, g)$ is right for subject $s$ at a world, then it is right
 for all people at that world. The proof similarly proceeds using \texttt{blast}. \<close>
 
-text\<open>\noindent \textbf{Contradictory Obligations} Contradictory obligations
+text\<open>\noindent \textbf{Obligations Never Contradict} Contradictory obligations
 make obeying the prescriptions of an ethical theory impossible.
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
 can.\footnote{Kohl points out that this principle is referred to as 
@@ -562,7 +562,7 @@ lemma "\<Turnstile> ((O {A} \<^bold>\<and> O {\<^bold>\<not> A}) \<^bold>\<equiv
 left-hand side states that $A$ is both obligated and prohibited, and is equivalent to the right-hand side, 
 which states that $A$ is obligated but not permissible.\<close>
 
-text \<open>\noindent \textbf{Distributive Property} Another property related to contradictory obligations is the distributive property for the obligation
+text \<open>\noindent \textbf{Distributive Property for Obligations Holds} Another property related to contradictory obligations is the distributive property for the obligation
 operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
 another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
 do both A and B''. The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
@@ -589,7 +589,7 @@ lemma distribution:
 
 text\<open>\medskip 
 
-\noindent \textbf{Un-universalizable Actions} Recall that 
+\noindent \textbf{Prohibits Actions That Are Impossible to Universalize} Recall that 
 the logical contradiction interpretation of the Formula of Universal Law prohibits lying because in a world 
 where everyone simultaneously lies, lying is impossible. In other words, not everyone can simultaneously
 lie because the institution of lying and believing would break down. In Section \ref{praccon}, 
@@ -604,7 +604,7 @@ for my formalization required significant logical background and the full code i
 
 
 text \<open>
-\noindent \textbf{Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
+\noindent \textbf{Robust Representation of Maxims} Kant does not evaluate the correctness of acts, but rather of maxims. Therefore, any 
 faithful formalization of the categorical imperative must evaluate maxims, not acts. This requires 
 representing a maxim and making it the input to the obligation operator, which only my implementation 
 does. Because my implementation includes the notion of a maxim, it is able to perform sophisticated 
@@ -614,7 +614,7 @@ literature enables my system to make more reliable judgements.
 \medskip
 \<close>
 
-text \<open>\noindent \textbf{Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
+text \<open>\noindent \textbf{Can Prohibit Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
 Korsgaard makes a distinction between conventional and natural acts \citep{KorsgaardFUL}. 
 A conventional act like promising relies on a convention, like the 
 convention that a promise is a commitment, whereas a natural act is possible simply because of the laws 

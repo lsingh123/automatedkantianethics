@@ -295,12 +295,13 @@ ethics require.
 
 text \<open>\noindent \textbf{Difficulties in Automation}\<close>
 
-text \<open>Kantians disgaree on how much ``common-sense'', or factual and situational background, is necessary
-to apply Kantian ethics. Common-sense is needed when formulating a maxim and when determining if a maxim
-violates the Formula of Universal Law. Determining which circumstances are ``morally relevant'' in the 
-formulation of a maxim requires factual background and some definition of relevance. Many misunderstandings
-in Kantian ethics are due to badly formulated maxims, so this question is important for an ethical 
-reasoner to answer.\footnote{For example, critics of Kantian ethics worry that the maxim, ``When I am a
+text \<open>One challenge for automating Kantian ethics is the need for ``common-sense'', or factual and 
+situational background. Common-sense is needed when formulating a maxim and when determining if a maxim 
+violates the Formula of Universal Law. Maxims include the circumstances in which they apply and
+determining which circumstances are ``morally relevant'' to a maxim requires factual background. 
+Many misunderstandings in Kantian ethics are due to badly formulated maxims, so this question is 
+important for an ethical reasoner to answer.\footnote{For example, critics of Kantian ethics worry 
+that the maxim, ``When I am a
 man, I will marry a man because I want to spend my life with him'' fails the universalizability
 test because if all men only married men, sexual reproduction would stop. This argument implies 
 that Kantian ethics is homophobic. Kantians often respond by arguing that the correct formulation of 
@@ -308,9 +309,10 @@ this maxim is, ``When I love a man, I will marry him because I want to spend my 
 is universalizable because if everyone marries who they love, some men will marry women and others will
 marry men.} My system does not need to answer this question because I assume a properly crafted
 maxim as input and apply the categorical imperative to this input. Using my system in a fully automated
-moral agent will require answering this question, a challenging computational and philosophical task. 
+moral agent will require answering this question, a challenging computational and philosophical task.\footnote{I
+discuss this problem in greater detail in Section \ref{whatisamaxim} and Section Limitations.} 
 
-Common-sense reasoning is also relevant when applying the universalizability test itself. Consider the example
+Common sense is also relevant when applying the universalizability test itself. Consider the example
 maxim ``When broke, I will falsely promise to repay a loan
 to get some quick cash.'' This maxim fails the universalizability test because in a world where everyone
 falsely promises to repay loans, no one will believe promises anymore, so the maxim will no longer serve
@@ -320,13 +322,13 @@ kind of common sense reasoning that an automated Kantian agent would need. This 
 Kantian ethics; consequentialists agents need common sense to determine the consequences of 
 an action and virtue ethical agents need common sense to determine which virtues an action
 reflects. For example, in the case of virtue ethics, in order to see that saving a baby from a lion 
-requires courage, we must have enough background knowledge to know that lions are scary. Making any 
+requires courage, a reasoner must have enough background knowledge to know that lions are scary. Making any 
 ethical judgement requires robust conceptions of the action at hand. Kantian ethics requires far less common sense 
 than a consequentialist or virtue ethical agent.\footnote{
 In Sections Lying and Murderer, I also use my system to demonstrate that Kantian ethics requires relatively thin conceptions 
 of concepts like falsely promising.} All
 moral theories evaluating falsely promising will a robust definition of promising, 
-but consequentialism and virtue ethics will also require additional information
+but consequentialism and virtue ethics will require additional information
 that Kantian ethics will not. Thus, although the need for common sense poses a challenge to automated
 Kantian ethics, this challenge is more acute for consequentialism or virtue ethics. \<close>
 

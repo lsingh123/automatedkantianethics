@@ -1,4 +1,4 @@
-\begin{thebibliography}{68}
+\begin{thebibliography}{70}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -53,6 +53,13 @@ E.~Awad, S.~Dsouza, A.~Shariff, I.~Rahwan, and J.-F. Bonnefon.
 \newblock ISSN 0027-8424.
 \newblock \doi{10.1073/pnas.1911517117}.
 \newblock URL \url{https://www.pnas.org/content/117/5/2332}.
+
+\bibitem[Baltag and Renne(2016)]{seplogicbelief}
+A.~Baltag and B.~Renne.
+\newblock {Dynamic Epistemic Logic}.
+\newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
+  Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2016
+  edition, 2016.
 
 \bibitem[Benzm{\"{u}}ller et~al.(2019)Benzm{\"{u}}ller, Parent, and van~der
   Torre]{logikey}
@@ -234,6 +241,11 @@ P.~Kitcher.
 \newblock \emph{Philosophical Topics}, 31\penalty0 (1/2):\penalty0 215--243,
   2003.
 \newblock \doi{10.5840/philtopics2003311/29}.
+
+\bibitem[Kitcher(2004)]{kitcher}
+P.~Kitcher.
+\newblock Kant's argument for the categorical imperative.
+\newblock \emph{Nous}, 38, 2004.
 
 \bibitem[Kohl(2015)]{kohl}
 M.~Kohl.

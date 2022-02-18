@@ -5,8 +5,8 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Virtue Ethics}{11}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}Kantian Ethics }{13}{subsubsection.2.1.3}%
 \contentsline {subsubsection}{\numberline {2.1.4}The Formula of Universal Law }{17}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.2}Dyadic Deontic Logic }{18}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Isabelle/HOL }{20}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.2}Dyadic Deontic Logic }{19}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Isabelle/HOL }{21}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}System Definition}{21}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Syntax}{22}{subsubsection.2.3.2}%
 \contentsline {section}{\numberline {3}Implementation Details}{25}{section.3}%
@@ -16,12 +16,15 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Practical Contradiction Interpretation of the FUL }{29}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Formalizing the FUL}{34}{subsubsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.2}Tests}{37}{subsection.3.2}%
-\contentsline {section}{\numberline {A}Appendix}{44}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{44}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{45}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{45}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{48}{subsubsection.A.2.2}%
-\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{50}{subsubsection.A.2.3}%
-\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{54}{subsubsection.A.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{57}{subsubsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{60}{subsection.A.3}%
+\contentsline {section}{\numberline {4}Applications }{45}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Simple Lying Examples }{48}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{54}{subsection.4.2}%
+\contentsline {section}{\numberline {A}Appendix}{63}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{63}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{64}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{64}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{68}{subsubsection.A.2.2}%
+\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{69}{subsubsection.A.2.3}%
+\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{73}{subsubsection.A.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{76}{subsubsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{79}{subsection.A.3}%
