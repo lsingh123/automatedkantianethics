@@ -33,100 +33,52 @@
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-In this chapter, I 
-demonstrate my system's ability to formalize longer, more complicated ethical arguments and present 
-the additional capabilities necessary to use my system in practice. In Chapter 2
-and Chapter 3, I performed metaethical reasoning while testing different formalizations of the FUL. Metaethical
-reasoning analyzes properties of moral thought itself and involves questions about the nature of ethical
-truth. This kind of reasoning contrasts with ``applied 
-ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
-what an agent should or should not do. Applied ethical reasoning is relevant with respect to an agent's
-particular situation, not just to an ethical theory as an abstract entity. In previous chapters' application tests,
-I performed some toy examples of applied ethical reasoning, but this chapter is an extended exploration of
-my system's ability to perform applied ethical reasoning. Metaethical reasoning is most interesting to philosophers 
-who are trying to formulate the ``best" theory of ethics. Applied ethical reasoning, on the other hand, 
-is useful to ordinary people who are trying to decide how to live their lives. In order for automated 
-ethics to guide AI agents, it must perform applied ethical reasoning. 
+In this chapter, I use my system to produce sophisticated, nuanced
+responses to two moral dilemmas. These dilemmas serve as examples of how my system could be used
+in practice and demonstrate my system's ability to formalize longer, more complicted ethical arguments
+than those presented in Chapter 3. 
+Many of the tests in Section \ref{testing} perform metaethical reasoning, which analyzes properties
+of morality itself and involves questions about the nature of ethical truth. In this chapter, I perform
+``applied ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
+what an agent should or should not do. This is the kind of reasoning necessary for an AI agent using my system to
+navigate the real world.
 
-One challenge of applied ethical reasoning is that it requires more common sense knowledge than metaethical
+One challenge of applied ethical reasoning is that it requires more factual background than metaethical
 reasoning. Because metaethics is about ethics itself, and not about the dilemmas that ethics is 
 supposed to help us resolve, this kind of reasoning requires very little knowledge about the world. 
-In previous chapters, I perform metaethical reasoning using my system (which formalizes an 
-ethical theory) and basic logical facts and objects. Applied ethical reasoning, on the other hand,
-focuses on a particular ethical dilemma and thus requires enough 
-``common sense" to understand the dilemma and options at hand. For example, an applied ethicist 
-evaluating the permissibility of lying needs some robust definition of the term lying and likely some
-understanding about the activities of communication and truth telling. Kantians specifically describe
-this common sense as ``postulates of rationality" that are nontrivial and nonnormative, but still
-part of the process of practical reasoning itself \citep{silber}. \citet{powers} notes that common sense 
-is a hurdle for an automated Kantian ethical agent. In this chapter, I attempt to tackle this challenge and
-endow my system with this kind of common sense in the specific case of lying. In order for my 
-system to be used to perform applied ethical reasoning, it will need to be equipped with a database
-of common sense facts and definitions as I present in this chapter. My system will contribute the core
-reasoning about the Formula of Universal Law, but this reasoning must be applied to objects that are defined
-in this common sense database. In this chapter, I try to understand what this common sense reasoning looks like
-for the specific example of lying. 
+Applied ethical reasoning, on the other hand,
+focuses on a particular ethical dilemma and thus requires enough factual background, or common sense, 
+to understand the dilemma and options at hand. For example, an applied ethicist 
+evaluating the permissibility of lying needs a robust definition of the term lying and likely some
+understanding of communication and truth telling. Kantians specifically describe
+this common sense as ``postulates of rationality'' that are nontrivial and nonnormative, but still
+part of the process of practical reasoning itself \citep{silber}. 
+
+In this chapter, I attempt to tackle this challenge by
+endowing my system with this kind of common sense in the specific case of lying. In order for my 
+system to perform applied ethical reasoning, it will need common sense facts and definitions, like
+those I present in this chapter. My system contributes the ability to reason
+using the Formula of Universal Law, but this reasoning must be applied to objects that are defined
+using common sense. In this chapter, I describe such common sense for the specific example
+of lying.
 
 Because these common sense facts can determine my system's judgements, they are part of the trusted
-code base for my system. In order for someone to trust my system's judgements, they must trust that the
-common sense database is correct becase changing these common sense facts will change the judgements 
+code base for my system, or the logic and code that a user must trust in order to trust my system. 
+Changing these common sense facts will change the judgements 
 that my system makes. For example, if we define truth telling as an act that is self-contradictory (perhaps
 by defining it as $p \wedge \neg p$), then my system will output that truth telling is prohibited.
-Malicious common sense facts and definitions will result in bad ethical judgements. In other words, garbage in, 
-garbage out. This common sense reasoning is also not a part of the system I contribute here—in order for my
-system to be used, future work must develop a common sense database for the particular situation at hand. 
+Malicious common sense facts and definitions will result in bad ethical judgements. 
 The challenge of endowing automated ethical reasoners with common sense reasoning is not unique to my 
 system, and virtually all prior attempts in machine ethics face similar challenges.\footnote{See Section
-Related Work for a survey of the common sense required in prior work.} Most prior attempts
+Related Work for a survey of the common sense required in prior work.} Many prior attempts
 sidestep this question, whereas I contribute an prototype implementation of one kind of common sense reasoning.
 
-The specific kind of common sense reasoning required appears to be a challenge 
-for automating Kantian ethics, and may imply that consequentialist or virtue ethical automated
-agents are within closer reach for automation. Ultimately, Kantian ethics is still
-easiest to automate because it will require fewer, less controversial common sense facts than other ethical
-systems. As the examples in this section demonstrate, Kantian ethics requires a definition of lying (which any other 
-theory would also requires) and the knowledge that if everyone lies in a given context, no one will believe 
-each other in that particular context. This latter fact may not be required for every ethical theory, 
-but is relatively uncontroversial. It is a kind of intuition about human behavior that is generally accepted. 
-Neither a definition of lying nor this property of lying seem like unreasonable prerequisites for ethical reasoning. 
-
-Consequentialism, on the other hand, would require much more specific data about the consequences of 
-a lie, perhaps for the specific person's credibility, for the victim of the lie, for the third-parties 
-watching the lie unfold. Consequentialism requires more numerous and specific judgements, all of which are 
-likely to be more controversial than the two outlined above for Kantian ethics. Similarly, virtue ethics
-would likely require information about the actor's entire moral character, including their attitude
-towards the lie and their moral history. Virtue ethics would also require robust definitions of the 
-relevant virtues, in addition to a definition of lying. Thus, while Kantian ethics requires some 
-common sense reasoning, it requires fewer and less controversial background facts than other ethical theories.
-
-The extended examples presented in this section also demonstrate the difficulty of formulating a 
-maxim to pass as input to my implementation of the FUL. A large part of the challenge of applied Kantian
-ethics is formulating a maxim that accurately captures an agent's principle of action, so a totally
-automated agent using my system will need some way to formulate these maxims well. In this section,
-I manually implement Korsgaard's formulation of certain maxims, and I will later argue that manual formulation
-of maxims is, at present, the way forward. 
-
-This chapter will provide additional examples of the kinds of common sense facts and maxim formulation required to get my system
-off the ground. I will aim to use a lean and uncontroversial common sense database
+This chapter will provide examples of the kinds of common sense facts required to get my system
+off the ground. I use a lean and uncontroversial common sense database
 to achieve robust and powerful results. This serves as evidence for the ease of automating
-Kantian ethics, an example of what additional work my system requires, and a demonstration of the contributions
-that I make. These examples demonstrate that nuanced common sense facts and maxims can cause my system to contribute 
-nuanced judgements faithful to philosophical literature. On one hand, this means that my system can perform
-sophisticated ethical reasoning, but on the other, the quality of this reasoning is heavily reliant on 
-the common sense database and the input maxim. Thus, my system \emph{could} make smart ethical judgements 
-in practice, but getting to that point will require a robust, trusted common sense database and maxim
-formulator.
-
-In this paper, I contribute an implementation of the Formula of Universal Law that, when equipped with 
-relatively thin common sense facts, can performed nuanced, sophisticated ethical reasoning. When given 
-as input a maxim in the format specified in Chapter 3, my system can show that the maxim is permissible, 
-obligatory, or prohibited. It can provide a verifiable proof of its judgement and a human-readable list
-of the facts or axioms it used to reach its conclusion. My system is faithful to philosophical literatire
-on Kantian ethics and serves as the first step towards a fully or partially automated ethical AI agent. 
-It also establishes the power and potential of computational ethics, or the use of computational tools
-for ethical investigation, as explored in this section's Applied Ethical reasoning. 
-
-\emph{Stick a bit here about the philosophical work that will go in this section}%
+Kantian ethics, an example of the additional work required to use my system in practice, and a 
+demonstration of my system's power and flexibility. These examples demonstrate that, armed with nuanced 
+common sense facts, my system can make sophisticated judgements faithful to philosophical literature.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -135,7 +87,7 @@ for ethical investigation, as explored in this section's Applied Ethical reasoni
 %
 \isatagdocument
 %
-\isamarkupsubsection{Simple Lying Examples \label{sec:lyingprelim}%
+\isamarkupsubsection{Lies and Jokes \label{joking}%
 }
 \isamarkuptrue%
 %
@@ -147,82 +99,106 @@ for ethical investigation, as explored in this section's Applied Ethical reasoni
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-This chapter focuses on the example of lying because this case is hotly debated in the Kantian
-literature. I draw on examples of ethical reasoning as presented in Korsgaard's ``Right to Lie," which 
-examines exactly how strict Kant's prohibition on lying is. She picks up a long-running debate in the 
-literature through the example of someone who shows up at your door and asks, ``Is Sara home?" Unbeknownst to them, 
-you know that they want to know Sara's location in order to murder her. Ordinary moral intuition 
-prescribes that, if Sara is home, you should lie and say that she is not in order to 
-protect her from the murderer, but the categorical imperative seems to prohibit lying in all 
-circumstances. In this section, I will formalize Korsgaard's treatment of lying and joking under the 
-categorical imperative, focusing on the common sense assumptions necessary to achieve her conclusions. 
-In the next section, I will formalize the core of Korsgaard's argument that the categorical imperative
-coheres with ordinary intuition and does not prohibit lying to the murderer to protect Sara.
+The moral status of lying is hotly debated in the Kantian literature. I focus on two dilemmas
+presented in Korsgaard's ``Right to Lie," which 
+examines how strict Kant's prohibition on lying is \citep{KorsgaardRTL}. She begins with the case of 
+lying and joking. Many of Kant's critics argue that his prohibition on lies includes lies told in 
+the context of a joke, which should be permissible. Korsgaard responds by arguing 
+that there is a crucial difference between lying and joking: lies involve deception, but jokes do not. 
+The purpose of a joke is amusement, which does not rely on the listener believing the story told. 
+Given appropriate definitions of lies and jokes, my system shows that jokes are permissible but lies 
+are not, demonstrating its power and flexibility. This section demonstrates how my system can be used 
+in practice; it needs to be given some baseline common sense facts, but with those facts, it can make 
+sophisticated judgements. Moreover, because my system is faithful to definitions found in philosophical 
+literature, it can perform nuanced reasoning, demonstrating the value of faithful automated ethics. 
 
-First, Korsgaard argues that the categorical imperative appears to prohibit all lies because, when universalized, 
-lies will no longer be believed. Thus, lying could never be an effective way of achieving any goal when universalized.
-Korsgaard points out that ``we believe what is said to us in a given context because most of the time 
-people in that context say what they really think" \citep[4]{KorsgaardRTL}. In order to formalize this argument,
-I first need to define the relevant terms.%
+First, Korsgaard argues that the categorical imperative prohibits lies because they involve deception. 
+When universalized, lies will no longer be believed, so lying could never be an effective way of achieving 
+any goal when universalized. Korsgaard points out that ``we believe what is said to us in a given 
+context because most of the time people in that context say what they really think'' \citep[4]{KorsgaardRTL}. 
+In order to formalize this argument, I first need to define the relevant terms and assumptions, which include
+lying and Korsgaard's argument about the basis of trust.
+
+I define lying and trust in terms of belief. As in Section \ref{details}, I choose thin, or minimal,
+definitions of terms like belief to reduce the potential for controversy in my system's factual background.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ believe{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}s{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isacharunderscore}\ believes\ {\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 %
-\isamarkupcmt{Person s::subject believes sentence t::term. The concept of belief will play a crucial role both in 
-the arguments for lying being prohibited and for the maxim of lying to the murderer being permissible. 
-Logicians and epistemologists have developed robust, complex logics of belief and knowledge \citep{seplogicbelief}. For the 
-sake of this project, I avoid this complexity by merely defining the concept of belief as an empty
-constant that maps a subject, term pair to a term. For the examples in this section, this choice suffices, 
-as my common sense beliefs encode enough properties of belief for my purposes. Future work could
-integrate a much more complex logic of belief into my system.%
-}\isanewline
-\isanewline
+\isamarkupcmt{\texttt{believe} is a constant that maps a subject and a term to another DDL term. For example, 
+subject ``Sara'' might believe the term ``the sky is blue'' to create the sentence ``Sara believes
+that the sky is blue,'' which can be true or false at a world.%
+}%
+\begin{isamarkuptext}%
+Logicians and epistemologists develop and debate complex logics of belief and knowledge \citep{seplogicbelief}. 
+I avoid this complexity by defining the concept of belief simply as a constant that maps a subject, term pair 
+to a term. For the examples in this section, this choice suffices. 
+I encode some minimal properties of belief below, but avoid any full definition of the term. 
+
+Belief is useful to construct the idea of ``knowingly uttering a falsehood,'' a core component 
+of both lying and joking.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ utter{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}s{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Person s::subject utters sentence t::term.%
+\isamarkupcmt{\texttt{utter} also maps a subject and term to another DDL term. For example, the sentence ``Sara
+utters, `I am hungry' '' is a DDL term that can be true or false at a world.%
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ utter{\isacharunderscore}falsehood{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}s{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\isanewline
-{\isachardoublequoteopen}utter{\isacharunderscore}falsehood\ s\ t\ {\isasymequiv}\ \ {\isacharparenleft}utter\ s\ t{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ t{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ {\isachardoublequoteopen}utter{\isacharunderscore}falsehood\ s\ t\ {\isasymequiv}\ \ {\isacharparenleft}utter\ s\ t{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ t{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Person s utters falsehood t if and only if s utters t and t is false.%
+\isamarkupcmt{To utter a falsehood is to utter a statement that is false, or to utter $t$ when $\neg t$.%
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
 \ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}s{\isasymRightarrow}t{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\isanewline
-{\isachardoublequoteopen}knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t\ {\isasymequiv}\ {\isacharparenleft}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ s\ t{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
+\ \ {\isachardoublequoteopen}knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t\ {\isasymequiv}\ {\isacharparenleft}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}\ \isactrlbold {\isasymand}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ s\ t{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Person s::subject knowingly utters a falsehood t, if they both utter t as a falsehood and don't
-believe t. This and the above abbreviations are the core of my formalization of Korsgaard's definition
-of lying. They are also relatively uncontroversial and have little normative content.%
-}\isanewline
-\isanewline
+\isamarkupcmt{Sometimes we unknowingly utter falsehoods. For example, if I believe that the Earth is flat, then 
+when I utter, ``the Earth is flat,'' I am unknowingly uttering a falsehood. This motivates defining
+the idea of knowingly uttering a falsehood, which requires both uttering a falsehood and not believing 
+your utterance. If I utter ``the Earth is flat,'' even though I know that the Earth is round, I am 
+knowingly uttering a falsehood.%
+}%
+\begin{isamarkuptext}%
+The above abbreviations are the core of my formalization of Korsgaard's definitions
+of lying and joking. They are also relatively uncontroversial and encode little moral
+or normative content. They say nothing about the moral status of uttering a falsehood, 
+the agent's intention when making the utterance, or the conversational norms guiding the utterance. 
+The complexities of a complete definition of lying or belief are 
+unnecessary for Kantian ethics, and therefore for my system, to make moral judgements. 
+
+Using the above definitions, I define lying. I characterize a maxim as involving a lie if 
+the act requires knowingly uttering a falsehood and the end requires that some person $p$ believe 
+the false statement $t$.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ lie{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
 {\isachardoublequoteopen}lie\ {\isasymequiv}\ {\isasymlambda}\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ {\isasymexists}t{\isachardot}\ {\isacharparenleft}a\ \isactrlbold {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}g\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Using the above definitions, I can characterize a maxim as a lie if 
-    (a) the act requires knowingly uttering a falsehood and,
-    (b) the end requires that some person $p$ believe the false statement $t$.%
+\isamarkupcmt{The abbreviation above maps a maxim to a boolean value that indicates if it is a lie.%
 }%
 \begin{isamarkuptext}%
-To avoid unintentional wrongdoing, I focus on ``knowing lies," 
+To avoid unintentional wrongdoing, I focus on ``knowing lies,'' 
 in which the speaker is aware that they are lying. It is uncontroversial that, in order for an act to be
-a knowing lie, the speaker must utter a false statement that they do not believe. The second half of 
-this definition requires that the goal of the lie is deception and is inspired by  Korsgaard's interpretation 
+a knowing lie, the speaker must utter a false statement that they do not believe. This also makes it 
+easier to make moral judgements about the speaker's action, since they were, at the very least, aware
+of their lie. The second half of
+this definition requires that the goal of the lie is deception. This is inspired by  Korsgaard's interpretation 
 of a lie. She understands a lie as a kind of falsehood that is usually effective \emph{because} it decieves
 \citep[4]{KorsgaardRTL}. In my formalization, this means that the purpose or goal of the maxim must
-involve decieving someone, or, in other words, that someone believe the falsehood told.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-With the above logical background, I can now automate Korsgaard's argument that maxims that involve
+involve decieving someone, or, in other words, that someone believe what the speaker knows to be a 
+falsehood. 
+
+With the above logical background, I automate Korsgaard's argument that maxims that involve
 lying are prohibited. First, I define the subject and maxim at hand.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ me{\isacharcolon}{\isacharcolon}s\isanewline
 %
-\isamarkupcmt{I am trying to reason about \emph{my} obligations so I will define myself as a specific subject.%
+\isamarkupcmt{I am trying to reason about \emph{my} obligations so I will define myself as a specific subject. Again,
+this is a minimal definition that does not include any facts about me, such as the fact that my name is
+Lavanya or that I have brown hair.%
 }\isanewline
 \isacommand{consts}\isamarkupfalse%
 \ m{\isacharcolon}{\isacharcolon}maxim\isanewline
@@ -237,9 +213,9 @@ is prohibited.%
 }%
 \begin{isamarkuptext}%
 In the following lemma, I use my system to show that lying is prohibited. The assumptions of 
-this lemma represent the logical and common sense background necessary to reach this conclusion. This
+this lemma represent the common sense necessary to reach this conclusion. This
 common sense background is a direct formalization of the premises of Korsgaard's argument. Using these
-relatively ``thin" premises about individual behavior, my system can derive a prohibition against lying.%
+relatively minimal premises about individual behavior, my system derives a prohibition against lying.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ lying{\isacharunderscore}prohibited{\isacharcolon}\isanewline
@@ -256,16 +232,15 @@ knowingly uttering a falsehood and the goal requires that someone believe this f
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{Assumption that if everyone utters false statement $t$, then no one will believe $t$. This assumption is 
-Korsgaard's core piece of ``common sense" about lying \cite[5]{KorsgaardRTL}. This simple assumption encodes the common sense knowledge
+Korsgaard's core piece of ``common sense'' about lying \cite[5]{KorsgaardRTL}. This simple assumption encodes the common sense knowledge
 that human communication involves an implicit trust, and that when this trust erodes, the convention of 
 communication begins to break down and people no longer believe each other. Call this the ``convention of 
-lying" fact. In the rest of this section, I will test versions of this assumption, effectively encoding 
+trust'' fact. In the rest of this section, I will test versions of this assumption, effectively encoding 
 different common sense understandings of lying.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ c\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Restrict our focus to worlds in which the circumstances hold, as these are the morally interesting 
-worlds for this example. A technical detail.%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstances hold. A technical detail.%
 }\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}prohibited\ m\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
@@ -281,10 +256,10 @@ worlds for this example. A technical detail.%
 \ \ \ \ \isacommand{by}\isamarkupfalse%
 \ {\isacharparenleft}smt\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{5}}{\isacharparenright}\ case{\isacharunderscore}prod{\isacharunderscore}beta\ fst{\isacharunderscore}conv\ old{\isachardot}prod{\isachardot}exhaust\ snd{\isacharunderscore}conv{\isacharparenright}\isanewline
 %
-\isamarkupcmt{Unlike many of the other proofs in this project, this proof is a little heavier and requires some manual
-work to produce. After I divide the proof into the intermediate steps shown here, and Isabelle is able to do 
+\isamarkupcmt{This proof requires some manual work. After I divide the proof into the intermediate steps shown 
+here, Isabelle is able to do 
 the rest. This step says that if $m$ is universalized, then the circumstances won't lead to the goal, 
-which is quite close to the idea of the maxim not being universalizable.%
+which is close to the idea of the maxim not being universalizable.%
 }\isanewline
 \ \ \isacommand{have}\isamarkupfalse%
 \ {\isachardoublequoteopen}not{\isacharunderscore}universalizable\ m\ me{\isachardoublequoteclose}\isanewline
@@ -297,7 +272,7 @@ which is quite close to the idea of the maxim not being universalizable.%
 \ blast\ \isanewline
 %
 \isamarkupcmt{$?thesis$ is Isabelle's syntax for the goal of the lemma. In this case, $?thesis$ is equivalent to 
-$\vDash prohibited\! m \! me$.%
+$\vDash prohibited \; m \; me$.%
 }\isanewline
 \isacommand{qed}\isamarkupfalse%
 %
@@ -309,25 +284,37 @@ $\vDash prohibited\! m \! me$.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-Now that I have formalized Korsgaard's argument for why lying is prohibited, I will 
+The lemma above demonstrates that my system finds that lying is prohibited with a thin definition
+of lying and relatively uncontroversial facts about the world. The logical background needed is the fact that lying
+requires knowingly uttering a falsehood with the goal that someone believe the falsehood, a definition
+of lying that is relatively well-accepted. The factual background needed consists of the fact that if 
+everyone lies in a given context, then people will stop believing each other in that context. This is 
+a slightly heavier assumption, but it is still so uncontroversial that Korsgaard doesn't bother to justify
+it in her argument against lying \citep{KorsgaardRTL}. 
+
+Now that I have formalized Korsgaard's argument for why lying is prohibited, I will
 implement her argument for why jokes are permissible. Specifically, she defines a joke as a story that is 
 false and argues that joking is permissible because ``the universal practice of lying in the context of jokes
 does not interfere with the purpose of jokes, which is to amuse and does not depend on
-deception" \citep[4]{KorsgaardRTL}. First, I define a joke.%
+deception'' \citep[4]{KorsgaardRTL}. I use the fact that a joke does not depend on deception as the 
+defining feature of a joke.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ joke{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
-{\isachardoublequoteopen}joke\ {\isasymequiv}\ {\isasymlambda}\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ \ {\isasymexists}t{\isachardot}\ {\isacharparenleft}a\ \isactrlbold {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isasymnot}\ {\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}g\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}%
+{\isachardoublequoteopen}joke\ {\isasymequiv}\ {\isasymlambda}\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}{\isachardot}\ \ {\isasymexists}t{\isachardot}\ {\isacharparenleft}a\ \isactrlbold {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ t{\isacharparenright}{\isacharparenright}\ {\isasymand}\ {\isasymnot}\ {\isacharparenleft}{\isasymexists}p{\isachardot}\ {\isasymforall}w{\isachardot}\ {\isacharparenleft}g\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
+%
+\isamarkupcmt{Thie abbreviation states that a maxim is a joke if the action involves knowingly uttering a falsehood but
+the goal does \emph{not} require that someone believe the falsehood told.%
+}%
 \begin{isamarkuptext}%
-This definition of a joke merely defines a joke as a falsehood uttered for some purpose that 
-doesn't require deception, where deception involves someone believing the uttered falsehood. Notice 
-that this is quite a thin definition of a joke; it doesn't require any conception of humor but merely
-distinguishes jokes from lies. As far as common sense reasoning goes, this is a relatively tame proposition. 
-I will now demonstrate that this conception of a joke is sufficient to show that joking is permissible.
+This definition of a joke defines a joke as a falsehood uttered for some purpose that 
+doesn't require deception, where deception involves someone believing the uttered falsehood. 
+This definition doesn't require any conception of humor, but merely
+distinguishes jokes from lies. 
 
 Korsgaard argues that her above argument for a prohibition against lying also implies that joking is 
-permissible, because its purpose is \emph{not} to decieve, but something else entirely. This means that, 
-even armed with the same core convention of lying assumption as above, joking must be permissible. The 
+permissible, because its purpose is not to decieve, but something else entirely. This means that, 
+even armed with the same convention of trust assumption as above, joking should be permissible. The 
 lemma below shows exactly that.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
@@ -344,12 +331,11 @@ falsehood and the goal does not require that someone believe this falsehood.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{The same convention of lying assumption as in the above example.%
+\isamarkupcmt{The same convention of trust assumption as in the above example.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ c\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Restrict our focus to worlds in which the circumstances hold, as these are the morally interesting 
-worlds for this example. An irrelevant technical detail.%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstances hold. A technical detail.%
 }\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}permissible\ m\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
@@ -359,7 +345,14 @@ worlds for this example. An irrelevant technical detail.%
 %
 \isatagproof
 \isacommand{by}\isamarkupfalse%
-\ {\isacharparenleft}smt\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ case{\isacharunderscore}prod{\isacharunderscore}conv{\isacharparenright}%
+\ {\isacharparenleft}smt\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{3}}{\isacharparenright}\ case{\isacharunderscore}prod{\isacharunderscore}conv{\isacharparenright}\isanewline
+%
+\isamarkupcmt{Isabelle is able to show that maxims about joking are permissible. It also lists the facts used 
+in its proof, which offer insight into how it arrived at its judgement. Specifically, it uses assumptions 1, 
+2, and 3, which are the logical background and definition of the joking maxim. Notably, it does not use the 
+convention of trust assumption. This demonstrates that even the convention of trust assumption is not
+strong enough to prohibit joking, which is exactly the desired result.%
+}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -368,61 +361,45 @@ worlds for this example. An irrelevant technical detail.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-One potential worry with the above argument is the fact that my definition of joke requires that 
-achieving the goal of a joke does not rely on anyone believing the falsehood told in the joke. On its face, 
-this is not a complete representation of a joke; the ordinary conception of a joke would be something like 
-a false statement uttered with the goal of amusing. I define the goal of the joke as not requiring that 
-anyone believe the false statement to distinguish it from lying, which has deception as the goal. I 
-intentionally avoid providing robust formalizations of both deception and amusement; instead I present a 
-thin conception that relies entirely on the concept of belief. This conception does not require any notion
-of humor, satire, intention, or malice, all of which are concepts that may be necessary to define 
-amusement and deception completely. 
-
-The fact that my system shows that lies are prohibited and jokes are permissible with these things 
-conceptions of amusement and deception shows that my system isolates a necessary and sufficient property 
-of a class of maxims that fail the universalizability test. Because my definitions of a lie and joke
-only differ in whether or not their goal requires that someone believe the falsehood in question, the
-theorems proved in this section show that, in order for a maxim with the act of knowingly uttering a falsehood
-to be prohobited, the goal requires that someone believe the falsehood is a necessary and sufficient condition. 
+My system shows that lies are prohibited and jokes are permissible with thin 
+conceptions of amusement and deception. This shows that it isolates a necessary and sufficient property 
+of this class of maxims that fail the universalizability test. My definitions of a lie and joke
+only differ in whether or not their goal requires that someone believe the falsehood in question, so
+this is a necessary and sufficient condition for a maxim about knowingly uttering falsehoods to be prohibited.
 This logical fact derived by my system tracks a fact implicit in Korsgaard's argument and in most Kantian accounts
 of lying: the wrongness of lying is derived from the requirement that someone believe the falsehood. 
 The logical reality that this property is necessary and sufficient to generate a prohibition reflects
 a deep philosohopical explanation of \emph{why} certain maxims about uttering falsehood fail the universalizability
-test and why others pass. In simple terms, universalizing uttering a falsehood makes belief in that 
+test. Universalizing uttering a falsehood makes belief in that 
 falsehood impossible, so any maxims with goals that require believing in the falsehood will be prohibited.
 
-This account not only describes the kind of maxims that fail or pass the universalizability test, it 
+This account not only describes the kind of maxims that fail or pass the universalizability test, but it 
 also provides a guide to constructing permissible maxims about uttering falsehoods. As an example, 
 consider the idea of throwing a surprise birthday party. At first glance, the maxim of action is 
 something like, ``When it is my friend's birthday, I will secretly plan a party so that I can surprise
-them." The goal ``so that I can surprise them" clearly requires that your friend believe the falsehood that 
-you are not planning a party, else the surprise would be ruined. The analysis above seems to imply that 
+them.'' The goal ``so that I can surprise them'' clearly requires that your friend believe the falsehood that 
+you are not planning a party, else the surprise would be ruined. This seems to imply that 
 Kantian ethics would prohibit surprise parties, which is a sad conclusion for birthday-lovers everywhere. 
-Noticing that the problem with this maxim is that the goal requires belief
-in a falsehood provides a way to rescue the beloved concept of surprise parties. When throwing a 
-surprise party, the ultimate objective is \emph{not} to surprise your friend, but is to celebrate
+Knowing that this maxim is prohibited because the goal requires belief
+in a falsehood provides a way to rescue surprise parties. When throwing a 
+surprise party, the objective is \emph{not} to surprise your friend, but to celebrate
 your friend and help them have a fun birthday. If someone ruins the surprise, but the party is still fun
-and the birthday person still feels loved, then we would consider such a party a success! Someone who
-called this party a failure clearly would be missing the point of a surprise party. Thus, the goal of 
-a surprise party is not the surprise itself, but rather to celebrate the birthday person. Thus modified, 
-the goal no longer requires belief in the falsehood and thus passes the universalizability test. 
+and the birthday person feels loved, then such a party is a success! Someone who
+calls this party a failure is clearly missing the point of a surprise party. The goal of 
+a surprise party is not the surprise itself, but rather celebrating the birthday person. The modified
+goal no longer requires belief in the falsehood and thus passes the universalizability test. 
 
-The implications of this section are twofold. First, my system is capable of performing ethical reasoning
-sophisticated enough to show that lying is prohibited but joking is not. The sophistication
-necessary to distinguish between lying and joking was a direct consequence of my system's use of a robust
-conception of a maxim, which encoded the goal of an act as part of the maxim being evaluated. Second, 
+There are two implications of this section. First, my system is capable of performing ethical reasoning
+sophisticated enough to show that lying is prohibited but joking is not. This is a direct consequence 
+of my system's use of a robust conception of a maxim, which encodes the goal of an act as part of the 
+maxim being evaluated. Because my implementation is faithful to philosophical literature, it is able 
+to recreate Korsgaard's solution to a complex ethical dilemma that philosophers debated for decades. Second, 
 in the process of making this argument precise, my system isolated a necessary and sufficient condition 
 of a maxim about uttering a falsehood being prohibited: that the goal require that someone believe
 the falsehood. This condition both made an long-standing argument in Kantian ethics more precise
 and can guide the correct formulation of future maxims. In other words, an insight generated by the 
-computer provides value to ethicists. 
-
-Moreover, all of the reasoning in this chapter required relatively few and uncontroversial common sense facts. The deepest
-assumption required was that, if everyone lies about a given statement, no one will believe that 
-statement. This assumption is not merely definitional; it does encode some synthetic knowledge about the 
-world, but it is relatively uncontroversial. Indeed, it is so well-accepted that Korsgaard does not 
-bother to justify it in her argument. These examples showed that, while common sense reasoning 
-is an obstacle that must be overcome for my system to be used in practice, it is surmountable.%
+computer provides value to ethicists, bolstering the argument for computational ethics provided in 
+Section Computational Ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -431,7 +408,7 @@ is an obstacle that must be overcome for my system to be used in practice, it is
 %
 \isatagdocument
 %
-\isamarkupsubsection{Lying to a Liar \label{sec:lyingtoliar}%
+\isamarkupsubsection{Lying to a Liar \label{murderer}%
 }
 \isamarkuptrue%
 %
@@ -443,31 +420,29 @@ is an obstacle that must be overcome for my system to be used in practice, it is
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Once Korsgaard completes her preliminary work differentiating between lies and jokes, she begins her main
- argument, which examines the controversial case of the murderer at the door. Recall that the murderer
-appears at your door and asks if his intended victim is at home. Ordinary intuition requires that it 
-is at the very least permissible (if not obligatory) to lie to the murderer in order to protect the 
-victim. Korsgaard notes that a murderer who wishes to find his victim cannot simply announce his
-intentions to murder; instead, he must ``must suppose that you do not know who he is and
-what he has in mind" \citep[5]{KorsgaardRTL}.\footnote{Korsgaard assumes that the murderer will lie 
-about his identity in order to take advantage of your honesty. In footnote 5, she accepts that her 
-arguments will not apply in the case of the honest murderer who announces his intentions, so she 
-restricts her focus to the case of lying to a liar. She claims that in the case of the honest murderer, the correct act is 
-to refuse to respond, but she does not argue for this in this paper.} Thus, she can modify the maxim in 
-question to specify that when someone lies to you, you are allowed to lie to them. The maxim of lying 
-to the murderer is actually the maxim of lying to a liar, which she argues is permissible. Notice that
-her argument hinges on this clever, but ultimately sensical formulation of your maxim. She notes
-that there is something relevant and significant about the fact that the person demanding to know Sara's
-location is a murderer and that he is trying to take advantage of your honesty. This claim is not
-unfounded or wildly controversial, but it does demonstrate the importance of correctly formulating
-the maxim to test. In this section, I will formalize her argument for lying to a liar.
+My system can not only distinguish between lying and joking, but it can also resolve the paradox of 
+the murderer at the door. In this dilemma, murderer Bill knocks on your door asking about Sara, his 
+intended victim. Sara is at home, but moral intuition says that you should lie to Bill and say 
+that she is out to prevent him from murdering her. Many critics of Kantian ethics argue that the 
+FUL prohibits you from lying in this instance; if everyone lied to murderers, then murderers wouldn't 
+believe the lies and would search the house anyways. Korsgaard resolved this centuries-long debate by 
+noting that the maxim of lying to a murderer is actually that of lying to a liar: Bill cannot 
+announce his intentions to murder; instead, he must ``must suppose that you do not know who he is 
+and what he has in mind'' \citep{KorsgaardRTL}.\footnote{Korsgaard assumes that the murderer will 
+lie about his identity in order to take advantage of your honesty to find his victim. In footnote 5 
+of \citep{KorsgaardRTL}, she accepts that her arguments will not apply in the case of the honest murderer 
+who announces his intentions, so she restricts her focus to the case of lying to a liar. She claims 
+that in the case of the honest murderer, the correct act is to refuse to respond.} Thus, the maxim 
+in question specifies that when someone lies to you, you are allowed to lie to them. The maxim of 
+lying to the murderer is actually the maxim of lying to a liar, which is permissible. 
 
-As usual, I first define my terms.%
+In this section, I formalize her argument for the permissibility of lying to a liar. First, I define
+Bill's maxim, which is to hide his intention to murder.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ murderer{\isacharcolon}{\isacharcolon}s\isanewline
 %
-\isamarkupcmt{This example involves one more subject: the murderer.%
+\isamarkupcmt{This example involves one additional subject: the murderer.%
 }\isanewline
 \isacommand{consts}\isamarkupfalse%
 \ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharcolon}{\isacharcolon}t\isanewline
@@ -491,10 +466,14 @@ those knocking on their door are not murderers.%
 {\isachardoublequoteopen}murderers{\isacharunderscore}maxim\ {\isasymequiv}\ {\isacharparenleft}when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door{\isacharcomma}\ {\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharcomma}\ find{\isacharunderscore}victim{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{Using the above definitions, I can define the murderer's maxim as, ``When at your door, I will knowingly
-utter the falsehood that I am not a murderer in order to find my intended victim." Now I will repeat
-the same process for your maxim.%
-}\isanewline
-\isanewline
+utter the falsehood that I am not a murderer in order to find my intended victim.''%
+}%
+\begin{isamarkuptext}%
+These constants are defined only in relation to each other and elide most of the complex features
+of murder, life, and death. These thin representations will suffice to show
+the wrongness of the murderer's maxim. Similarly, I can use thin representations to define your
+maxim of lying about Sara's whereabouts.%
+\end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ victim{\isacharunderscore}not{\isacharunderscore}home{\isacharcolon}{\isacharcolon}t\isanewline
 %
@@ -516,66 +495,13 @@ the same process for your maxim.%
 {\isachardoublequoteopen}my{\isacharunderscore}maxim\ {\isasymequiv}\ {\isacharparenleft}murderer{\isacharunderscore}at{\isacharunderscore}door{\isacharcomma}\ \ {\isasymlambda}s{\isachardot}\ knowingly{\isacharunderscore}utter{\isacharunderscore}falsehood\ s\ victim{\isacharunderscore}not{\isacharunderscore}home{\isacharcomma}\ protect{\isacharunderscore}victim{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{Using these definitions, I construct your maxim, which is ``When a murderer is at my door, I will 
-knowingly utter the falsehood that his intended victim is not at home in order to protect the victim."%
+knowingly utter the falsehood that his intended victim is not at home, in order to protect the victim.''%
 }%
-\begin{isamarkuptext}%
-Now that I have defined the maxims at hand, I can begin reasoning about them. First, I will show 
-that, using the same convention of lying common sense fact as above, the murderer's maxim is prohibited.
-Effectively, this tests that the assumption is indeed strong enough to prohibit lying.%
-\end{isamarkuptext}\isamarkuptrue%
-\isacommand{lemma}\isamarkupfalse%
-\ murderers{\isacharunderscore}maxim{\isacharunderscore}prohibited{\isacharcolon}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ murderers{\isacharunderscore}maxim\ murderer\ w{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{Initial set-up: the murderer's maxim is well-formed.%
-}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}find{\isacharunderscore}victim\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ me\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{Assumption that, in order for the murderer to find their victim, you must not believe that he is a murderer.
-This is an example of the kind of situation-specific common sense reasoning necessary to use my system.
-Again, this is Korsgaard's uncontroversial assumption; the murderer assumes that if you knew he was a murderer, you 
-would not disclose the victim's location to him.%
-}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}t\ w{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymforall}p{\isachardot}\ utter{\isacharunderscore}falsehood\ p\ t\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymforall}p{\isachardot}\ \isactrlbold {\isasymnot}\ {\isacharparenleft}believe\ p\ t{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{The convention of lying common sense assumption from above.%
-}\isanewline
-\ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door\ w{\isachardoublequoteclose}\isanewline
-%
-\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
-these are the morally interesting worlds for this example. An irrelevant technical detail.%
-}\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}prohibited\ murderers{\isacharunderscore}maxim\ murderer{\isacharparenright}{\isachardoublequoteclose}\ \ \ \isanewline
-%
 \isadelimproof
 %
 \endisadelimproof
 %
 \isatagproof
-\isacommand{proof}\isamarkupfalse%
-\ {\isacharminus}\ \isanewline
-%
-\isamarkupcmt{Again, this proof is too heavy for Isabelle to finish on its own, so I needed to specify some
-intermediate steps. The same intermediate steps as above sufficed, effectively providing a pattern for 
-the proof. Isabelle does allow users to define custom `proof methods,' so a more robust version of 
-my system could define this proof pattern as a method and apply it in cases involving lies.%
-}\isanewline
-\ \ \isacommand{have}\isamarkupfalse%
-\ {\isachardoublequoteopen}{\isacharparenleft}{\isasymforall}p\ w{\isachardot}\ {\isacharparenleft}W\ murderers{\isacharunderscore}maxim\ p{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymTurnstile}\ {\isacharparenleft}when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}\isactrlbold {\isasymnot}\ find{\isacharunderscore}victim{\isacharparenright}{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
-\ \ \ \ \isacommand{using}\isamarkupfalse%
-\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
-\ auto\isanewline
-\ \ \ \isacommand{have}\isamarkupfalse%
-\ {\isachardoublequoteopen}not{\isacharunderscore}universalizable\ murderers{\isacharunderscore}maxim\ murderer{\isachardoublequoteclose}\isanewline
-\ \ \ \ \ \isacommand{using}\isamarkupfalse%
-\ assms{\isacharparenleft}{\isadigit{2}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{4}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
-\ auto\isanewline
-\ \ \ \isacommand{thus}\isamarkupfalse%
-\ {\isacharquery}thesis\isanewline
-\ \ \ \ \ \isacommand{using}\isamarkupfalse%
-\ FUL\ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
-\ blast\isanewline
-\ \isacommand{qed}\isamarkupfalse%
 %
 \endisatagproof
 {\isafoldproof}%
@@ -585,49 +511,49 @@ my system could define this proof pattern as a method and apply it in cases invo
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-I will now formalize Korsgaard's argument for the permissibility of lying to a liar. She modifies
-the convention of lying assumption above when she argues that, if the murderer believes that you don't 
+I now formalize Korsgaard's argument for the permissibility of lying to a liar. She modifies
+the convention of trust assumption above when she argues that, if the murderer believes that you don't 
 believe he is a murderer, he will think that you won't lie to him. Precisely, she claims that, 
 ``it is because the murderer supposes you do not know what circumstances you are in - that is, that 
 you do not know you are addressing a murderer - and so does not conclude from the fact that people 
-in those circumstances always lie that you will lie" \cite[6]{KorsgaardRTL}. Even though the maxim of 
-lying to a murderer is universalized, the murderer thinks that you don't know his true identity. Thus,
+in those circumstances always lie that you will lie'' \cite[6]{KorsgaardRTL}. Even though the maxim of 
+lying to a murderer is universalized, Bill thinks that you don't know his true identity. Thus,
 even if you have willed this maxim, he thinks that you won't perform the act of lying to the murderer,
-since you don't think you're in the relevant circumstances. I formalize this argument below.%
+since he thinks that you don't think you're in the relevant circumstances. I formalize this argument below.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ lying{\isacharunderscore}to{\isacharunderscore}liar{\isacharunderscore}permissible{\isacharcolon}\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ murderers{\isacharunderscore}maxim\ murderer{\isacharparenright}{\isachardoublequoteclose}\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}well{\isacharunderscore}formed\ my{\isacharunderscore}maxim\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Assume that we're working with well-formed maxims.%
+\isamarkupcmt{Initial set-up: both maxims are well-formed.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}protect{\isacharunderscore}victim\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}murderer\ believes\ victim{\isacharunderscore}not{\isacharunderscore}home{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{In order for you to successfully protect the victim, the murderer must believe that the victim is not
-home. This is a noncontroversial assumption about the specific act at hand.%
+\isamarkupcmt{In order for you to protect the victim, the murderer must believe that the victim is not home.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}sentence{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}p{\isadigit{1}}{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isasymforall}p{\isadigit{2}}{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isasymforall}w{\isacharcolon}{\isacharcolon}i{\isachardot}\ {\isacharparenleft}{\isacharparenleft}p{\isadigit{1}}\ believes\ {\isacharparenleft}utter{\isacharunderscore}falsehood\ p{\isadigit{2}}\ sentence{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymnot}\ {\isacharparenleft}p{\isadigit{1}}\ believes\ sentence{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
 \isamarkupcmt{This is one of two assumptions that encode Korsgaard's core argument. If person1 believes that person2 
 utters a sentence as a falsehood, then person1 won't believe that sentence. This is a modification of the 
-convention of lying assumption from above, and I will refer to it as the ``convention of belief" assumption.
-Again, like the convention of lying assumption, this assumption is uncontroversial: if I think you are 
+convention of trust assumption from above, and I will refer to it as the ``convention of belief" assumption.
+Again, like the convention of trust assumption, this assumption is uncontroversial: if I think you are 
 saying a false sentence, then I won't believe that sentence.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}c\ a\ g\ w{\isachardot}\ {\isacharparenleft}universalized\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isacharparenleft}person{\isadigit{1}}\ believes\ {\isacharparenleft}person{\isadigit{2}}\ believes\ c{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}person{\isadigit{1}}\ believes\ {\isacharparenleft}a\ person{\isadigit{2}}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{This is the second major common sense assumption. If the maxim (c, a, g) is universalized, then if person1 believes 
-person2 believes they are in the given circumstances, then person1 believes person2 performs the act. In other words, person1 will believe that 
-person2 wills the maxim. I will refer to this as the ``convention of willing" assumption. This follows
+\isamarkupcmt{This is the second major common sense assumption. If the maxim (c, a, g) is universalized, then 
+if person1 believes that person2 believes they are in the given circumstances, then person1 believes 
+that person2 performs the act. In other words, person1 will believe that 
+person2 wills the maxim. I will refer to this as the ``convention of willing'' assumption. This follows
 directly from Korsgaard's conception of universalizability: when a maxim is universalized, everyone 
 wills it and thus notices the pattern of everyone willing it. If you observe that many do X in circumstances C,
 you will assume that everyone does X in circumstance C.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ murderer{\isacharunderscore}at{\isacharunderscore}door\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
-these are the morally interesting worlds for this example. An irrelevant technical detail.%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds. 
+A technical detail.%
 }\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}permissible\ my{\isacharunderscore}maxim\ me{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
@@ -640,9 +566,9 @@ these are the morally interesting worlds for this example. An irrelevant technic
 \ assms{\isacharparenleft}{\isadigit{1}}{\isacharparenright}\ assms{\isacharparenleft}{\isadigit{6}}{\isacharparenright}\ \isacommand{by}\isamarkupfalse%
 \ auto\isanewline
 %
-\isamarkupcmt{Notice the use of the first and sixth assumption in this automatically generated proof. Essentially, 
-the common sense assumptions given are not strong enough to generate a prohibition against lying to a liar,
-and are thus unused in this proof.%
+\isamarkupcmt{Isabelle completes this proof using the first and sixth assumption, ignoring the convention of 
+belief and convention of willing assumptions. These common sense assumptions are 
+not strong enough to generate a prohibition against lying to a liar and are thus unused in this proof.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -652,32 +578,33 @@ and are thus unused in this proof.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-The above lemma shows that, with a more nuanced set of common sense facts, my system can show that 
-lying to a liar is permissible. Moreover, I know that this set of assumptions is correct because it 
-can also show that the murderer's maxim is prohibited. I show this in the lemma below.%
+The above lemma shows that, with a nuanced set of common sense facts, my system can show that 
+lying to a liar is permissible. One worry may be that this set of assumptions is too weak to yield a 
+prohibition against wrong maxims, like that of the murderer. As a sanity check, I show that this set of assumptions 
+prohibits the murderer's maxim below.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
-\ murderers{\isacharunderscore}maxim{\isacharunderscore}prohibited{\isadigit{2}}{\isacharcolon}\isanewline
+\ murderers{\isacharunderscore}maxim{\isacharunderscore}prohibited{\isacharcolon}\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ well{\isacharunderscore}formed\ murderers{\isacharunderscore}maxim\ murderer\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{The murderer's maxim is a well-formed maxim composed of some circumstances, act, and goal.%
+\isamarkupcmt{Initial set-up: the murderer's maxim is well-formed.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}find{\isacharunderscore}victim\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}believe\ me\ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharparenright}{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Assumption that, in order for the murderer to find their victim, you must not believe that they are a murderer.%
+\isamarkupcmt{In order for you to protect the victim, the murderer must believe that the victim is not home.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}sentence{\isacharcolon}{\isacharcolon}t{\isachardot}\ {\isasymforall}p{\isadigit{1}}{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isasymforall}p{\isadigit{2}}{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isasymforall}w{\isacharcolon}{\isacharcolon}i{\isachardot}\ {\isacharparenleft}{\isacharparenleft}p{\isadigit{1}}\ believes\ {\isacharparenleft}utter{\isacharunderscore}falsehood\ p{\isadigit{2}}\ sentence{\isacharparenright}{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isasymnot}\ {\isacharparenleft}p{\isadigit{1}}\ believes\ sentence{\isacharparenright}\ w{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{The convention of belief assumption from above.%
+\isamarkupcmt{The convention of belief assumption.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}c\ a\ g\ w{\isachardot}\ {\isacharparenleft}universalized\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ w{\isacharparenright}\ {\isasymlongrightarrow}\ {\isacharparenleft}{\isacharparenleft}person{\isadigit{1}}\ believes\ {\isacharparenleft}person{\isadigit{2}}\ believes\ c{\isacharparenright}{\isacharparenright}\ \isactrlbold {\isasymrightarrow}\ {\isacharparenleft}person{\isadigit{1}}\ believes\ {\isacharparenleft}a\ person{\isadigit{2}}{\isacharparenright}{\isacharparenright}{\isacharparenright}\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{The convention of willing assumption from above.%
+\isamarkupcmt{The convention of willing assumption.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ when{\isacharunderscore}at{\isacharunderscore}my{\isacharunderscore}door\ w{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds, as 
-these are the morally interesting worlds for this example. An irrelevant technical detail.%
+\isamarkupcmt{Restrict our focus to worlds in which the circumstance of the murderer being at my door holds. 
+A technical detail.%
 }\isanewline
 \ \ \isakeyword{shows}\ {\isachardoublequoteopen}{\isasymTurnstile}\ {\isacharparenleft}prohibited\ murderers{\isacharunderscore}maxim\ murderer{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
@@ -719,84 +646,36 @@ in order to find a victim is not. The assumptions used in this example were a li
 ultimately uncontroversial because they were direct consequences of Korsgaard's definition of willing 
 and of ordinary definitions of lying. These thin assumptions were sufficient to generate moral conclusions
 that Kantian scholars debate robustly. Armed with this common sense, my system generated 
-a conclusion that many critics of Kant failed to see.
-
-While it is true that lying to the murderer should be permissible, Korsgaard notes that many will want
+a conclusion that many critics of Kant prior to Korsgaard failed to see.\footnote{
+While it is true that lying to the murderer should be permissible, Korsgaard notes that many may want
 to say something stronger, like the fact that lying to the murderer is obligatory in order to protect
-the intended victim \citep[15]{KorsgaardRTL}. It seems like we would be doing something wrong if I revealed the victim's
-location, knowing that this revelation would cost them their life. Korsgaard solves this problem by 
+the intended victim \citep[15]{KorsgaardRTL}. Korsgaard solves this problem by 
 noting that, while the FUL shows that lying to the murderer permissible, other parts of Kant's ethics
 show that it is obligatory. Recall that Kant presents perfect and imperfect duties,
 where the former are strict, inviolable, and specific and the latter are broader prescriptions for action.
-Perfect duties always supersede imperfect duties when the two conflict.
-For example, the duty to not murder is a perfect duty and the duty to give to charity is an imperfect duty. 
-The FUL generates perfect duties and Kant's extended theory of virtues generates imperfect duties. The details
-of this theory and these distinctions are outside the scope of this paper, but the crucial note is that 
-other parts of Kant's ethical theory generate the obligation to lie to the murderer. I chose
-to formalize the FUL because it is, in some sense, the strongest of version of the categorical
-imperative. An even more sophisticated Kantian reasoner could formalize his theory of virtue and his
-other formulatations of the categorical imperative in order to generate the obligation to lie to the murderer, 
-but the FUL is the strongest and most foundational of these principles. The fact that my system merely
-shows that lying to the murderer is permissible, but not obligatory is consistent with the part of 
-Kant's ethical theory that I formalize and demonstrates that I have faithfully implemented the FUL.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-While this example demonstrates the power of my system (when equipped with some common sense), it 
-also shows how vital the role of the common sense reasoning is. Slight, intuitive changes in the common
-sense facts achieved totally different conclusions about lying. This represents an obstacle to 
-fully automated ethical reasoning; such an agent would need a trusted database of common 
-sense facts, which is still an unsolved problem. My work is one step towards such an agent, but the 
-importance of common sense means that much progress must be made in order to completely automate ethics.
+The details of this distinction are outside the scope of this thesis, but imperfect duties generate 
+the obligation to lie to the murderer. An even more sophisticated automated Kantian reasoner could formalize 
+imperfect duties and other formulatations of the categorical imperative in order to generate the 
+obligation to lie to the murderer.}
 
-The reasoning of this section also demonstrated one additional place where a Kantian must make vital judgements:
-the formulation of the maxim itself. Korsgaard's argument for the permissibility of lying to a 
-murderer hinged on a clever formulation of the maxim highlighting a particular facet of the circumstances, 
-namely that the murderer is lying to you. Indeed, there is robust debate in the literature on what
-circumstances should be considered when formulating a maxim. Some critics of Kant raise the ``tailoring
-objection," which is the worry that arbitrarily specific circumstances render any maxim universalizable. For 
-example, the maxim ``When my name is Lavanya Singh and I am wearing a purple shirt and it is November 26th, 
-I will lie in order to get some easy cash" passes the universalizability test. Even if this maxim is 
-willed universally, the circumstances are so specific that lying will not become the general mechanism
-for getting easy cash, so the lender will believe my lie and the maxim will remain effective. By tailoring
-the circumstances, any maxim can evade universalization.
+While this example demonstrates the power of my system, it
+also shows how vital the role of the common sense reasoning is. Slight, intuitive changes in the factual
+background achieved completely different conclusions about lying. This example also demonstrates the importance
+and difficulty of correctly formulating the maxim, particularly its circumstances.
+Korsgaard's argument for the permissibility of lying to a 
+murderer hinged on a clever formulation of the maxim that highlights the fact that the murderer is lying to you.
+The need for common sense reasoning to evaluate the universalizability test and to formulate a maxim
+is a potential limitation of my system, and I adress this concern in Section \ref{whatisamaxim} and 
+Section Limitations.
 
-The Kantian response to this criticism is to require that the circumstances included in the formulation
-of the maxim be ``morally relevant." In the example above, my purple shirt and the date clearly have no bearing on 
-the moral status of lying. On the other hand, consider the maxim, ``When I am unemployed, I will murder
-someone in order to take their job." The circumstances of being unemployed clearly have some bearing on the moral
-relevance of the murder in question; they speak to the motivation for the murder. While this view seems 
-to track how we actually perform moral reasoning, it leaves open the question of how to determine
-which circumstances are morally relevant. Here, O'Niell reminds us that the Formula of Universal Law is 
-a ``test of moral worth rather than of outward rightness" \citep[98]{constofreason}. The FUL is a way 
-for an agent to decide how they should behave, not for a third-party to judge their behavior. Ethics is 
-a personal process for Kant, so the FUL is designed to help agents internally make decisions, not to 
-judge others' decisions. Because agents use the FUL to evaluate their own behavior, the test is at its 
-best when they make a good faith effort to isolate the \emph{principle} of their action, rather than some
-``surface intent" \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
-is universally consistent, so it is at its most effective when an agent accurately formulates the principle
-they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
-thinking about their own action. In the example above, the circumstance of wearing a purple shirt doesn't reflect
-the principle of the liar's action. Its inclusion is clearly a disingenous attempt to evade the universalizability
-test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
-gymnastics.
-
-While this account of the formulation of a maxim prescribes how a well-intentioned agent should
-decide how to live their life, it poses a challenge for automated ethics. In order for an automated
-ethical agent to use the categorical imperative to its fullest extent, the input maxim fed into
-my system or any automation of the FUL must be a good-faith attempt to capture the agent's principle
-of action. However an action is turned into a maxim for my system to process, whether manually as I do
-during these tests or automatically using some kind of input parser, this transformation from action
-to maxim has huge bearing on the outcome of the test. The formulation of a maxim must be a good-faith 
-attempt to capture the principle of action, and must therefore include only the morally relevant
-circumstances, and nothing more. This is a significant judgement that my system does not make, and is 
-thus another hurdle that must be overcome in order for my system to be used in practice. I will argue
-in Section ?? that this kind of input parsing work should be left to human beings for now, and that
-major technical and philosophical progress must be made to automate this portion of the system. 
-
-The formulation of a maxim and the common sense database pose the two greatest challenges to the adoption
-of my system in practice. In this chapter, I argued that using manual, human involvement, these challenges
-can be overcome in relatively uncontroversial ways. They are also ripe areas for future work.%
+On one hand, the need for common sense facts is a 
+limitation of my system. On the other, these examples show that common sense is within reach. Even thin, 
+uncontroversial definitions and assumptions are enough to achieve nuanced ethical judgements. Moreover, 
+these kinds of judgements demonstrate that, with additional work, my system could be used in pratice 
+to guide AI agents. A ``smart doorbell'' like those created by Ring may face a dilemma like that of 
+the murderer at the door. Such a doorbell equipped with a more application-ready version of my 
+system would be able to reason about lying to the murderer and arrive at the right judgement, guided by
+explainable, rigorous philosophical arguments.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -862,546 +741,426 @@ can be overcome in relatively uncontroversial ways. They are also ripe areas for
 %:%79=51%:%
 %:%80=52%:%
 %:%81=53%:%
-%:%82=54%:%
-%:%83=55%:%
-%:%84=56%:%
-%:%85=57%:%
-%:%86=58%:%
-%:%87=59%:%
-%:%88=60%:%
-%:%89=61%:%
-%:%90=62%:%
-%:%91=63%:%
-%:%92=64%:%
-%:%93=65%:%
-%:%94=66%:%
-%:%95=67%:%
-%:%96=68%:%
-%:%97=69%:%
-%:%98=70%:%
-%:%99=71%:%
-%:%100=72%:%
-%:%101=73%:%
-%:%102=74%:%
-%:%103=75%:%
-%:%104=76%:%
-%:%105=77%:%
-%:%106=78%:%
-%:%107=79%:%
-%:%108=80%:%
-%:%109=81%:%
-%:%110=82%:%
-%:%111=83%:%
-%:%112=84%:%
-%:%113=85%:%
-%:%114=86%:%
-%:%115=87%:%
-%:%116=88%:%
-%:%117=89%:%
-%:%118=90%:%
-%:%119=91%:%
-%:%120=92%:%
-%:%121=93%:%
-%:%122=94%:%
-%:%123=95%:%
-%:%124=96%:%
-%:%125=97%:%
-%:%126=98%:%
-%:%127=99%:%
-%:%128=100%:%
-%:%129=101%:%
-%:%138=103%:%
-%:%150=105%:%
-%:%151=106%:%
-%:%152=107%:%
-%:%153=108%:%
-%:%154=109%:%
-%:%155=110%:%
-%:%156=111%:%
-%:%157=112%:%
-%:%158=113%:%
-%:%159=114%:%
-%:%160=115%:%
-%:%161=116%:%
-%:%162=117%:%
-%:%163=118%:%
-%:%164=119%:%
-%:%165=120%:%
-%:%166=121%:%
-%:%168=123%:%
-%:%169=123%:%
-%:%171=124%:%
-%:%172=125%:%
-%:%173=126%:%
-%:%174=127%:%
-%:%175=128%:%
-%:%176=129%:%
-%:%177=130%:%
-%:%178=130%:%
-%:%179=131%:%
-%:%180=132%:%
-%:%181=132%:%
-%:%183=133%:%
-%:%184=133%:%
-%:%185=134%:%
-%:%186=134%:%
-%:%187=135%:%
+%:%90=56%:%
+%:%102=59%:%
+%:%103=60%:%
+%:%104=61%:%
+%:%105=62%:%
+%:%106=63%:%
+%:%107=64%:%
+%:%108=65%:%
+%:%109=66%:%
+%:%110=67%:%
+%:%111=68%:%
+%:%112=69%:%
+%:%113=70%:%
+%:%114=71%:%
+%:%115=72%:%
+%:%116=73%:%
+%:%117=74%:%
+%:%118=75%:%
+%:%119=76%:%
+%:%120=77%:%
+%:%121=78%:%
+%:%122=79%:%
+%:%123=80%:%
+%:%125=83%:%
+%:%126=83%:%
+%:%128=84%:%
+%:%129=85%:%
+%:%130=86%:%
+%:%133=89%:%
+%:%134=90%:%
+%:%135=91%:%
+%:%136=92%:%
+%:%137=93%:%
+%:%138=94%:%
+%:%139=95%:%
+%:%141=98%:%
+%:%142=98%:%
+%:%144=99%:%
+%:%145=100%:%
+%:%146=100%:%
+%:%147=101%:%
+%:%148=101%:%
+%:%149=102%:%
+%:%151=103%:%
+%:%152=103%:%
+%:%153=104%:%
+%:%154=104%:%
+%:%155=105%:%
+%:%157=106%:%
+%:%158=107%:%
+%:%159=108%:%
+%:%160=109%:%
+%:%161=110%:%
+%:%164=114%:%
+%:%165=115%:%
+%:%166=116%:%
+%:%167=117%:%
+%:%168=118%:%
+%:%169=119%:%
+%:%170=120%:%
+%:%171=121%:%
+%:%172=122%:%
+%:%173=123%:%
+%:%175=125%:%
+%:%176=125%:%
+%:%177=126%:%
+%:%179=127%:%
+%:%182=129%:%
+%:%183=130%:%
+%:%184=131%:%
+%:%185=132%:%
+%:%186=133%:%
+%:%187=134%:%
+%:%188=135%:%
 %:%189=136%:%
-%:%190=136%:%
-%:%191=137%:%
-%:%192=137%:%
-%:%193=138%:%
-%:%195=139%:%
-%:%196=140%:%
-%:%197=141%:%
-%:%198=141%:%
-%:%199=146%:%
-%:%200=147%:%
-%:%201=147%:%
-%:%202=148%:%
-%:%204=149%:%
-%:%205=150%:%
-%:%206=151%:%
-%:%209=153%:%
-%:%210=154%:%
-%:%211=155%:%
-%:%212=156%:%
-%:%213=157%:%
-%:%214=158%:%
-%:%215=159%:%
-%:%219=161%:%
-%:%220=162%:%
-%:%222=164%:%
-%:%223=164%:%
-%:%225=165%:%
-%:%226=165%:%
-%:%227=166%:%
-%:%228=166%:%
-%:%230=167%:%
-%:%231=168%:%
-%:%232=168%:%
-%:%233=169%:%
-%:%234=169%:%
-%:%236=170%:%
-%:%239=172%:%
-%:%240=173%:%
-%:%241=174%:%
-%:%242=175%:%
-%:%244=177%:%
-%:%245=177%:%
-%:%246=178%:%
-%:%247=179%:%
-%:%249=180%:%
-%:%250=180%:%
-%:%251=181%:%
-%:%253=182%:%
-%:%254=183%:%
-%:%255=183%:%
-%:%256=184%:%
-%:%258=185%:%
-%:%259=186%:%
-%:%260=187%:%
-%:%261=188%:%
-%:%262=189%:%
-%:%263=190%:%
-%:%264=190%:%
-%:%265=191%:%
-%:%267=192%:%
-%:%268=193%:%
-%:%269=193%:%
-%:%270=194%:%
-%:%277=195%:%
-%:%278=195%:%
-%:%279=196%:%
-%:%280=196%:%
-%:%281=197%:%
-%:%282=197%:%
-%:%284=198%:%
-%:%285=199%:%
-%:%286=200%:%
-%:%287=201%:%
-%:%288=201%:%
-%:%289=202%:%
-%:%290=202%:%
-%:%291=203%:%
-%:%292=203%:%
-%:%293=204%:%
-%:%294=204%:%
-%:%295=205%:%
-%:%296=205%:%
-%:%297=205%:%
-%:%299=206%:%
-%:%300=207%:%
-%:%301=207%:%
-%:%302=208%:%
-%:%312=210%:%
-%:%313=211%:%
-%:%314=212%:%
-%:%315=213%:%
-%:%316=214%:%
-%:%318=216%:%
-%:%319=216%:%
-%:%320=217%:%
-%:%322=219%:%
-%:%323=220%:%
-%:%324=221%:%
-%:%325=222%:%
+%:%190=137%:%
+%:%191=138%:%
+%:%192=139%:%
+%:%193=140%:%
+%:%194=141%:%
+%:%196=143%:%
+%:%197=143%:%
+%:%199=144%:%
+%:%200=145%:%
+%:%201=146%:%
+%:%202=146%:%
+%:%203=147%:%
+%:%204=147%:%
+%:%206=148%:%
+%:%207=149%:%
+%:%208=149%:%
+%:%209=150%:%
+%:%210=150%:%
+%:%212=151%:%
+%:%215=153%:%
+%:%216=154%:%
+%:%217=155%:%
+%:%218=156%:%
+%:%220=158%:%
+%:%221=158%:%
+%:%222=159%:%
+%:%223=160%:%
+%:%225=161%:%
+%:%226=161%:%
+%:%227=162%:%
+%:%229=163%:%
+%:%230=164%:%
+%:%231=164%:%
+%:%232=165%:%
+%:%234=166%:%
+%:%235=167%:%
+%:%236=168%:%
+%:%237=169%:%
+%:%238=170%:%
+%:%239=171%:%
+%:%240=171%:%
+%:%241=172%:%
+%:%243=173%:%
+%:%244=173%:%
+%:%245=174%:%
+%:%252=175%:%
+%:%253=175%:%
+%:%254=176%:%
+%:%255=176%:%
+%:%256=177%:%
+%:%257=177%:%
+%:%259=178%:%
+%:%260=179%:%
+%:%261=180%:%
+%:%262=181%:%
+%:%263=181%:%
+%:%264=182%:%
+%:%265=182%:%
+%:%266=183%:%
+%:%267=183%:%
+%:%268=184%:%
+%:%269=184%:%
+%:%270=185%:%
+%:%271=185%:%
+%:%272=185%:%
+%:%274=186%:%
+%:%275=187%:%
+%:%276=187%:%
+%:%277=188%:%
+%:%287=190%:%
+%:%288=191%:%
+%:%289=192%:%
+%:%290=193%:%
+%:%291=194%:%
+%:%292=195%:%
+%:%293=196%:%
+%:%294=197%:%
+%:%295=198%:%
+%:%296=199%:%
+%:%297=200%:%
+%:%298=201%:%
+%:%299=202%:%
+%:%300=203%:%
+%:%302=205%:%
+%:%303=205%:%
+%:%304=206%:%
+%:%306=207%:%
+%:%307=208%:%
+%:%310=210%:%
+%:%311=211%:%
+%:%312=212%:%
+%:%313=213%:%
+%:%314=214%:%
+%:%315=215%:%
+%:%316=216%:%
+%:%317=217%:%
+%:%318=218%:%
+%:%320=220%:%
+%:%321=220%:%
+%:%322=221%:%
+%:%323=222%:%
+%:%325=223%:%
 %:%326=223%:%
 %:%327=224%:%
-%:%328=225%:%
-%:%329=226%:%
-%:%330=227%:%
-%:%331=228%:%
-%:%333=230%:%
-%:%334=230%:%
-%:%335=231%:%
-%:%336=232%:%
-%:%338=233%:%
-%:%339=233%:%
-%:%340=234%:%
-%:%342=235%:%
-%:%343=236%:%
-%:%344=236%:%
-%:%345=237%:%
-%:%347=238%:%
-%:%348=238%:%
-%:%349=239%:%
-%:%351=240%:%
-%:%352=241%:%
-%:%353=241%:%
-%:%354=242%:%
-%:%357=243%:%
-%:%361=243%:%
-%:%362=243%:%
-%:%371=245%:%
-%:%372=246%:%
-%:%373=247%:%
-%:%374=248%:%
-%:%375=249%:%
-%:%376=250%:%
-%:%377=251%:%
-%:%378=252%:%
-%:%379=253%:%
-%:%380=254%:%
-%:%381=255%:%
-%:%382=256%:%
-%:%383=257%:%
-%:%384=258%:%
-%:%385=259%:%
-%:%386=260%:%
-%:%387=261%:%
-%:%388=262%:%
-%:%389=263%:%
-%:%390=264%:%
-%:%391=265%:%
-%:%392=266%:%
-%:%393=267%:%
-%:%394=268%:%
-%:%395=269%:%
-%:%396=270%:%
-%:%397=271%:%
-%:%398=272%:%
-%:%399=273%:%
-%:%400=274%:%
-%:%401=275%:%
-%:%402=276%:%
-%:%403=277%:%
-%:%404=278%:%
-%:%405=279%:%
-%:%406=280%:%
-%:%407=281%:%
-%:%408=282%:%
-%:%409=283%:%
-%:%410=284%:%
-%:%411=285%:%
-%:%412=286%:%
-%:%413=287%:%
-%:%414=288%:%
-%:%415=289%:%
-%:%416=290%:%
-%:%417=291%:%
-%:%418=292%:%
-%:%419=293%:%
-%:%420=294%:%
-%:%421=295%:%
-%:%422=296%:%
-%:%423=297%:%
-%:%424=298%:%
-%:%425=299%:%
-%:%434=302%:%
+%:%329=225%:%
+%:%330=226%:%
+%:%331=226%:%
+%:%332=227%:%
+%:%334=228%:%
+%:%335=228%:%
+%:%336=229%:%
+%:%338=230%:%
+%:%339=230%:%
+%:%340=231%:%
+%:%343=232%:%
+%:%347=232%:%
+%:%348=232%:%
+%:%350=233%:%
+%:%351=234%:%
+%:%352=235%:%
+%:%353=236%:%
+%:%354=237%:%
+%:%364=240%:%
+%:%365=241%:%
+%:%366=242%:%
+%:%367=243%:%
+%:%368=244%:%
+%:%369=245%:%
+%:%370=246%:%
+%:%371=247%:%
+%:%372=248%:%
+%:%373=249%:%
+%:%374=250%:%
+%:%375=251%:%
+%:%376=252%:%
+%:%377=253%:%
+%:%378=254%:%
+%:%379=255%:%
+%:%380=256%:%
+%:%381=257%:%
+%:%382=258%:%
+%:%383=259%:%
+%:%384=260%:%
+%:%385=261%:%
+%:%386=262%:%
+%:%387=263%:%
+%:%388=264%:%
+%:%389=265%:%
+%:%390=266%:%
+%:%391=267%:%
+%:%392=268%:%
+%:%393=269%:%
+%:%394=270%:%
+%:%395=271%:%
+%:%396=272%:%
+%:%397=273%:%
+%:%398=274%:%
+%:%399=275%:%
+%:%400=276%:%
+%:%401=277%:%
+%:%402=278%:%
+%:%411=281%:%
+%:%423=284%:%
+%:%424=285%:%
+%:%425=286%:%
+%:%426=287%:%
+%:%427=288%:%
+%:%428=289%:%
+%:%429=290%:%
+%:%430=291%:%
+%:%431=292%:%
+%:%432=293%:%
+%:%433=294%:%
+%:%434=295%:%
+%:%435=296%:%
+%:%436=297%:%
+%:%437=298%:%
+%:%438=299%:%
+%:%439=300%:%
+%:%440=301%:%
+%:%442=303%:%
+%:%443=303%:%
+%:%445=304%:%
 %:%446=304%:%
 %:%447=305%:%
-%:%448=306%:%
-%:%449=307%:%
-%:%450=308%:%
-%:%451=309%:%
-%:%452=310%:%
-%:%453=311%:%
-%:%454=312%:%
-%:%455=313%:%
-%:%456=314%:%
-%:%457=315%:%
-%:%458=316%:%
-%:%459=317%:%
-%:%460=318%:%
-%:%461=319%:%
-%:%462=320%:%
-%:%463=321%:%
-%:%464=322%:%
-%:%465=323%:%
-%:%467=325%:%
-%:%468=325%:%
-%:%470=326%:%
-%:%471=326%:%
-%:%472=327%:%
-%:%473=327%:%
-%:%475=328%:%
-%:%476=329%:%
-%:%477=330%:%
-%:%478=330%:%
-%:%479=331%:%
-%:%480=331%:%
-%:%482=332%:%
-%:%483=332%:%
-%:%484=333%:%
-%:%485=333%:%
-%:%487=334%:%
-%:%488=334%:%
-%:%489=335%:%
-%:%490=335%:%
-%:%491=336%:%
-%:%493=337%:%
-%:%494=338%:%
-%:%495=339%:%
-%:%496=339%:%
-%:%497=340%:%
-%:%498=341%:%
-%:%499=341%:%
-%:%501=342%:%
-%:%502=342%:%
-%:%503=343%:%
-%:%504=343%:%
-%:%505=344%:%
-%:%507=345%:%
-%:%508=345%:%
-%:%509=346%:%
-%:%510=346%:%
-%:%512=347%:%
-%:%513=347%:%
-%:%514=348%:%
-%:%515=348%:%
-%:%516=349%:%
-%:%518=350%:%
-%:%519=351%:%
-%:%522=353%:%
-%:%523=354%:%
-%:%524=355%:%
-%:%526=357%:%
-%:%527=357%:%
-%:%528=358%:%
-%:%530=359%:%
-%:%531=359%:%
-%:%532=360%:%
-%:%534=361%:%
-%:%535=362%:%
-%:%536=363%:%
-%:%537=364%:%
-%:%538=364%:%
-%:%539=365%:%
-%:%541=366%:%
-%:%542=366%:%
-%:%543=367%:%
-%:%545=368%:%
-%:%546=369%:%
-%:%547=369%:%
-%:%548=370%:%
-%:%555=371%:%
-%:%556=371%:%
-%:%558=372%:%
-%:%559=373%:%
-%:%560=374%:%
-%:%561=375%:%
-%:%562=375%:%
-%:%563=376%:%
-%:%564=376%:%
-%:%565=377%:%
-%:%566=377%:%
-%:%567=377%:%
-%:%568=378%:%
-%:%569=378%:%
-%:%570=379%:%
-%:%571=379%:%
-%:%572=379%:%
-%:%573=380%:%
-%:%574=380%:%
-%:%575=381%:%
-%:%576=381%:%
-%:%577=381%:%
-%:%578=382%:%
-%:%588=384%:%
-%:%589=385%:%
-%:%590=386%:%
-%:%591=387%:%
-%:%592=388%:%
-%:%593=389%:%
-%:%594=390%:%
-%:%595=391%:%
-%:%596=392%:%
-%:%598=394%:%
-%:%599=394%:%
-%:%600=395%:%
-%:%601=396%:%
-%:%603=397%:%
-%:%604=397%:%
-%:%605=398%:%
-%:%607=399%:%
-%:%608=400%:%
-%:%609=400%:%
-%:%610=401%:%
-%:%612=402%:%
-%:%613=403%:%
-%:%614=404%:%
-%:%615=405%:%
-%:%616=406%:%
-%:%617=406%:%
-%:%618=407%:%
-%:%620=408%:%
-%:%621=409%:%
-%:%622=410%:%
-%:%623=411%:%
-%:%624=412%:%
-%:%625=413%:%
-%:%626=413%:%
-%:%627=414%:%
-%:%629=415%:%
-%:%630=416%:%
-%:%631=416%:%
-%:%632=417%:%
-%:%635=418%:%
-%:%639=418%:%
-%:%640=418%:%
-%:%641=418%:%
-%:%643=419%:%
-%:%644=420%:%
-%:%645=421%:%
-%:%655=423%:%
-%:%656=424%:%
-%:%657=425%:%
-%:%659=427%:%
-%:%660=427%:%
-%:%661=428%:%
-%:%663=429%:%
-%:%664=429%:%
-%:%665=430%:%
-%:%667=431%:%
-%:%668=431%:%
-%:%669=432%:%
-%:%671=433%:%
-%:%672=433%:%
-%:%673=434%:%
-%:%675=435%:%
-%:%676=435%:%
-%:%677=436%:%
-%:%679=437%:%
-%:%680=438%:%
-%:%681=438%:%
-%:%682=439%:%
-%:%689=440%:%
-%:%690=440%:%
-%:%691=441%:%
-%:%692=441%:%
-%:%693=442%:%
-%:%694=442%:%
-%:%695=442%:%
-%:%696=443%:%
-%:%697=443%:%
-%:%698=444%:%
-%:%699=444%:%
-%:%700=444%:%
-%:%701=445%:%
-%:%702=445%:%
-%:%703=446%:%
-%:%704=446%:%
-%:%705=446%:%
-%:%706=447%:%
-%:%716=449%:%
-%:%717=450%:%
-%:%718=451%:%
-%:%719=452%:%
-%:%720=453%:%
-%:%721=454%:%
-%:%722=455%:%
-%:%723=456%:%
-%:%724=457%:%
-%:%725=458%:%
-%:%726=459%:%
-%:%727=460%:%
-%:%728=461%:%
-%:%729=462%:%
-%:%730=463%:%
-%:%731=464%:%
-%:%732=465%:%
-%:%733=466%:%
-%:%734=467%:%
-%:%735=468%:%
-%:%736=469%:%
-%:%737=470%:%
-%:%738=471%:%
-%:%739=472%:%
-%:%740=473%:%
-%:%741=474%:%
-%:%745=477%:%
-%:%746=478%:%
-%:%747=479%:%
-%:%748=480%:%
-%:%749=481%:%
-%:%750=482%:%
-%:%751=483%:%
-%:%752=484%:%
-%:%753=485%:%
-%:%754=486%:%
-%:%755=487%:%
-%:%756=488%:%
-%:%757=489%:%
-%:%758=490%:%
-%:%759=491%:%
-%:%760=492%:%
-%:%761=493%:%
-%:%762=494%:%
-%:%763=495%:%
-%:%764=496%:%
-%:%765=497%:%
-%:%766=498%:%
-%:%767=499%:%
-%:%768=500%:%
-%:%769=501%:%
-%:%770=502%:%
-%:%771=503%:%
-%:%772=504%:%
-%:%773=505%:%
-%:%774=506%:%
-%:%775=507%:%
-%:%776=508%:%
-%:%777=509%:%
-%:%778=510%:%
-%:%779=511%:%
-%:%780=512%:%
-%:%781=513%:%
-%:%782=514%:%
-%:%783=515%:%
-%:%784=516%:%
-%:%785=517%:%
-%:%786=518%:%
-%:%787=519%:%
-%:%788=520%:%
-%:%789=521%:%
-%:%790=522%:%
-%:%791=523%:%
-%:%792=524%:%
-%:%793=525%:%
-%:%794=526%:%
-%:%795=527%:%
-%:%796=528%:%
-%:%797=529%:%
-%:%798=530%:%
-%:%799=531%:%
+%:%448=305%:%
+%:%450=306%:%
+%:%451=307%:%
+%:%452=308%:%
+%:%453=308%:%
+%:%454=309%:%
+%:%455=309%:%
+%:%457=310%:%
+%:%458=310%:%
+%:%459=311%:%
+%:%460=311%:%
+%:%462=312%:%
+%:%463=312%:%
+%:%464=313%:%
+%:%465=313%:%
+%:%466=314%:%
+%:%468=315%:%
+%:%469=316%:%
+%:%472=318%:%
+%:%473=319%:%
+%:%474=320%:%
+%:%475=321%:%
+%:%477=323%:%
+%:%478=323%:%
+%:%480=324%:%
+%:%481=324%:%
+%:%482=325%:%
+%:%483=325%:%
+%:%484=326%:%
+%:%486=327%:%
+%:%487=327%:%
+%:%488=328%:%
+%:%489=328%:%
+%:%491=329%:%
+%:%492=329%:%
+%:%493=330%:%
+%:%494=330%:%
+%:%495=331%:%
+%:%497=332%:%
+%:%498=333%:%
+%:%514=365%:%
+%:%515=366%:%
+%:%516=367%:%
+%:%517=368%:%
+%:%518=369%:%
+%:%519=370%:%
+%:%520=371%:%
+%:%521=372%:%
+%:%522=373%:%
+%:%524=375%:%
+%:%525=375%:%
+%:%526=376%:%
+%:%527=377%:%
+%:%529=378%:%
+%:%530=378%:%
+%:%531=379%:%
+%:%533=380%:%
+%:%534=380%:%
+%:%535=381%:%
+%:%537=382%:%
+%:%538=383%:%
+%:%539=384%:%
+%:%540=385%:%
+%:%541=386%:%
+%:%542=386%:%
+%:%543=387%:%
+%:%545=388%:%
+%:%546=389%:%
+%:%547=390%:%
+%:%548=391%:%
+%:%549=392%:%
+%:%550=393%:%
+%:%551=394%:%
+%:%552=394%:%
+%:%553=395%:%
+%:%555=396%:%
+%:%556=397%:%
+%:%557=397%:%
+%:%558=398%:%
+%:%561=399%:%
+%:%565=399%:%
+%:%566=399%:%
+%:%567=399%:%
+%:%569=400%:%
+%:%570=401%:%
+%:%571=402%:%
+%:%581=404%:%
+%:%582=405%:%
+%:%583=406%:%
+%:%584=407%:%
+%:%586=409%:%
+%:%587=409%:%
+%:%588=410%:%
+%:%590=411%:%
+%:%591=411%:%
+%:%592=412%:%
+%:%594=413%:%
+%:%595=413%:%
+%:%596=414%:%
+%:%598=415%:%
+%:%599=415%:%
+%:%600=416%:%
+%:%602=417%:%
+%:%603=417%:%
+%:%604=418%:%
+%:%606=419%:%
+%:%607=420%:%
+%:%608=420%:%
+%:%609=421%:%
+%:%616=422%:%
+%:%617=422%:%
+%:%618=423%:%
+%:%619=423%:%
+%:%620=424%:%
+%:%621=424%:%
+%:%622=424%:%
+%:%623=425%:%
+%:%624=425%:%
+%:%625=426%:%
+%:%626=426%:%
+%:%627=426%:%
+%:%628=427%:%
+%:%629=427%:%
+%:%630=428%:%
+%:%631=428%:%
+%:%632=428%:%
+%:%633=429%:%
+%:%643=431%:%
+%:%644=432%:%
+%:%645=433%:%
+%:%646=434%:%
+%:%647=435%:%
+%:%648=436%:%
+%:%649=437%:%
+%:%650=438%:%
+%:%651=439%:%
+%:%652=440%:%
+%:%653=441%:%
+%:%654=442%:%
+%:%655=443%:%
+%:%656=444%:%
+%:%657=445%:%
+%:%658=446%:%
+%:%659=447%:%
+%:%660=448%:%
+%:%661=449%:%
+%:%662=450%:%
+%:%663=451%:%
+%:%664=452%:%
+%:%665=453%:%
+%:%666=454%:%
+%:%667=455%:%
+%:%668=456%:%
+%:%669=457%:%
+%:%670=458%:%
+%:%671=459%:%
+%:%672=460%:%
+%:%673=461%:%
+%:%674=462%:%
+%:%675=463%:%
+%:%676=464%:%
+%:%677=465%:%
+%:%678=466%:%

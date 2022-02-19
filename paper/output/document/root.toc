@@ -13,18 +13,18 @@
 \contentsline {subsection}{\numberline {3.1}Formalization and Implementation of the FUL}{25}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Logical Background}{25}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Maxims }{26}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Practical Contradiction Interpretation of the FUL }{29}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3}Practical Contradiction Interpretation of the FUL }{30}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Formalizing the FUL}{34}{subsubsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.2}Tests}{37}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Applications }{45}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Simple Lying Examples }{48}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{54}{subsection.4.2}%
-\contentsline {section}{\numberline {A}Appendix}{63}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{63}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{64}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{64}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{68}{subsubsection.A.2.2}%
-\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{69}{subsubsection.A.2.3}%
-\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{73}{subsubsection.A.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{76}{subsubsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{79}{subsection.A.3}%
+\contentsline {subsection}{\numberline {4.1}Lies and Jokes }{46}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lying to a Liar }{53}{subsection.4.2}%
+\contentsline {section}{\numberline {A}Appendix}{59}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{59}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{60}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{60}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{64}{subsubsection.A.2.2}%
+\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{65}{subsubsection.A.2.3}%
+\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{69}{subsubsection.A.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{72}{subsubsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{75}{subsection.A.3}%

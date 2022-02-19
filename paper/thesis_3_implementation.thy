@@ -33,12 +33,17 @@ sentences of the form, ``x does action.''\<close>
 typedecl s \<comment>\<open>The new type $s$ is the type for a ``subject,'' as in the subject of a sentence.\<close>
 
 text \<open>The \texttt{typedecl} keyword indicates that I am defining a new atomic type, which is not composed
-of pre-existing types but is instead a new kind of object altogether. It suffices
-to declare a new type to represent a subject without specifying any of its complex properties, such as the idea that a subject
-must be rational or human. Instead of providing a complete definition of subject, which would require wading into murky
-philosophical debates about the nature of agency, I will provide a ``thin'' definition that only includes
-the minimum necessary properties to apply the FUL. Throughout my project, I will use bare syntactic units like types and constants
-to create thin definitions of new ideas.
+of pre-existing types but is instead a new kind of object altogether. A type does not come with any 
+properties out of the box. There is no difference between declaring the type ``subject'' or any other
+type, such as ``color'' or ``mammal.'' I add some properties of this type below by creating formulas
+and more complex types that use this type, but I do not provide anything near a definition of a subject.
+It suffices to declare a new type to represent a subject without specifying any of its complex properties, 
+such as the idea that a subject must be rational or human. Instead of providing a complete definition of subject, 
+which would require wading into murky philosophical debates about the nature of agency, I provide a 
+``thin'' definition that only includes the minimum necessary properties to apply the FUL. Throughout my 
+project, I will use bare syntactic units like types and constants to create thin definitions of new ideas.
+This strategy lets me avoid messy philosophical controversies and makes my system's judgements more 
+trustworthy, because they rely on relatively little prior knowledge.
 
 In this interpretation, the defining feature of a subject is that it can act. 
 I represent that below by allowing subjects to substitute into sentences, a property that I will use 
