@@ -300,17 +300,10 @@ situational background. Common-sense is needed when formulating a maxim and when
 violates the Formula of Universal Law. Maxims include the circumstances in which they apply and
 determining which circumstances are ``morally relevant'' to a maxim requires factual background. 
 Many misunderstandings in Kantian ethics are due to badly formulated maxims, so this question is 
-important for an ethical reasoner to answer.\footnote{For example, critics of Kantian ethics worry 
-that the maxim, ``When I am a
-man, I will marry a man because I want to spend my life with him'' fails the universalizability
-test because if all men only married men, sexual reproduction would stop. This argument implies 
-that Kantian ethics is homophobic. Kantians often respond by arguing that the correct formulation of 
-this maxim is, ``When I love a man, I will marry him because I want to spend my life with him,'' which
-is universalizable because if everyone marries who they love, some men will marry women and others will
-marry men.} My system does not need to answer this question because I assume a properly crafted
+important for an ethical reasoner to answer. My system does not need to answer this question because I assume a properly crafted
 maxim as input and apply the categorical imperative to this input. Using my system in a fully automated
-moral agent will require answering this question, a challenging computational and philosophical task.\footnote{I
-discuss this problem in greater detail in Section \ref{whatisamaxim} and Section Limitations.} 
+moral agent will require answering this question, a challenging computational and philosophical task. I
+discuss this problem in greater detail in Section \ref{whatisamaxim} and Section \ref{AIethics}. 
 
 Common sense is also relevant when applying the universalizability test itself. Consider the example
 maxim ``When broke, I will falsely promise to repay a loan

@@ -1,13 +1,43 @@
-(*<*) theory thesis_5_discussion
-  imports thesis_3_implementation
-
-begin(*>*)
-
-section \<open>Discussion\label{discussion}\<close>
-
-subsection \<open>Automated Moral Agents in Practice \label{aiethics}\<close>
-
-text \<open>In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
+%
+\begin{isabellebody}%
+\setisabellecontext{thesis{\isacharunderscore}{\isadigit{5}}{\isacharunderscore}discussion}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsection{Discussion\label{discussion}%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Automated Moral Agents in Practice \label{aiethics}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
 nuanced ethical reasoning. In this section and Section \label{computationalethics}, I outline how my
 system could be used by AI agents and by human philosophers. My work on automating the categorical imperative 
 could serve as one component of a partially or fully artificial ethical reasoner, or an ``ethical AI.''
@@ -19,26 +49,28 @@ serves as one component of an ``ethics engine'' that an AI agent could use to ma
 For example, my system could be combined with an input parser to translate moral dilemmas as represented 
 to the AI agent into maxims in my logic. The ouput of my system could be fed into an output 
 parser to translate this output into a prescription for the action the AI agent should take.
-Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.
-\<close>
-
-text_raw \<open>
+Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.%
+\end{isamarkuptext}\isamarkuptrue%
+%
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent, which begins with a moral dilemma, 
 passes it through an input parser, applies the automated Kantian ethics test, and then processes the 
 output using an output parser. I contribute the automated Kantian ethics component.} \label{fig:AIengine}
-\end{figure}\<close>
-
-text \<open>In this workflow, an AI agent is faced with a moral dilemma in some internal representation. The input
+\end{figure}
+%
+\begin{isamarkuptext}%
+In this workflow, an AI agent is faced with a moral dilemma in some internal representation. The input
 parser translates this internal representation into an appropriate logical representation, i.e. 
 a circumstance, act, goal tuple. The output parser translates the output of the categorical imperative
 library (the moral status of the maxim as obligatory, prohibited, or permissible) to a prescription for
 action that the AI agent can act on. In order for my system to be used in an AI agent using the workflow
-above, future work would need to develop such input and output parsers.\<close>
-
-text\<open>The input parser must translate a complex real-world situation into a flat, logical representation. 
+above, future work would need to develop such input and output parsers.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\begin{isamarkuptext}%
+The input parser must translate a complex real-world situation into a flat, logical representation. 
 This requires that the input parser determine which circumstances are ``morally relevant''
 for a maxim, a controversial judgement that requires commonsense reasoning.
 There is robust debate in the literature on which circumstances should be considered when formulating a maxim. 
@@ -143,20 +175,54 @@ for an AI agent, with additional work to parse the input and the output. Effecti
 of automated ethics I implement could be a library that AI developers use to give AI agents the capacity for 
 sophisticated ethical reasoning faithful to philosophical literature. This represents an improvement 
 over existing AI ethics, which rarely attempts to capture the complexity 
-of any ethical theory that philosophers plausibly defend. \<close>
-
-subsection \<open>Computational Ethics \label{computationalethics}\<close>
-
-text \<open>Above I explained how my system offers a mechanism for humans to build ethical AI agents. I also 
+of any ethical theory that philosophers plausibly defend.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Computational Ethics \label{computationalethics}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+Above I explained how my system offers a mechanism for humans to build ethical AI agents. I also 
 argue that computational ethics is a mechanism for computers to help humans think differently about 
 philosophy. Just as theorem provers make mathematics more efficient and push mathematicians to think 
 precisely about the phenomena they model, computational ethics can help philosophers think more precisely about 
 philosophy. Below I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool offers to philosophers. \<close>
-
-subsubsection "Example of a Philosophical Insight: Well-Formed Maxims"
-
-text \<open>As presented in Section \ref{formalizingful}, in the process of developing my formalization of
+can prompt and analyze the value that this tool offers to philosophers.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Example of a Philosophical Insight: Well-Formed Maxims%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+As presented in Section \ref{formalizingful}, in the process of developing my formalization of
 the FUL, I discovered the certain kinds of maxims are badly formed, or inappropriate inputs to the 
 universalizability test. The FUL is consistent only if it holds for ``well-formed maxims,''
 such that neither the act nor goal are already achieved in the given circumstances. Precisely, 
@@ -247,101 +313,144 @@ imply the former but not the latter. A badly-formed maxim would have circumstanc
 ``dancing at moment t,'' but this maxim has circumstances ``dancing at moment t'' and act ``dancing 
 at moment t+1.''
 
-\noindent \textbf{Implications for Self-Doubt and Self-Respect}
+\noindent \textbf{Implications for Self Doubt and Self Respect}
 
-The idea that we cannot even evaluate, let alone will badly formed maxims has implications for 
-self-doubt and self-respect. The dancing maxim can be read using the lens of self-doubt. Under this 
-reading, the question ``When I am dancing, should I be dancing for the sake of dancing?'' is the agent asking, 
-``Am I doing the right thing right now?'' Unlike the drowning example, the agent is not asking about the 
-next moment, but is expressing doubt about the moral validity of their behavior at this current moment. 
-I do not argue that self-doubt always undermines the will—after all, self-doubt plays an 
-important role in moral reasoning and is often the mark of a thoughtful agent. I argue instead 
-that questions of self-doubt do not actually involve badly-formed maxims, for these are not the maxims 
-that the agent is doubting. This example demonstrates that the tension between self-doubt and self-respect 
-arises from a mistaken characterization of questions of self-doubt as questions about badly-formed maxims.
+The idea that we cannot will badly formed maxims 
+
+The dancing maxim can also be understood through the lens of self-doubt. Under this 
+reading, the question ``When I am dancing, 
+should I be dancing for the sake of dancing?" is the agent asking, ``Am I doing the right thing 
+right now?" Unlike the drowning example, the agent is not asking about the next moment, but is expressing doubt about the 
+moral validity of their behavior at this current moment. I do not want to argue that self-doubt always
+ undermines the will—after all, self-doubt plays an important role in moral 
+reasoning and is often the mark of a thoughtful agent. I argue instead that questions of self-doubt
+do not actually involve vacuous maxims, for these are not the maxims that the agent is doubting. Indeed,
+this example demonstrates that the tension between self-doubt and self-respect arises from a 
+mistaken characterization of questions of self-doubt as questions about vacuous maxims.
 I first explain the tension between self-doubt and self-respect in epistemology, then 
 explain the parallel tension in ethics, and finally present a resolution of this tension.
 
 In epistemology, there is a tension between the rational requirement to believe in yourself and the 
-value of self-doubt, in moderation. Christensen presents the ``principle of self-respect,'' which requires 
+value of self-doubt, in moderation. Christensen presents the ``principle of self-respect," which requires 
 that any rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
 rationally both believe that the sky is blue and believe that I believe that the sky is green. In other words, I cannot 
 disapprove of my own credences. Christensen argues that this principle, which he abbreviates to SR, holds because 
 a perfectly rational agent can make accurate and confident judgements about what they believe. If this 
 is the case, violating SR results in a simple contradiction \cite[8-9]{christensen}. 
 
-While most philosophers accept some version of SR\footnote{Christensen cites \citet{vanfraaseen}, 
-\citet{vickers}, and \citet{koons}.}, 
+While most philosophers accept some version of SR\footnote{Van Fraassen, Vickers, Koons \cite[5]{christensen}}, 
 Roush argues that the principle must be modified in order to account for healthy epistemic 
-self-doubt. She argues that, while pathological second-guessing is correctly criticized, we are generally 
-imperfect beings, and some sensitivity to our own limitations is a virtue \cite[2]{roushselfhelp}. Even Christensen 
+self-doubt. She argues that, while pathological second-guessing is roundly criticized, we are generally 
+imperfect beings, and some sensitivity to our own limitations is a virtue \cite[2]{roushselfhelp}. Indeed, even Christensen 
 acknowledges that total self-confidence is an epistemic flaw \cite[1]{christensen}. Thus, there is tension between the rational
 requirement to respect our authority as believers and the practical reality that we are often wrong. 
 
-This debate between self-respect and self-doubt in epistemology can be extended to ethics. When we 
-commit ourselves to acting, we cannot simultaneously doubt the validity of our action. If human 
-behavior is purposive, then the very act of committing implies that one has sufficient reasons for 
-committing. These reasons may be flawed, but in making the commitment, the reasoner accepts them. It 
-is contradictory to claim that someone commits and questions simultaneously. Either the commitment 
-is not real, or the question is not. I will call the principle that one cannot will a maxim and 
-simultaneously question if they should will that maxim ``ethical self-respect'' or ESR.
+This debate between self-respect and self-doubt in epistemology also applies to ethics. When we 
+decide to act and commit ourselves to acting, we cannot simultaneously doubt the 
+validity of our action. If human behavior is purposive, then the very act of committing oneself implies 
+that one has sufficient reasons for committing oneself. These reasons may be flawed, but in making the 
+commitment, the reasoner has accepted them. It is contradictory to claim that someone commits and questions 
+simultaneously, because commitment itself implies a resolution to the question. Either the commitment 
+is not real, or the question is not. I will call the principle that 
+one cannot will a maxim and simultaneously question if they should will that maxim
+``ethical self-respect" or ESR.
 
 On the other hand, self-doubt is an important part of ethical reasoning. Just as believers are often 
-mistaken, so are practical reasoners. An agent who is always sure that they are doing the right thing 
-is not thinking deeply enough about their obligations. Some degree of ethical self-doubt is desirable. 
-Thus, there is tension between the rational requirement of ESR and the intuitive validity of ethical 
-self-doubt (ESD).
+mistaken, so are practical reasoners. An agent with perfect confidence, who is always sure that they 
+are doing the right thing, is clearly not thinking deeply enough about their obligations. Some degree
+of ethical self-doubt is normal and likely desirable. Thus, there is a tension between the rational
+requirement of ESR and the intuitive validity of ethical self-doubt (ESD).
 
 To resolve this tension, I return to my earlier example of a dancer. Imagine Sara is dancing at a 
-weddding, when, in a moment of angst, she asks herself, ``Should I really be dancing right now?'' 
-It seems that she asking if the maxim, ``When dancing at your friend's wedding, dance for the sake 
-of dancing'' is a permissible maxim to act on. Notice that the maxim in question is badly-formed: the 
-circumstance ``when dancing at a friend's wedding'' implies the act ``dance.'' Because this is a 
-badly-formed maxim, it cannot be the maxim that she is questioning, for adopting
+weddding, when, in a moment of angst, she asks herself, ``Should I really be dancing right now?" 
+What question is she asking here? The immediate answer is that she asking if the maxim, ``When dancing 
+at your friend's wedding, dance for the sake of dancing" is a permissible maxim to act on. Notice that t
+he maxim in question is vacuous: the circumstance ``when dancing at a friend's wedding" implies the act 
+``dance." Because this is a vacuous maxim, it cannot be the maxim that she is questioning, for adopting 
 this maxim could not have changed her behavior at all. Sara is asking a question about her actions and 
-their validity. Any conclusions about the validity of a badly-formed maxim would not help her, first because 
+their validity. Any conclusions about the validity of a vacuous maxim would not help her, first because 
 the maxim has no effect on her action, and second because any such validity would be a foregone conclusion
-since she has already adopted the maxim. Thus, under the interpretation of self-doubt as a badly-formed 
-maxim, the tension between ESR and ethical self-doubt seems irresolvable. Those committed to this 
-interpretation must abandon one principle or the other.
+as she has already adopted the maxim. As 
+I argued above, no practical reasoner can coherently ask themselves whether a vacuous maxim is 
+valid or not without undermining their will, which is a contradiction. Thus, under 
+the interpretation of self-doubt as a vacuous maxim, the tension between ESR and ethical self-doubt 
+appears irresolvable. Those committed to this interpretation must abandon one principle or the other.
 
 To resolve this issue, I turn to another interpretation of ethical self-doubt. Under this interpretation, 
-when Sara asks, ``Should I really be dancing right now?'' she wants to know if the maxim that 
-resulted in the current moment when she is on the dance floor was the right thing to will. She is 
-asking if she made the right decision in the past, when she decided to dance. The maxim that initiated 
-the dancing may be something like ``When at a wedding, dance for the sake of dancing.'' This is the maxim 
-that she is currently acting on, not the badly-formed maxim  from above. Under this interpretation, 
+when Sara asks, ``Should I really be dancing right now?" she wants to know if the maxim that 
+resulted in the current moment when she is on the dance floor was actually 
+the right thing to will. She is asking if she made the right 
+decision in the past, when she decided to dance. The maxim that initiated the dancing would be something 
+like ``When at a wedding, dance for the sake of dancing." This is the maxim that she is currently acting 
+on, not the vacuous maxim ``When dancing, dance for the sake of dancing." Under this interpretation, 
 there is no tension at all between self-doubt and self-respect. It is perfectly valid for a reasoner 
 to doubt their prior moral judgements, just as it is perfectly rational for a believer to doubt their 
 past beliefs \cite[3-4]{christensen}. Such doubt does not undermine the reasoner's decision-making 
 capacity and is thus perfectly consistent with ethical self-respect. 
 
-The tension between ESR and ESD arises from a misreading of questions of self-doubt as questions about 
-the evaluation of badly-formed maxims. A question of self-doubt cannot refer to a badly-formed maxim and must 
+Not only does this second interpretation resolve the tension between ESR and ESD, it also more accurately 
+tracks the operation of practical reason. As argued above, a practical reasoner would never ask themselves 
+whether or not to will a vacuous maxim, because such a maxim would generate no meaningful obligations. 
+Adopting such a maxim would not alter their behavior in any way. Moreover, the fact that a practical 
+reasoner never adopts a vacuous maxim demonstrates the cause of the tension between ESR and ESD.
+The tension itself arises from a misreading of questions of self-doubt as questions about 
+the evaluation of vacuous maxims. A question of self-doubt cannot refer to a vacuous maxim and must 
 instead refer to a well-formed maxim about the agent's past decision-making. As seen before, cases where 
-agents appear to ask themselves about badly-formed maxims are mistaken about the maxim in question, because 
+agents appear to ask themselves about vacuous maxims are mistaken about the maxim in question, because 
 such a question could never yield a useful answer for a practical reasoner. 
- \<close>
 
 
-subsubsection \<open>The Value of Computational Ethics\<close>
 
-text \<open>The philosophical insight that the FUL can only hold for well-formed maxims would have been 
-incredibly difficult to discover without a computer. I discovered it while formulating the FUL because 
-Sledgehammer, as a proof-finding tool, definitionally checks for edge cases like badly-formed maxims. 
-Badly-formed maxims are interesting precisely because they are the kind of thing that is usually 
-ignored in ordinary philosophical inquiry. Philosophers usually implicitly assume that we are not discussing
-badly-formed maxims because, as argued above, they are not the kind of thing that is usually useful
-to study. Isabelle requires that assumptions like the 
+I arrived at this conclusion using Isabelle's proof-finding capabilities. Recall that Sledgehammer showed
+that my original version of the FUL\footnote{The full logical representation is \isa{FUL{\isadigit{0}}\ {\isasymequiv}\ {\isasymforall}c\ a\ g\ s{\isachardot}\ not{\isacharunderscore}universalizable\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ {\isasymlongrightarrow}\ {\isasymTurnstile}prohibited\ {\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s}.} contradicted
+the axiom O\_diamond, which states that an obligated term cannot contradict its context\footnote{The 
+full form of the axiom is $ O \{ A \vert B \} \longrightarrow \diamond (B \wedge A)$}. I hypothesized 
+that there was some tension between the antecedent of the FUL, which states that all agents act on 
+the maxim, and the consequent, which states that the maxim is prohibited. If the maxim has already 
+been acted on, then not acting on it is impossible. Thus, the generated prohibition is impossible to 
+obey, so the ought implies can principle and axiom O\_diamond are violated.
 
+To test this hypothesis, I defined a specific maxim as a constant with no other defined features, 
+and examined the consequences of the FUL holding for this specific maxim. Instead of quantifying over
+all circumstance, act, goal tuples, I states that the FUL holds for the specific maxim defined by
+by new constant. With this modification, Nitpick showed that the FUL is consistent! The reason that
+the FUL could hold for a constant maxim but not for all maxims is that, as constants, the 
+circumstances, act, and goal were all distinct. When they were quantified over, 
+they could be identical. This motivated the definition of a well-formed maxim. 
 
+To formalize this idea, I defined a maxim as \isa{well{\isacharunderscore}formed\ {\isasymequiv}\ {\isasymlambda}{\isacharparenleft}c{\isacharcomma}\ a{\isacharcomma}\ g{\isacharparenright}\ s\ w{\isachardot}\ {\isasymnot}\ c\isactrlbold {\isasymrightarrow}g\ w\ {\isasymand}\ {\isasymnot}\ c\isactrlbold {\isasymrightarrow}a\ s\ w}. In propositional
+logic, a circumstance, act, goal tuple (c, a, g) is well-formed if $(\neg (c \longrightarrow a) ) \wedge 
+(\neg(c \longrightarrow g))$. I tested my hypothesis by modifying my axiom to instead read $\forall$\emph{maxim
+(maxim is well-formed} $\longrightarrow$ \emph{FUL holds for maxim}). This version of the FUL was indeed consistent!
+
+To summarize, I realized that my initial attempt at formalizing the FUL was inconsistent because 
+it required that the FUL hold for badly formed maxims, in which the circumstances entail the act or 
+goal. The logical insight was that if FUL holds for maxims in which $(c \longrightarrow a) \vee 
+(c \longrightarrow g)$, then the logic will be inconsistent.
 
 SAY INCERDIBLE DIFFICULT WITHUT COMPUTER because computer looks for edge cases and makes assumptions precise.
-it's an insight precisely because philosophers would never think of this edge case bc it's stupid.
-
-
-
-I will now generalize from the personal insight reached above to the methodological value of
+it's an insight precisely because philosophers would never think of this edge case bc it's stupid.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{The Value of Computational Ethics%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+I will now generalize from the personal insight reached above to the methodological value of 
 computational ethics for philosophers.
 I do not argue that computational ethics, as it stands today, uncovers philosophical insights that humans have not reached
 or are incapable of reaching. After all, my understanding of a well-formed maxim could 
@@ -387,14 +496,29 @@ Just as calculators make arithmetic more accessible, computational ethics does t
 Not all philosophy can or will 
 be formalized or automated—after all, calculators didn't make accountants or mathematicians obsolete. Just as computers 
 reduce the tedium in other aspects of our life, they can reduce the tedium involved in formal logic to 
-allow mathematicians and philosophers to focus their attention on understanding.
-\<close>
-
-subsubsection \<open>Looking Forward\<close>
-
-text \<open>
+allow mathematicians and philosophers to focus their attention on understanding.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Looking Forward%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
 Computational ethics is at its infancy. The use of theorem provers in mathematics is just now beginning 
-to make headway @{cite buzzardvideo}, even though theorem provers were first invented in the 1960's @{cite historyofITP}. In contrast, the first attempts to use theorem 
+to make headway \cite{buzzardvideo}, even though theorem provers were first invented in the 1960's \cite{historyofITP}. In contrast, the first attempts to use theorem 
 provers for ethics occurred in the last decade. The fact that this nascent technology is already 
 helping humans reach non-trivial philosophical conclusions is reason to, at the very least, entertain 
 the possibility of a future where computational ethics becomes as normal for philosophers.
@@ -406,23 +530,477 @@ departments. However, history indicates that as computing power increases and co
 progress, computational ethics will become more usable. Theorem provers in mathematics began as toys 
 incapable of proving that the real number 2 is not equal to the real number 1, but Buzzard showed that 
 moving from such a primitive system to a tool for Fields medal winning mathematics is possible in a 
-matter of years @{cite buzzardvideo}. Countless examples from the history of computer science, from the Turing 
+matter of years \cite{buzzardvideo}. Countless examples from the history of computer science, from the Turing 
 Test to AI game playing to protein folding, demonstrate that progress in computer science can make seemingly 
 obscure computer programs useful and usable in ways that exceed our wildest imaginations. Indeed, 
 programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
 need not be stated. If computer scientists and philosophers invest in computational ethics, it can 
 become as much a tool for philosophy as a calculator is for for arithmetic.\footnote{Is this too like, 
 lalalala fantasy of computational philosophy? Would it be less so if I did more work explaining 
-the history of theorem proving for math? Is this even that important for my project?}
-\<close>
-
-subsection \<open>Theoretical Objections to Automating Kantian Ethics\<close>
-
-subsection \<open>Related Work\<close>
-
-subsection \<open>Conclusion\<close>
-
-
-(*<*)
-end
-(*>*)
+the history of theorem proving for math? Is this even that important for my project?}%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Theoretical Objections to Automating Kantian Ethics%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Related Work%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsection{Conclusion%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\isatagtheory
+%
+\endisatagtheory
+{\isafoldtheory}%
+%
+\isadelimtheory
+%
+\endisadelimtheory
+%
+\end{isabellebody}%
+\endinput
+%:%file=~/Desktop/cs91r/paper/thesis_5_discussion.thy%:%
+%:%24=6%:%
+%:%28=8%:%
+%:%40=10%:%
+%:%41=11%:%
+%:%42=12%:%
+%:%43=13%:%
+%:%44=14%:%
+%:%45=15%:%
+%:%46=16%:%
+%:%47=17%:%
+%:%48=18%:%
+%:%49=19%:%
+%:%50=20%:%
+%:%51=21%:%
+%:%52=22%:%
+%:%55=26%:%
+%:%56=27%:%
+%:%57=28%:%
+%:%58=29%:%
+%:%59=30%:%
+%:%60=31%:%
+%:%61=32%:%
+%:%64=34%:%
+%:%65=35%:%
+%:%66=36%:%
+%:%67=37%:%
+%:%68=38%:%
+%:%69=39%:%
+%:%73=41%:%
+%:%74=42%:%
+%:%75=43%:%
+%:%76=44%:%
+%:%77=45%:%
+%:%78=46%:%
+%:%79=47%:%
+%:%80=48%:%
+%:%81=49%:%
+%:%82=50%:%
+%:%83=51%:%
+%:%84=52%:%
+%:%85=53%:%
+%:%86=54%:%
+%:%87=55%:%
+%:%88=56%:%
+%:%89=57%:%
+%:%90=58%:%
+%:%91=59%:%
+%:%92=60%:%
+%:%93=61%:%
+%:%94=62%:%
+%:%95=63%:%
+%:%96=64%:%
+%:%97=65%:%
+%:%98=66%:%
+%:%99=67%:%
+%:%100=68%:%
+%:%101=69%:%
+%:%102=70%:%
+%:%103=71%:%
+%:%104=72%:%
+%:%105=73%:%
+%:%106=74%:%
+%:%107=75%:%
+%:%108=76%:%
+%:%109=77%:%
+%:%110=78%:%
+%:%111=79%:%
+%:%112=80%:%
+%:%113=81%:%
+%:%114=82%:%
+%:%115=83%:%
+%:%116=84%:%
+%:%117=85%:%
+%:%118=86%:%
+%:%119=87%:%
+%:%120=88%:%
+%:%121=89%:%
+%:%122=90%:%
+%:%123=91%:%
+%:%124=92%:%
+%:%125=93%:%
+%:%126=94%:%
+%:%127=95%:%
+%:%128=96%:%
+%:%129=97%:%
+%:%130=98%:%
+%:%131=99%:%
+%:%132=100%:%
+%:%133=101%:%
+%:%134=102%:%
+%:%135=103%:%
+%:%136=104%:%
+%:%137=105%:%
+%:%138=106%:%
+%:%139=107%:%
+%:%140=108%:%
+%:%141=109%:%
+%:%142=110%:%
+%:%143=111%:%
+%:%144=112%:%
+%:%145=113%:%
+%:%146=114%:%
+%:%147=115%:%
+%:%148=116%:%
+%:%149=117%:%
+%:%150=118%:%
+%:%151=119%:%
+%:%152=120%:%
+%:%153=121%:%
+%:%154=122%:%
+%:%155=123%:%
+%:%156=124%:%
+%:%157=125%:%
+%:%158=126%:%
+%:%159=127%:%
+%:%160=128%:%
+%:%161=129%:%
+%:%162=130%:%
+%:%163=131%:%
+%:%164=132%:%
+%:%165=133%:%
+%:%166=134%:%
+%:%167=135%:%
+%:%168=136%:%
+%:%169=137%:%
+%:%170=138%:%
+%:%171=139%:%
+%:%172=140%:%
+%:%173=141%:%
+%:%174=142%:%
+%:%175=143%:%
+%:%176=144%:%
+%:%177=145%:%
+%:%178=146%:%
+%:%187=148%:%
+%:%199=150%:%
+%:%200=151%:%
+%:%201=152%:%
+%:%202=153%:%
+%:%203=154%:%
+%:%204=155%:%
+%:%213=157%:%
+%:%225=159%:%
+%:%226=160%:%
+%:%227=161%:%
+%:%228=162%:%
+%:%229=163%:%
+%:%230=164%:%
+%:%231=165%:%
+%:%232=166%:%
+%:%233=167%:%
+%:%234=168%:%
+%:%235=169%:%
+%:%236=170%:%
+%:%237=171%:%
+%:%238=172%:%
+%:%239=173%:%
+%:%240=174%:%
+%:%241=175%:%
+%:%242=176%:%
+%:%243=177%:%
+%:%244=178%:%
+%:%245=179%:%
+%:%246=180%:%
+%:%247=181%:%
+%:%248=182%:%
+%:%249=183%:%
+%:%250=184%:%
+%:%251=185%:%
+%:%252=186%:%
+%:%253=187%:%
+%:%254=188%:%
+%:%255=189%:%
+%:%256=190%:%
+%:%257=191%:%
+%:%258=192%:%
+%:%259=193%:%
+%:%260=194%:%
+%:%261=195%:%
+%:%262=196%:%
+%:%263=197%:%
+%:%264=198%:%
+%:%265=199%:%
+%:%266=200%:%
+%:%267=201%:%
+%:%268=202%:%
+%:%269=203%:%
+%:%270=204%:%
+%:%271=205%:%
+%:%272=206%:%
+%:%273=207%:%
+%:%274=208%:%
+%:%275=209%:%
+%:%276=210%:%
+%:%277=211%:%
+%:%278=212%:%
+%:%279=213%:%
+%:%280=214%:%
+%:%281=215%:%
+%:%282=216%:%
+%:%283=217%:%
+%:%284=218%:%
+%:%285=219%:%
+%:%286=220%:%
+%:%287=221%:%
+%:%288=222%:%
+%:%289=223%:%
+%:%290=224%:%
+%:%291=225%:%
+%:%292=226%:%
+%:%293=227%:%
+%:%294=228%:%
+%:%295=229%:%
+%:%296=230%:%
+%:%297=231%:%
+%:%298=232%:%
+%:%299=233%:%
+%:%300=234%:%
+%:%301=235%:%
+%:%302=236%:%
+%:%303=237%:%
+%:%304=238%:%
+%:%305=239%:%
+%:%306=240%:%
+%:%307=241%:%
+%:%308=242%:%
+%:%309=243%:%
+%:%310=244%:%
+%:%311=245%:%
+%:%312=246%:%
+%:%313=247%:%
+%:%314=248%:%
+%:%315=249%:%
+%:%316=250%:%
+%:%317=251%:%
+%:%318=252%:%
+%:%319=253%:%
+%:%320=254%:%
+%:%321=255%:%
+%:%322=256%:%
+%:%323=257%:%
+%:%324=258%:%
+%:%325=259%:%
+%:%326=260%:%
+%:%327=261%:%
+%:%328=262%:%
+%:%329=263%:%
+%:%330=264%:%
+%:%331=265%:%
+%:%332=266%:%
+%:%333=267%:%
+%:%334=268%:%
+%:%335=269%:%
+%:%336=270%:%
+%:%337=271%:%
+%:%338=272%:%
+%:%339=273%:%
+%:%340=274%:%
+%:%341=275%:%
+%:%342=276%:%
+%:%343=277%:%
+%:%344=278%:%
+%:%345=279%:%
+%:%346=280%:%
+%:%347=281%:%
+%:%348=282%:%
+%:%349=283%:%
+%:%350=284%:%
+%:%351=285%:%
+%:%352=286%:%
+%:%353=287%:%
+%:%354=288%:%
+%:%355=289%:%
+%:%356=290%:%
+%:%357=291%:%
+%:%358=292%:%
+%:%359=293%:%
+%:%360=294%:%
+%:%361=295%:%
+%:%362=296%:%
+%:%363=297%:%
+%:%364=298%:%
+%:%365=299%:%
+%:%366=300%:%
+%:%367=301%:%
+%:%368=302%:%
+%:%369=303%:%
+%:%370=304%:%
+%:%371=305%:%
+%:%372=306%:%
+%:%373=307%:%
+%:%374=308%:%
+%:%375=309%:%
+%:%376=310%:%
+%:%377=311%:%
+%:%378=312%:%
+%:%379=313%:%
+%:%380=314%:%
+%:%381=315%:%
+%:%382=316%:%
+%:%383=317%:%
+%:%384=318%:%
+%:%385=319%:%
+%:%386=320%:%
+%:%387=321%:%
+%:%388=322%:%
+%:%389=323%:%
+%:%390=324%:%
+%:%391=325%:%
+%:%392=326%:%
+%:%393=327%:%
+%:%394=328%:%
+%:%395=329%:%
+%:%396=330%:%
+%:%397=331%:%
+%:%398=332%:%
+%:%399=333%:%
+%:%400=334%:%
+%:%401=335%:%
+%:%402=336%:%
+%:%403=337%:%
+%:%404=338%:%
+%:%405=339%:%
+%:%406=340%:%
+%:%407=341%:%
+%:%408=342%:%
+%:%409=343%:%
+%:%410=344%:%
+%:%411=345%:%
+%:%412=346%:%
+%:%413=347%:%
+%:%414=348%:%
+%:%415=349%:%
+%:%416=350%:%
+%:%417=351%:%
+%:%418=352%:%
+%:%419=353%:%
+%:%420=354%:%
+%:%421=355%:%
+%:%422=356%:%
+%:%423=357%:%
+%:%424=358%:%
+%:%425=359%:%
+%:%426=360%:%
+%:%427=361%:%
+%:%428=362%:%
+%:%429=363%:%
+%:%430=364%:%
+%:%431=365%:%
+%:%432=366%:%
+%:%441=371%:%
+%:%453=373%:%
+%:%454=374%:%
+%:%455=375%:%
+%:%456=376%:%
+%:%457=377%:%
+%:%458=378%:%
+%:%459=379%:%
+%:%460=380%:%
+%:%461=381%:%
+%:%462=382%:%
+%:%463=383%:%
+%:%464=384%:%
+%:%465=385%:%
+%:%466=386%:%
+%:%467=387%:%
+%:%468=388%:%
+%:%469=389%:%
+%:%470=390%:%
+%:%471=391%:%
+%:%472=392%:%
+%:%473=393%:%
+%:%474=394%:%
+%:%475=395%:%
+%:%476=396%:%
+%:%477=397%:%
+%:%478=398%:%
+%:%479=399%:%
+%:%480=400%:%
+%:%481=401%:%
+%:%482=402%:%
+%:%483=403%:%
+%:%484=404%:%
+%:%485=405%:%
+%:%486=406%:%
+%:%487=407%:%
+%:%488=408%:%
+%:%489=409%:%
+%:%490=410%:%
+%:%491=411%:%
+%:%492=412%:%
+%:%493=413%:%
+%:%494=414%:%
+%:%495=415%:%
+%:%496=416%:%
+%:%497=417%:%
+%:%498=418%:%
+%:%499=419%:%
+%:%508=422%:%
+%:%520=425%:%
+%:%521=426%:%
+%:%522=427%:%
+%:%523=428%:%
+%:%524=429%:%
+%:%525=430%:%
+%:%526=431%:%
+%:%527=432%:%
+%:%528=433%:%
+%:%529=434%:%
+%:%530=435%:%
+%:%531=436%:%
+%:%532=437%:%
+%:%533=438%:%
+%:%534=439%:%
+%:%535=440%:%
+%:%536=441%:%
+%:%537=442%:%
+%:%538=443%:%
+%:%539=444%:%
+%:%540=445%:%
+%:%549=448%:%
+%:%553=450%:%
+%:%557=452%:%

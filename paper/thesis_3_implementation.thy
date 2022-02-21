@@ -124,25 +124,10 @@ an artifact of the fact that maxims are rules of practical reason, the kind of r
 and how to do it \citep{bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
 This judgement, applied in both choosing when to exercise the maxim and in the formulation of the maxim 
-itself, is what determines the morally relevant circumstances.
-
+itself, is what determines the morally relevant circumstances.  
 The difficulty in determining relevant circumstances is a limitation of my system and requires that a 
 human being formulate the maxim or that future work develop heuristics to classify circumstances as morally 
-relevant. For proponents of the ``human-in-the-loop'' model of AI ethics, in which ethical AI requires that 
-humans guide machines, human involvement may be a feature, not a bug \citep{loop}. In this model, 
-a human being must create a representation for the dilemma they wish to test, translating 
-a complex situation into a flat logical structure. This parallels the challenge that programmers 
-face when translating the complexity of reality to a programming langauge or computational representation. 
-The outcome of the universalizability test will depend on how the human formulates the maxim; if the 
-human puts garbage into the test, the test will return garbage out.
-
-Another solution is to develop heuristics to classify circumstances as morally 
-relevant. For example, one such attempt could define a moral closeness relation between an action, a 
-goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
-reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
-define some set of morally important entities, and classify morally relevant circumstances as those
-that involve morally important entities. Determining morally relevant
-circumstances, either using heuristics or human involvement, is a ripe area for future work.
+relevant. I discuss this challenge and potential solutions in greater detail in Section \ref{commonsense}.
 
 With this robust representation of a maxim, I can now define willing. To will a maxim is to adopt it 
 as a principle to live by, or to commit oneself to the maxim's action for the 
@@ -334,7 +319,7 @@ axiomatization where no_contradictions:"\<forall>A::t. \<forall>B::t. \<forall>c
 non-contradictory in circumstances $c$ at all worlds. Intuitively, this axiom requires that obligations 
 do not conflict. \<close>
 
-subsubsection "Formalizing the FUL"
+subsubsection \<open>Formalizing the FUL\label{formalizingful}\<close>
 
 text \<open>With this logical background, I can begin to implement the Formula of Universal Law, which, as defined 
 by the practical contradiction interpretation, states that a maxim is prohibited if it is ineffective

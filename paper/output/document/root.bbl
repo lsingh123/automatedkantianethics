@@ -1,4 +1,4 @@
-\begin{thebibliography}{70}
+\begin{thebibliography}{74}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -98,6 +98,12 @@ H.~Bok.
 \newblock \emph{Freedom and Responsibility}.
 \newblock Princeton University Press, 1998.
 
+\bibitem[Buzzard(2021)]{buzzardvideo}
+K.~Buzzard.
+\newblock How do you convince mathematicians a theorem prover is worth their
+  time?
+\newblock Talk at IOHK, January 2021.
+
 \bibitem[Carmo and Jones(2013)]{CJDDL}
 J.~Carmo and A.~Jones.
 \newblock Completeness and decidability results for a logic of contrary-to-duty
@@ -118,6 +124,13 @@ R.~M. Chisholm.
 \newblock Contrary-to-duty imperatives and deontic logic.
 \newblock \emph{Analysis (Oxford)}, 24\penalty0 (2):\penalty0 33--36, 1963.
 \newblock ISSN 0003-2638.
+
+\bibitem[Christensen(2007)]{christensen}
+D.~Christensen.
+\newblock Epistemic self-respect.
+\newblock \emph{Proceedings of the Aristotelian Society}, 107\penalty0
+  (1pt3):\penalty0 319--337, 2007.
+\newblock \doi{10.1111/j.1467-9264.2007.00224.x}.
 
 \bibitem[Cloos(2005)]{cloos}
 C.~Cloos.
@@ -184,6 +197,11 @@ I.~Gabriel.
 \newblock ISSN 1572-8641.
 \newblock \doi{10.1007/s11023-020-09539-2}.
 \newblock URL \url{http://dx.doi.org/10.1007/s11023-020-09539-2}.
+
+\bibitem[Harrison et~al.(2014)Harrison, Urban, and Wiedijk]{historyofITP}
+J.~Harrison, J.~Urban, and F.~Wiedijk.
+\newblock History of interactive theorem proving.
+\newblock In \emph{Computational Logic}, 2014.
 
 \bibitem[Hintikka(1962)]{hintikka}
 J.~Hintikka.
@@ -376,6 +394,12 @@ J.~Rawls.
   1980.
 \newblock ISSN 0022362X.
 \newblock URL \url{http://www.jstor.org/stable/2025790}.
+
+\bibitem[Roush(2009)]{roushselfhelp}
+S.~Roush.
+\newblock Second guessing: A self-help manual.
+\newblock \emph{Episteme}, 6\penalty0 (3):\penalty0 251--268, 2009.
+\newblock \doi{10.3366/E1742360009000690}.
 
 \bibitem[Rönnedal(2019)]{ctd}
 D.~Rönnedal.
