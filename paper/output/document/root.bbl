@@ -1,4 +1,4 @@
-\begin{thebibliography}{92}
+\begin{thebibliography}{93}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -101,6 +101,12 @@ C.~Benzm{\"u}ller, A.~Farjami, and X.~Parent.
   Springer Nature Switzerland AG, 2021.
 \newblock ISBN 978-3-030-70083-6.
 \newblock \doi{10.1007/978-3-030-70084-3}.
+
+\bibitem[Benzmüller and Woltzenlogel~Paleo(2016)]{godelincon}
+C.~Benzmüller and B.~Woltzenlogel~Paleo.
+\newblock The inconsistency in gödel's ontological argument: A success story
+  for ai in metaphysics.
+\newblock 07 2016.
 
 \bibitem[Berberich and Diepold(2018)]{berberich}
 N.~Berberich and K.~Diepold.

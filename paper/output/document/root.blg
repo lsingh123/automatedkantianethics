@@ -3,10 +3,11 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
-Warning--I didn't find a database entry for "vanfraaseen"
+Warning--I didn't find a database entry for "vanfraasen"
 Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
+Warning--empty booktitle in godelincon
 Warning--empty journal in dietrichson
 Warning--can't use both author and editor fields in metaphysicsintro
 Warning--empty year in leibniz
@@ -17,45 +18,45 @@ Warning--there's a number but no volume in tafani
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
 Warning--empty booktitle in constitution
-You've used 92 entries,
+You've used 93 entries,
             2773 wiz_defined-function locations,
-            1200 strings with 18914 characters,
-and the built_in function-call counts, 37644 in all, are:
-= -- 3439
-> -- 1640
-< -- 89
-+ -- 581
-- -- 488
-* -- 2696
-:= -- 5855
-add.period$ -- 362
-call.type$ -- 92
-change.case$ -- 422
-chr.to.int$ -- 91
-cite$ -- 197
-duplicate$ -- 1985
-empty$ -- 3439
-format.name$ -- 620
-if$ -- 8025
+            1203 strings with 19064 characters,
+and the built_in function-call counts, 38031 in all, are:
+= -- 3470
+> -- 1661
+< -- 90
++ -- 588
+- -- 494
+* -- 2721
+:= -- 5912
+add.period$ -- 365
+call.type$ -- 93
+change.case$ -- 427
+chr.to.int$ -- 92
+cite$ -- 200
+duplicate$ -- 2007
+empty$ -- 3477
+format.name$ -- 629
+if$ -- 8108
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 108
-newline$ -- 541
-num.names$ -- 386
-pop$ -- 927
+missing$ -- 109
+newline$ -- 546
+num.names$ -- 390
+pop$ -- 942
 preamble$ -- 1
-purify$ -- 343
+purify$ -- 347
 quote$ -- 0
-skip$ -- 1373
+skip$ -- 1388
 stack$ -- 0
-substring$ -- 1107
-swap$ -- 212
+substring$ -- 1109
+swap$ -- 214
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 907
-warning$ -- 13
-while$ -- 356
+type$ -- 918
+warning$ -- 14
+while$ -- 359
 width$ -- 0
-write$ -- 1332
-(There were 14 warnings)
+write$ -- 1343
+(There were 15 warnings)

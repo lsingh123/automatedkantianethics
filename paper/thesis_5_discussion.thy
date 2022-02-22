@@ -5,7 +5,7 @@ begin(*>*)
 
 section \<open>Discussion\label{discussion}\<close>
 
-subsection \<open>Automated Moral Agents in Practice \label{aiethics}\<close>
+subsection \<open>Automated Moral Agents in Practice \label{AIethics}\<close>
 
 text \<open>In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
 nuanced ethical reasoning. In this section, I outline the additional components necessary for my system
@@ -144,41 +144,41 @@ of any ethical theory that philosophers plausibly defend. \<close>
 
 subsection \<open>Computational Ethics \label{computationalethics}\<close>
 
-text \<open>Above I explained how my system offers a mechanism for humans to build ethical AI agents. Automated
-ethics can also help humans think differently about 
-philosophy. Just as theorem provers make mathematics more efficient and push mathematicians to think 
-precisely about the phenomena they model, computational ethics can help philosophers think more precisely about 
-philosophy. Below I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool offers to philosophers.\footnote{Some may wonder if my system
-could help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
+text \<open>In addition to guiding AI agents, automated ethics can also help human beings make philosophical
+progress. Just as theorem provers make mathematics more efficient and push mathematicians to think 
+precisely about the phenomena they model, computational ethics can help philosophers ask and answer
+new philosophical questions. In this section, I share an example of the kind of philosophical insight that computational ethics 
+can prompt and analyze the value that this tool can offer to philosophers.\footnote{Some may wonder if my system
+could also help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
 my system should play in ordinary ethical reasoning in Appendix \ref{ordinaryhumans} and conclude
-that large parts of ordinary ethical inquiry cannot and should not be automated. \<close>
+that large parts of ordinary ethical inquiry cannot and should not be automated.} \<close>
 
 subsubsection "Example of a Philosophical Insight: Well-Formed Maxims"
 
 text \<open>As presented in Section \ref{formalizingful}, in the process of developing my formalization of
-the FUL, I discovered the certain kinds of maxims are badly formed, or inappropriate inputs to the 
+the FUL, I discovered that certain kinds of maxims are badly formed, or inappropriate inputs to the 
 universalizability test. The FUL is consistent only if it holds for ``well-formed maxims,''
 such that neither the act nor goal are already achieved in the given circumstances. Precisely, 
 a circumstance, act, goal tuple (c, a, g) is well-formed if $(\neg (c \longrightarrow a) ) \wedge 
-(\neg(c \longrightarrow g))$. 
+(\neg(c \longrightarrow g))$. The insight that the FUL should not apply to badly-formed maxims has 
+philosophical value and serves as evidence of the potential of computational ethics. 
 
 \noindent \textbf{Philosophical Implications of Badly-Formed Maxims}
 
-Isabelle showed that the FUL can only hold for well-formed maxims logically, and I returned to Kantian
+Isabelle gave a logical argument for why the FUL can only hold for well-formed maxims, and I return to Kantian
 literature to better understand the philosophical implications of this idea. Because badly-formed maxims
 neither change an agent's behavior nor generate meaningful obligations, they are not the right kinds of 
-actions for practical reasoners to wonder about. They cannot be action-guiding and are thus not the kind of problem that 
+actions for practical reasoners to make moral judgements about. They cannot be action-guiding and are thus not the kind of problem that 
 ethics should be concerned with. Moreover, under the Kantian account of the will, the very act of asking 
 if a badly-formed maxim is prohibited generates a contradiction by undermining the will's authority over itself. 
 
 Consider the example badly-formed maxim, ``When eating breakfast, I will eat breakfast in order to 
-eat breakfast.'' This maxim isn't clearly obligatory or prohibited, but there is something empty about 
-it. Acting on this maxim could never result in any action. If an agent adopts this maxim, 
+eat breakfast.'' There is something empty about this maxim because acting on it could never result in 
+any action. If an agent adopts this maxim, 
 they decide that, in the circumstances ``eating breakfast'' they will perform the act ``eating breakfast''
 for the purpose ``eating breakfast.'' In these circumstances, the act has 
 already been performed! Adopting this maxim as a law to live by does not change how you live. If you adopt 
-this maxim, when you are eating breakfast, you eat breakfast, but this statement is already tautologically true. 
+this maxim, then when you are eating breakfast, you eat breakfast, but this statement is already tautologically true. 
 
 Not only does a badly-formed maxim fail to prescribe action, any obligations or prohibitions it 
 generates have already been fulfilled or violated. If a badly-formed maxim generates a prohibition, 
@@ -195,10 +195,10 @@ thus are not the right kinds of maxims for practical reasoners to evaluate. Inso
 is supposed to guide action, badly-formed maxims cannot be part of this project because they
 have no bearing on what someone should do. Practical reason is the kind of reason that helps us decide 
 what we should do. A practical reasoner asks moral questions not as a mental puzzle or out of curiosity, but 
-in order to decide how to act. A badly-formed maxim can never be action-guiding because it prescribes no new
-actions or obligations. It is not the kind of maxim that a practical reasoner should consider, because it
-will have no bearing on what the agent should do. There is no explicit prohibition against a badly-formed maxim 
-like the breakfast example above, but it is the wrong kind of question for a practical reasoner to ask. 
+to decide how to act. A badly-formed maxim is not the kind of maxim that a practical reasoner should consider, because it
+will have no bearing on what the agent should do. It makes no sense of ask, ``Should I act on a badly-formed
+maxim?'' because the answer to this question cannot change your behavior. There is no explicit prohibition 
+against a badly-formed maxim, but it is the wrong kind of question for a practical reasoner to ask.
 
 Kantians can make an even stronger claim about badly-formed maxims—because maxims are laws that you 
 give to yourself, asking if you should will a maxim as you will it undermines your will's law-giving 
@@ -207,9 +207,9 @@ the Kantian acount of willing, willing a maxim is equivalent to giving the maxim
 When you will a maxim, you commit yourself to the maxim's end. You cannot simultaneously 
 commit yourself to a maxim and ask if you should be committing to it. To will the maxim is to adopt it as 
 law—so the question, ``should I be willing this?'' is paradoxical. Either you haven't actually made 
-the maxim your law (and thus haven't yet committed yourself to it), or you aren't actually asking 
+the maxim your law (and thus haven't yet committed to it), or you aren't actually asking 
 the question (because the decision has already been made). Because a maxim is a law that you give to 
-yourself, you cannot question it absent a sufficient reason (such as a change in the circumstances). 
+yourself, you cannot question it absent a sufficient reason, such as a change in the circumstances. 
 To question a law arbitrarily is to not regard it as a law at all. This kind of questioning amounts to 
 questioning the will's authority over itself, but this is impossible. The will definitionally has authority 
 over itself, for that is what it is to be a will. 
@@ -221,17 +221,15 @@ circumstance ``dancing'' implies the act and goal of dancing), it is a question 
 do ask. I argue that the correct interpretation of this maxim is no longer a badly-formed maxim.
 
 Under one reading of this maxim, ``I should just dance'' is referring to a different act than the 
-circumstance ``when dancing''. The circumstance ``when dancing'' refers 
+circumstance ``when dancing.'' The circumstance ``when dancing'' refers 
 to rythmically moving your body to music, but ``I should just dance'' refers to dancing without anxiety, 
 completely focused on the joy of dancing itself. More precisely, this maxim should read ``When 
 dancing, I should abandon my anxiety and focus on dancing for the sake of dancing.'' This maxim when so 
-modified is not vacuous at all—abandoning anxiety and focusing on dancing is an entirely different act 
-from moving your body rythmically to music. This maxim is actually well-formed, and thus doesn't
-pose a problem for my argument. It is entirely plausible to tell yourself ``When I am dancing, I should focus 
-on dancing for the sake of dancing itself.'' The circumstances do not entail the act or the goal because 
+modified is not badly-formed at all—abandoning anxiety and focusing on dancing is an entirely different act 
+from moving your body rythmically to music. The circumstances do not entail the act or the goal because 
 they refer to different meanings of the word dancing. Any valid reading of this maxim will have the structure above, 
 in which the act is actually different from the circumstances. A reasoner cannot accept their will 
-as law-giving or commit themselves to an act and simultaneously question the act. Either they must be 
+as law-giving, or commit themselves to an act, and simultaneously question the act. Either they must be 
 questioning a different act or they must have recieved new information to prompt the questioning, 
 modifying the circumstances of the original maxim. 
 
@@ -249,28 +247,29 @@ at moment t+1.''
 
 \noindent \textbf{Implications for Self-Doubt and Self-Respect}
 
-The idea that we cannot even evaluate, let alone will badly formed maxims has implications for 
-self-doubt and self-respect. The dancing maxim can be read using the lens of self-doubt. Under this 
+The idea that we cannot even evaluate, let alone will, badly-formed maxims has implications for debates about 
+self-doubt and self-respect. The dancing maxim can be read as an expression of self-doubt. Under this 
 reading, the question ``When I am dancing, should I be dancing for the sake of dancing?'' is the agent asking, 
 ``Am I doing the right thing right now?'' Unlike the drowning example, the agent is not asking about the 
 next moment, but is expressing doubt about the moral validity of their behavior at this current moment. 
-I do not argue that self-doubt always undermines the will—after all, self-doubt plays an 
-important role in moral reasoning and is often the mark of a thoughtful agent. I argue instead 
+Self-doubt does not always undermine the will—after all, self-doubt plays an 
+important role in moral reasoning and is often the mark of a thoughtful agent. Instead, I argue 
 that questions of self-doubt do not actually involve badly-formed maxims, for these are not the maxims 
-that the agent is doubting. This example demonstrates that the tension between self-doubt and self-respect 
+that the agent is doubting. This example will demonstrate that the tension between self-doubt and self-respect 
 arises from a mistaken characterization of questions of self-doubt as questions about badly-formed maxims.
 I first explain the tension between self-doubt and self-respect in epistemology, then 
 explain the parallel tension in ethics, and finally present a resolution of this tension.
 
 In epistemology, there is a tension between the rational requirement to believe in yourself and the 
 value of self-doubt, in moderation. Christensen presents the ``principle of self-respect,'' which requires 
-that any rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
-rationally both believe that the sky is blue and believe that I believe that the sky is green. In other words, I cannot 
-disapprove of my own credences. Christensen argues that this principle, which he abbreviates to SR, holds because 
+that a rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
+rationally believe both that the sky is blue and that I believe that the sky is green. In other words, I cannot 
+disapprove of my own credences, since if I do disapprove of them, I would just abandon them. Christensen 
+argues that this principle, which he abbreviates to SR, holds because 
 a perfectly rational agent can make accurate and confident judgements about what they believe. If this 
 is the case, violating SR results in a simple contradiction \cite[8-9]{christensen}. 
 
-While most philosophers accept some version of SR\footnote{Christensen cites \citet{vanfraaseen}, 
+While most philosophers accept some version of SR\footnote{Christensen cites \citet{vanfraasen}, 
 \citet{vickers}, and \citet{koons}.}, 
 Roush argues that the principle must be modified in order to account for healthy epistemic 
 self-doubt. She argues that, while pathological second-guessing is correctly criticized, we are generally 
@@ -298,12 +297,12 @@ It seems that she asking if the maxim, ``When dancing at your friend's wedding, 
 of dancing'' is a permissible maxim to act on. Notice that the maxim in question is badly-formed: the 
 circumstance ``when dancing at a friend's wedding'' implies the act ``dance.'' Because this is a 
 badly-formed maxim, it cannot be the maxim that she is questioning, for adopting
-this maxim could not have changed her behavior at all. Sara is asking a question about her actions and 
-their validity. Any conclusions about the validity of a badly-formed maxim would not help her, first because 
-the maxim has no effect on her action, and second because any such validity would be a foregone conclusion
+this maxim could not have changed her behavior at all. Sara is wondering if her behavior is permissible, but
+any conclusions about the permissibility of a badly-formed maxim would not help her. This is because 
+the maxim has no effect on her action and because any such permissibility would be a foregone conclusion,
 since she has already adopted the maxim. Thus, under the interpretation of self-doubt as a badly-formed 
 maxim, the tension between ESR and ethical self-doubt seems irresolvable. Those committed to this 
-interpretation must abandon one principle or the other.
+interpretation must abandon one principle or the other, since committing and questioning are incompatible.
 
 To resolve this issue, I turn to another interpretation of ethical self-doubt. Under this interpretation, 
 when Sara asks, ``Should I really be dancing right now?'' she wants to know if the maxim that 
@@ -326,14 +325,14 @@ such a question could never yield a useful answer for a practical reasoner.
 
 subsubsection \<open>An Argument For Computational Ethics\<close>
 
-text \<open>The philosophical insight above is an example of the kind of philosophical progress that can be 
+text \<open>The insight above is an example of the kind of philosophical progress that can be 
 made using computational tools and serves as evidence for the power of computational ethics. The 
 idea that the FUL can only hold for well-formed maxims would have been
 incredibly difficult to discover without a computer. I discovered it while formulating the FUL because 
 Isabelle's proof-finding tools look for edge cases like badly-formed maxims. Badly-formed maxims are 
 interesting because they are the kind of thing that is usually ignored in ordinary philosophical inquiry. 
 Philosophers usually assume that we are not discussing badly-formed maxims because, as argued above, 
-they are not the kind of thing that is usually useful to study. Computational tools like Isabelle
+they are not the kind of thing that is immediately relevant to ethics. Computational tools like Isabelle
 require that assumptions like the exclusion of well-formed maxims are made precise, and thus force 
 philosophers to understand their arguments in a new way. This example demonstrates the contributions
 that computational ethics makes: it can quickly check edge cases and it requires that all assumptions be
@@ -342,17 +341,19 @@ made explicit and precise.
 I do not argue that computational ethics uncovers philosophical insights that humans are incapable 
 of reaching. Instead, I claim that insights like the one about the well-formed maxim are much easier
 to reach with computational tools. Badly-formed maxims are usually ignored in philosophical discussion 
-and would have been much more difficult to understand without the help of a computer which immediately
-noted that they render the FUL inconsistent. Computational tools prompt philosophers to ask new questions that 
-lead to insights. Computational ethics can serve as another tool in a philosopher's arsenal, like a 
-thought experiment or counterexample.
+and would have been much more difficult to understand without the help of a computer. Computational 
+tools prompt philosophers to ask new questions that 
+lead to insights, and can thus serve as another tool in a philosopher's arsenal, like a 
+thought experiment or counterexample.\footnote{Even if computational ethics is possible, some may 
+worry that it sacrifices something important about philosophical inquiry. I discuss this concern in Appendix 
+\ref{academicphilosophy}.}
 
 The first benefit of computational ethics is precision, which is the goal of much analytic
 philosophy. Thought experiments, arguments, counterexamples, and examples 
 illustrate features of a concept in the hope of making the concept itself more precise. Computational 
 ethics can help philosophers reach the goal of precision. Representing a philosophical idea in logic 
 and implementing it in an interactive theorem prover requires making the idea precise to a degree 
-that ordinary discussion does not necessarily require. For example, as I formalized the notion of a 
+that ordinary discussion does not necessarily require. For example, when formalizing the notion of a 
 maxim, I had to understand its components and define it as a circumstance, act, goal tuple. Moreover, 
 Isabelle's strict typing system required that I define coherent, consistent types for each of these 
 entities and for a maxim as a whole. This precision is possible without computational tools, but 
@@ -368,9 +369,7 @@ can check edge cases, like that of the badly-formed maxim, far more quickly than
 subfields that use symbolic logic to represent philosophical concepts (e.g. philosophy of language) can 
 use interactive theorem provers like Isabelle to complete proofs in a matter of seconds. By automating 
 away the tedium, computational ethics can give philosophers the tools to ask new kinds of questions.
-\<close>
 
-text \<open>
 Computational ethics is at its infancy. The use of theorem provers in mathematics is just now beginning 
 to make headway \citep{buzzardvideo}, even though theorem provers were first invented in the 1960's \citep{historyofITP}. 
 In contrast, the first attempts to use theorem provers for ethics occurred in the last decade. The 
@@ -425,41 +424,41 @@ and a morally worthy action: the latter requires a good will, or a will motivate
 that embodies a good will'' \citep[345]{oneilluniversallaws}. Moral behavior doesn't just require performing
 a ``good'' action, but it requires acting on a morally worthy maxim from the motivation of duty, or 
 doing the right thing because it is the right thing to do. Moral behavior requires both a certain action 
-(acting on a morally worthy maxim) and a certain motivation (the motivation of duty). It is the capacity 
+(acting on a morally worthy maxim) and a certain motivation (the motivation of duty). It is this capacity 
 for self-motivation that makes morality binding for rational beings; we must behave morally precisely 
 because we have wills, or the ability to be motivated by ends
-that we choose. Only rational beings have wills, thus only rational beings can have good wills, or wills
+that we choose. Only rational beings have wills, so only rational beings can have good wills, or wills
 motivated by duty, and thus only rational beings can behave morally. Under this understanding
-of moral behavior, it seems unlikely that a computer could, in the near future, behave morally
+of moral behavior, it seems unlikely that a computer could behave morally
 since a computer does not have motivation in the same way as a human being. If a computer is not a fully rational
-being, then, it is not the kind of thing that can behave morally.\footnote{A parallel argument can also be made for virtue ethics. Virtuous
+being, then it is not the kind of thing that can behave morally.\footnote{A parallel argument can also be made for virtue ethics. Virtuous
 behavior requires not only a certain action, but also a certain disposition towards the action, so it seems
 difficult for an AI agent to truly behave virtuously.}
 
 The idea that, under Kant's account, a computer cannot behave morally, does not preclude the kind 
-of automated categorical imperative test that I present in this thesis. O'Neill argues that the FUL
-serves as a test of morally worthy maxims, and an automated categorical imperative test can be used 
-to identify this kind of maxim. Perhaps a computer cannot act on a morally relevant maxim from a motivation of duty, 
+of automated categorical imperative that I present in this thesis. O'Neill argues that the FUL
+serves as a test of morally worthy maxims, and a implementation of an automated categorical imperative can 
+identify this kind of maxim. Perhaps a computer cannot act on a morally relevant maxim from a motivation of duty, 
 but it certainly can act on this maxim nonetheless. For example, a self-driving car can choose to swerve to hit a tree
 to avoid injuring pedestrians in the crosswalk. This action may be one that acts on a morally worthy maxim
 \emph{even if} the self-driving car is not motivated by duty. The discpline of machine ethics is partially
 spurred by the recognition that, as automated agents become more powerful, they will need to make
 morally consequential decisions. Automated agents may be incapable of moral behavior, but automated agents that mimic
-moral behavior are surely better than agents that ignore morality entirely. Worries about unethical AI
+moral behavior are better than agents that ignore morality entirely. Worries about unethical AI
 stem from the fact that AI agents are navigating a world inhabited by human beings, and their decisions
 impact us. Insofar as we are building AI that will operate in human society, the behavior of such AI 
 should mimic the behavior of an ethical human being. AI needs to be ethical for our sakes, so that we 
-can interact with it safely. If AI conforms to human ethics, then it will certainly navigate the world
+can interact with it safely. If AI conforms to human ethics, then it will navigate the world
 in a way that benefits human beings.
 
 Another challenge for automated Kantian ethics identified by O'Neill is that the FUL test requires that
 a maxim be given as input. O'Neill notes that the test assumes ``that agents will have certain tentative 
 plans, proposals and policies which they can consider, revise or reject or endorse and pursue'' \citep[343]{oneilluniversallaws}.
-The FUL evaluates the moral worth of a maxim given as input and this potential maxim is generated by 
+The FUL evaluates the moral worth of a maxim given as input, where this potential maxim is generated by 
 the choices that an agent is faced with. Determining this potential maxim is a challenge for both human
-and automated reasoners. Kant claims that the difficulty of determining an agent's potential maxim, which is their
+and automated reasoners. Kant even claims that the difficulty of determining an agent's potential maxim, which is their
 own, subjective understanding of their principle of action, is a reason that we may never be able 
-to know if morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
+to know if the morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
 choices between potential actions and must determine the maxim, or principle, underlying each potential action.
 This is equivalent to a ``mapping'' problem: agents are given situations or dillemas as input and must map
 these to maxims.
@@ -482,8 +481,8 @@ action; instead, we consult our almanac of maxims. This almanac is generated by 
 absorbed social values, and moral advice from people we trust. The categorical imperative is useful 
 to verify the rightness or wrongness of a maxim, but is not part of the bulk of human ethical reasoning.
 
-While human beings cannot repeatedly apply the universalizability test to all potential maxims during 
-every moral dilemma, computers have the computational power to do so. Human beings are 
+While human beings cannot repeatedly apply the universalizability test to all potential maxims encountered during 
+a moral dilemma, computers have the computational power to do so. Human beings are 
 equipped with enough prior knowledge or common sense, to have an almanac of morally worthy maxims,
 but we have limited computational power. Computers, on the other hand, are comparatively
 much more capable of computation and thus can repeatedly recompute the results of the categorical
@@ -503,7 +502,6 @@ instead of a derivation tool also explains the fact noted in Section \ref{AIethi
 handle bad-faith attempts to generate false positives or negatives. The test only returns the right 
 result when an agent sincerely attempts to represent their maxim of action, not when an adversary attempts
  to ``trick'' the categorical imperative.\<close>
-
 text_raw \<open>
 \begin{figure}
 \centering
@@ -511,21 +509,20 @@ text_raw \<open>
 \caption{A refined version of Figure \ref{fig:AIengine} in which the input parser learns from a database
 of action-maxim mappings, which is in turn fed the output of my automated Kantian ethics system. } \label{fig:inputparser}
 \end{figure}\<close>
-
-text \<open>This understanding of the role of the categorical imperative not only fails to render automate moral
+text \<open>This understanding of the role of the categorical imperative not only fails to render automated moral
 reasoning impossible, but it also offers insight into how to solve the challenge of creating an input parser.
 If the categorical imperative test is only useful to those who have some prior moral knowledge, then prior moral
 knowledge can and should be used to create an input parser. Specifically, some kind of machine learning-based approach
 could learn action-maxim mappings from a database of such mappings compiled by a human being. Moreover, 
 the human being could assign each maxim in the database a rightness or wrongness score. My implementation
 of the automated categorical imperative would then simply check the work of this machine learning algorithm and transform
-a fuzzy prediction into a provable, rigorous moral judgement. Moreover, this rigorous moral judgement
+a fuzzy prediction into a provable, rigorous moral judgement. This rigorous moral judgement
 could in turn be fed into the database of maxims to make the intput parser smarter. One example of 
 this kind of system is shown in Figure \ref{fig:inputparser}. The combination of 
 prior knowledge of some maxims' moral worth and the ability of a computer to constantly perform the
-universalizability test could not only match human ethical reasoning but perhaps also surpass it
+universalizability test could not only match human ethical reasoning but could perhaps surpass it
 by double checking the moral intuitions that we take for granted. A computer with no common sense or prior knowledge
-may indeed be unable to reason using the categorical imperative, but one equipped with some prior knowledge
+may be unable to reason using the categorical imperative, but one equipped with some prior knowledge
 of maxims and their moral worth may even help us better reason about morality. 
 \<close>
 
@@ -533,7 +530,7 @@ of maxims and their moral worth may even help us better reason about morality.
 subsection \<open>Related Work \label{relatedwork}\<close>
 
 text\<open>In 1685, Leibniz dreamed of a calculator that could resolve philosophical and theological 
-disputes \cite{leibniz}. At the time, the logical and computational resources necessary to make his 
+disputes \citep{leibniz}. At the time, the logical and computational resources necessary to make his 
 dream a reality did not exist. Today, automated ethics is a growing field, spurred in part by the 
 need for ethically intelligent AI agents. Tolmeijer et al. surveyed the state of the field of 
 machine ethics \citep{mesurvey} and characterized implementations in automated ethics by (1) the choice 
@@ -561,19 +558,19 @@ implementing other deontological theories \citep{dde, deon1, deon2}.
 
 Kantian ethics specifically appears to be an intuitive candidate for formalization and implementation 
 and there has been both theoretical and practical work on automating Kantian ethics \citep{powers, lin}. 
-In 2006, Powers \citep{powers} argued that implementing Kantian ethics presented technical challenges, 
+In 2006, Powers argued that implementing Kantian ethics presented technical challenges, 
 such as automation of a non-monotonic logic, and philosophical challenges, like a definition of the 
-categorical imperative. I address the former through my use of Dyadic Deontic Logic, which allows 
+categorical imperative \citep{powers}. I address the former through my use of Dyadic Deontic Logic, which allows 
 obligations to be retracted as context changes, and the latter through my use of the practical 
 contradiction interpretation. There has also been prior work in formalizing Kantian metaphysics 
 using I/O logic \citep{io}. Deontic logic, which has been implemented in Isabelle/HOL, itself is inspired 
 by Kant's ``ought implies can'' principle, but it does not include a robust formalization of the entire 
 categorical imperative \citep{cresswell}.
 
-Kroy \citep{kroy} presents a formalization of the first two formulations of the categorical imperative, 
-but does not implement it. I implement his formalization of the FUL to compare it to my system. 
-Lindner and Bentzen \citep{BL} presented one of the first formalizations and implementations of 
-Kant's second formulation of the categorical imperative. They present their goal as ``not to get 
+Kroy presents a formalization of the first two formulations of the categorical imperative, but wrote 
+before the computational tools existed to automate such a formalization \citep{kroy}. I implement his formalization of the FUL to compare it to my system. 
+Lindner and Bentzen presented one of the first implementations of a formalization of 
+Kant's second formulation of the categorical imperative \citep{BL}. They present their goal as ``not to get 
 close to a correct interpretation of Kant, but to show that our interpretation of Kant’s ideas can 
 contribute to the development of machine ethics.'' My work builds on theirs by formalizing the 
 first formulation of the categorical imperative as faithfully as possible. Staying faithful to 
@@ -602,11 +599,11 @@ may be terrifying, but progress in AI indicates that such a future is likely clo
 Philosophers, regulators, and computer scientists are sounding the alarm about the dangers of developing
 this kind of AI. Insofar as developers will continue to ignore these warnings and develop increasingly 
 independent AI, there is a dire need to program such AI with some notion of ethics. If AI is navigating
-human society, then it is making decisions with an ethical component at all times. Ethics is inescapable; 
+human society, then it is making decisions with an ethical facet at all times. Ethics is inescapable; 
 if AI developers and computer scientists ignore it, then they will be building machines that make decisions
 based on some set of unknown, implicit ethical values. Countless examples, from the Alleghany family services screening
 algorithm that is biased against poor families to search algorithms that associate black-sounding names
-with crime, demonstrate that such implicit ethics simply codifies the biases, prejudices, and moral
+with crime, demonstrate that such implicit ethics usually codifies the biases, prejudices, and moral
 failings of the society in which it is developed. AI will inevitably make judgements on moral dilemmas, 
 and automated ethics is necessary to make these judgements morally correct. 
 

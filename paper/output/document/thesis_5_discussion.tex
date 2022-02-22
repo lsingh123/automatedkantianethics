@@ -25,7 +25,7 @@
 }
 \isamarkuptrue%
 %
-\isamarkupsubsection{Automated Moral Agents in Practice \label{aiethics}%
+\isamarkupsubsection{Automated Moral Agents in Practice \label{AIethics}%
 }
 \isamarkuptrue%
 %
@@ -38,23 +38,22 @@
 %
 \begin{isamarkuptext}%
 In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
-nuanced ethical reasoning. In this section and Section \label{computationalethics}, I outline how my
-system could be used by AI agents and by human philosophers. My work on automating the categorical imperative 
+nuanced ethical reasoning. In this section, I outline the additional components necessary for my system
+to guide AI agents. My work on automating the categorical imperative 
 could serve as one component of a partially or fully artificial ethical reasoner, or an ``ethical AI.''
-Specifically, my system could be a categorical imperative library that takes as input the logical representation 
+Specifically, my system is a categorical imperative library that takes as input the logical representation 
 of a maxim and returns its moral status (if it is obligatory, prohibited, or permissible).
-
 As it stands, my project can evaluate the moral status of maxims represented in my logic and potentially 
 serves as one component of an ``ethics engine'' that an AI agent could use to make ethical decisions.
 For example, my system could be combined with an input parser to translate moral dilemmas as represented 
-to the AI agent into maxims in my logic. The ouput of my system could be fed into an output 
-parser to translate this output into a prescription for the action the AI agent should take.
-Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.%
+to the AI agent into maxims in my logic. An output parser could translate my system's output
+into a prescription for action that the AI agent could act on. Figure \ref{fig:AIengine} depicts the 
+workflow of this example ethics engine.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{AI_engine.png}
+\includegraphics[scale=0.5]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent, which begins with a moral dilemma, 
 passes it through an input parser, applies the automated Kantian ethics test, and then processes the 
 output using an output parser. I contribute the automated Kantian ethics component.} \label{fig:AIengine}
@@ -65,16 +64,14 @@ In this workflow, an AI agent is faced with a moral dilemma in some internal rep
 parser translates this internal representation into an appropriate logical representation, i.e. 
 a circumstance, act, goal tuple. The output parser translates the output of the categorical imperative
 library (the moral status of the maxim as obligatory, prohibited, or permissible) to a prescription for
-action that the AI agent can act on. In order for my system to be used in an AI agent using the workflow
-above, future work would need to develop such input and output parsers.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-The input parser must translate a complex real-world situation into a flat, logical representation. 
+action. In order for my system to be used in an AI agent using the workflow
+above, future work would need to develop such input and output parsers.
+
+The input parser must translate a complex real-world situation into a flat, logical representation.
 This requires that the input parser determine which circumstances are ``morally relevant''
-for a maxim, a controversial judgement that requires commonsense reasoning.
-There is robust debate in the literature on which circumstances should be considered when formulating a maxim. 
-Some critics of Kant raise the ``tailoring objection,'' which is the worry that arbitrarily specific 
+for a maxim, a controversial judgement.
+There is robust debate in the literature on the circumstances that should be considered when formulating a maxim, 
+inspired by a common objection to Kantian ethics. The``tailoring objection'' is the worry that arbitrarily specific 
 circumstances render any maxim universalizable. For example, the maxim ``When my name is Lavanya Singh 
 and I am wearing a purple shirt and it is November 26th, I will lie in order to get some easy cash'' 
 passes the universalizability test. Even if this maxim is willed universally, the circumstances are so 
@@ -86,31 +83,31 @@ The Kantian response to this criticism is to require that the circumstances incl
 of the maxim be morally relevant. In the example above, my purple shirt and the date clearly have no bearing on 
 the moral status of lying. On the other hand, consider the maxim, ``When I am unemployed, I will murder
 someone in order to take their job.'' The circumstances of being unemployed clearly have some bearing on the moral
-relevance of the murder in question; they speak to the motivation for the murder. While this view 
-tracks how we actually perform moral reasoning, it raises the question of how we can determine
+relevance of the murder in question; they speak to the motivation for the murder. 
+
+While this view has intuitive appeal, it raises the question of how we can determine
 which circumstances are morally relevant. O'Niell answers this question by noting that the Formula of Universal Law is 
 a ``test of moral worth rather than of outward rightness'' \citep[98]{constofreason}. The FUL is a way 
 for an agent to decide how they should behave, not for a third-party to judge their behavior. Ethics is 
-a personal process for Kant, so the FUL is designed to help agents internally make decisions, not to 
-judge others' decisions. Because agents use the FUL to evaluate their own behavior, the test is at its 
+a personal proces and the FUL is designed to help agents internally make decisions. Because agents use 
+the FUL to evaluate their own behavior, the test is at its 
 best when they make a good faith effort to isolate the \emph{principle} of their action, rather than some
 ``surface intent'' \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
 is universally consistent, so it is most effective when an agent accurately formulates the principle
-they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
+they act on. Circumstances are morally relevant if they reflect the way that the agent is 
 thinking about their own action. In the example above, the circumstance of wearing a purple shirt doesn't reflect
-the principle of the liar's action. Its inclusion is clearly a disingenous attempt to evade the universalizability
+the principle of the liar's action. Its inclusion is a disingenous attempt to evade the universalizability
 test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
 gymnastics.
 
 While this account of the formulation of a maxim describes how a well-intentioned human agent can determine 
 morally relevant circumstances, the challenge remains open for automated ethics. In order for an automated
-ethical agent to use the categorical imperative to its fullest extent, the input maxim fed into
-my system or any automation of the FUL must be a good-faith attempt to capture the agent's principle
+ethical agent to use the categorical imperative to its fullest extent, the input maxim must be a good-faith 
+attempt to capture the agent's principle
 of action. However an action is turned into a maxim for my system to process, whether manually as I did
 in Chapter \ref{applications} or using an automatic input parser, this transformation must be a good-faith 
-attempt to capture the principle of action. 
-
-Translating everyday situations into appropriate maxims is the bulk of the work that a Kantian human 
+attempt to capture the principle of action. Translating everyday situations into appropriate maxims is 
+the bulk of the work that a Kantian human 
 being does when making decisions. Common misconceptions about Kantian ethics\footnote{For example, critics 
 of Kantian ethics worry that the maxim, ``When I am a
 man, I will marry a man because I want to spend my life with him'' fails the universalizability
@@ -126,21 +123,19 @@ in an AI ethics engine. One solution is for a human being to perform the role of
 parser. Once an AI agent stumbles onto an ethical dilemma, a human being could take over, formulate 
 the right question, and feed it into the categorical imperative library to see what action the categorical 
 imperative would prescribe. For proponents of the ``human-in-the-loop'' model of AI ethics, in which 
-ethical AI requires that humans guide machines \cite{loop}, this kind of human involvement may be a feature.
+ethical AI requires that humans guide machines \citep{loop}, this kind of human involvement may be a feature.
 The outcome of the universalizability test will depend on how the human formulates the maxim; if the 
 human puts garbage into the test, the test will return garbage out.
 
 It is likely that, regardless of the strengths of the human-in-the-loop model, fully automated AI 
 agents will exist. Even if developing this kind of AI is irresponsible,
-such developments are likely and will require ethics engines, or risk no consideration of ethics at all. Even if 
-AI without human supervision is scary, such AI with automated ethics is better than such AI without. 
-In such a world, the input parser in my ethics engine would have to be automated. This would require 
-that the parser translate the AI agent's internal representation to the appropriate logical representation. 
-It is likely that, just as different implementations of automated ethics choose 
+such developments are likely and will require ethics engines, or risk no consideration of ethics at all.
+In such a world, the input parser in my ethics engine would have to be automated.
+It is likely that, just as implementations of automated ethics choose 
 a particular ethical theory and implement it, different implementations of such an input parser would 
-adopt different interpretations of commonsense reasoning and morally relevant circumstances. 
+adopt different interpretations of maxim formulation and morally relevant circumstances. 
 
-These interpretations of commonsense reasonining could inspire heuristics to classify circumstances as morally 
+These interpretations could inspire heuristics to classify circumstances as morally 
 relevant. For example, one such attempt could define a moral closeness relation between an action, a 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
 reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
@@ -174,7 +169,7 @@ An automated version of the categorical imperative could become part of an ethic
 for an AI agent, with additional work to parse the input and the output. Effectively, the kind 
 of automated ethics I implement could be a library that AI developers use to give AI agents the capacity for 
 sophisticated ethical reasoning faithful to philosophical literature. This represents an improvement 
-over existing AI ethics, which rarely attempts to capture the complexity 
+over existing AI ethics, which rarely captures the complexity 
 of any ethical theory that philosophers plausibly defend.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -196,12 +191,14 @@ of any ethical theory that philosophers plausibly defend.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Above I explained how my system offers a mechanism for humans to build ethical AI agents. I also 
-argue that computational ethics is a mechanism for computers to help humans think differently about 
-philosophy. Just as theorem provers make mathematics more efficient and push mathematicians to think 
-precisely about the phenomena they model, computational ethics can help philosophers think more precisely about 
-philosophy. Below I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool offers to philosophers.%
+In addition to guiding AI agents, automated ethics can also help human beings make philosophical
+progress. Just as theorem provers make mathematics more efficient and push mathematicians to think 
+precisely about the phenomena they model, computational ethics can help philosophers ask and answer
+new philosophical questions. In this section, I share an example of the kind of philosophical insight that computational ethics 
+can prompt and analyze the value that this tool can offer to philosophers.\footnote{Some may wonder if my system
+could also help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
+my system should play in ordinary ethical reasoning in Appendix \ref{ordinaryhumans} and conclude
+that large parts of ordinary ethical inquiry cannot and should not be automated.}%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -223,28 +220,29 @@ can prompt and analyze the value that this tool offers to philosophers.%
 %
 \begin{isamarkuptext}%
 As presented in Section \ref{formalizingful}, in the process of developing my formalization of
-the FUL, I discovered the certain kinds of maxims are badly formed, or inappropriate inputs to the 
+the FUL, I discovered that certain kinds of maxims are badly formed, or inappropriate inputs to the 
 universalizability test. The FUL is consistent only if it holds for ``well-formed maxims,''
 such that neither the act nor goal are already achieved in the given circumstances. Precisely, 
 a circumstance, act, goal tuple (c, a, g) is well-formed if $(\neg (c \longrightarrow a) ) \wedge 
-(\neg(c \longrightarrow g))$. 
+(\neg(c \longrightarrow g))$. The insight that the FUL should not apply to badly-formed maxims has 
+philosophical value and serves as evidence of the potential of computational ethics. 
 
 \noindent \textbf{Philosophical Implications of Badly-Formed Maxims}
 
-Isabelle showed that the FUL can only hold for well-formed maxims logically, and I returned to Kantian
+Isabelle gave a logical argument for why the FUL can only hold for well-formed maxims, and I return to Kantian
 literature to better understand the philosophical implications of this idea. Because badly-formed maxims
 neither change an agent's behavior nor generate meaningful obligations, they are not the right kinds of 
-actions for practical reasoners to wonder about. They cannot be action-guiding and are thus not the kind of problem that 
+actions for practical reasoners to make moral judgements about. They cannot be action-guiding and are thus not the kind of problem that 
 ethics should be concerned with. Moreover, under the Kantian account of the will, the very act of asking 
 if a badly-formed maxim is prohibited generates a contradiction by undermining the will's authority over itself. 
 
 Consider the example badly-formed maxim, ``When eating breakfast, I will eat breakfast in order to 
-eat breakfast.'' This maxim isn't clearly obligatory or prohibited, but there is something empty about 
-it. Acting on this maxim could never result in any action. If an agent adopts this maxim, 
+eat breakfast.'' There is something empty about this maxim because acting on it could never result in 
+any action. If an agent adopts this maxim, 
 they decide that, in the circumstances ``eating breakfast'' they will perform the act ``eating breakfast''
 for the purpose ``eating breakfast.'' In these circumstances, the act has 
 already been performed! Adopting this maxim as a law to live by does not change how you live. If you adopt 
-this maxim, when you are eating breakfast, you eat breakfast, but this statement is already tautologically true. 
+this maxim, then when you are eating breakfast, you eat breakfast, but this statement is already tautologically true. 
 
 Not only does a badly-formed maxim fail to prescribe action, any obligations or prohibitions it 
 generates have already been fulfilled or violated. If a badly-formed maxim generates a prohibition, 
@@ -261,10 +259,10 @@ thus are not the right kinds of maxims for practical reasoners to evaluate. Inso
 is supposed to guide action, badly-formed maxims cannot be part of this project because they
 have no bearing on what someone should do. Practical reason is the kind of reason that helps us decide 
 what we should do. A practical reasoner asks moral questions not as a mental puzzle or out of curiosity, but 
-in order to decide how to act. A badly-formed maxim can never be action-guiding because it prescribes no new
-actions or obligations. It is not the kind of maxim that a practical reasoner should consider, because it
-will have no bearing on what the agent should do. There is no explicit prohibition against a badly-formed maxim 
-like the breakfast example above, but it is the wrong kind of question for a practical reasoner to ask. 
+to decide how to act. A badly-formed maxim is not the kind of maxim that a practical reasoner should consider, because it
+will have no bearing on what the agent should do. It makes no sense of ask, ``Should I act on a badly-formed
+maxim?'' because the answer to this question cannot change your behavior. There is no explicit prohibition 
+against a badly-formed maxim, but it is the wrong kind of question for a practical reasoner to ask.
 
 Kantians can make an even stronger claim about badly-formed maxims—because maxims are laws that you 
 give to yourself, asking if you should will a maxim as you will it undermines your will's law-giving 
@@ -273,9 +271,9 @@ the Kantian acount of willing, willing a maxim is equivalent to giving the maxim
 When you will a maxim, you commit yourself to the maxim's end. You cannot simultaneously 
 commit yourself to a maxim and ask if you should be committing to it. To will the maxim is to adopt it as 
 law—so the question, ``should I be willing this?'' is paradoxical. Either you haven't actually made 
-the maxim your law (and thus haven't yet committed yourself to it), or you aren't actually asking 
+the maxim your law (and thus haven't yet committed to it), or you aren't actually asking 
 the question (because the decision has already been made). Because a maxim is a law that you give to 
-yourself, you cannot question it absent a sufficient reason (such as a change in the circumstances). 
+yourself, you cannot question it absent a sufficient reason, such as a change in the circumstances. 
 To question a law arbitrarily is to not regard it as a law at all. This kind of questioning amounts to 
 questioning the will's authority over itself, but this is impossible. The will definitionally has authority 
 over itself, for that is what it is to be a will. 
@@ -287,17 +285,15 @@ circumstance ``dancing'' implies the act and goal of dancing), it is a question 
 do ask. I argue that the correct interpretation of this maxim is no longer a badly-formed maxim.
 
 Under one reading of this maxim, ``I should just dance'' is referring to a different act than the 
-circumstance ``when dancing''. The circumstance ``when dancing'' refers 
+circumstance ``when dancing.'' The circumstance ``when dancing'' refers 
 to rythmically moving your body to music, but ``I should just dance'' refers to dancing without anxiety, 
 completely focused on the joy of dancing itself. More precisely, this maxim should read ``When 
 dancing, I should abandon my anxiety and focus on dancing for the sake of dancing.'' This maxim when so 
-modified is not vacuous at all—abandoning anxiety and focusing on dancing is an entirely different act 
-from moving your body rythmically to music. This maxim is actually well-formed, and thus doesn't
-pose a problem for my argument. It is entirely plausible to tell yourself ``When I am dancing, I should focus 
-on dancing for the sake of dancing itself.'' The circumstances do not entail the act or the goal because 
+modified is not badly-formed at all—abandoning anxiety and focusing on dancing is an entirely different act 
+from moving your body rythmically to music. The circumstances do not entail the act or the goal because 
 they refer to different meanings of the word dancing. Any valid reading of this maxim will have the structure above, 
 in which the act is actually different from the circumstances. A reasoner cannot accept their will 
-as law-giving or commit themselves to an act and simultaneously question the act. Either they must be 
+as law-giving, or commit themselves to an act, and simultaneously question the act. Either they must be 
 questioning a different act or they must have recieved new information to prompt the questioning, 
 modifying the circumstances of the original maxim. 
 
@@ -315,28 +311,29 @@ at moment t+1.''
 
 \noindent \textbf{Implications for Self-Doubt and Self-Respect}
 
-The idea that we cannot even evaluate, let alone will badly formed maxims has implications for 
-self-doubt and self-respect. The dancing maxim can be read using the lens of self-doubt. Under this 
+The idea that we cannot even evaluate, let alone will, badly-formed maxims has implications for debates about 
+self-doubt and self-respect. The dancing maxim can be read as an expression of self-doubt. Under this 
 reading, the question ``When I am dancing, should I be dancing for the sake of dancing?'' is the agent asking, 
 ``Am I doing the right thing right now?'' Unlike the drowning example, the agent is not asking about the 
 next moment, but is expressing doubt about the moral validity of their behavior at this current moment. 
-I do not argue that self-doubt always undermines the will—after all, self-doubt plays an 
-important role in moral reasoning and is often the mark of a thoughtful agent. I argue instead 
+Self-doubt does not always undermine the will—after all, self-doubt plays an 
+important role in moral reasoning and is often the mark of a thoughtful agent. Instead, I argue 
 that questions of self-doubt do not actually involve badly-formed maxims, for these are not the maxims 
-that the agent is doubting. This example demonstrates that the tension between self-doubt and self-respect 
+that the agent is doubting. This example will demonstrate that the tension between self-doubt and self-respect 
 arises from a mistaken characterization of questions of self-doubt as questions about badly-formed maxims.
 I first explain the tension between self-doubt and self-respect in epistemology, then 
 explain the parallel tension in ethics, and finally present a resolution of this tension.
 
 In epistemology, there is a tension between the rational requirement to believe in yourself and the 
 value of self-doubt, in moderation. Christensen presents the ``principle of self-respect,'' which requires 
-that any rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
-rationally both believe that the sky is blue and believe that I believe that the sky is green. In other words, I cannot 
-disapprove of my own credences. Christensen argues that this principle, which he abbreviates to SR, holds because 
+that a rational agent refrain from believing that they have mistaken beliefs \cite[4]{christensen}. For example, I cannot 
+rationally believe both that the sky is blue and that I believe that the sky is green. In other words, I cannot 
+disapprove of my own credences, since if I do disapprove of them, I would just abandon them. Christensen 
+argues that this principle, which he abbreviates to SR, holds because 
 a perfectly rational agent can make accurate and confident judgements about what they believe. If this 
 is the case, violating SR results in a simple contradiction \cite[8-9]{christensen}. 
 
-While most philosophers accept some version of SR\footnote{Christensen cites \citet{vanfraaseen}, 
+While most philosophers accept some version of SR\footnote{Christensen cites \citet{vanfraasen}, 
 \citet{vickers}, and \citet{koons}.}, 
 Roush argues that the principle must be modified in order to account for healthy epistemic 
 self-doubt. She argues that, while pathological second-guessing is correctly criticized, we are generally 
@@ -364,12 +361,12 @@ It seems that she asking if the maxim, ``When dancing at your friend's wedding, 
 of dancing'' is a permissible maxim to act on. Notice that the maxim in question is badly-formed: the 
 circumstance ``when dancing at a friend's wedding'' implies the act ``dance.'' Because this is a 
 badly-formed maxim, it cannot be the maxim that she is questioning, for adopting
-this maxim could not have changed her behavior at all. Sara is asking a question about her actions and 
-their validity. Any conclusions about the validity of a badly-formed maxim would not help her, first because 
-the maxim has no effect on her action, and second because any such validity would be a foregone conclusion
+this maxim could not have changed her behavior at all. Sara is wondering if her behavior is permissible, but
+any conclusions about the permissibility of a badly-formed maxim would not help her. This is because 
+the maxim has no effect on her action and because any such permissibility would be a foregone conclusion,
 since she has already adopted the maxim. Thus, under the interpretation of self-doubt as a badly-formed 
 maxim, the tension between ESR and ethical self-doubt seems irresolvable. Those committed to this 
-interpretation must abandon one principle or the other.
+interpretation must abandon one principle or the other, since committing and questioning are incompatible.
 
 To resolve this issue, I turn to another interpretation of ethical self-doubt. Under this interpretation, 
 when Sara asks, ``Should I really be dancing right now?'' she wants to know if the maxim that 
@@ -407,14 +404,14 @@ such a question could never yield a useful answer for a practical reasoner.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-The philosophical insight above is an example of the kind of philosophical progress that can be 
+The insight above is an example of the kind of philosophical progress that can be 
 made using computational tools and serves as evidence for the power of computational ethics. The 
 idea that the FUL can only hold for well-formed maxims would have been
 incredibly difficult to discover without a computer. I discovered it while formulating the FUL because 
 Isabelle's proof-finding tools look for edge cases like badly-formed maxims. Badly-formed maxims are 
 interesting because they are the kind of thing that is usually ignored in ordinary philosophical inquiry. 
 Philosophers usually assume that we are not discussing badly-formed maxims because, as argued above, 
-they are not the kind of thing that is usually useful to study. Computational tools like Isabelle
+they are not the kind of thing that is immediately relevant to ethics. Computational tools like Isabelle
 require that assumptions like the exclusion of well-formed maxims are made precise, and thus force 
 philosophers to understand their arguments in a new way. This example demonstrates the contributions
 that computational ethics makes: it can quickly check edge cases and it requires that all assumptions be
@@ -423,17 +420,19 @@ made explicit and precise.
 I do not argue that computational ethics uncovers philosophical insights that humans are incapable 
 of reaching. Instead, I claim that insights like the one about the well-formed maxim are much easier
 to reach with computational tools. Badly-formed maxims are usually ignored in philosophical discussion 
-and would have been much more difficult to understand without the help of a computer which immediately
-noted that they render the FUL inconsistent. Computational tools prompt philosophers to ask new questions that 
-lead to insights. Computational ethics can serve as another tool in a philosopher's arsenal, like a 
-thought experiment or counterexample.
+and would have been much more difficult to understand without the help of a computer. Computational 
+tools prompt philosophers to ask new questions that 
+lead to insights, and can thus serve as another tool in a philosopher's arsenal, like a 
+thought experiment or counterexample.\footnote{Even if computational ethics is possible, some may 
+worry that it sacrifices something important about philosophical inquiry. I discuss this concern in Appendix 
+\ref{academicphilosophy}.}
 
 The first benefit of computational ethics is precision, which is the goal of much analytic
 philosophy. Thought experiments, arguments, counterexamples, and examples 
 illustrate features of a concept in the hope of making the concept itself more precise. Computational 
 ethics can help philosophers reach the goal of precision. Representing a philosophical idea in logic 
 and implementing it in an interactive theorem prover requires making the idea precise to a degree 
-that ordinary discussion does not necessarily require. For example, as I formalized the notion of a 
+that ordinary discussion does not necessarily require. For example, when formalizing the notion of a 
 maxim, I had to understand its components and define it as a circumstance, act, goal tuple. Moreover, 
 Isabelle's strict typing system required that I define coherent, consistent types for each of these 
 entities and for a maxim as a whole. This precision is possible without computational tools, but 
@@ -448,10 +447,8 @@ of thought and discussion. I arrived at the insight about badly-formed maxims be
 can check edge cases, like that of the badly-formed maxim, far more quickly than a human being. Moreover, 
 subfields that use symbolic logic to represent philosophical concepts (e.g. philosophy of language) can 
 use interactive theorem provers like Isabelle to complete proofs in a matter of seconds. By automating 
-away the tedium, computational ethics can give philosophers the tools to ask new kinds of questions.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
+away the tedium, computational ethics can give philosophers the tools to ask new kinds of questions.
+
 Computational ethics is at its infancy. The use of theorem provers in mathematics is just now beginning 
 to make headway \citep{buzzardvideo}, even though theorem provers were first invented in the 1960's \citep{historyofITP}. 
 In contrast, the first attempts to use theorem provers for ethics occurred in the last decade. The 
@@ -479,7 +476,7 @@ become as much a tool for philosophy as a calculator is for for arithmetic.%
 %
 \isatagdocument
 %
-\isamarkupsubsection{Theoretical Objections to Automating Kantian Ethics%
+\isamarkupsubsection{Theoretical Objections to Automating Kantian Ethics \label{amapossible}%
 }
 \isamarkuptrue%
 %
@@ -521,41 +518,41 @@ and a morally worthy action: the latter requires a good will, or a will motivate
 that embodies a good will'' \citep[345]{oneilluniversallaws}. Moral behavior doesn't just require performing
 a ``good'' action, but it requires acting on a morally worthy maxim from the motivation of duty, or 
 doing the right thing because it is the right thing to do. Moral behavior requires both a certain action 
-(acting on a morally worthy maxim) and a certain motivation (the motivation of duty). It is the capacity 
+(acting on a morally worthy maxim) and a certain motivation (the motivation of duty). It is this capacity 
 for self-motivation that makes morality binding for rational beings; we must behave morally precisely 
 because we have wills, or the ability to be motivated by ends
-that we choose. Only rational beings have wills, thus only rational beings can have good wills, or wills
+that we choose. Only rational beings have wills, so only rational beings can have good wills, or wills
 motivated by duty, and thus only rational beings can behave morally. Under this understanding
-of moral behavior, it seems unlikely that a computer could, in the near future, behave morally
+of moral behavior, it seems unlikely that a computer could behave morally
 since a computer does not have motivation in the same way as a human being. If a computer is not a fully rational
-being, then, it is not the kind of thing that can behave morally.\footnote{A parallel argument can also be made for virtue ethics. Virtuous
+being, then it is not the kind of thing that can behave morally.\footnote{A parallel argument can also be made for virtue ethics. Virtuous
 behavior requires not only a certain action, but also a certain disposition towards the action, so it seems
 difficult for an AI agent to truly behave virtuously.}
 
 The idea that, under Kant's account, a computer cannot behave morally, does not preclude the kind 
-of automated categorical imperative test that I present in this thesis. O'Neill argues that the FUL
-serves as a test of morally worthy maxims, and an automated categorical imperative test can be used 
-to identify this kind of maxim. Perhaps a computer cannot act on a morally relevant maxim from a motivation of duty, 
+of automated categorical imperative that I present in this thesis. O'Neill argues that the FUL
+serves as a test of morally worthy maxims, and a implementation of an automated categorical imperative can 
+identify this kind of maxim. Perhaps a computer cannot act on a morally relevant maxim from a motivation of duty, 
 but it certainly can act on this maxim nonetheless. For example, a self-driving car can choose to swerve to hit a tree
 to avoid injuring pedestrians in the crosswalk. This action may be one that acts on a morally worthy maxim
 \emph{even if} the self-driving car is not motivated by duty. The discpline of machine ethics is partially
 spurred by the recognition that, as automated agents become more powerful, they will need to make
 morally consequential decisions. Automated agents may be incapable of moral behavior, but automated agents that mimic
-moral behavior are surely better than agents that ignore morality entirely. Worries about unethical AI
+moral behavior are better than agents that ignore morality entirely. Worries about unethical AI
 stem from the fact that AI agents are navigating a world inhabited by human beings, and their decisions
 impact us. Insofar as we are building AI that will operate in human society, the behavior of such AI 
 should mimic the behavior of an ethical human being. AI needs to be ethical for our sakes, so that we 
-can interact with it safely. If AI conforms to human ethics, then it will certainly navigate the world
+can interact with it safely. If AI conforms to human ethics, then it will navigate the world
 in a way that benefits human beings.
 
 Another challenge for automated Kantian ethics identified by O'Neill is that the FUL test requires that
 a maxim be given as input. O'Neill notes that the test assumes ``that agents will have certain tentative 
 plans, proposals and policies which they can consider, revise or reject or endorse and pursue'' \citep[343]{oneilluniversallaws}.
-The FUL evaluates the moral worth of a maxim given as input and this potential maxim is generated by 
+The FUL evaluates the moral worth of a maxim given as input, where this potential maxim is generated by 
 the choices that an agent is faced with. Determining this potential maxim is a challenge for both human
-and automated reasoners. Kant claims that the difficulty of determining an agent's potential maxim, which is their
+and automated reasoners. Kant even claims that the difficulty of determining an agent's potential maxim, which is their
 own, subjective understanding of their principle of action, is a reason that we may never be able 
-to know if morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
+to know if the morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
 choices between potential actions and must determine the maxim, or principle, underlying each potential action.
 This is equivalent to a ``mapping'' problem: agents are given situations or dillemas as input and must map
 these to maxims.
@@ -578,8 +575,8 @@ action; instead, we consult our almanac of maxims. This almanac is generated by 
 absorbed social values, and moral advice from people we trust. The categorical imperative is useful 
 to verify the rightness or wrongness of a maxim, but is not part of the bulk of human ethical reasoning.
 
-While human beings cannot repeatedly apply the universalizability test to all potential maxims during 
-every moral dilemma, computers have the computational power to do so. Human beings are 
+While human beings cannot repeatedly apply the universalizability test to all potential maxims encountered during 
+a moral dilemma, computers have the computational power to do so. Human beings are 
 equipped with enough prior knowledge or common sense, to have an almanac of morally worthy maxims,
 but we have limited computational power. Computers, on the other hand, are comparatively
 much more capable of computation and thus can repeatedly recompute the results of the categorical
@@ -609,20 +606,20 @@ of action-maxim mappings, which is in turn fed the output of my automated Kantia
 \end{figure}
 %
 \begin{isamarkuptext}%
-This understanding of the role of the categorical imperative not only fails to render automate moral
+This understanding of the role of the categorical imperative not only fails to render automated moral
 reasoning impossible, but it also offers insight into how to solve the challenge of creating an input parser.
 If the categorical imperative test is only useful to those who have some prior moral knowledge, then prior moral
 knowledge can and should be used to create an input parser. Specifically, some kind of machine learning-based approach
 could learn action-maxim mappings from a database of such mappings compiled by a human being. Moreover, 
 the human being could assign each maxim in the database a rightness or wrongness score. My implementation
 of the automated categorical imperative would then simply check the work of this machine learning algorithm and transform
-a fuzzy prediction into a provable, rigorous moral judgement. Moreover, this rigorous moral judgement
+a fuzzy prediction into a provable, rigorous moral judgement. This rigorous moral judgement
 could in turn be fed into the database of maxims to make the intput parser smarter. One example of 
 this kind of system is shown in Figure \ref{fig:inputparser}. The combination of 
 prior knowledge of some maxims' moral worth and the ability of a computer to constantly perform the
-universalizability test could not only match human ethical reasoning but perhaps also surpass it
+universalizability test could not only match human ethical reasoning but could perhaps surpass it
 by double checking the moral intuitions that we take for granted. A computer with no common sense or prior knowledge
-may indeed be unable to reason using the categorical imperative, but one equipped with some prior knowledge
+may be unable to reason using the categorical imperative, but one equipped with some prior knowledge
 of maxims and their moral worth may even help us better reason about morality.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -645,7 +642,7 @@ of maxims and their moral worth may even help us better reason about morality.%
 %
 \begin{isamarkuptext}%
 In 1685, Leibniz dreamed of a calculator that could resolve philosophical and theological 
-disputes \cite{leibniz}. At the time, the logical and computational resources necessary to make his 
+disputes \citep{leibniz}. At the time, the logical and computational resources necessary to make his 
 dream a reality did not exist. Today, automated ethics is a growing field, spurred in part by the 
 need for ethically intelligent AI agents. Tolmeijer et al. surveyed the state of the field of 
 machine ethics \citep{mesurvey} and characterized implementations in automated ethics by (1) the choice 
@@ -673,19 +670,19 @@ implementing other deontological theories \citep{dde, deon1, deon2}.
 
 Kantian ethics specifically appears to be an intuitive candidate for formalization and implementation 
 and there has been both theoretical and practical work on automating Kantian ethics \citep{powers, lin}. 
-In 2006, Powers \citep{powers} argued that implementing Kantian ethics presented technical challenges, 
+In 2006, Powers argued that implementing Kantian ethics presented technical challenges, 
 such as automation of a non-monotonic logic, and philosophical challenges, like a definition of the 
-categorical imperative. I address the former through my use of Dyadic Deontic Logic, which allows 
+categorical imperative \citep{powers}. I address the former through my use of Dyadic Deontic Logic, which allows 
 obligations to be retracted as context changes, and the latter through my use of the practical 
 contradiction interpretation. There has also been prior work in formalizing Kantian metaphysics 
 using I/O logic \citep{io}. Deontic logic, which has been implemented in Isabelle/HOL, itself is inspired 
 by Kant's ``ought implies can'' principle, but it does not include a robust formalization of the entire 
 categorical imperative \citep{cresswell}.
 
-Kroy \citep{kroy} presents a formalization of the first two formulations of the categorical imperative, 
-but does not implement it. I implement his formalization of the FUL to compare it to my system. 
-Lindner and Bentzen \citep{BL} presented one of the first formalizations and implementations of 
-Kant's second formulation of the categorical imperative. They present their goal as ``not to get 
+Kroy presents a formalization of the first two formulations of the categorical imperative, but wrote 
+before the computational tools existed to automate such a formalization \citep{kroy}. I implement his formalization of the FUL to compare it to my system. 
+Lindner and Bentzen presented one of the first implementations of a formalization of 
+Kant's second formulation of the categorical imperative \citep{BL}. They present their goal as ``not to get 
 close to a correct interpretation of Kant, but to show that our interpretation of Kant’s ideas can 
 contribute to the development of machine ethics.'' My work builds on theirs by formalizing the 
 first formulation of the categorical imperative as faithfully as possible. Staying faithful to 
@@ -731,11 +728,11 @@ may be terrifying, but progress in AI indicates that such a future is likely clo
 Philosophers, regulators, and computer scientists are sounding the alarm about the dangers of developing
 this kind of AI. Insofar as developers will continue to ignore these warnings and develop increasingly 
 independent AI, there is a dire need to program such AI with some notion of ethics. If AI is navigating
-human society, then it is making decisions with an ethical component at all times. Ethics is inescapable; 
+human society, then it is making decisions with an ethical facet at all times. Ethics is inescapable; 
 if AI developers and computer scientists ignore it, then they will be building machines that make decisions
 based on some set of unknown, implicit ethical values. Countless examples, from the Alleghany family services screening
 algorithm that is biased against poor families to search algorithms that associate black-sounding names
-with crime, demonstrate that such implicit ethics simply codifies the biases, prejudices, and moral
+with crime, demonstrate that such implicit ethics usually codifies the biases, prejudices, and moral
 failings of the society in which it is developed. AI will inevitably make judgements on moral dilemmas, 
 and automated ethics is necessary to make these judgements morally correct. 
 
@@ -787,476 +784,482 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%49=19%:%
 %:%50=20%:%
 %:%51=21%:%
-%:%52=22%:%
+%:%54=25%:%
 %:%55=26%:%
 %:%56=27%:%
 %:%57=28%:%
 %:%58=29%:%
 %:%59=30%:%
 %:%60=31%:%
-%:%61=32%:%
+%:%63=33%:%
 %:%64=34%:%
 %:%65=35%:%
 %:%66=36%:%
 %:%67=37%:%
 %:%68=38%:%
 %:%69=39%:%
-%:%73=41%:%
-%:%74=42%:%
-%:%75=43%:%
-%:%76=44%:%
-%:%77=45%:%
-%:%78=46%:%
-%:%79=47%:%
-%:%80=48%:%
-%:%81=49%:%
-%:%82=50%:%
-%:%83=51%:%
-%:%84=52%:%
-%:%85=53%:%
-%:%86=54%:%
-%:%87=55%:%
-%:%88=56%:%
-%:%89=57%:%
-%:%90=58%:%
-%:%91=59%:%
-%:%92=60%:%
-%:%93=61%:%
-%:%94=62%:%
-%:%95=63%:%
-%:%96=64%:%
-%:%97=65%:%
-%:%98=66%:%
-%:%99=67%:%
-%:%100=68%:%
-%:%101=69%:%
-%:%102=70%:%
-%:%103=71%:%
-%:%104=72%:%
-%:%105=73%:%
-%:%106=74%:%
-%:%107=75%:%
-%:%108=76%:%
-%:%109=77%:%
-%:%110=78%:%
-%:%111=79%:%
-%:%112=80%:%
-%:%113=81%:%
-%:%114=82%:%
-%:%115=83%:%
-%:%116=84%:%
-%:%117=85%:%
-%:%118=86%:%
-%:%119=87%:%
-%:%120=88%:%
-%:%121=89%:%
-%:%122=90%:%
-%:%123=91%:%
-%:%124=92%:%
-%:%125=93%:%
-%:%126=94%:%
-%:%127=95%:%
-%:%128=96%:%
-%:%129=97%:%
-%:%130=98%:%
-%:%131=99%:%
-%:%132=100%:%
-%:%133=101%:%
-%:%134=102%:%
-%:%135=103%:%
-%:%136=104%:%
-%:%137=105%:%
-%:%138=106%:%
-%:%139=107%:%
-%:%140=108%:%
-%:%141=109%:%
-%:%142=110%:%
-%:%143=111%:%
-%:%144=112%:%
-%:%145=113%:%
-%:%146=114%:%
-%:%147=115%:%
-%:%148=116%:%
-%:%149=117%:%
-%:%150=118%:%
-%:%151=119%:%
-%:%152=120%:%
-%:%153=121%:%
-%:%154=122%:%
-%:%155=123%:%
-%:%156=124%:%
-%:%157=125%:%
-%:%158=126%:%
-%:%159=127%:%
-%:%160=128%:%
-%:%161=129%:%
-%:%162=130%:%
-%:%163=131%:%
-%:%164=132%:%
-%:%165=133%:%
-%:%166=134%:%
-%:%167=135%:%
-%:%168=136%:%
-%:%169=137%:%
-%:%170=138%:%
-%:%171=139%:%
-%:%172=140%:%
-%:%173=141%:%
-%:%174=142%:%
-%:%175=143%:%
-%:%176=144%:%
-%:%177=145%:%
-%:%178=146%:%
-%:%187=148%:%
-%:%199=150%:%
-%:%200=151%:%
-%:%201=152%:%
-%:%202=153%:%
-%:%203=154%:%
-%:%204=155%:%
-%:%213=157%:%
-%:%225=159%:%
-%:%226=160%:%
-%:%227=161%:%
-%:%228=162%:%
-%:%229=163%:%
-%:%230=164%:%
-%:%231=165%:%
-%:%232=166%:%
-%:%233=167%:%
-%:%234=168%:%
-%:%235=169%:%
-%:%236=170%:%
-%:%237=171%:%
-%:%238=172%:%
-%:%239=173%:%
-%:%240=174%:%
-%:%241=175%:%
-%:%242=176%:%
-%:%243=177%:%
-%:%244=178%:%
-%:%245=179%:%
-%:%246=180%:%
-%:%247=181%:%
-%:%248=182%:%
-%:%249=183%:%
-%:%250=184%:%
-%:%251=185%:%
-%:%252=186%:%
-%:%253=187%:%
-%:%254=188%:%
-%:%255=189%:%
-%:%256=190%:%
-%:%257=191%:%
-%:%258=192%:%
-%:%259=193%:%
-%:%260=194%:%
-%:%261=195%:%
-%:%262=196%:%
-%:%263=197%:%
-%:%264=198%:%
-%:%265=199%:%
-%:%266=200%:%
-%:%267=201%:%
-%:%268=202%:%
-%:%269=203%:%
-%:%270=204%:%
-%:%271=205%:%
-%:%272=206%:%
-%:%273=207%:%
-%:%274=208%:%
-%:%275=209%:%
-%:%276=210%:%
-%:%277=211%:%
-%:%278=212%:%
-%:%279=213%:%
-%:%280=214%:%
-%:%281=215%:%
-%:%282=216%:%
-%:%283=217%:%
-%:%284=218%:%
-%:%285=219%:%
-%:%286=220%:%
-%:%287=221%:%
-%:%288=222%:%
-%:%289=223%:%
-%:%290=224%:%
-%:%291=225%:%
-%:%292=226%:%
-%:%293=227%:%
-%:%294=228%:%
-%:%295=229%:%
-%:%296=230%:%
-%:%297=231%:%
-%:%298=232%:%
-%:%299=233%:%
-%:%300=234%:%
-%:%301=235%:%
-%:%302=236%:%
-%:%303=237%:%
-%:%304=238%:%
-%:%305=239%:%
-%:%306=240%:%
-%:%307=241%:%
-%:%308=242%:%
-%:%309=243%:%
-%:%310=244%:%
-%:%311=245%:%
-%:%312=246%:%
-%:%313=247%:%
-%:%314=248%:%
-%:%315=249%:%
-%:%316=250%:%
-%:%317=251%:%
-%:%318=252%:%
-%:%319=253%:%
-%:%320=254%:%
-%:%321=255%:%
-%:%322=256%:%
-%:%323=257%:%
-%:%324=258%:%
-%:%325=259%:%
-%:%326=260%:%
-%:%327=261%:%
-%:%328=262%:%
-%:%329=263%:%
-%:%330=264%:%
-%:%331=265%:%
-%:%332=266%:%
-%:%333=267%:%
-%:%334=268%:%
-%:%335=269%:%
-%:%336=270%:%
-%:%337=271%:%
-%:%338=272%:%
-%:%339=273%:%
-%:%340=274%:%
-%:%341=275%:%
-%:%342=276%:%
-%:%343=277%:%
-%:%344=278%:%
-%:%345=279%:%
-%:%346=280%:%
-%:%347=281%:%
-%:%348=282%:%
-%:%349=283%:%
-%:%350=284%:%
-%:%351=285%:%
-%:%352=286%:%
-%:%353=287%:%
-%:%354=288%:%
-%:%355=289%:%
-%:%356=290%:%
-%:%357=291%:%
-%:%358=292%:%
-%:%359=293%:%
-%:%360=294%:%
-%:%361=295%:%
-%:%362=296%:%
-%:%363=297%:%
-%:%364=298%:%
-%:%365=299%:%
-%:%366=300%:%
-%:%367=301%:%
-%:%368=302%:%
-%:%369=303%:%
-%:%370=304%:%
-%:%371=305%:%
-%:%372=306%:%
-%:%373=307%:%
-%:%374=308%:%
-%:%375=309%:%
-%:%376=310%:%
-%:%377=311%:%
-%:%378=312%:%
-%:%379=313%:%
-%:%380=314%:%
-%:%381=315%:%
-%:%382=316%:%
-%:%383=317%:%
-%:%384=318%:%
-%:%385=319%:%
-%:%386=320%:%
-%:%387=321%:%
-%:%388=322%:%
-%:%389=323%:%
-%:%398=327%:%
-%:%410=329%:%
-%:%411=330%:%
-%:%412=331%:%
-%:%413=332%:%
-%:%414=333%:%
-%:%415=334%:%
-%:%416=335%:%
-%:%417=336%:%
-%:%418=337%:%
-%:%419=338%:%
-%:%420=339%:%
-%:%421=340%:%
-%:%422=341%:%
-%:%423=342%:%
-%:%424=343%:%
-%:%425=344%:%
-%:%426=345%:%
-%:%427=346%:%
-%:%428=347%:%
-%:%429=348%:%
-%:%430=349%:%
-%:%431=350%:%
-%:%432=351%:%
-%:%433=352%:%
-%:%434=353%:%
-%:%435=354%:%
-%:%436=355%:%
-%:%437=356%:%
-%:%438=357%:%
-%:%439=358%:%
-%:%440=359%:%
-%:%441=360%:%
-%:%442=361%:%
-%:%443=362%:%
-%:%444=363%:%
-%:%445=364%:%
-%:%446=365%:%
-%:%447=366%:%
-%:%448=367%:%
-%:%449=368%:%
-%:%450=369%:%
-%:%451=370%:%
-%:%455=374%:%
-%:%456=375%:%
-%:%457=376%:%
-%:%458=377%:%
-%:%459=378%:%
-%:%460=379%:%
-%:%461=380%:%
-%:%462=381%:%
-%:%463=382%:%
-%:%464=383%:%
-%:%465=384%:%
-%:%466=385%:%
-%:%467=386%:%
-%:%468=387%:%
-%:%469=388%:%
-%:%470=389%:%
-%:%471=390%:%
-%:%472=391%:%
-%:%473=392%:%
-%:%482=395%:%
-%:%494=398%:%
-%:%495=399%:%
-%:%496=400%:%
-%:%497=401%:%
-%:%498=402%:%
-%:%499=403%:%
-%:%500=404%:%
-%:%501=405%:%
-%:%502=406%:%
-%:%503=407%:%
-%:%504=408%:%
-%:%505=409%:%
-%:%506=410%:%
-%:%507=411%:%
-%:%508=412%:%
-%:%509=413%:%
-%:%510=414%:%
-%:%511=415%:%
-%:%512=416%:%
-%:%513=417%:%
-%:%514=418%:%
-%:%515=419%:%
-%:%516=420%:%
-%:%517=421%:%
-%:%518=422%:%
-%:%519=423%:%
-%:%520=424%:%
-%:%521=425%:%
-%:%522=426%:%
-%:%523=427%:%
-%:%524=428%:%
-%:%525=429%:%
-%:%526=430%:%
-%:%527=431%:%
-%:%528=432%:%
-%:%529=433%:%
-%:%530=434%:%
-%:%531=435%:%
-%:%532=436%:%
-%:%533=437%:%
-%:%534=438%:%
-%:%535=439%:%
-%:%536=440%:%
-%:%537=441%:%
-%:%538=442%:%
-%:%539=443%:%
-%:%540=444%:%
-%:%541=445%:%
-%:%542=446%:%
-%:%543=447%:%
-%:%544=448%:%
-%:%545=449%:%
-%:%546=450%:%
-%:%547=451%:%
-%:%548=452%:%
-%:%549=453%:%
-%:%550=454%:%
-%:%551=455%:%
-%:%552=456%:%
-%:%553=457%:%
-%:%554=458%:%
-%:%555=459%:%
-%:%556=460%:%
-%:%557=461%:%
-%:%558=462%:%
-%:%559=463%:%
-%:%560=464%:%
-%:%561=465%:%
-%:%562=466%:%
-%:%563=467%:%
-%:%564=468%:%
-%:%565=469%:%
-%:%566=470%:%
-%:%567=471%:%
-%:%568=472%:%
-%:%569=473%:%
-%:%570=474%:%
-%:%571=475%:%
-%:%572=476%:%
-%:%573=477%:%
-%:%574=478%:%
-%:%575=479%:%
-%:%576=480%:%
-%:%577=481%:%
-%:%578=482%:%
-%:%579=483%:%
-%:%580=484%:%
-%:%581=485%:%
-%:%582=486%:%
-%:%583=487%:%
-%:%584=488%:%
-%:%585=489%:%
-%:%586=490%:%
-%:%587=491%:%
-%:%588=492%:%
-%:%589=493%:%
-%:%590=494%:%
-%:%591=495%:%
-%:%592=496%:%
-%:%593=497%:%
-%:%594=498%:%
-%:%595=499%:%
-%:%596=500%:%
-%:%597=501%:%
-%:%598=502%:%
-%:%599=503%:%
-%:%600=504%:%
-%:%601=505%:%
-%:%604=508%:%
-%:%605=509%:%
-%:%606=510%:%
-%:%607=511%:%
-%:%608=512%:%
-%:%609=513%:%
+%:%70=40%:%
+%:%71=41%:%
+%:%72=42%:%
+%:%73=43%:%
+%:%74=44%:%
+%:%75=45%:%
+%:%76=46%:%
+%:%77=47%:%
+%:%78=48%:%
+%:%79=49%:%
+%:%80=50%:%
+%:%81=51%:%
+%:%82=52%:%
+%:%83=53%:%
+%:%84=54%:%
+%:%85=55%:%
+%:%86=56%:%
+%:%87=57%:%
+%:%88=58%:%
+%:%89=59%:%
+%:%90=60%:%
+%:%91=61%:%
+%:%92=62%:%
+%:%93=63%:%
+%:%94=64%:%
+%:%95=65%:%
+%:%96=66%:%
+%:%97=67%:%
+%:%98=68%:%
+%:%99=69%:%
+%:%100=70%:%
+%:%101=71%:%
+%:%102=72%:%
+%:%103=73%:%
+%:%104=74%:%
+%:%105=75%:%
+%:%106=76%:%
+%:%107=77%:%
+%:%108=78%:%
+%:%109=79%:%
+%:%110=80%:%
+%:%111=81%:%
+%:%112=82%:%
+%:%113=83%:%
+%:%114=84%:%
+%:%115=85%:%
+%:%116=86%:%
+%:%117=87%:%
+%:%118=88%:%
+%:%119=89%:%
+%:%120=90%:%
+%:%121=91%:%
+%:%122=92%:%
+%:%123=93%:%
+%:%124=94%:%
+%:%125=95%:%
+%:%126=96%:%
+%:%127=97%:%
+%:%128=98%:%
+%:%129=99%:%
+%:%130=100%:%
+%:%131=101%:%
+%:%132=102%:%
+%:%133=103%:%
+%:%134=104%:%
+%:%135=105%:%
+%:%136=106%:%
+%:%137=107%:%
+%:%138=108%:%
+%:%139=109%:%
+%:%140=110%:%
+%:%141=111%:%
+%:%142=112%:%
+%:%143=113%:%
+%:%144=114%:%
+%:%145=115%:%
+%:%146=116%:%
+%:%147=117%:%
+%:%148=118%:%
+%:%149=119%:%
+%:%150=120%:%
+%:%151=121%:%
+%:%152=122%:%
+%:%153=123%:%
+%:%154=124%:%
+%:%155=125%:%
+%:%156=126%:%
+%:%157=127%:%
+%:%158=128%:%
+%:%159=129%:%
+%:%160=130%:%
+%:%161=131%:%
+%:%162=132%:%
+%:%163=133%:%
+%:%164=134%:%
+%:%165=135%:%
+%:%166=136%:%
+%:%167=137%:%
+%:%168=138%:%
+%:%169=139%:%
+%:%170=140%:%
+%:%171=141%:%
+%:%172=142%:%
+%:%173=143%:%
+%:%182=145%:%
+%:%194=147%:%
+%:%195=148%:%
+%:%196=149%:%
+%:%197=150%:%
+%:%198=151%:%
+%:%199=152%:%
+%:%200=153%:%
+%:%201=154%:%
+%:%210=156%:%
+%:%222=158%:%
+%:%223=159%:%
+%:%224=160%:%
+%:%225=161%:%
+%:%226=162%:%
+%:%227=163%:%
+%:%228=164%:%
+%:%229=165%:%
+%:%230=166%:%
+%:%231=167%:%
+%:%232=168%:%
+%:%233=169%:%
+%:%234=170%:%
+%:%235=171%:%
+%:%236=172%:%
+%:%237=173%:%
+%:%238=174%:%
+%:%239=175%:%
+%:%240=176%:%
+%:%241=177%:%
+%:%242=178%:%
+%:%243=179%:%
+%:%244=180%:%
+%:%245=181%:%
+%:%246=182%:%
+%:%247=183%:%
+%:%248=184%:%
+%:%249=185%:%
+%:%250=186%:%
+%:%251=187%:%
+%:%252=188%:%
+%:%253=189%:%
+%:%254=190%:%
+%:%255=191%:%
+%:%256=192%:%
+%:%257=193%:%
+%:%258=194%:%
+%:%259=195%:%
+%:%260=196%:%
+%:%261=197%:%
+%:%262=198%:%
+%:%263=199%:%
+%:%264=200%:%
+%:%265=201%:%
+%:%266=202%:%
+%:%267=203%:%
+%:%268=204%:%
+%:%269=205%:%
+%:%270=206%:%
+%:%271=207%:%
+%:%272=208%:%
+%:%273=209%:%
+%:%274=210%:%
+%:%275=211%:%
+%:%276=212%:%
+%:%277=213%:%
+%:%278=214%:%
+%:%279=215%:%
+%:%280=216%:%
+%:%281=217%:%
+%:%282=218%:%
+%:%283=219%:%
+%:%284=220%:%
+%:%285=221%:%
+%:%286=222%:%
+%:%287=223%:%
+%:%288=224%:%
+%:%289=225%:%
+%:%290=226%:%
+%:%291=227%:%
+%:%292=228%:%
+%:%293=229%:%
+%:%294=230%:%
+%:%295=231%:%
+%:%296=232%:%
+%:%297=233%:%
+%:%298=234%:%
+%:%299=235%:%
+%:%300=236%:%
+%:%301=237%:%
+%:%302=238%:%
+%:%303=239%:%
+%:%304=240%:%
+%:%305=241%:%
+%:%306=242%:%
+%:%307=243%:%
+%:%308=244%:%
+%:%309=245%:%
+%:%310=246%:%
+%:%311=247%:%
+%:%312=248%:%
+%:%313=249%:%
+%:%314=250%:%
+%:%315=251%:%
+%:%316=252%:%
+%:%317=253%:%
+%:%318=254%:%
+%:%319=255%:%
+%:%320=256%:%
+%:%321=257%:%
+%:%322=258%:%
+%:%323=259%:%
+%:%324=260%:%
+%:%325=261%:%
+%:%326=262%:%
+%:%327=263%:%
+%:%328=264%:%
+%:%329=265%:%
+%:%330=266%:%
+%:%331=267%:%
+%:%332=268%:%
+%:%333=269%:%
+%:%334=270%:%
+%:%335=271%:%
+%:%336=272%:%
+%:%337=273%:%
+%:%338=274%:%
+%:%339=275%:%
+%:%340=276%:%
+%:%341=277%:%
+%:%342=278%:%
+%:%343=279%:%
+%:%344=280%:%
+%:%345=281%:%
+%:%346=282%:%
+%:%347=283%:%
+%:%348=284%:%
+%:%349=285%:%
+%:%350=286%:%
+%:%351=287%:%
+%:%352=288%:%
+%:%353=289%:%
+%:%354=290%:%
+%:%355=291%:%
+%:%356=292%:%
+%:%357=293%:%
+%:%358=294%:%
+%:%359=295%:%
+%:%360=296%:%
+%:%361=297%:%
+%:%362=298%:%
+%:%363=299%:%
+%:%364=300%:%
+%:%365=301%:%
+%:%366=302%:%
+%:%367=303%:%
+%:%368=304%:%
+%:%369=305%:%
+%:%370=306%:%
+%:%371=307%:%
+%:%372=308%:%
+%:%373=309%:%
+%:%374=310%:%
+%:%375=311%:%
+%:%376=312%:%
+%:%377=313%:%
+%:%378=314%:%
+%:%379=315%:%
+%:%380=316%:%
+%:%381=317%:%
+%:%382=318%:%
+%:%383=319%:%
+%:%384=320%:%
+%:%385=321%:%
+%:%386=322%:%
+%:%395=326%:%
+%:%407=328%:%
+%:%408=329%:%
+%:%409=330%:%
+%:%410=331%:%
+%:%411=332%:%
+%:%412=333%:%
+%:%413=334%:%
+%:%414=335%:%
+%:%415=336%:%
+%:%416=337%:%
+%:%417=338%:%
+%:%418=339%:%
+%:%419=340%:%
+%:%420=341%:%
+%:%421=342%:%
+%:%422=343%:%
+%:%423=344%:%
+%:%424=345%:%
+%:%425=346%:%
+%:%426=347%:%
+%:%427=348%:%
+%:%428=349%:%
+%:%429=350%:%
+%:%430=351%:%
+%:%431=352%:%
+%:%432=353%:%
+%:%433=354%:%
+%:%434=355%:%
+%:%435=356%:%
+%:%436=357%:%
+%:%437=358%:%
+%:%438=359%:%
+%:%439=360%:%
+%:%440=361%:%
+%:%441=362%:%
+%:%442=363%:%
+%:%443=364%:%
+%:%444=365%:%
+%:%445=366%:%
+%:%446=367%:%
+%:%447=368%:%
+%:%448=369%:%
+%:%449=370%:%
+%:%450=371%:%
+%:%451=372%:%
+%:%452=373%:%
+%:%453=374%:%
+%:%454=375%:%
+%:%455=376%:%
+%:%456=377%:%
+%:%457=378%:%
+%:%458=379%:%
+%:%459=380%:%
+%:%460=381%:%
+%:%461=382%:%
+%:%462=383%:%
+%:%463=384%:%
+%:%464=385%:%
+%:%465=386%:%
+%:%466=387%:%
+%:%467=388%:%
+%:%468=389%:%
+%:%469=390%:%
+%:%470=391%:%
+%:%479=394%:%
+%:%491=397%:%
+%:%492=398%:%
+%:%493=399%:%
+%:%494=400%:%
+%:%495=401%:%
+%:%496=402%:%
+%:%497=403%:%
+%:%498=404%:%
+%:%499=405%:%
+%:%500=406%:%
+%:%501=407%:%
+%:%502=408%:%
+%:%503=409%:%
+%:%504=410%:%
+%:%505=411%:%
+%:%506=412%:%
+%:%507=413%:%
+%:%508=414%:%
+%:%509=415%:%
+%:%510=416%:%
+%:%511=417%:%
+%:%512=418%:%
+%:%513=419%:%
+%:%514=420%:%
+%:%515=421%:%
+%:%516=422%:%
+%:%517=423%:%
+%:%518=424%:%
+%:%519=425%:%
+%:%520=426%:%
+%:%521=427%:%
+%:%522=428%:%
+%:%523=429%:%
+%:%524=430%:%
+%:%525=431%:%
+%:%526=432%:%
+%:%527=433%:%
+%:%528=434%:%
+%:%529=435%:%
+%:%530=436%:%
+%:%531=437%:%
+%:%532=438%:%
+%:%533=439%:%
+%:%534=440%:%
+%:%535=441%:%
+%:%536=442%:%
+%:%537=443%:%
+%:%538=444%:%
+%:%539=445%:%
+%:%540=446%:%
+%:%541=447%:%
+%:%542=448%:%
+%:%543=449%:%
+%:%544=450%:%
+%:%545=451%:%
+%:%546=452%:%
+%:%547=453%:%
+%:%548=454%:%
+%:%549=455%:%
+%:%550=456%:%
+%:%551=457%:%
+%:%552=458%:%
+%:%553=459%:%
+%:%554=460%:%
+%:%555=461%:%
+%:%556=462%:%
+%:%557=463%:%
+%:%558=464%:%
+%:%559=465%:%
+%:%560=466%:%
+%:%561=467%:%
+%:%562=468%:%
+%:%563=469%:%
+%:%564=470%:%
+%:%565=471%:%
+%:%566=472%:%
+%:%567=473%:%
+%:%568=474%:%
+%:%569=475%:%
+%:%570=476%:%
+%:%571=477%:%
+%:%572=478%:%
+%:%573=479%:%
+%:%574=480%:%
+%:%575=481%:%
+%:%576=482%:%
+%:%577=483%:%
+%:%578=484%:%
+%:%579=485%:%
+%:%580=486%:%
+%:%581=487%:%
+%:%582=488%:%
+%:%583=489%:%
+%:%584=490%:%
+%:%585=491%:%
+%:%586=492%:%
+%:%587=493%:%
+%:%588=494%:%
+%:%589=495%:%
+%:%590=496%:%
+%:%591=497%:%
+%:%592=498%:%
+%:%593=499%:%
+%:%594=500%:%
+%:%595=501%:%
+%:%596=502%:%
+%:%597=503%:%
+%:%598=504%:%
+%:%601=506%:%
+%:%602=507%:%
+%:%603=508%:%
+%:%604=509%:%
+%:%605=510%:%
+%:%606=511%:%
+%:%609=512%:%
+%:%610=513%:%
+%:%611=514%:%
 %:%612=515%:%
 %:%613=516%:%
 %:%614=517%:%
@@ -1269,10 +1272,10 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%621=524%:%
 %:%622=525%:%
 %:%623=526%:%
-%:%624=527%:%
-%:%625=528%:%
-%:%626=529%:%
-%:%635=533%:%
+%:%632=530%:%
+%:%644=532%:%
+%:%645=533%:%
+%:%646=534%:%
 %:%647=535%:%
 %:%648=536%:%
 %:%649=537%:%
@@ -1322,10 +1325,10 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%693=581%:%
 %:%694=582%:%
 %:%695=583%:%
-%:%696=584%:%
-%:%697=585%:%
-%:%698=586%:%
-%:%707=588%:%
+%:%704=585%:%
+%:%716=587%:%
+%:%717=588%:%
+%:%718=589%:%
 %:%719=590%:%
 %:%720=591%:%
 %:%721=592%:%
@@ -1362,6 +1365,3 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%752=623%:%
 %:%753=624%:%
 %:%754=625%:%
-%:%755=626%:%
-%:%756=627%:%
-%:%757=628%:%

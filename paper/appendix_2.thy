@@ -236,5 +236,72 @@ indeed prohibit the action in question. The computer serves as a collaborator an
 so the human being’s reflective capacity and freedom is preserved. 
 \<close>
 
+subsection \<open>Academic Ethics \label{academicphilosophy}\<close>
+
+text \<open>
+There are two potential sources of the value of academic philosophy: the ethical truths uncovered and 
+the process of a philosopher discovering these truths. Under the first view, academic philosophy is 
+valuable because it facilitates the discovery of new ethical theories. If truths are valuable and 
+computers can generate truths more efficiently than humans, then ethics should be fully automated. 
+Ethical disputes often linger unresolved indefinitely, but every now and then, 
+a theory emerges as a new classic, such as Rawls’ veil of ignorance. Some academic philosophy also 
+impacts social phenomena, like Locke’s impact on global democracy. Academic philosophy often works its 
+way into household ethics, as seen in the impact of critical race theory. This view parallels the 
+view that ordinary ethics is valuable for its insights alone, and thus
+similarly implies that totally automated ethics is not only permissible, but also desirable. If 
+ethical truths are important for their impact on society, this value is not contingent on whether a 
+human or a computer produced these truths. If possible, computers should produce ethical theories 
+to maximize these truths’ value for society. 
+
+Another set of theories locates the value of academic ethics in the process itself and thus requires 
+human-computer symbiosis. Just as mathematics is fun and creative for the mathematician, so is ethics 
+for the philosopher. Many philosophers enjoy reading and writing philosophy papers. The study of 
+philosophy builds critical thinking skills and makes philosophers more reflective. Computational ethics 
+doesn’t necessarily sacrifice any of these benefits. These 
+benefits would be lost by fully automated ethics, but human-computer symbiotic ethics amplifies them. 
+If a computer functions like a tool in the process of philosophical discovery, like a conversation 
+with a colleague or a search for counterexamples, then it preserves the joy of philosophy. Moreover, 
+computational ethics amplifies this joy by forcing ethicists to make their ideas more precise, a major 
+goal of academic philosophy. The rigid syntax of a computer program demands much more precision than a 
+conversation or a paper. Computational tools also offer ethicists new perspective by forcing a return to 
+first, formal principles often avoided in ordinary philosophical inquiry. Formal ethics has been a 
+subject of interest among ethicists, but the logical background necessary has prevented the field 
+from taking off. If computers can automate away the tedium of formal ethics, then this precision 
+will be accessible to all ethicists, not just logicians. Such work has begun in metaphysics, and 
+recent research used computational tools to find an inconsistency in Godel’s ontological argument 
+for the existence of God \citep{godelincon}. The power of computational tools to force precision, perform 
+consistency checks, and make assumptions explicit means that computers can serve as tools to 
+help philosophers perform philosophy better.
+
+If ethical truths offer some value to society at-large, perhaps we cannot sacrifice this value merely 
+to preserve human philosophers’ fun. A more compelling argument against fully automated 
+ethics is that the existence of human academic philosophers offers value even to non-philosophers. 
+People derive joy and wonder from knowing that human beings produced great ethics. Plato’s \emph{Apology} 
+is not only a profound and insightful text, but it is also wonderous that a human being produced such 
+a work. We derive joy from knowing that our fellow humans are capable of the kind of thought that 
+great philosophers accomplish, just as an unimaginably beautiful work of art is more wonderous 
+because a human being painted it. We watch the Olympics because we derive wonder and joy from human 
+excellence. Even when admiring computational achievements, such as Google’s recent success in protein 
+folding, we admire the human who programmed the machine, not the machine itself. We can relate to 
+humans, so the mere knowledge that great people are doing great things enriches our lives. This 
+knowledge is part of the attraction for the thousands of tourists who visit Harvard Yard every year; 
+this is a place where of great human achievement.\footnote{Is this too like, yay Harvard}
+
+An even stronger argument for human-computer symbiotic ethics instead of fully automated ethics is 
+that ethics is an inherently human subject. We study ethics because, as argued above, we 
+have no choice but to reflect on how to live. Because reflection is such a fundamental part of being 
+human, a world in which all ethical inquiry is automated is undesirable. Academic philosophers are 
+professional reflectors who are partners in the human experience with us, so their ethical inquiry 
+carries unique weight. They teach us, inspire us, and serve as examples of the kind of reflection 
+that is constitutive of being human. Moreover, an ethical theory produced entirely by a computer is, 
+at best, a secondary perspective; it is a computer’s attempt to describe how human beings should live. 
+Without a human component, it cannot serve as a rich and sophisticated guide for humans. If ethics is 
+most meaningful when it is the product of human reflection, totally automated ethics destroys the field 
+entirely but human-computer symbiosis does not. Human beings should debate the most pressing questions 
+of human existence, and computers can serve as our aids. Thus, computational tools must supplement 
+human ethical reasoning but cannot replace it.
+
+\<close>
+
 
 end(*>*)
