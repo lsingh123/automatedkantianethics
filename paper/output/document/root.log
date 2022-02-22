@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 FEB 2022 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  22 FEB 2022 10:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -784,7 +784,8 @@ Overfull \hbox (9.75992pt too wide) in paragraph at lines 606--608
  [][] 
  []
 
-[75 <./inputparser.png>] [76] [77]) [78] (./appendix.tex [79] [80] [81]
+[75 <./inputparser.png>] [76] [77] [78] [79]) [80] (./appendix.tex [81]
+[82] [83]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <7> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
@@ -797,26 +798,25 @@ e
 nput line 229.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
 (Font)              scaled to size 5.0pt on input line 229.
+ [84] [85] [86]
 
-[82] [83] [84]
-
-LaTeX Warning: Reference `sec:app_tests_naive' on page 85 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 87 undefined on input li
 ne 477.
 
 
-LaTeX Warning: Reference `sec:meta_tests_naive' on page 85 undefined on input l
+LaTeX Warning: Reference `sec:meta_tests_naive' on page 87 undefined on input l
 ine 477.
 
 
-LaTeX Warning: Reference `sec:app_tests_naive' on page 85 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 87 undefined on input li
 ne 493.
 
-[85]
+[87]
 
-LaTeX Warning: Reference `sec:app_tests_naive' on page 86 undefined on input li
+LaTeX Warning: Reference `sec:app_tests_naive' on page 88 undefined on input li
 ne 532.
 
-[86]
+[88]
 Overfull \hbox (22.72354pt too wide) in paragraph at lines 639--641
 [][]\T1/EBGaramond-OsF/bold/n/10 abbreviation \T1/EBGaramond-OsF/regular/it/10 
 lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
@@ -826,23 +826,23 @@ lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
 F/regular/it/10 everyone[]lies$\OT1/cmr/m/n/10 )$$)$[] 
  []
 
-[87]
+[89]
 Overfull \hbox (41.64908pt too wide) in paragraph at lines 685--686
 [][] 
  []
 
-[88] [89]
+[90] [91]
 
-LaTeX Warning: Reference `sec:meta_tests_naive' on page 90 undefined on input l
+LaTeX Warning: Reference `sec:meta_tests_naive' on page 92 undefined on input l
 ine 886.
 
-[90] [91] [92] [93]
+[92] [93] [94] [95]
 Overfull \hbox (2.9081pt too wide) in paragraph at lines 1195--1199
 \T1/EBGaramond-OsF/regular/n/10 ``For all peo-ple, A is ob-li-gated." The stron
 ger con-se-quent is ``A is ob-li-gated for all peo-ple simultaneously."[] 
  []
 
-[94]) (./appendix_2.tex [95] [96] [97]
+[96]) (./appendix_2.tex [97] [98] [99]
 Overfull \hbox (5.38054pt too wide) in paragraph at lines 227--236
 []\T1/EBGaramond-OsF/regular/n/10.95 This ex-am-ple demon-strates that my for-m
 al-iza-tion is able to cor-rectly pro-hibit this maxim,
@@ -854,12 +854,13 @@ Overfull \hbox (0.31702pt too wide) in paragraph at lines 227--236
 tion-ally im-por-tant be-cause the two read-ings of this maxim
  []
 
-[98] [99]) [100] (./root.bbl [101] [102] [103] [104] [105] [106] [107] [108])
+[100] [101]) [102] (./root.bbl [103] [104] [105] [106] [107] [108] [109]
+[110])
 
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 130.
-[109]
+[111]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 130.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 130.
@@ -876,8 +877,8 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 130.
  ) 
 Here is how much of TeX's memory you used:
- 10270 strings out of 480608
- 150834 string characters out of 5903631
+ 10272 strings out of 480608
+ 150850 string characters out of 5903631
  417549 words of memory out of 5000000
  25603 multiletter control sequences out of 15000+600000
  706930 words of font info for 115 fonts, out of 8000000 for 9000
@@ -912,10 +913,10 @@ nts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-
 super/sftt1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-su
 per/sftt1095.pfb>
-Output written on root.pdf (114 pages, 1010971 bytes).
+Output written on root.pdf (116 pages, 1014099 bytes).
 PDF statistics:
- 1488 PDF objects out of 1728 (max. 8388607)
- 1327 compressed objects within 14 object streams
- 307 named destinations out of 1000 (max. 500000)
+ 1497 PDF objects out of 1728 (max. 8388607)
+ 1334 compressed objects within 14 object streams
+ 309 named destinations out of 1000 (max. 500000)
  320 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -8,24 +8,23 @@ section \<open>Discussion\label{discussion}\<close>
 subsection \<open>Automated Moral Agents in Practice \label{aiethics}\<close>
 
 text \<open>In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
-nuanced ethical reasoning. In this section and Section \label{computationalethics}, I outline how my
-system could be used by AI agents and by human philosophers. My work on automating the categorical imperative 
+nuanced ethical reasoning. In this section, I outline the additional components necessary for my system
+to guide AI agents. My work on automating the categorical imperative 
 could serve as one component of a partially or fully artificial ethical reasoner, or an ``ethical AI.''
-Specifically, my system could be a categorical imperative library that takes as input the logical representation 
+Specifically, my system is a categorical imperative library that takes as input the logical representation 
 of a maxim and returns its moral status (if it is obligatory, prohibited, or permissible).
-
 As it stands, my project can evaluate the moral status of maxims represented in my logic and potentially 
 serves as one component of an ``ethics engine'' that an AI agent could use to make ethical decisions.
 For example, my system could be combined with an input parser to translate moral dilemmas as represented 
-to the AI agent into maxims in my logic. The ouput of my system could be fed into an output 
-parser to translate this output into a prescription for the action the AI agent should take.
-Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.
+to the AI agent into maxims in my logic. An output parser could translate my system's output
+into a prescription for action that the AI agent could act on. Figure \ref{fig:AIengine} depicts the 
+workflow of this example ethics engine.
 \<close>
 
 text_raw \<open>
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{AI_engine.png}
+\includegraphics[scale=0.5]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent, which begins with a moral dilemma, 
 passes it through an input parser, applies the automated Kantian ethics test, and then processes the 
 output using an output parser. I contribute the automated Kantian ethics component.} \label{fig:AIengine}
@@ -35,14 +34,14 @@ text \<open>In this workflow, an AI agent is faced with a moral dilemma in some 
 parser translates this internal representation into an appropriate logical representation, i.e. 
 a circumstance, act, goal tuple. The output parser translates the output of the categorical imperative
 library (the moral status of the maxim as obligatory, prohibited, or permissible) to a prescription for
-action that the AI agent can act on. In order for my system to be used in an AI agent using the workflow
-above, future work would need to develop such input and output parsers.\<close>
+action. In order for my system to be used in an AI agent using the workflow
+above, future work would need to develop such input and output parsers.
 
-text\<open>The input parser must translate a complex real-world situation into a flat, logical representation. 
+The input parser must translate a complex real-world situation into a flat, logical representation.
 This requires that the input parser determine which circumstances are ``morally relevant''
-for a maxim, a controversial judgement that requires commonsense reasoning.
-There is robust debate in the literature on which circumstances should be considered when formulating a maxim. 
-Some critics of Kant raise the ``tailoring objection,'' which is the worry that arbitrarily specific 
+for a maxim, a controversial judgement.
+There is robust debate in the literature on the circumstances that should be considered when formulating a maxim, 
+inspired by a common objection to Kantian ethics. The``tailoring objection'' is the worry that arbitrarily specific 
 circumstances render any maxim universalizable. For example, the maxim ``When my name is Lavanya Singh 
 and I am wearing a purple shirt and it is November 26th, I will lie in order to get some easy cash'' 
 passes the universalizability test. Even if this maxim is willed universally, the circumstances are so 
@@ -54,31 +53,31 @@ The Kantian response to this criticism is to require that the circumstances incl
 of the maxim be morally relevant. In the example above, my purple shirt and the date clearly have no bearing on 
 the moral status of lying. On the other hand, consider the maxim, ``When I am unemployed, I will murder
 someone in order to take their job.'' The circumstances of being unemployed clearly have some bearing on the moral
-relevance of the murder in question; they speak to the motivation for the murder. While this view 
-tracks how we actually perform moral reasoning, it raises the question of how we can determine
+relevance of the murder in question; they speak to the motivation for the murder. 
+
+While this view has intuitive appeal, it raises the question of how we can determine
 which circumstances are morally relevant. O'Niell answers this question by noting that the Formula of Universal Law is 
 a ``test of moral worth rather than of outward rightness'' \citep[98]{constofreason}. The FUL is a way 
 for an agent to decide how they should behave, not for a third-party to judge their behavior. Ethics is 
-a personal process for Kant, so the FUL is designed to help agents internally make decisions, not to 
-judge others' decisions. Because agents use the FUL to evaluate their own behavior, the test is at its 
+a personal proces and the FUL is designed to help agents internally make decisions. Because agents use 
+the FUL to evaluate their own behavior, the test is at its 
 best when they make a good faith effort to isolate the \emph{principle} of their action, rather than some
 ``surface intent'' \citep[87]{constofreason}. The FUL is supposed to determine if an agent's principle of action
 is universally consistent, so it is most effective when an agent accurately formulates the principle
-they act on. Circumstances are morally relevant if they accurately reflect the way that the agent is 
+they act on. Circumstances are morally relevant if they reflect the way that the agent is 
 thinking about their own action. In the example above, the circumstance of wearing a purple shirt doesn't reflect
-the principle of the liar's action. Its inclusion is clearly a disingenous attempt to evade the universalizability
+the principle of the liar's action. Its inclusion is a disingenous attempt to evade the universalizability
 test, but because the FUL is a test of personal integrity, it cannot withstand this kind of mental
 gymnastics.
 
 While this account of the formulation of a maxim describes how a well-intentioned human agent can determine 
 morally relevant circumstances, the challenge remains open for automated ethics. In order for an automated
-ethical agent to use the categorical imperative to its fullest extent, the input maxim fed into
-my system or any automation of the FUL must be a good-faith attempt to capture the agent's principle
+ethical agent to use the categorical imperative to its fullest extent, the input maxim must be a good-faith 
+attempt to capture the agent's principle
 of action. However an action is turned into a maxim for my system to process, whether manually as I did
 in Chapter \ref{applications} or using an automatic input parser, this transformation must be a good-faith 
-attempt to capture the principle of action. 
-
-Translating everyday situations into appropriate maxims is the bulk of the work that a Kantian human 
+attempt to capture the principle of action. Translating everyday situations into appropriate maxims is 
+the bulk of the work that a Kantian human 
 being does when making decisions. Common misconceptions about Kantian ethics\footnote{For example, critics 
 of Kantian ethics worry that the maxim, ``When I am a
 man, I will marry a man because I want to spend my life with him'' fails the universalizability
@@ -94,21 +93,19 @@ in an AI ethics engine. One solution is for a human being to perform the role of
 parser. Once an AI agent stumbles onto an ethical dilemma, a human being could take over, formulate 
 the right question, and feed it into the categorical imperative library to see what action the categorical 
 imperative would prescribe. For proponents of the ``human-in-the-loop'' model of AI ethics, in which 
-ethical AI requires that humans guide machines \cite{loop}, this kind of human involvement may be a feature.
+ethical AI requires that humans guide machines \citep{loop}, this kind of human involvement may be a feature.
 The outcome of the universalizability test will depend on how the human formulates the maxim; if the 
 human puts garbage into the test, the test will return garbage out.
 
 It is likely that, regardless of the strengths of the human-in-the-loop model, fully automated AI 
 agents will exist. Even if developing this kind of AI is irresponsible,
-such developments are likely and will require ethics engines, or risk no consideration of ethics at all. Even if 
-AI without human supervision is scary, such AI with automated ethics is better than such AI without. 
-In such a world, the input parser in my ethics engine would have to be automated. This would require 
-that the parser translate the AI agent's internal representation to the appropriate logical representation. 
-It is likely that, just as different implementations of automated ethics choose 
+such developments are likely and will require ethics engines, or risk no consideration of ethics at all.
+In such a world, the input parser in my ethics engine would have to be automated.
+It is likely that, just as implementations of automated ethics choose 
 a particular ethical theory and implement it, different implementations of such an input parser would 
-adopt different interpretations of commonsense reasoning and morally relevant circumstances. 
+adopt different interpretations of maxim formulation and morally relevant circumstances. 
 
-These interpretations of commonsense reasonining could inspire heuristics to classify circumstances as morally 
+These interpretations could inspire heuristics to classify circumstances as morally 
 relevant. For example, one such attempt could define a moral closeness relation between an action, a 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
 reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
@@ -142,17 +139,20 @@ An automated version of the categorical imperative could become part of an ethic
 for an AI agent, with additional work to parse the input and the output. Effectively, the kind 
 of automated ethics I implement could be a library that AI developers use to give AI agents the capacity for 
 sophisticated ethical reasoning faithful to philosophical literature. This represents an improvement 
-over existing AI ethics, which rarely attempts to capture the complexity 
+over existing AI ethics, which rarely captures the complexity 
 of any ethical theory that philosophers plausibly defend. \<close>
 
 subsection \<open>Computational Ethics \label{computationalethics}\<close>
 
-text \<open>Above I explained how my system offers a mechanism for humans to build ethical AI agents. I also 
-argue that computational ethics is a mechanism for computers to help humans think differently about 
+text \<open>Above I explained how my system offers a mechanism for humans to build ethical AI agents. Automated
+ethics can also help humans think differently about 
 philosophy. Just as theorem provers make mathematics more efficient and push mathematicians to think 
 precisely about the phenomena they model, computational ethics can help philosophers think more precisely about 
 philosophy. Below I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool offers to philosophers. \<close>
+can prompt and analyze the value that this tool offers to philosophers.\footnote{Some may wonder if my system
+could help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
+my system should play in ordinary ethical reasoning in Appendix \ref{ordinaryhumans} and conclude
+that large parts of ordinary ethical inquiry cannot and should not be automated. \<close>
 
 subsubsection "Example of a Philosophical Insight: Well-Formed Maxims"
 
@@ -392,7 +392,7 @@ need not be stated. If computer scientists and philosophers invest in computatio
 become as much a tool for philosophy as a calculator is for for arithmetic.
 \<close>
 
-subsection \<open>Theoretical Objections to Automating Kantian Ethics\<close>
+subsection \<open>Theoretical Objections to Automating Kantian Ethics \label{amapossible}\<close>
 
 text \<open>
 Many philosophers cringe at the idea that a computer could perform ethical reasoning or that the 
@@ -586,6 +586,48 @@ of DDL in Isabelle \citep{BFP, logikey}. The LogiKEy project has been used to st
 Kant's categorical imperative.\<close>
 
 subsection \<open>Conclusion\<close>
+
+text\<open>In this thesis, I present a proof-of-concept implementation of automated Kantian ethics. My system
+takes as input a potential action, appropriately represented, and can prove that it is obligated, 
+prohibited or permissible. I represent Kant's Formula of Universal Law in a deontic logic and 
+implement this logic in the Isabelle/HOL interactive theorem prover, which can automatically prove or 
+refute theorems in my custom logic. I also contribute a testing framework that I use to demonstrate that
+my implementation of Kantian ethics is more faithful to philosophical literature than two other 
+potential implementations. My completed system can, when given appropriate factual background, make
+philosophically mature judgements about complex moral dilemmas. This work is one step towards building 
+morally sophisticated artifical agents.
+
+The idea of fully automated artificial agents navigating the world without human supervision
+may be terrifying, but progress in AI indicates that such a future is likely closer than we think. 
+Philosophers, regulators, and computer scientists are sounding the alarm about the dangers of developing
+this kind of AI. Insofar as developers will continue to ignore these warnings and develop increasingly 
+independent AI, there is a dire need to program such AI with some notion of ethics. If AI is navigating
+human society, then it is making decisions with an ethical component at all times. Ethics is inescapable; 
+if AI developers and computer scientists ignore it, then they will be building machines that make decisions
+based on some set of unknown, implicit ethical values. Countless examples, from the Alleghany family services screening
+algorithm that is biased against poor families to search algorithms that associate black-sounding names
+with crime, demonstrate that such implicit ethics simply codifies the biases, prejudices, and moral
+failings of the society in which it is developed. AI will inevitably make judgements on moral dilemmas, 
+and automated ethics is necessary to make these judgements morally correct. 
+
+Given that the discpline of philosophy has spent centuries debating such judgements and their theoretical 
+underpinnings, such AI will be most trustworthy, nuanced, consistent, and mature when it is faithful to 
+philosophical literature. In order to develop high-quality automated ethics, computer scientists and 
+philosophers must work together. This thesis is an experiment in marrying philosophy and computer science 
+to create automated ethics that is both technically and philosophically advanced. Neither discipline alone
+can address the pressing need for ethical AI.
+
+This work is an early proof-of-concept. It demonstrates the potential of top-down, logic programming 
+approaches to automated ethics and shows that it is possible to faithfully automate an ethical theory as
+complex as Kantian ethics. There are open questions that must be resolved before a system like this 
+could be used in practice, but this project demonstrates that these questions are within closer reach
+than they may seem. Automated ethics does not need to limit itself to simple, flattened versions of 
+ethical theories. With technical and philosophical progress, faithful automated ethics is possible.
+Growing public consciousness about the dangers of unregulated AI is creating momentum in machine ethics; 
+work like Delphi demonstrates that the time is ripe to create usable, reliable automated ethics. This 
+thesis is one step towards building computers that can think ethically in the richest sense of the word.
+
+ \<close>
 
 
 (*<*)

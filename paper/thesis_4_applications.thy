@@ -3,7 +3,7 @@
 
 begin(*>*)
 
-section \<open>Applications \label{sec:applications}\<close>
+section \<open>Applications \label{applications}\<close>
 
 text \<open>In this chapter, I use my system to produce sophisticated, nuanced
 responses to two moral dilemmas. These dilemmas serve as examples of how my system could be used
