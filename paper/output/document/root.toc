@@ -23,17 +23,16 @@
 \contentsline {subsection}{\numberline {5.1}Automated Moral Agents in Practice }{58}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Computational Ethics }{62}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Example of a Philosophical Insight: Well-Formed Maxims}{63}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}The Value of Computational Ethics}{70}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Looking Forward}{72}{subsubsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.3}Theoretical Objections to Automating Kantian Ethics}{73}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Related Work}{73}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Conclusion}{73}{subsection.5.5}%
-\contentsline {section}{\numberline {A}Appendix}{74}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{74}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{75}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{75}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{79}{subsubsection.A.2.2}%
-\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{80}{subsubsection.A.2.3}%
-\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{84}{subsubsection.A.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{87}{subsubsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{90}{subsection.A.3}%
+\contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{69}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Theoretical Objections to Automating Kantian Ethics}{71}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Related Work }{76}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Conclusion}{78}{subsection.5.5}%
+\contentsline {section}{\numberline {A}Appendix}{79}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Maxims and Motives }{79}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{80}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{80}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}The Categorical Imperative }{84}{subsubsection.A.2.2}%
+\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{85}{subsubsection.A.2.3}%
+\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{89}{subsubsection.A.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{92}{subsubsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{95}{subsection.A.3}%

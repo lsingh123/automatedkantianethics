@@ -1,4 +1,4 @@
-\begin{thebibliography}{74}
+\begin{thebibliography}{92}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -43,6 +43,14 @@ K.~Arkoudas, S.~Bringsjord, and P.~Bello.
 \newblock Toward ethical robots via mechanized deontic logic.
 \newblock \emph{AAAI Fall Symposium - Technical Report}, 01 2005.
 
+\bibitem[Ashley and McLaren(1994)]{particularism1}
+K.~D. Ashley and B.~M. McLaren.
+\newblock A cbr knowledge representation for practical ethics.
+\newblock In \emph{Selected Papers from the Second European Workshop on
+  Advances in Case-Based Reasoning}, EWCBR '94, page 181–197, Berlin,
+  Heidelberg, 1994. Springer-Verlag.
+\newblock ISBN 3540603646.
+
 \bibitem[Awad et~al.(2020)Awad, Dsouza, Shariff, Rahwan, and
   Bonnefon]{moralmachineonline}
 E.~Awad, S.~Dsouza, A.~Shariff, I.~Rahwan, and J.-F. Bonnefon.
@@ -60,6 +68,20 @@ A.~Baltag and B.~Renne.
 \newblock In E.~N. Zalta, editor, \emph{The {Stanford} Encyclopedia of
   Philosophy}. Metaphysics Research Lab, Stanford University, {W}inter 2016
   edition, 2016.
+
+\bibitem[Bentzen and Lindner(2018)]{BL}
+M.~M. Bentzen and F.~Lindner.
+\newblock A formalization of kant's second formulation of the categorical
+  imperative.
+\newblock \emph{CoRR}, abs/1801.03160, 2018.
+\newblock URL \url{http://arxiv.org/abs/1801.03160}.
+
+\bibitem[Benzm{\"{u}}ller and Paleo(2013)]{godel}
+C.~Benzm{\"{u}}ller and B.~W. Paleo.
+\newblock Formalization, mechanization and automation of g{\"{o}}del's proof of
+  god's existence.
+\newblock \emph{CoRR}, abs/1308.4526, 2013.
+\newblock URL \url{http://arxiv.org/abs/1308.4526}.
 
 \bibitem[Benzm{\"{u}}ller et~al.(2019)Benzm{\"{u}}ller, Parent, and van~der
   Torre]{logikey}
@@ -189,6 +211,15 @@ P.~Foot.
 \newblock The problem of abortion and the doctrine of the double effect.
 \newblock \emph{Oxford Review}, 5:\penalty0 5--15, 1967.
 
+\bibitem[Fuenmayor and Benzmüller(2018)]{gewirth}
+D.~Fuenmayor and C.~Benzmüller.
+\newblock Formalisation and evaluation of alan gewirth's proof for the
+  principle of generic consistency in isabelle/hol.
+\newblock \emph{Archive of Formal Proofs}, Oct. 2018.
+\newblock ISSN 2150-914x.
+\newblock \url{https://isa-afp.org/entries/GewirthPGCProof.html}, Formal proof
+  development.
+
 \bibitem[Gabriel(2020)]{gabriel}
 I.~Gabriel.
 \newblock Artificial intelligence, values, and alignment.
@@ -197,6 +228,20 @@ I.~Gabriel.
 \newblock ISSN 1572-8641.
 \newblock \doi{10.1007/s11023-020-09539-2}.
 \newblock URL \url{http://dx.doi.org/10.1007/s11023-020-09539-2}.
+
+\bibitem[Govindarajulu and Bringsjord(2017)]{dde}
+N.~S. Govindarajulu and S.~Bringsjord.
+\newblock On automating the doctrine of double effect.
+\newblock \emph{CoRR}, abs/1703.08922, 2017.
+\newblock URL \url{http://arxiv.org/abs/1703.08922}.
+
+\bibitem[Guarini(2006)]{particularism2}
+M.~Guarini.
+\newblock Particularism and the classification and reclassification of moral
+  cases.
+\newblock \emph{IEEE Intelligent Systems}, 21\penalty0 (4):\penalty0 22--28,
+  2006.
+\newblock \doi{10.1109/MIS.2006.76}.
 
 \bibitem[Harrison et~al.(2014)Harrison, Urban, and Wiedijk]{historyofITP}
 J.~Harrison, J.~Urban, and F.~Wiedijk.
@@ -253,6 +298,13 @@ J.~Kemp.
 \newblock ISSN 00318094, 14679213.
 \newblock URL \url{http://www.jstor.org/stable/2216857}.
 
+\bibitem[Kirchner et~al.(2019)Kirchner, Benzm{\"{u}}ller, and
+  Zalta]{metaphysics1}
+D.~Kirchner, C.~Benzm{\"{u}}ller, and E.~N. Zalta.
+\newblock Computer science and metaphysics: {A} cross-fertilization.
+\newblock \emph{CoRR}, abs/1905.00787, 2019.
+\newblock URL \url{http://arxiv.org/abs/1905.00787}.
+
 \bibitem[Kitcher(2003)]{whatisamaxim}
 P.~Kitcher.
 \newblock What is a maxim?
@@ -272,6 +324,13 @@ M.~Kohl.
   (261):\penalty0 690--710, 2015.
 \newblock ISSN 00318094, 14679213.
 \newblock URL \url{http://www.jstor.org/stable/24672780}.
+
+\bibitem[Koons(1992)]{koons}
+R.~C. Koons.
+\newblock \emph{Paradoxes of Belief and Strategic Rationality}.
+\newblock Cambridge Studies in Probability, Induction and Decision Theory.
+  Cambridge University Press, 1992.
+\newblock \doi{10.1017/CBO9780511625381}.
 
 \bibitem[Korsgaard(1985)]{KorsgaardFUL}
 C.~Korsgaard.
@@ -309,6 +368,14 @@ M.~Kroy.
 \newblock \doi{doi:10.1515/kant.1976.67.1-4.192}.
 \newblock URL \url{https://doi.org/10.1515/kant.1976.67.1-4.192}.
 
+\bibitem[Leibniz()]{leibniz}
+G.~W. Leibniz.
+\newblock On universal synthesis and analysis, or the art of discovery and
+  judgment: 1679(?).
+\newblock In \emph{Philosophical Papers and Letters}, The New Synthese
+  Historical Library, pages 229--234. Springer Netherlands, Dordrecht.
+\newblock ISBN 9789027706935.
+
 \bibitem[Lewis(1973{\natexlab{a}})]{lewiscausality}
 D.~Lewis.
 \newblock Causation.
@@ -320,6 +387,12 @@ D.~Lewis.
 D.~Lewis.
 \newblock \emph{Counterfactuals}.
 \newblock Blackwell, 1973{\natexlab{b}}.
+
+\bibitem[Lin et~al.(2012)Lin, Abney, and Bekey]{lin}
+P.~Lin, K.~Abney, and G.~A. Bekey.
+\newblock \emph{Robotics, Ethical Theory, and Metaethics: A Guide for the
+  Perplexed}, pages 35--52.
+\newblock 2012.
 
 \bibitem[Lukowicz(2019)]{loop}
 P.~Lukowicz.
@@ -351,6 +424,13 @@ G.~E. Moore.
 T.~Nipkow, L.~C. Paulson, and M.~Wenzel.
 \newblock \emph{Isabelle/HOL: A Proof Assistant for Higher Order Logic}.
 \newblock Springer-Verlag Berlin Heidelberg, Berlin, 2002.
+
+\bibitem[O'Neill(1989)]{oneilluniversallaws}
+O.~O'Neill.
+\newblock Universal laws and ends-in-themselves.
+\newblock \emph{The Monist}, 72\penalty0 (3):\penalty0 341--361, 1989.
+\newblock ISSN 00269662.
+\newblock URL \url{http://www.jstor.org/stable/27903145}.
 
 \bibitem[O'Neill(1990)]{constofreason}
 O.~O'Neill.
@@ -394,6 +474,11 @@ J.~Rawls.
   1980.
 \newblock ISSN 0022362X.
 \newblock URL \url{http://www.jstor.org/stable/2025790}.
+
+\bibitem[Rawls(2000)]{rawlslectures}
+J.~Rawls.
+\newblock Lectures on the history of moral philosophy.
+\newblock \emph{Critica}, 35\penalty0 (104):\penalty0 121--145, 2000.
 
 \bibitem[Roush(2009)]{roushselfhelp}
 S.~Roush.
@@ -443,6 +528,23 @@ N.~F. Stang.
   Philosophy}. Metaphysics Research Lab, Stanford University, {S}pring 2021
   edition, 2021.
 
+\bibitem[Stephenson et~al.(2019)Stephenson, Sergot, and Evans]{io}
+A.~Stephenson, M.~Sergot, and R.~Evans.
+\newblock Formalizing kant's rules: a logic of conditional imperatives and
+  permissives.
+\newblock \emph{Journal of Philosophical Logic}, 49, November 2019.
+\newblock URL \url{https://eprints.soton.ac.uk/432344/}.
+
+\bibitem[Tafani(2021)]{tafani}
+D.~Tafani.
+\newblock imperativo categorico come algoritmo. kant e l'etica delle macchine.
+\newblock \emph{Sistemi intelligenti, Rivista quadrimestrale di scienze
+  cognitive e di intelligenza artificiale}, \penalty0 (2/2021):\penalty0
+  377--392, 2021.
+\newblock ISSN 1120-9550.
+\newblock \doi{10.1422/101195}.
+\newblock URL \url{https://www.rivisteweb.it/doi/10.1422/101195}.
+
 \bibitem[Timmermann(2013)]{timmerman}
 J.~Timmermann.
 \newblock Kantian dilemmas? moral conflict in kant’s ethical theory.
@@ -451,11 +553,28 @@ J.~Timmermann.
 \newblock \doi{doi:10.1515/agph-2013-0002}.
 \newblock URL \url{https://doi.org/10.1515/agph-2013-0002}.
 
+\bibitem[Tolmeijer et~al.(2021)Tolmeijer, Kneer, Sarasua, Christen, and
+  Bernstein]{mesurvey}
+S.~Tolmeijer, M.~Kneer, C.~Sarasua, M.~Christen, and A.~Bernstein.
+\newblock Implementations in machine ethics.
+\newblock \emph{ACM Computing Surveys}, 53\penalty0 (6):\penalty0 1–38, Feb
+  2021.
+\newblock ISSN 1557-7341.
+\newblock \doi{10.1145/3419633}.
+\newblock URL \url{http://dx.doi.org/10.1145/3419633}.
+
 \bibitem[Velleman(2005)]{velleman}
 J.~D. Velleman.
 \newblock \emph{A Brief Introduction to Kantian Ethics}, page 16–44.
 \newblock Cambridge University Press, 2005.
 \newblock \doi{10.1017/CBO9780511498862.002}.
+
+\bibitem[Vickers(2000)]{vickers}
+J.~Vickers.
+\newblock I believe it, but soon i'll not believe it any more: Scepticism,
+  empiricism, and reflection.
+\newblock \emph{Synthese}, 124:\penalty0 155--174, 08 2000.
+\newblock \doi{10.1023/A:1005213608394}.
 
 \bibitem[Vincent(2021)]{verge}
 J.~Vincent.
@@ -480,5 +599,23 @@ A.~Winfield, C.~Blum, and W.~Liu.
 A.~W. Wood.
 \newblock \emph{Kant\textquoteright{}s Ethical Thought}.
 \newblock Cambridge University Press, 1999.
+
+\bibitem[Yamazaki et~al.(2021)Yamazaki, Igarashi, and Yamaura]{brainsimulation}
+T.~Yamazaki, J.~Igarashi, and H.~Yamaura.
+\newblock Human-scale brain simulation via supercomputer: A case study on the
+  cerebellum.
+\newblock \emph{Neuroscience}, 462:\penalty0 235--246, 2021.
+\newblock ISSN 0306-4522.
+\newblock \doi{https://doi.org/10.1016/j.neuroscience.2021.01.014}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S030645222100021X}.
+\newblock In Memoriam: Masao Ito—A Visionary Neuroscientist with a Passion
+  for the Cerebellum.
+
+\bibitem[Zahoransky and Benzmüller(2020)]{constitution}
+V.~Zahoransky and C.~Benzmüller.
+\newblock Modelling the us constitution to establish constitutional
+  dictatorship.
+\newblock 10 2020.
 
 \end{thebibliography}

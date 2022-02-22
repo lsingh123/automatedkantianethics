@@ -324,101 +324,266 @@ such a question could never yield a useful answer for a practical reasoner.
  \<close>
 
 
-subsubsection \<open>The Value of Computational Ethics\<close>
+subsubsection \<open>An Argument For Computational Ethics\<close>
 
-text \<open>The philosophical insight that the FUL can only hold for well-formed maxims would have been 
+text \<open>The philosophical insight above is an example of the kind of philosophical progress that can be 
+made using computational tools and serves as evidence for the power of computational ethics. The 
+idea that the FUL can only hold for well-formed maxims would have been
 incredibly difficult to discover without a computer. I discovered it while formulating the FUL because 
-Sledgehammer, as a proof-finding tool, definitionally checks for edge cases like badly-formed maxims. 
-Badly-formed maxims are interesting precisely because they are the kind of thing that is usually 
-ignored in ordinary philosophical inquiry. Philosophers usually implicitly assume that we are not discussing
-badly-formed maxims because, as argued above, they are not the kind of thing that is usually useful
-to study. Isabelle requires that assumptions like the 
+Isabelle's proof-finding tools look for edge cases like badly-formed maxims. Badly-formed maxims are 
+interesting because they are the kind of thing that is usually ignored in ordinary philosophical inquiry. 
+Philosophers usually assume that we are not discussing badly-formed maxims because, as argued above, 
+they are not the kind of thing that is usually useful to study. Computational tools like Isabelle
+require that assumptions like the exclusion of well-formed maxims are made precise, and thus force 
+philosophers to understand their arguments in a new way. This example demonstrates the contributions
+that computational ethics makes: it can quickly check edge cases and it requires that all assumptions be
+made explicit and precise.
 
+I do not argue that computational ethics uncovers philosophical insights that humans are incapable 
+of reaching. Instead, I claim that insights like the one about the well-formed maxim are much easier
+to reach with computational tools. Badly-formed maxims are usually ignored in philosophical discussion 
+and would have been much more difficult to understand without the help of a computer which immediately
+noted that they render the FUL inconsistent. Computational tools prompt philosophers to ask new questions that 
+lead to insights. Computational ethics can serve as another tool in a philosopher's arsenal, like a 
+thought experiment or counterexample.
 
-
-SAY INCERDIBLE DIFFICULT WITHUT COMPUTER because computer looks for edge cases and makes assumptions precise.
-it's an insight precisely because philosophers would never think of this edge case bc it's stupid.
-
-
-
-I will now generalize from the personal insight reached above to the methodological value of
-computational ethics for philosophers.
-I do not argue that computational ethics, as it stands today, uncovers philosophical insights that humans have not reached
-or are incapable of reaching. After all, my understanding of a well-formed maxim could 
-very well exist in the literature and certainly could be reached by a philosopher without any 
-computational tools. Instead, I argue that computational tools prompt philosophers to ask questions that 
-lead to insights. Philosophers already value precision, and the computer forces precision and makes formal
-reasoning easier. Computational 
-ethics can serve as another tool in a philosopher's arsenal, like a thought experiment or counterexample.
-While the technology is not yet mature enough and easy enough to use to become widespread in philosophy
-departments, technical progress could turn computational ethics into an easy-to-use tool for philosophers
-that doesn't require any specialized progamming or logical knowledge.
-
-The first contribution of computational ethics is precision \footnote{TODO: this article discusses 
-benefits of precision: bookmarked}. Much of analytic philosophy involves 
-making a particular concept precise. Thought experiments, arguments, counterexamples, and examples 
+The first benefit of computational ethics is precision, which is the goal of much analytic
+philosophy. Thought experiments, arguments, counterexamples, and examples 
 illustrate features of a concept in the hope of making the concept itself more precise. Computational 
-ethics can help philosophers reach this goal of precision in another, potentially easier, way. 
-Representing a philosophical idea in logic and implementing it in an interactive theorem prover requires 
-making the idea precise to a degree that ordinary discussion can result in, but does not necessarily require. The initial representation 
-of an idea in a logic requires making its form precise. For example, 
-as I formalized the notion of a maxim, I had to understand its components and define it as a 
-circumstance, act, goal tuple. Moreover, Isabelle's strict typing system required that I define 
-coherent, consistent types for each of these entities and for a maxim as a whole. This requires understanding 
-what role each of these components play in the FUL and assigning them each a type. In my example, I 
-concluded that circumstances and goals are terms, which can be true or false at a world, and acts are 
-open sentences, which are true for a particular subject at a particular world. This precision is possible 
-without computational tools, but computational ethics forces a level of precision that ordinary discussion 
-does not demand. Type fuzziness and overloaded definitions are all too common in philosophical writing and 
-discussion (would be cool to cite some famous debate revolving around this idea), but computers don't 
-allow this kind of imprecision.
+ethics can help philosophers reach the goal of precision. Representing a philosophical idea in logic 
+and implementing it in an interactive theorem prover requires making the idea precise to a degree 
+that ordinary discussion does not necessarily require. For example, as I formalized the notion of a 
+maxim, I had to understand its components and define it as a circumstance, act, goal tuple. Moreover, 
+Isabelle's strict typing system required that I define coherent, consistent types for each of these 
+entities and for a maxim as a whole. This precision is possible without computational tools, but 
+computational ethics forces a level of precision that ordinary discussion does not demand. Type 
+fuzziness and overloaded definitions are all too common in philosophical writing and 
+discussion, but computers diaallow this kind of imprecision.
 
-Another, related benefit of computational ethics is that it makes formal ethics far less tedious. 
-Certain subfields, such as philosophy of language, see such benefit in precision that they already 
-use symbolic logic to represent philosophical concepts, just as mathematicians use symbolic logic to 
-represent mathematical concepts. Some of this work requres tedious pencil and paper proofs to prove 
-theorems, even when many of these theorems may not generate relevant philosophical insights. Interactive 
-theorem provers make formal logic more accessible. Isabelle can complete a proof, starting from first principles, 
-in a matter of seconds that would take a logician pages to complete. Similarly, Nitpick can generate 
-examples or counterexamples to a proposition in a brute force manner. The computer can generate hypotheses
-that philosophers can then think about, just as it did for me to prompt the insight above.
-
-Just as calculators make arithmetic more accessible, computational ethics does the same for formal philosophy. 
-Not all philosophy can or will 
-be formalized or automated—after all, calculators didn't make accountants or mathematicians obsolete. Just as computers 
-reduce the tedium in other aspects of our life, they can reduce the tedium involved in formal logic to 
-allow mathematicians and philosophers to focus their attention on understanding.
+Another benefit of computational ethics is that it makes certain kinds of ethical inquiry, such as 
+searching for counterexamples or formal ethics, far less tedious. For example, Nitpick can refute 
+an ethical statement in seconds by using brute force to construct a counterexample, something that can require hours
+of thought and discussion. I arrived at the insight about badly-formed maxims because Isabelle 
+can check edge cases, like that of the badly-formed maxim, far more quickly than a human being. Moreover, 
+subfields that use symbolic logic to represent philosophical concepts (e.g. philosophy of language) can 
+use interactive theorem provers like Isabelle to complete proofs in a matter of seconds. By automating 
+away the tedium, computational ethics can give philosophers the tools to ask new kinds of questions.
 \<close>
-
-subsubsection \<open>Looking Forward\<close>
 
 text \<open>
 Computational ethics is at its infancy. The use of theorem provers in mathematics is just now beginning 
-to make headway @{cite buzzardvideo}, even though theorem provers were first invented in the 1960's @{cite historyofITP}. In contrast, the first attempts to use theorem 
-provers for ethics occurred in the last decade. The fact that this nascent technology is already 
-helping humans reach non-trivial philosophical conclusions is reason to, at the very least, entertain 
-the possibility of a future where computational ethics becomes as normal for philosophers.
+to make headway \citep{buzzardvideo}, even though theorem provers were first invented in the 1960's \citep{historyofITP}. 
+In contrast, the first attempts to use theorem provers for ethics occurred in the last decade. The 
+fact that this nascent technology is already helping humans reach non-trivial philosophical conclusions 
+is reason to, at the very least, entertain the possibility of a future where computational ethics 
+becomes as normal for philosophers as using a thought experiment.
 
-To the skeptic, the ethical insights uncovered by the computer are not necessarily impressive 
-philosophy. Indeed, the fact that a theorem prover requires specialized knowledge outside of the field 
+To the skeptic, the fact that a theorem prover requires specialized knowledge outside of the field 
 of philosophy indicates that the technology is nowhere near ready for universal use in philosophy 
 departments. However, history indicates that as computing power increases and computer scientists make 
 progress, computational ethics will become more usable. Theorem provers in mathematics began as toys 
-incapable of proving that the real number 2 is not equal to the real number 1, but Buzzard showed that 
-moving from such a primitive system to a tool for Fields medal winning mathematics is possible in a 
-matter of years @{cite buzzardvideo}. Countless examples from the history of computer science, from the Turing 
+incapable of proving that the real number 2 is not equal to the real number 1, but 
+moving from basic algebra to Fields medal winning mathematics became possible in a
+matter of years \citep{buzzardvideo}. Countless examples from the history of computer science, from the Turing 
 Test to AI game playing to protein folding, demonstrate that progress in computer science can make seemingly 
-obscure computer programs useful and usable in ways that exceed our wildest imaginations. Indeed, 
-programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
+obscure computer programs useful and usable in ways that exceed our wildest imaginations.
+Programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
 need not be stated. If computer scientists and philosophers invest in computational ethics, it can 
-become as much a tool for philosophy as a calculator is for for arithmetic.\footnote{Is this too like, 
-lalalala fantasy of computational philosophy? Would it be less so if I did more work explaining 
-the history of theorem proving for math? Is this even that important for my project?}
+become as much a tool for philosophy as a calculator is for for arithmetic.
 \<close>
 
 subsection \<open>Theoretical Objections to Automating Kantian Ethics\<close>
 
-subsection \<open>Related Work\<close>
+text \<open>
+Many philosophers cringe at the idea that a computer could perform ethical reasoning or that the 
+categorical imperative could provide an algorithm for moral judgement. For example, Rawls asserts, 
+``it is a serious misconception to think of the CI-procedure as an algorithm intended to yield, 
+more or less mechanically, a correct judgment. There is no such algorithm, and Kant knows this'' \citep[166]{rawlslectures}. 
+Ebels-Duggan also claims, ``no one supposes that the Categorical Imperative provides a mechanical 
+algorithm that delivers all by itself a complete account of what we ought to do in any given 
+situation'' \citep[174]{ebelsduggan}. However unmechanical ethical reasoning
+may seem, these claims are not obvious and require further justification. Philosophers who believe 
+that mental activity completely determines moral reasoning must explain why computers can, in theory, 
+simulate certain mental processes like arithmetic and language, but cannot perform ethical reasoning. 
+Without a soul or God-based account of ethical reasoning, it is not obvious that it is theoretically 
+impossible to automate ethical reasoning. After all, computers may eventually learn to simulate human 
+mental activity entirely, as shown by progress in brain simulation \citep{brainsimulation}. 
+
+In this section, I explore potential arguments for why the categorical imperative could not be automated. When 
+philosophers say that the categorical imperative is not an algorithm, they are often are gesturing to the complexity
+of ethical judgement. They refer to the difficulty in determining morally relevant circumstances of a maxim or the common 
+sense required for a computer to behave ethically as arguments against a categorical imperative ``algorithm.'' 
+I will show in this section that these difficulties do not render automated Kantian ethics impossible, but 
+merely difficult. There categorical imperative may not provide a simple and immediate algorithm, but, as
+I demonstrate in this thesis, some parts of moral judgement using the FUL can be automated using not one
+algorithm, but the many algorithms necessary to automatically prove logical theorems.
+
+In \emph{Universal Laws and Ends In Themselves}, O'Neill argues against the existence of an algorithm for
+moral behavior. She points out that Kant draws an important distinction between a morally worthy maxim
+and a morally worthy action: the latter requires a good will, or a will motivated by duty. She argues that, 
+``Kant defines duty not (as would be common today) as outward performance of a certain sort, but as action
+that embodies a good will'' \citep[345]{oneilluniversallaws}. Moral behavior doesn't just require performing
+a ``good'' action, but it requires acting on a morally worthy maxim from the motivation of duty, or 
+doing the right thing because it is the right thing to do. Moral behavior requires both a certain action 
+(acting on a morally worthy maxim) and a certain motivation (the motivation of duty). It is the capacity 
+for self-motivation that makes morality binding for rational beings; we must behave morally precisely 
+because we have wills, or the ability to be motivated by ends
+that we choose. Only rational beings have wills, thus only rational beings can have good wills, or wills
+motivated by duty, and thus only rational beings can behave morally. Under this understanding
+of moral behavior, it seems unlikely that a computer could, in the near future, behave morally
+since a computer does not have motivation in the same way as a human being. If a computer is not a fully rational
+being, then, it is not the kind of thing that can behave morally.\footnote{A parallel argument can also be made for virtue ethics. Virtuous
+behavior requires not only a certain action, but also a certain disposition towards the action, so it seems
+difficult for an AI agent to truly behave virtuously.}
+
+The idea that, under Kant's account, a computer cannot behave morally, does not preclude the kind 
+of automated categorical imperative test that I present in this thesis. O'Neill argues that the FUL
+serves as a test of morally worthy maxims, and an automated categorical imperative test can be used 
+to identify this kind of maxim. Perhaps a computer cannot act on a morally relevant maxim from a motivation of duty, 
+but it certainly can act on this maxim nonetheless. For example, a self-driving car can choose to swerve to hit a tree
+to avoid injuring pedestrians in the crosswalk. This action may be one that acts on a morally worthy maxim
+\emph{even if} the self-driving car is not motivated by duty. The discpline of machine ethics is partially
+spurred by the recognition that, as automated agents become more powerful, they will need to make
+morally consequential decisions. Automated agents may be incapable of moral behavior, but automated agents that mimic
+moral behavior are surely better than agents that ignore morality entirely. Worries about unethical AI
+stem from the fact that AI agents are navigating a world inhabited by human beings, and their decisions
+impact us. Insofar as we are building AI that will operate in human society, the behavior of such AI 
+should mimic the behavior of an ethical human being. AI needs to be ethical for our sakes, so that we 
+can interact with it safely. If AI conforms to human ethics, then it will certainly navigate the world
+in a way that benefits human beings.
+
+Another challenge for automated Kantian ethics identified by O'Neill is that the FUL test requires that
+a maxim be given as input. O'Neill notes that the test assumes ``that agents will have certain tentative 
+plans, proposals and policies which they can consider, revise or reject or endorse and pursue'' \citep[343]{oneilluniversallaws}.
+The FUL evaluates the moral worth of a maxim given as input and this potential maxim is generated by 
+the choices that an agent is faced with. Determining this potential maxim is a challenge for both human
+and automated reasoners. Kant claims that the difficulty of determining an agent's potential maxim, which is their
+own, subjective understanding of their principle of action, is a reason that we may never be able 
+to know if morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
+choices between potential actions and must determine the maxim, or principle, underlying each potential action.
+This is equivalent to a ``mapping'' problem: agents are given situations or dillemas as input and must map
+these to maxims.
+
+The challenge of mapping actions to maxims is a limitation of my system, but it is not insurmountable. In Section \ref{aiethics},
+I argued that, before my system can be used in practice, it must be paired with an input parser that can
+translate choices that an automated agent faces into maxims in a logic that my system can
+evaluate. This need follows from the difficulty in mapping a potential action
+to the maxim of action, whether concerning human action or machine action. As argued in Section \ref{AIethics},  
+this is not an insurmountable obstacle for automated ethics and heuristic-based approaches could resolve
+this issue. Determining the maxim of action is a challenge for Kantian human beings \citep{oneilluniversallaws}, 
+so it is unsurprising that it is a major hurdle for automated Kantian agents. 
+
+As one of the strongest arguments against a categorical imperative algorithm, O'Neill argues that 
+the FUL is not supposed to provide a mechanism for deriving all morally worthy maxims from scratch. She notes
+that ``we usually already have learnt or worked out the moral standing of many common maxims of duty,''
+and so approach moral deliberation with an ``almanac'' of morally worthy and empty maxims \citep[394]{oneilluniversallaws}. 
+Rational agents navigating the world rarely recalculate the moral status of each potential maxim of 
+action; instead, we consult our almanac of maxims. This almanac is generated by moral education, 
+absorbed social values, and moral advice from people we trust. The categorical imperative is useful 
+to verify the rightness or wrongness of a maxim, but is not part of the bulk of human ethical reasoning.
+
+While human beings cannot repeatedly apply the universalizability test to all potential maxims during 
+every moral dilemma, computers have the computational power to do so. Human beings are 
+equipped with enough prior knowledge or common sense, to have an almanac of morally worthy maxims,
+but we have limited computational power. Computers, on the other hand, are comparatively
+much more capable of computation and thus can repeatedly recompute the results of the categorical
+imperative test. They do not come equipped with an almanac of maxims, but can simply recompute this
+almanac every time they need to make a decision. Human beings use common sense to make up for their computational
+limitations, and automated moral agents can use computational power to reduce the need for common sense.
+
+Daniela Tafani takes this argument one step further by arguing that this ``alamnac'' of maxims already 
+includes the moral status of the maxims in questions; human beings already
+know which maxims are morally worthy and which are morally lacking. The categorical imperative test
+merely reminds us, in moments of weakness, when we are tempted to make an exception to the moral law for 
+our own convenience or pleasure, that the moral law has no exceptions \citep[9]{tafani}. Thus, she claims
+that ``the Kantian test is therefore as useless for machines as it is for anyone who does
+not already know what to do'' \citep[8]{tafani}.\footnote{Translated from the original paper using Google Translate.} 
+Understanding the categorical imperative test as a reminder
+instead of a derivation tool also explains the fact noted in Section \ref{AIethics} that the FUL cannot 
+handle bad-faith attempts to generate false positives or negatives. The test only returns the right 
+result when an agent sincerely attempts to represent their maxim of action, not when an adversary attempts
+ to ``trick'' the categorical imperative.\<close>
+
+text_raw \<open>
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{inputparser.png}
+\caption{A refined version of Figure \ref{fig:AIengine} in which the input parser learns from a database
+of action-maxim mappings, which is in turn fed the output of my automated Kantian ethics system. } \label{fig:inputparser}
+\end{figure}\<close>
+
+text \<open>This understanding of the role of the categorical imperative not only fails to render automate moral
+reasoning impossible, but it also offers insight into how to solve the challenge of creating an input parser.
+If the categorical imperative test is only useful to those who have some prior moral knowledge, then prior moral
+knowledge can and should be used to create an input parser. Specifically, some kind of machine learning-based approach
+could learn action-maxim mappings from a database of such mappings compiled by a human being. Moreover, 
+the human being could assign each maxim in the database a rightness or wrongness score. My implementation
+of the automated categorical imperative would then simply check the work of this machine learning algorithm and transform
+a fuzzy prediction into a provable, rigorous moral judgement. Moreover, this rigorous moral judgement
+could in turn be fed into the database of maxims to make the intput parser smarter. One example of 
+this kind of system is shown in Figure \ref{fig:inputparser}. The combination of 
+prior knowledge of some maxims' moral worth and the ability of a computer to constantly perform the
+universalizability test could not only match human ethical reasoning but perhaps also surpass it
+by double checking the moral intuitions that we take for granted. A computer with no common sense or prior knowledge
+may indeed be unable to reason using the categorical imperative, but one equipped with some prior knowledge
+of maxims and their moral worth may even help us better reason about morality. 
+\<close>
+
+
+subsection \<open>Related Work \label{relatedwork}\<close>
+
+text\<open>In 1685, Leibniz dreamed of a calculator that could resolve philosophical and theological 
+disputes \cite{leibniz}. At the time, the logical and computational resources necessary to make his 
+dream a reality did not exist. Today, automated ethics is a growing field, spurred in part by the 
+need for ethically intelligent AI agents. Tolmeijer et al. surveyed the state of the field of 
+machine ethics \citep{mesurvey} and characterized implementations in automated ethics by (1) the choice 
+of ethical theory, (2) implementation design decisions (e.g. logic programming), and (3) implementation 
+details (e.g. choice of logic). 
+
+Two branches of automated ethics are top-down and bottom-up ethics. Top-down automated ethics begins 
+with an ethical theory, whereas bottom-up automated ethics learns ethical judgements from prior 
+judgements. One example of bottom-up automated ethics is Delphi, which uses deep learning to make 
+ethical judgements based on a dataset of human judgements \citep{delphi}. While Delphi displays great 
+flexibility, it often produces contradictory judgements, such as claiming that taxing exploitative 
+profitable companies is good, but burdening successful companies with high tax rates is bad \citep{verge}. 
+Because Delphi draws on error-prone human judgements instead of philosophical literature, it makes 
+the same judgement errors that humans make. Moreover, because Delphi used a bottom-up approach, 
+there is no explicit ethical theory explaining its judgements, so analytically arguing for or 
+against its conclusions is impossible. Top-down approaches, on the other hand, must be explicit about 
+the underlying ethical theories, and are thus more explainable. 
+
+In this paper, I use a top-down approach to formalize Kantian ethics. There is a long line of work 
+automating other ethical theories, like consequentialism \citep{util1, util2} or particularism 
+\citep{particularism1, particularism2}. I choose to implement Kantian ethics because, as argued in 
+Section \ref{whykant}, it is the most formal and least data-intensive of the three major ethical 
+traditions. Kantian ethics is a deontological, or rule based ethic, and there is prior work 
+implementing other deontological theories \citep{dde, deon1, deon2}. 
+
+Kantian ethics specifically appears to be an intuitive candidate for formalization and implementation 
+and there has been both theoretical and practical work on automating Kantian ethics \citep{powers, lin}. 
+In 2006, Powers \citep{powers} argued that implementing Kantian ethics presented technical challenges, 
+such as automation of a non-monotonic logic, and philosophical challenges, like a definition of the 
+categorical imperative. I address the former through my use of Dyadic Deontic Logic, which allows 
+obligations to be retracted as context changes, and the latter through my use of the practical 
+contradiction interpretation. There has also been prior work in formalizing Kantian metaphysics 
+using I/O logic \citep{io}. Deontic logic, which has been implemented in Isabelle/HOL, itself is inspired 
+by Kant's ``ought implies can'' principle, but it does not include a robust formalization of the entire 
+categorical imperative \citep{cresswell}.
+
+Kroy \citep{kroy} presents a formalization of the first two formulations of the categorical imperative, 
+but does not implement it. I implement his formalization of the FUL to compare it to my system. 
+Lindner and Bentzen \citep{BL} presented one of the first formalizations and implementations of 
+Kant's second formulation of the categorical imperative. They present their goal as ``not to get 
+close to a correct interpretation of Kant, but to show that our interpretation of Kant’s ideas can 
+contribute to the development of machine ethics.'' My work builds on theirs by formalizing the 
+first formulation of the categorical imperative as faithfully as possible. Staying faithful to 
+philosophical literature makes my system capable of making robust and reliable judgements. 
+
+The implementation of this paper was inspired by and builds on Benzmüller, Parent, and Farjami's 
+foundational work with the LogiKEy framework for machine ethics, which includes their implementation 
+of DDL in Isabelle \citep{BFP, logikey}. The LogiKEy project has been used to study metaphysics 
+\citep{godel, metaphysics1}, law \citep{constitution}, and ethics \citep{gewirth}, but not 
+Kant's categorical imperative.\<close>
 
 subsection \<open>Conclusion\<close>
 
