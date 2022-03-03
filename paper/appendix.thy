@@ -4,93 +4,61 @@ begin (*>*)
 
 section "Appendix"
 
-subsection \<open>Maxims and Motives \label{maximmotive}\<close>
+subsection \<open>Alternate Definitions of a Maxim \label{maximmotive}\<close>
 
-text \<open>
+subsubsection \<open>Korsgaard's Act-Goal View\<close>
 
-Add something about how I don't like KG's view because it's weaker, action will end up including
-circumstances, it would have made my life easier but you can't apply it 
+text \<open>I adopt O'Niell's definition of a maxim, which builds on Korsgaard's weaker interpretation of 
+a maxim as an act, goal pair. She interprets Kant's example meanings as having the form ``to-do-this-act-for-
+the-sake-of-this-end,'' which could be formalized as a pair of an act and goal \citep{actingforareason}.
+For example, under this view, one example maxim might be, ``Falsely promise to repay a loan in order
+to get some easy cash.'' 
 
-Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim @{cite whatisamaxim}. This additional component is read 
-as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
-Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
-in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
-Under this view, the FUL would obligate maxims of the form 
+O'Niell's view only differs from this view in the inclusion of the circumstances
+on which the agent acts. This inclusion creates a representation of a maxim that is strictly more expressive than 
+Korsgaard's interpretation; every (circumstance, act, goal) tuple can be represented as an (act, goal) pair
+by simply dropping the circumstances, but the same (act, goal) pair could correspond to many different
+(circumstance, act, goal) tuples, all with varying moral statuses. Because my representation of a maxim
+is more expressive than Korsgaard's, my results are stronger than those that would be achieved with 
+Korsgaard's view. Thus, proponents of Korsgaard's view could simply ignore the circumstances in my
+representation of a maxim and still achieve their desired results. 
+
+One other reason to be concerned with Korsgaard's view is that an actionable maxim will necessarily
+require some circumstances built-in because the agent will need to know when to act on the maxim. For example,
+the falsely promising maxim bakes in the circumstances that the actor has access to lender, needs money, 
+and that the lender will expect their money back. At an even more granular level, this maxim implicitly includes
+a definition of a lender and of falsely promising, both of which are circumstantial. Given that all
+maxims necessarily include some circumstances, O'Niell's view makes these implicit circumstances
+explicit. This precision is a benefit; so long as my circumstances are not so finely grained that they
+are uninterpretable, they render O'Niell's kind of maxims more precise than Korsgaard's form. 
+\<close>
+
+subsubsection \<open>Kitcher's View on Motives\<close>
+
+text \<open>A stronger view than O'Niell's is due to Patricia Kitcher. Kitcher begins with O'Niell's 
+circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
+This additional component is read as ``In circumstance C, I will do A in order to G because of M,'' 
+where M may be ``duty'' or ``self-love.'' Kitcher argues that the inclusion of motive is necessary 
+for the fullest, most general form of a maxim in order to capture Kant's idea that an action derives 
+its moral worth from being done for the sake of duty itself. Under this view, the FUL would obligate maxims of the form 
 ``In circumstance C, I will do A in order to G because I can will that I and everyone else simultaneously
-will do A in order to G in circumstance C." In other words, if Kant is correct in arguing that moral 
+will do A in order to G in circumstance C.'' In other words, if Kant is correct in arguing that moral 
 actions must be done from the motive of duty, the affirmative result of the FUL becomes 
 the motive for a moral action.
 
 While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
-because it is not necessary for putting maxims through the FUL. Indeed, Kitcher acknowledges that 
-O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
+because it is not necessary for putting maxims through the FUL. Kitcher acknowledges that 
+O'Niell's formulation suffices for the universalizability test, but merely argues that it is not the most general form of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
-including a motive. The ``input" to the FUL is the circumstance, act, goal tuple. My project takes 
-this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
+including a motive. The ``input'' to the FUL is a circumstance, act, goal tuple. My project takes 
+this input and returns the motivation that the dutiful, moral agent would adopt, which is ``because this
+maxim is morally worthy.'' Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
-models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
+models the process of practical reason may use my implementation of the FUL as a ``library.'' Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.\<close>
-
-text \<open>\noindent \textbf{``Effectiveness'' of a Maxim}\<close>
-
-text \<open>I wish to formalize the notion of an ``effective" maxim. Intuitively, a maxim (a rule to 
-perform an act A for goal G) is effective if the act results in the goal. For example, studying hard 
-to get good grades is (sometimes) an effective maxim because the act of studying (sometimes) results in
- the end of getting good grades. At first glance, it is tempting to represent effectiveness 
-as follows: an act, goal pair ($A, G$) is effective if $A \longrightarrow G$. If $A$ then $G$ implies that 
-$A$ is an effective mechanism for achieving $G$.
-
-Trivial truth is a problem for this interpretation. If act $A$ never happens or 
-is impossible, then, $\forall G$, it is trivially true that $A \longrightarrow G$ (since $\sim A$). This leads to the 
-disturbing conclusion that impossible actions are effective in achieving any goal. While the messiness 
-is familiar to logicians, it has troubling implications for ethics.
-
-One such issue arises from Korsgaard's @{cite KorsgaardFUL} argument that, if an act no longer exists, then it is no 
-longer an effective mechanism for achieving any ends at all. This is a critical part of her interpretation 
-of the formula of universal law\footnote{Korsgaard compares two interpretations of the formula of universal law. 
-Under the logical contradiction view, a maxim is prohibited if, when everyone adopts it, it is logically
-impossible. Under the practical contradiction (PC) view, a maxim is prohibited if, when everyone adopt it, 
-it is no longer effective (the act isn't a means to the goal or end. For cases where universalization 
-renders the action impossible (like lying, since if everyone lies no one would believe each other), both 
-views should prohibit the maxim. For the PC view to prohibit the maxim, the maxim's impossibility must 
-also imply its ineffectiveness.}. Under Korsgaard's interpretation, if 
-studying hard is no longer an existing or possible action  (maybe because of perpetual construction outside my room), 
-then the maxim ``studying hard to get a good grade" is no longer effective. Trivial truth means that the
-initial definition of effectiveness cannot achieve this result.
-
-I could fix this problem by defining effectiveness as an act being existent and 
-also achieving the goal. I could try to model existent as ``possible at some world," therefore using 
-the power of modal logic to represent ideas like possibility. That way, a maxim is effective if (1) 
-the act is possible at some world and (2) in worlds where the act is in fact realized, the goal is also
-realized. 
-
-This solution draws a distinction between the notions of possibility (which is a modal
-sentence) and truth or occurrence. Drawing this distinction 
-allows us to preserve the fact that trivial truth does, in some way, make sense. Specifically, in a world 
-where the act is not performed, we still think that the maxim is effective. Its effectiveness hasn't been 
-disproven. Just as all purple elephants can fly, hunting purple elephants is an effective way to make money\footnote{Someone not steeped in logic might not agree here.}.
-
-This solution has two drawbacks. First, it introduces additional logical complexity into the effectiveness
-predicate. This is fine, but may have performance/developer time drawbacks. Ideally, a sentence in simple propositional
-logic could represent effectiveness. Second, more importantly, it doesn't address the idea of ``causality." 
-It might be the case that $A \longrightarrow G$ but $A$ does not cause $G$. For example, maybe eating 
-banana bread is a way to improve my grades because I eat banana bread but also happen to study hard, which 
-is the real cause of my GPA. How can I represent this idea? $A \wedge G$ fails because an act doesn't have to occur to be an effective means to an end 
-(the same reason that preserving trivial truth is nice). $A \longleftrightarrow G$ fails because we can imagine
-there also being some other cause for $G$. I can get good grades by studying hard or by bribing my professor, but
-both of those remain effective methods to achieve goal $G$. 
-
-How do I solve this problem? Should I look into logics of causation (I'm sure such things exist)? 
-Should I represent effectiveness as the implication $A \longrightarrow G$ holding at every world? That 
-idea addresses the second challenge about causation vs correlation, since if  $A \longrightarrow G$ in
-every possible world, then $A$ must cause $G$, since any fact noncontingent on $A$ will be false at some 
-possible world. This idea introduces even more logical complexity!
-
-\<close>
+evaluating an agent's behavior, since that's when ``acting from duty'' starts to matter.\<close>
 
 (*<*)
 subsection "Conjunctions in DDL"
@@ -121,36 +89,35 @@ property. Potential avenue for exploration"(*>*)
 
 subsection \<open>Kroy's Formalization\label{kroydetails}\<close>
 
-text \<open>This section contains a formalization of the categorical imperative introduced by Moshe Kroy in 
+text \<open>In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
 the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains 
 that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
-and test both of Kroy's formalizations.\<close>
+and test Kroy's formalization of the FUL\<close>
 
 subsubsection \<open>Logical Background \label{sec:kroy_logical_background}\<close>
 
-text \<open>Kroy's logic relies heavily on some notion of identity or agency. The logic must be capable of 
-expressing statements like ``x does action", which I can write as ``x is the subject of the sentence
- `does action.'" This requires defining a subject.\<close>
+text \<open>Kroy's logic also requires the notion of a subject, will I define as a new type, just as I did
+for my implementation.\<close>
 
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
 
-text \<open>Kroy also defines a substitution operator\footnote{See page 196 in Kroy's original paper @{cite kroy}.}. $P (d/e)$ is read in his logic as ``P with e substituted 
-for d." DDL has no such notion of substitution, so I will define a more generalized notion of an ``open 
-sentence." An open sentence takes as input a subject and returns a complete or ``closed" DDL formula by, 
-in effect, binding the free variable in the sentence to the input. For example, 
-``does action" is an open sentence that can be instantiated with a subject. \<close>
+text \<open>Kroy also defines a substitution operator\footnote{See page 196 in \citet{kroy}.}. 
+$P (d/e)$ is read in his logic as ``P with e substituted 
+for d.'' DDL has no such notion of substitution, so I will use the more generalized notion of an ``open 
+sentence,'' as I did for my formalization. An open sentence takes as input a subject and returns a 
+complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. For example, 
+``does action'' is an open sentence that can be instantiated with a subject. \<close>
 
 type_synonym os = "(s \<Rightarrow> t)"
-\<comment>\<open>``P sub (d/e)" can be written as ``S(e)", where S(d) = P\<close>
-\<comment>\<open>The terms that we substitute into are actually instantiations of an open sentence, and substitution 
-just requires re-instantiating the open sentence with a different subject.\<close>
+\<comment>\<open>``$P$ sub $(d/e)$'' can be written as ``$S(e)$'', where $S(d) = P$.\<close>
+\<comment>\<open>The terms that we substitute into are instantiations of an open sentence, and substitution 
+re-instantiates the open sentence with a different subject.\<close>
 
-text \<open>\textbf{New Operators}
+text \<open>\noindent \textbf{New Operators}
 
-Because Isabelle is strongly typed, we need to define new operators to handle open sentences. These operators 
-are similar to DDL's original operators. We could probably do without these abbreviations, but they will 
-simplify the notation and make it look more similar to Kroy's original paper. \<close>
+Because Isabelle is strongly typed, I define new operators to handle open sentences. These operators 
+are similar to DDL's original operators and will simplify notation. \<close>
 
 abbreviation os_neg::"os \<Rightarrow> os" ("\<^emph>\<not>_")
   where "(\<^emph>\<not>A) \<equiv> \<lambda>x. \<^bold>\<not>(A(x))"
@@ -170,24 +137,24 @@ abbreviation ddl_permissible::"t\<Rightarrow>t" ("P {_}")
 abbreviation os_permissible::"os\<Rightarrow>os" ("\<^emph>P {_}")
   where "\<^emph>P {A} \<equiv> \<lambda>x. P {A(x)}"
 
-
-text_raw \<open>\textbf{Differences Between Kroy's Logic (Kr) and DDL}\<close>
-
+text_raw \<open>\noindent \textbf{Differences Between Kroy's Logic (Kr) and DDL}\<close>
 
 text \<open>There is potential for complication because Kroy's original paper uses a different logic than DDL. 
-His custom logic is a slight modification of Hintikka's deontic logic @{cite hintikka}. In this section, 
-I will determine if some of the semantic properties that Kroy's logic (which I will now call Kr) requires 
-hold in DDL. These differences may become important later and can explain differences in my results and 
-Kroy's.\<close>
+His custom logic is a slight modification of Hintikka's deontic logic \citep{hintikka}. In this section, 
+I examine if the semantic properties that Kroy's logic (which I abbreviate to Kr) requires 
+hold in DDL. These differences may explain limitations of Kroy's formalization (including failed tests), but I argue that 
+the alternative properties of DDL cohere better with moral intuition. Thus, even if Kroy's formalization
+would pass more tests if it were implemented using Hintikka's logic, the logic itself would be less 
+morally plausible than DDL, and would thus remain a worse implementation of automated Kantian ethics.  \<close>
 
-text_raw \<open>\emph{Deontic alternatives versus the neighborhood semantics}\<close>
+text_raw \<open>\noindent \emph{Deontic alternatives versus the neighborhood semantics}\<close>
 
 text \<open>The most faithful interpretation of Kr is that if $A$ is permissible in a context, then 
-it must be true at some world in that context. Kr operates under the ``deontic alternatives" or Kripke semantics, 
-summarized by Solt @{cite solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
-only if $A$ is true at every deontic alternative world to $w$." Under this view, permissible propositions
-are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. Let's 
-see if this holds in DDL.\<close>
+it must be true at some world in that context. Kr operates under the ``deontic alternatives'' or Kripke semantics, 
+summarized by Solt \citep{solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
+only if $A$ is true at every deontic alternative world to $w$.'' Under this view, permissible propositions
+are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. This
+property does not hold in DDL.\<close>
 
 lemma permissible_semantics:
   fixes A w
@@ -198,16 +165,16 @@ lemma permissible_semantics:
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 
-text \<open>Remember that DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
+text \<open>DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
  proposition fails in DDL. In DDL, the $ob$ function abstracts away the notion of
  deontic alternatives. Even if one believes that permissible 
 statements should be true at some deontic alternative, it's not clear that permissible statements
- must be realized at some world. In some ways, this also coheres with our understanding of obligation. There 
-are permissible actions like ``Lavanya buys a red folder" that might not happen in any universe.
+ must be realized at some world. This also coheres with our understanding of obligation. There 
+are permissible actions like ``Lavanya buys a red folder'' that might not happen in any universe.
 
 An even stricter version of the semantics that Kr requires is that if something is permissible at a world, 
-then it is obligatory at some world. This is a straightforward application of the Kripke semantics. Let's
-test this proposition.\<close>
+then it is obligatory at some world. This is a straightforward application of the Kripke semantics. This
+also fails in DDL.\<close>
 
 lemma permissible_semantics_strong:
   fixes A w
@@ -218,17 +185,15 @@ lemma permissible_semantics_strong:
   Free variable:
     A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 
-
   text \<open>This also doesn't hold in DDL because DDL uses neighborhood semantics instead of the deontic 
 alternatives or Kripke semantics. This also seems to cohere with our moral intuitions. The statement 
-``Lavanya buys a red folder" is permissible in the current world, but it's hard to see why it would 
+``Lavanya buys a red folder'' is permissible in the current world, but it's hard to see why it would 
 be oblgiatory in any world.
 
-One implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements." In 
+Another implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements.'' In 
 other words, if something is permissible it has to be obligated at some deontically perfect alternative. 
 If we translate this to the language of DDL, we expect that if $A$ is permissible, it is obligated in some 
 context.\<close>
-
 
 lemma permissible_semantic_vacuous:
   fixes A w
@@ -240,17 +205,16 @@ lemma permissible_semantic_vacuous:
     A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
 
 text \<open>In order to make this true, we'd have to require that everything is either obligatory or
-prohibited somewhere. Sadly, that breaks everything and destroys the 
-notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
-If something breaks later in this section, it may be because of vacuous permissibility.\<close>
+prohibited somewhere, but this makes permissibility impossible, which is clearly undesirable. \<close>
 
-  text_raw \<open>\emph{Obligatory statements should be permissible}\<close>
+(*<*)
+text_raw \<open>\noindent \emph{Obligatory statements should be permissible}\<close>
 
 text \<open>Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
 is permissible at that world\footnote{This follows straightforwardly from the Kripke semantics. If proposition $A$ is 
 obligated at world $w$, this means that at all of $w$'s neighbors, $O A$ holds. Therefore, 
-$\exists w'$ such that $w$ sees $w'$ and $O A$ holds at $w'$ so $A$ is permissible at $w$.}. Let's see 
-if that also holds in DDL.\<close>
+$\exists w'$ such that $w$ sees $w'$ and $O A$ holds at $w'$ so $A$ is permissible at $w$.}. This theorem
+does not hold in DDL.\<close>
 
 lemma ob_implies_perm:
   fixes A w
@@ -264,18 +228,18 @@ lemma ob_implies_perm:
   text \<open>Intuitively, it seems untenable for any ethical theory to not include this principle. My 
 formalization should add this as an axiom.\<close>
 
-(*<*)text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<rightarrow> P {A})"\<close> (*>*)
+text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<rightarrow> P {A})"\<close> (*>*)
 
 
-subsubsection \<open>The Categorical Imperative \label{sec: kroy_ful}\<close>
+subsubsection \<open>Kroy's formalization of the FUL \label{sec: kroy_ful}\<close>
 
-text \<open>I will now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
-``act only in accordance with that maxim which you can at the same time will a universal law" @{cite groundwork}.
+text \<open>I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
+``act only in accordance with that maxim which you can at the same time will a universal law'' \citep{groundwork}.
 Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
 This formalizes the moral intuition prohibiting free-riding. According to the categorical imperative, no one is a moral exception.
 Formalizing this interpretation requires using open sentences to handle the notion of substitution.\<close>
-abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p::s. ((P {A p}) w))  \<longrightarrow>( (\<forall>p.( P {A p}) w))) "
 
+abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p::s. ((P {A p}) w))  \<longrightarrow>( (\<forall>p.( P {A p}) w))) "
 \<comment>\<open>In English, this statement roughly means that, if action $A$ is 
 permissible for some person $p$, then, for any person $p$, action $A$ must be permissible. The notion of ``permissible $for$" 
 is captured by the substitution of $x$ for $p$.\<close>

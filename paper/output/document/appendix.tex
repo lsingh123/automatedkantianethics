@@ -25,7 +25,11 @@
 }
 \isamarkuptrue%
 %
-\isamarkupsubsection{Maxims and Motives \label{maximmotive}%
+\isamarkupsubsection{Alternate Definitions of a Maxim \label{maximmotive}%
+}
+\isamarkuptrue%
+%
+\isamarkupsubsubsection{Korsgaard's Act-Goal View%
 }
 \isamarkuptrue%
 %
@@ -37,91 +41,73 @@
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Add something about how I don't like KG's view because it's weaker, action will end up including
-circumstances, it would have made my life easier but you can't apply it 
+I adopt O'Niell's definition of a maxim, which builds on Korsgaard's weaker interpretation of 
+a maxim as an act, goal pair. She interprets Kant's example meanings as having the form ``to-do-this-act-for-
+the-sake-of-this-end,'' which could be formalized as a pair of an act and goal \citep{actingforareason}.
+For example, under this view, one example maxim might be, ``Falsely promise to repay a loan in order
+to get some easy cash.'' 
 
-Kitcher begins with O'Niell's circumstance, act, goal view and expands it to include the motive 
-behind performing the maxim \cite{whatisamaxim}. This additional component is read 
-as ``In circumstance C, I will do A in order to G because of M," where M may be ``duty" or ``self-love."
-Kitcher argues that the inclusion of motive is necessary for the fullest, most general form of a maxim
-in order to capture Kant's idea that an action derives its moral worth from being done for the sake of duty itself.
-Under this view, the FUL would obligate maxims of the form 
+O'Niell's view only differs from this view in the inclusion of the circumstances
+on which the agent acts. This inclusion creates a representation of a maxim that is strictly more expressive than 
+Korsgaard's interpretation; every (circumstance, act, goal) tuple can be represented as an (act, goal) pair
+by simply dropping the circumstances, but the same (act, goal) pair could correspond to many different
+(circumstance, act, goal) tuples, all with varying moral statuses. Because my representation of a maxim
+is more expressive than Korsgaard's, my results are stronger than those that would be achieved with 
+Korsgaard's view. Thus, proponents of Korsgaard's view could simply ignore the circumstances in my
+representation of a maxim and still achieve their desired results. 
+
+One other reason to be concerned with Korsgaard's view is that an actionable maxim will necessarily
+require some circumstances built-in because the agent will need to know when to act on the maxim. For example,
+the falsely promising maxim bakes in the circumstances that the actor has access to lender, needs money, 
+and that the lender will expect their money back. At an even more granular level, this maxim implicitly includes
+a definition of a lender and of falsely promising, both of which are circumstantial. Given that all
+maxims necessarily include some circumstances, O'Niell's view makes these implicit circumstances
+explicit. This precision is a benefit; so long as my circumstances are not so finely grained that they
+are uninterpretable, they render O'Niell's kind of maxims more precise than Korsgaard's form.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsubsection{Kitcher's View on Motives%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+A stronger view than O'Niell's is due to Patricia Kitcher. Kitcher begins with O'Niell's 
+circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
+This additional component is read as ``In circumstance C, I will do A in order to G because of M,'' 
+where M may be ``duty'' or ``self-love.'' Kitcher argues that the inclusion of motive is necessary 
+for the fullest, most general form of a maxim in order to capture Kant's idea that an action derives 
+its moral worth from being done for the sake of duty itself. Under this view, the FUL would obligate maxims of the form 
 ``In circumstance C, I will do A in order to G because I can will that I and everyone else simultaneously
-will do A in order to G in circumstance C." In other words, if Kant is correct in arguing that moral 
+will do A in order to G in circumstance C.'' In other words, if Kant is correct in arguing that moral 
 actions must be done from the motive of duty, the affirmative result of the FUL becomes 
 the motive for a moral action.
 
 While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
-because it is not necessary for putting maxims through the FUL. Indeed, Kitcher acknowledges that 
-O'Neill's formulation suffices for the universalizability test, but is not the general notion of a maxim.
+because it is not necessary for putting maxims through the FUL. Kitcher acknowledges that 
+O'Niell's formulation suffices for the universalizability test, but merely argues that it is not the most general form of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
-including a motive. The ``input" to the FUL is the circumstance, act, goal tuple. My project takes 
-this input and returns the motivation that the dutiful, moral agent would adopt. Additionally, doing
+including a motive. The ``input'' to the FUL is a circumstance, act, goal tuple. My project takes 
+this input and returns the motivation that the dutiful, moral agent would adopt, which is ``because this
+maxim is morally worthy.'' Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
-models the process of practical reason may use my implementation of the FUL as a ``library." Combined 
+models the process of practical reason may use my implementation of the FUL as a ``library.'' Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty" starts to matter.%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-\noindent \textbf{``Effectiveness'' of a Maxim}%
-\end{isamarkuptext}\isamarkuptrue%
-%
-\begin{isamarkuptext}%
-I wish to formalize the notion of an ``effective" maxim. Intuitively, a maxim (a rule to 
-perform an act A for goal G) is effective if the act results in the goal. For example, studying hard 
-to get good grades is (sometimes) an effective maxim because the act of studying (sometimes) results in
- the end of getting good grades. At first glance, it is tempting to represent effectiveness 
-as follows: an act, goal pair ($A, G$) is effective if $A \longrightarrow G$. If $A$ then $G$ implies that 
-$A$ is an effective mechanism for achieving $G$.
-
-Trivial truth is a problem for this interpretation. If act $A$ never happens or 
-is impossible, then, $\forall G$, it is trivially true that $A \longrightarrow G$ (since $\sim A$). This leads to the 
-disturbing conclusion that impossible actions are effective in achieving any goal. While the messiness 
-is familiar to logicians, it has troubling implications for ethics.
-
-One such issue arises from Korsgaard's \cite{KorsgaardFUL} argument that, if an act no longer exists, then it is no 
-longer an effective mechanism for achieving any ends at all. This is a critical part of her interpretation 
-of the formula of universal law\footnote{Korsgaard compares two interpretations of the formula of universal law. 
-Under the logical contradiction view, a maxim is prohibited if, when everyone adopts it, it is logically
-impossible. Under the practical contradiction (PC) view, a maxim is prohibited if, when everyone adopt it, 
-it is no longer effective (the act isn't a means to the goal or end. For cases where universalization 
-renders the action impossible (like lying, since if everyone lies no one would believe each other), both 
-views should prohibit the maxim. For the PC view to prohibit the maxim, the maxim's impossibility must 
-also imply its ineffectiveness.}. Under Korsgaard's interpretation, if 
-studying hard is no longer an existing or possible action  (maybe because of perpetual construction outside my room), 
-then the maxim ``studying hard to get a good grade" is no longer effective. Trivial truth means that the
-initial definition of effectiveness cannot achieve this result.
-
-I could fix this problem by defining effectiveness as an act being existent and 
-also achieving the goal. I could try to model existent as ``possible at some world," therefore using 
-the power of modal logic to represent ideas like possibility. That way, a maxim is effective if (1) 
-the act is possible at some world and (2) in worlds where the act is in fact realized, the goal is also
-realized. 
-
-This solution draws a distinction between the notions of possibility (which is a modal
-sentence) and truth or occurrence. Drawing this distinction 
-allows us to preserve the fact that trivial truth does, in some way, make sense. Specifically, in a world 
-where the act is not performed, we still think that the maxim is effective. Its effectiveness hasn't been 
-disproven. Just as all purple elephants can fly, hunting purple elephants is an effective way to make money\footnote{Someone not steeped in logic might not agree here.}.
-
-This solution has two drawbacks. First, it introduces additional logical complexity into the effectiveness
-predicate. This is fine, but may have performance/developer time drawbacks. Ideally, a sentence in simple propositional
-logic could represent effectiveness. Second, more importantly, it doesn't address the idea of ``causality." 
-It might be the case that $A \longrightarrow G$ but $A$ does not cause $G$. For example, maybe eating 
-banana bread is a way to improve my grades because I eat banana bread but also happen to study hard, which 
-is the real cause of my GPA. How can I represent this idea? $A \wedge G$ fails because an act doesn't have to occur to be an effective means to an end 
-(the same reason that preserving trivial truth is nice). $A \longleftrightarrow G$ fails because we can imagine
-there also being some other cause for $G$. I can get good grades by studying hard or by bribing my professor, but
-both of those remain effective methods to achieve goal $G$. 
-
-How do I solve this problem? Should I look into logics of causation (I'm sure such things exist)? 
-Should I represent effectiveness as the implication $A \longrightarrow G$ holding at every world? That 
-idea addresses the second challenge about causation vs correlation, since if  $A \longrightarrow G$ in
-every possible world, then $A$ must cause $G$, since any fact noncontingent on $A$ will be false at some 
-possible world. This idea introduces even more logical complexity!%
+evaluating an agent's behavior, since that's when ``acting from duty'' starts to matter.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -168,11 +154,11 @@ possible world. This idea introduces even more logical complexity!%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-This section contains a formalization of the categorical imperative introduced by Moshe Kroy in 
+In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
 the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains 
 that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
-and test both of Kroy's formalizations.%
+and test Kroy's formalization of the FUL%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -193,36 +179,35 @@ and test both of Kroy's formalizations.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Kroy's logic relies heavily on some notion of identity or agency. The logic must be capable of 
-expressing statements like ``x does action", which I can write as ``x is the subject of the sentence
- `does action.'" This requires defining a subject.%
+Kroy's logic also requires the notion of a subject, will I define as a new type, just as I did
+for my implementation.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ s\ %
 \isamarkupcmt{s is the type for a ``subject," i.e. the subject of a sentence%
 }%
 \begin{isamarkuptext}%
-Kroy also defines a substitution operator\footnote{See page 196 in Kroy's original paper \cite{kroy}.}. $P (d/e)$ is read in his logic as ``P with e substituted 
-for d." DDL has no such notion of substitution, so I will define a more generalized notion of an ``open 
-sentence." An open sentence takes as input a subject and returns a complete or ``closed" DDL formula by, 
-in effect, binding the free variable in the sentence to the input. For example, 
-``does action" is an open sentence that can be instantiated with a subject.%
+Kroy also defines a substitution operator\footnote{See page 196 in \citet{kroy}.}. 
+$P (d/e)$ is read in his logic as ``P with e substituted 
+for d.'' DDL has no such notion of substitution, so I will use the more generalized notion of an ``open 
+sentence,'' as I did for my formalization. An open sentence takes as input a subject and returns a 
+complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. For example, 
+``does action'' is an open sentence that can be instantiated with a subject.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\isanewline
 %
-\isamarkupcmt{``P sub (d/e)" can be written as ``S(e)", where S(d) = P%
+\isamarkupcmt{``$P$ sub $(d/e)$'' can be written as ``$S(e)$'', where $S(d) = P$.%
 }\isanewline
 %
-\isamarkupcmt{The terms that we substitute into are actually instantiations of an open sentence, and substitution 
-just requires re-instantiating the open sentence with a different subject.%
+\isamarkupcmt{The terms that we substitute into are instantiations of an open sentence, and substitution 
+re-instantiates the open sentence with a different subject.%
 }%
 \begin{isamarkuptext}%
-\textbf{New Operators}
+\noindent \textbf{New Operators}
 
-Because Isabelle is strongly typed, we need to define new operators to handle open sentences. These operators 
-are similar to DDL's original operators. We could probably do without these abbreviations, but they will 
-simplify the notation and make it look more similar to Kroy's original paper.%
+Because Isabelle is strongly typed, I define new operators to handle open sentences. These operators 
+are similar to DDL's original operators and will simplify notation.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ os{\isacharunderscore}neg{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os\ {\isasymRightarrow}\ os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph {\isasymnot}{\isacharunderscore}{\isachardoublequoteclose}{\isacharparenright}\isanewline
@@ -247,25 +232,27 @@ against it), but not required (there is no specific obligation requiring it).%
 \isacommand{abbreviation}\isamarkupfalse%
 \ os{\isacharunderscore}permissible{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}os{\isasymRightarrow}os{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}{\isacharunderscore}{\isacharbraceright}{\isachardoublequoteclose}{\isacharparenright}\isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}\isactrlemph P\ {\isacharbraceleft}A{\isacharbraceright}\ {\isasymequiv}\ {\isasymlambda}x{\isachardot}\ P\ {\isacharbraceleft}A{\isacharparenleft}x{\isacharparenright}{\isacharbraceright}{\isachardoublequoteclose}%
-\textbf{Differences Between Kroy's Logic (Kr) and DDL}
+\noindent \textbf{Differences Between Kroy's Logic (Kr) and DDL}
 %
 \begin{isamarkuptext}%
 There is potential for complication because Kroy's original paper uses a different logic than DDL. 
-His custom logic is a slight modification of Hintikka's deontic logic \cite{hintikka}. In this section, 
-I will determine if some of the semantic properties that Kroy's logic (which I will now call Kr) requires 
-hold in DDL. These differences may become important later and can explain differences in my results and 
-Kroy's.%
+His custom logic is a slight modification of Hintikka's deontic logic \citep{hintikka}. In this section, 
+I examine if the semantic properties that Kroy's logic (which I abbreviate to Kr) requires 
+hold in DDL. These differences may explain limitations of Kroy's formalization (including failed tests), but I argue that 
+the alternative properties of DDL cohere better with moral intuition. Thus, even if Kroy's formalization
+would pass more tests if it were implemented using Hintikka's logic, the logic itself would be less 
+morally plausible than DDL, and would thus remain a worse implementation of automated Kantian ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
-\emph{Deontic alternatives versus the neighborhood semantics}
+\noindent \emph{Deontic alternatives versus the neighborhood semantics}
 %
 \begin{isamarkuptext}%
 The most faithful interpretation of Kr is that if $A$ is permissible in a context, then 
-it must be true at some world in that context. Kr operates under the ``deontic alternatives" or Kripke semantics, 
-summarized by Solt \cite{solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
-only if $A$ is true at every deontic alternative world to $w$." Under this view, permissible propositions
-are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. Let's 
-see if this holds in DDL.%
+it must be true at some world in that context. Kr operates under the ``deontic alternatives'' or Kripke semantics, 
+summarized by Solt \citep{solt} as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
+only if $A$ is true at every deontic alternative world to $w$.'' Under this view, permissible propositions
+are obligated at some deontic alternatives, or other worlds in the system, but not at all of them. This
+property does not hold in DDL.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ permissible{\isacharunderscore}semantics{\isacharcolon}\isanewline
@@ -294,16 +281,16 @@ see if this holds in DDL.%
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-Remember that DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
+DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
  proposition fails in DDL. In DDL, the $ob$ function abstracts away the notion of
  deontic alternatives. Even if one believes that permissible 
 statements should be true at some deontic alternative, it's not clear that permissible statements
- must be realized at some world. In some ways, this also coheres with our understanding of obligation. There 
-are permissible actions like ``Lavanya buys a red folder" that might not happen in any universe.
+ must be realized at some world. This also coheres with our understanding of obligation. There 
+are permissible actions like ``Lavanya buys a red folder'' that might not happen in any universe.
 
 An even stricter version of the semantics that Kr requires is that if something is permissible at a world, 
-then it is obligatory at some world. This is a straightforward application of the Kripke semantics. Let's
-test this proposition.%
+then it is obligatory at some world. This is a straightforward application of the Kripke semantics. This
+also fails in DDL.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ permissible{\isacharunderscore}semantics{\isacharunderscore}strong{\isacharcolon}\isanewline
@@ -334,10 +321,10 @@ test this proposition.%
 \begin{isamarkuptext}%
 This also doesn't hold in DDL because DDL uses neighborhood semantics instead of the deontic 
 alternatives or Kripke semantics. This also seems to cohere with our moral intuitions. The statement 
-``Lavanya buys a red folder" is permissible in the current world, but it's hard to see why it would 
+``Lavanya buys a red folder'' is permissible in the current world, but it's hard to see why it would 
 be oblgiatory in any world.
 
-One implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements." In 
+Another implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements.'' In 
 other words, if something is permissible it has to be obligated at some deontically perfect alternative. 
 If we translate this to the language of DDL, we expect that if $A$ is permissible, it is obligated in some 
 context.%
@@ -370,39 +357,15 @@ context.%
 %
 \begin{isamarkuptext}%
 In order to make this true, we'd have to require that everything is either obligatory or
-prohibited somewhere. Sadly, that breaks everything and destroys the 
-notion of permissibility everywhere \footnote{See Appendix for an examination of a buggy version of DDL that led to this insight.}. 
-If something breaks later in this section, it may be because of vacuous permissibility.%
+prohibited somewhere, but this makes permissibility impossible, which is clearly undesirable.%
 \end{isamarkuptext}\isamarkuptrue%
 %
-\emph{Obligatory statements should be permissible}
-%
-\begin{isamarkuptext}%
-Kr includes the intuitively appealing theorem that if a statement is obligated at a world, then it 
-is permissible at that world\footnote{This follows straightforwardly from the Kripke semantics. If proposition $A$ is 
-obligated at world $w$, this means that at all of $w$'s neighbors, $O A$ holds. Therefore, 
-$\exists w'$ such that $w$ sees $w'$ and $O A$ holds at $w'$ so $A$ is permissible at $w$.}. Let's see 
-if that also holds in DDL.%
-\end{isamarkuptext}\isamarkuptrue%
-\isacommand{lemma}\isamarkupfalse%
-\ ob{\isacharunderscore}implies{\isacharunderscore}perm{\isacharcolon}\isanewline
-\ \ \isakeyword{fixes}\ A\ w\isanewline
-\ \ \isakeyword{shows}\ {\isachardoublequoteopen}O\ {\isacharbraceleft}A{\isacharbraceright}\ w\ {\isasymlongrightarrow}\ P\ {\isacharbraceleft}A{\isacharbraceright}\ w{\isachardoublequoteclose}\isanewline
-\ \ \isacommand{nitpick}\isamarkupfalse%
-\ {\isacharbrackleft}user{\isacharunderscore}axioms{\isacharbrackright}%
 \isadelimproof
-\ %
+%
 \endisadelimproof
 %
 \isatagproof
-\isacommand{oops}\isamarkupfalse%
-\isanewline
 %
-\isamarkupcmt{\color{blue} Nitpick found a counterexample for card i = 2:
-
-  Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False, $i_2$ := True)\color{black}%
-}%
 \endisatagproof
 {\isafoldproof}%
 %
@@ -410,18 +373,13 @@ if that also holds in DDL.%
 %
 \endisadelimproof
 %
-\begin{isamarkuptext}%
-Intuitively, it seems untenable for any ethical theory to not include this principle. My 
-formalization should add this as an axiom.%
-\end{isamarkuptext}\isamarkuptrue%
-%
 \isadelimdocument
 %
 \endisadelimdocument
 %
 \isatagdocument
 %
-\isamarkupsubsubsection{The Categorical Imperative \label{sec: kroy_ful}%
+\isamarkupsubsubsection{Kroy's formalization of the FUL \label{sec: kroy_ful}%
 }
 \isamarkuptrue%
 %
@@ -433,15 +391,14 @@ formalization should add this as an axiom.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-I will now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
-``act only in accordance with that maxim which you can at the same time will a universal law" \cite{groundwork}.
+I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
+``act only in accordance with that maxim which you can at the same time will a universal law'' \citep{groundwork}.
 Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
 This formalizes the moral intuition prohibiting free-riding. According to the categorical imperative, no one is a moral exception.
 Formalizing this interpretation requires using open sentences to handle the notion of substitution.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ FUL{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}bool{\isachardoublequoteclose}\ \isakeyword{where}\ {\isachardoublequoteopen}FUL\ {\isasymequiv}\ {\isasymforall}w\ A{\isachardot}\ {\isacharparenleft}{\isacharparenleft}{\isasymexists}p{\isacharcolon}{\isacharcolon}s{\isachardot}\ {\isacharparenleft}{\isacharparenleft}P\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}\ \ {\isasymlongrightarrow}{\isacharparenleft}\ {\isacharparenleft}{\isasymforall}p{\isachardot}{\isacharparenleft}\ P\ {\isacharbraceleft}A\ p{\isacharbraceright}{\isacharparenright}\ w{\isacharparenright}{\isacharparenright}{\isacharparenright}\ {\isachardoublequoteclose}\isanewline
-\isanewline
 %
 \isamarkupcmt{In English, this statement roughly means that, if action $A$ is 
 permissible for some person $p$, then, for any person $p$, action $A$ must be permissible. The notion of ``permissible $for$" 
@@ -1352,685 +1309,632 @@ Isabelle timed out when looking for proofs or countermodels to the statements ab
 %:%file=~/Desktop/cs91r/paper/appendix.thy%:%
 %:%24=5%:%
 %:%28=7%:%
-%:%40=11%:%
-%:%41=12%:%
-%:%42=13%:%
-%:%43=14%:%
-%:%44=15%:%
-%:%45=16%:%
-%:%46=17%:%
-%:%47=18%:%
-%:%48=19%:%
-%:%49=20%:%
-%:%50=21%:%
-%:%51=22%:%
-%:%52=23%:%
-%:%53=24%:%
-%:%54=25%:%
-%:%55=26%:%
-%:%56=27%:%
-%:%57=28%:%
-%:%58=29%:%
-%:%59=30%:%
-%:%60=31%:%
-%:%61=32%:%
-%:%62=33%:%
-%:%63=34%:%
-%:%64=35%:%
-%:%65=36%:%
-%:%69=38%:%
-%:%73=40%:%
-%:%74=41%:%
-%:%75=42%:%
-%:%76=43%:%
-%:%77=44%:%
-%:%78=45%:%
-%:%79=46%:%
-%:%80=47%:%
-%:%81=48%:%
-%:%82=49%:%
-%:%83=50%:%
-%:%84=51%:%
-%:%85=52%:%
-%:%86=53%:%
-%:%87=54%:%
-%:%88=55%:%
-%:%89=56%:%
-%:%90=57%:%
-%:%91=58%:%
-%:%92=59%:%
-%:%93=60%:%
-%:%94=61%:%
-%:%95=62%:%
-%:%96=63%:%
-%:%97=64%:%
-%:%98=65%:%
-%:%99=66%:%
-%:%100=67%:%
-%:%101=68%:%
-%:%102=69%:%
-%:%103=70%:%
-%:%104=71%:%
-%:%105=72%:%
-%:%106=73%:%
-%:%107=74%:%
-%:%108=75%:%
-%:%109=76%:%
-%:%110=77%:%
-%:%111=78%:%
-%:%112=79%:%
-%:%113=80%:%
-%:%114=81%:%
-%:%115=82%:%
-%:%116=83%:%
-%:%117=84%:%
-%:%118=85%:%
-%:%119=86%:%
-%:%120=87%:%
-%:%121=88%:%
-%:%122=89%:%
-%:%123=90%:%
-%:%124=91%:%
-%:%159=122%:%
-%:%171=124%:%
-%:%172=125%:%
-%:%173=126%:%
-%:%174=127%:%
-%:%175=128%:%
-%:%184=130%:%
-%:%196=132%:%
-%:%197=133%:%
-%:%198=134%:%
-%:%200=136%:%
-%:%201=136%:%
-%:%202=136%:%
-%:%205=138%:%
-%:%206=139%:%
-%:%207=140%:%
-%:%208=141%:%
-%:%209=142%:%
-%:%211=144%:%
-%:%212=144%:%
-%:%214=145%:%
-%:%215=145%:%
-%:%217=146%:%
-%:%218=147%:%
-%:%221=149%:%
-%:%222=150%:%
-%:%223=151%:%
-%:%224=152%:%
-%:%225=153%:%
-%:%227=155%:%
-%:%228=155%:%
-%:%229=156%:%
-%:%230=157%:%
-%:%231=157%:%
-%:%232=158%:%
-%:%233=159%:%
-%:%234=159%:%
-%:%235=160%:%
-%:%236=161%:%
-%:%237=161%:%
-%:%238=162%:%
-%:%240=164%:%
-%:%241=165%:%
-%:%242=166%:%
-%:%244=168%:%
-%:%245=168%:%
-%:%246=169%:%
-%:%247=170%:%
-%:%248=170%:%
-%:%249=171%:%
-%:%250=174%:%
-%:%253=177%:%
-%:%254=178%:%
-%:%255=179%:%
-%:%256=180%:%
-%:%257=181%:%
-%:%260=183%:%
-%:%263=185%:%
-%:%264=186%:%
-%:%265=187%:%
-%:%266=188%:%
-%:%267=189%:%
-%:%268=190%:%
-%:%270=192%:%
-%:%271=192%:%
-%:%272=193%:%
-%:%273=194%:%
-%:%274=195%:%
-%:%275=195%:%
-%:%277=195%:%
-%:%281=195%:%
-%:%282=195%:%
-%:%284=196%:%
-%:%285=197%:%
-%:%286=198%:%
-%:%287=199%:%
-%:%297=201%:%
-%:%298=202%:%
-%:%299=203%:%
-%:%300=204%:%
-%:%301=205%:%
-%:%302=206%:%
-%:%303=207%:%
-%:%304=208%:%
-%:%305=209%:%
-%:%306=210%:%
-%:%308=212%:%
-%:%309=212%:%
-%:%310=213%:%
-%:%311=214%:%
-%:%312=215%:%
-%:%313=215%:%
-%:%315=215%:%
-%:%319=215%:%
-%:%320=215%:%
-%:%322=216%:%
-%:%323=217%:%
-%:%324=218%:%
-%:%325=219%:%
-%:%335=222%:%
-%:%336=223%:%
-%:%337=224%:%
-%:%338=225%:%
-%:%339=226%:%
-%:%340=227%:%
-%:%341=228%:%
-%:%342=229%:%
-%:%343=230%:%
-%:%345=233%:%
-%:%346=233%:%
-%:%347=234%:%
-%:%348=235%:%
-%:%349=236%:%
-%:%350=236%:%
-%:%352=236%:%
-%:%356=236%:%
-%:%357=236%:%
-%:%359=237%:%
-%:%360=238%:%
-%:%361=239%:%
-%:%362=240%:%
-%:%372=242%:%
-%:%373=243%:%
-%:%374=244%:%
-%:%375=245%:%
-%:%378=247%:%
-%:%381=249%:%
-%:%382=250%:%
-%:%383=251%:%
-%:%384=252%:%
-%:%385=253%:%
-%:%387=255%:%
-%:%388=255%:%
-%:%389=256%:%
-%:%390=257%:%
-%:%391=258%:%
-%:%392=258%:%
-%:%394=258%:%
-%:%398=258%:%
-%:%399=258%:%
-%:%401=259%:%
-%:%402=260%:%
-%:%403=261%:%
-%:%404=262%:%
-%:%414=264%:%
-%:%415=265%:%
-%:%424=270%:%
-%:%436=272%:%
-%:%437=273%:%
-%:%438=274%:%
-%:%439=275%:%
-%:%440=276%:%
-%:%442=277%:%
-%:%443=277%:%
-%:%444=278%:%
-%:%446=279%:%
-%:%447=280%:%
-%:%448=281%:%
-%:%451=283%:%
-%:%453=285%:%
-%:%454=285%:%
-%:%455=286%:%
-%:%456=287%:%
-%:%457=287%:%
-%:%459=287%:%
-%:%463=287%:%
-%:%464=287%:%
-%:%466=288%:%
-%:%467=289%:%
-%:%468=290%:%
-%:%469=291%:%
-%:%470=292%:%
-%:%471=293%:%
-%:%481=295%:%
-%:%483=297%:%
-%:%484=297%:%
-%:%486=299%:%
-%:%488=301%:%
-%:%489=301%:%
-%:%490=301%:%
-%:%492=301%:%
-%:%496=301%:%
-%:%497=301%:%
-%:%499=302%:%
-%:%500=303%:%
-%:%501=304%:%
-%:%502=305%:%
-%:%512=307%:%
-%:%513=308%:%
-%:%514=309%:%
-%:%515=310%:%
-%:%524=313%:%
-%:%536=315%:%
-%:%537=316%:%
-%:%538=317%:%
-%:%539=318%:%
-%:%540=319%:%
-%:%541=320%:%
-%:%542=321%:%
-%:%543=322%:%
-%:%544=323%:%
-%:%548=325%:%
-%:%552=327%:%
-%:%553=328%:%
-%:%554=329%:%
-%:%556=331%:%
-%:%557=331%:%
-%:%559=332%:%
-%:%560=333%:%
-%:%561=334%:%
-%:%562=335%:%
-%:%563=336%:%
-%:%564=337%:%
-%:%565=338%:%
-%:%566=338%:%
-%:%567=339%:%
-%:%568=340%:%
-%:%569=340%:%
-%:%570=341%:%
-%:%573=342%:%
-%:%577=342%:%
-%:%578=342%:%
-%:%580=343%:%
-%:%581=344%:%
-%:%591=346%:%
-%:%592=347%:%
-%:%593=348%:%
-%:%594=349%:%
-%:%595=350%:%
-%:%596=351%:%
-%:%597=352%:%
-%:%598=353%:%
-%:%599=354%:%
-%:%600=355%:%
-%:%601=356%:%
-%:%602=357%:%
-%:%603=358%:%
-%:%604=359%:%
-%:%605=360%:%
-%:%606=361%:%
-%:%607=362%:%
-%:%608=363%:%
-%:%612=365%:%
-%:%613=366%:%
-%:%615=368%:%
-%:%616=368%:%
-%:%618=369%:%
-%:%619=369%:%
-%:%620=370%:%
-%:%621=371%:%
-%:%622=371%:%
-%:%623=372%:%
-%:%626=373%:%
-%:%630=373%:%
-%:%631=373%:%
-%:%632=374%:%
-%:%633=374%:%
-%:%634=375%:%
-%:%635=375%:%
-%:%636=376%:%
-%:%637=376%:%
-%:%638=376%:%
-%:%639=377%:%
-%:%649=379%:%
-%:%650=380%:%
-%:%651=381%:%
-%:%652=382%:%
-%:%656=384%:%
-%:%660=386%:%
-%:%661=387%:%
-%:%662=388%:%
-%:%666=390%:%
-%:%667=391%:%
-%:%669=393%:%
-%:%670=393%:%
-%:%683=414%:%
-%:%684=415%:%
-%:%685=415%:%
-%:%687=416%:%
-%:%688=417%:%
-%:%689=418%:%
-%:%690=419%:%
-%:%691=420%:%
-%:%692=421%:%
-%:%693=421%:%
-%:%695=422%:%
-%:%696=423%:%
-%:%697=423%:%
-%:%698=424%:%
-%:%699=425%:%
-%:%700=425%:%
-%:%702=426%:%
-%:%703=427%:%
-%:%706=429%:%
-%:%707=430%:%
-%:%709=432%:%
-%:%710=432%:%
-%:%711=433%:%
-%:%712=434%:%
-%:%713=434%:%
-%:%715=434%:%
-%:%719=434%:%
-%:%720=434%:%
-%:%722=435%:%
-%:%723=436%:%
-%:%724=437%:%
-%:%725=438%:%
-%:%726=439%:%
-%:%727=440%:%
-%:%728=441%:%
-%:%738=443%:%
-%:%739=444%:%
-%:%740=445%:%
-%:%743=447%:%
-%:%744=448%:%
-%:%745=449%:%
-%:%746=450%:%
-%:%747=451%:%
-%:%748=452%:%
-%:%751=454%:%
-%:%753=456%:%
-%:%754=456%:%
-%:%755=457%:%
-%:%758=458%:%
-%:%762=458%:%
-%:%763=458%:%
-%:%765=459%:%
-%:%771=459%:%
-%:%774=460%:%
-%:%775=461%:%
-%:%776=461%:%
-%:%777=462%:%
-%:%778=463%:%
-%:%779=464%:%
-%:%780=464%:%
-%:%782=464%:%
-%:%786=464%:%
-%:%787=464%:%
-%:%789=465%:%
-%:%790=466%:%
-%:%791=467%:%
-%:%792=468%:%
-%:%793=469%:%
-%:%803=471%:%
-%:%804=472%:%
-%:%805=473%:%
-%:%806=474%:%
-%:%807=475%:%
-%:%808=476%:%
-%:%809=477%:%
-%:%810=478%:%
-%:%811=479%:%
-%:%815=482%:%
-%:%816=483%:%
-%:%817=484%:%
-%:%818=485%:%
-%:%819=486%:%
-%:%820=487%:%
-%:%821=488%:%
-%:%822=489%:%
-%:%823=490%:%
-%:%824=491%:%
-%:%825=492%:%
-%:%826=493%:%
-%:%835=495%:%
-%:%847=497%:%
-%:%848=498%:%
-%:%849=499%:%
-%:%851=501%:%
-%:%852=501%:%
-%:%853=502%:%
-%:%854=503%:%
-%:%855=504%:%
-%:%856=504%:%
-%:%858=504%:%
-%:%862=504%:%
-%:%863=504%:%
-%:%865=505%:%
-%:%866=506%:%
-%:%867=507%:%
-%:%868=508%:%
-%:%878=510%:%
-%:%879=511%:%
-%:%880=512%:%
-%:%884=514%:%
-%:%886=516%:%
-%:%887=516%:%
-%:%888=517%:%
-%:%889=518%:%
-%:%890=519%:%
-%:%891=519%:%
-%:%893=519%:%
-%:%897=519%:%
-%:%898=519%:%
-%:%900=520%:%
-%:%901=521%:%
-%:%902=522%:%
-%:%903=523%:%
-%:%913=525%:%
-%:%914=526%:%
-%:%916=528%:%
-%:%917=528%:%
-%:%918=529%:%
-%:%919=530%:%
-%:%920=531%:%
-%:%921=531%:%
-%:%923=531%:%
-%:%927=531%:%
-%:%928=531%:%
-%:%930=532%:%
-%:%931=533%:%
-%:%932=534%:%
-%:%933=535%:%
-%:%934=536%:%
-%:%944=538%:%
-%:%945=539%:%
-%:%947=541%:%
-%:%948=541%:%
-%:%949=542%:%
-%:%950=543%:%
-%:%953=544%:%
-%:%957=544%:%
-%:%958=544%:%
-%:%959=544%:%
-%:%968=546%:%
-%:%969=547%:%
-%:%970=548%:%
-%:%971=549%:%
-%:%973=551%:%
-%:%974=551%:%
-%:%975=552%:%
-%:%976=553%:%
-%:%979=554%:%
-%:%983=554%:%
-%:%984=554%:%
-%:%985=554%:%
-%:%994=556%:%
-%:%995=557%:%
-%:%997=559%:%
-%:%998=559%:%
-%:%999=560%:%
-%:%1000=561%:%
-%:%1001=562%:%
-%:%1002=562%:%
-%:%1004=562%:%
-%:%1008=562%:%
-%:%1009=562%:%
-%:%1011=563%:%
-%:%1012=564%:%
-%:%1013=565%:%
-%:%1014=566%:%
-%:%1024=568%:%
-%:%1025=569%:%
-%:%1026=570%:%
-%:%1027=571%:%
-%:%1028=572%:%
-%:%1029=573%:%
-%:%1031=575%:%
-%:%1032=575%:%
-%:%1033=576%:%
-%:%1034=577%:%
-%:%1035=578%:%
-%:%1036=579%:%
-%:%1037=579%:%
-%:%1039=579%:%
-%:%1043=579%:%
-%:%1044=579%:%
-%:%1046=580%:%
-%:%1047=581%:%
-%:%1048=582%:%
-%:%1049=583%:%
-%:%1050=584%:%
-%:%1051=585%:%
-%:%1061=587%:%
-%:%1062=588%:%
-%:%1063=589%:%
-%:%1064=590%:%
-%:%1065=591%:%
-%:%1066=592%:%
-%:%1068=594%:%
-%:%1069=594%:%
-%:%1070=595%:%
-%:%1071=596%:%
-%:%1074=597%:%
-%:%1078=597%:%
-%:%1079=597%:%
-%:%1081=598%:%
-%:%1091=600%:%
-%:%1092=601%:%
-%:%1094=602%:%
-%:%1095=602%:%
-%:%1096=603%:%
-%:%1097=604%:%
-%:%1098=604%:%
-%:%1100=604%:%
-%:%1104=604%:%
-%:%1105=604%:%
-%:%1107=605%:%
-%:%1108=606%:%
-%:%1109=607%:%
-%:%1110=608%:%
-%:%1111=609%:%
-%:%1134=615%:%
-%:%1135=616%:%
-%:%1136=617%:%
-%:%1137=618%:%
-%:%1146=620%:%
-%:%1158=622%:%
-%:%1159=623%:%
-%:%1160=624%:%
-%:%1161=625%:%
-%:%1165=627%:%
-%:%1166=628%:%
-%:%1168=630%:%
-%:%1169=630%:%
-%:%1170=631%:%
-%:%1171=632%:%
-%:%1172=632%:%
-%:%1173=633%:%
-%:%1176=634%:%
-%:%1180=634%:%
-%:%1181=634%:%
-%:%1182=634%:%
-%:%1184=635%:%
-%:%1185=636%:%
-%:%1195=638%:%
-%:%1196=639%:%
-%:%1197=640%:%
-%:%1198=641%:%
-%:%1199=642%:%
-%:%1200=643%:%
-%:%1201=644%:%
-%:%1202=645%:%
-%:%1203=646%:%
-%:%1204=647%:%
-%:%1205=648%:%
-%:%1206=649%:%
-%:%1207=650%:%
-%:%1208=651%:%
-%:%1209=652%:%
-%:%1211=654%:%
-%:%1212=654%:%
-%:%1213=655%:%
-%:%1214=656%:%
-%:%1215=657%:%
-%:%1216=657%:%
-%:%1218=657%:%
-%:%1222=657%:%
-%:%1223=657%:%
-%:%1225=658%:%
-%:%1226=659%:%
-%:%1227=660%:%
-%:%1228=661%:%
-%:%1229=662%:%
-%:%1230=663%:%
-%:%1240=665%:%
-%:%1241=666%:%
-%:%1242=667%:%
-%:%1243=668%:%
-%:%1247=670%:%
-%:%1248=671%:%
-%:%1249=672%:%
-%:%1251=674%:%
-%:%1252=674%:%
-%:%1253=675%:%
-%:%1254=675%:%
-%:%1256=676%:%
-%:%1257=677%:%
-%:%1258=677%:%
-%:%1259=678%:%
-%:%1260=679%:%
-%:%1261=679%:%
-%:%1262=680%:%
-%:%1265=681%:%
-%:%1269=681%:%
-%:%1270=681%:%
-%:%1272=682%:%
-%:%1273=683%:%
-%:%1274=684%:%
-%:%1284=686%:%
-%:%1285=687%:%
-%:%1286=688%:%
-%:%1287=689%:%
-%:%1289=691%:%
-%:%1290=691%:%
-%:%1291=692%:%
-%:%1293=692%:%
-%:%1297=692%:%
-%:%1298=692%:%
-%:%1300=693%:%
-%:%1308=693%:%
-%:%1309=694%:%
-%:%1310=695%:%
-%:%1311=695%:%
-%:%1312=696%:%
-%:%1314=696%:%
-%:%1318=696%:%
-%:%1319=696%:%
-%:%1321=697%:%
-%:%1331=699%:%
-%:%1332=700%:%
-%:%1333=701%:%
-%:%1341=703%:%
+%:%32=9%:%
+%:%44=11%:%
+%:%45=12%:%
+%:%46=13%:%
+%:%47=14%:%
+%:%48=15%:%
+%:%49=16%:%
+%:%50=17%:%
+%:%51=18%:%
+%:%52=19%:%
+%:%53=20%:%
+%:%54=21%:%
+%:%55=22%:%
+%:%56=23%:%
+%:%57=24%:%
+%:%58=25%:%
+%:%59=26%:%
+%:%60=27%:%
+%:%61=28%:%
+%:%62=29%:%
+%:%63=30%:%
+%:%64=31%:%
+%:%65=32%:%
+%:%66=33%:%
+%:%75=36%:%
+%:%87=38%:%
+%:%88=39%:%
+%:%89=40%:%
+%:%90=41%:%
+%:%91=42%:%
+%:%92=43%:%
+%:%93=44%:%
+%:%94=45%:%
+%:%95=46%:%
+%:%96=47%:%
+%:%97=48%:%
+%:%98=49%:%
+%:%99=50%:%
+%:%100=51%:%
+%:%101=52%:%
+%:%102=53%:%
+%:%103=54%:%
+%:%104=55%:%
+%:%105=56%:%
+%:%106=57%:%
+%:%107=58%:%
+%:%108=59%:%
+%:%109=60%:%
+%:%110=61%:%
+%:%145=90%:%
+%:%157=92%:%
+%:%158=93%:%
+%:%159=94%:%
+%:%160=95%:%
+%:%161=96%:%
+%:%170=98%:%
+%:%182=100%:%
+%:%183=101%:%
+%:%185=103%:%
+%:%186=103%:%
+%:%187=103%:%
+%:%190=105%:%
+%:%191=106%:%
+%:%192=107%:%
+%:%193=108%:%
+%:%194=109%:%
+%:%195=110%:%
+%:%197=112%:%
+%:%198=112%:%
+%:%200=113%:%
+%:%201=113%:%
+%:%203=114%:%
+%:%204=115%:%
+%:%207=117%:%
+%:%208=118%:%
+%:%209=119%:%
+%:%210=120%:%
+%:%212=122%:%
+%:%213=122%:%
+%:%214=123%:%
+%:%215=124%:%
+%:%216=124%:%
+%:%217=125%:%
+%:%218=126%:%
+%:%219=126%:%
+%:%220=127%:%
+%:%221=128%:%
+%:%222=128%:%
+%:%223=129%:%
+%:%225=131%:%
+%:%226=132%:%
+%:%227=133%:%
+%:%229=135%:%
+%:%230=135%:%
+%:%231=136%:%
+%:%232=137%:%
+%:%233=137%:%
+%:%234=138%:%
+%:%235=140%:%
+%:%238=142%:%
+%:%239=143%:%
+%:%240=144%:%
+%:%241=145%:%
+%:%242=146%:%
+%:%243=147%:%
+%:%244=148%:%
+%:%247=150%:%
+%:%250=152%:%
+%:%251=153%:%
+%:%252=154%:%
+%:%253=155%:%
+%:%254=156%:%
+%:%255=157%:%
+%:%257=159%:%
+%:%258=159%:%
+%:%259=160%:%
+%:%260=161%:%
+%:%261=162%:%
+%:%262=162%:%
+%:%264=162%:%
+%:%268=162%:%
+%:%269=162%:%
+%:%271=163%:%
+%:%272=164%:%
+%:%273=165%:%
+%:%274=166%:%
+%:%284=168%:%
+%:%285=169%:%
+%:%286=170%:%
+%:%287=171%:%
+%:%288=172%:%
+%:%289=173%:%
+%:%290=174%:%
+%:%291=175%:%
+%:%292=176%:%
+%:%293=177%:%
+%:%295=179%:%
+%:%296=179%:%
+%:%297=180%:%
+%:%298=181%:%
+%:%299=182%:%
+%:%300=182%:%
+%:%302=182%:%
+%:%306=182%:%
+%:%307=182%:%
+%:%309=183%:%
+%:%310=184%:%
+%:%311=185%:%
+%:%312=186%:%
+%:%322=188%:%
+%:%323=189%:%
+%:%324=190%:%
+%:%325=191%:%
+%:%326=192%:%
+%:%327=193%:%
+%:%328=194%:%
+%:%329=195%:%
+%:%330=196%:%
+%:%332=198%:%
+%:%333=198%:%
+%:%334=199%:%
+%:%335=200%:%
+%:%336=201%:%
+%:%337=201%:%
+%:%339=201%:%
+%:%343=201%:%
+%:%344=201%:%
+%:%346=202%:%
+%:%347=203%:%
+%:%348=204%:%
+%:%349=205%:%
+%:%359=207%:%
+%:%360=208%:%
+%:%382=234%:%
+%:%394=236%:%
+%:%395=237%:%
+%:%396=238%:%
+%:%397=239%:%
+%:%398=240%:%
+%:%400=242%:%
+%:%401=242%:%
+%:%403=243%:%
+%:%404=244%:%
+%:%405=245%:%
+%:%408=247%:%
+%:%410=249%:%
+%:%411=249%:%
+%:%412=250%:%
+%:%413=251%:%
+%:%414=251%:%
+%:%416=251%:%
+%:%420=251%:%
+%:%421=251%:%
+%:%423=252%:%
+%:%424=253%:%
+%:%425=254%:%
+%:%426=255%:%
+%:%427=256%:%
+%:%428=257%:%
+%:%438=259%:%
+%:%440=261%:%
+%:%441=261%:%
+%:%443=263%:%
+%:%445=265%:%
+%:%446=265%:%
+%:%447=265%:%
+%:%449=265%:%
+%:%453=265%:%
+%:%454=265%:%
+%:%456=266%:%
+%:%457=267%:%
+%:%458=268%:%
+%:%459=269%:%
+%:%469=271%:%
+%:%470=272%:%
+%:%471=273%:%
+%:%472=274%:%
+%:%481=277%:%
+%:%493=279%:%
+%:%494=280%:%
+%:%495=281%:%
+%:%496=282%:%
+%:%497=283%:%
+%:%498=284%:%
+%:%499=285%:%
+%:%500=286%:%
+%:%501=287%:%
+%:%505=289%:%
+%:%509=291%:%
+%:%510=292%:%
+%:%511=293%:%
+%:%513=295%:%
+%:%514=295%:%
+%:%516=296%:%
+%:%517=297%:%
+%:%518=298%:%
+%:%519=299%:%
+%:%520=300%:%
+%:%521=301%:%
+%:%522=302%:%
+%:%523=302%:%
+%:%524=303%:%
+%:%525=304%:%
+%:%526=304%:%
+%:%527=305%:%
+%:%530=306%:%
+%:%534=306%:%
+%:%535=306%:%
+%:%537=307%:%
+%:%538=308%:%
+%:%548=310%:%
+%:%549=311%:%
+%:%550=312%:%
+%:%551=313%:%
+%:%552=314%:%
+%:%553=315%:%
+%:%554=316%:%
+%:%555=317%:%
+%:%556=318%:%
+%:%557=319%:%
+%:%558=320%:%
+%:%559=321%:%
+%:%560=322%:%
+%:%561=323%:%
+%:%562=324%:%
+%:%563=325%:%
+%:%564=326%:%
+%:%565=327%:%
+%:%569=329%:%
+%:%570=330%:%
+%:%572=332%:%
+%:%573=332%:%
+%:%575=333%:%
+%:%576=333%:%
+%:%577=334%:%
+%:%578=335%:%
+%:%579=335%:%
+%:%580=336%:%
+%:%583=337%:%
+%:%587=337%:%
+%:%588=337%:%
+%:%589=338%:%
+%:%590=338%:%
+%:%591=339%:%
+%:%592=339%:%
+%:%593=340%:%
+%:%594=340%:%
+%:%595=340%:%
+%:%596=341%:%
+%:%606=343%:%
+%:%607=344%:%
+%:%608=345%:%
+%:%609=346%:%
+%:%613=348%:%
+%:%617=350%:%
+%:%618=351%:%
+%:%619=352%:%
+%:%623=354%:%
+%:%624=355%:%
+%:%626=357%:%
+%:%627=357%:%
+%:%640=378%:%
+%:%641=379%:%
+%:%642=379%:%
+%:%644=380%:%
+%:%645=381%:%
+%:%646=382%:%
+%:%647=383%:%
+%:%648=384%:%
+%:%649=385%:%
+%:%650=385%:%
+%:%652=386%:%
+%:%653=387%:%
+%:%654=387%:%
+%:%655=388%:%
+%:%656=389%:%
+%:%657=389%:%
+%:%659=390%:%
+%:%660=391%:%
+%:%663=393%:%
+%:%664=394%:%
+%:%666=396%:%
+%:%667=396%:%
+%:%668=397%:%
+%:%669=398%:%
+%:%670=398%:%
+%:%672=398%:%
+%:%676=398%:%
+%:%677=398%:%
+%:%679=399%:%
+%:%680=400%:%
+%:%681=401%:%
+%:%682=402%:%
+%:%683=403%:%
+%:%684=404%:%
+%:%685=405%:%
+%:%695=407%:%
+%:%696=408%:%
+%:%697=409%:%
+%:%700=411%:%
+%:%701=412%:%
+%:%702=413%:%
+%:%703=414%:%
+%:%704=415%:%
+%:%705=416%:%
+%:%708=418%:%
+%:%710=420%:%
+%:%711=420%:%
+%:%712=421%:%
+%:%715=422%:%
+%:%719=422%:%
+%:%720=422%:%
+%:%722=423%:%
+%:%728=423%:%
+%:%731=424%:%
+%:%732=425%:%
+%:%733=425%:%
+%:%734=426%:%
+%:%735=427%:%
+%:%736=428%:%
+%:%737=428%:%
+%:%739=428%:%
+%:%743=428%:%
+%:%744=428%:%
+%:%746=429%:%
+%:%747=430%:%
+%:%748=431%:%
+%:%749=432%:%
+%:%750=433%:%
+%:%760=435%:%
+%:%761=436%:%
+%:%762=437%:%
+%:%763=438%:%
+%:%764=439%:%
+%:%765=440%:%
+%:%766=441%:%
+%:%767=442%:%
+%:%768=443%:%
+%:%772=446%:%
+%:%773=447%:%
+%:%774=448%:%
+%:%775=449%:%
+%:%776=450%:%
+%:%777=451%:%
+%:%778=452%:%
+%:%779=453%:%
+%:%780=454%:%
+%:%781=455%:%
+%:%782=456%:%
+%:%783=457%:%
+%:%792=459%:%
+%:%804=461%:%
+%:%805=462%:%
+%:%806=463%:%
+%:%808=465%:%
+%:%809=465%:%
+%:%810=466%:%
+%:%811=467%:%
+%:%812=468%:%
+%:%813=468%:%
+%:%815=468%:%
+%:%819=468%:%
+%:%820=468%:%
+%:%822=469%:%
+%:%823=470%:%
+%:%824=471%:%
+%:%825=472%:%
+%:%835=474%:%
+%:%836=475%:%
+%:%837=476%:%
+%:%841=478%:%
+%:%843=480%:%
+%:%844=480%:%
+%:%845=481%:%
+%:%846=482%:%
+%:%847=483%:%
+%:%848=483%:%
+%:%850=483%:%
+%:%854=483%:%
+%:%855=483%:%
+%:%857=484%:%
+%:%858=485%:%
+%:%859=486%:%
+%:%860=487%:%
+%:%870=489%:%
+%:%871=490%:%
+%:%873=492%:%
+%:%874=492%:%
+%:%875=493%:%
+%:%876=494%:%
+%:%877=495%:%
+%:%878=495%:%
+%:%880=495%:%
+%:%884=495%:%
+%:%885=495%:%
+%:%887=496%:%
+%:%888=497%:%
+%:%889=498%:%
+%:%890=499%:%
+%:%891=500%:%
+%:%901=502%:%
+%:%902=503%:%
+%:%904=505%:%
+%:%905=505%:%
+%:%906=506%:%
+%:%907=507%:%
+%:%910=508%:%
+%:%914=508%:%
+%:%915=508%:%
+%:%916=508%:%
+%:%925=510%:%
+%:%926=511%:%
+%:%927=512%:%
+%:%928=513%:%
+%:%930=515%:%
+%:%931=515%:%
+%:%932=516%:%
+%:%933=517%:%
+%:%936=518%:%
+%:%940=518%:%
+%:%941=518%:%
+%:%942=518%:%
+%:%951=520%:%
+%:%952=521%:%
+%:%954=523%:%
+%:%955=523%:%
+%:%956=524%:%
+%:%957=525%:%
+%:%958=526%:%
+%:%959=526%:%
+%:%961=526%:%
+%:%965=526%:%
+%:%966=526%:%
+%:%968=527%:%
+%:%969=528%:%
+%:%970=529%:%
+%:%971=530%:%
+%:%981=532%:%
+%:%982=533%:%
+%:%983=534%:%
+%:%984=535%:%
+%:%985=536%:%
+%:%986=537%:%
+%:%988=539%:%
+%:%989=539%:%
+%:%990=540%:%
+%:%991=541%:%
+%:%992=542%:%
+%:%993=543%:%
+%:%994=543%:%
+%:%996=543%:%
+%:%1000=543%:%
+%:%1001=543%:%
+%:%1003=544%:%
+%:%1004=545%:%
+%:%1005=546%:%
+%:%1006=547%:%
+%:%1007=548%:%
+%:%1008=549%:%
+%:%1018=551%:%
+%:%1019=552%:%
+%:%1020=553%:%
+%:%1021=554%:%
+%:%1022=555%:%
+%:%1023=556%:%
+%:%1025=558%:%
+%:%1026=558%:%
+%:%1027=559%:%
+%:%1028=560%:%
+%:%1031=561%:%
+%:%1035=561%:%
+%:%1036=561%:%
+%:%1038=562%:%
+%:%1048=564%:%
+%:%1049=565%:%
+%:%1051=566%:%
+%:%1052=566%:%
+%:%1053=567%:%
+%:%1054=568%:%
+%:%1055=568%:%
+%:%1057=568%:%
+%:%1061=568%:%
+%:%1062=568%:%
+%:%1064=569%:%
+%:%1065=570%:%
+%:%1066=571%:%
+%:%1067=572%:%
+%:%1068=573%:%
+%:%1091=579%:%
+%:%1092=580%:%
+%:%1093=581%:%
+%:%1094=582%:%
+%:%1103=584%:%
+%:%1115=586%:%
+%:%1116=587%:%
+%:%1117=588%:%
+%:%1118=589%:%
+%:%1122=591%:%
+%:%1123=592%:%
+%:%1125=594%:%
+%:%1126=594%:%
+%:%1127=595%:%
+%:%1128=596%:%
+%:%1129=596%:%
+%:%1130=597%:%
+%:%1133=598%:%
+%:%1137=598%:%
+%:%1138=598%:%
+%:%1139=598%:%
+%:%1141=599%:%
+%:%1142=600%:%
+%:%1152=602%:%
+%:%1153=603%:%
+%:%1154=604%:%
+%:%1155=605%:%
+%:%1156=606%:%
+%:%1157=607%:%
+%:%1158=608%:%
+%:%1159=609%:%
+%:%1160=610%:%
+%:%1161=611%:%
+%:%1162=612%:%
+%:%1163=613%:%
+%:%1164=614%:%
+%:%1165=615%:%
+%:%1166=616%:%
+%:%1168=618%:%
+%:%1169=618%:%
+%:%1170=619%:%
+%:%1171=620%:%
+%:%1172=621%:%
+%:%1173=621%:%
+%:%1175=621%:%
+%:%1179=621%:%
+%:%1180=621%:%
+%:%1182=622%:%
+%:%1183=623%:%
+%:%1184=624%:%
+%:%1185=625%:%
+%:%1186=626%:%
+%:%1187=627%:%
+%:%1197=629%:%
+%:%1198=630%:%
+%:%1199=631%:%
+%:%1200=632%:%
+%:%1204=634%:%
+%:%1205=635%:%
+%:%1206=636%:%
+%:%1208=638%:%
+%:%1209=638%:%
+%:%1210=639%:%
+%:%1211=639%:%
+%:%1213=640%:%
+%:%1214=641%:%
+%:%1215=641%:%
+%:%1216=642%:%
+%:%1217=643%:%
+%:%1218=643%:%
+%:%1219=644%:%
+%:%1222=645%:%
+%:%1226=645%:%
+%:%1227=645%:%
+%:%1229=646%:%
+%:%1230=647%:%
+%:%1231=648%:%
+%:%1241=650%:%
+%:%1242=651%:%
+%:%1243=652%:%
+%:%1244=653%:%
+%:%1246=655%:%
+%:%1247=655%:%
+%:%1248=656%:%
+%:%1250=656%:%
+%:%1254=656%:%
+%:%1255=656%:%
+%:%1257=657%:%
+%:%1265=657%:%
+%:%1266=658%:%
+%:%1267=659%:%
+%:%1268=659%:%
+%:%1269=660%:%
+%:%1271=660%:%
+%:%1275=660%:%
+%:%1276=660%:%
+%:%1278=661%:%
+%:%1288=663%:%
+%:%1289=664%:%
+%:%1290=665%:%
+%:%1298=667%:%
