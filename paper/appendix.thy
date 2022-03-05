@@ -236,15 +236,17 @@ subsubsection \<open>Kroy's formalization of the FUL \label{sec: kroy_ful}\<clos
 text \<open>I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
 ``act only in accordance with that maxim which you can at the same time will a universal law'' \citep{groundwork}.
 Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
-This formalizes the moral intuition prohibiting free-riding. According to the categorical imperative, no one is a moral exception.
-Formalizing this interpretation requires using open sentences to handle the notion of substitution.\<close>
+This formalizes the moral intuition prohibiting free-riding. According to the categorical imperative, 
+no one is a moral exception.
+\<close>
 
 abbreviation FUL::"bool" where "FUL \<equiv> \<forall>w A. ((\<exists>p::s. ((P {A p}) w))  \<longrightarrow>( (\<forall>p.( P {A p}) w))) "
-\<comment>\<open>In English, this statement roughly means that, if action $A$ is 
-permissible for some person $p$, then, for any person $p$, action $A$ must be permissible. The notion of ``permissible $for$" 
+\<comment>\<open>If action $A$ is permissible for some person, then, for any person $p$, action $A$ must be 
+permissible for $p$. The notion of ``permissible for'' 
 is captured by the substitution of $x$ for $p$.\<close>
 
-text \<open>Let's check if this is already an axiom of DDL. If so, then the formalization is trivial.\<close>
+text \<open>This formalization does not hold in DDL, the base logic. This means that Kroy's formalization
+already passes one test, and that adding it as an axiom will strengthen the logic.\<close>
 
 lemma FUL:
   shows FUL
@@ -256,11 +258,10 @@ lemma FUL:
     p = $s_1$
     x = $s_2$\color{black}\<close>
 
-  text "This formalization doesn't hold in DDL, so adding it as an axiom will change the logic."
-
 axiomatization where FUL: FUL
 
-text "Consistency check: is the logic still consistent with the FUL added as an axiom?"
+text "Now that I have added Kroy's formalization of the FUL as an axiom, I will check that it is 
+consistent by looking for a model that satisfies it and all the other axioms of DDL."
 
 lemma True nitpick[user_axioms, satisfy, card=1] oops
 \<comment>\<open>\color{blue} Nitpicking formula... 
@@ -271,22 +272,26 @@ Nitpick found a model for card i = 1:
   text "This completes my implementation of Kroy's formalization of the first formulation of the 
 categorical imperative. I defined new logical constructs to handle Kroy's logic, studied the differences
 between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
-that it is both non-trivial and consistent. Now it's time to start testing!"
+that it is both non-trivial and consistent."
 
+  subsubsection \<open>Testing Kroy's Formalization\<close>
 
-  subsubsection \<open>Application Tests\label{sec:app_tests_kroy}\<close>
-
-  text \<open>In the following sections, I will use the application and metaethical tests presenting in Sections \ref{sec:app_tests_naive} and \ref{sec:meta_tests_naive}
-        to tease out the strengths and weaknesses of Kroy's formalization. While the formalization is considerably
+  text \<open>In this section, I use my testing framework to evaluate Kroy's formalization. I find that, while 
+        the formalization is considerably
         stronger than the naive formalization, it still fails many of these tests. Some of these failures 
         are due to the differences between Kroy's logic and my logic mentioned in Section \ref{sec:kroy_logical_background}, but some 
-        reveal philosophical problems with Kroy's interpretation of what the formula of universal law means. 
-        I will analyze these problems in the context of philosophical scholarship explicating the content 
-        of the formula of universal law. The findings in these sections will inform milestones for my
-        custom formalization of the categorical imperative. They also serve as an example of how formalized
-        and automated ethics can reveal philosophical strengths and weaknesses of an ethical theory. \<close>
+        reveal philosophical problems with Kroy's interpretation of what the formula of universal law means.
 
-  text\<open>\textbf{Murder}\<close>
+        I already showed above that Kroy's formalization is stronger than DDL. Next, I test whether or
+not obligations universalize across people. This test passes, aperhaps trivially, due to the fact that 
+this property is definitionally the basis of Kroy's formalization; his formalization states, intuitively, 
+that obligations must hold across all people. \<close>
+
+lemma obligation_universalizes:
+  shows "\<forall>w. (\<exists>p. O {A p} w) \<longrightarrow> (\<forall>p. O {A p} w)"
+  nitpick[user_axioms, falsify=true] oops
+
+  text\<open>\noindent \textbf{Murder}\<close>
 
   text \<open>In Section \ref{sec:app_tests_naive}, I began by testing the naive interpretation's ability to show that murder 
 is wrong. I started by showing the morally dubious proposition that if murder is possibly wrong, then 

@@ -45,7 +45,7 @@ hit the car in the next lane, killing the single passenger inside it. While this
 not typical of the operation of a self-driving car, every decision that such an AI agent makes, from 
 avoiding congested freeways to carpooling, is morally tinged. Not only do AI agents routinely make decisions with 
 ethical implications without explicitly performing ethical
-reasoning, in many cases, they do so without human supervision. For example, the Alleghany Family Screening 
+reasoning, in many cases they do so without human supervision. For example, the Alleghany Family Screening 
 tool can automatically trigger an investigation into a potential case of child neglect, a decision that 
 can uproot entire families and is known to be biased against poor people of color \citep{eubanks}. 
 This motivates the need for machine ethics (also called automated ethics), 
@@ -67,7 +67,7 @@ more faithful that automated ethics is to philosophical literature, the more nua
 therefore trustworthy it will be.
 
 A lack of engagement with prior philosophical literature also makes automated moral agents less 
-explainable, or interpretable by human observers. One example of this is Delphi, a language model that uses deep 
+explainable, or interpretable by human observers. One example of this is Delphi, an implementation of automated ethics that uses deep 
 learning to make moral judgements based on a training dataset of ethical decisions made by humans \citep{delphi}. 
 Early versions of Delphi gave unexpected results, such as declaring that the user should commit 
 genocide if it makes everyone happy \citep{verge}. Moreover, because no explicit ethical theory underpins 
@@ -76,7 +76,7 @@ or where its reasoning may have gone wrong.
 Machine learning approaches like Delphi often cannot explain their decisions to a human being and, 
 in the extreme case, are black box algorithms. This reduces human trust in a machine's controversial 
 ethical judgements. If a machine prescribes killing one person to save three without justifying this 
-decision, it is difficult to trust this judgement enough to act on it or endorse a machine acting on it. 
+decision, it is difficult to trust this judgement. 
 The high stakes of automated ethics require explainability to build trust and catch mistakes. 
 
 While automated ethics should draw on philosophical literature, in practice, automating an ethical 
@@ -84,14 +84,16 @@ theory is a technical and philosophical challenge. Intuitive computational appro
 previously, such as representing ethics as a constraint satisfaction problem \citep{csp} or reinforcement 
 learning algorithm \citep{util1}, fail to capture philosophically plausible ethical theories. For 
 example, encoding ethics as a Markov Decision Process assumes that ethical reward can be aggregated 
-according to some discounted sum, but many philosophers reject this notion of aggregation \citep{consequentialismsep}. 
-Approaches that begin with an ethical theory, instead of a computational tool, must contend with the 
+according to some discounted sum\footnote{Markov Decision Processes usually assume that the total
+reward of a system is the discounted sum of the reward at each state, given by $r_i$. Formally, total
+reward $R=\sum_0^{\infty}\gamma^ir_i$.}, but many philosophers reject this notion of aggregation \citep{consequentialismsep}. 
+On the other hand, approaches that begin with an ethical theory, instead of a computational method, must contend with the 
 fact that ethical theories are almost always described in natural language and must be made
 precise enough to represent to a computer. Even once ethics is translated from natural 
 language to program syntax, the factual background given to the machine, such as the description of 
-an ethical dilemma, is equally as important in determining the machine's decisions. Another complication
-is that philosophers do not agree that on a single choice of ethical theory. Philosophers who
-so agree that a specific ethical theory, like Kantian ethics, is true, still debate the theory's 
+an ethical dilemma, plays a great role in the machine's decisions. Another complication
+is that philosophers do not agree that on a single choice of ethical theory. Even philosophers who
+agree that a specific ethical theory, like Kantian ethics, is true, still debate the theory's 
 details.\footnote{For examples of these debates in the case of Kantian ethics, see Section Joking
 and Section Murderer.} Moreover, even once reasoning within a 
 particular ethical theory is automated, those who disagree with that theory will disagree with the 
@@ -99,7 +101,7 @@ system's judgements.
 
 This thesis presents a proof-of-concept implementation of philosophically faithful automated Kantian ethics. 
 I formalize Kant's categorical imperative, or moral rule, as an axiom 
-in Carmo and Jones' Dyadic Deontic Logic (DDL), a modal logic designed to reason about 
+in Dyadic Deontic Logic (DDL), a modal logic designed to reason about 
 obligation \citep{CJDDL}. I implement my formalization in Isabelle/HOL, an interactive theorem prover 
 that can automatically verify and generate proofs in user-defined logics \citep{isabelle}. Finally, 
 I use Isabelle to automatically prove theorems (such as, ``murder is wrong'') in my new logic, 
@@ -138,11 +140,10 @@ progress.
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-I choose to formalize Kant's moral rule in Carmo and Jones' Dyadic Deontic Logic (DDL) \citep{CJDDL}. Deontic 
-logic is a modal logic that can express obligation, or morally binding requirements. Traditional modal 
+Deontic logic is a modal logic that can express obligation, or morally binding requirements. Traditional modal 
 logics include the necessitation operator, denoted as $\Box$. In modal logic using the Kripke semantics, 
 $\Box p$ is true at world $w$ if $p$ is true at all worlds that neighbor $w$ \citep{cresswell}. Modal 
-logics  also contain the possibility operator $\diamond$, where $\diamond \, p \iff \neg (\Box (\neg p))$ 
+logics  also contain the possibility operator $\diamond$, where $\diamond \, p \longleftrightarrow \neg (\Box (\neg p))$ 
 and operators of propositional logic like $\neg, \wedge, \vee, \rightarrow$. I use DDL, in which
 the dyadic obligation operator $O\{A \vert B\}$ represents the sentence ``A is obligated in the context B.'' 
 The introduction of context allows DDL to express more nuanced reasoning. DDL is both deontic and modal, 
@@ -150,7 +151,7 @@ so sentences like $O\{A \vert B\}$ are terms that can be true or false at a worl
 sentence $O \{ \text{steal} \vert \text{when rich}\}$ is true at a world if stealing when rich is 
 obligated at that particular world. 
 
-I automate Kantian ethics because it is the most natural to formalize, as I argue in Section WhyKant. 
+I automate Kantian ethics because it is the most natural to formalize, as I argue in Section \ref{whykant}. 
 Kant presents three versions of a single moral rule, known as the categorical imperative, from which 
 all moral judgements can be derived. I implement a version of this rule called the Formula of Universal 
 Law (FUL), which states that people should only act on those principles that can be acted on by all 
@@ -165,7 +166,7 @@ imperative as an axiom. Because proofs in this logic are derived from the catego
 they judge actions as obligated, prohibited, or permissible. Moreover, because interactive 
 theorem provers are designed to be interpretable, my system is explainable. Isabelle can list 
 the axioms and facts it used to generate an ethical judgement, and, in some cases, construct 
-human-readable proofs. In Sections Joking and Murderer, I use my system to arrive at 
+human-readable proofs. In Chapter \ref{applications}, I use my system to derive
 sophisticated solutions to two ethical dilemmas often used in critiques of Kantian ethics. Because 
 my system is faithful to philosophical literature, it is able to provide nuanced answers to these paradoxes
 that require a deep understanding of Kantian ethics. 
@@ -174,7 +175,7 @@ In addition to presenting the above logic and implementation, I also contribute 
 that evaluates how well my formalization coheres with philosophical literature. I formalize expected 
 properties of Kantian ethics as sentences in my logic, such as the property that obligations cannot 
 contradict each other. I represent each of these properties as a sentence in my logic that my system 
-should be able to prove or refute. I run the tests by using Isabelle to automatically find proofs or 
+should be able to prove or refute. To run the tests, I use Isabelle to automatically find proofs or 
 countermodels for the test statements. For example, my implementation passes the contradictory 
 obligations test because it is able to prove the sentence $\neg (O\{A|B\} \wedge O\{\neg A | B\})$. 
 I find that my system outperforms the control group of raw DDL, without any moral axioms added, and 
@@ -191,15 +192,17 @@ using the Isabelle/HOL interactive theorem prover, which can list the axioms and
 proof, so my system is explainable. 
 
 A machine that can evaluate the moral status of a maxim can not only help machines better reason about ethics, 
-but it can also help philosophers 
-better study philosophy. I argue for ``computational ethics," or the use of computational tools to 
-make philosophical progress. I demonstrate the potential of computational ethics by presenting a 
+but it can also help philosophers better study philosophy. I argue for ``computational ethics,'' or the use of computational tools to 
+make philosophical progress, analogous to computational drug discovery or neuroscience. 
+I demonstrate the potential of computational ethics by presenting a 
 philosophical insight about which kinds of maxims are appropriate for ethical consideration that I 
 discovered using my system. The process of building and interacting with a computer that can reason 
 about ethics helped me, a human philosopher, arrive at a philosophical conclusion that has implications for practical
 reason and philosophy of doubt. Thus, my system can be used in two distinct ways. First, my system can help
 automated agents navigate the world, which I will refer to as automated ethics or machine ethics interchangeably. Second, 
-my system help human philosophers reason about philosophy, which I call computational ethics.%
+my system help human philosophers reason about philosophy, which I call computational ethics. In Section 
+\ref{ordinarypeople}, I consider how computational ethics can help not only professional philosophers,
+but also augment the everyday ethical reasoning that ordinary people perform as we navigate the world.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -293,8 +296,8 @@ my system help human philosophers reason about philosophy, which I call computat
 %:%107=79%:%
 %:%108=80%:%
 %:%109=81%:%
-%:%113=84%:%
-%:%114=85%:%
+%:%110=82%:%
+%:%111=83%:%
 %:%115=86%:%
 %:%116=87%:%
 %:%117=88%:%
@@ -318,8 +321,8 @@ my system help human philosophers reason about philosophy, which I call computat
 %:%135=106%:%
 %:%136=107%:%
 %:%137=108%:%
-%:%141=112%:%
-%:%142=113%:%
+%:%138=109%:%
+%:%139=110%:%
 %:%143=114%:%
 %:%144=115%:%
 %:%145=116%:%
@@ -380,3 +383,6 @@ my system help human philosophers reason about philosophy, which I call computat
 %:%200=171%:%
 %:%201=172%:%
 %:%202=173%:%
+%:%203=174%:%
+%:%204=175%:%
+%:%205=176%:%

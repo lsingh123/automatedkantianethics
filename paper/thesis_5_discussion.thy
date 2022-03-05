@@ -26,8 +26,8 @@ text_raw \<open>
 \centering
 \includegraphics[scale=0.5]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent, which begins with a moral dilemma, 
-passes it through an input parser, applies the automated Kantian ethics test, and then processes the 
-output using an output parser. I contribute the automated Kantian ethics component.} \label{fig:AIengine}
+passes it through an input parser, applies the automated categorical imperative test, and then processes the 
+output using an output parser. I contribute the automated categorical imperative component.} \label{fig:AIengine}
 \end{figure}\<close>
 
 text \<open>In this workflow, an AI agent is faced with a moral dilemma in some internal representation. The input
@@ -148,10 +148,7 @@ text \<open>In addition to guiding AI agents, automated ethics can also help hum
 progress. Just as theorem provers make mathematics more efficient and push mathematicians to think 
 precisely about the phenomena they model, computational ethics can help philosophers ask and answer
 new philosophical questions. In this section, I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool can offer to philosophers.\footnote{Some may wonder if my system
-could also help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
-my system should play in ordinary ethical reasoning in Appendix \ref{ordinaryhumans} and conclude
-that large parts of ordinary ethical inquiry cannot and should not be automated.} \<close>
+can prompt and analyze the value that this tool can offer to philosophers. \<close>
 
 subsubsection "Example of a Philosophical Insight: Well-Formed Maxims"
 
@@ -247,18 +244,29 @@ at moment t+1.''
 
 \noindent \textbf{Implications for Self-Doubt and Self-Respect}
 
-The idea that we cannot even evaluate, let alone will, badly-formed maxims has implications for debates about 
-self-doubt and self-respect. The dancing maxim can be read as an expression of self-doubt. Under this 
+In the previous section, I defined badly formed maxims, a philosophical concept that I discovered
+using computational ethics. In this section, I demonstrate the implications of this concept for a 
+philosophical debate to demonstrate that computational ethics can result in insights with real 
+philosophical weight. I use badly formed maxims to resolve the tension between self-doubt and self-respect. 
+This debate originated in epistemology, which values doubting your beliefs but also rationally requires
+that you believe that you are not mistaken (else you should update your beliefs). 
+Self-doubt and self-respect also compete in ethics, where questioning your judgements is valuable but 
+questioning a commitment as you make it is impossible. Self-doubt and self-respect appear 
+irresolvably opposed until they are understood through the lens of badly formed maxims. I argue that naive
+conceptions of self-doubt are badly formed maxims in disguise. If we reformulate these maxims to be well-formed,
+the tension between self-doubt and self-respect dissolves, and it becomes clear that both concepts can
+co-exist, as we intuitively desire. I sketch the details of this argument in the rest of this section.
+
+Another reading of the dancing maxim understands it as an expression of self-doubt. Under this 
 reading, the question ``When I am dancing, should I be dancing for the sake of dancing?'' is the agent asking, 
 ``Am I doing the right thing right now?'' Unlike the drowning example, the agent is not asking about the 
 next moment, but is expressing doubt about the moral validity of their behavior at this current moment. 
-Self-doubt does not always undermine the will—after all, self-doubt plays an 
-important role in moral reasoning and is often the mark of a thoughtful agent. Instead, I argue 
+Surely self-doubt does not always undermine the will—after all, self-doubt plays an 
+important role in moral reasoning and is often the mark of a thoughtful agent. I argue 
 that questions of self-doubt do not actually involve badly-formed maxims, for these are not the maxims 
-that the agent is doubting. This example will demonstrate that the tension between self-doubt and self-respect 
-arises from a mistaken characterization of questions of self-doubt as questions about badly-formed maxims.
-I first explain the tension between self-doubt and self-respect in epistemology, then 
-explain the parallel tension in ethics, and finally present a resolution of this tension.
+that the agent is doubting. I first frame this debate by introducing the tension between self-doubt and 
+self-respect in epistemology, then explain the parallel tension in ethics, and finally present a 
+resolution of this tension.
 
 In epistemology, there is a tension between the rational requirement to believe in yourself and the 
 value of self-doubt, in moderation. Christensen presents the ``principle of self-respect,'' which requires 
@@ -320,6 +328,13 @@ the evaluation of badly-formed maxims. A question of self-doubt cannot refer to 
 instead refer to a well-formed maxim about the agent's past decision-making. As seen before, cases where 
 agents appear to ask themselves about badly-formed maxims are mistaken about the maxim in question, because 
 such a question could never yield a useful answer for a practical reasoner. 
+
+By recognizing that the naive version of ethical self-doubt is a badly formed maxim, I realized 
+that there is something wrong with its formulation and modified it to resolve the above debate. 
+This demonstrates a larger meta-pattern in Kantian reasoning: many debates in Kantian philosophical
+literature revolve around incorrectly formulated maxims, so the insight about badly
+formed maxims is significant. Much of the work of a Kantian ethicist is formulating an
+appropriate maxim, and badly-formed maxims define one boundary condition for this task.
  \<close>
 
 
@@ -387,8 +402,92 @@ matter of years \citep{buzzardvideo}. Countless examples from the history of com
 Test to AI game playing to protein folding, demonstrate that progress in computer science can make seemingly 
 obscure computer programs useful and usable in ways that exceed our wildest imaginations.
 Programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
-need not be stated. If computer scientists and philosophers invest in computational ethics, it can 
-become as much a tool for philosophy as a calculator is for for arithmetic.
+need not be stated. If computer scientists and philosophers invest in computational ethics, it could
+become as commonplace in philosophy departments as reflective equilibrium. Just as computational tools
+have supercharged progress in healthcare and drug discovery, computational ethics has the potential for
+great philosophical progress. \<close>
+
+subsection \<open>Automating Ordinary Ethical Reasoning \label{ordinarypeople}\<close>
+
+text\<open>In Sections \ref{AIethics} and \ref{computationalethics}, I outline how automated ethics can guide
+artificial agents and human philosophers respectively. This raises a natural question: can automated
+ethics guide ordinary human beings, not just academic philosophers, as we navigate the world and face ethical
+dilemmas? Some may hope (or worry) that automated ethics could render ethical reasoning obsolete. In 
+this section, I argue, that while computers should not replace human ethical reasoning entirely,
+they can supplement and improve our ethical reasoning. I argue for a kind of human-computer symbiosis
+in which computers offer ethical advice, arguments for particular moral judgements, and speed up moral
+calculations without subverting human ethical reasoning entirely \citep{licklider}.
+
+Ethics bears weight for everyone, not just for academic philosophers, because it studies the unavoidable question:
+how should we live? If computers can make this study more efficient, then it seems that everyone should
+engage in computational ethics. The ethical question is the only question that 
+we answer merely by living. To turn away from ethics is to take a stance on the question of how to 
+live (namely, to live unreflectively) and thus to engage in ethics. Every rational being must decide 
+how to navigate the world and ethics answers this question. Given that ethics is vital, it seems that if
+comptuational tools can help us derive ethical judgements more efficiently, then we should automate as 
+much ethical reasoning as possible.
+In the most extreme case, we can unthinkingly follow the commands of an ethical calculator that dictates 
+how we should live. Maybe computers can answer the unavoidable question for us.
+
+The argument above places the value of ethics solely in its action-guiding potential, and thus fails to take into account the 
+importance of practical reason, which, as I argued in Section \ref{kantianethics}, is the source
+of freedom itself. We are committed to ethical reflection because of the kind of beings that we are. 
+Recall that Korsgaard argues that, as beings occupying minds with a reflective structure, when faced with 
+a choice,``it is as if there were something over and above all of your desires, something that is you, and that chooses which desire 
+to act on'' \citep[83]{sources}. This choosing is the operation of practical reason, and this reflection
+makes us free. We are free because we must choose which reasons to act on. Every decision that we 
+make is an exercise of freedom. 
+
+If reflection makes us free, then unthinkingly obeying a computer sacrifices our autonomy. Consider 
+an Ethics Oracle that can unfailingly tell you the right thing to do in any 
+situation.\footnote{This example is inspired by the Pocket Oracle presented in \citet{bok}.} Someone 
+who surrenders themselves to this Oracle unthinkingly follows its prescriptions. 
+The reflection involved in the decision to obey each of the Oracle’s prescriptions is limited \citep{bok}. 
+This person is not reflecting on the real matters at hand and is 
+not making decisions for themselves. They have surrendered their reflective capacity to the Oracle. 
+They live a worse life than someone who reflects on their actions; they have less ownership over their 
+actions than the reflective person. In a less extreme case, a person may retain control of many of 
+their decisions but cede some important or tricky choices to the Ethics Oracle. Because every single 
+exercise of practical reason is an exercise of autonomy, this person is still less autonomous than the 
+purely reflective person. Even surrendering simple, inconsequential decisions such as which flavor of 
+coffee to drink surrenders some piece of our autonomy. Perhaps in trivial cases we can accept that 
+tiny sacrifice, but giving over life-changing decisions to the machine sacrifices our 
+core freedom. Unreflectively relying on computational ethics surrenders our autonomy to the machine. 
+
+One objection to this emphasis on reflection is the impracticality of making ethical calculations from first principles 
+every time we are faced with a decision. This is why we follow the advice of moral mentors, like our 
+family or influential philosophers. 
+Most people do not reason about ethics during everyday decisions; they rely on some combination of 
+prior knowledge and external testimony. For example, my mother taught me to respect myself, so I 
+follow her advice. 
+
+What is the difference between following the guidance of a moral educator and
+obeying the Ethics Oracle? The best kind of ethical advice prompts reflection, such as an argument 
+made in a philosophy paper. Unthinkingly following someone’s advice results in the same loss of 
+autonomy as unthinkingly obeying the Ethics Oracle; people who merely obey orders are less autonomous 
+than those who think for themselves. This account of moral advice offers a model for human-computer 
+symbiotic computational ethics. The computer should serve as a moral guide by providing arguments, just as my mom 
+explained why I should always respect myself. Human-computer symbiotic computational
+ethics nurtures autonomy when it not only offers prescriptions for action, but also explanations for 
+these prescriptions. Because my theorem-prover-based automated ethical system is explainable, it can 
+guide action without sacrificing autonomy. It can make an argument for some action, instead of 
+merely giving a verdict. Isabelle can list the facts used to show
+a partcular action prohibited, and a human being can reflect on whether or not these principles
+indeed prohibit the action in question. The computer serves as a collaborator and a tool, but not as an authority, 
+so the human being’s reflective capacity and freedom is preserved. 
+
+The above model of human-computer symbiosis demonstrates how computational ethics can augment human
+ethical reasoning without replacing it. When deliberating over moral dilemmas, ordinary people can 
+turn to computational tools for advice, like an ``Ask an Ethicist'' column. If we appeal to philosophically
+faithful computational ethics like that implemented in this thesis, then this advice will synthesize 
+decades of philosophical progress and is thus a way to apply philosophers' insights to ordinary life. 
+Moreover, just as they do for philosophers, computers can help ordinary people approach ethical questions from a 
+different perspective. Even interacting with my system requires the user to consider the action's maxim, 
+which includes the circumstances, act, and goal. Making these components of action precise already changes
+the user's perspective. Just as computational ethics can serve as a tool for academic philosophers to 
+automate away tedium and achieve greater precision, it can do the same for ordinary human beings navigating
+the world. Moreover, it also offers another way for the general public to access professional philosophy's
+insights, and thus carries potential to improve our everyday reasoning. 
 \<close>
 
 subsection \<open>Theoretical Objections to Automating Kantian Ethics \label{amapossible}\<close>

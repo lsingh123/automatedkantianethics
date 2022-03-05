@@ -18,45 +18,45 @@ Warning--there's a number but no volume in tafani
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
 Warning--empty booktitle in constitution
-You've used 93 entries,
+You've used 94 entries,
             2773 wiz_defined-function locations,
-            1203 strings with 19064 characters,
-and the built_in function-call counts, 38031 in all, are:
-= -- 3470
-> -- 1661
-< -- 90
-+ -- 588
-- -- 494
-* -- 2721
-:= -- 5912
-add.period$ -- 365
-call.type$ -- 93
-change.case$ -- 427
-chr.to.int$ -- 92
-cite$ -- 200
-duplicate$ -- 2007
-empty$ -- 3477
-format.name$ -- 629
-if$ -- 8108
+            1211 strings with 19201 characters,
+and the built_in function-call counts, 38399 in all, are:
+= -- 3505
+> -- 1671
+< -- 91
++ -- 592
+- -- 497
+* -- 2748
+:= -- 5970
+add.period$ -- 369
+call.type$ -- 94
+change.case$ -- 431
+chr.to.int$ -- 93
+cite$ -- 202
+duplicate$ -- 2027
+empty$ -- 3514
+format.name$ -- 633
+if$ -- 8187
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 109
-newline$ -- 546
-num.names$ -- 390
-pop$ -- 942
+missing$ -- 110
+newline$ -- 552
+num.names$ -- 394
+pop$ -- 948
 preamble$ -- 1
-purify$ -- 347
+purify$ -- 350
 quote$ -- 0
-skip$ -- 1388
+skip$ -- 1401
 stack$ -- 0
-substring$ -- 1109
-swap$ -- 214
+substring$ -- 1123
+swap$ -- 215
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 918
+type$ -- 929
 warning$ -- 14
-while$ -- 359
+while$ -- 363
 width$ -- 0
-write$ -- 1343
+write$ -- 1358
 (There were 15 warnings)

@@ -55,8 +55,8 @@ workflow of this example ethics engine.%
 \centering
 \includegraphics[scale=0.5]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent, which begins with a moral dilemma, 
-passes it through an input parser, applies the automated Kantian ethics test, and then processes the 
-output using an output parser. I contribute the automated Kantian ethics component.} \label{fig:AIengine}
+passes it through an input parser, applies the automated categorical imperative test, and then processes the 
+output using an output parser. I contribute the automated categorical imperative component.} \label{fig:AIengine}
 \end{figure}
 %
 \begin{isamarkuptext}%
@@ -195,10 +195,7 @@ In addition to guiding AI agents, automated ethics can also help human beings ma
 progress. Just as theorem provers make mathematics more efficient and push mathematicians to think 
 precisely about the phenomena they model, computational ethics can help philosophers ask and answer
 new philosophical questions. In this section, I share an example of the kind of philosophical insight that computational ethics 
-can prompt and analyze the value that this tool can offer to philosophers.\footnote{Some may wonder if my system
-could also help ordinary people perform ethical reasoning, not just academic philosophers. I address the role that 
-my system should play in ordinary ethical reasoning in Appendix \ref{ordinaryhumans} and conclude
-that large parts of ordinary ethical inquiry cannot and should not be automated.}%
+can prompt and analyze the value that this tool can offer to philosophers.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -311,18 +308,29 @@ at moment t+1.''
 
 \noindent \textbf{Implications for Self-Doubt and Self-Respect}
 
-The idea that we cannot even evaluate, let alone will, badly-formed maxims has implications for debates about 
-self-doubt and self-respect. The dancing maxim can be read as an expression of self-doubt. Under this 
+In the previous section, I defined badly formed maxims, a philosophical concept that I discovered
+using computational ethics. In this section, I demonstrate the implications of this concept for a 
+philosophical debate to demonstrate that computational ethics can result in insights with real 
+philosophical weight. I use badly formed maxims to resolve the tension between self-doubt and self-respect. 
+This debate originated in epistemology, which values doubting your beliefs but also rationally requires
+that you believe that you are not mistaken (else you should update your beliefs). 
+Self-doubt and self-respect also compete in ethics, where questioning your judgements is valuable but 
+questioning a commitment as you make it is impossible. Self-doubt and self-respect appear 
+irresolvably opposed until they are understood through the lens of badly formed maxims. I argue that naive
+conceptions of self-doubt are badly formed maxims in disguise. If we reformulate these maxims to be well-formed,
+the tension between self-doubt and self-respect dissolves, and it becomes clear that both concepts can
+co-exist, as we intuitively desire. I sketch the details of this argument in the rest of this section.
+
+Another reading of the dancing maxim understands it as an expression of self-doubt. Under this 
 reading, the question ``When I am dancing, should I be dancing for the sake of dancing?'' is the agent asking, 
 ``Am I doing the right thing right now?'' Unlike the drowning example, the agent is not asking about the 
 next moment, but is expressing doubt about the moral validity of their behavior at this current moment. 
-Self-doubt does not always undermine the will—after all, self-doubt plays an 
-important role in moral reasoning and is often the mark of a thoughtful agent. Instead, I argue 
+Surely self-doubt does not always undermine the will—after all, self-doubt plays an 
+important role in moral reasoning and is often the mark of a thoughtful agent. I argue 
 that questions of self-doubt do not actually involve badly-formed maxims, for these are not the maxims 
-that the agent is doubting. This example will demonstrate that the tension between self-doubt and self-respect 
-arises from a mistaken characterization of questions of self-doubt as questions about badly-formed maxims.
-I first explain the tension between self-doubt and self-respect in epistemology, then 
-explain the parallel tension in ethics, and finally present a resolution of this tension.
+that the agent is doubting. I first frame this debate by introducing the tension between self-doubt and 
+self-respect in epistemology, then explain the parallel tension in ethics, and finally present a 
+resolution of this tension.
 
 In epistemology, there is a tension between the rational requirement to believe in yourself and the 
 value of self-doubt, in moderation. Christensen presents the ``principle of self-respect,'' which requires 
@@ -383,7 +391,14 @@ The tension between ESR and ESD arises from a misreading of questions of self-do
 the evaluation of badly-formed maxims. A question of self-doubt cannot refer to a badly-formed maxim and must 
 instead refer to a well-formed maxim about the agent's past decision-making. As seen before, cases where 
 agents appear to ask themselves about badly-formed maxims are mistaken about the maxim in question, because 
-such a question could never yield a useful answer for a practical reasoner.%
+such a question could never yield a useful answer for a practical reasoner. 
+
+By recognizing that the naive version of ethical self-doubt is a badly formed maxim, I realized 
+that there is something wrong with its formulation and modified it to resolve the above debate. 
+This demonstrates a larger meta-pattern in Kantian reasoning: many debates in Kantian philosophical
+literature revolve around incorrectly formulated maxims, so the insight about badly
+formed maxims is significant. Much of the work of a Kantian ethicist is formulating an
+appropriate maxim, and badly-formed maxims define one boundary condition for this task.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -466,8 +481,109 @@ matter of years \citep{buzzardvideo}. Countless examples from the history of com
 Test to AI game playing to protein folding, demonstrate that progress in computer science can make seemingly 
 obscure computer programs useful and usable in ways that exceed our wildest imaginations.
 Programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
-need not be stated. If computer scientists and philosophers invest in computational ethics, it can 
-become as much a tool for philosophy as a calculator is for for arithmetic.%
+need not be stated. If computer scientists and philosophers invest in computational ethics, it could
+become as commonplace in philosophy departments as reflective equilibrium. Just as computational tools
+have supercharged progress in healthcare and drug discovery, computational ethics has the potential for
+great philosophical progress.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
+\isamarkupsubsection{Automating Ordinary Ethical Reasoning \label{ordinarypeople}%
+}
+\isamarkuptrue%
+%
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+In Sections \ref{AIethics} and \ref{computationalethics}, I outline how automated ethics can guide
+artificial agents and human philosophers respectively. This raises a natural question: can automated
+ethics guide ordinary human beings, not just academic philosophers, as we navigate the world and face ethical
+dilemmas? Some may hope (or worry) that automated ethics could render ethical reasoning obsolete. In 
+this section, I argue, that while computers should not replace human ethical reasoning entirely,
+they can supplement and improve our ethical reasoning. I argue for a kind of human-computer symbiosis
+in which computers offer ethical advice, arguments for particular moral judgements, and speed up moral
+calculations without subverting human ethical reasoning entirely \citep{licklider}.
+
+Ethics bears weight for everyone, not just for academic philosophers, because it studies the unavoidable question:
+how should we live? If computers can make this study more efficient, then it seems that everyone should
+engage in computational ethics. The ethical question is the only question that 
+we answer merely by living. To turn away from ethics is to take a stance on the question of how to 
+live (namely, to live unreflectively) and thus to engage in ethics. Every rational being must decide 
+how to navigate the world and ethics answers this question. Given that ethics is vital, it seems that if
+comptuational tools can help us derive ethical judgements more efficiently, then we should automate as 
+much ethical reasoning as possible.
+In the most extreme case, we can unthinkingly follow the commands of an ethical calculator that dictates 
+how we should live. Maybe computers can answer the unavoidable question for us.
+
+The argument above places the value of ethics solely in its action-guiding potential, and thus fails to take into account the 
+importance of practical reason, which, as I argued in Section \ref{kantianethics}, is the source
+of freedom itself. We are committed to ethical reflection because of the kind of beings that we are. 
+Recall that Korsgaard argues that, as beings occupying minds with a reflective structure, when faced with 
+a choice,``it is as if there were something over and above all of your desires, something that is you, and that chooses which desire 
+to act on'' \citep[83]{sources}. This choosing is the operation of practical reason, and this reflection
+makes us free. We are free because we must choose which reasons to act on. Every decision that we 
+make is an exercise of freedom. 
+
+If reflection makes us free, then unthinkingly obeying a computer sacrifices our autonomy. Consider 
+an Ethics Oracle that can unfailingly tell you the right thing to do in any 
+situation.\footnote{This example is inspired by the Pocket Oracle presented in \citet{bok}.} Someone 
+who surrenders themselves to this Oracle unthinkingly follows its prescriptions. 
+The reflection involved in the decision to obey each of the Oracle’s prescriptions is limited \citep{bok}. 
+This person is not reflecting on the real matters at hand and is 
+not making decisions for themselves. They have surrendered their reflective capacity to the Oracle. 
+They live a worse life than someone who reflects on their actions; they have less ownership over their 
+actions than the reflective person. In a less extreme case, a person may retain control of many of 
+their decisions but cede some important or tricky choices to the Ethics Oracle. Because every single 
+exercise of practical reason is an exercise of autonomy, this person is still less autonomous than the 
+purely reflective person. Even surrendering simple, inconsequential decisions such as which flavor of 
+coffee to drink surrenders some piece of our autonomy. Perhaps in trivial cases we can accept that 
+tiny sacrifice, but giving over life-changing decisions to the machine sacrifices our 
+core freedom. Unreflectively relying on computational ethics surrenders our autonomy to the machine. 
+
+One objection to this emphasis on reflection is the impracticality of making ethical calculations from first principles 
+every time we are faced with a decision. This is why we follow the advice of moral mentors, like our 
+family or influential philosophers. 
+Most people do not reason about ethics during everyday decisions; they rely on some combination of 
+prior knowledge and external testimony. For example, my mother taught me to respect myself, so I 
+follow her advice. 
+
+What is the difference between following the guidance of a moral educator and
+obeying the Ethics Oracle? The best kind of ethical advice prompts reflection, such as an argument 
+made in a philosophy paper. Unthinkingly following someone’s advice results in the same loss of 
+autonomy as unthinkingly obeying the Ethics Oracle; people who merely obey orders are less autonomous 
+than those who think for themselves. This account of moral advice offers a model for human-computer 
+symbiotic computational ethics. The computer should serve as a moral guide by providing arguments, just as my mom 
+explained why I should always respect myself. Human-computer symbiotic computational
+ethics nurtures autonomy when it not only offers prescriptions for action, but also explanations for 
+these prescriptions. Because my theorem-prover-based automated ethical system is explainable, it can 
+guide action without sacrificing autonomy. It can make an argument for some action, instead of 
+merely giving a verdict. Isabelle can list the facts used to show
+a partcular action prohibited, and a human being can reflect on whether or not these principles
+indeed prohibit the action in question. The computer serves as a collaborator and a tool, but not as an authority, 
+so the human being’s reflective capacity and freedom is preserved. 
+
+The above model of human-computer symbiosis demonstrates how computational ethics can augment human
+ethical reasoning without replacing it. When deliberating over moral dilemmas, ordinary people can 
+turn to computational tools for advice, like an ``Ask an Ethicist'' column. If we appeal to philosophically
+faithful computational ethics like that implemented in this thesis, then this advice will synthesize 
+decades of philosophical progress and is thus a way to apply philosophers' insights to ordinary life. 
+Moreover, just as they do for philosophers, computers can help ordinary people approach ethical questions from a 
+different perspective. Even interacting with my system requires the user to consider the action's maxim, 
+which includes the circumstances, act, and goal. Making these components of action precise already changes
+the user's perspective. Just as computational ethics can serve as a tool for academic philosophers to 
+automate away tedium and achieve greater precision, it can do the same for ordinary human beings navigating
+the world. Moreover, it also offers another way for the general public to access professional philosophy's
+insights, and thus carries potential to improve our everyday reasoning.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -908,10 +1024,10 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%196=149%:%
 %:%197=150%:%
 %:%198=151%:%
-%:%199=152%:%
-%:%200=153%:%
-%:%201=154%:%
-%:%210=156%:%
+%:%207=153%:%
+%:%219=155%:%
+%:%220=156%:%
+%:%221=157%:%
 %:%222=158%:%
 %:%223=159%:%
 %:%224=160%:%
@@ -1077,22 +1193,22 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%384=320%:%
 %:%385=321%:%
 %:%386=322%:%
-%:%395=326%:%
-%:%407=328%:%
-%:%408=329%:%
-%:%409=330%:%
-%:%410=331%:%
-%:%411=332%:%
-%:%412=333%:%
-%:%413=334%:%
-%:%414=335%:%
-%:%415=336%:%
-%:%416=337%:%
-%:%417=338%:%
-%:%418=339%:%
-%:%419=340%:%
-%:%420=341%:%
-%:%421=342%:%
+%:%387=323%:%
+%:%388=324%:%
+%:%389=325%:%
+%:%390=326%:%
+%:%391=327%:%
+%:%392=328%:%
+%:%393=329%:%
+%:%394=330%:%
+%:%395=331%:%
+%:%396=332%:%
+%:%397=333%:%
+%:%398=334%:%
+%:%399=335%:%
+%:%400=336%:%
+%:%401=337%:%
+%:%410=341%:%
 %:%422=343%:%
 %:%423=344%:%
 %:%424=345%:%
@@ -1142,226 +1258,323 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%468=389%:%
 %:%469=390%:%
 %:%470=391%:%
-%:%479=394%:%
-%:%491=397%:%
-%:%492=398%:%
-%:%493=399%:%
-%:%494=400%:%
-%:%495=401%:%
-%:%496=402%:%
-%:%497=403%:%
-%:%498=404%:%
-%:%499=405%:%
-%:%500=406%:%
-%:%501=407%:%
-%:%502=408%:%
-%:%503=409%:%
-%:%504=410%:%
-%:%505=411%:%
-%:%506=412%:%
-%:%507=413%:%
-%:%508=414%:%
-%:%509=415%:%
-%:%510=416%:%
-%:%511=417%:%
-%:%512=418%:%
-%:%513=419%:%
-%:%514=420%:%
-%:%515=421%:%
-%:%516=422%:%
-%:%517=423%:%
-%:%518=424%:%
-%:%519=425%:%
-%:%520=426%:%
-%:%521=427%:%
-%:%522=428%:%
-%:%523=429%:%
-%:%524=430%:%
-%:%525=431%:%
-%:%526=432%:%
-%:%527=433%:%
-%:%528=434%:%
-%:%529=435%:%
-%:%530=436%:%
-%:%531=437%:%
-%:%532=438%:%
-%:%533=439%:%
-%:%534=440%:%
-%:%535=441%:%
-%:%536=442%:%
-%:%537=443%:%
-%:%538=444%:%
-%:%539=445%:%
-%:%540=446%:%
-%:%541=447%:%
-%:%542=448%:%
-%:%543=449%:%
-%:%544=450%:%
-%:%545=451%:%
-%:%546=452%:%
-%:%547=453%:%
-%:%548=454%:%
-%:%549=455%:%
-%:%550=456%:%
-%:%551=457%:%
-%:%552=458%:%
-%:%553=459%:%
-%:%554=460%:%
-%:%555=461%:%
-%:%556=462%:%
-%:%557=463%:%
-%:%558=464%:%
-%:%559=465%:%
-%:%560=466%:%
-%:%561=467%:%
-%:%562=468%:%
-%:%563=469%:%
-%:%564=470%:%
-%:%565=471%:%
-%:%566=472%:%
-%:%567=473%:%
-%:%568=474%:%
-%:%569=475%:%
-%:%570=476%:%
-%:%571=477%:%
-%:%572=478%:%
-%:%573=479%:%
-%:%574=480%:%
-%:%575=481%:%
-%:%576=482%:%
-%:%577=483%:%
-%:%578=484%:%
-%:%579=485%:%
-%:%580=486%:%
-%:%581=487%:%
-%:%582=488%:%
-%:%583=489%:%
-%:%584=490%:%
-%:%585=491%:%
-%:%586=492%:%
-%:%587=493%:%
-%:%588=494%:%
-%:%589=495%:%
-%:%590=496%:%
-%:%591=497%:%
-%:%592=498%:%
-%:%593=499%:%
-%:%594=500%:%
-%:%595=501%:%
-%:%596=502%:%
-%:%597=503%:%
-%:%598=504%:%
-%:%601=506%:%
-%:%602=507%:%
-%:%603=508%:%
-%:%604=509%:%
-%:%605=510%:%
-%:%606=511%:%
-%:%609=512%:%
-%:%610=513%:%
-%:%611=514%:%
-%:%612=515%:%
-%:%613=516%:%
-%:%614=517%:%
-%:%615=518%:%
-%:%616=519%:%
-%:%617=520%:%
-%:%618=521%:%
-%:%619=522%:%
-%:%620=523%:%
-%:%621=524%:%
-%:%622=525%:%
-%:%623=526%:%
-%:%632=530%:%
-%:%644=532%:%
-%:%645=533%:%
-%:%646=534%:%
-%:%647=535%:%
-%:%648=536%:%
-%:%649=537%:%
-%:%650=538%:%
-%:%651=539%:%
-%:%652=540%:%
-%:%653=541%:%
-%:%654=542%:%
-%:%655=543%:%
-%:%656=544%:%
-%:%657=545%:%
-%:%658=546%:%
-%:%659=547%:%
-%:%660=548%:%
-%:%661=549%:%
-%:%662=550%:%
-%:%663=551%:%
-%:%664=552%:%
-%:%665=553%:%
-%:%666=554%:%
-%:%667=555%:%
-%:%668=556%:%
-%:%669=557%:%
-%:%670=558%:%
-%:%671=559%:%
-%:%672=560%:%
-%:%673=561%:%
-%:%674=562%:%
-%:%675=563%:%
-%:%676=564%:%
-%:%677=565%:%
-%:%678=566%:%
-%:%679=567%:%
-%:%680=568%:%
-%:%681=569%:%
-%:%682=570%:%
-%:%683=571%:%
-%:%684=572%:%
-%:%685=573%:%
-%:%686=574%:%
-%:%687=575%:%
-%:%688=576%:%
-%:%689=577%:%
-%:%690=578%:%
-%:%691=579%:%
-%:%692=580%:%
-%:%693=581%:%
-%:%694=582%:%
-%:%695=583%:%
-%:%704=585%:%
-%:%716=587%:%
-%:%717=588%:%
-%:%718=589%:%
-%:%719=590%:%
-%:%720=591%:%
-%:%721=592%:%
-%:%722=593%:%
-%:%723=594%:%
-%:%724=595%:%
-%:%725=596%:%
-%:%726=597%:%
-%:%727=598%:%
-%:%728=599%:%
-%:%729=600%:%
-%:%730=601%:%
-%:%731=602%:%
-%:%732=603%:%
-%:%733=604%:%
-%:%734=605%:%
-%:%735=606%:%
-%:%736=607%:%
-%:%737=608%:%
-%:%738=609%:%
-%:%739=610%:%
-%:%740=611%:%
-%:%741=612%:%
-%:%742=613%:%
-%:%743=614%:%
-%:%744=615%:%
-%:%745=616%:%
-%:%746=617%:%
-%:%747=618%:%
-%:%748=619%:%
-%:%749=620%:%
-%:%750=621%:%
-%:%751=622%:%
-%:%752=623%:%
-%:%753=624%:%
-%:%754=625%:%
+%:%471=392%:%
+%:%472=393%:%
+%:%473=394%:%
+%:%474=395%:%
+%:%475=396%:%
+%:%476=397%:%
+%:%477=398%:%
+%:%478=399%:%
+%:%479=400%:%
+%:%480=401%:%
+%:%481=402%:%
+%:%482=403%:%
+%:%483=404%:%
+%:%484=405%:%
+%:%485=406%:%
+%:%486=407%:%
+%:%487=408%:%
+%:%496=410%:%
+%:%508=412%:%
+%:%509=413%:%
+%:%510=414%:%
+%:%511=415%:%
+%:%512=416%:%
+%:%513=417%:%
+%:%514=418%:%
+%:%515=419%:%
+%:%516=420%:%
+%:%517=421%:%
+%:%518=422%:%
+%:%519=423%:%
+%:%520=424%:%
+%:%521=425%:%
+%:%522=426%:%
+%:%523=427%:%
+%:%524=428%:%
+%:%525=429%:%
+%:%526=430%:%
+%:%527=431%:%
+%:%528=432%:%
+%:%529=433%:%
+%:%530=434%:%
+%:%531=435%:%
+%:%532=436%:%
+%:%533=437%:%
+%:%534=438%:%
+%:%535=439%:%
+%:%536=440%:%
+%:%537=441%:%
+%:%538=442%:%
+%:%539=443%:%
+%:%540=444%:%
+%:%541=445%:%
+%:%542=446%:%
+%:%543=447%:%
+%:%544=448%:%
+%:%545=449%:%
+%:%546=450%:%
+%:%547=451%:%
+%:%548=452%:%
+%:%549=453%:%
+%:%550=454%:%
+%:%551=455%:%
+%:%552=456%:%
+%:%553=457%:%
+%:%554=458%:%
+%:%555=459%:%
+%:%556=460%:%
+%:%557=461%:%
+%:%558=462%:%
+%:%559=463%:%
+%:%560=464%:%
+%:%561=465%:%
+%:%562=466%:%
+%:%563=467%:%
+%:%564=468%:%
+%:%565=469%:%
+%:%566=470%:%
+%:%567=471%:%
+%:%568=472%:%
+%:%569=473%:%
+%:%570=474%:%
+%:%571=475%:%
+%:%572=476%:%
+%:%573=477%:%
+%:%574=478%:%
+%:%575=479%:%
+%:%576=480%:%
+%:%577=481%:%
+%:%578=482%:%
+%:%579=483%:%
+%:%580=484%:%
+%:%581=485%:%
+%:%582=486%:%
+%:%583=487%:%
+%:%584=488%:%
+%:%585=489%:%
+%:%586=490%:%
+%:%595=493%:%
+%:%607=496%:%
+%:%608=497%:%
+%:%609=498%:%
+%:%610=499%:%
+%:%611=500%:%
+%:%612=501%:%
+%:%613=502%:%
+%:%614=503%:%
+%:%615=504%:%
+%:%616=505%:%
+%:%617=506%:%
+%:%618=507%:%
+%:%619=508%:%
+%:%620=509%:%
+%:%621=510%:%
+%:%622=511%:%
+%:%623=512%:%
+%:%624=513%:%
+%:%625=514%:%
+%:%626=515%:%
+%:%627=516%:%
+%:%628=517%:%
+%:%629=518%:%
+%:%630=519%:%
+%:%631=520%:%
+%:%632=521%:%
+%:%633=522%:%
+%:%634=523%:%
+%:%635=524%:%
+%:%636=525%:%
+%:%637=526%:%
+%:%638=527%:%
+%:%639=528%:%
+%:%640=529%:%
+%:%641=530%:%
+%:%642=531%:%
+%:%643=532%:%
+%:%644=533%:%
+%:%645=534%:%
+%:%646=535%:%
+%:%647=536%:%
+%:%648=537%:%
+%:%649=538%:%
+%:%650=539%:%
+%:%651=540%:%
+%:%652=541%:%
+%:%653=542%:%
+%:%654=543%:%
+%:%655=544%:%
+%:%656=545%:%
+%:%657=546%:%
+%:%658=547%:%
+%:%659=548%:%
+%:%660=549%:%
+%:%661=550%:%
+%:%662=551%:%
+%:%663=552%:%
+%:%664=553%:%
+%:%665=554%:%
+%:%666=555%:%
+%:%667=556%:%
+%:%668=557%:%
+%:%669=558%:%
+%:%670=559%:%
+%:%671=560%:%
+%:%672=561%:%
+%:%673=562%:%
+%:%674=563%:%
+%:%675=564%:%
+%:%676=565%:%
+%:%677=566%:%
+%:%678=567%:%
+%:%679=568%:%
+%:%680=569%:%
+%:%681=570%:%
+%:%682=571%:%
+%:%683=572%:%
+%:%684=573%:%
+%:%685=574%:%
+%:%686=575%:%
+%:%687=576%:%
+%:%688=577%:%
+%:%689=578%:%
+%:%690=579%:%
+%:%691=580%:%
+%:%692=581%:%
+%:%693=582%:%
+%:%694=583%:%
+%:%695=584%:%
+%:%696=585%:%
+%:%697=586%:%
+%:%698=587%:%
+%:%699=588%:%
+%:%700=589%:%
+%:%701=590%:%
+%:%702=591%:%
+%:%703=592%:%
+%:%704=593%:%
+%:%705=594%:%
+%:%706=595%:%
+%:%707=596%:%
+%:%708=597%:%
+%:%709=598%:%
+%:%710=599%:%
+%:%711=600%:%
+%:%712=601%:%
+%:%713=602%:%
+%:%714=603%:%
+%:%717=605%:%
+%:%718=606%:%
+%:%719=607%:%
+%:%720=608%:%
+%:%721=609%:%
+%:%722=610%:%
+%:%725=611%:%
+%:%726=612%:%
+%:%727=613%:%
+%:%728=614%:%
+%:%729=615%:%
+%:%730=616%:%
+%:%731=617%:%
+%:%732=618%:%
+%:%733=619%:%
+%:%734=620%:%
+%:%735=621%:%
+%:%736=622%:%
+%:%737=623%:%
+%:%738=624%:%
+%:%739=625%:%
+%:%748=629%:%
+%:%760=631%:%
+%:%761=632%:%
+%:%762=633%:%
+%:%763=634%:%
+%:%764=635%:%
+%:%765=636%:%
+%:%766=637%:%
+%:%767=638%:%
+%:%768=639%:%
+%:%769=640%:%
+%:%770=641%:%
+%:%771=642%:%
+%:%772=643%:%
+%:%773=644%:%
+%:%774=645%:%
+%:%775=646%:%
+%:%776=647%:%
+%:%777=648%:%
+%:%778=649%:%
+%:%779=650%:%
+%:%780=651%:%
+%:%781=652%:%
+%:%782=653%:%
+%:%783=654%:%
+%:%784=655%:%
+%:%785=656%:%
+%:%786=657%:%
+%:%787=658%:%
+%:%788=659%:%
+%:%789=660%:%
+%:%790=661%:%
+%:%791=662%:%
+%:%792=663%:%
+%:%793=664%:%
+%:%794=665%:%
+%:%795=666%:%
+%:%796=667%:%
+%:%797=668%:%
+%:%798=669%:%
+%:%799=670%:%
+%:%800=671%:%
+%:%801=672%:%
+%:%802=673%:%
+%:%803=674%:%
+%:%804=675%:%
+%:%805=676%:%
+%:%806=677%:%
+%:%807=678%:%
+%:%808=679%:%
+%:%809=680%:%
+%:%810=681%:%
+%:%811=682%:%
+%:%820=684%:%
+%:%832=686%:%
+%:%833=687%:%
+%:%834=688%:%
+%:%835=689%:%
+%:%836=690%:%
+%:%837=691%:%
+%:%838=692%:%
+%:%839=693%:%
+%:%840=694%:%
+%:%841=695%:%
+%:%842=696%:%
+%:%843=697%:%
+%:%844=698%:%
+%:%845=699%:%
+%:%846=700%:%
+%:%847=701%:%
+%:%848=702%:%
+%:%849=703%:%
+%:%850=704%:%
+%:%851=705%:%
+%:%852=706%:%
+%:%853=707%:%
+%:%854=708%:%
+%:%855=709%:%
+%:%856=710%:%
+%:%857=711%:%
+%:%858=712%:%
+%:%859=713%:%
+%:%860=714%:%
+%:%861=715%:%
+%:%862=716%:%
+%:%863=717%:%
+%:%864=718%:%
+%:%865=719%:%
+%:%866=720%:%
+%:%867=721%:%
+%:%868=722%:%
+%:%869=723%:%
+%:%870=724%:%

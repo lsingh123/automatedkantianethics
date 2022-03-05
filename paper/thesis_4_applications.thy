@@ -5,10 +5,12 @@ begin(*>*)
 
 section \<open>Applications \label{applications}\<close>
 
-text \<open>In this chapter, I use my system to produce sophisticated, nuanced
-responses to two moral dilemmas. These dilemmas serve as examples of how my system could be used
+text \<open>In this chapter, I demonstrate that my system can produce correct judgements on challenging moral 
+dilemmas that naive ethical reasoning cannot satisfactorily handle. My system can reproduce complex
+ethical judgements because it is faithful to philosophical literature.
+These dilemmas serve as examples of how my system could be used
 in practice and demonstrate my system's ability to formalize longer, more complicted ethical arguments
-than those presented in Chapter 3. 
+than those presented in Chapter \ref{details}. 
 Many of the tests in Section \ref{testing} perform metaethical reasoning, which analyzes properties
 of morality itself and involves questions about the nature of ethical truth. In this chapter, I perform
 ``applied ethical reasoning," which is the use of ethics to resolve dilemmas and make judgements about 
@@ -263,7 +265,13 @@ your friend and help them have a fun birthday. If someone ruins the surprise, bu
 and the birthday person feels loved, then such a party is a success! Someone who
 calls this party a failure is clearly missing the point of a surprise party. The goal of 
 a surprise party is not the surprise itself, but rather celebrating the birthday person. The modified
-goal no longer requires belief in the falsehood and thus passes the universalizability test. 
+goal\footnote{Some may worry that this argument implies that the ``means justify the ends,'' or that modifying
+an act's goal can change its moral worth. This conclusion is not only unsurprising to Kantians, but it is the
+defining feature of their theory. Under Kantian ethics, an action alone is not the kind of thing that can 
+be moral or immoral; rather, a maxim, or a circumstances, act, goal tuple, is what has moral worth. The rightness 
+of an action can hinge on the maxim's goal, circumstances, or act because these three features
+of an action are inseparable.} no longer requires belief in the falsehood and thus passes the 
+universalizability test. 
 
 There are two implications of this section. First, my system is capable of performing ethical reasoning
 sophisticated enough to show that lying is prohibited but joking is not. This is a direct consequence 

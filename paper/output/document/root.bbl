@@ -1,4 +1,4 @@
-\begin{thebibliography}{93}
+\begin{thebibliography}{94}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -393,6 +393,13 @@ D.~Lewis.
 D.~Lewis.
 \newblock \emph{Counterfactuals}.
 \newblock Blackwell, 1973{\natexlab{b}}.
+
+\bibitem[Licklider(1960)]{licklider}
+J.~C.~R. Licklider.
+\newblock Man-computer symbiosis.
+\newblock \emph{IRE Transactions on Human Factors in Electronics},
+  HFE-1\penalty0 (1):\penalty0 4--11, 1960.
+\newblock \doi{10.1109/THFE2.1960.4503259}.
 
 \bibitem[Lin et~al.(2012)Lin, Abney, and Bekey]{lin}
 P.~Lin, K.~Abney, and G.~A. Bekey.

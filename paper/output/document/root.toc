@@ -24,19 +24,20 @@
 \contentsline {subsection}{\numberline {5.2}Computational Ethics }{62}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Example of a Philosophical Insight: Well-Formed Maxims}{63}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{69}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}Theoretical Objections to Automating Kantian Ethics }{71}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Related Work }{76}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Conclusion}{78}{subsection.5.5}%
-\contentsline {section}{\numberline {A}Appendix}{80}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Alternate Definitions of a Maxim }{80}{subsection.A.1}%
-\contentsline {subsubsection}{\numberline {A.1.1}Korsgaard's Act-Goal View}{80}{subsubsection.A.1.1}%
-\contentsline {subsubsection}{\numberline {A.1.2}Kitcher's View on Motives}{81}{subsubsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{82}{subsection.A.2}%
-\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{82}{subsubsection.A.2.1}%
-\contentsline {subsubsection}{\numberline {A.2.2}Kroy's formalization of the FUL }{85}{subsubsection.A.2.2}%
-\contentsline {subsubsection}{\numberline {A.2.3}Application Tests}{86}{subsubsection.A.2.3}%
-\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{91}{subsubsection.A.2.4}%
-\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{94}{subsubsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{96}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Ethics for Ordinary People }{101}{subsection.A.4}%
-\contentsline {subsection}{\numberline {A.5}Academic Ethics }{104}{subsection.A.5}%
+\contentsline {subsection}{\numberline {5.3}Automating Ordinary Ethical Reasoning }{71}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Theoretical Objections to Automating Kantian Ethics }{74}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Related Work }{80}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Conclusion}{82}{subsection.5.6}%
+\contentsline {section}{\numberline {A}Appendix}{84}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Alternate Definitions of a Maxim }{84}{subsection.A.1}%
+\contentsline {subsubsection}{\numberline {A.1.1}Korsgaard's Act-Goal View}{84}{subsubsection.A.1.1}%
+\contentsline {subsubsection}{\numberline {A.1.2}Kitcher's View on Motives}{85}{subsubsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.2}Kroy's Formalization}{86}{subsection.A.2}%
+\contentsline {subsubsection}{\numberline {A.2.1}Logical Background }{86}{subsubsection.A.2.1}%
+\contentsline {subsubsection}{\numberline {A.2.2}Kroy's formalization of the FUL }{89}{subsubsection.A.2.2}%
+\contentsline {subsubsection}{\numberline {A.2.3}Testing Kroy's Formalization}{90}{subsubsection.A.2.3}%
+\contentsline {subsubsection}{\numberline {A.2.4}Metaethical Tests }{95}{subsubsection.A.2.4}%
+\contentsline {subsubsection}{\numberline {A.2.5}Miscellaneous Tests }{98}{subsubsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.3}Testing Un-Universalizable Actions }{100}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Ethics for Ordinary People }{105}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.5}Academic Ethics }{108}{subsection.A.5}%
