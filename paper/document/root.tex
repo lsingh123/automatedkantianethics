@@ -12,9 +12,10 @@
 \setlength\parindent{24pt}
 \newcommand{\isactrlemph}[1]{\emph{#1}}
 \usepackage{setspace}
-\doublespacing
 \usepackage{geometry}
 \geometry{margin=1.5in}
+\usepackage[title]{appendix}
+
 \usepackage{titlesec}
 \usepackage{xcolor}
 \interfootnotelinepenalty=10000
@@ -90,21 +91,20 @@
 }
 \maketitle
 \pagenumbering{gobble}
+\newpage
+
+\tableofcontents
 
 \newpage 
+% sane default for proof documents
+\parskip 0.5ex
+\doublespacing
 
 \begin{center}
 \textsc{ABSTRACT} \\
 \end{center}
 
 \input{thesis_0_abstract}
-
-\newpage
-
-\tableofcontents
-
-% sane default for proof documents
-\parskip 0.5ex
 
 % generated text of all theories
 \newpage
@@ -119,9 +119,10 @@
 \newpage
 \input{thesis_5_discussion}
 \newpage
-\appendix
+\begin{appendices}
 \input{appendix}
 \input{appendix_2}
+\end{appendices}
 
 
 \newpage

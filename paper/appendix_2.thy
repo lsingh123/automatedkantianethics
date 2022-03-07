@@ -2,7 +2,7 @@
 (*<*) theory appendix_2 imports paper41
 
 begin (*>*)
-subsection \<open>Testing Un-Universalizable Actions \label{weirdtests}\<close>
+section \<open>Testing Un-Universalizable Actions \label{weirdtests}\<close>
 
 text \<open>I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
 to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
@@ -172,6 +172,7 @@ Nitpick found a counterexample for card i = 1 and card s = 1:
 \color{black}
 \<close>
 
+section \<open>Other Uses of Computational Ethics\<close>
 subsection \<open>Ethics for Ordinary People \label{ordinaryhumans}\<close>
 
 text \<open>Ethics has immediate bearing on everyone’s lives because it studies the unavoidable question: 

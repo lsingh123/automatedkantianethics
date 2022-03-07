@@ -2,11 +2,10 @@
 
 begin (*>*)
 
-section "Appendix"
 
-subsection \<open>Alternate Definitions of a Maxim \label{maximmotive}\<close>
+section \<open>Appendix: Alternate Definitions of a Maxim \label{maximmotive}\<close>
 
-subsubsection \<open>Korsgaard's Act-Goal View\<close>
+subsection \<open>Korsgaard's Act-Goal View\<close>
 
 text \<open>I adopt O'Niell's definition of a maxim, which builds on Korsgaard's weaker interpretation of 
 a maxim as an act, goal pair. She interprets Kant's example meanings as having the form ``to-do-this-act-for-
@@ -33,7 +32,7 @@ explicit. This precision is a benefit; so long as my circumstances are not so fi
 are uninterpretable, they render O'Niell's kind of maxims more precise than Korsgaard's form. 
 \<close>
 
-subsubsection \<open>Kitcher's View on Motives\<close>
+subsection \<open>Kitcher's View on Motives\<close>
 
 text \<open>A stronger view than O'Niell's is due to Patricia Kitcher. Kitcher begins with O'Niell's 
 circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
@@ -87,7 +86,7 @@ that everything is either permissible or obligatory. It's not clear to me from a
 perspective why this would be the case. In fact this theorem seems like a desirable 
 property. Potential avenue for exploration"(*>*)
 
-subsection \<open>Kroy's Formalization\label{kroydetails}\<close>
+section \<open>Kroy's Formalization\label{kroydetails}\<close>
 
 text \<open>In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
@@ -95,7 +94,7 @@ the Formula of Humanity. I will first import the additional logical tools that H
 that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
 and test Kroy's formalization of the FUL\<close>
 
-subsubsection \<open>Logical Background \label{sec:kroy_logical_background}\<close>
+subsection \<open>Logical Background \label{sec:kroy_logical_background}\<close>
 
 text \<open>Kroy's logic also requires the notion of a subject, will I define as a new type, just as I did
 for my implementation.\<close>
@@ -231,7 +230,7 @@ formalization should add this as an axiom.\<close>
 text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<rightarrow> P {A})"\<close> (*>*)
 
 
-subsubsection \<open>Kroy's formalization of the FUL \label{sec: kroy_ful}\<close>
+subsection \<open>Kroy's formalization of the FUL \label{sec: kroy_ful}\<close>
 
 text \<open>I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
 ``act only in accordance with that maxim which you can at the same time will a universal law'' \citep{groundwork}.
@@ -274,7 +273,7 @@ categorical imperative. I defined new logical constructs to handle Kroy's logic,
 between DDL and Kr, implemented Kroy's formalization of the Formula of Universal Law, and showed 
 that it is both non-trivial and consistent."
 
-  subsubsection \<open>Testing Kroy's Formalization\<close>
+  subsection \<open>Testing Kroy's Formalization\<close>
 
   text \<open>In this section, I use my testing framework to evaluate Kroy's formalization. I find that, while 
         the formalization is considerably
@@ -461,7 +460,7 @@ lemma step3:
         Kroy's interpretation of the categorical imperative precise demonstrated a philosophical problem 
         with that interpretation.\<close>
 
-  subsubsection \<open>Metaethical Tests \label{sec:meta_tests_kroy}\<close>
+  subsection \<open>Metaethical Tests \label{sec:meta_tests_kroy}\<close>
 
   text "In addition to testing specific applications of the theory, I am also interested in 
         metaethical properties, as in the naive interpretation. First, I will test if permissiblility
@@ -586,7 +585,7 @@ text "These tests show that, while Kroy's formalization is more powerful and mor
       problems may be remedied by the fact that Kroy's logic doesn't allow contradictory obligations, 
       and that possibility will be interesting to explore in my own formalization."
 
-subsubsection \<open>Miscellaneous Tests \label{sec: misc_tests_kroy}\<close>
+subsection \<open>Miscellaneous Tests \label{sec: misc_tests_kroy}\<close>
 
 text "In this section, I explore tests of properties that Kroy presents in his original paper. These 
 tests not only test the features of the system that Kroy intended to highlight, but they may also 
