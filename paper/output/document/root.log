@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  8 MAR 2022 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  8 MAR 2022 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -719,40 +719,36 @@ Overfull \hbox (34.25557pt too wide) in paragraph at lines 639--641
 [37 <./goalstable.png>] [38] [39] [40] [41]) [42] (./thesis_4_applications.tex
 [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]) [56]
 (./thesis_5_discussion.tex
-<AI_engine.png, id=932, 747.79375pt x 477.785pt>
+<AI_engine.png, id=932, 893.3375pt x 324.21124pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
 Package pdftex.def Info: AI_engine.png  used on input line 56.
-(pdftex.def)             Requested size: 373.89595pt x 238.8919pt.
- [57]
-Overfull \hbox (0.31195pt too wide) in paragraph at lines 88--102
+(pdftex.def)             Requested size: 384.12764pt x 139.40811pt.
+
+Overfull \hbox (3.42976pt too wide) in paragraph at lines 56--59
+[][] 
+ []
+
+[57 <./AI_engine.png>]
+Overfull \hbox (0.31195pt too wide) in paragraph at lines 89--103
 \T1/EBGaramond-OsF/regular/n/10.95 For-mula of Uni-ver-sal Law is a ``test of m
 oral worth rather than of out-ward right-ness'' ([][]O'Neill[][],
  []
 
-[58 <./AI_engine.png>] [59] [60] [61] [62] [63] [64] [65]
-
-Package natbib Warning: Citation `vanfraasen' on page 66 undefined on input lin
-e 345.
-
-[66] [67] [68] [69] [70] [71] [72]
-Overfull \hbox (7.29796pt too wide) in paragraph at lines 575--587
+[58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (7.29796pt too wide) in paragraph at lines 579--591
 []\T1/EBGaramond-OsF/regular/n/10.95 The above model of human-computer sym-bio-
 sis demon-strates how com-pu-ta-tional ethics
  []
 
-[73] [74] [75]
-
-LaTeX Warning: Reference `aiethics' on page 76 undefined on input line 676.
-
-[76]
-<inputparser.png, id=1109, 815.045pt x 540.0175pt>
+[73] [74] [75] [76]
+<inputparser.png, id=1115, 815.045pt x 540.0175pt>
 File: inputparser.png Graphic file (type png)
 <use inputparser.png>
-Package pdftex.def Info: inputparser.png  used on input line 719.
-(pdftex.def)             Requested size: 407.5215pt x 270.00809pt.
+Package pdftex.def Info: inputparser.png  used on input line 722.
+(pdftex.def)             Requested size: 383.0712pt x 253.80826pt.
 
-Overfull \hbox (26.82362pt too wide) in paragraph at lines 719--721
+Overfull \hbox (2.37332pt too wide) in paragraph at lines 722--724
  [][] 
  []
 
@@ -830,11 +826,8 @@ Overfull \hbox (31.96158pt too wide) in paragraph at lines 308--308
 
 [104] [105] [106] [107] [108]) [109] (./root.bbl [110] [111] [112] [113]
 [114] [115] [116] [117])
-
-Package natbib Warning: There were undefined citations.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 131.
-[118]
+ [118]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 131.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 131.
@@ -848,11 +841,11 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 131.
  ) 
 Here is how much of TeX's memory you used:
- 10390 strings out of 480608
- 152478 string characters out of 5903631
- 421225 words of memory out of 5000000
- 25699 multiletter control sequences out of 15000+600000
- 706930 words of font info for 115 fonts, out of 8000000 for 9000
+ 10396 strings out of 480608
+ 152570 string characters out of 5903631
+ 421280 words of memory out of 5000000
+ 25704 multiletter control sequences out of 15000+600000
+ 706507 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,67p,957b,635s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/ebgaramond/ebgm_ljow5q.en
@@ -884,10 +877,10 @@ nts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-
 super/sftt1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-su
 per/sftt1095.pfb>
-Output written on root.pdf (123 pages, 1087657 bytes).
+Output written on root.pdf (123 pages, 1046941 bytes).
 PDF statistics:
- 1610 PDF objects out of 1728 (max. 8388607)
- 1439 compressed objects within 15 object streams
- 328 named destinations out of 1000 (max. 500000)
+ 1621 PDF objects out of 1728 (max. 8388607)
+ 1450 compressed objects within 15 object streams
+ 330 named destinations out of 1000 (max. 500000)
  360 words of extra memory for PDF output out of 10000 (max. 10000000)
 

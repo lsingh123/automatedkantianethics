@@ -44,7 +44,7 @@ by defining it as $p \wedge \neg p$), then my system will output that truth tell
 Malicious common sense facts and definitions will result in bad ethical judgements. 
 The challenge of endowing automated ethical reasoners with common sense reasoning is not unique to my 
 system, and virtually all prior attempts in machine ethics face similar challenges.\footnote{See Section
-Related Work for a survey of the common sense required in prior work.} Many prior attempts
+\ref{relatedwork} for a survey of the common sense required in prior work.} Many prior attempts
 sidestep this question, whereas I contribute an prototype implementation of one kind of common sense reasoning.
 
 This chapter will provide examples of the kinds of common sense facts required to get my system
@@ -59,8 +59,8 @@ subsection \<open>Lies and Jokes \label{joking}\<close>
 
 text \<open>
 The moral status of lying is hotly debated in the Kantian literature. I focus on two dilemmas
-presented in Korsgaard's ``Right to Lie," which 
-examines how strict Kant's prohibition on lying is \citep{KorsgaardRTL}. She begins with the case of 
+presented in Korsgaard's ``Right to Lie,'' which 
+examines Kant's prohibition on lying \citep{KorsgaardRTL}. She begins with the case of 
 lying and joking. Many of Kant's critics argue that his prohibition on lies includes lies told in 
 the context of a joke, which should be permissible. Korsgaard responds by arguing 
 that there is a crucial difference between lying and joking: lies involve deception, but jokes do not. 
@@ -75,18 +75,17 @@ First, Korsgaard argues that the categorical imperative prohibits lies because t
 When universalized, lies will no longer be believed, so lying could never be an effective way of achieving 
 any goal when universalized. Korsgaard points out that ``we believe what is said to us in a given 
 context because most of the time people in that context say what they really think'' \citep[4]{KorsgaardRTL}. 
-In order to formalize this argument, I first need to define the relevant terms and assumptions, which include
-lying and Korsgaard's argument about the basis of trust.
+In order to formalize this argument, I first need to define lying and formalize Korsgaard's argument 
+about the basis of trust.
 
 I define lying and trust in terms of belief. As in Section \ref{details}, I choose thin, or minimal,
-definitions of terms like belief to reduce the potential for controversy in my system's factual background. 
+definitions to reduce the potential for controversy in my system's factual background. 
 \<close>
 
 consts believe::"s\<Rightarrow>t\<Rightarrow>t" ("_ believes _")
 \<comment>\<open>\texttt{believe} is a constant that maps a subject and a term to another DDL term. For example, 
 subject ``Sara'' might believe the term ``the sky is blue'' to create the sentence ``Sara believes
 that the sky is blue,'' which can be true or false at a world.\<close>
-
 text \<open> 
 Logicians and epistemologists develop and debate complex logics of belief and knowledge \citep{seplogicbelief}. 
 I avoid this complexity by defining the concept of belief simply as a constant that maps a subject, term pair 
@@ -140,7 +139,7 @@ involve decieving someone, or, in other words, that someone believe what the spe
 falsehood. 
 
 With the above logical background, I automate Korsgaard's argument that maxims that involve
-lying are prohibited. First, I define the subject and maxim at hand.\<close>
+lying are prohibited. First, I define the relevant subject and maxim.\<close>
 
 consts me::s
 \<comment>\<open>I am trying to reason about \emph{my} obligations so I will define myself as a specific subject. Again,
@@ -190,9 +189,10 @@ $\vDash prohibited \; m \; me$.\<close>
 qed
 
 text \<open>The lemma above demonstrates that my system finds that lying is prohibited with a thin definition
-of lying and relatively uncontroversial facts about the world. The logical background needed is the fact that lying
-requires knowingly uttering a falsehood with the goal that someone believe the falsehood, a definition
-of lying that is relatively well-accepted. The factual background needed consists of the fact that if 
+of lying and relatively uncontroversial facts about the world. My system needs two pieces of common 
+sense to complete this proof. First, I defined lying as knowingly uttering a falsehood with the goal 
+that someone believe the falsehood, a definition of lying that is relatively well-accepted. Second, I 
+assumed (following in Korsgaard's footsteps) that if 
 everyone lies in a given context, then people will stop believing each other in that context. This is 
 a slightly heavier assumption, but it is still so uncontroversial that Korsgaard doesn't bother to justify
 it in her argument against lying \citep{KorsgaardRTL}. 
@@ -283,7 +283,7 @@ of a maxim about uttering a falsehood being prohibited: that the goal require th
 the falsehood. This condition both made an long-standing argument in Kantian ethics more precise
 and can guide the correct formulation of future maxims. In other words, an insight generated by the 
 computer provides value to ethicists, bolstering the argument for computational ethics provided in 
-Section Computational Ethics.
+Section \ref{computationalethics}.
 \<close>
 
 subsection \<open>Lying to a Liar \label{murderer}\<close>
@@ -298,18 +298,19 @@ believe the lies and would search the house anyways. Korsgaard resolved this cen
 noting that the maxim of lying to a murderer is actually that of lying to a liar: Bill cannot 
 announce his intentions to murder; instead, he must ``must suppose that you do not know who he is 
 and what he has in mind'' \citep{KorsgaardRTL}.\footnote{Korsgaard assumes that the murderer will 
-lie about his identity in order to take advantage of your honesty to find his victim. In footnote 5 
-of \citep{KorsgaardRTL}, she accepts that her arguments will not apply in the case of the honest murderer 
+lie about his identity in order to take advantage of your honesty to find his victim. In footnote 5, 
+she accepts that her arguments will not apply in the case of the honest murderer 
 who announces his intentions, so she restricts her focus to the case of lying to a liar. She claims 
-that in the case of the honest murderer, the correct act is to refuse to respond.} Thus, the maxim 
+that in the case of the honest murderer, the correct act is to refuse to respond. Since I am formalizing
+Korsgaard's argument, I also accept this assumption.} Thus, the maxim 
 in question specifies that when someone lies to you, you are allowed to lie to them. The maxim of 
 lying to the murderer is actually the maxim of lying to a liar, which is permissible. 
 
-In this section, I formalize her argument for the permissibility of lying to a liar. First, I define
+In this section, I formalize Korsgaard's argument for the permissibility of lying to a liar. First, I define
 Bill's maxim, which is to hide his intention to murder.\<close>
 
 consts murderer::s
-\<comment>\<open>This example involves one additional subject: the murderer.\<close>
+\<comment>\<open>This example involves the murderer as an additional subject.\<close>
 consts not_a_murderer::t
 \<comment>\<open>This statement represents the lie that the murderer tells you. By not announcing his
 intention, he is implicitly telling you that he is not a murderer, as people normally assume that 
@@ -387,19 +388,19 @@ lemma lying_to_liar_permissible:
   assumes "\<Turnstile> (protect_victim \<^bold>\<rightarrow> (murderer believes victim_not_home))"
 \<comment>\<open>In order for you to protect the victim, the murderer must believe that the victim is not home.\<close>
   assumes "\<forall>sentence::t. \<forall>p1::s. \<forall>p2::s. \<forall>w::i. ((p1 believes (utter_falsehood p2 sentence)) w) \<longrightarrow> (\<not> (p1 believes sentence) w)"
-\<comment>\<open>This is one of two assumptions that encode Korsgaard's core argument. If person1 believes that person2 
-utters a sentence as a falsehood, then person1 won't believe that sentence. This is a modification of the 
+\<comment>\<open>This is one of two assumptions that encode Korsgaard's core argument. If $p1$ believes that $p2$ 
+utters a sentence as a falsehood, then $p1$ won't believe that sentence. This is a modification of the 
 convention of trust assumption from above, and I will refer to it as the ``convention of belief" assumption.
 Again, like the convention of trust assumption, this assumption is uncontroversial: if I think you are 
-saying a false sentence, then I won't believe that sentence.\<close>
-  assumes "\<forall>c a g w. (universalized (c, a, g) w) \<longrightarrow> ((person1 believes (person2 believes c)) \<^bold>\<rightarrow> (person1 believes (a person2))) w"
-\<comment>\<open>This is the second major common sense assumption. If the maxim (c, a, g) is universalized, then 
-if person1 believes that person2 believes they are in the given circumstances, then person1 believes 
-that person2 performs the act. In other words, person1 will believe that 
-person2 wills the maxim. I will refer to this as the ``convention of willing'' assumption. This follows
+lying, then I won't believe you.\<close>
+  assumes "\<forall>c a g w. \<forall>p1::s. \<forall>p2::s. (universalized (c, a, g) w) \<longrightarrow> ((p1 believes (p2 believes c)) \<^bold>\<rightarrow> (p1 believes (a p2))) w"
+\<comment>\<open>This is the second major common sense assumption. If the maxim $(c, a, g)$ is universalized, then 
+if $p1$ believes that $p2$ believes they are in the given circumstances, then $p1$ believes 
+that $p2$ performs the act. In other words, $p1$ will believe that 
+$p2$ wills the maxim. I will refer to this as the ``convention of willing'' assumption. This follows
 directly from Korsgaard's conception of universalizability: when a maxim is universalized, everyone 
-wills it and thus notices the pattern of everyone willing it. If you observe that many do X in circumstances C,
-you will assume that everyone does X in circumstance C.\<close>
+wills it and thus notices the pattern of everyone willing it. If you observe that many do $X$ in circumstances $C$,
+you will assume that everyone does $X$ in circumstance $C$.\<close>
   assumes "\<forall>w. murderer_at_door w"
 \<comment>\<open>Restrict our focus to worlds in which the circumstance of the murderer being at my door holds. 
 A technical detail. \<close>
@@ -440,8 +441,8 @@ text \<open>This concludes my examination of the maxim of lying to a liar. I was
 modifying the common sense facts used, my system can show that lying to a liar is permissible, but lying 
 in order to find a victim is not. The assumptions used in this example were a little more robust, but still
 ultimately uncontroversial because they were direct consequences of Korsgaard's definition of willing 
-and of ordinary definitions of lying. These thin assumptions were sufficient to generate moral conclusions
-that Kantian scholars debate robustly. Armed with this common sense, my system generated 
+and of ordinary definitions of lying. These thin assumptions were sufficient to recreate Korsgaard's solution
+to an open ethical problem. Armed with this common sense, my system generated 
 a conclusion that many critics of Kant prior to Korsgaard failed to see.\footnote{
 While it is true that lying to the murderer should be permissible, Korsgaard notes that many may want
 to say something stronger, like the fact that lying to the murderer is obligatory in order to protect
@@ -461,15 +462,15 @@ and difficulty of correctly formulating the maxim, particularly its circumstance
 Korsgaard's argument for the permissibility of lying to a 
 murderer hinged on a clever formulation of the maxim that highlights the fact that the murderer is lying to you.
 The need for common sense reasoning to evaluate the universalizability test and to formulate a maxim
-is a potential limitation of my system, and I adress this concern in Section \ref{whatisamaxim} and 
-Section Limitations.
+is a potential limitation of my system, and I adress this concern in Section \ref{AIethics}.
 
 On one hand, the need for common sense facts is a 
 limitation of my system. On the other, these examples show that common sense is within reach. Even thin, 
 uncontroversial definitions and assumptions are enough to achieve nuanced ethical judgements. Moreover, 
-these kinds of judgements demonstrate that, with additional work, my system could be used in pratice 
-to guide AI agents. A ``smart doorbell'' like those created by Ring may face a dilemma like that of 
-the murderer at the door. Such a doorbell equipped with a more application-ready version of my 
+these kinds of judgements demonstrate that, with additional work, my system could be used in practice 
+to guide AI agents. The idea of AI making decisions as in the dilemmas above may seem far-fetched, but
+such scenarios are already becoming reality. For example, a ``smart doorbell'' may face a dilemma like that of
+the murderer at the door. Such an AI agent equipped with a future version of my 
 system would be able to reason about lying to the murderer and arrive at the right judgement, guided by
 explainable, rigorous philosophical arguments.
 \<close>

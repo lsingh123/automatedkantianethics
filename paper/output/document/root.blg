@@ -3,7 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
 The style file: abbrvnat.bst
 Database file #1: root.bib
-Warning--I didn't find a database entry for "vanfraasen"
 Warning--empty booktitle in deon2
 Warning--empty year in deon1
 Warning--empty booktitle in util2
@@ -18,45 +17,45 @@ Warning--there's a number but no volume in tafani
 Warning--empty journal in verge
 Warning--empty booktitle in winfield
 Warning--empty booktitle in constitution
-You've used 93 entries,
+You've used 95 entries,
             2773 wiz_defined-function locations,
-            1208 strings with 19157 characters,
-and the built_in function-call counts, 38103 in all, are:
-= -- 3483
-> -- 1661
-< -- 90
-+ -- 587
-- -- 494
-* -- 2729
-:= -- 5922
-add.period$ -- 366
-call.type$ -- 93
-change.case$ -- 428
-chr.to.int$ -- 93
-cite$ -- 200
-duplicate$ -- 2007
-empty$ -- 3482
-format.name$ -- 629
-if$ -- 8126
+            1217 strings with 19304 characters,
+and the built_in function-call counts, 38791 in all, are:
+= -- 3547
+> -- 1681
+< -- 92
++ -- 595
+- -- 500
+* -- 2773
+:= -- 6026
+add.period$ -- 372
+call.type$ -- 95
+change.case$ -- 436
+chr.to.int$ -- 95
+cite$ -- 204
+duplicate$ -- 2042
+empty$ -- 3554
+format.name$ -- 637
+if$ -- 8272
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 108
-newline$ -- 547
-num.names$ -- 390
-pop$ -- 936
+missing$ -- 109
+newline$ -- 557
+num.names$ -- 398
+pop$ -- 955
 preamble$ -- 1
-purify$ -- 347
+purify$ -- 353
 quote$ -- 0
-skip$ -- 1392
+skip$ -- 1419
 stack$ -- 0
-substring$ -- 1121
-swap$ -- 212
+substring$ -- 1150
+swap$ -- 214
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 923
+type$ -- 945
 warning$ -- 14
-while$ -- 360
+while$ -- 368
 width$ -- 0
-write$ -- 1346
-(There were 15 warnings)
+write$ -- 1371
+(There were 14 warnings)

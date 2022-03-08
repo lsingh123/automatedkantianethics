@@ -1,4 +1,4 @@
-\begin{thebibliography}{93}
+\begin{thebibliography}{95}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -216,6 +216,13 @@ V.~Eubanks.
 P.~Foot.
 \newblock The problem of abortion and the doctrine of the double effect.
 \newblock \emph{Oxford Review}, 5:\penalty0 5--15, 1967.
+
+\bibitem[Fraassen(1984)]{vanfraassen}
+B.~C.~V. Fraassen.
+\newblock Belief and the will.
+\newblock \emph{Journal of Philosophy}, 81\penalty0 (5):\penalty0 235--256,
+  1984.
+\newblock \doi{10.2307/2026388}.
 
 \bibitem[Fuenmayor and Benzmüller(2018)]{gewirth}
 D.~Fuenmayor and C.~Benzmüller.
@@ -542,6 +549,10 @@ A.~Stephenson, M.~Sergot, and R.~Evans.
   permissives.
 \newblock \emph{Journal of Philosophical Logic}, 49, November 2019.
 \newblock URL \url{https://eprints.soton.ac.uk/432344/}.
+
+\bibitem[Sweeney(2013)]{sweeney}
+L.~Sweeney.
+\newblock Discrimination in online ad delivery, 2013.
 
 \bibitem[Tafani(2021)]{tafani}
 D.~Tafani.
