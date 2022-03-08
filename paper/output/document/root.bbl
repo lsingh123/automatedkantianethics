@@ -1,4 +1,4 @@
-\begin{thebibliography}{94}
+\begin{thebibliography}{93}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -382,17 +382,12 @@ G.~W. Leibniz.
   Historical Library, pages 229--234. Springer Netherlands, Dordrecht.
 \newblock ISBN 9789027706935.
 
-\bibitem[Lewis(1973{\natexlab{a}})]{lewiscausality}
+\bibitem[Lewis(1973)]{lewiscausality}
 D.~Lewis.
 \newblock Causation.
 \newblock \emph{Journal of Philosophy}, 70\penalty0 (17):\penalty0 556--567,
-  1973{\natexlab{a}}.
+  1973.
 \newblock \doi{10.2307/2025310}.
-
-\bibitem[Lewis(1973{\natexlab{b}})]{lewiscounterfactuals}
-D.~Lewis.
-\newblock \emph{Counterfactuals}.
-\newblock Blackwell, 1973{\natexlab{b}}.
 
 \bibitem[Licklider(1960)]{licklider}
 J.~C.~R. Licklider.

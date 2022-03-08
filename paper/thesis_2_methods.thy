@@ -206,11 +206,11 @@ I will extend this argument to general bottom-up approaches in Section \ref{rela
 
 subsubsection \<open>Kantian Ethics \label{kantianethics}\<close>
 
-text \<open>In this paper I focus on Kantian ethics. Kant's theory is centered 
+text \<open>Kant's theory is centered 
 on practical reason, which is the kind of reason that we 
 use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
 rational beings are unique because we act ``in accordance with 
-the representations of laws'' \citep[4:412]{groundwork}. A ball thrown into the air acts 
+the representations of laws'' \citep[26]{groundwork}.\footnote{} A ball thrown into the air acts 
 according to the laws of physics. It cannot ask itself, ``Should I fall back to the ground?'' 
 It simply falls. A rational being, on the other hand, can ask, ``Should I act on this reason?"''
 As Korsgaard describes it, when choosing which desire to act on, ``it is as if there is something over 
@@ -221,7 +221,7 @@ opaque to us. This reflective choosing, or operation of practical reason, is wha
 
 The will operates by adopting or willing maxims, which are its perceived reasons for acting. Kant defines a maxim as 
 the ``subjective principle of willing,'' or the reason that the will \emph{subjectively} gives 
-to itself for acting \citep[16 footnote 1]{groundwork}. Many philosophers agree that a maxim consists 
+to itself for acting \citep[16, footnote 1]{groundwork}. Many philosophers agree that a maxim consists 
 of some combination of circumstances, 
 act, and goal.\footnote{For more discussion of the definition of a maxim, see Section \ref{whatisamaxim}.}
 One example of a maxim is ``When I am hungry, I will eat a doughnut in order to satisfy my sweet tooth.''

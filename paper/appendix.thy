@@ -233,7 +233,7 @@ text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<r
 subsection \<open>Kroy's formalization of the FUL \label{sec: kroy_ful}\<close>
 
 text \<open>I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL says
-``act only in accordance with that maxim which you can at the same time will a universal law'' \citep{groundwork}.
+``act only in accordance with that maxim which you can at the same time will a universal law'' \citep[34]{groundwork}.
 Kroy interprets this to mean that if an action is permissible for a specific agent, then it must be permissible for everyone.
 This formalizes the moral intuition prohibiting free-riding. According to the categorical imperative, 
 no one is a moral exception.
@@ -451,7 +451,7 @@ lemma step3:
         His formalization interprets the FUL as prohibiting A if there is someone for whom 
         $A$'ing is not permissible. This requires some preexisting notion of the permissibility of $A$, and 
         is thus circuar. The categorical imperative is supposed to be the complete,
-        self-contained rule of morality @{cite groundwork}, but Kroy's version of the FUL prescribes obligations 
+        self-contained rule of morality, but Kroy's version of the FUL prescribes obligations 
         in a self-referencing manner. The FUL is supposed to define what is permissible and what isn't, 
         but Kroy defines permissibility in terms of itself.
         
