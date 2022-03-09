@@ -27,7 +27,7 @@ Machine ethicists recognize the need for automated ethics and have made both the
 (\citep{moralmachineonline}, \citep{davenport}, \citep{moralmachine}, \citep{gabriel}) and practical progress 
 (\citep{logicprogramming}, \citep{biology}, \citep{delphi}, \citep{winfield}) towards automating ethics. 
 However, prior work in machine ethics using popular ethical theories like deontology (\citep{deon2}, \citep{deon1}), 
-consequentialism (\citep{util1}, \citep{util2}, \citep{cloos}), and virtue ethics \citep{berberich} rarely 
+consequentialism (\citep{util1}, \citep{util2}, \citep{cloos}), and virtue ethics \citep{virtue2} rarely 
 engages with philosophical literature and thus often misses philosophers' insights. Even the above example of 
 the malfunctioning self-driving car is an instance of Phillipa Foot's trolley problem, 
 in which a bystander watching a runaway trolley can pull a lever to kill one instead of three \citep{foot}. 

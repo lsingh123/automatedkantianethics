@@ -7,15 +7,15 @@ text \<open> AI agents are beginning to make decisions without human supervision
 contexts like healthcare, policing, and driving. These decisions are inevitably ethically tinged, 
 but most AI agents navigating the world today are not explicitly guided by ethics.
 Regulators, philosophers, and computer scientists are raising the alarm about the 
-dangers of unethical artificial intelligence, from science-fiction killer robots to criminal
+dangers of unethical artificial intelligence, from lethal autonomous weapons to criminal
 sentencing algorithms prejudiced against people of color. This is spurring interest in automated ethics, or the development 
-of machines that can perform ethical reasoning. Much prior work in automated ethics approaches the 
-problem from a computational perspective and rarely engages with philosophical literature on ethics, despite
-its relevance to the development of AI agents that can
+of machines that can perform ethical reasoning. Prior work in automated ethics rarely engages with
+philosophical literature on ethics, despite its relevance to the development of AI agents that can
 responsibly navigate the world. If automated ethics draws on sophisticated philosophical literature, the ethical reasoning
-underlying such decisions will be more nuanced, precise, consistent, and trustworthy. However, faithfully translating complex ethical theories
-from natural language to the rigid syntax of a computer program poses technical and philosophical 
-challenges. 
+underlying its decisions will be more nuanced, precise, and trustworthy because it will
+take advantage of philosophical progress in developing consistent, mature ethical theories. However, 
+faithfully translating complex ethical theories from natural language to the rigid syntax of a computer
+program poses technical and philosophical challenges. 
 
 In this thesis, I present an implementation of automated Kantian
 ethics that is faithful to the Kantian philosophical tradition. Given an appropriately represented 

@@ -2,7 +2,7 @@
 (*<*) theory appendix_2 imports paper41
 
 begin (*>*)
-section \<open>Testing Un-Universalizable Actions \label{weirdtests}\<close>
+section \<open>Testing Actions That Are Impossible to Universalize \label{weirdtests}\<close>
 
 text \<open>I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
 to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
@@ -172,73 +172,7 @@ Nitpick found a counterexample for card i = 1 and card s = 1:
 \color{black}
 \<close>
 
-section \<open>Other Uses of Computational Ethics\<close>
-subsection \<open>Ethics for Ordinary People \label{ordinaryhumans}\<close>
-
-text \<open>Ethics has immediate bearing on everyone’s lives because it studies the unavoidable question: 
-how should we live? If computers can make this study more efficient, then it seems that everyone should
-engage in computational ethics. As Cornel West says, the ethical question is the only question that 
-we answer merely by living. To turn away from ethics is to take a stance on the question of how to 
-live (namely, to live unreflectively) and thus to engage in ethics. Ethical truths are valuable because 
-they tell us how to live. Every rational being must decide how to navigate the world and ethical 
-truths answer these questions. If the results of ethical study is practically valuable, then automated 
-ethics is good because computational tools can help us locate ethical prescriptions and theories more efficiently. 
-In the most extreme case, we can unthinkingly follow the commands of an ethical calculator that dictates 
-how we should live. Computers can answer the unavoidable question for us.
-
-Placing the value of ethics solely in its action-guiding potential fails to take into account the 
-importance of practical reason, which, as I argued in Section Why Kant, is the source
-of freedom itself. 
-We are committed to ethical reflection because of the kind of beings that we are. Recall that Korsgaard 
-argues that, as beings occupying minds with a reflective structure, when faced with a choice, “it is as if there 
-were something over and above all of your desires, something that is you, and that chooses which desire 
-to act on” (Sources 83). This choosing is the operation of practical reason, and this reflection
-makes us free. We are free because we must choose which reasons to act on. Every decision that we 
-make is an exercise of freedom. 
-
-If reflecting makes us free, then unthinkingly obeying the computer sacrifices our autonomy. Consider 
-the thought experiment of an Ethics Oracle that can unfailingly tell you the right thing to do in any 
-situation.\footnote{This example is inspired by the Pocket Oracle presented in \citet{bok}.} Someone 
-who surrenders themselves to this Oracle unthinkingly follows its prescriptions. 
-There is some reflection involved in the decision to obey each of the Oracle’s prescriptions, but 
-this is a thin kind of reflection \citep{bok}. This person is not reflecting on the real matters at hand and is 
-not making decisions for themselves. They have surrendered their reflective capacity to the Oracle. 
-They live a worse life than someone who reflects on their actions; they have less ownership over their 
-actions than the reflective person. In a less extreme case, a person may retain control of many of 
-their decisions but cede some important or tricky choices to the Ethics Oracle. Because every single 
-exercise of practical reason is an exercise of autonomy, this person is still less autonomous than the 
-purely reflective person. Even surrendering simple, inconsequential decisions such as which flavor of 
-coffee to drink surrenders some piece of our autonomy. Perhaps in trivial cases we can accept that 
-tiny sacrifice in autonomy, but giving over life-changing decisions to the machine sacrifices our 
-core freedom. Unreflectively relying on computational ethics surrenders our autonomy to the machine. 
-
-One objection to this emphasis on reflection is the impracticality of making ethical calculations from first principles 
-every time we are faced with a decision. This is why we follow the advice of moral mentors, like our 
-family or influential philosophers. These moral mentors differ from the Ethics Oracle because their advice 
-comes with an argument justifying it; if human-computer symbiotic computational ethics also prompts 
-reflection on the prescriptions given, it can also guide action without sacrificing autonomy.
-Most people do not reason about ethics during everyday decisions; they rely on some combination of 
-prior knowledge and external testimony. For example, my mother taught me to respect myself, and I 
-follow her advice. What is the difference between following the guidance of a moral educator and 
-obeying the Ethics Oracle? The best kind of ethical advice prompts reflection, such as an argument 
-made in a philosophy paper. Unthinkingly following someone’s advice results in the same loss of 
-autonomy as unthinkingly obeying the Ethics Oracle; people who merely obey orders are less autonomous 
-than those who think for themselves.\footnote{This might be worrying....does this mean that soldiers who are
-following orders to commit atrocities are less responsible than those giving the orders? Wait 
-maybe that's true.} This account of moral advice offers a model for human-computer 
-symbiotic ethics. The computer should serve as a moral guide by providing arguments, just as my mom 
-explained why I should always respect myself. Human-computer symbiotic 
-ethics nurtures autonomy when it not only offers prescriptions for action, but also explanations for 
-these prescriptions. Because my theorem-prover-based computational ethical system is explainable, it can 
-guide action without sacrificing autonomy. It can make an argument for some action, instead of 
-merely giving a verdict. Isabelle can list the facts used to show
-a partcular action prohibited, and a human being can reflect on whether or not these principles
-indeed prohibit the action in question. The computer serves as a collaborator and a tool, but not as an authority, 
-so the human being’s reflective capacity and freedom is preserved. 
-\<close>
-
-subsection \<open>Academic Ethics \label{academicphilosophy}\<close>
-
+section \<open>Computational Academic Ethics\<close>
 text \<open>
 There are two potential sources of the value of academic philosophy: the ethical truths uncovered and 
 the process of a philosopher discovering these truths. Under the first view, academic philosophy is 

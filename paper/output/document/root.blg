@@ -1,61 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: root.aux
-The style file: abbrvnat.bst
+The style file: agsm.bst
 Database file #1: root.bib
-Warning--empty booktitle in deon2
-Warning--empty year in deon1
-Warning--empty booktitle in util2
-Warning--empty booktitle in godelincon
-Warning--empty journal in dietrichson
-Warning--can't use both author and editor fields in metaphysicsintro
-Warning--empty year in leibniz
-Warning--empty year in leibniz
-Warning--empty publisher in lin
-Warning--empty booktitle in sledgehammer
-Warning--there's a number but no volume in tafani
-Warning--empty journal in verge
-Warning--empty booktitle in winfield
-Warning--empty booktitle in constitution
 You've used 95 entries,
-            2773 wiz_defined-function locations,
-            1217 strings with 19304 characters,
-and the built_in function-call counts, 38791 in all, are:
-= -- 3547
-> -- 1681
-< -- 92
-+ -- 595
-- -- 500
-* -- 2773
-:= -- 6026
-add.period$ -- 372
+            2909 wiz_defined-function locations,
+            1211 strings with 18467 characters,
+and the built_in function-call counts, 304584 in all, are:
+= -- 48737
+> -- 3860
+< -- 4
++ -- 22582
+- -- 1152
+* -- 25450
+:= -- 62769
+add.period$ -- 97
 call.type$ -- 95
-change.case$ -- 436
+change.case$ -- 1318
 chr.to.int$ -- 95
-cite$ -- 204
-duplicate$ -- 2042
-empty$ -- 3554
-format.name$ -- 637
-if$ -- 8272
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 109
-newline$ -- 557
-num.names$ -- 398
-pop$ -- 955
+cite$ -- 95
+duplicate$ -- 1587
+empty$ -- 3102
+format.name$ -- 1443
+if$ -- 54477
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 106
+newline$ -- 314
+num.names$ -- 985
+pop$ -- 515
 preamble$ -- 1
-purify$ -- 353
+purify$ -- 1425
 quote$ -- 0
-skip$ -- 1419
+skip$ -- 1248
 stack$ -- 0
-substring$ -- 1150
-swap$ -- 214
-text.length$ -- 14
+substring$ -- 67840
+swap$ -- 293
+text.length$ -- 1334
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 945
-warning$ -- 14
-while$ -- 368
+type$ -- 340
+warning$ -- 0
+while$ -- 2079
 width$ -- 0
-write$ -- 1371
-(There were 14 warnings)
+write$ -- 1236

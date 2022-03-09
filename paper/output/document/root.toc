@@ -22,22 +22,19 @@
 \contentsline {section}{\numberline {5}Discussion}{57}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Automated Moral Agents in Practice }{57}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Computational Ethics }{61}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Example of a Philosophical Insight: Well-Formed Maxims}{62}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1}Example of a Philosophical Insight: Well-Formed Maxims}{61}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{68}{subsubsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.3}Automating Ordinary Ethical Reasoning }{70}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Theoretical Objections to Automating Kantian Ethics }{73}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Related Work }{79}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Conclusion}{81}{subsection.5.6}%
-\contentsline {section}{\numberline {A}Appendix: Alternate Definitions of a Maxim }{83}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{83}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kitcher's View on Motives}{84}{subsection.a.A.2}%
-\contentsline {section}{\numberline {B}Kroy's Formalization}{85}{appendix.a.B}%
-\contentsline {subsection}{\numberline {B.1}Logical Background }{85}{subsection.a.B.1}%
-\contentsline {subsection}{\numberline {B.2}Kroy's formalization of the FUL }{88}{subsection.a.B.2}%
-\contentsline {subsection}{\numberline {B.3}Testing Kroy's Formalization}{89}{subsection.a.B.3}%
-\contentsline {subsection}{\numberline {B.4}Metaethical Tests }{94}{subsection.a.B.4}%
-\contentsline {subsection}{\numberline {B.5}Miscellaneous Tests }{97}{subsection.a.B.5}%
-\contentsline {section}{\numberline {C}Testing Un-Universalizable Actions }{99}{appendix.a.C}%
-\contentsline {section}{\numberline {D}Other Uses of Computational Ethics}{104}{appendix.a.D}%
-\contentsline {subsection}{\numberline {D.1}Ethics for Ordinary People }{105}{subsection.a.D.1}%
-\contentsline {subsection}{\numberline {D.2}Academic Ethics }{107}{subsection.a.D.2}%
+\contentsline {subsection}{\numberline {5.5}Related Work }{78}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Conclusion}{80}{subsection.5.6}%
+\contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{92}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{92}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kitcher's View on Motives}{93}{subsection.a.A.2}%
+\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{94}{appendix.a.B}%
+\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{94}{subsection.a.B.1}%
+\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{98}{subsection.a.B.2}%
+\contentsline {section}{Appendix \numberline {C}Testing Un-Universalizable Actions }{105}{appendix.a.C}%
+\contentsline {section}{Appendix \numberline {D}Other Uses of Computational Ethics}{110}{appendix.a.D}%
+\contentsline {subsection}{\numberline {D.1}Ethics for Ordinary People }{110}{subsection.a.D.1}%
+\contentsline {subsection}{\numberline {D.2}Academic Ethics }{112}{subsection.a.D.2}%

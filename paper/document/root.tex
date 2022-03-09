@@ -6,7 +6,8 @@
 \usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{amsthm}
-\bibliographystyle{abbrvnat}
+\usepackage{url}
+\bibliographystyle{agsm}
 \setcitestyle{authoryear,open={(},close={)}}
 \normalfont
 \setlength\parindent{24pt}
@@ -14,8 +15,7 @@
 \usepackage{setspace}
 \usepackage{geometry}
 \geometry{margin=1.5in}
-\usepackage[title]{appendix}
-
+\usepackage[title, titletoc]{appendix}
 \usepackage{titlesec}
 \usepackage{xcolor}
 \interfootnotelinepenalty=10000
@@ -93,7 +93,10 @@
 \pagenumbering{gobble}
 \newpage
 
-\tableofcontents
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
 
 \newpage 
 % sane default for proof documents
@@ -119,15 +122,15 @@
 \newpage
 \input{thesis_5_discussion}
 \newpage
+\bibliography{root}
+\newpage
 \begin{appendices}
 \input{appendix}
 \input{appendix_2}
 \end{appendices}
 
 
-\newpage
-% optional bibliography
-\bibliography{root}
+
 \end{document}
 
 %%% Local Variables:
