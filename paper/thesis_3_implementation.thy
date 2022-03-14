@@ -14,7 +14,7 @@ is obligated to do B.'' I also present a testing framework to evaluate how faith
 to philosophical literature. This testing framework shows that my system outperforms unmodified DDL 
 (a control group) and Moshe Kroy's prior formalization of the FUL \citep{kroy}.\<close>
 
-subsection "Formalization and Implementation of the FUL"
+subsection \<open>Formalization and Implementation of the FUL \label{implementation31}\<close>
 
 text \<open>Formalizing the FUL requires implementing enough logical background to represent 
 the FUL as an axiom. Dyadic Deontic Logic can express obligation and prohibition, but it cannot 
@@ -593,9 +593,15 @@ literature enables my system to make more reliable judgements.
 
 text \<open>\noindent \textbf{Can Prohibit Conventional and Natural Acts} When arguing for the practical contradiction interpretation,
 Korsgaard makes a distinction between conventional and natural acts \citep{KorsgaardFUL}. 
-A conventional act like promising relies on a convention, like the 
+A conventional act relies on a convention, like the 
 convention that a promise is a commitment, whereas a natural act is possible simply because of the laws 
-of the natural world. It is easier to show the wrongness of conventional acts because there are worlds 
+of the natural world. Conventional acts exist within a practice, which is ``comprised of certain rules, 
+and its existence (where it is not embodied in an institution with sanctions) consists in the general 
+acknowledgement and following of those rules'' \cite[10]{KorsgaardFUL}. Promising is a conventional act 
+because it exists as a practice. Murder, on the other hand, is an example of a natural act because 
+its existence only depends on the laws of nature\cite[11]{KorsgaardFUL}.
+
+It is easier to show the wrongness of conventional acts because there are worlds
 in which these acts are impossible; namely, worlds in which the convention does not exist. For example, 
 the common argument against falsely promising is that if everyone were to falsely promise, the convention 
 of promising would fall apart because people wouldn't believe each other, so falsely promising is prohibited. 

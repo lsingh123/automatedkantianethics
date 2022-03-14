@@ -21,9 +21,11 @@ Anderson, M. \harvardand\ Anderson, S.  \harvardyearleft 2014\harvardyearright
 Anderson, M., Anderson, S. \harvardand\ Armen, C.  \harvardyearleft
   2004\harvardyearright , `Towards machine ethics'.
 
-\harvarditem{Anderson \harvardand\ Anderson}{n.d.}{deon1}
+\harvarditem{Anderson \harvardand\ Anderson}{2008}{deon1}
 Anderson, M. \harvardand\ Anderson, S.~L.  \harvardyearleft
-  n.d.\harvardyearright , `Ethel: Toward a principled ethical eldercare robot'.
+  2008\harvardyearright , Ethel: Toward a principled ethical eldercare system,
+  {\em in} `AAAI Fall Symposium: AI in Eldercare: New Solutions to Old
+  Problems'.
 
 \harvarditem{Aristotle}{1951}{aristotle}
 Aristotle  \harvardyearleft 1951\harvardyearright , `The nicomachean ethics',
@@ -84,11 +86,6 @@ Benzm{\"{u}}ller, C., Parent, X. \harvardand\ van~der Torre, L. W.~N.
   ethical reasoning: Formal framework, methodology, and tool support', {\em
   CoRR} {\bf abs/1903.10187}.
 \newline\harvardurl{http://arxiv.org/abs/1903.10187}
-
-\harvarditem{Benzm\"{u}ller \harvardand\ Woltzenlogel~Paleo}{2016}{godelincon}
-Benzm\"{u}ller, C. \harvardand\ Woltzenlogel~Paleo, B.  \harvardyearleft
-  2016\harvardyearright , `The inconsistency in g\"{o}del's ontological
-  argument: A success story for ai in metaphysics'.
 
 \harvarditem{Berberich \harvardand\ Diepold}{2018}{virtue2}
 Berberich, N. \harvardand\ Diepold, K.  \harvardyearleft 2018\harvardyearright
@@ -330,6 +327,12 @@ Lin, P., Abney, K. \harvardand\ Bekey, G.~A.  \harvardyearleft
 \harvarditem{Lukowicz}{2019}{loop}
 Lukowicz, P.  \harvardyearleft 2019\harvardyearright , `The challenge of human
   centric ai', {\em Digitale Welt} {\bf 3},~9--10.
+
+\harvarditem{McNamara \harvardand\ Van De~Putte}{2021}{sep-logic-deontic}
+McNamara, P. \harvardand\ Van De~Putte, F.  \harvardyearleft
+  2021\harvardyearright , {Deontic Logic}, {\em in} E.~N. Zalta, ed., `The
+  {Stanford} Encyclopedia of Philosophy', spring 2021 edn, Metaphysics Research
+  Lab, Stanford University.
 
 \harvarditem{McRae}{2013}{mcrae}
 McRae, E.  \harvardyearleft 2013\harvardyearright , `Equanimity and intimacy: A

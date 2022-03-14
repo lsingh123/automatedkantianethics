@@ -34,7 +34,7 @@
 %
 \begin{isamarkuptext}%
 As AI agents become more sophisticated and less dependent on humans, interest begins to mount
-in the development of computers that can perform ethical reasoning, also known as automated moral agents. 
+in the development of automated moral agents, or computers that can perform ethical reasoning. 
 AI agents are making decisions in increasingly 
 consequential contexts, such as healthcare, driving, and criminal sentencing, and therefore 
 must perform ethical reasoning in order to navigate moral dilemmas. For example, self-driving
@@ -48,8 +48,8 @@ ethical implications without explicitly performing ethical
 reasoning, in many cases they do so without human supervision. For example, the Alleghany Family Screening 
 tool can automatically trigger an investigation into a potential case of child neglect, a decision that 
 can uproot entire families and is known to be biased against poor people of color \citep{eubanks}. 
-This motivates the need for machine ethics (also called automated ethics), 
-or the study of how to develop machines that can perform robust, sophisticated ethical reasoning. 
+This motivates the need for automated ethics (also called machine ethics), 
+or the development of machines that can perform robust, sophisticated ethical reasoning. 
 
 Machine ethicists recognize the need for automated ethics and have made both theoretical 
 (\citep{moralmachineonline}, \citep{davenport}, \citep{moralmachine}, \citep{gabriel}) and practical progress 
@@ -73,11 +73,11 @@ Early versions of Delphi gave unexpected results, such as declaring that the use
 genocide if it makes everyone happy \citep{verge}. Moreover, because no explicit ethical theory underpins 
 Delphi's judgements, human beings cannot analytically determine why Delphi thinks genocide is obligatory
 or where its reasoning may have gone wrong. 
-Machine learning approaches like Delphi often cannot explain their decisions to a human being and, 
-in the extreme case, are black box algorithms. This reduces human trust in a machine's controversial 
-ethical judgements. If a machine prescribes killing one person to save three without justifying this 
-decision, it is difficult to trust this judgement. 
-The high stakes of automated ethics require explainability to build trust and catch mistakes. 
+Machine learning approaches like Delphi often cannot explain their decisions to a human being, reducing
+human trust in a machine's controversial ethical judgements. If a machine prescribes killing one person 
+to save three without rigorously justifying this decision, it is difficult to trust this judgement. 
+The high stakes of automated ethics require explainability to build trust and catch mistakes, which
+motivates philosophically faithful automated ethics.
 
 While automated ethics should draw on philosophical literature, in practice, automating an ethical 
 theory is a technical and philosophical challenge. Intuitive computational approaches explored 
@@ -86,18 +86,23 @@ learning algorithm \citep{util1}, fail to capture philosophically plausible ethi
 example, encoding ethics as a Markov Decision Process assumes that ethical reward can be aggregated 
 according to some discounted sum\footnote{Markov Decision Processes usually assume that the total
 reward of a system is the discounted sum of the reward at each state, given by $r_i$. Formally, total
-reward $R=\sum_0^{\infty}\gamma^ir_i$.}, but many philosophers reject this notion of aggregation \citep{consequentialismsep}. 
+reward $R=\sum_0^{\infty}\gamma^ir_i$ for some $\gamma \leq 1$.}, but many philosophers reject 
+this notion of aggregation \citep{consequentialismsep}. 
 On the other hand, approaches that begin with an ethical theory, instead of a computational method, must contend with the 
 fact that ethical theories are almost always described in natural language and must be made
 precise enough to represent to a computer. Even once ethics is translated from natural 
 language to program syntax, the factual background given to the machine, such as the description of 
 an ethical dilemma, plays a great role in the machine's decisions. Another complication
-is that philosophers do not agree that on a single choice of ethical theory. Even philosophers who
-agree that a specific ethical theory, like Kantian ethics, is true, still debate the theory's 
-details.\footnote{For examples of these debates in the case of Kantian ethics, see Section Joking
-and Section Murderer.} Moreover, even once reasoning within a 
+is that philosophers do not agree on a single choice of ethical theory. Even philosophers who
+subscribe to a specific ethical theory still debate the theory's 
+details.\footnote{I give examples of such debates within Kantian ethics in Sections \ref{whatisamaxim}, 
+\ref{praccon}, \ref{joking}, and \ref{murderer}.} Moreover, even once reasoning within a 
 particular ethical theory is automated, those who disagree with that theory will disagree with the 
 system's judgements.
+
+\noindent \textbf{Contributions}
+
+\medskip 
 
 This thesis presents a proof-of-concept implementation of philosophically faithful automated Kantian ethics. 
 I formalize Kant's categorical imperative, or moral rule, as an axiom 
@@ -116,93 +121,109 @@ make the following contributions:%
 \item In Section \ref{whykant}, I make a philosophical argument for why Kantian ethics is the most natural of the three major
 ethical traditions (deontology, virtue ethics, utilitarianism) to formalize.
 
-\item In Section \ref{details}, I present a formalization of the practical contradiction interpretation of Kant's 
+\item In Section \ref{implementation31}, I present a formalization of the practical contradiction interpretation of Kant's 
 Formula of Universal Law in Dyadic Deontic Logic. I implement this formalization in the Isabelle/HOL
 theorem prover. My implementation includes axioms and definitions such that my system, when given an appropriately
-represented input, can prove that the input is permissible, obligatory, or prohibited. It can also return
-a list of facts used in the proof and, in some cases, an Isar-style human readable proof. 
+represented input, can prove that the input action is permissible, obligatory, or prohibited. It can also return
+a list of facts used in the proof and, in some cases, a human readable proof. 
+
+\item In Section \ref{testing}, I present a testing framework that can evaluate how faithful an implementation 
+of automated Kantian ethics is, inspired by philosophical literature. This testing framework shows that 
+my formalization substantially improves on prior attempts to formalize Kantian ethics. 
 
 \item In Sections \ref{joking} and \ref{murderer}, I demonstrate my system's power and flexibility by 
 using it to produce nuanced answers to two well-known Kantian ethical dilemmas. I show that, because 
 my system draws on definitions of Kantian ethics presented in philosophical literature, it is able 
-to perform sophisticated moral reasoning. 
+to perform sophisticated moral reasoning with minimal factual or situational context. 
 
-\item In Section \ref{testing}, I present a testing framework that can evaluate how faithful an implementation 
-of automated Kantian ethics is. My framework includes meta-ethical tests and application tests inspired by philosophical
-literature. This testing framework shows that my formalization substantially improves on prior work and can 
-be generalized to evaluate any implementation of automated Kantian ethics.
-
-\item In Section \ref{computationalethics}, I present new ethical insights discovered using my system and argue that
-computational methods like the one presented in this paper can help philosophers address ethical problems.
+\item In Section \ref{computationalethics}, I present ethical insights discovered using my system and argue that
+computational methods like the one presented in this thesis can help philosophers address ethical problems.
 Not only can my system help machines reason about ethics, but it can also help philosophers make philosophical
-progress.
+progress, just as computational tools unlock discoveries in fields like protein folding and drug discovery.
 \end{enumerate}%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Deontic logic is a modal logic that can express obligation, or morally binding requirements. Traditional modal 
-logics include the necessitation operator, denoted as $\Box$. In modal logic using the Kripke semantics, 
+\noindent \textbf{Automated Kantian Ethics}
+
+\medskip 
+
+My implementation of automated Kantian ethics formalizes Kant's moral rule
+in Deontic logic, a modal logic that can express obligation, or morally binding requirements. Traditional modal 
+logics include the necessitation operator, denoted as $\Box$. Using the Kripke semantics, 
 $\Box p$ is true at world $w$ if $p$ is true at all worlds that neighbor $w$ \citep{cresswell}. Modal 
 logics  also contain the possibility operator $\diamond$, where $\diamond \, p \longleftrightarrow \neg (\Box (\neg p))$ 
-and operators of propositional logic like $\neg, \wedge, \vee, \rightarrow$. I use DDL, in which
+and operators of propositional logic like $\neg, \wedge, \vee, \rightarrow$. Standard deontic logic (SDL) 
+replaces $\Box$ with the obligation operator $O$, where $O \, p$ is true at $w$ 
+if $p$ is true at all morally perfect versions of $w$ \citep{sep-logic-deontic}. While SDL is appreciable for its simplicity, 
+in situations where duty is violated, the logic breaks down and produces paradoxical results.\footnote{The 
+paradigm case of a contrary-to-duty paradox is the 
+Chisholm paradox. Consider the following statements: \begin{enumerate}
+\item It ought to be that Tom helps his neighbors
+\item It ought to be that if Tom helps his neighbors, he tells them he is coming
+\item If Tom does not help his neighbors, he ought not tell them that he is coming
+\item Tom does not help his neighbors
+\end{enumerate} 
+These premises contradict themselves, because items (2)-(4) imply that Tom ought not help his neighbors. The 
+contradiction results because the logic cannot handle violations of duty mixed with
+conditionals. \citep{chisholm, ctd}
+} To escape such issues, I use Dyadic Deontic Logic, in which
 the dyadic obligation operator $O\{A \vert B\}$ represents the sentence ``A is obligated in the context B.'' 
-The introduction of context allows DDL to express more nuanced reasoning. DDL is both deontic and modal, 
+The introduction of context allows DDL to express more nuanced reasoning and avoid contrary-to-duty
+paradoxes. DDL is both deontic and modal, 
 so sentences like $O\{A \vert B\}$ are terms that can be true or false at a world. For example, the 
 sentence $O \{ \text{steal} \vert \text{when rich}\}$ is true at a world if stealing when rich is 
 obligated at that particular world. 
 
-I automate Kantian ethics because it is the most natural to formalize, as I argue in Section \ref{whykant}. 
+I automate Kantian ethics because it is the most natural of the major ethical traditions to formalize, as 
+I argue in Section \ref{whykant}. 
 Kant presents three versions of a single moral rule, known as the categorical imperative, from which 
 all moral judgements can be derived. I implement a version of this rule called the Formula of Universal 
 Law (FUL), which states that people should only act on those principles that can be acted on by all 
-people without contradiction. For example, in a world where everyone falsely promises to repay a loan, 
-lenders will no longer believe these promises and will stop offering loans. Therefore, not everyone 
-can simultaneously falsely promise to repay a loan, so the FUL thus prohibits this act.
+people without contradiction. For example, falsely promising to repay a loan is wrong because if everyone 
+falsely promises to repay a loan, lenders will no longer believe these promises and will stop offering loans. 
+Therefore, not everyone can simultaneously falsely promise to repay a loan, so the FUL prohibits this act.
 
-Prior work by Benzmüller, Farjami, and Parent \citep{logikey, BFP} implements DDL in Isabelle/HOL and 
+Prior work by Benzmüller, Farjami, and Parent \citep{logikey, BFP} implements DDL in Isabelle/HOL, and 
 I add the Formula of Universal Law as an axiom on top of their library. The resulting Isabelle theory 
 can automatically or semi-automatically generate proofs in a new logic that has the categorical 
 imperative as an axiom. Because proofs in this logic are derived from the categorical imperative, 
 they judge actions as obligated, prohibited, or permissible. Moreover, because interactive 
 theorem provers are designed to be interpretable, my system is explainable. Isabelle can list 
-the axioms and facts it used to generate an ethical judgement, and, in some cases, construct 
-human-readable proofs. In Chapter \ref{applications}, I use my system to derive
-sophisticated solutions to two ethical dilemmas often used in critiques of Kantian ethics. Because 
-my system is faithful to philosophical literature, it is able to provide nuanced answers to these paradoxes
-that require a deep understanding of Kantian ethics. 
+the axioms and facts it uses to generate an ethical judgement, and, in some cases, construct 
+human-readable proofs. 
 
 In addition to presenting the above logic and implementation, I also contribute a testing framework 
 that evaluates how well my formalization coheres with philosophical literature. I formalize expected 
 properties of Kantian ethics as sentences in my logic, such as the property that obligations cannot 
-contradict each other. I represent each of these properties as a sentence in my logic that my system 
-should be able to prove or refute. To run the tests, I use Isabelle to automatically find proofs or 
+contradict each other. To run the tests, I use Isabelle to automatically find proofs or 
 countermodels for the test statements. For example, my implementation passes the contradictory 
-obligations test because it is able to prove the sentence $\neg (O\{A|B\} \wedge O\{\neg A | B\})$. 
-I find that my system outperforms the control group of raw DDL, without any moral axioms added, and 
+obligations test because it is able to prove the sentence $\neg (O\{A|B\} \wedge O\{\neg A | B\})$, 
+which says that $A$ and $\neg A$ are not both obligatory. This testing framework shows that my system 
+outperforms a control group (raw DDL without any moral axioms added) and 
 Moshe Kroy's prior attempt at formalizing Kantian ethics in deontic logic \citep{kroy}.
 
-As it stands, my implementation can evaluate the moral status of sentences represented in my logic. 
-Given an appropriate input, my project returns a value indicating if the action is obligatory 
-(its negation violates the FUL), permissible (consistent with the FUL), or prohibited (violates the FUL) 
-by proving or refuting a theorem in my logic. Because the logic underlying these judgements is grounded
-in philosophical literature, my system can correctly resolve complex moral dilemmas with only relatively uncontroversial
-facts about the world. Moreover, because I automate an explicit ethical theory, the ethical reasoning 
-underlying my system's judgements is interpretable by a human being. I implement this ethical theory 
-using the Isabelle/HOL interactive theorem prover, which can list the axioms and theorems used in a 
-proof, so my system is explainable. 
+In Chapter \ref{applications}, I demonstrate my system's power by using it to arrive at sophisticated
+solutions to two ethical dilemmas often used in critiques of Kantian ethics. I show that because my system is 
+faithful to philosophical literature, it is able to provide nuanced answers to paradoxes that require a
+deep understanding of Kantian ethics. While this reasoning does require some factual and situational
+context, my system derives mature judgements with relatively little and uncontroversial background.
+This indicates that the challenge of automating ``common sense,'' a major hurdle for automated ethics, 
+is within closer reach than previously thought. I discuss automated common sense further in
+Sections \ref{AIethics} and \ref{amapossible}.
 
 A machine that can evaluate the moral status of a maxim can not only help machines better reason about ethics, 
 but it can also help philosophers better study philosophy. I argue for ``computational ethics,'' or the use of computational tools to 
-make philosophical progress, analogous to computational drug discovery or neuroscience. 
+make philosophical progress, analogous to computational biology or neuroscience. 
 I demonstrate the potential of computational ethics by presenting a 
-philosophical insight about which kinds of maxims are appropriate for ethical consideration that I 
+philosophical insight about which kinds of actions are appropriate for ethical consideration that I 
 discovered using my system. The process of building and interacting with a computer that can reason 
 about ethics helped me, a human philosopher, arrive at a philosophical conclusion that has implications for practical
-reason and philosophy of doubt. Thus, my system can be used in two distinct ways. First, my system can help
+reason and philosophy of doubt. Thus, my system can be used in three distinct ways. First, my system can help
 automated agents navigate the world, which I will refer to as automated ethics or machine ethics interchangeably. Second, 
-my system help human philosophers reason about philosophy, which I call computational ethics. In Section 
-\ref{ordinarypeople}, I consider how computational ethics can help not only professional philosophers,
-but also augment the everyday ethical reasoning that ordinary people perform as we navigate the world.%
+my system help human philosophers reason about philosophy, which I call computational ethics. Third, as 
+I discuss in Section \ref{ordinarypeople}, computational ethics can help not only professional philosophers,
+but can also augment the everyday ethical reasoning that we all perform as we navigate the world.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -298,11 +319,11 @@ but also augment the everyday ethical reasoning that ordinary people perform as 
 %:%109=81%:%
 %:%110=82%:%
 %:%111=83%:%
-%:%115=86%:%
-%:%116=87%:%
-%:%117=88%:%
-%:%118=89%:%
-%:%119=90%:%
+%:%112=84%:%
+%:%113=85%:%
+%:%114=86%:%
+%:%115=87%:%
+%:%116=88%:%
 %:%120=91%:%
 %:%121=92%:%
 %:%122=93%:%
@@ -323,66 +344,87 @@ but also augment the everyday ethical reasoning that ordinary people perform as 
 %:%137=108%:%
 %:%138=109%:%
 %:%139=110%:%
+%:%140=111%:%
+%:%141=112%:%
+%:%142=113%:%
 %:%143=114%:%
-%:%144=115%:%
-%:%145=116%:%
-%:%146=117%:%
-%:%147=118%:%
-%:%148=119%:%
-%:%149=120%:%
-%:%150=121%:%
-%:%151=122%:%
-%:%152=123%:%
-%:%153=124%:%
-%:%154=125%:%
-%:%155=126%:%
-%:%156=127%:%
-%:%157=128%:%
-%:%158=129%:%
-%:%159=130%:%
-%:%160=131%:%
-%:%161=132%:%
-%:%162=133%:%
-%:%163=134%:%
-%:%164=135%:%
-%:%165=136%:%
-%:%166=137%:%
-%:%167=138%:%
-%:%168=139%:%
-%:%169=140%:%
-%:%170=141%:%
-%:%171=142%:%
-%:%172=143%:%
-%:%173=144%:%
-%:%174=145%:%
-%:%175=146%:%
-%:%176=147%:%
-%:%177=148%:%
-%:%178=149%:%
-%:%179=150%:%
-%:%180=151%:%
-%:%181=152%:%
-%:%182=153%:%
-%:%183=154%:%
-%:%184=155%:%
-%:%185=156%:%
-%:%186=157%:%
-%:%187=158%:%
-%:%188=159%:%
-%:%189=160%:%
-%:%190=161%:%
-%:%191=162%:%
-%:%192=163%:%
-%:%193=164%:%
-%:%194=165%:%
-%:%195=166%:%
-%:%196=167%:%
-%:%197=168%:%
-%:%198=169%:%
-%:%199=170%:%
-%:%200=171%:%
-%:%201=172%:%
-%:%202=173%:%
-%:%203=174%:%
-%:%204=175%:%
-%:%205=176%:%
+%:%147=117%:%
+%:%148=118%:%
+%:%149=119%:%
+%:%150=120%:%
+%:%151=121%:%
+%:%152=122%:%
+%:%153=123%:%
+%:%154=124%:%
+%:%155=125%:%
+%:%156=126%:%
+%:%157=127%:%
+%:%158=128%:%
+%:%159=129%:%
+%:%160=130%:%
+%:%161=131%:%
+%:%162=132%:%
+%:%163=133%:%
+%:%164=134%:%
+%:%165=135%:%
+%:%166=136%:%
+%:%167=137%:%
+%:%168=138%:%
+%:%169=139%:%
+%:%170=140%:%
+%:%171=141%:%
+%:%172=142%:%
+%:%173=143%:%
+%:%174=144%:%
+%:%175=145%:%
+%:%176=146%:%
+%:%177=147%:%
+%:%178=148%:%
+%:%179=149%:%
+%:%180=150%:%
+%:%181=151%:%
+%:%182=152%:%
+%:%183=153%:%
+%:%184=154%:%
+%:%185=155%:%
+%:%186=156%:%
+%:%187=157%:%
+%:%188=158%:%
+%:%189=159%:%
+%:%190=160%:%
+%:%191=161%:%
+%:%192=162%:%
+%:%193=163%:%
+%:%194=164%:%
+%:%195=165%:%
+%:%196=166%:%
+%:%197=167%:%
+%:%198=168%:%
+%:%199=169%:%
+%:%200=170%:%
+%:%201=171%:%
+%:%202=172%:%
+%:%203=173%:%
+%:%204=174%:%
+%:%205=175%:%
+%:%206=176%:%
+%:%207=177%:%
+%:%208=178%:%
+%:%209=179%:%
+%:%210=180%:%
+%:%211=181%:%
+%:%212=182%:%
+%:%213=183%:%
+%:%214=184%:%
+%:%215=185%:%
+%:%216=186%:%
+%:%217=187%:%
+%:%218=188%:%
+%:%219=189%:%
+%:%220=190%:%
+%:%221=191%:%
+%:%222=192%:%
+%:%223=193%:%
+%:%224=194%:%
+%:%225=195%:%
+%:%226=196%:%

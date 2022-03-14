@@ -2,92 +2,113 @@
 (*<*) theory appendix_2 imports paper41
 
 begin (*>*)
-section \<open>Testing Actions That Are Impossible to Universalize \label{weirdtests}\<close>
+section \<open>Additional Tests \label{weirdtests}\<close>
 
-text \<open>I will show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
-to get some easy money." is prohibited. This example is due to Korsgaard and she uses it to highlight 
-the strength of her preferred interpretation of the FUL, the practical contradiction interpretation \cite{KorsgaardFUL}.
-There are two possible readings of this maxim, and I will show that my formalization can handle both. 
-Under the first reading, the act of falsely promising is read as
-as entering a pre-existing, implicit, social system of promising with no intention of upholding your 
+text \<open>In this section, I show that my system can correctly show prohibitions against actions that 
+are impossible to universalize, against conventional acts, and against natural acts. In the process
+of running these tests, I discover and resolve an ambiguity in Korsgaard's canonical example of a 
+prohibited maxim. I show that her maxim actually has two readings, one reading under which it is a 
+natural act, and another under which it is a conventional act. My formalization can correctly
+handle both readings. The recognition of this ambiguity is another example of the power of 
+computational ethics, and demonstrates that the process of making a philosophical argument precise 
+enough to represent to a machine can generate philosophical insights.
+
+In this section, I show that the maxim, ``When strapped for cash, falsely promise to pay your friend back
+to get some easy money," is prohibited. Korsgaard uses this example when arguing for the practical
+contradiction interpretation of the FUL \citep{KorsgaardFUL}. She argues that this maxim describes
+a conventional act, or an act that is possible due to some pre-existing social system, and is thus
+within reach for the logical contradiction interpretation. Natural acts, on the other hand, are acts
+that are possible simply due to the laws of nature, such as murder, and the logical contradiction
+interpretation cannot correctly handle such acts. 
+
+I argue that, in addition to Korsgaard's reading of this maxim as a conventional act, there is also
+another reading of the maxim as a natural act. 
+Under Korsgaard's reading, the act of falsely promising is read as
+entering a pre-existing, implicit, social system of promising with no intention of upholding your 
 promise. Under the second reading, the act of falsely promising is equivalent to uttering the worlds 
-``I promise X" without intending to do X. The differences between these readings lies in the difference 
-between promising as an act with meaning in a larger social structure and the utterance ``I promise."
+``I promise X'' without intending to do X. There is a difference
+between promising as an act with meaning in a larger social structure and merely uttering the words
+``I promise,'' so these two readings are distinct.
 
-Under the first reading, the maxim fails because falsely promising is no longer possible in a world where 
-everyone everyone does so. This is how the logical contradiction interpretation reads this maxim—falsely 
+Under Korsgaard's reading, the maxim fails because falsely promising is no longer possible in a world where 
+everyone everyone does so, or because the action of falsely promising is literally impossible to
+universalize. Recall that this is how the logical contradiction interpretation prohibits this maxim—falsely 
 promising is no longer possible when universalized because the institution of promising breaks down. 
-The practical contradiction view also prohibits this maxim because if falsely promising is not longer 
-possible, then it is no longer an effective way to achieve the end of getting some money. Below I 
-define some logical tools to formalize this reading of this maxim. \<close>
+First, I formalize this argument and show that my system can show the wrongness of the false
+promising maxim under Korsgaard's reading. This also shows that my system can show the wrongness of a
+maxim that is impossible to universalize. 
+
+To formalize this argument, I first define the relevant maxim.\<close>
 
 consts when_strapped_for_cash::t
-\<comment>\<open>Constant representing the circumstances ``when strapped for cash." Recall that the type of circumstances 
-is a term because circumstances can be true or false at a world.\<close>
+\<comment>\<open>This constant represents the circumstances ``when strapped for cash.''\<close>
 consts falsely_promise::os
-\<comment>\<open>Constant representing the act ``make a false promise to pay a loan back." Recall that the type of
-an act is an open sentence because the sentence ``subject s performs act a" can be true or false at a world.\<close>
+\<comment>\<open>This constant represents the act ``make a false promise to pay a loan back.''\<close>
 consts to_get_easy_cash::t
-\<comment>\<open>Constant representing the goal ``to get some money." Recall that the type of a goal 
-is a term because a goal can be true or false at a world depending on whether it is achieved or not.\<close>
+\<comment>\<open>This constant represents the goal ``to get some money.''\<close>
 
 abbreviation false_promising::maxim where 
 "false_promising \<equiv> (when_strapped_for_cash, falsely_promise, to_get_easy_cash)"
-\<comment>\<open>Armed with the circumstances, act, and goal above, I can define the example maxim as a tuple.\<close>
+\<comment>\<open>Armed with the circumstances, act, and goal above, I can define the example false promising maxim as a tuple.\<close>
 
-text \<open>The logical objects above are ``empty," in the sense that I haven't specified any of their 
-relevant properties. I will define these properties as assumptions and will show that, if the maxim 
-above satisfies the assumed properties, it is prohibited.\<close>
+text \<open>The logical objects above are empty or thin, in the sense that I haven't specified any of their 
+relevant properties, such as a robust definition of promising or any system of currency. I define 
+only the properties absolutely necessary for my argument as assumptions and show that, if the maxim 
+above satisfies the assumed properties, it is prohibited. Specifically, I am interested in Korsgaard's
+reading of this maxim, under which promising is a social convention that breaks down when abused. Instead
+of formally defining a conventional act, which requires wading into complex debates about trust and 
+social contracts, I merely focus on the fact that, unders this reading, not everyone can falsely 
+promise universally. Whatever kind of social convention promising is, my argument merely relies on
+the impossibility of breaking it. \<close>
 
 abbreviation everyone_can't_lie where 
 "everyone_can't_lie \<equiv> \<forall>w. \<not> (\<forall>s. falsely_promise(s) w) "
-\<comment>\<open>Under this reading, the problem with this maxim is that everyone can't
-falsely promise simultaneously because the institution of promising will break down. It's probably 
-possible to say something stronger than this (i.e. that if enough but not necessarily all people
-falsely promise promising is no longer possible), but for my purposes this will suffice. The above 
-formula reads, ``At all worlds, it is not the case that everyone falsely promises." \<close>
+\<comment>\<open>The above formula reads, ``At all worlds, it is not the case that everyone falsely promises.'' \<close>
 
-abbreviation circumstances_hold where 
-"circumstances_hold \<equiv> \<forall>w. when_strapped_for_cash w"
-\<comment>\<open>This assumption narrows our scope of consideration to worlds where the circumstances of 
-being strapped for cash hold. This is important because, at worlds where the circumstances do not hold, 
-a maxim is trivially effective (since it's never acted on) and thus trivially universalizable. This 
-assumption also makes practical sense; when evaluating a maxim, an agent would care about it specifically
-at worlds where the circumstances hold, since these are the worlds where the maxim actually prescribes action.\<close>
+text \<open>With this abbreviation, I show that if not everyone can falsely promise simultaneously, then
+the constructed maxim about falsely promising is prohibited.\<close>
 
-abbreviation example_is_well_formed where 
-"example_is_well_formed \<equiv> \<forall>s. \<Turnstile> (well_formed false_promising s)"
-\<comment>\<open>This assumption states that the maxim of falsely promising is well-formed. This breaks down into
-two individual assumptions. First, being strapped for cash can't imply falsely promising, which is plausible
-because many people won't falsely promise under conditions of poverty. Second, being strapped for cash
-can't imply getting ready cash, which is also plausible because people often fail to secure cash even 
-when they need it.\<close>
-
-text \<open>Putting it all together, I want to show that if the three assumptions justified above hold, then 
-the constructed maxim is prohibited. Below is the proof\<close>
-
-lemma lying_bad_1:
+lemma falsely_promising_korsgaard_interpretation:
+  assumes "\<forall>w. when_strapped_for_cash w"
+\<comment>\<open>Restrict our focus to worlds in which the circumstance of being strapped for cash holds. 
+A technical detail.\<close>
+  assumes "\<forall>s. \<Turnstile> (well_formed false_promising s)"
+\<comment>\<open>Initial set-up: the falsely promising maxim is well-formed.\<close>
   assumes everyone_can't_lie
-  assumes circumstances_hold
-  assumes example_is_well_formed
+\<comment>\<open>The assumption that this is Korsgaard's reading of the maxim, in which everyone cannot falsely promise
+simultaneously.\<close>
   shows "\<forall>s. \<Turnstile> (prohibited false_promising s)"
 proof-
   have "\<forall>s. not_universalizable false_promising s"
-    by (simp add: assms(1) assms(2))
-\<comment>\<open>I manually broke the proof into this intermediate lemma and the conclusion, and then Sledgehammer 
-automatically found a proof.\<close>
+    by (simp add: assms(3) assms(1))
+\<comment>\<open>As in the proofs in Chapter \ref{applications}, once I split this proof into this intermediate lemma,
+Isabelle can automatically complete the proof.\<close>
   thus ?thesis
-    using FUL assms(3) by blast 
+    using FUL assms(2) by blast 
 qed
 
-text \<open>Under the second reading of this maxim, the act ``falsely promising" refers to uttering the 
-sentence ``I promise to do X" with no intention of actually doing X\footnote{Note that under this 
-reading, the maxim isn't prohibited under the logical contradiction interpretation because making an 
-utterance is still possible even if eveyrone else makes that utterance. I will discuss this in detail 
-later in this section in the context of the difference between natural and conventional acts.}. 
-Under this reading, the practical contradiction interpretation prohibits this maxim because, in a world 
+text \<open>The above lemma shows that, under Korsgaard's reading of promising as a conventional act, 
+my system can show that falsely promising is prohibited. This means that my system passes both
+the conventional act test and the test that requires showing the wrongness of actions that are 
+impossible to universalize. Next, I show that my system can show a prohibition against this maxim
+even under the second reading, which understands it as a natural act.
+
+Under the second reading of this maxim, the act ``falsely promising'' refers to uttering the
+sentence ``I promise to do X'' with no intention of actually doing X. This is a natural act because the act of uttering a sentence does not rely 
+on any conventions, merely the laws of nature governing how your mouth and vocal cords behave.\footnote{
+Linguistic relativists may take issue with this claim and may argue that if the English language had 
+never developed, then making this utterance would be impossible. Even if this is true, the laws of 
+nature itself would not prohibit making the sounds corresponding to the English pronounciation of 
+this phrase, so the act would still not be impossible in the way that a conventional act can be.} 
+
+The logical
+contradiction interpretation cannot prohibit this version of the maxim because making an utterance
+is always logically possible, even if everyone else makes the same utterance. However,
+under this reading, the practical contradiction interpretation prohibits this maxim because, in a world 
 where false promising is universalized, no one believes promises anymore, so the utterance is no longer 
-an effective way to get money. Below I formalize this reading of this maixm.\<close>
+an effective way to get money. Because my system implements the stronger practical contradiction 
+interpretation of the FUL, it can show the wrongness of this maxim even under this reading. First, 
+I formalize this reading of the maxim.\<close>
 
 consts believed::os 
 abbreviation false_promising_not_believed where 
@@ -100,64 +121,37 @@ abbreviation need_to_be_believed where
 \<comment>\<open>This abbreviation formalizes the idea that if a promise is not believed, then it is not an effective
 way of getting easy cash.\<close>
 
-lemma falsely_promising_bad_2:
+text\<open>Once again, I avoid giving robust definitions of hotly debates concepts like belief. Instead, 
+I represent the bare minimum logical background: false promises won't be believed when universalized,
+and promises must be believed to be effective.\<close>
+
+lemma falsely_promising_bad_natural_act:
+  assumes "\<forall>w. when_strapped_for_cash w"
+\<comment>\<open>Restrict our focus to worlds in which the circumstance of being strapped for cash holds. 
+A technical detail.\<close>
+  assumes "\<forall>s. \<Turnstile> (well_formed false_promising s)"
+\<comment>\<open>Initial set-up: the falsely promising maxim is well-formed.\<close>
   assumes false_promising_not_believed
   assumes need_to_be_believed
-\<comment>\<open>The above two assumptions are specific to this reading and justified above.\<close>
-  assumes circumstances_hold
-  assumes example_is_well_formed
-\<comment>\<open>These two assumptions applied to the first reading as well and were justified there.\<close>
+\<comment>\<open>The two assumptions above.\<close>
   shows "\<forall>s. \<Turnstile> (prohibited false_promising s)"
 proof-
   have "\<forall>s. not_universalizable false_promising s"
     using assms(1) assms(2) assms(3) by auto
   thus ?thesis
-    using FUL assms(4) by blast
+    using FUL assms(2) by blast
 qed
 \<comment>\<open>With some help, Isabelle is able to show that the maxim is prohibited under this reading as well.\<close>
 
-text \<open>This example demonstrates that my formalization is able to correctly prohibit this maxim, regardless
-of its reading. This is additionally important because the two readings of this maxim represent reading 
-the act as either a conventional or natural action, so my intrepretation can correctly handle both kinds
-of actions. Korsgaard draws a distinction between conventional acts and natural acts. Conventional acts 
-exist within a practice, which is "comprised of certain rules, and its existence (where it is not embodied in 
-an institution with sanctions) consists in the general acknowledgement and following of those rules" 
-\cite[10]{KorsgaardFUL}. For example, promising is a conventional act because it only exists as a 
-practice. Murder, on the other hand, is an example of a natural act because its existence only depends
-on the laws of nature\cite[11]{KorsgaardFUL}.
-
-This distinction is important because Korsgaard argues that only the practical contradiction view can 
-satisfactorily explain the wrongness of certain natural acts like murder\footnote{For more discussion 
-of Korsgaard's argument for the practical contradiction view, see Section Philosophical Writing}. 
-The practical contradiction view is thus stronger than the logical contradiction view because it can 
-explain the wrongness of both conventional and natural acts. 
-
-The fact that my interpretation can correctly show the wrongness of both conventional and natural acts
+text \<open>These proofs demonstrate that my formalization is able to correctly prohibit this maxim, whether 
+it is understood as a conventional act or a natural act. 
+Korsgaard argues that the practical contradiction interpretation outperforms other interpretations
+of the FUL because it can show the wrongness of both conventional and natural acts. Therefore, the 
+fact that my interpretation can correctly show the wrongness of both conventional and natural acts
 is evidence for its correctness as a formalization of the practical contradiction interpretation. 
-The first reading of the example maxim reads the act 
-``making a false promise" as entering into an agreement within a socially established system of promising. 
-This is clearly a conventional act, and because it is a conventional act, it is not just contradictory
-when universalized but literally impossible because the practice breaks down. I capture this idea in the 
-assumption @{abbrev everyone_can't_lie}, which states that, at all worlds, not everyone can falsely promise since 
-otherwise the practice of promising would break down. The second reading, on the other hand, reads the 
-act of making a false promise as uttering the statement ``I promise to pay you back," while never intending 
-to fulfill this promise. This is a natural act because the act of uttering a sentence does not rely 
-on any conventions, merely the laws of nature governing how your mouth and vocal cords behave\footnote{
-Linguistic relativists may take issue with this claim and may argue that if the English language had 
-never developed, then making this utterance would be impossible. Even if this is true, the laws of 
-nature itself would not prohibit making the sounds corresponding to the English pronounciation of 
-this phrase, so the act would still not be impossible in the way that a conventional act can be.} 
+\<close>
 
-I show above that my formalization shows the wrongness of this maxim under both readings. Under the 
-first reading, promising becomes impossible, so both the logical and 
-practical contradiction interpretations prohibit the maxim. Under the second reading, promising is still
-possible, but becomes ineffective because people no longer interpret the utterance as creating a commitment.
-Under this view, only the practical contradiction interpretation succeeds in prohibiting the maxim. Thus, 
-not only does my formalization likely capture the practical contradiction interpretation (as opposed to 
-the teleological or logical contradiction interpretations), it also adequately handles both natural 
-and conventional acts. \<close>
-
-text\<open>I can also use Isabelle to confirm that the two readings are different. If they were the same, 
+(*<*) text\<open>I can also use Isabelle to confirm that the two readings are different. If they were the same, 
 we would expect the assumptions corresponing to each to be equivalent. The RHS of the lemma below represents 
 the second reading and the LHS represents the first reading.\<close>
 
@@ -170,46 +164,56 @@ Nitpick found a counterexample for card i = 1 and card s = 1:
 
   Empty assignment
 \color{black}
-\<close>
+\<close>(*>*)
 
-section \<open>Computational Academic Ethics\<close>
-text \<open>
-There are two potential sources of the value of academic philosophy: the ethical truths uncovered and 
-the process of a philosopher discovering these truths. Under the first view, academic philosophy is 
-valuable because it facilitates the discovery of new ethical theories. If truths are valuable and 
-computers can generate truths more efficiently than humans, then ethics should be fully automated. 
-Ethical disputes often linger unresolved indefinitely, but every now and then, 
-a theory emerges as a new classic, such as Rawls’ veil of ignorance. Some academic philosophy also 
-impacts social phenomena, like Locke’s impact on global democracy. Academic philosophy often works its 
-way into household ethics, as seen in the impact of critical race theory. This view parallels the 
-view that ordinary ethics is valuable for its insights alone, and thus
-similarly implies that totally automated ethics is not only permissible, but also desirable. If 
-ethical truths are important for their impact on society, this value is not contingent on whether a 
-human or a computer produced these truths. If possible, computers should produce ethical theories 
-to maximize these truths’ value for society. 
+(*<*)section \<open>Computational Academic Ethics \label{academicethics}\<close>
+text \<open>Even if, as I argue in Section \ref{computationalethics}, computational ethics is possible,
+some may worry that something important about the process of philosophical discovery is lost 
+if all philosophy is automated. Perhaps there is something less rich or meaningful about a world
+in which no human academic philosophers exist. In this section, I examine this worry and argue that
+because computational ethics does not completely automate philosophical progress, it does not 
+sacrifice the value of the human study of philosophy.
 
-Another set of theories locates the value of academic ethics in the process itself and thus requires 
-human-computer symbiosis. Just as mathematics is fun and creative for the mathematician, so is ethics 
+To understand the dangers of fully automated computational ethics, I must sketch an (incomplete) account of the
+value of academic philosophy. There are two potential sources of the value of academic philosophy: 
+the ethical truths uncovered or the process of a philosopher discovering these truths. I argue that,
+under each of these views, the kind of human-computer symbiotic\footnote{As defined in Section \ref{ordinarypeople},
+human-computer symbiosis is a system in which computers supplement human reasoning without replacing 
+it entirely.} computational ethics I present in this
+thesis is permissible. Because I do not fully automate philosophical progress, but instead give philosophers
+another tool in their arsenal, my work does not sacrifice the value of human philosophical inquiry.
+
+Under the first view,
+academic philosophy is valuable because it facilitates the discovery of new ethical theories. If 
+these theories are valuable and computers can generate these theories more efficiently than humans, then 
+ethics should be fully automated. Ethical disputes often linger unresolved, but every now and then, 
+a theory emerges as a new classic, such as Rawls’ veil of ignorance. Perhaps such classic theories are
+valuable because they impact social phenomena, like Locke’s impact on global democracy. Academic philosophy 
+also often works its way into household ethics, as seen in the impact of critical race theory. If this 
+view is correct and ethical progress is valuable for its impact on society, then this value if not 
+contingent on whether a human or a computer produced these truths. Under this view, if possible, 
+computers should produce ethical theories to maximize value for society, so not only is computational
+ethics permissible, but all philosophy should be fully automated.
+
+Another view locates the value of academic ethics in the process of philosophical discovery
+itself and thus requires human-computer symbiosis, or a collaboration between computational tools 
+and academic philosophers. Just as mathematics is fun and creative for the mathematician, so is ethics 
 for the philosopher. Many philosophers enjoy reading and writing philosophy papers. The study of 
-philosophy builds critical thinking skills and makes philosophers more reflective. Computational ethics 
-doesn’t necessarily sacrifice any of these benefits. These 
-benefits would be lost by fully automated ethics, but human-computer symbiotic ethics amplifies them. 
+philosophy builds critical thinking skills and makes philosophers more reflective. 
+
+Even if philosophy is
+valuable because it is good for the philosopher, computational ethics is still permissible because it
+doesn't necessarily sacrifice these benefits, especially not in the form presented in this thesis.
+These benefits would be lost by fully automated ethics, but human-computer symbiotic ethics amplifies them. 
 If a computer functions like a tool in the process of philosophical discovery, like a conversation 
-with a colleague or a search for counterexamples, then it preserves the joy of philosophy. Moreover, 
-computational ethics amplifies this joy by forcing ethicists to make their ideas more precise, a major 
-goal of academic philosophy. The rigid syntax of a computer program demands much more precision than a 
-conversation or a paper. Computational tools also offer ethicists new perspective by forcing a return to 
-first, formal principles often avoided in ordinary philosophical inquiry. Formal ethics has been a 
-subject of interest among ethicists, but the logical background necessary has prevented the field 
-from taking off. If computers can automate away the tedium of formal ethics, then this precision 
-will be accessible to all ethicists, not just logicians. Such work has begun in metaphysics, and 
-recent research used computational tools to find an inconsistency in Godel’s ontological argument 
-for the existence of God \citep{godelincon}. The power of computational tools to force precision, perform 
-consistency checks, and make assumptions explicit means that computers can serve as tools to 
-help philosophers perform philosophy better.
+with a colleague or a search for counterexamples, then it preserves the joy of philosophy. Moreover,
+computational ethics amplifies this joy by forcing ethicists to make their ideas more precise and 
+automating away tedious calculations and formalisms, as argued in Section \ref{computationalethics}.
+The fact that computational tools can unlock new insights contributes to the value that comptuational
+ethics offers to academic philosophers; it serves as a new tool to help philosophers do their job.
 
 If ethical truths offer some value to society at-large, perhaps we cannot sacrifice this value merely 
-to preserve human philosophers’ fun. A more compelling argument against fully automated 
+to preserve human philosophers’ fun. An even stronger argument against fully automated 
 ethics is that the existence of human academic philosophers offers value even to non-philosophers. 
 People derive joy and wonder from knowing that human beings produced great ethics. Plato’s \emph{Apology} 
 is not only a profound and insightful text, but it is also wonderous that a human being produced such 
@@ -218,9 +222,7 @@ great philosophers accomplish, just as an unimaginably beautiful work of art is 
 because a human being painted it. We watch the Olympics because we derive wonder and joy from human 
 excellence. Even when admiring computational achievements, such as Google’s recent success in protein 
 folding, we admire the human who programmed the machine, not the machine itself. We can relate to 
-humans, so the mere knowledge that great people are doing great things enriches our lives. This 
-knowledge is part of the attraction for the thousands of tourists who visit Harvard Yard every year; 
-this is a place where of great human achievement.\footnote{Is this too like, yay Harvard}
+humans, so the mere knowledge that great people are doing great things enriches our lives. 
 
 An even stronger argument for human-computer symbiotic ethics instead of fully automated ethics is 
 that ethics is an inherently human subject. We study ethics because, as argued above, we 
