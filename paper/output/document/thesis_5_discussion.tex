@@ -25,6 +25,38 @@
 }
 \isamarkuptrue%
 %
+\endisatagdocument
+{\isafolddocument}%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\begin{isamarkuptext}%
+In the above chapters, I presented an implementation of automated Kantian ethics that, given an appropriately
+represented maxim and sufficient factual background, can classify a maxim as obligatory, permissible, 
+or prohibited. In this chapter, I discuss the philosophical limitations and implications of this 
+work.
+
+First, I explore how my system can be used in practice to guide AI agents,
+help academic philosophers make philosophical progress, and augment the everyday practical reasoning 
+that we all perform as we navigate the world. I discuss these issues in Sections \ref{AIethics}, 
+\ref{computationalethics}, and \ref{ordinarypeople} respectively and outline the further work
+necessary to bring each of these applications to life. Much of this work has to do with how the input
+maxim given to my system is formulated and the role of common sense or prior knowledge. 
+
+In Section \ref{amapossible}, I discuss theoretical objections to automated ethics, derived from the
+common philosophical intuition that there is no algorithm for ethics. I explore concrete versions of 
+this objection and make a theoretical argument for the possibility of the kind of automated ethics 
+I implement in this thesis. Finally, in Section \ref{relatedwork}, I situate my project among related work.%
+\end{isamarkuptext}\isamarkuptrue%
+%
+\isadelimdocument
+%
+\endisadelimdocument
+%
+\isatagdocument
+%
 \isamarkupsubsection{Automated Moral Agents in Practice \label{AIethics}%
 }
 \isamarkuptrue%
@@ -36,16 +68,6 @@
 %
 \endisadelimdocument
 %
-\begin{center}
-\begin{figure}
-\includegraphics[scale=0.43]{AI_engine.png}
-\caption{An example of an ethics engine for an artificial agent. This ethics engine passes a moral dilemma 
-through an input parser, applies the automated categorical imperative test, and finally processes the 
-output using an output parser, producing a prescription for action. I contribute the automated categorical 
-imperative component.} \label{fig:AIengine}
-\end{figure}
-\end{center}
-%
 \begin{isamarkuptext}%
 In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
 nuanced ethical reasoning. In this section, I outline the additional components necessary for my system
@@ -56,8 +78,13 @@ prohibited, or permissible). My project potentially
 serves as one component of an ``ethics engine'' that an AI agent could use to make ethical decisions.
 For example, my system could be combined with an input parser to translate moral dilemmas as represented 
 to the AI agent into maxims in my logic. An output parser could translate my system's output
-into a prescription for action that the AI agent could act on. Figure \ref{fig:AIengine} depicts the 
-workflow of this example ethics engine.
+into a prescription for action that the AI agent could act on. \begin{figure}
+\includegraphics[scale=0.43]{AI_engine.png}
+\caption{An example of an ethics engine for an artificial agent. This ethics engine passes a moral dilemma 
+through an input parser, applies the automated categorical imperative test, and finally processes the 
+output using an output parser, producing a prescription for action. I contribute the automated categorical 
+imperative component.} \label{fig:AIengine}
+\end{figure} Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.
 
 In this workflow, an AI agent is faced with a moral dilemma in some internal representation. The input
 parser translates this internal representation into an appropriate logical representation, i.e. 
@@ -83,8 +110,8 @@ evade universalization.
 The Kantian response to this criticism is to require that the circumstances included in the formulation
 of the maxim be morally relevant. In the example above, my purple shirt and the date have no bearing on 
 the moral status of lying. On the other hand, consider the maxim, ``When I am unemployed, I will murder
-someone in order to take their job.'' The circumstances of being unemployed clearly have some bearing on the moral
-relevance of the murder in question; they speak to the motivation for the murder. 
+someone in order to take their job.'' The circumstance ``when I am unemployed'' clearly has some moral
+relevance to the murder in question; it speaks to the motivation for the murder. 
 
 While this view has intuitive appeal, it raises the question of how we can determine
 which circumstances are morally relevant. O'Neill answers this question by noting that the Formula of Universal Law is 
@@ -106,8 +133,8 @@ morally relevant circumstances, the challenge remains open for automated ethics.
 to process, whether manually as I did in Chapter \ref{applications} or using an automatic input 
 parser, this transformation must be a good-faith attempt to capture the principle of action. 
 Correctly formulating a maxim requires what Kantians call ``practical judgement,'' or
-common sense reasoning and factual background \citep{oneilluniversallaws}. Returning to the example above, noticing that being 
-unemployed may contribute to one's desire to steal another's job requires practical
+common sense reasoning and factual background \citep{oneilluniversallaws}. Returning to the example above, the fact that being 
+unemployed may contribute to one's desire to steal another's job is a consequence of practical
 judgement, not just pure reason alone. Translating everyday situations into appropriate maxims is
 the bulk of the reasoning that a Kantian human being does when making decisions. Automating this
 reasoning requires endowing a machine with common sense. 
@@ -137,7 +164,7 @@ relevant. For example, one such attempt could define a moral closeness relation 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
 reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
 define some set of morally important entities, and classify morally relevant circumstances as those
-that involve morally important entities. I discuss a potential machine-learning based approach which formulates
+that involve morally important entities. I propose a potential machine-learning based approach which formulates
 maxims based on a training set of appropriately formulated maxims in Section \ref{amapossible}. This 
 approach mimics how human beings formulate maxims; we use common sense and prior situational, 
 factual, and ethical knowledge to isolate our principle of action. Determining morally relevant circumstances, 
@@ -189,7 +216,7 @@ of any ethical theory that philosophers plausibly defend.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-In addition to guiding AI agents, automated ethics can also help human beings make philosophical
+In addition to guiding AI agents, automated ethics can also help academic philosophers make philosophical
 progress. Just as theorem provers make mathematics more efficient and push mathematicians to think 
 precisely about the phenomena they model, computational ethics can help philosophers ask and answer
 new philosophical questions. In Section \ref{joking}, I presented one example of the power of computational ethics
@@ -283,7 +310,7 @@ questioning the will's authority over itself, but this is impossible. The will d
 over itself, for that is what it is to be a will. 
 
 A skeptic may argue that we do often ask ``should I be doing this?'' as we do something. 
-Can this kind of question ever be valid? To understand this worry, I consider the maxim, 
+To understand this worry, I consider the maxim, 
 ``When dancing, I should just dance for the sake of dancing.'' While this maxim appears to be badly-formed (the 
 circumstance ``dancing'' implies the act and goal of dancing), it is a question that practical reasoners 
 do ask. I argue that the correct interpretation of this maxim is no longer a badly-formed maxim.
@@ -374,7 +401,7 @@ is paradoxical. If expressions of self-doubt are badly-formed maxims, then the t
 and ESD is natural and unavoidable: debating the permissibility of a badly-formed maxim inherently
 involves questioning commitments as we make them, which is impossible. This is the source of the 
 tension between ESR and ESD. Those committed to this 
-interpretation must abandon one principle or the other, since committing and questioning are incompatible.
+interpretation must abandon one principle or the other, since simultaneous committing and questioning are incompatible.
 
 Because understanding ethical self-doubt as a badly-formed maxim contradicts self-respect, resolving this issue requires a 
 different interpretation of ethical self-doubt. Under this interpretation, 
@@ -460,15 +487,14 @@ philosophy. Thought experiments, arguments, counterexamples, and examples
 illustrate features of a concept in the hope of making the concept itself more precise. Computational 
 ethics can help philosophers reach the goal of precision. Representing a philosophical idea in logic 
 and implementing it in an interactive theorem prover requires making the idea precise to a degree 
-that ordinary discussion does not necessarily require. For example, when formalizing the notion of a 
+that most philosophical conversation does not necessarily require. For example, when formalizing the notion of a 
 maxim, I had to understand its components, define it as a circumstance, act, goal tuple, and identify
 coherent and consistent types for each of these entities. This precision is also evident in my examination
 of lying and joking in Section \ref{joking}, where I isolate the specific cause of lying's wrongness.
 This insight could contribute to the rich philosophical literature on deception, and demonstrates the 
 philosophical signifiance of precision. This level of precision is possible 
-without computational tools, but computational ethics forces a level of precision that ordinary discussion 
-does not demand. Type fuzziness and overloaded definitions are all too common in philosophical writing and 
-discussion, but computers disallow this kind of imprecision.
+without computational tools, but computational ethics forces it. Type fuzziness and overloaded definitions 
+are all too common in philosophical writing and discussion, but computers disallow this kind of imprecision.
 
 Another benefit of computational ethics is that it makes certain kinds of ethical inquiry, such as 
 searching for counterexamples or formal ethics, far less tedious. For example, Nitpick can refute 
@@ -495,7 +521,7 @@ incapable of proving that the real number 2 is not equal to the real number 1, b
 moving from basic algebra to Fields medal winning mathematics became possible in a
 matter of years \citep{buzzardvideo}. Countless examples from the history of computer science, from the Turing 
 Test to AI game playing to protein folding, demonstrate that progress in computer science can make seemingly 
-obscure computer programs useful and usable in ways that exceed our wildest imaginations.
+obscure computer programs useful and usable in ways that exceed our expectations.
 Programmable computers themselves initially began as unwieldy punch card readers, but their current ubiquity 
 need not be stated. If computer scientists and philosophers invest in computational ethics, it could
 become as commonplace in philosophy departments as reflective equilibrium. Just as computational tools
@@ -509,7 +535,7 @@ great philosophical progress.%
 %
 \isatagdocument
 %
-\isamarkupsubsection{Automating Ordinary Ethical Reasoning \label{ordinarypeople}%
+\isamarkupsubsection{Automating Everyday Practical Reason \label{ordinarypeople}%
 }
 \isamarkuptrue%
 %
@@ -522,7 +548,7 @@ great philosophical progress.%
 %
 \begin{isamarkuptext}%
 In Sections \ref{AIethics} and \ref{computationalethics}, I outline how automated ethics can guide
-artificial agents and human philosophers respectively. This raises a natural question: can automated
+artificial agents and philosophers respectively. This raises a natural question: can automated
 ethics guide ordinary human beings, not just academic philosophers, as we navigate the world and face ethical
 dilemmas? Some may hope (or worry) that automated ethics could render ethical reasoning obsolete. In 
 this section, I argue that while computers should not replace human ethical reasoning entirely,
@@ -531,15 +557,13 @@ in which computers offer ethical advice, arguments for particular moral judgemen
 calculations without subverting human ethical reasoning entirely \citep{licklider}.
 
 Ethics bears weight for everyone, not just for academic philosophers, because it studies the unavoidable question:
-how should we live? If computers can make this study more efficient, then it seems that everyone should
-engage in computational ethics. The ethical question is the only question that 
+how should we live? The ethical question is the only question that 
 we answer merely by living. To turn away from ethics is to take a stance on the question of how to 
 live (namely, to live unreflectively) and thus to engage in ethics. Every rational being must decide 
 how to navigate the world and ethics answers this question. Given that ethics is vital, it seems that if
-comptuational tools can help us derive ethical judgements more efficiently, then we should automate as 
-much ethical reasoning as possible.
-In the most extreme case, we can unthinkingly follow the commands of an ethical calculator that dictates 
-how we should live. Maybe computers can answer the unavoidable question for us.
+comptuational tools can help us derive ethical judgements more efficiently, then everyone should engage
+in computational ethics. In the most extreme case, we can unthinkingly follow the commands of an 
+ethical calculator that dictates how we should live. Maybe computers can answer the unavoidable question for us.
 
 The argument above places the value of ethics solely in its action-guiding potential, and thus fails to take into account the 
 importance of practical reason, which, as I argued in Section \ref{kantianethics}, is the source
@@ -547,8 +571,7 @@ of freedom itself. We are committed to ethical reflection because of the kind of
 Recall that Korsgaard argues that, as beings occupying minds with a reflective structure, when faced with 
 a choice,``it is as if there were something over and above all of your desires, something that is you, and that chooses which desire 
 to act on'' \citep[83]{sources}. This choosing is the operation of practical reason, and this reflection
-makes us free. We are free because we must choose which reasons to act on. Every decision that we 
-make is an exercise of freedom. 
+makes us free. We are free because we can choose which reasons to act on. 
 
 If reflection makes us free, then unthinkingly obeying a computer sacrifices our autonomy. Consider 
 an Ethics Oracle that can unfailingly tell you the right thing to do in any 
@@ -598,7 +621,7 @@ Moreover, just as they do for philosophers, computers can help ordinary people a
 different perspective. Even interacting with my system requires the user to consider the action's maxim, 
 which includes the circumstances, act, and goal. Making these components of action precise already changes
 the user's perspective. Just as computational ethics can serve as a tool for academic philosophers to 
-automate away tedium and achieve greater precision, it can do the same for ordinary human beings navigating
+ask new questions and achieve greater precision, it can do the same for ordinary human beings navigating
 the world. Moreover, it also offers another way for the general public to access professional philosophy
 insights, and thus carries potential to improve our everyday reasoning.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -634,7 +657,7 @@ simulate certain mental processes like arithmetic and language, but cannot perfo
 Without a soul or God-based account of ethical reasoning, it is not obvious that it is theoretically 
 impossible to automate ethical reasoning. After all, computers may eventually learn to simulate human 
 mental activity entirely, as shown by progress in brain simulation \citep{brainsimulation}. Skeptics
-about automated ethics must explain why ethics is any different from other automated human activities.
+about automated ethics must explain why ethics is any different from other automated human activity.
 
 The above claims represent the general view that automating ethics is impossible. In the
 rest of this section, I explore specific arguments within this view. First, I consider the argument 
@@ -739,7 +762,8 @@ Understanding the categorical imperative test as a reminder
 instead of a derivation tool also explains the response to the tailor objection presented in Section \ref{AIethics}, that the FUL cannot 
 handle bad-faith attempts to generate false positives or negatives. The test only returns the right 
 result when an agent sincerely attempts to represent their maxim of action, not when an adversary attempts
- to ``trick'' the categorical imperative.%
+ to ``trick'' the categorical imperative because such tricks will fall outside the scope of our moral 
+almanacs.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{figure}
@@ -824,7 +848,7 @@ using I/O logic \citep{io}. Deontic logic, which has been implemented in Isabell
 by Kant's ``ought implies can'' principle, but it does not include a robust formalization of the entire 
 categorical imperative \citep{cresswell}.
 
-Kroy presents a formalization of the first two formulations of the categorical imperative, but wrote 
+Kroy presented a formalization of the first two formulations of the categorical imperative, but wrote 
 before the computational tools existed to automate such a formalization \citep{kroy}. I implement his formalization of the FUL to compare it to my system. 
 Lindner and Bentzen presented one of the first implementations of a formalization of 
 Kant's second formulation of the categorical imperative \citep{BL}. They present their goal as ``not to get 
@@ -884,9 +908,9 @@ and automated ethics is necessary to make these judgements morally correct.
 Given that the discpline of philosophy has spent centuries debating such judgements and their theoretical 
 underpinnings, such AI will be most trustworthy, nuanced, consistent, and mature when it is faithful to 
 philosophical literature. In order to develop high-quality automated ethics, computer scientists and 
-philosophers must work together. This thesis is an experiment in marrying philosophy and computer science 
-to create automated ethics that is both technically and philosophically advanced. Neither discipline alone
-can address the pressing need for ethical AI.
+philosophers must work together. Neither discipline alone can address the pressing need for ethical AI. 
+This thesis is an experiment in marrying philosophy and computer science 
+to create automated ethics that is both technically and philosophically advanced. 
 
 This work is an early proof-of-concept. It demonstrates the potential of top-down, logic programming 
 approaches to automated ethics and shows that it is possible to faithfully automate an ethical theory as
@@ -916,7 +940,9 @@ thesis is one step towards building computers that can think ethically in the ri
 \endinput
 %:%file=~/Desktop/cs91r/paper/thesis_5_discussion.thy%:%
 %:%24=6%:%
-%:%28=8%:%
+%:%36=8%:%
+%:%37=9%:%
+%:%38=10%:%
 %:%39=11%:%
 %:%40=12%:%
 %:%41=13%:%
@@ -926,336 +952,338 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%45=17%:%
 %:%46=18%:%
 %:%47=19%:%
-%:%50=21%:%
-%:%51=22%:%
-%:%52=23%:%
-%:%53=24%:%
-%:%54=25%:%
-%:%55=26%:%
-%:%56=27%:%
-%:%57=28%:%
-%:%58=29%:%
-%:%59=30%:%
-%:%60=31%:%
-%:%61=32%:%
-%:%62=33%:%
-%:%63=34%:%
-%:%64=35%:%
-%:%65=36%:%
-%:%66=37%:%
-%:%67=38%:%
-%:%68=39%:%
-%:%69=40%:%
-%:%70=41%:%
-%:%71=42%:%
-%:%72=43%:%
-%:%73=44%:%
-%:%74=45%:%
-%:%75=46%:%
-%:%76=47%:%
-%:%77=48%:%
-%:%78=49%:%
-%:%79=50%:%
-%:%80=51%:%
-%:%81=52%:%
-%:%82=53%:%
-%:%83=54%:%
-%:%84=55%:%
-%:%85=56%:%
-%:%86=57%:%
-%:%87=58%:%
-%:%88=59%:%
-%:%89=60%:%
-%:%90=61%:%
-%:%91=62%:%
-%:%92=63%:%
-%:%93=64%:%
-%:%94=65%:%
-%:%95=66%:%
-%:%96=67%:%
-%:%97=68%:%
-%:%98=69%:%
-%:%99=70%:%
-%:%100=71%:%
-%:%101=72%:%
-%:%102=73%:%
-%:%103=74%:%
-%:%104=75%:%
-%:%105=76%:%
-%:%106=77%:%
-%:%107=78%:%
-%:%108=79%:%
-%:%109=80%:%
-%:%110=81%:%
-%:%111=82%:%
-%:%112=83%:%
-%:%113=84%:%
-%:%114=85%:%
-%:%115=86%:%
-%:%116=87%:%
-%:%117=88%:%
-%:%118=89%:%
-%:%119=90%:%
-%:%120=91%:%
-%:%121=92%:%
-%:%122=93%:%
-%:%123=94%:%
-%:%124=95%:%
-%:%125=96%:%
-%:%126=97%:%
-%:%127=98%:%
-%:%128=99%:%
-%:%129=100%:%
-%:%130=101%:%
-%:%131=102%:%
-%:%132=103%:%
-%:%133=104%:%
-%:%134=105%:%
-%:%135=106%:%
-%:%136=107%:%
-%:%137=108%:%
-%:%138=109%:%
-%:%139=110%:%
-%:%140=111%:%
-%:%141=112%:%
-%:%142=113%:%
-%:%143=114%:%
-%:%144=115%:%
-%:%145=116%:%
-%:%146=117%:%
-%:%147=118%:%
-%:%148=119%:%
-%:%149=120%:%
-%:%150=121%:%
-%:%151=122%:%
-%:%152=123%:%
-%:%153=124%:%
-%:%154=125%:%
-%:%155=126%:%
-%:%156=127%:%
-%:%157=128%:%
-%:%158=129%:%
-%:%159=130%:%
-%:%160=131%:%
-%:%161=132%:%
-%:%162=133%:%
-%:%163=134%:%
-%:%164=135%:%
-%:%165=136%:%
-%:%166=137%:%
-%:%167=138%:%
-%:%168=139%:%
-%:%169=140%:%
-%:%170=141%:%
-%:%171=142%:%
-%:%180=144%:%
-%:%192=146%:%
-%:%193=147%:%
-%:%194=148%:%
-%:%195=149%:%
-%:%196=150%:%
-%:%197=151%:%
-%:%198=152%:%
-%:%199=153%:%
-%:%200=154%:%
-%:%201=155%:%
-%:%202=156%:%
-%:%211=158%:%
-%:%223=160%:%
-%:%224=161%:%
-%:%225=162%:%
-%:%226=163%:%
-%:%227=164%:%
-%:%228=165%:%
-%:%229=166%:%
-%:%230=167%:%
-%:%231=168%:%
-%:%232=169%:%
-%:%233=170%:%
-%:%234=171%:%
-%:%235=172%:%
-%:%236=173%:%
-%:%237=174%:%
-%:%238=175%:%
-%:%239=176%:%
-%:%240=177%:%
-%:%241=178%:%
-%:%242=179%:%
-%:%243=180%:%
-%:%244=181%:%
-%:%245=182%:%
-%:%246=183%:%
-%:%247=184%:%
-%:%248=185%:%
-%:%249=186%:%
-%:%250=187%:%
-%:%251=188%:%
-%:%252=189%:%
-%:%253=190%:%
-%:%254=191%:%
-%:%255=192%:%
-%:%256=193%:%
-%:%257=194%:%
-%:%258=195%:%
-%:%259=196%:%
-%:%260=197%:%
-%:%261=198%:%
-%:%262=199%:%
-%:%263=200%:%
-%:%264=201%:%
-%:%265=202%:%
-%:%266=203%:%
-%:%267=204%:%
-%:%268=205%:%
-%:%269=206%:%
-%:%270=207%:%
-%:%271=208%:%
-%:%272=209%:%
-%:%273=210%:%
-%:%274=211%:%
-%:%275=212%:%
-%:%276=213%:%
-%:%277=214%:%
-%:%278=215%:%
-%:%279=216%:%
-%:%280=217%:%
-%:%281=218%:%
-%:%282=219%:%
-%:%283=220%:%
-%:%284=221%:%
-%:%285=222%:%
-%:%286=223%:%
-%:%287=224%:%
-%:%288=225%:%
-%:%289=226%:%
-%:%290=227%:%
-%:%291=228%:%
-%:%292=229%:%
-%:%293=230%:%
-%:%294=231%:%
-%:%295=232%:%
-%:%296=233%:%
-%:%297=234%:%
-%:%298=235%:%
-%:%299=236%:%
-%:%300=237%:%
-%:%301=238%:%
-%:%302=239%:%
-%:%303=240%:%
-%:%304=241%:%
-%:%305=242%:%
-%:%306=243%:%
-%:%307=244%:%
-%:%308=245%:%
-%:%309=246%:%
-%:%310=247%:%
-%:%311=248%:%
-%:%312=249%:%
-%:%313=250%:%
-%:%314=251%:%
-%:%315=252%:%
-%:%316=253%:%
-%:%317=254%:%
-%:%318=255%:%
-%:%319=256%:%
-%:%320=257%:%
-%:%321=258%:%
-%:%322=259%:%
-%:%323=260%:%
-%:%324=261%:%
-%:%325=262%:%
-%:%326=263%:%
-%:%327=264%:%
-%:%328=265%:%
-%:%329=266%:%
-%:%330=267%:%
-%:%331=268%:%
-%:%332=269%:%
-%:%333=270%:%
-%:%334=271%:%
-%:%335=272%:%
-%:%336=273%:%
-%:%337=274%:%
-%:%338=275%:%
-%:%339=276%:%
-%:%340=277%:%
-%:%341=278%:%
-%:%342=279%:%
-%:%343=280%:%
-%:%344=281%:%
-%:%345=282%:%
-%:%346=283%:%
-%:%347=284%:%
-%:%348=285%:%
-%:%349=286%:%
-%:%350=287%:%
-%:%351=288%:%
-%:%352=289%:%
-%:%353=290%:%
-%:%354=291%:%
-%:%355=292%:%
-%:%356=293%:%
-%:%357=294%:%
-%:%358=295%:%
-%:%359=296%:%
-%:%360=297%:%
-%:%361=298%:%
-%:%362=299%:%
-%:%363=300%:%
-%:%364=301%:%
-%:%365=302%:%
-%:%366=303%:%
-%:%367=304%:%
-%:%368=305%:%
-%:%369=306%:%
-%:%370=307%:%
-%:%371=308%:%
-%:%372=309%:%
-%:%373=310%:%
-%:%374=311%:%
-%:%375=312%:%
-%:%376=313%:%
-%:%377=314%:%
-%:%378=315%:%
-%:%379=316%:%
-%:%380=317%:%
-%:%381=318%:%
-%:%382=319%:%
-%:%383=320%:%
-%:%384=321%:%
-%:%385=322%:%
-%:%386=323%:%
-%:%387=324%:%
-%:%388=325%:%
-%:%389=326%:%
-%:%390=327%:%
-%:%391=328%:%
-%:%392=329%:%
-%:%393=330%:%
-%:%394=331%:%
-%:%395=332%:%
-%:%396=333%:%
-%:%397=334%:%
-%:%398=335%:%
-%:%399=336%:%
-%:%400=337%:%
-%:%401=338%:%
-%:%402=339%:%
-%:%403=340%:%
-%:%404=341%:%
-%:%405=342%:%
-%:%406=343%:%
-%:%407=344%:%
-%:%408=345%:%
-%:%409=346%:%
-%:%410=347%:%
-%:%411=348%:%
-%:%412=349%:%
-%:%413=350%:%
-%:%414=351%:%
-%:%415=352%:%
-%:%416=353%:%
-%:%425=356%:%
+%:%48=20%:%
+%:%49=21%:%
+%:%50=22%:%
+%:%51=23%:%
+%:%60=25%:%
+%:%72=27%:%
+%:%73=28%:%
+%:%74=29%:%
+%:%75=30%:%
+%:%76=31%:%
+%:%77=32%:%
+%:%78=33%:%
+%:%79=34%:%
+%:%80=35%:%
+%:%81=36%:%
+%:%82=37%:%
+%:%83=38%:%
+%:%84=39%:%
+%:%85=40%:%
+%:%86=41%:%
+%:%87=42%:%
+%:%88=43%:%
+%:%89=44%:%
+%:%90=45%:%
+%:%91=46%:%
+%:%92=47%:%
+%:%93=48%:%
+%:%94=49%:%
+%:%95=50%:%
+%:%96=51%:%
+%:%97=52%:%
+%:%98=53%:%
+%:%99=54%:%
+%:%100=55%:%
+%:%101=56%:%
+%:%102=57%:%
+%:%103=58%:%
+%:%104=59%:%
+%:%105=60%:%
+%:%106=61%:%
+%:%107=62%:%
+%:%108=63%:%
+%:%109=64%:%
+%:%110=65%:%
+%:%111=66%:%
+%:%112=67%:%
+%:%113=68%:%
+%:%114=69%:%
+%:%115=70%:%
+%:%116=71%:%
+%:%117=72%:%
+%:%118=73%:%
+%:%119=74%:%
+%:%120=75%:%
+%:%121=76%:%
+%:%122=77%:%
+%:%123=78%:%
+%:%124=79%:%
+%:%125=80%:%
+%:%126=81%:%
+%:%127=82%:%
+%:%128=83%:%
+%:%129=84%:%
+%:%130=85%:%
+%:%131=86%:%
+%:%132=87%:%
+%:%133=88%:%
+%:%134=89%:%
+%:%135=90%:%
+%:%136=91%:%
+%:%137=92%:%
+%:%138=93%:%
+%:%139=94%:%
+%:%140=95%:%
+%:%141=96%:%
+%:%142=97%:%
+%:%143=98%:%
+%:%144=99%:%
+%:%145=100%:%
+%:%146=101%:%
+%:%147=102%:%
+%:%148=103%:%
+%:%149=104%:%
+%:%150=105%:%
+%:%151=106%:%
+%:%152=107%:%
+%:%153=108%:%
+%:%154=109%:%
+%:%155=110%:%
+%:%156=111%:%
+%:%157=112%:%
+%:%158=113%:%
+%:%159=114%:%
+%:%160=115%:%
+%:%161=116%:%
+%:%162=117%:%
+%:%163=118%:%
+%:%164=119%:%
+%:%165=120%:%
+%:%166=121%:%
+%:%167=122%:%
+%:%168=123%:%
+%:%169=124%:%
+%:%170=125%:%
+%:%171=126%:%
+%:%172=127%:%
+%:%173=128%:%
+%:%174=129%:%
+%:%175=130%:%
+%:%176=131%:%
+%:%177=132%:%
+%:%178=133%:%
+%:%179=134%:%
+%:%180=135%:%
+%:%181=136%:%
+%:%182=137%:%
+%:%183=138%:%
+%:%184=139%:%
+%:%185=140%:%
+%:%186=141%:%
+%:%187=142%:%
+%:%188=143%:%
+%:%189=144%:%
+%:%190=145%:%
+%:%191=146%:%
+%:%192=147%:%
+%:%193=148%:%
+%:%194=149%:%
+%:%195=150%:%
+%:%196=151%:%
+%:%197=152%:%
+%:%198=153%:%
+%:%207=155%:%
+%:%219=157%:%
+%:%220=158%:%
+%:%221=159%:%
+%:%222=160%:%
+%:%223=161%:%
+%:%224=162%:%
+%:%225=163%:%
+%:%226=164%:%
+%:%227=165%:%
+%:%228=166%:%
+%:%229=167%:%
+%:%238=169%:%
+%:%250=171%:%
+%:%251=172%:%
+%:%252=173%:%
+%:%253=174%:%
+%:%254=175%:%
+%:%255=176%:%
+%:%256=177%:%
+%:%257=178%:%
+%:%258=179%:%
+%:%259=180%:%
+%:%260=181%:%
+%:%261=182%:%
+%:%262=183%:%
+%:%263=184%:%
+%:%264=185%:%
+%:%265=186%:%
+%:%266=187%:%
+%:%267=188%:%
+%:%268=189%:%
+%:%269=190%:%
+%:%270=191%:%
+%:%271=192%:%
+%:%272=193%:%
+%:%273=194%:%
+%:%274=195%:%
+%:%275=196%:%
+%:%276=197%:%
+%:%277=198%:%
+%:%278=199%:%
+%:%279=200%:%
+%:%280=201%:%
+%:%281=202%:%
+%:%282=203%:%
+%:%283=204%:%
+%:%284=205%:%
+%:%285=206%:%
+%:%286=207%:%
+%:%287=208%:%
+%:%288=209%:%
+%:%289=210%:%
+%:%290=211%:%
+%:%291=212%:%
+%:%292=213%:%
+%:%293=214%:%
+%:%294=215%:%
+%:%295=216%:%
+%:%296=217%:%
+%:%297=218%:%
+%:%298=219%:%
+%:%299=220%:%
+%:%300=221%:%
+%:%301=222%:%
+%:%302=223%:%
+%:%303=224%:%
+%:%304=225%:%
+%:%305=226%:%
+%:%306=227%:%
+%:%307=228%:%
+%:%308=229%:%
+%:%309=230%:%
+%:%310=231%:%
+%:%311=232%:%
+%:%312=233%:%
+%:%313=234%:%
+%:%314=235%:%
+%:%315=236%:%
+%:%316=237%:%
+%:%317=238%:%
+%:%318=239%:%
+%:%319=240%:%
+%:%320=241%:%
+%:%321=242%:%
+%:%322=243%:%
+%:%323=244%:%
+%:%324=245%:%
+%:%325=246%:%
+%:%326=247%:%
+%:%327=248%:%
+%:%328=249%:%
+%:%329=250%:%
+%:%330=251%:%
+%:%331=252%:%
+%:%332=253%:%
+%:%333=254%:%
+%:%334=255%:%
+%:%335=256%:%
+%:%336=257%:%
+%:%337=258%:%
+%:%338=259%:%
+%:%339=260%:%
+%:%340=261%:%
+%:%341=262%:%
+%:%342=263%:%
+%:%343=264%:%
+%:%344=265%:%
+%:%345=266%:%
+%:%346=267%:%
+%:%347=268%:%
+%:%348=269%:%
+%:%349=270%:%
+%:%350=271%:%
+%:%351=272%:%
+%:%352=273%:%
+%:%353=274%:%
+%:%354=275%:%
+%:%355=276%:%
+%:%356=277%:%
+%:%357=278%:%
+%:%358=279%:%
+%:%359=280%:%
+%:%360=281%:%
+%:%361=282%:%
+%:%362=283%:%
+%:%363=284%:%
+%:%364=285%:%
+%:%365=286%:%
+%:%366=287%:%
+%:%367=288%:%
+%:%368=289%:%
+%:%369=290%:%
+%:%370=291%:%
+%:%371=292%:%
+%:%372=293%:%
+%:%373=294%:%
+%:%374=295%:%
+%:%375=296%:%
+%:%376=297%:%
+%:%377=298%:%
+%:%378=299%:%
+%:%379=300%:%
+%:%380=301%:%
+%:%381=302%:%
+%:%382=303%:%
+%:%383=304%:%
+%:%384=305%:%
+%:%385=306%:%
+%:%386=307%:%
+%:%387=308%:%
+%:%388=309%:%
+%:%389=310%:%
+%:%390=311%:%
+%:%391=312%:%
+%:%392=313%:%
+%:%393=314%:%
+%:%394=315%:%
+%:%395=316%:%
+%:%396=317%:%
+%:%397=318%:%
+%:%398=319%:%
+%:%399=320%:%
+%:%400=321%:%
+%:%401=322%:%
+%:%402=323%:%
+%:%403=324%:%
+%:%404=325%:%
+%:%405=326%:%
+%:%406=327%:%
+%:%407=328%:%
+%:%408=329%:%
+%:%409=330%:%
+%:%410=331%:%
+%:%411=332%:%
+%:%412=333%:%
+%:%413=334%:%
+%:%414=335%:%
+%:%415=336%:%
+%:%416=337%:%
+%:%417=338%:%
+%:%418=339%:%
+%:%419=340%:%
+%:%420=341%:%
+%:%421=342%:%
+%:%422=343%:%
+%:%423=344%:%
+%:%424=345%:%
+%:%425=346%:%
+%:%426=347%:%
+%:%427=348%:%
+%:%428=349%:%
+%:%429=350%:%
+%:%430=351%:%
+%:%431=352%:%
+%:%432=353%:%
+%:%433=354%:%
+%:%434=355%:%
+%:%435=356%:%
+%:%436=357%:%
 %:%437=358%:%
 %:%438=359%:%
 %:%439=360%:%
@@ -1263,379 +1291,384 @@ thesis is one step towards building computers that can think ethically in the ri
 %:%441=362%:%
 %:%442=363%:%
 %:%443=364%:%
-%:%444=365%:%
-%:%445=366%:%
-%:%446=367%:%
-%:%447=368%:%
-%:%448=369%:%
-%:%449=370%:%
-%:%450=371%:%
-%:%451=372%:%
-%:%452=373%:%
-%:%453=374%:%
-%:%454=375%:%
-%:%455=376%:%
-%:%456=377%:%
-%:%457=378%:%
-%:%458=379%:%
-%:%459=380%:%
-%:%460=381%:%
-%:%461=382%:%
-%:%462=383%:%
-%:%463=384%:%
-%:%464=385%:%
-%:%465=386%:%
-%:%466=387%:%
-%:%467=388%:%
-%:%468=389%:%
-%:%469=390%:%
-%:%470=391%:%
-%:%471=392%:%
-%:%472=393%:%
-%:%473=394%:%
-%:%474=395%:%
-%:%475=396%:%
-%:%476=397%:%
-%:%477=398%:%
-%:%478=399%:%
-%:%479=400%:%
-%:%480=401%:%
-%:%481=402%:%
-%:%482=403%:%
-%:%483=404%:%
-%:%484=405%:%
-%:%485=406%:%
-%:%486=407%:%
-%:%487=408%:%
-%:%488=409%:%
-%:%489=410%:%
-%:%490=411%:%
-%:%491=412%:%
-%:%492=413%:%
-%:%493=414%:%
-%:%494=415%:%
-%:%495=416%:%
-%:%496=417%:%
-%:%497=418%:%
-%:%498=419%:%
-%:%499=420%:%
-%:%500=421%:%
-%:%501=422%:%
-%:%502=423%:%
-%:%503=424%:%
-%:%512=426%:%
-%:%524=428%:%
-%:%525=429%:%
-%:%526=430%:%
-%:%527=431%:%
-%:%528=432%:%
-%:%529=433%:%
-%:%530=434%:%
-%:%531=435%:%
-%:%532=436%:%
-%:%533=437%:%
-%:%534=438%:%
-%:%535=439%:%
-%:%536=440%:%
-%:%537=441%:%
-%:%538=442%:%
-%:%539=443%:%
-%:%540=444%:%
-%:%541=445%:%
-%:%542=446%:%
-%:%543=447%:%
-%:%544=448%:%
-%:%545=449%:%
-%:%546=450%:%
-%:%547=451%:%
-%:%548=452%:%
-%:%549=453%:%
-%:%550=454%:%
-%:%551=455%:%
-%:%552=456%:%
-%:%553=457%:%
-%:%554=458%:%
-%:%555=459%:%
-%:%556=460%:%
-%:%557=461%:%
-%:%558=462%:%
-%:%559=463%:%
-%:%560=464%:%
-%:%561=465%:%
-%:%562=466%:%
-%:%563=467%:%
-%:%564=468%:%
-%:%565=469%:%
-%:%566=470%:%
-%:%567=471%:%
-%:%568=472%:%
-%:%569=473%:%
-%:%570=474%:%
-%:%571=475%:%
-%:%572=476%:%
-%:%573=477%:%
-%:%574=478%:%
-%:%575=479%:%
-%:%576=480%:%
-%:%577=481%:%
-%:%578=482%:%
-%:%579=483%:%
-%:%580=484%:%
-%:%581=485%:%
-%:%582=486%:%
-%:%583=487%:%
-%:%584=488%:%
-%:%585=489%:%
-%:%586=490%:%
-%:%587=491%:%
-%:%588=492%:%
-%:%589=493%:%
-%:%590=494%:%
-%:%591=495%:%
-%:%592=496%:%
-%:%593=497%:%
-%:%594=498%:%
-%:%595=499%:%
-%:%596=500%:%
-%:%597=501%:%
-%:%598=502%:%
-%:%599=503%:%
-%:%600=504%:%
-%:%601=505%:%
-%:%602=506%:%
-%:%603=507%:%
-%:%612=510%:%
-%:%624=513%:%
-%:%625=514%:%
-%:%626=515%:%
-%:%627=516%:%
-%:%628=517%:%
-%:%629=518%:%
-%:%630=519%:%
-%:%631=520%:%
-%:%632=521%:%
-%:%633=522%:%
-%:%634=523%:%
-%:%635=524%:%
-%:%636=525%:%
-%:%637=526%:%
-%:%638=527%:%
-%:%639=528%:%
-%:%640=529%:%
-%:%641=530%:%
-%:%642=531%:%
-%:%643=532%:%
-%:%644=533%:%
-%:%645=534%:%
-%:%646=535%:%
-%:%647=536%:%
-%:%648=537%:%
-%:%649=538%:%
-%:%650=539%:%
-%:%651=540%:%
-%:%652=541%:%
-%:%653=542%:%
-%:%654=543%:%
-%:%655=544%:%
-%:%656=545%:%
-%:%657=546%:%
-%:%658=547%:%
-%:%659=548%:%
-%:%660=549%:%
-%:%661=550%:%
-%:%662=551%:%
-%:%663=552%:%
-%:%664=553%:%
-%:%665=554%:%
-%:%666=555%:%
-%:%667=556%:%
-%:%668=557%:%
-%:%669=558%:%
-%:%670=559%:%
-%:%671=560%:%
-%:%672=561%:%
-%:%673=562%:%
-%:%674=563%:%
-%:%675=564%:%
-%:%676=565%:%
-%:%677=566%:%
-%:%678=567%:%
-%:%679=568%:%
-%:%680=569%:%
-%:%681=570%:%
-%:%682=571%:%
-%:%683=572%:%
-%:%684=573%:%
-%:%685=574%:%
-%:%686=575%:%
-%:%687=576%:%
-%:%688=577%:%
-%:%689=578%:%
-%:%690=579%:%
-%:%691=580%:%
-%:%692=581%:%
-%:%693=582%:%
-%:%694=583%:%
-%:%695=584%:%
-%:%696=585%:%
-%:%697=586%:%
-%:%698=587%:%
-%:%699=588%:%
-%:%700=589%:%
-%:%701=590%:%
-%:%702=591%:%
-%:%703=592%:%
-%:%704=593%:%
-%:%705=594%:%
-%:%706=595%:%
-%:%707=596%:%
-%:%708=597%:%
-%:%709=598%:%
-%:%710=599%:%
-%:%711=600%:%
-%:%712=601%:%
-%:%713=602%:%
-%:%714=603%:%
-%:%715=604%:%
-%:%716=605%:%
-%:%717=606%:%
-%:%718=607%:%
-%:%719=608%:%
-%:%720=609%:%
-%:%721=610%:%
-%:%722=611%:%
-%:%723=612%:%
-%:%724=613%:%
-%:%725=614%:%
-%:%726=615%:%
-%:%727=616%:%
-%:%728=617%:%
-%:%729=618%:%
-%:%730=619%:%
-%:%731=620%:%
-%:%732=621%:%
-%:%733=622%:%
-%:%734=623%:%
-%:%735=624%:%
-%:%736=625%:%
-%:%737=626%:%
-%:%738=627%:%
-%:%739=628%:%
-%:%740=629%:%
-%:%741=630%:%
-%:%742=631%:%
-%:%745=633%:%
-%:%746=634%:%
-%:%747=635%:%
-%:%748=636%:%
-%:%749=637%:%
-%:%750=638%:%
-%:%753=639%:%
-%:%754=640%:%
-%:%755=641%:%
-%:%756=642%:%
-%:%757=643%:%
-%:%758=644%:%
-%:%759=645%:%
-%:%760=646%:%
-%:%761=647%:%
-%:%762=648%:%
-%:%763=649%:%
-%:%764=650%:%
-%:%765=651%:%
-%:%766=652%:%
-%:%767=653%:%
-%:%768=654%:%
-%:%777=658%:%
-%:%789=660%:%
-%:%790=661%:%
-%:%791=662%:%
-%:%792=663%:%
-%:%793=664%:%
-%:%794=665%:%
-%:%795=666%:%
-%:%796=667%:%
-%:%797=668%:%
-%:%798=669%:%
-%:%799=670%:%
-%:%800=671%:%
-%:%801=672%:%
-%:%802=673%:%
-%:%803=674%:%
-%:%804=675%:%
-%:%805=676%:%
-%:%806=677%:%
-%:%807=678%:%
-%:%808=679%:%
-%:%809=680%:%
-%:%810=681%:%
-%:%811=682%:%
-%:%812=683%:%
-%:%813=684%:%
-%:%814=685%:%
-%:%815=686%:%
-%:%816=687%:%
-%:%817=688%:%
-%:%818=689%:%
-%:%819=690%:%
-%:%820=691%:%
-%:%821=692%:%
-%:%822=693%:%
-%:%823=694%:%
-%:%824=695%:%
-%:%825=696%:%
-%:%826=697%:%
-%:%827=698%:%
-%:%828=699%:%
-%:%829=700%:%
-%:%830=701%:%
-%:%831=702%:%
-%:%832=703%:%
-%:%833=704%:%
-%:%834=705%:%
-%:%835=706%:%
-%:%836=707%:%
-%:%837=708%:%
-%:%838=709%:%
-%:%839=710%:%
-%:%840=711%:%
-%:%849=713%:%
-%:%861=715%:%
-%:%862=716%:%
-%:%863=717%:%
-%:%864=718%:%
-%:%865=719%:%
-%:%866=720%:%
-%:%867=721%:%
-%:%868=722%:%
-%:%869=723%:%
-%:%870=724%:%
-%:%871=725%:%
-%:%872=726%:%
-%:%873=727%:%
-%:%874=728%:%
-%:%875=729%:%
-%:%876=730%:%
-%:%877=731%:%
-%:%878=732%:%
-%:%879=733%:%
-%:%880=734%:%
-%:%881=735%:%
-%:%882=736%:%
-%:%883=737%:%
-%:%884=738%:%
-%:%885=739%:%
-%:%886=740%:%
-%:%887=741%:%
-%:%888=742%:%
-%:%889=743%:%
-%:%890=744%:%
-%:%891=745%:%
-%:%892=746%:%
-%:%893=747%:%
-%:%894=748%:%
-%:%895=749%:%
-%:%896=750%:%
-%:%897=751%:%
-%:%898=752%:%
-%:%899=753%:%
+%:%452=367%:%
+%:%464=369%:%
+%:%465=370%:%
+%:%466=371%:%
+%:%467=372%:%
+%:%468=373%:%
+%:%469=374%:%
+%:%470=375%:%
+%:%471=376%:%
+%:%472=377%:%
+%:%473=378%:%
+%:%474=379%:%
+%:%475=380%:%
+%:%476=381%:%
+%:%477=382%:%
+%:%478=383%:%
+%:%479=384%:%
+%:%480=385%:%
+%:%481=386%:%
+%:%482=387%:%
+%:%483=388%:%
+%:%484=389%:%
+%:%485=390%:%
+%:%486=391%:%
+%:%487=392%:%
+%:%488=393%:%
+%:%489=394%:%
+%:%490=395%:%
+%:%491=396%:%
+%:%492=397%:%
+%:%493=398%:%
+%:%494=399%:%
+%:%495=400%:%
+%:%496=401%:%
+%:%497=402%:%
+%:%498=403%:%
+%:%499=404%:%
+%:%500=405%:%
+%:%501=406%:%
+%:%502=407%:%
+%:%503=408%:%
+%:%504=409%:%
+%:%505=410%:%
+%:%506=411%:%
+%:%507=412%:%
+%:%508=413%:%
+%:%509=414%:%
+%:%510=415%:%
+%:%511=416%:%
+%:%512=417%:%
+%:%513=418%:%
+%:%514=419%:%
+%:%515=420%:%
+%:%516=421%:%
+%:%517=422%:%
+%:%518=423%:%
+%:%519=424%:%
+%:%520=425%:%
+%:%521=426%:%
+%:%522=427%:%
+%:%523=428%:%
+%:%524=429%:%
+%:%525=430%:%
+%:%526=431%:%
+%:%527=432%:%
+%:%528=433%:%
+%:%529=434%:%
+%:%538=436%:%
+%:%550=438%:%
+%:%551=439%:%
+%:%552=440%:%
+%:%553=441%:%
+%:%554=442%:%
+%:%555=443%:%
+%:%556=444%:%
+%:%557=445%:%
+%:%558=446%:%
+%:%559=447%:%
+%:%560=448%:%
+%:%561=449%:%
+%:%562=450%:%
+%:%563=451%:%
+%:%564=452%:%
+%:%565=453%:%
+%:%566=454%:%
+%:%567=455%:%
+%:%568=456%:%
+%:%569=457%:%
+%:%570=458%:%
+%:%571=459%:%
+%:%572=460%:%
+%:%573=461%:%
+%:%574=462%:%
+%:%575=463%:%
+%:%576=464%:%
+%:%577=465%:%
+%:%578=466%:%
+%:%579=467%:%
+%:%580=468%:%
+%:%581=469%:%
+%:%582=470%:%
+%:%583=471%:%
+%:%584=472%:%
+%:%585=473%:%
+%:%586=474%:%
+%:%587=475%:%
+%:%588=476%:%
+%:%589=477%:%
+%:%590=478%:%
+%:%591=479%:%
+%:%592=480%:%
+%:%593=481%:%
+%:%594=482%:%
+%:%595=483%:%
+%:%596=484%:%
+%:%597=485%:%
+%:%598=486%:%
+%:%599=487%:%
+%:%600=488%:%
+%:%601=489%:%
+%:%602=490%:%
+%:%603=491%:%
+%:%604=492%:%
+%:%605=493%:%
+%:%606=494%:%
+%:%607=495%:%
+%:%608=496%:%
+%:%609=497%:%
+%:%610=498%:%
+%:%611=499%:%
+%:%612=500%:%
+%:%613=501%:%
+%:%614=502%:%
+%:%615=503%:%
+%:%616=504%:%
+%:%617=505%:%
+%:%618=506%:%
+%:%619=507%:%
+%:%620=508%:%
+%:%621=509%:%
+%:%622=510%:%
+%:%623=511%:%
+%:%624=512%:%
+%:%625=513%:%
+%:%626=514%:%
+%:%635=517%:%
+%:%647=520%:%
+%:%648=521%:%
+%:%649=522%:%
+%:%650=523%:%
+%:%651=524%:%
+%:%652=525%:%
+%:%653=526%:%
+%:%654=527%:%
+%:%655=528%:%
+%:%656=529%:%
+%:%657=530%:%
+%:%658=531%:%
+%:%659=532%:%
+%:%660=533%:%
+%:%661=534%:%
+%:%662=535%:%
+%:%663=536%:%
+%:%664=537%:%
+%:%665=538%:%
+%:%666=539%:%
+%:%667=540%:%
+%:%668=541%:%
+%:%669=542%:%
+%:%670=543%:%
+%:%671=544%:%
+%:%672=545%:%
+%:%673=546%:%
+%:%674=547%:%
+%:%675=548%:%
+%:%676=549%:%
+%:%677=550%:%
+%:%678=551%:%
+%:%679=552%:%
+%:%680=553%:%
+%:%681=554%:%
+%:%682=555%:%
+%:%683=556%:%
+%:%684=557%:%
+%:%685=558%:%
+%:%686=559%:%
+%:%687=560%:%
+%:%688=561%:%
+%:%689=562%:%
+%:%690=563%:%
+%:%691=564%:%
+%:%692=565%:%
+%:%693=566%:%
+%:%694=567%:%
+%:%695=568%:%
+%:%696=569%:%
+%:%697=570%:%
+%:%698=571%:%
+%:%699=572%:%
+%:%700=573%:%
+%:%701=574%:%
+%:%702=575%:%
+%:%703=576%:%
+%:%704=577%:%
+%:%705=578%:%
+%:%706=579%:%
+%:%707=580%:%
+%:%708=581%:%
+%:%709=582%:%
+%:%710=583%:%
+%:%711=584%:%
+%:%712=585%:%
+%:%713=586%:%
+%:%714=587%:%
+%:%715=588%:%
+%:%716=589%:%
+%:%717=590%:%
+%:%718=591%:%
+%:%719=592%:%
+%:%720=593%:%
+%:%721=594%:%
+%:%722=595%:%
+%:%723=596%:%
+%:%724=597%:%
+%:%725=598%:%
+%:%726=599%:%
+%:%727=600%:%
+%:%728=601%:%
+%:%729=602%:%
+%:%730=603%:%
+%:%731=604%:%
+%:%732=605%:%
+%:%733=606%:%
+%:%734=607%:%
+%:%735=608%:%
+%:%736=609%:%
+%:%737=610%:%
+%:%738=611%:%
+%:%739=612%:%
+%:%740=613%:%
+%:%741=614%:%
+%:%742=615%:%
+%:%743=616%:%
+%:%744=617%:%
+%:%745=618%:%
+%:%746=619%:%
+%:%747=620%:%
+%:%748=621%:%
+%:%749=622%:%
+%:%750=623%:%
+%:%751=624%:%
+%:%752=625%:%
+%:%753=626%:%
+%:%754=627%:%
+%:%755=628%:%
+%:%756=629%:%
+%:%757=630%:%
+%:%758=631%:%
+%:%759=632%:%
+%:%760=633%:%
+%:%761=634%:%
+%:%762=635%:%
+%:%763=636%:%
+%:%764=637%:%
+%:%765=638%:%
+%:%766=639%:%
+%:%769=641%:%
+%:%770=642%:%
+%:%771=643%:%
+%:%772=644%:%
+%:%773=645%:%
+%:%774=646%:%
+%:%777=647%:%
+%:%778=648%:%
+%:%779=649%:%
+%:%780=650%:%
+%:%781=651%:%
+%:%782=652%:%
+%:%783=653%:%
+%:%784=654%:%
+%:%785=655%:%
+%:%786=656%:%
+%:%787=657%:%
+%:%788=658%:%
+%:%789=659%:%
+%:%790=660%:%
+%:%791=661%:%
+%:%792=662%:%
+%:%801=666%:%
+%:%813=668%:%
+%:%814=669%:%
+%:%815=670%:%
+%:%816=671%:%
+%:%817=672%:%
+%:%818=673%:%
+%:%819=674%:%
+%:%820=675%:%
+%:%821=676%:%
+%:%822=677%:%
+%:%823=678%:%
+%:%824=679%:%
+%:%825=680%:%
+%:%826=681%:%
+%:%827=682%:%
+%:%828=683%:%
+%:%829=684%:%
+%:%830=685%:%
+%:%831=686%:%
+%:%832=687%:%
+%:%833=688%:%
+%:%834=689%:%
+%:%835=690%:%
+%:%836=691%:%
+%:%837=692%:%
+%:%838=693%:%
+%:%839=694%:%
+%:%840=695%:%
+%:%841=696%:%
+%:%842=697%:%
+%:%843=698%:%
+%:%844=699%:%
+%:%845=700%:%
+%:%846=701%:%
+%:%847=702%:%
+%:%848=703%:%
+%:%849=704%:%
+%:%850=705%:%
+%:%851=706%:%
+%:%852=707%:%
+%:%853=708%:%
+%:%854=709%:%
+%:%855=710%:%
+%:%856=711%:%
+%:%857=712%:%
+%:%858=713%:%
+%:%859=714%:%
+%:%860=715%:%
+%:%861=716%:%
+%:%862=717%:%
+%:%863=718%:%
+%:%864=719%:%
+%:%873=721%:%
+%:%885=723%:%
+%:%886=724%:%
+%:%887=725%:%
+%:%888=726%:%
+%:%889=727%:%
+%:%890=728%:%
+%:%891=729%:%
+%:%892=730%:%
+%:%893=731%:%
+%:%894=732%:%
+%:%895=733%:%
+%:%896=734%:%
+%:%897=735%:%
+%:%898=736%:%
+%:%899=737%:%
+%:%900=738%:%
+%:%901=739%:%
+%:%902=740%:%
+%:%903=741%:%
+%:%904=742%:%
+%:%905=743%:%
+%:%906=744%:%
+%:%907=745%:%
+%:%908=746%:%
+%:%909=747%:%
+%:%910=748%:%
+%:%911=749%:%
+%:%912=750%:%
+%:%913=751%:%
+%:%914=752%:%
+%:%915=753%:%
+%:%916=754%:%
+%:%917=755%:%
+%:%918=756%:%
+%:%919=757%:%
+%:%920=758%:%
+%:%921=759%:%
+%:%922=760%:%
+%:%923=761%:%

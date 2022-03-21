@@ -41,7 +41,7 @@ present the philosophical, logic, and computational background underlying my sys
 These three components determine the features
 and limitations of my implementation of automated ethics. Other choices of 
 components, such as another ethical theory, a different logic, or a different theorem prover could be 
-made. Flaws with these components are merely limitations of my system, but do not 
+made. Flaws with these components are limitations of my system, but do not 
 indict logic-programming-based automated ethics more generally. My thesis seeks to 
 both present a specific implementation of automated ethics but also to argue for a particular approach 
 to automating ethical reasoning and these choices are relevant to the former goal but not to the latter.%
@@ -144,11 +144,11 @@ their consequences increases. Kantian ethics, on the other hand, does not suffer
 challenge because it evaluates the acts themselves, and acts that affect 1 person and acts that 
 affect 1 million people share the same representation.
 
-The challenge of representing the circumstances of action is not unique to consequentialism, but is particularly acute in this case. 
+The challenge of representing the circumstances of action is not unique to consequentialism, but it is particularly acute in this case. 
 Kantian ethicists robustly debate which circumstances of an action are ``morally relevant'' when evaluating an action's moral worth.\footnote{ 
 \citet{powers} identifies this as a challenge for automating Kantian ethics and briefly sketches 
-solutions from \citet{constofreason}, \citet{silber}, and \citet{rawlsconstructivism}. For my approach to
-morally relevant circumstances, see Section \ref{whatisamaxim}.} Because deontology merely evaluates a 
+solutions from \citet{constofreason}, \citet{silber}, and \citet{rawlsconstructivism}. For further discussion of
+morally relevant circumstances, see Sections \ref{whatisamaxim} and \ref{AIethics}.} Because deontology merely evaluates a 
 single action, the surface of this debate is much smaller than debates about circumstances and 
 consequences in a consequentialist system. An automated consequentialist system must make such 
 judgements about the act itself, the circumstances in which it is performed, and the circumstances 
@@ -210,12 +210,12 @@ of goodness measurements for large states of affairs.%
 %
 \begin{isamarkuptext}%
 Because of its intuitive appeal, computer scientists have tried to formalize consequentialism in the past.
-These efforts cannot circumvent the challenges outlined above. For example, Abel et al. represent ethics as a
+These efforts cannot escape the challenges outlined above. For example, Abel et al. represent ethics as a
 Markov Decision Process (MDP), with reward functions customized to particular ethical dilemmas 
 \citep[3]{util1}. While this is a convenient representation, it either leaves unanswered or 
 takes implicit stances on the debates above. It assumes that consequences can be aggregated just as 
 reward is accumulated in an MDP.\footnote{Generally, reward for an MDP is accumulated according to a 
-``discount factor'' $\gamma < 1$, such that if $r_i$ is the reward at time $i$, the total reward is $\sum_{i=0}^{\infty}\gamma^i r_i$.} 
+``discount factor'' $\gamma \leq 1$, such that if $r_i$ is the reward at time $i$, the total reward is $\sum_{i=0}^{\infty}\gamma^i r_i$.} 
 It leaves open the question of what the reward function is and thus 
 leaves the theory of the good, arguably the defining trait of consequentialism, 
 undefined. Similarly, Anderson and Anderson's proposal of a hedonistic act 
@@ -273,13 +273,13 @@ Many virtue ethical theories involve some notion of
 moral habit, which seems to be amenable to a machine learning approach. Artistotle, for example, argued 
 that cultivating virtuous action requires making such action habitual \citep{aristotle}. This seems to 
 point to a machine learning approach to automated ethics, in which ethical behavior is learned from a 
-dataset of acts tagged as virtuous if they are the act that an ideal virtuous agent would undertake. 
+dataset of acts, where an act is tagged as virtuous if an ideal virtuous agent would perform it. 
 
 Just as prior work in consequentialism takes implicit or explicit stances on debates in consequentialist
 literature, so must work in machine learning-based virtue ethics. For example, the training 
 dataset with acts labelled as virtuous or not virtuous will contain an implicit view on what the virtues
 are and how certain acts impact an agent's moral character. Because there is no canonical list of all virtues
-that virtue ethicists accept, this implicit view will likely be controversial. Even virtue ethicists agree
+that virtue ethicists accept, this implicit view will likely be controversial. Even virtue ethicists who agree
 that certain traits, like courage, are virtues debate the exact definitions of these traits. 
 
 Machine learning approaches like the Delphi system \citep{delphi} mentioned in Chapter \ref{intro} also may suffer explanability 
@@ -319,7 +319,7 @@ Kant's theory is centered
 on practical reason, which is the kind of reason that we 
 use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
 rational beings are unique because we act ``in accordance with 
-the representations of laws'' \citep[26]{groundwork}.\footnote{} A ball thrown into the air acts 
+the representations of laws'' \citep[26]{groundwork}. A ball thrown into the air acts 
 according to the laws of physics. It cannot ask itself, ``Should I fall back to the ground?'' 
 It simply falls. A rational being, on the other hand, can ask, ``Should I act on this reason?"''
 As Korsgaard describes it, when choosing which desire to act on, ``it is as if there is something over 
@@ -406,7 +406,7 @@ ethics require.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-One challenge for automating Kantian ethics is the need for what humans often understand as ``common-sense'', or factual and 
+One challenge for automating Kantian ethics is the need for ``common-sense'', or factual and 
 situational background. Common-sense is needed when formulating a maxim and determining if a maxim 
 violates the Formula of Universal Law. Maxims include the circumstances in which they apply and
 determining which circumstances are ``morally relevant'' to a maxim requires factual background. 
@@ -455,28 +455,28 @@ Kantian ethics, this challenge is more acute for consequentialism or virtue ethi
 %
 \begin{isamarkuptext}%
 Kant presents three formulations, or versions, 
-of what he calls the ``supreme law of morality," but I focus on the first of these three. In this section, 
+of what he calls the ``supreme law of morality,'' but I focus on the first of these three. In this section, 
 I argue that the Formula of Universal Law, specifically, is the easiest part of Kantian ethics to automate
 and the most generalizable.
 
 The first formulation of the categorical imperative is the
-formula of universal law (FUL), which reads, ``act only according to that maxim through which you can 
+Formula of Universal Law (FUL), which reads, ``act only according to that maxim through which you can 
 at the same time will that it become a universal law'' \citep[34]{groundwork}. The 
-second formulation of the categorical imperative is the formula of humanity (FUH): ``So act that you use humanity, 
+second formulation of the categorical imperative is the Formula of Humanity (FUH): ``So act that you use humanity, 
 in your own person, as well as in the person of any other, always at the same time as an end, never merely 
 as a means.'' \cite[41]{groundwork}. This formulation is often understood as requiring us to 
 acknowledge and respect the dignity of every other person. The third formulation of the categorical 
-imperative is the formula of autonomy (FOA), which Korsgaard describes
+imperative is the Formula of Autonomy (FOA), which Korsgaard describes
 as, ``we should so act that we may think of ourselves as legislating universal laws through our 
 maxims'' \cite[28]{korsgaardintro}. While closely related to the FUL, the FOA presents morality as the activity of 
 perfectly rational agents in an ideal ``kingdom of ends,'' guided by what Kant calls the ``laws of freedom.''
 
-I choose to focus on the FUL\footnote{The FUL is often seen as emblematic of Kantian constructivism \cite[173]{ebelsduggan}. 
-My project is not committed to Kantian constructivism.}, because it is the most formal and thus the 
+I choose to focus on the FUL,\footnote{The FUL is often seen as emblematic of Kantian constructivism \cite[173]{ebelsduggan}. 
+My project is not committed to Kantian constructivism.} because it is the most formal and thus the 
 easiest to formalize and implement. Onora O'Neill explains that the formalism of the FUL allows 
 for greater precision in philosophical arguments analyzing its implications and power \cite[33]{actingonprinciple}. This precision 
 is particularly useful in a computational context because any formalism necessarily makes its content 
-precise. The FUL's precision reduces ambiguity, allowing me to remain faithful to philosophical
+precise. The FUL's precision reduces ambiguity, making it easier to remain faithful to philosophical
 literature on Kant. Ambiguity in an ethical theory, such as the ambiguity about what counts as a good consequence
 in the case of consequentialism, forces an implementation of automated ethics to take stances on controversial
 philosophical debates. Minimizing the need for such choices puts my implementation on solid philosophical footing.
@@ -525,7 +525,7 @@ it serves as a functional, minimal version of Kantian ethics.%
 I formalize Kantian ethics by representing it as an axiom on top of a base logic. In this section, 
 I present the logical background necessary to understand my work and my choice of Dyadic Deontic Logic (DDL).
 
-Traditional modal logics include the necessitation operator, denoted as $\Box$. In simple modal logic
+As explained in Chapter \ref{intro}, traditional modal logics include the necessitation operator, denoted as $\Box$. In simple modal logic
 using the Kripke semantics, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors, 
 and it represents the concept of necessary truth \citep{cresswell}. 
 These logics usually also contain the possibility operator $\diamond$, where
@@ -576,7 +576,8 @@ of corresponding actual or possible versions of $w$. These operators are not rel
 this thesis, but this additional expressivity could be used to extend my project to incorporate 
 more sophisticated ethical concepts like counterfactuals.
 
-For more of fine-grained properties of DDL see \citet{CJDDL} or this project's source code. DDL is a heavy logic and contains modal operators 
+For more of fine-grained properties of DDL see \citet{CJDDL} or this project's source code.\footnote{The
+project's source code can be found \href{https://github.com/lsingh123/cs91r}{here}.} DDL is a heavy logic and contains modal operators 
 that aren't necessary for my analysis. While this expressivity is powerful, it may also cause performance
 issues. DDL has a large set of axioms involving quantification over complex higher-order
 logical expressions. Proofs involving these axioms will be computationally expensive. I do not run 
@@ -638,7 +639,6 @@ an abbreviation for a complex type, and \texttt{consts}, which defines constants
 %
 \isamarkupcmt{This is an Isabelle comment, while the text above is a line of actual, executable Isabelle code.%
 }\isanewline
-\isanewline
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ t\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}i\ {\isasymRightarrow}\ bool{\isacharparenright}{\isachardoublequoteclose}\ %
 \isamarkupcmt{$t$ represents a set of DDL formulas.%
@@ -1200,23 +1200,23 @@ which is why this theorem was so easy to prove.%
 %:%581=432%:%
 %:%582=433%:%
 %:%583=434%:%
-%:%592=437%:%
-%:%604=439%:%
+%:%584=435%:%
+%:%593=438%:%
 %:%605=440%:%
 %:%606=441%:%
 %:%607=442%:%
 %:%608=443%:%
 %:%609=444%:%
-%:%618=447%:%
-%:%630=449%:%
+%:%610=445%:%
+%:%619=448%:%
 %:%631=450%:%
 %:%632=451%:%
-%:%634=453%:%
-%:%635=453%:%
-%:%636=453%:%
-%:%637=453%:%
-%:%639=454%:%
-%:%640=454%:%
+%:%633=452%:%
+%:%635=454%:%
+%:%636=454%:%
+%:%637=454%:%
+%:%638=454%:%
+%:%640=455%:%
 %:%641=455%:%
 %:%642=456%:%
 %:%643=456%:%

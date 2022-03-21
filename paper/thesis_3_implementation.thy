@@ -536,7 +536,7 @@ shows that this property is incompatible with contradictory obligations.
 lemma "\<forall>w. \<exists>A. (((O {A} \<^bold>\<and> O {\<^bold>\<not> A})w)) \<equiv> (\<exists>B. (\<^bold>\<not> (O {B} \<^bold>\<rightarrow> \<^bold>\<not> O {\<^bold>\<not>B})) w)"
   by simp
 \<comment>\<open>This lemma shows that if there is some maxim $A$ such that $A$ and $\neg A$ are both obligatory (which
-is the formal statement of contradictory obligations), then obligation does not always permissibility. \<close>
+is the formal statement of contradictory obligations), then obligation does not always imply permissibility. \<close>
 \<comment>\<open>\texttt{simp} is the simplification tactic, which unfolds definitions to complete a proof.\<close>
 
 text \<open>\noindent \textbf{Distributive Property for Obligations Holds} Another property related to contradictory obligations is the distributive property for the obligation

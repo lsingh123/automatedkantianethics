@@ -137,7 +137,7 @@ my system draws on definitions of Kantian ethics presented in philosophical lite
 to perform sophisticated moral reasoning with minimal factual or situational context. 
 
 \item In Section \ref{computationalethics}, I present ethical insights discovered using my system and argue that
-computational methods like the one presented in this thesis can help philosophers address ethical problems.
+computational methods like the one presented in this thesis can help philosophers resolve debates about ethics.
 Not only can my system help machines reason about ethics, but it can also help philosophers make philosophical
 progress, just as computational tools unlock discoveries in fields like protein folding and drug discovery.
 \end{enumerate}%
@@ -149,7 +149,7 @@ progress, just as computational tools unlock discoveries in fields like protein 
 \medskip 
 
 My implementation of automated Kantian ethics formalizes Kant's moral rule
-in Deontic logic, a modal logic that can express obligation, or morally binding requirements. Traditional modal 
+in deontic logic, a modal logic that can express obligation, or morally binding requirements. Traditional modal 
 logics include the necessitation operator, denoted as $\Box$. Using the Kripke semantics, 
 $\Box p$ is true at world $w$ if $p$ is true at all worlds that neighbor $w$ \citep{cresswell}. Modal 
 logics  also contain the possibility operator $\diamond$, where $\diamond \, p \longleftrightarrow \neg (\Box (\neg p))$ 
@@ -167,9 +167,9 @@ Chisholm paradox. Consider the following statements: \begin{enumerate}
 These premises contradict themselves, because items (2)-(4) imply that Tom ought not help his neighbors. The 
 contradiction results because the logic cannot handle violations of duty mixed with
 conditionals. \citep{chisholm, ctd}
-} To escape such issues, I use Dyadic Deontic Logic, in which
+} To avoid such issues, I use Dyadic Deontic Logic, in which
 the dyadic obligation operator $O\{A \vert B\}$ represents the sentence ``A is obligated in the context B.'' 
-The introduction of context allows DDL to express more nuanced reasoning and avoid contrary-to-duty
+The introduction of context allows DDL to express more nuanced reasoning and resolve contrary-to-duty
 paradoxes. DDL is both deontic and modal, 
 so sentences like $O\{A \vert B\}$ are terms that can be true or false at a world. For example, the 
 sentence $O \{ \text{steal} \vert \text{when rich}\}$ is true at a world if stealing when rich is 
@@ -179,10 +179,11 @@ I automate Kantian ethics because it is the most natural of the major ethical tr
 I argue in Section \ref{whykant}. 
 Kant presents three versions of a single moral rule, known as the categorical imperative, from which 
 all moral judgements can be derived. I implement a version of this rule called the Formula of Universal 
-Law (FUL), which states that people should only act on those principles that can be acted on by all 
-people without contradiction. For example, falsely promising to repay a loan is wrong because if everyone 
-falsely promises to repay a loan, lenders will no longer believe these promises and will stop offering loans. 
-Therefore, not everyone can simultaneously falsely promise to repay a loan, so the FUL prohibits this act.
+Law (FUL), which states that an act is only ethical if it can be performed by all people without contradiction. 
+For example, falsely promising to repay a loan is wrong because not everyone can falsely promise to 
+repay a loan, since lenders will no longer believe these promises and will stop offering loans. The FUL
+prohibits actions that are not ``universalizable,'' or cannot be undertaken by everyone. It formalizes
+the kind of objection drawn by the question, ``What if everyone did that?''
 
 Prior work by Benzmüller, Farjami, and Parent \citep{logikey, BFP} implements DDL in Isabelle/HOL, and 
 I add the Formula of Universal Law as an axiom on top of their library. The resulting Isabelle theory 
@@ -428,3 +429,4 @@ but can also augment the everyday ethical reasoning that we all perform as we na
 %:%224=194%:%
 %:%225=195%:%
 %:%226=196%:%
+%:%227=197%:%

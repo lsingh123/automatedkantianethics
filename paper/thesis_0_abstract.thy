@@ -12,13 +12,13 @@ sentencing algorithms prejudiced against people of color. These warnings are spu
 automated ethics, or the development of machines that can perform ethical reasoning. Prior work in 
 automated ethics rarely engages with philosophical literature, despite its relevance to the 
 development of responsible AI agents. If automated ethics draws on sophisticated philosophical
-literature, its decisions will be more nuanced, precise, consistent, and trustworthy, but faithfully
-translating a complex ethical theory from natural language to the rigid syntax of a computer program is
-technically and philosophically challenging.
+literature, its decisions will be more nuanced, precise, and consistent, but automating ethical theories is 
+difficult in practice. Faithfully translating a complex ethical theory from natural language to the 
+rigid syntax of a computer program is technically and philosophically challenging.
 
 In this thesis, I present an implementation of automated Kantian
 ethics that is faithful to the Kantian philosophical tradition. Given an appropriately represented 
-action and minimal factual background, my system can judge the action as morally obligatory, permissible, or prohibited.
+action and minimal factual background, my system can judge a potential action as morally obligatory, permissible, or prohibited.
 To accomplish this, I formalize Kant's categorical imperative, or moral rule,
 in Carmo and Jones's Dyadic Deontic Logic, implement this formalization 
 in the Isabelle/HOL theorem prover, and develop a testing framework to evaluate how well 
@@ -26,7 +26,7 @@ my implementation coheres with expected properties of Kantian ethics, as establi
 I also use my system to derive philosophically sophisticated and nuanced solutions to two central ethical 
 dilemmas in Kantian literature: the permissibility of lying in the context of a joke and to a murderer 
 asking about the location of their intended victim. Finally, I examine the philosophical implications 
-of my system, exploring its limitations and its potential to guide AI agents, academic philosophers, 
+of my system, exploring its potential to guide AI agents, academic philosophers, 
 and everyday reasoners as they navigate ethical dilemmas. Ultimately, this work serves 
 as an early proof-of-concept for philosophically mature AI agents and is one step towards the development 
 of responsible, trustworthy artificial intelligence.

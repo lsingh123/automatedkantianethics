@@ -91,12 +91,6 @@
 }
 \maketitle
 \pagenumbering{gobble}
-\newpage
-
-{
-  \hypersetup{linkcolor=black}
-  \tableofcontents
-}
 
 \newpage 
 % sane default for proof documents
@@ -109,8 +103,25 @@
 
 \input{thesis_0_abstract}
 
+\newpage 
+\singlespacing
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\newpage
+
+{\raggedright \Huge \textcolor{crimson}{\noindent Acknowledgements} \normalsize }
+\vspace{3cm}
+\bigskip 
+
+\input{thesis_0_acknowledgements}
+
 % generated text of all theories
 \newpage
+
+\doublespacing 
 \pagenumbering{arabic}
 \input{thesis_1_intro}
 \newpage 

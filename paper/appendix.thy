@@ -22,19 +22,19 @@ is more expressive than Korsgaard's, my results are stronger than those that wou
 Korsgaard's view. Thus, proponents of Korsgaard's view could simply ignore the circumstances in my
 representation of a maxim and still achieve their desired results. 
 
-One other reason to be concerned with Korsgaard's view is that an actionable maxim will necessarily
+One issue with Korsgaard's view is that an actionable maxim will necessarily
 require some circumstances built-in because the agent will need to know when to act on the maxim. For example,
 the falsely promising maxim bakes in the circumstances that the actor has access to lender, needs money, 
 and that the lender will expect their money back. At an even more granular level, this maxim implicitly includes
 a definition of a lender and of falsely promising, both of which are circumstantial. Given that all
 maxims necessarily include some circumstances, O'Niell's view makes these implicit circumstances
 explicit. This precision is a benefit; so long as my circumstances are not so finely grained that they
-are uninterpretable, they render O'Niell's kind of maxims more precise than Korsgaard's form. 
+are uninterpretable, they render O'Niell's maxims more precise than Korsgaard's maxims. 
 \<close>
 
 subsection \<open>Kitcher's View on Motives\<close>
 
-text \<open>A stronger view than O'Niell's is due to Patricia Kitcher. Kitcher begins with O'Niell's 
+text \<open>Kitcher begins with O'Niell's 
 circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
 This additional component is read as ``In circumstance C, I will do A in order to G because of M,'' 
 where M may be ``duty'' or ``self-love.'' Kitcher argues that the inclusion of motive is necessary 
@@ -57,7 +57,7 @@ justice to the rich notion of motive requires modelling the operation of practic
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
 models the process of practical reason may use my implementation of the FUL as a ``library.'' Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty'' starts to matter.
+evaluating an agent's behavior, since that's when acting from duty starts to matter.
 
 \newpage
 \<close>
@@ -66,8 +66,8 @@ section \<open>Kroy's Formalization\label{kroydetails}\<close>
 
 text \<open>In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
-the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains 
-that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
+the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains, 
+then examine the differences between his logic and DDL, and finally implement 
 and test Kroy's formalization of the FUL\<close>
 
 subsection \<open>Implementing Kroy's Formalization \label{sec:kroy_logical_background}\<close>
@@ -229,8 +229,10 @@ lemma FUL:
 
   Skolem constants:
     A = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := True), $s_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
-    p = $s_1$
-    x = $s_2$\color{black}\<close>
+    
+p = $s_1$
+    
+x = $s_2$\color{black}\<close>
 
 axiomatization where FUL: FUL
 
@@ -238,7 +240,7 @@ text "Now that I have added Kroy's formalization of the FUL as an axiom, I will 
 consistent by looking for a model that satisfies it and all the other axioms of DDL."
 
 lemma True nitpick[user_axioms, satisfy, card=1] oops
-\<comment>\<open>\color{blue} Nitpicking formula... 
+\<comment>\<open>\color{blue} 
 Nitpick found a model for card i = 1:
 
   Empty assignment\color{black}\<close>
@@ -315,7 +317,7 @@ this test for my formalization, I need to define some logical background to run 
 use lying as a toy example of an action that is impossible to universalize.  
 
 To run this test, I epresent the sentence ``At all worlds, it is 
-not possible that everyone lies simultaneously,'' in my logic. This requires the following abbreviations. \<close>
+not possible that everyone lies simultaneously,'' in Kroy's logic. This requires the following abbreviations. \<close>
 
 consts lie::os 
 \<comment>\<open>This is an empty constant to represent the act of lying, which is an open sentence. Unlike Chapter 
@@ -348,7 +350,7 @@ lemma lying_prohibited:
   text \<open>Kroy's formalization is not able to show that if lying is not possible 
       to universalize, it is prohibited. This is unexpected—Kroy's formalization seemingly hinges
 on universalizability, so it seems as though it should pass this test. To understand this, I 
-  outline the syllogism that one might $\emph{expect}$ to prove that lying is prohibited and will 
+  outline the syllogism that one might $\emph{expect}$ to prove that lying is prohibited and 
 test each component of this syllogism in Isabelle.\<close>
 
   text\<open>\begin{enumerate}

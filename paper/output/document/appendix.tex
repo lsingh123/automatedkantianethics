@@ -52,14 +52,14 @@ is more expressive than Korsgaard's, my results are stronger than those that wou
 Korsgaard's view. Thus, proponents of Korsgaard's view could simply ignore the circumstances in my
 representation of a maxim and still achieve their desired results. 
 
-One other reason to be concerned with Korsgaard's view is that an actionable maxim will necessarily
+One issue with Korsgaard's view is that an actionable maxim will necessarily
 require some circumstances built-in because the agent will need to know when to act on the maxim. For example,
 the falsely promising maxim bakes in the circumstances that the actor has access to lender, needs money, 
 and that the lender will expect their money back. At an even more granular level, this maxim implicitly includes
 a definition of a lender and of falsely promising, both of which are circumstantial. Given that all
 maxims necessarily include some circumstances, O'Niell's view makes these implicit circumstances
 explicit. This precision is a benefit; so long as my circumstances are not so finely grained that they
-are uninterpretable, they render O'Niell's kind of maxims more precise than Korsgaard's form.%
+are uninterpretable, they render O'Niell's maxims more precise than Korsgaard's maxims.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -80,7 +80,7 @@ are uninterpretable, they render O'Niell's kind of maxims more precise than Kors
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-A stronger view than O'Niell's is due to Patricia Kitcher. Kitcher begins with O'Niell's 
+Kitcher begins with O'Niell's 
 circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
 This additional component is read as ``In circumstance C, I will do A in order to G because of M,'' 
 where M may be ``duty'' or ``self-love.'' Kitcher argues that the inclusion of motive is necessary 
@@ -103,7 +103,7 @@ justice to the rich notion of motive requires modelling the operation of practic
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
 models the process of practical reason may use my implementation of the FUL as a ``library.'' Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
-evaluating an agent's behavior, since that's when ``acting from duty'' starts to matter.
+evaluating an agent's behavior, since that's when acting from duty starts to matter.
 
 \newpage%
 \end{isamarkuptext}\isamarkuptrue%
@@ -128,8 +128,8 @@ evaluating an agent's behavior, since that's when ``acting from duty'' starts to
 \begin{isamarkuptext}%
 In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
-the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains 
-that Kroy relies on, then examine the differences between his logic and DDL, and finally implement 
+the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains, 
+then examine the differences between his logic and DDL, and finally implement 
 and test Kroy's formalization of the FUL%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -386,8 +386,10 @@ already passes one test, and that adding it as an axiom will strengthen the logi
 
   Skolem constants:
     A = ($\lambda x. \_$)($s_1$ := ($\lambda x. \_$)($i_1$ := True, $i_2$ := True), $s_2$ := ($\lambda x. \_$)($i_1$ := False, $i_2$ := False))
-    p = $s_1$
-    x = $s_2$\color{black}%
+    
+p = $s_1$
+    
+x = $s_2$\color{black}%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -414,7 +416,7 @@ consistent by looking for a model that satisfies it and all the other axioms of 
 \isacommand{oops}\isamarkupfalse%
 \isanewline
 %
-\isamarkupcmt{\color{blue} Nitpicking formula... 
+\isamarkupcmt{\color{blue} 
 Nitpick found a model for card i = 1:
 
   Empty assignment\color{black}%
@@ -585,7 +587,7 @@ this test for my formalization, I need to define some logical background to run 
 use lying as a toy example of an action that is impossible to universalize.  
 
 To run this test, I epresent the sentence ``At all worlds, it is 
-not possible that everyone lies simultaneously,'' in my logic. This requires the following abbreviations.%
+not possible that everyone lies simultaneously,'' in Kroy's logic. This requires the following abbreviations.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{consts}\isamarkupfalse%
 \ lie{\isacharcolon}{\isacharcolon}os\ \isanewline
@@ -647,7 +649,7 @@ that it is prohibited. Surprisingly, Kroy's formalization fails this test.%
 Kroy's formalization is not able to show that if lying is not possible 
       to universalize, it is prohibited. This is unexpected—Kroy's formalization seemingly hinges
 on universalizability, so it seems as though it should pass this test. To understand this, I 
-  outline the syllogism that one might $\emph{expect}$ to prove that lying is prohibited and will 
+  outline the syllogism that one might $\emph{expect}$ to prove that lying is prohibited and 
 test each component of this syllogism in Isabelle.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -1072,29 +1074,29 @@ The failure of this test implies that not even the stronger version of Kroy's fo
 %:%388=231%:%
 %:%389=232%:%
 %:%390=233%:%
-%:%398=233%:%
-%:%399=234%:%
+%:%391=234%:%
+%:%392=235%:%
 %:%400=235%:%
-%:%401=235%:%
+%:%401=236%:%
+%:%402=237%:%
 %:%403=237%:%
-%:%404=238%:%
+%:%405=239%:%
 %:%406=240%:%
-%:%407=240%:%
-%:%408=240%:%
-%:%410=240%:%
-%:%414=240%:%
-%:%415=240%:%
-%:%417=241%:%
-%:%418=242%:%
+%:%408=242%:%
+%:%409=242%:%
+%:%410=242%:%
+%:%412=242%:%
+%:%416=242%:%
+%:%417=242%:%
 %:%419=243%:%
 %:%420=244%:%
-%:%430=246%:%
-%:%431=247%:%
+%:%421=245%:%
+%:%422=246%:%
 %:%432=248%:%
 %:%433=249%:%
-%:%442=251%:%
-%:%454=253%:%
-%:%455=254%:%
+%:%434=250%:%
+%:%435=251%:%
+%:%444=253%:%
 %:%456=255%:%
 %:%457=256%:%
 %:%458=257%:%
@@ -1104,146 +1106,146 @@ The failure of this test implies that not even the stronger version of Kroy's fo
 %:%462=261%:%
 %:%463=262%:%
 %:%464=263%:%
+%:%465=264%:%
 %:%466=265%:%
-%:%467=265%:%
-%:%468=266%:%
+%:%468=267%:%
 %:%469=267%:%
-%:%470=267%:%
-%:%472=267%:%
-%:%476=267%:%
-%:%486=269%:%
-%:%487=270%:%
+%:%470=268%:%
+%:%471=269%:%
+%:%472=269%:%
+%:%474=269%:%
+%:%478=269%:%
 %:%488=271%:%
+%:%489=272%:%
 %:%490=273%:%
-%:%491=273%:%
-%:%492=274%:%
+%:%492=275%:%
 %:%493=275%:%
 %:%494=276%:%
-%:%495=276%:%
-%:%497=276%:%
-%:%501=276%:%
-%:%502=276%:%
-%:%504=277%:%
-%:%505=278%:%
+%:%495=277%:%
+%:%496=278%:%
+%:%497=278%:%
+%:%499=278%:%
+%:%503=278%:%
+%:%504=278%:%
 %:%506=279%:%
 %:%507=280%:%
-%:%517=282%:%
-%:%518=283%:%
+%:%508=281%:%
+%:%509=282%:%
+%:%519=284%:%
 %:%520=285%:%
-%:%521=285%:%
-%:%522=286%:%
+%:%522=287%:%
 %:%523=287%:%
 %:%524=288%:%
 %:%525=289%:%
-%:%526=289%:%
-%:%528=289%:%
-%:%532=289%:%
-%:%533=289%:%
-%:%535=290%:%
-%:%536=291%:%
+%:%526=290%:%
+%:%527=291%:%
+%:%528=291%:%
+%:%530=291%:%
+%:%534=291%:%
+%:%535=291%:%
 %:%537=292%:%
 %:%538=293%:%
 %:%539=294%:%
 %:%540=295%:%
-%:%550=297%:%
-%:%551=298%:%
+%:%541=296%:%
+%:%542=297%:%
 %:%552=299%:%
+%:%553=300%:%
 %:%554=301%:%
-%:%555=301%:%
-%:%556=302%:%
+%:%556=303%:%
 %:%557=303%:%
 %:%558=304%:%
-%:%559=304%:%
-%:%561=304%:%
-%:%565=304%:%
-%:%566=304%:%
-%:%568=305%:%
-%:%569=306%:%
+%:%559=305%:%
+%:%560=306%:%
+%:%561=306%:%
+%:%563=306%:%
+%:%567=306%:%
+%:%568=306%:%
 %:%570=307%:%
 %:%571=308%:%
 %:%572=309%:%
-%:%582=312%:%
-%:%583=313%:%
+%:%573=310%:%
+%:%574=311%:%
 %:%584=314%:%
 %:%585=315%:%
 %:%586=316%:%
 %:%587=317%:%
 %:%588=318%:%
+%:%589=319%:%
 %:%590=320%:%
-%:%591=320%:%
-%:%593=321%:%
-%:%594=322%:%
+%:%592=322%:%
+%:%593=322%:%
 %:%595=323%:%
-%:%596=323%:%
-%:%597=324%:%
+%:%596=324%:%
+%:%597=325%:%
 %:%598=325%:%
-%:%599=325%:%
-%:%601=326%:%
-%:%602=326%:%
-%:%604=327%:%
-%:%605=328%:%
-%:%606=328%:%
-%:%607=329%:%
+%:%599=326%:%
+%:%600=327%:%
+%:%601=327%:%
+%:%603=328%:%
+%:%604=328%:%
+%:%606=329%:%
+%:%607=330%:%
 %:%608=330%:%
-%:%609=330%:%
-%:%611=331%:%
-%:%612=332%:%
-%:%615=334%:%
-%:%616=335%:%
+%:%609=331%:%
+%:%610=332%:%
+%:%611=332%:%
+%:%613=333%:%
+%:%614=334%:%
+%:%617=336%:%
 %:%618=337%:%
-%:%619=337%:%
-%:%620=338%:%
+%:%620=339%:%
 %:%621=339%:%
-%:%622=339%:%
-%:%624=339%:%
-%:%628=339%:%
-%:%629=339%:%
-%:%631=340%:%
-%:%632=341%:%
+%:%622=340%:%
+%:%623=341%:%
+%:%624=341%:%
+%:%626=341%:%
+%:%630=341%:%
+%:%631=341%:%
 %:%633=342%:%
 %:%634=343%:%
 %:%635=344%:%
 %:%636=345%:%
 %:%637=346%:%
-%:%647=348%:%
-%:%648=349%:%
+%:%638=347%:%
+%:%639=348%:%
 %:%649=350%:%
 %:%650=351%:%
 %:%651=352%:%
-%:%655=354%:%
-%:%656=355%:%
+%:%652=353%:%
+%:%653=354%:%
 %:%657=356%:%
 %:%658=357%:%
 %:%659=358%:%
 %:%660=359%:%
-%:%664=361%:%
-%:%665=362%:%
+%:%661=360%:%
+%:%662=361%:%
 %:%666=363%:%
+%:%667=364%:%
 %:%668=365%:%
-%:%669=365%:%
-%:%670=366%:%
-%:%673=367%:%
-%:%677=367%:%
-%:%678=367%:%
-%:%680=368%:%
-%:%686=368%:%
-%:%689=369%:%
-%:%690=370%:%
-%:%691=370%:%
-%:%692=371%:%
+%:%670=367%:%
+%:%671=367%:%
+%:%672=368%:%
+%:%675=369%:%
+%:%679=369%:%
+%:%680=369%:%
+%:%682=370%:%
+%:%688=370%:%
+%:%691=371%:%
+%:%692=372%:%
 %:%693=372%:%
 %:%694=373%:%
-%:%695=373%:%
-%:%697=373%:%
-%:%701=373%:%
-%:%702=373%:%
-%:%704=374%:%
-%:%705=375%:%
+%:%695=374%:%
+%:%696=375%:%
+%:%697=375%:%
+%:%699=375%:%
+%:%703=375%:%
+%:%704=375%:%
 %:%706=376%:%
 %:%707=377%:%
 %:%708=378%:%
-%:%718=380%:%
-%:%719=381%:%
+%:%709=379%:%
+%:%710=380%:%
 %:%720=382%:%
 %:%721=383%:%
 %:%722=384%:%
@@ -1264,8 +1266,8 @@ The failure of this test implies that not even the stronger version of Kroy's fo
 %:%737=399%:%
 %:%738=400%:%
 %:%739=401%:%
-%:%743=403%:%
-%:%744=404%:%
+%:%740=402%:%
+%:%741=403%:%
 %:%745=405%:%
 %:%746=406%:%
 %:%747=407%:%
@@ -1273,24 +1275,24 @@ The failure of this test implies that not even the stronger version of Kroy's fo
 %:%749=409%:%
 %:%750=410%:%
 %:%751=411%:%
-%:%755=414%:%
-%:%756=415%:%
+%:%752=412%:%
+%:%753=413%:%
 %:%757=416%:%
 %:%758=417%:%
+%:%759=418%:%
 %:%760=419%:%
-%:%761=419%:%
-%:%762=420%:%
+%:%762=421%:%
 %:%763=421%:%
-%:%764=421%:%
-%:%765=422%:%
-%:%768=423%:%
-%:%772=423%:%
-%:%773=423%:%
-%:%774=423%:%
-%:%776=424%:%
-%:%777=425%:%
-%:%787=427%:%
-%:%788=428%:%
+%:%764=422%:%
+%:%765=423%:%
+%:%766=423%:%
+%:%767=424%:%
+%:%770=425%:%
+%:%774=425%:%
+%:%775=425%:%
+%:%776=425%:%
+%:%778=426%:%
+%:%779=427%:%
 %:%789=429%:%
 %:%790=430%:%
 %:%791=431%:%
@@ -1316,27 +1318,29 @@ The failure of this test implies that not even the stronger version of Kroy's fo
 %:%811=451%:%
 %:%812=452%:%
 %:%813=453%:%
+%:%814=454%:%
 %:%815=455%:%
-%:%816=455%:%
-%:%817=456%:%
+%:%817=457%:%
 %:%818=457%:%
 %:%819=458%:%
-%:%820=458%:%
-%:%822=458%:%
-%:%826=458%:%
-%:%827=458%:%
-%:%829=459%:%
-%:%830=460%:%
+%:%820=459%:%
+%:%821=460%:%
+%:%822=460%:%
+%:%824=460%:%
+%:%828=460%:%
+%:%829=460%:%
 %:%831=461%:%
 %:%832=462%:%
 %:%833=463%:%
 %:%834=464%:%
 %:%835=465%:%
 %:%836=466%:%
-%:%846=468%:%
-%:%847=469%:%
+%:%837=467%:%
+%:%838=468%:%
 %:%848=470%:%
 %:%849=471%:%
 %:%850=472%:%
 %:%851=473%:%
 %:%852=474%:%
+%:%853=475%:%
+%:%854=476%:%

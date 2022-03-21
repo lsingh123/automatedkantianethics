@@ -21,17 +21,17 @@
 \contentsline {subsection}{\numberline {4.2}Lying to a Liar }{52}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Discussion}{58}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Automated Moral Agents in Practice }{58}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Computational Ethics }{62}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Computational Ethics }{63}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Example of a Philosophical Insight: Well-Formed Maxims}{63}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{69}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}Automating Ordinary Ethical Reasoning }{72}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{70}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}Automating Everyday Practical Reason }{72}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Theoretical Objections to Automating Kantian Ethics }{75}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Related Work }{80}{subsection.5.5}%
 \contentsline {subsection}{\numberline {5.6}Conclusion}{82}{subsection.5.6}%
-\contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{93}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{93}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kitcher's View on Motives}{94}{subsection.a.A.2}%
-\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{95}{appendix.a.B}%
-\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{95}{subsection.a.B.1}%
-\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{99}{subsection.a.B.2}%
-\contentsline {section}{Appendix \numberline {C}Additional Tests }{106}{appendix.a.C}%
+\contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{94}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{94}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kitcher's View on Motives}{95}{subsection.a.A.2}%
+\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{96}{appendix.a.B}%
+\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{96}{subsection.a.B.1}%
+\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{100}{subsection.a.B.2}%
+\contentsline {section}{Appendix \numberline {C}Additional Tests }{107}{appendix.a.C}%
