@@ -34,10 +34,10 @@
 %
 \begin{isamarkuptext}%
 In this section, I present the details of my implementation of automated Kantian ethics, which consists of
-a formalization of the FUL in Dyadic Deontic Logic and an implementation of this logic in Isabelle/HOL. The final
-Isabelle library is a logic that has the categorical imperative as an axiom and can express and derive moral judgements. 
+a formalization of the Formula of Universal Law in Dyadic Deontic Logic and an implementation of this logic in Isabelle/HOL. The final
+Isabelle library contains a logic that has the categorical imperative as an axiom and can express and derive moral judgements. 
 Using Isabelle's automated theorem proving abilities, my system can show that appropriately represented
-actions are obligatory, permissible, or prohibited by proving or refuting sentences of the form ``A 
+maxims are obligatory, permissible, or prohibited by proving or refuting sentences of the form ``A 
 is obligated to do B.'' I also present a testing framework to evaluate how faithful my implementation is 
 to philosophical literature. This testing framework shows that my system outperforms unmodified DDL 
 (a control group) and Moshe Kroy's prior formalization of the FUL \citep{kroy}.%
@@ -88,8 +88,8 @@ DDL by adding representations of these concepts, drawn from philosophical litera
 Kantian ethics is action-guiding; the categorical
 imperative is a moral rule that agents can use to decide between potential actions. Thus, before I 
 begin to formalize a specific formulation of the categorical imperative, I must define
-subjects and actions. I add representations of subjects and actions so that my new logic can express
-sentences of the form, ``x does action.''%
+subjects and act. I add representations of subjects and acts so that my new logic can express
+sentences of the form, ``x does act.''%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{typedecl}\isamarkupfalse%
 \ s\ %
@@ -111,7 +111,7 @@ trustworthy, because they rely on relatively little prior knowledge.
 
 In this interpretation, the defining feature of a subject is that they can act. 
 I represent that below by allowing subjects to substitute into sentences, a property that I will use 
-to represent the idea that different people can perform the same actions.%
+to represent the idea that different people can perform the same acts.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{type{\isacharunderscore}synonym}\isamarkupfalse%
 \ os\ {\isacharequal}\ {\isachardoublequoteopen}{\isacharparenleft}s\ {\isasymRightarrow}\ t{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
@@ -121,7 +121,7 @@ define \texttt{type\_synonym} $os$ for an open sentence. An open sentence takes 
 returns a complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. 
 For example, ``runs'' is an open sentence that can be instantiated with subject, ``Sara'' to create
 the DDL term ``Sara runs,'' which can be true or false at a world. An open sentence itself is not truth-apt,
-ot the kind of thing that can be true or false at a world. When an action is 
+ot the kind of thing that can be true or false at a world. When a subject is 
 substituted into an open sentence, the resulting term is truth apt. ``Runs'' is not the kind of thing 
 that can be true or false, but ``Sara runs'' is a sentence that can be true or false.%
 }%
@@ -160,7 +160,7 @@ principle of willing,'' or the principle that the agent understands themselves a
 Modern Kantians differ in their interpretations of this definition. I adopt O'Neill's view, derived from 
 Kant's example maxims, that a maxim includes the act, the circumstances, and the agent's purpose of 
 acting or goal \citep{actingonprinciple}. Other potential views include Korsgaard's view, which omits 
-the circumstances, and Kitcher's view, which adds a motivation \citep{actingforareason, kitcher}. I 
+the circumstances, and Kitcher's view, which additionally includes the actor's motivation \citep{actingforareason, kitcher}. I 
 address the limitations of these approaches in Appendix \ref{maximmotive}.
 
 
@@ -177,8 +177,8 @@ of a maxim.%
 \isamarkupcmt{A maxim is of type term, open sentence, term tuple, such as ``(When I am strapped for cash, will falsely promise
 to repay a loan, to get some easy cash)''. The first term represents the circumstance, which
 can be true or false at a world. For example, the circumstance ``when I am strapped for cash'' is true at the real 
-world when my bank account is empty. The second term represents the action, which is an open sentence
-because different agents can perform a particular action. For example, the action, ``will falsely promise
+world when my bank account is empty. The second term represents the act, which is an open sentence
+because different agents can perform a particular action. For example, the act, ``will falsely promise
 to repay a loan'' is an open sentence that can be acted on by a subject. The third term represents 
 the goal, which can again be true or false at a world. For example, the goal ``to get some easy cash''
 is true at the real world if I have successfully received easy cash.%
@@ -204,17 +204,17 @@ to the act and goal. This solution requires determining what qualifies as a rele
 
 O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
 of the infinitely many circumstances in which the agent may perform an action \citep[4:428]{actingonprinciple}. She argues that this is 
-an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
+an artifact of the fact that maxims are rules of practical reason, which is the kind of reason that helps us decide what to do 
 and how to do it \citep{bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
 This judgement, applied in both choosing when to exercise the maxim and in the formulation of the maxim 
 itself, is what determines the morally relevant circumstances.  
-The difficulty in determining relevant circumstances is a limitation of my system and requires that a 
+The difficulty in determining relevant circumstances is an obstacle to using my system in practice and requires that a 
 human being formulate the maxim or that future work develop heuristics to classify circumstances as morally 
 relevant. I discuss this challenge and potential solutions in greater detail in Section \ref{AIethics}.
 
 With this robust representation of a maxim, I can now define willing. To will a maxim is to adopt it 
-as a principle to live by, or to commit oneself to the maxim's action for the 
+as a principle to live by, or to commit oneself to the maxim's act for the 
 sake of maxim's end in the relevant circumstances. I formalize this idea in Definition \ref{willing}.
 
 \begin{definition}[Willing]\label{willing}
@@ -255,8 +255,8 @@ takes as input a maxim and a subject and returns the term, ``s wills maxim.''%
 %
 \begin{isamarkuptext}%
 In order to evaluate the moral status of a maxim, I must define what it means for a maxim to not be
-universalizable, or to fail the universalizability test. Kantians debate the correct interpretation of 
-the Formula of Universal Law because Kant himself appears to interpret the criterion in different ways. 
+universalizable, or to fail the universalizability test. For many years, Kantians debated the correct interpretation of 
+the Formula of Universal Law because Kant himself appeared to interpret the criterion in different ways. 
 I adopt Korsgaard's practical contradiction interpretation, broadly accepted as correct within 
 the philosophical community \citep{ebelsduggan}.
  
@@ -276,9 +276,9 @@ making a false promise to repay a loan would be impossible.
 
 This view cannot correctly handle natural acts. Korsgaard appeals to 
 \citet{dietrichson} to construct the example natural act of a mother killing her children that
-cry too much at night so that she can get some sleep. Universalizing this maxim does not generate a logical 
-contradiction because killing is still possible in a world where everyone kills noisy children, but 
-it is clearly wrong. Because killing is a natural act, it can never be logically 
+cry too much at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
+it does not generate a logical contradiction because killing is still possible in a world where 
+everyone kills noisy children. Because killing is a natural act, it can never be logically 
 impossible so the logical contradiction view cannot prohibit it.
 
 As an alternative to the logical contradiction view, Korsgaard endorses the practical contradiction view, 
@@ -290,7 +290,7 @@ loud children, then she cannot be secure in the possession of her life, because 
 have killed her as an infant. Her willing this maxim thwarts the end that she sought to secure. 
 
 The practical contradiction interpretation offers a satisfying explanation of \emph{why} certain 
-maxims are immoral. These maxims involve parasitic behavior on social conditions that the agent seeks 
+maxims are immoral. These maxims involve parasitic behavior on the very social conditions that the agent seeks 
 to benefit from. The false promiser wants to both abuse the system of promising and benefit 
 from it, and is thus making an exception of themselves. The test formalizes the kinds of objections 
 that the question ``What if everyone did that?'' seeks to draw out.\footnote{This argument for the practical
@@ -332,7 +332,7 @@ when everyone wills the maxim.
 $$\text{\emph{universalized}} \, M  \equiv \forall w \, (\forall p \, \text{\emph{will}} \, M \, p)$$
 \end{definition}
 
-I can once again represent this as an abbreviation in Isabelle.%
+\noindent I can once again represent this as an abbreviation in Isabelle.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ universalized{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}maxim{\isasymRightarrow}t{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
@@ -351,8 +351,8 @@ not universalizable if, when universalized, it is no longer effective.
 For a maxim $M$ and agent $s$,
 $$\text{\emph{not\_universalizable}} \, M \, s  \equiv [ \text{\emph{universalized}} \, M \longrightarrow \neg \, \text{\emph{effective}} \, M \, s ]$$
 \end{definition}
-\noindent A maxim is not universalizable when, if everyone wills the maxim, then it is no longer effective.
-I implement this definition in Isabelle using another abbreviaion.%
+\noindent A maxim is not universalizable when, if everyone wills the maxim, then it is no longer 
+effective. I implement this definition in Isabelle using another abbreviaion.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ not{\isacharunderscore}universalizable\ {\isacharcolon}{\isacharcolon}\ {\isachardoublequoteopen}maxim{\isasymRightarrow}s{\isasymRightarrow}bool{\isachardoublequoteclose}\ \isakeyword{where}\ \isanewline
@@ -361,9 +361,9 @@ I implement this definition in Isabelle using another abbreviaion.%
 \isamarkupcmt{Maxim $M$ is not universalizable at world $w$ when, ``at world $w$, if M is universalized, then M is not effective.''%
 }%
 \begin{isamarkuptext}%
-The FUL states that if a maxim is not universalizable, then it is prohibited. Before performing
-moral reasoning with my system, I must define obligation, permissibility, and prohibition.
-To judge an action, my system evaluates the moral status of the action 
+The FUL states that if a maxim is not universalizable, then it is prohibited. To define and use 
+this statement, I must first define obligation, permissibility, and prohibition.
+To judge a maxim, my system evaluates the moral status of the sentence 
 ``person $s$ wills maxim $M$.'' This action can be obligated, prohibited, or permissible.
 I will use the phrase ``subject $s$ willing maxim $M$ is obligatory" 
 interchangeably with ``maxim $M$ is obligatory for subject $s$." I will use ``maxim $M$ is obligatory" to 
@@ -387,7 +387,7 @@ operator. Using this definition, I can define prohibition and permissibility.
 goal tuple $C, A, G$ and let $s$ be an arbitrary agent.\footnote{Technically, a maxim is not a boolean 
 type, so the term $\neg M$ is not type correct. The expression $obligated \, \neg M$ merely provides 
 intuition for the meaning of prohibition, but the exact definition is given by 
-$O\{ \neg will \, (C, A, G) \, s \, | \, C\}$.}
+$O\{ \neg \text{will} \, (C, A, G) \, s \, | \, C\}$.}
 \newcommand*{\approxident}{%
   \mathrel{\vcenter{\offinterlineskip
   \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}

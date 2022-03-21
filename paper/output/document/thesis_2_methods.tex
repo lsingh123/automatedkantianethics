@@ -36,15 +36,14 @@
 My system consists of three components: an ethical theory (Kantian ethics), a logic in which
 I formalize this ethical theory (Dyadic Deontic Logic), and an interactive theorem prover in which I 
 implement the formalized ethical theory (Isabelle/HOL). In this section, I describe these components and 
-present the philosophical, logic, and computational background underlying my system. 
+present the philosophical, logical, and computational background underlying my system. 
 
-These three components determine the features
-and limitations of my implementation of automated ethics. Other choices of 
-components, such as another ethical theory, a different logic, or a different theorem prover could be 
-made. Flaws with these components are limitations of my system, but do not 
+Other choices of components, such as another ethical theory, a different logic, or a different theorem 
+prover could be made. Flaws with these components are limitations of my system, but do not 
 indict logic-programming-based automated ethics more generally. My thesis seeks to 
-both present a specific implementation of automated ethics but also to argue for a particular approach 
-to automating ethical reasoning and these choices are relevant to the former goal but not to the latter.%
+both present a specific implementation of automated ethics and to argue for a particular approach 
+to automating ethical reasoning more generally and these choices are relevant to the former goal but 
+not to the latter.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -83,16 +82,16 @@ of deontology more broadly. } Kantian ethics is more amenable to automation.
 
 I do not aim to show that Kantian ethics is the only tractable theory to automate or
 to present a comprehensive overview of all consequentialist or virtue ethical theories. Instead, I 
-some example approaches in each tradition and argue that deontology is more straightforward 
+explore example approaches in each tradition and argue that deontology is more straightforward 
 to formalize than these approaches. Insofar as my project serves 
 as an early proof-of-concept, I choose to automate an ethical theory that 
-poses fewer challenges than others. All ethical traditions have debates that an 
-automated ethical system will need to take a stance on, but these debates are less frequent and controversial
-for Kantian ethics than for consequentialism and virtue ethics.
+poses fewer challenges than others. 
 
 I first present consequentialism, then virtue ethics, and finally Kantian ethics. For each 
 tradition, I present a crash course for non-philosophers and then explain some obstacles to automation, 
-arguing that these obstacles are weakest in the case of Kantian ethics.%
+arguing that these obstacles are weakest in the case of Kantian ethics. All ethical traditions have debates that an 
+automated ethical system will need to take a stance on, but these debates are less frequent and controversial
+for Kantian ethics than for consequentialism and virtue ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -120,7 +119,7 @@ utilitarianism is a form of consequentialism in which the moral action
 is the action that produces the most good \citep{utilsep}. This focus
 on the consequences of action distinguishes consequentialists from deontologists, who derive the moral worth
 of an action from the action itself. Some debates in the consequentialist tradition include 
-which consequences matter, what constitutes a ``good" consequence, and how we can 
+which consequences matter, what constitutes a ``good'' consequence, and how we can 
 aggregate the consequences of an action over all the individuals involved.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -214,17 +213,16 @@ These efforts cannot escape the challenges outlined above. For example, Abel et 
 Markov Decision Process (MDP), with reward functions customized to particular ethical dilemmas 
 \citep[3]{util1}. While this is a convenient representation, it either leaves unanswered or 
 takes implicit stances on the debates above. It assumes that consequences can be aggregated just as 
-reward is accumulated in an MDP.\footnote{Generally, reward for an MDP is accumulated according to a 
-``discount factor'' $\gamma \leq 1$, such that if $r_i$ is the reward at time $i$, the total reward is $\sum_{i=0}^{\infty}\gamma^i r_i$.} 
-It leaves open the question of what the reward function is and thus 
-leaves the theory of the good, arguably the defining trait of consequentialism, 
-undefined. Similarly, Anderson and Anderson's proposal of a hedonistic act 
-utilitarian automated reasoner chooses hedonism\footnote{Recall that hedonism views pleasure as good
-and pain as bad.} as the theory of the good \citep[2]{util2}. Their proposal assumes that pleasure and pain can be 
+reward is accumulated in an MDP, according to a weighted sum, with future consequences weighted less
+than immediate ones. It leaves open the question of what the reward function is and thus doesn't 
+specify a theory of the good, arguably the defining trait of consequentialism. Anderson and Anderson
+face similar issues with their hedonistic\footnote{Recall that hedonism views pleasure as good
+and pain as bad.} act-utilitarian automated reasoner, which chooses hedonism as the theory of the good \citep[2]{util2}. 
+Their proposal assumes that pleasure and pain can be 
 given numeric values and that these values can be aggregated with a simple sum, taking an implicit
 stance on the aggregation question. Other attempts to automate consequentialist ethics will suffer 
-similar problems because, at some point, a usable automated consequentialist moral agent will need 
-to resolve the above debates.%
+similar problems because, at some point, a usable automated consequentialist moral agent must
+resolve the above debates.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -260,7 +258,7 @@ disposition towards the act. If states of affairs
 require complex representations, an agent's ethical character and disposition are even more difficult
 to represent to a computer. This is more than just a data-collecting problem; it is a conceptual problem 
 about the formal nature of moral character.
-Formalizing the concept of character appears to require significant philosophical and computational
+Formalizing the concept of character appears to require significant philosophical
 progress, whereas Kantian ethics immediately presents a formal rule to implement.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -326,7 +324,7 @@ As Korsgaard describes it, when choosing which desire to act on, ``it is as if t
 and above all of your desires, something which is you, and which chooses which desire to act on'' \citep[100]{sources}. 
 Rational beings are set apart by this reflective capacity. We are purposive and 
 our actions are guided by practical reason. We have reasons for acting, even when these reasons are
-opaque to us. This reflective choosing, or operation of practical reason, is what Kant calls the will. 
+opaque to us. This reflective choosing, or operation of practical reason, is what Kant calls the \emph{will}. 
 
 The will operates by adopting or willing maxims, which are its perceived reasons for acting. Kant defines a maxim as 
 the ``subjective principle of willing,'' or the reason that the will \emph{subjectively} gives 
@@ -346,7 +344,7 @@ sweet tooth.'' An imperative is categorical if it holds unconditionally for all 
 circumstances. Kant argues that the moral law must be a categorical imperative \citep[5]{groundwork}. 
 In order for an imperative to be categorical, it must be derived from the will's authority over itself. 
 Our wills are autonomous, so the only thing that can have unconditional authority over a rational will is 
-the will itself. No one else can tell you what to do because you can always ask why you 
+the will itself. No one else can unconditionally command you because you can always ask why you 
 should obey their authority. The only authority that you cannot question is the authority of your own 
 practical reason. To question this authority is to demand a reason for acting for reasons, which 
 concedes the authority of reason itself \citep[23]{velleman}. Therefore, the only possible candidates 
@@ -365,13 +363,13 @@ the maxim is prohibited.
 
 Velleman presents a concise argument for the FUL. He argues that reason is universally shared among reasoners. For 
 example, all reasoners have equal access to the arithmetic logic that shows that ``2+2=4'' \cite[29]{velleman}. The 
-reasoning that makes this statement true is not specific to any person, but is universal across people. 
-Therefore, if I have sufficient reason to will a maxim, so does every other rational agent. There is 
-nothing special about the operation of my practical reason. 
-In adopting a maxim, I implicitly state that all reasoners
-across time also have reason to adopt that maxim. Therefore, because I act on reasons, I must obey the 
-FUL. Notice that this fulfills the above criterion for a categorical imperative: the FUL is derived from 
-a property of practical reason itself and thus derives authority from the will's authority over itself.%
+reasoning that makes this statement true is not specific to any person, but is universal across 
+people. Therefore, if I have sufficient reason to will a maxim, so does every other rational agent. There 
+is nothing special about the operation of my practical reason. In adopting a maxim, I implicitly state 
+that all reasoners across time also have reason to adopt that maxim. Therefore, because I act on 
+reasons, I must obey the FUL. Notice that this fulfills the above criterion for a categorical 
+imperative: the FUL is derived from a property of practical reason itself and thus derives authority 
+from the will's authority over itself.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
@@ -379,7 +377,7 @@ a property of practical reason itself and thus derives authority from the will's
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-Kantian ethics is an especially attractive candidate for formalization because the categorical imperative, particularly the FUL, 
+Kantian ethics is an attractive candidate for formalization because the categorical imperative, particularly the FUL, 
 is a property of reason related to the form or structure of a maxim. It does not require any situational 
 knowledge beyond the circumstances included
 in the maxim itself and thus requires fewer contingent facts than other ethical theories.
@@ -388,12 +386,12 @@ the world or the actor, a computer evaluating
 a maxim doesn't require any knowledge about the world beyond what is contained in a maxim. Automating 
 Kantian ethics merely requires making the notion of a maxim precise and representing it to the computer. 
 This distinguishes Kantian ethics from consequentialism and virtue ethics, which
-require far more knowledge about the world or the agent to reach a moral decision.
+require far more knowledge to reach a moral decision.
 
 A maxim itself is an object with a thin representation for a computer, as compared to more complex 
 objects like states of affairs or moral character. In Section \ref{whatisamaxim}, I argue that a maxim can be 
 represented simply as a tuple of circumstances, act, and goal.
-This representation is simple and efficient, especially when compared to representations of a causal 
+This representation is efficient, especially when compared to representations of a causal 
 chain or a state of affairs or moral character. This property not only reduces the computational complexity
 (in terms of time and space) of representing a maxim, but it also makes the system easier for human reasoners
 to interact with. A person crafting an input to a Kantian automated agent needs to reason about relatively
@@ -406,13 +404,13 @@ ethics require.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-One challenge for automating Kantian ethics is the need for ``common-sense'', or factual and 
-situational background. Common-sense is needed when formulating a maxim and determining if a maxim 
+One challenge for automating Kantian ethics is the need for ``common sense'', or factual and 
+situational background. Common sense is needed when formulating a maxim and determining if a maxim 
 violates the Formula of Universal Law. Maxims include the circumstances in which they apply and
-determining which circumstances are ``morally relevant'' to a maxim requires factual background. 
+determining which circumstances are morally relevant to a maxim requires factual background. 
 My system does not need to answer this question because I assume a properly crafted
 maxim as input and apply the categorical imperative to this input. Using my system to build a fully automated
-moral agent will require answering this question, a challenging computational and philosophical task. I
+moral agent will eventually require answering this question, a challenging computational and philosophical task. I
 discuss this problem in greater detail in Section \ref{whatisamaxim} and Section \ref{AIethics}. 
 
 Common sense is also relevant when applying the universalizability test itself. Consider the example
@@ -491,7 +489,7 @@ imperative.
 Those who do not believe that all three formulations of the categorical imperative are equivalent
 understand the FUL as the strongest or most foundational, and thus an appropriate initial choice for 
 automation. Korsgaard characterizes the three formulations of the categorical
-imperative according to Rawls' general and special conception of justice. The general conception applies
+imperative according to Rawls' general and special conception of justice \cite{theoryofjustice}. The general conception applies
 universally and can never be violated, while the special conception represents an ideal for us to
 live towards that may not be possible to achieve. For example, the special conception may require that we prefer some job applicants
 over others in order to remedy historical injustice, and the general conception may require that such
@@ -522,15 +520,15 @@ it serves as a functional, minimal version of Kantian ethics.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-I formalize Kantian ethics by representing it as an axiom on top of a base logic. In this section, 
-I present the logical background necessary to understand my work and my choice of Dyadic Deontic Logic (DDL).
+I formalize Kantian ethics by representing the Formula of Universal Law as an axiom on top of a base
+logic. In this section, I present the logical background necessary to understand my work and my 
+choice of Dyadic Deontic Logic (DDL).
 
 As explained in Chapter \ref{intro}, traditional modal logics include the necessitation operator, denoted as $\Box$. In simple modal logic
 using the Kripke semantics, $\Box p$ is true at a world $w$ if $p$ is true at all of $w$'s neighbors, 
 and it represents the concept of necessary truth \citep{cresswell}. 
-These logics usually also contain the possibility operator $\diamond$, where
- $\diamond p \iff \sim \Box \sim p$. $\diamond p$ means that the statement $p$ is possibly true, or true
-at at least one of $w$'s neighbors. 
+These logics usually also contain the possibility operator $\diamond$, where $\diamond p \iff \sim \Box \sim p$. 
+$\diamond p$ means that the statement $p$ is possibly true, or true at at least one of $w$'s neighbors. 
 Additionally, modal logics include standard operators of propositional logic like $\sim, \wedge, \vee, \rightarrow$.
 
 A deontic logic is a special kind of modal logic designed to reason about moral obligation. Standard deontic
@@ -554,27 +552,29 @@ conditionals. \citep{chisholm, ctd}
 } In situations where duty is violated, the logic breaks down 
 and produces paradoxical results. Thus, I use an improved deontic logic instead of SDL for this work.
 
-I use as my base logic Carmo and Jones's Dyadic Deontic Logic (DDL), which improves on SDL \citep{CJDDL}. 
+I use Carmo and Jones's Dyadic Deontic Logic (DDL), which improves on SDL \citep{CJDDL}. 
 It introduces a dyadic obligation operator $O\{A \vert B\}$ 
 to represent the sentence ``A is obligated in the context B.'' The introduction of context allows DDL to
 gracefully handle contrary-to-duty conditionals, since violations of duty simply modify the context. The obligation operator uses 
-a neighborhood semantics, instead of the Kripke semantics \citep{neighborhood1, neighborhood2}. While Kripke
+the neighborhood semantics, instead of the Kripke semantics \citep{neighborhood1, neighborhood2}. While Kripke
 semantics requires that an obligated proposition hold at all worlds, the neighborhood semantics defines
-a different set of neighbors, or morally relevant alternatives, for each world. To represent this,
+a set of neighbors, or morally relevant alternatives, for each world. To represent this,
 Carmo and Jones define a function $ob$ that maps a given context (or world) to the propositions 
 that are obligatory at this world, where a proposition $p$ is defined as 
-the worlds at which the $p$ is true. DDL is thus both modal and deontic; statements about obligations are
-true or false at a world according to the neighbordhood 
-semantics, and different obligations may hold at different worlds. This property is particularly relevant to my work because the universalizability test
+the set of worlds at which the $p$ is true. DDL is thus both modal and deontic; statements about obligations are
+true or false at a world according to the neighborhood 
+semantics, and different obligations may hold at different worlds. For example, the 
+sentence $O \{ \text{steal} \vert \text{when rich}\}$ is true at a world if stealing when rich is 
+obligated at that particular world. This property is particularly relevant to my work because the universalizability test
 requires reasoning about alternative worlds, such as the world of the universalized maxim.
 
 DDL also includes modal operators. In addition to $\Box$ and $\diamond$, DDL also has a notion
 of actual obligation and possible obligation, represented by operators $O_a$ and $O_p$ respectively. 
 These notions are accompanied by the corresponding modal operators $\Box_a, \diamond_a, \Box_p, \diamond_p$. 
-These operators use a Kripke semantics, with the functions $av$ and $pv$ mapping a world $w$ to the set 
+These operators use a modified Kripke semantics, with the functions $av$ and $pv$ mapping a world $w$ to the set 
 of corresponding actual or possible versions of $w$. These operators are not relevant to the work in 
 this thesis, but this additional expressivity could be used to extend my project to incorporate 
-more sophisticated ethical concepts like counterfactuals.
+more sophisticated ethical concepts.
 
 For more of fine-grained properties of DDL see \citet{CJDDL} or this project's source code.\footnote{The
 project's source code can be found \href{https://github.com/lsingh123/cs91r}{here}.} DDL is a heavy logic and contains modal operators 
@@ -602,10 +602,10 @@ into performance issues in my system, but future work may choose to embed a less
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-The final component of my project is the automated theorem prover I use to automate my formalization.
+The final component of my project is the automated theorem prover that I use to automate my formalization.
 Isabelle/HOL is an interactive proof assistant built on Haskell and Scala \citep{isabelle}. It 
 allows the user to define types, functions, definitions, and axiom systems. It has built-in support for both
-automatic and interactive/manual theorem proving. To demonstrate the power and usage of Isabelle and 
+automatic and interactive/manual theorem proving. To demonstrate the usage of Isabelle and 
 make DDL more precise, I walk through Benzmueller, Farjami, and Parent's implementation of DDL in Isabelle/HOL, 
 which serves as the basis of my formalization of Kantian Ethics.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -694,22 +694,22 @@ with respect to changing contexts.%
 %
 \begin{isamarkuptext}%
 The axiomatization above defines the semantics of DDL and, as demonstrated by the example axiom,
-is unwieldly. In my work, I mostly perform syntactic proofs, so I must define the syntax of the logic.
-Isabelle already knows the semantics of the axioms of this logic, so I can define the syntax as abbreviations 
+is unwieldly. In my work, I mostly perform syntactic proofs, so I need the syntax of the logic.
+Isabelle already knows the semantics of the axioms of this logic, so Benzm\"uller et. al define the syntax as abbreviations 
 involving the axioms above. Each DDL operator is represented
 as a HOL formula. Isabelle automatically unfolds formulas defined with the \isatt{abbreviation} command 
 whenever they are applied. While the shallow embedding is performant (because it uses Isabelle's original 
-syntax tree), my heavy use of abbreviations may impact the performance of long proofs.%
+syntax tree), the heavy use of abbreviations may impact the performance of long proofs.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
-\noindent Modal operators, implemented below, will be useful for my purposes.%
+\noindent Modal operators, implemented below, will be particularly useful for my purposes.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ ddlbox{\isacharcolon}{\isacharcolon}{\isachardoublequoteopen}t{\isasymRightarrow}t{\isachardoublequoteclose}\ {\isacharparenleft}{\isachardoublequoteopen}{\isasymbox}{\isachardoublequoteclose}{\isacharparenright}\ \isanewline
 \ \ \isakeyword{where}\ {\isachardoublequoteopen}{\isasymbox}\ A\ {\isasymequiv}\ {\isasymlambda}w{\isachardot}{\isasymforall}y{\isachardot}\ A{\isacharparenleft}y{\isacharparenright}{\isachardoublequoteclose}\ \isanewline
 %
-\isamarkupcmt{Notice that the necessity operator is an abbreviation, or syntactic sugar for, the higher order
+\isamarkupcmt{The necessity operator is an abbreviation, or syntactic sugar for, the higher order
 logic formula that the proposition holds at all worlds.%
 }\isanewline
 \isacommand{abbreviation}\isamarkupfalse%
@@ -754,8 +754,9 @@ Therefore, the monadic obligation operator requires that $A$ is obligated at all
 \isamarkupcmt{A proposition is valid if it is true at all worlds.%
 }%
 \begin{isamarkuptext}%
-Benemueller, Farjami, and Parent provide a proof of the completeness of the above embedding \citep{BFP}.
-Isabelle allows us to check consistency immediately using Nitpick, a model checker \citep{nitpick}.
+Benzm\"uller, Farjami, and Parent provide a proof of the completeness and consistency of the above embedding \citep{BFP}.
+The proof of completeness is too long to present here, but Isabelle allows us to check consistency 
+immediately using Nitpick, a model checker \citep{nitpick}.
 Nitpick can find satisfying models for a particular lemma using the \texttt{satisfy} option and it can 
 find counterexamples using the \texttt{falsify} option, both of which I use heavily in this project.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -770,7 +771,7 @@ find counterexamples using the \texttt{falsify} option, both of which I use heav
 \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 %
-\isamarkupcmt{This an example of a typical Nitpick output. In this case, Nitpick successfully found a model 
+\isamarkupcmt{The blue texte below is an example of typical Nitpick output. In this case, Nitpick successfully found a model 
 satisfying these axioms so the system is consistent.%
 }\isanewline
 %
@@ -819,8 +820,8 @@ which is why this theorem was so easy to prove.%
 %:%44=16%:%
 %:%45=17%:%
 %:%46=18%:%
-%:%47=19%:%
-%:%56=21%:%
+%:%55=20%:%
+%:%67=23%:%
 %:%68=24%:%
 %:%69=25%:%
 %:%70=26%:%
@@ -848,8 +849,8 @@ which is why this theorem was so easy to prove.%
 %:%92=48%:%
 %:%93=49%:%
 %:%94=50%:%
-%:%95=51%:%
-%:%104=54%:%
+%:%103=53%:%
+%:%115=55%:%
 %:%116=56%:%
 %:%117=57%:%
 %:%118=58%:%
@@ -858,8 +859,8 @@ which is why this theorem was so easy to prove.%
 %:%121=61%:%
 %:%122=62%:%
 %:%123=63%:%
-%:%124=64%:%
-%:%128=66%:%
+%:%127=65%:%
+%:%131=67%:%
 %:%132=68%:%
 %:%133=69%:%
 %:%134=70%:%
@@ -884,8 +885,8 @@ which is why this theorem was so easy to prove.%
 %:%153=89%:%
 %:%154=90%:%
 %:%155=91%:%
-%:%156=92%:%
-%:%160=95%:%
+%:%159=94%:%
+%:%163=96%:%
 %:%164=97%:%
 %:%165=98%:%
 %:%166=99%:%
@@ -902,8 +903,8 @@ which is why this theorem was so easy to prove.%
 %:%177=110%:%
 %:%178=111%:%
 %:%179=112%:%
-%:%180=113%:%
-%:%184=115%:%
+%:%183=114%:%
+%:%187=116%:%
 %:%188=117%:%
 %:%189=118%:%
 %:%190=119%:%
@@ -920,8 +921,8 @@ which is why this theorem was so easy to prove.%
 %:%201=130%:%
 %:%202=131%:%
 %:%203=132%:%
-%:%204=133%:%
-%:%208=136%:%
+%:%207=135%:%
+%:%211=138%:%
 %:%212=139%:%
 %:%213=140%:%
 %:%214=141%:%
@@ -936,9 +937,9 @@ which is why this theorem was so easy to prove.%
 %:%223=150%:%
 %:%224=151%:%
 %:%225=152%:%
-%:%226=153%:%
-%:%227=154%:%
-%:%236=157%:%
+%:%234=155%:%
+%:%246=157%:%
+%:%247=158%:%
 %:%248=159%:%
 %:%249=160%:%
 %:%250=161%:%
@@ -954,9 +955,9 @@ which is why this theorem was so easy to prove.%
 %:%260=171%:%
 %:%261=172%:%
 %:%262=173%:%
-%:%263=174%:%
-%:%264=175%:%
-%:%268=177%:%
+%:%266=175%:%
+%:%270=177%:%
+%:%271=178%:%
 %:%272=179%:%
 %:%273=180%:%
 %:%274=181%:%
@@ -981,9 +982,9 @@ which is why this theorem was so easy to prove.%
 %:%293=200%:%
 %:%294=201%:%
 %:%295=202%:%
-%:%296=203%:%
-%:%297=204%:%
-%:%306=207%:%
+%:%304=205%:%
+%:%316=207%:%
+%:%317=208%:%
 %:%318=209%:%
 %:%319=210%:%
 %:%320=211%:%
@@ -1039,9 +1040,9 @@ which is why this theorem was so easy to prove.%
 %:%370=261%:%
 %:%371=262%:%
 %:%372=263%:%
-%:%373=264%:%
-%:%374=265%:%
-%:%378=268%:%
+%:%376=266%:%
+%:%380=268%:%
+%:%381=269%:%
 %:%382=270%:%
 %:%383=271%:%
 %:%384=272%:%
@@ -1060,9 +1061,9 @@ which is why this theorem was so easy to prove.%
 %:%397=285%:%
 %:%398=286%:%
 %:%399=287%:%
-%:%400=288%:%
-%:%401=289%:%
-%:%405=292%:%
+%:%403=290%:%
+%:%407=292%:%
+%:%408=293%:%
 %:%409=294%:%
 %:%410=295%:%
 %:%411=296%:%
@@ -1089,9 +1090,9 @@ which is why this theorem was so easy to prove.%
 %:%432=317%:%
 %:%433=318%:%
 %:%434=319%:%
-%:%435=320%:%
-%:%436=321%:%
-%:%445=323%:%
+%:%443=321%:%
+%:%455=323%:%
+%:%456=324%:%
 %:%457=325%:%
 %:%458=326%:%
 %:%459=327%:%
@@ -1138,171 +1139,172 @@ which is why this theorem was so easy to prove.%
 %:%500=368%:%
 %:%501=369%:%
 %:%502=370%:%
-%:%503=371%:%
-%:%504=372%:%
-%:%513=374%:%
-%:%525=376%:%
-%:%526=377%:%
-%:%527=378%:%
-%:%528=379%:%
-%:%529=380%:%
-%:%530=381%:%
-%:%531=382%:%
-%:%532=383%:%
-%:%533=384%:%
-%:%534=385%:%
-%:%535=386%:%
-%:%536=387%:%
-%:%537=388%:%
-%:%538=389%:%
-%:%539=390%:%
-%:%540=391%:%
-%:%541=392%:%
-%:%542=393%:%
-%:%543=394%:%
-%:%544=395%:%
-%:%545=396%:%
-%:%546=397%:%
-%:%547=398%:%
-%:%548=399%:%
-%:%549=400%:%
-%:%550=401%:%
-%:%551=402%:%
-%:%552=403%:%
-%:%553=404%:%
-%:%554=405%:%
-%:%555=406%:%
-%:%556=407%:%
-%:%557=408%:%
-%:%558=409%:%
-%:%559=410%:%
-%:%560=411%:%
-%:%561=412%:%
-%:%562=413%:%
-%:%563=414%:%
-%:%564=415%:%
-%:%565=416%:%
-%:%566=417%:%
-%:%567=418%:%
-%:%568=419%:%
-%:%569=420%:%
-%:%570=421%:%
-%:%571=422%:%
-%:%572=423%:%
-%:%573=424%:%
-%:%574=425%:%
-%:%575=426%:%
-%:%576=427%:%
-%:%577=428%:%
-%:%578=429%:%
-%:%579=430%:%
-%:%580=431%:%
-%:%581=432%:%
-%:%582=433%:%
-%:%583=434%:%
-%:%584=435%:%
-%:%593=438%:%
-%:%605=440%:%
-%:%606=441%:%
-%:%607=442%:%
-%:%608=443%:%
-%:%609=444%:%
-%:%610=445%:%
-%:%619=448%:%
-%:%631=450%:%
-%:%632=451%:%
-%:%633=452%:%
-%:%635=454%:%
-%:%636=454%:%
-%:%637=454%:%
-%:%638=454%:%
-%:%640=455%:%
-%:%641=455%:%
-%:%642=456%:%
-%:%643=456%:%
-%:%644=456%:%
-%:%645=456%:%
-%:%647=457%:%
-%:%648=458%:%
-%:%651=470%:%
-%:%652=471%:%
-%:%653=472%:%
-%:%655=474%:%
-%:%656=474%:%
-%:%657=474%:%
-%:%658=474%:%
-%:%659=475%:%
-%:%660=475%:%
-%:%663=477%:%
-%:%664=478%:%
-%:%665=479%:%
-%:%666=480%:%
-%:%668=482%:%
-%:%669=482%:%
-%:%670=506%:%
-%:%671=507%:%
-%:%673=508%:%
-%:%674=509%:%
-%:%675=510%:%
-%:%676=511%:%
-%:%684=516%:%
-%:%696=518%:%
-%:%697=519%:%
-%:%698=520%:%
-%:%699=521%:%
-%:%700=522%:%
-%:%701=523%:%
-%:%702=524%:%
-%:%706=538%:%
-%:%708=539%:%
-%:%709=539%:%
-%:%710=540%:%
-%:%712=541%:%
-%:%713=542%:%
-%:%714=542%:%
-%:%715=543%:%
-%:%716=543%:%
-%:%717=544%:%
-%:%719=545%:%
-%:%722=546%:%
-%:%724=547%:%
-%:%725=547%:%
-%:%726=548%:%
-%:%728=549%:%
-%:%731=566%:%
-%:%732=567%:%
-%:%734=568%:%
-%:%735=568%:%
-%:%736=569%:%
-%:%737=570%:%
-%:%738=570%:%
-%:%739=571%:%
-%:%740=572%:%
-%:%741=572%:%
-%:%742=573%:%
-%:%744=574%:%
-%:%745=575%:%
-%:%748=576%:%
-%:%750=577%:%
-%:%751=577%:%
-%:%752=578%:%
-%:%754=579%:%
-%:%757=584%:%
-%:%758=585%:%
-%:%759=586%:%
-%:%760=587%:%
-%:%762=590%:%
-%:%763=590%:%
-%:%764=590%:%
-%:%766=590%:%
-%:%770=590%:%
-%:%771=590%:%
-%:%773=591%:%
-%:%774=592%:%
-%:%775=592%:%
-%:%777=593%:%
-%:%778=594%:%
-%:%779=595%:%
-%:%789=597%:%
-%:%790=598%:%
-%:%791=599%:%
+%:%511=372%:%
+%:%523=375%:%
+%:%524=376%:%
+%:%525=377%:%
+%:%526=378%:%
+%:%527=379%:%
+%:%528=380%:%
+%:%529=381%:%
+%:%530=382%:%
+%:%531=383%:%
+%:%532=384%:%
+%:%533=385%:%
+%:%534=386%:%
+%:%535=387%:%
+%:%536=388%:%
+%:%537=389%:%
+%:%538=390%:%
+%:%539=391%:%
+%:%540=392%:%
+%:%541=393%:%
+%:%542=394%:%
+%:%543=395%:%
+%:%544=396%:%
+%:%545=397%:%
+%:%546=398%:%
+%:%547=399%:%
+%:%548=400%:%
+%:%549=401%:%
+%:%550=402%:%
+%:%551=403%:%
+%:%552=404%:%
+%:%553=405%:%
+%:%554=406%:%
+%:%555=407%:%
+%:%556=408%:%
+%:%557=409%:%
+%:%558=410%:%
+%:%559=411%:%
+%:%560=412%:%
+%:%561=413%:%
+%:%562=414%:%
+%:%563=415%:%
+%:%564=416%:%
+%:%565=417%:%
+%:%566=418%:%
+%:%567=419%:%
+%:%568=420%:%
+%:%569=421%:%
+%:%570=422%:%
+%:%571=423%:%
+%:%572=424%:%
+%:%573=425%:%
+%:%574=426%:%
+%:%575=427%:%
+%:%576=428%:%
+%:%577=429%:%
+%:%578=430%:%
+%:%579=431%:%
+%:%580=432%:%
+%:%581=433%:%
+%:%582=434%:%
+%:%583=435%:%
+%:%584=436%:%
+%:%593=439%:%
+%:%605=441%:%
+%:%606=442%:%
+%:%607=443%:%
+%:%608=444%:%
+%:%609=445%:%
+%:%610=446%:%
+%:%619=449%:%
+%:%631=451%:%
+%:%632=452%:%
+%:%633=453%:%
+%:%635=455%:%
+%:%636=455%:%
+%:%637=455%:%
+%:%638=455%:%
+%:%640=456%:%
+%:%641=456%:%
+%:%642=457%:%
+%:%643=457%:%
+%:%644=457%:%
+%:%645=457%:%
+%:%647=458%:%
+%:%648=459%:%
+%:%651=471%:%
+%:%652=472%:%
+%:%653=473%:%
+%:%655=475%:%
+%:%656=475%:%
+%:%657=475%:%
+%:%658=475%:%
+%:%659=476%:%
+%:%660=476%:%
+%:%663=478%:%
+%:%664=479%:%
+%:%665=480%:%
+%:%666=481%:%
+%:%668=483%:%
+%:%669=483%:%
+%:%670=507%:%
+%:%671=508%:%
+%:%673=509%:%
+%:%674=510%:%
+%:%675=511%:%
+%:%676=512%:%
+%:%684=517%:%
+%:%696=519%:%
+%:%697=520%:%
+%:%698=521%:%
+%:%699=522%:%
+%:%700=523%:%
+%:%701=524%:%
+%:%702=525%:%
+%:%706=539%:%
+%:%708=540%:%
+%:%709=540%:%
+%:%710=541%:%
+%:%712=542%:%
+%:%713=543%:%
+%:%714=543%:%
+%:%715=544%:%
+%:%716=544%:%
+%:%717=545%:%
+%:%719=546%:%
+%:%722=547%:%
+%:%724=548%:%
+%:%725=548%:%
+%:%726=549%:%
+%:%728=550%:%
+%:%731=567%:%
+%:%732=568%:%
+%:%734=569%:%
+%:%735=569%:%
+%:%736=570%:%
+%:%737=571%:%
+%:%738=571%:%
+%:%739=572%:%
+%:%740=573%:%
+%:%741=573%:%
+%:%742=574%:%
+%:%744=575%:%
+%:%745=576%:%
+%:%748=577%:%
+%:%750=578%:%
+%:%751=578%:%
+%:%752=579%:%
+%:%754=580%:%
+%:%757=585%:%
+%:%758=586%:%
+%:%759=587%:%
+%:%760=588%:%
+%:%761=589%:%
+%:%763=592%:%
+%:%764=592%:%
+%:%765=592%:%
+%:%767=592%:%
+%:%771=592%:%
+%:%772=592%:%
+%:%774=593%:%
+%:%775=594%:%
+%:%776=594%:%
+%:%778=595%:%
+%:%779=596%:%
+%:%780=597%:%
+%:%790=599%:%
+%:%791=600%:%
+%:%792=601%:%

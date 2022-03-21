@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 MAR 2022 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 MAR 2022 16:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -610,21 +610,26 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <14.4> not avail
 able
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 57.
+nput line 56.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 14.4pt on input line 57.
+(Font)              scaled to size 14.4pt on input line 56.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <14.4> not avail
 able
 (Font)              Font shape `T1/EBGaramond-OsF/bold/n' tried instead on inpu
-t line 57.
+t line 56.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
-(Font)              scaled to size 14.4pt on input line 57.
+(Font)              scaled to size 14.4pt on input line 56.
  [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-[18] [19] [20] [21]
+[18] [19]
+Overfull \hbox (2.11926pt too wide) in paragraph at lines 555--570
+[]\T1/EBGaramond-OsF/regular/n/10.95 I use Carmo and Jones's Dyadic De-on-tic L
+ogic (DDL), which im-proves on SDL ([][]Carmo
+ []
+
+[20] [21]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
 32.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmtt.fd
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' in size <10> not availab
@@ -633,15 +638,15 @@ le
 t line 635.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
 (Font)              scaled to size 10.0pt on input line 635.
- [22]
+
+[22]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/it' in size <10> not availa
 ble
 (Font)              Font shape `T1/EBGaramond-OsF/bold/it' tried instead on inp
 ut line 717.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/it' will be
 (Font)              scaled to size 10.0pt on input line 717.
- [23])
-[24] (./thesis_3_implementation.tex [25] [26]
+ [23]) [24] (./thesis_3_implementation.tex [25] [26]
 Overfull \hbox (3.27634pt too wide) in paragraph at lines 154--156
 [][]\T1/EBGaramond-OsF/bold/n/10.95 Example 1 \T1/EBGaramond-OsF/regular/n/10.9
 5 (False Promis-ing)\T1/EBGaramond-OsF/bold/n/10.95 . []\T1/EBGaramond-OsF/regu
@@ -668,6 +673,13 @@ input line 222.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/it' will be
 (Font)              scaled to size 6.0pt on input line 222.
  [29] [30] [31] [32]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <5> not availabl
+e
+(Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
+nput line 390.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
+(Font)              scaled to size 5.0pt on input line 390.
+
 Underfull \hbox (badness 1472) in paragraph at lines 390--390
 [][][]\T1/EBGaramond-OsF/regular/n/9 Technically, a maxim is not a boolean type
 , so the term $\OMS/cmsy/m/n/9 :\OML/cmm/m/it/9 M$ \T1/EBGaramond-OsF/regular/n
@@ -701,7 +713,7 @@ maxim is well-formed, then if it is not uni-ver-sal-iz-able, it is prohibited.[
  []
 
 [35] [36] [37]
-<goalstable.png, id=760, 691.58376pt x 259.97125pt>
+<goalstable.png, id=752, 691.58376pt x 259.97125pt>
 File: goalstable.png Graphic file (type png)
 <use goalstable.png>
 Package pdftex.def Info: goalstable.png  used on input line 639.
@@ -725,7 +737,7 @@ en-tional act re-lies on a con-ven-tion, like the con-ven-tion that a promise
 
 [42]) [43] (./thesis_4_applications.tex [44] [45] [46] [47] [48] [49] [50]
 [51] [52] [53] [54] [55] [56]) [57] (./thesis_5_discussion.tex
-<AI_engine.png, id=935, 893.3375pt x 324.21124pt>
+<AI_engine.png, id=926, 893.3375pt x 324.21124pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
 Package pdftex.def Info: AI_engine.png  used on input line 82.
@@ -735,31 +747,26 @@ Overfull \hbox (3.42976pt too wide) in paragraph at lines 82--86
 [][] 
  []
 
-[58] [59 <./AI_engine.png>]
-Overfull \hbox (0.31195pt too wide) in paragraph at lines 116--130
-\T1/EBGaramond-OsF/regular/n/10.95 For-mula of Uni-ver-sal Law is a ``test of m
-oral worth rather than of out-ward right-ness'' ([][]O'Neill[][],
- []
-
-[60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
-Overfull \hbox (7.29796pt too wide) in paragraph at lines 615--627
+[58] [59 <./AI_engine.png>] [60] [61] [62] [63] [64] [65] [66] [67] [68]
+[69] [70] [71] [72] [73] [74]
+Overfull \hbox (7.29796pt too wide) in paragraph at lines 618--630
 []\T1/EBGaramond-OsF/regular/n/10.95 The above model of human-computer sym-bio-
 sis demon-strates how com-pu-ta-tional ethics
  []
 
 [75] [76] [77] [78]
-<inputparser.png, id=1130, 815.045pt x 540.0175pt>
+<inputparser.png, id=1123, 815.045pt x 540.0175pt>
 File: inputparser.png Graphic file (type png)
 <use inputparser.png>
-Package pdftex.def Info: inputparser.png  used on input line 771.
+Package pdftex.def Info: inputparser.png  used on input line 774.
 (pdftex.def)             Requested size: 383.0712pt x 253.80826pt.
 
-Overfull \hbox (2.37332pt too wide) in paragraph at lines 771--773
+Overfull \hbox (2.37332pt too wide) in paragraph at lines 774--776
  [][] 
  []
 
 
-Overfull \hbox (2.54117pt too wide) in paragraph at lines 777--793
+Overfull \hbox (2.54117pt too wide) in paragraph at lines 780--796
 []\T1/EBGaramond-OsF/regular/n/10.95 Under Tafani's un-der-stand-ing of the cat
 -e-gor-i-cal im-per-a-tive, not only is au-to-mated moral
  []
@@ -786,7 +793,7 @@ os-o-phy
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 404--406
+Underfull \hbox (badness 3668) in paragraph at lines 408--410
 []\T1/EBGaramond-OsF/regular/n/10.95 Rönnedal, D. (2019), `Contrary-to-duty par
 a-doxes and coun-ter-fac-tual de-on-tic logic',
  []
@@ -803,12 +810,6 @@ e
 nput line 249.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
 (Font)              scaled to size 7.0pt on input line 249.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <5> not availabl
-e
-(Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 249.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 5.0pt on input line 249.
  [98] [99] [100] [101]
 Overfull \hbox (22.72354pt too wide) in paragraph at lines 609--611
 [][]\T1/EBGaramond-OsF/bold/n/10 abbreviation \T1/EBGaramond-OsF/regular/it/10 
@@ -837,10 +838,10 @@ Package rerunfilecheck Info: File `root.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 10366 strings out of 480608
- 152128 string characters out of 5903631
- 421106 words of memory out of 5000000
- 25689 multiletter control sequences out of 15000+600000
+ 10364 strings out of 480608
+ 152165 string characters out of 5903631
+ 421131 words of memory out of 5000000
+ 25692 multiletter control sequences out of 15000+600000
  686871 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,67p,957b,691s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -870,10 +871,10 @@ sy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
 t1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1
 095.pfb>
-Output written on root.pdf (116 pages, 920156 bytes).
+Output written on root.pdf (116 pages, 919087 bytes).
 PDF statistics:
- 1533 PDF objects out of 1728 (max. 8388607)
- 1373 compressed objects within 14 object streams
- 314 named destinations out of 1000 (max. 500000)
+ 1525 PDF objects out of 1728 (max. 8388607)
+ 1365 compressed objects within 14 object streams
+ 309 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,10 +6,10 @@ begin(*>*)
 section \<open>Implementation Details\label{details}\<close>
 
 text \<open>In this section, I present the details of my implementation of automated Kantian ethics, which consists of
-a formalization of the FUL in Dyadic Deontic Logic and an implementation of this logic in Isabelle/HOL. The final
-Isabelle library is a logic that has the categorical imperative as an axiom and can express and derive moral judgements. 
+a formalization of the Formula of Universal Law in Dyadic Deontic Logic and an implementation of this logic in Isabelle/HOL. The final
+Isabelle library contains a logic that has the categorical imperative as an axiom and can express and derive moral judgements. 
 Using Isabelle's automated theorem proving abilities, my system can show that appropriately represented
-actions are obligatory, permissible, or prohibited by proving or refuting sentences of the form ``A 
+maxims are obligatory, permissible, or prohibited by proving or refuting sentences of the form ``A 
 is obligated to do B.'' I also present a testing framework to evaluate how faithful my implementation is 
 to philosophical literature. This testing framework shows that my system outperforms unmodified DDL 
 (a control group) and Moshe Kroy's prior formalization of the FUL \citep{kroy}.\<close>
@@ -21,13 +21,13 @@ the FUL as an axiom. Dyadic Deontic Logic can express obligation and prohibition
 represent more complex features of moral judgement like actions, subject, maxims, and ends. I augment 
 DDL by adding representations of these concepts, drawn from philosophical literature.\<close>
 
-subsubsection "Logical Background"
+subsubsection "Subjects and Acts"
 
 text\<open>Kantian ethics is action-guiding; the categorical
 imperative is a moral rule that agents can use to decide between potential actions. Thus, before I 
 begin to formalize a specific formulation of the categorical imperative, I must define
-subjects and actions. I add representations of subjects and actions so that my new logic can express
-sentences of the form, ``x does action.''\<close>
+subjects and act. I add representations of subjects and acts so that my new logic can express
+sentences of the form, ``x does act.''\<close>
 
 typedecl s \<comment>\<open>The new type $s$ is the type for a ``subject,'' as in the subject of a sentence.\<close>
 
@@ -46,7 +46,7 @@ trustworthy, because they rely on relatively little prior knowledge.
 
 In this interpretation, the defining feature of a subject is that they can act. 
 I represent that below by allowing subjects to substitute into sentences, a property that I will use 
-to represent the idea that different people can perform the same actions.\<close>
+to represent the idea that different people can perform the same acts.\<close>
 
 type_synonym os = "(s \<Rightarrow> t)" 
 \<comment>\<open>To model the idea of a subject being substituted into an action, I 
@@ -54,7 +54,7 @@ define \texttt{type\_synonym} $os$ for an open sentence. An open sentence takes 
 returns a complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. 
 For example, ``runs'' is an open sentence that can be instantiated with subject, ``Sara'' to create
 the DDL term ``Sara runs,'' which can be true or false at a world. An open sentence itself is not truth-apt,
-ot the kind of thing that can be true or false at a world. When an action is 
+ot the kind of thing that can be true or false at a world. When a subject is 
 substituted into an open sentence, the resulting term is truth apt. ``Runs'' is not the kind of thing 
 that can be true or false, but ``Sara runs'' is a sentence that can be true or false.\<close>
 
@@ -77,7 +77,7 @@ principle of willing,'' or the principle that the agent understands themselves a
 Modern Kantians differ in their interpretations of this definition. I adopt O'Neill's view, derived from 
 Kant's example maxims, that a maxim includes the act, the circumstances, and the agent's purpose of 
 acting or goal \citep{actingonprinciple}. Other potential views include Korsgaard's view, which omits 
-the circumstances, and Kitcher's view, which adds a motivation \citep{actingforareason, kitcher}. I 
+the circumstances, and Kitcher's view, which additionally includes the actor's motivation \citep{actingforareason, kitcher}. I 
 address the limitations of these approaches in Appendix \ref{maximmotive}.
 
 
@@ -93,8 +93,8 @@ type_synonym maxim = "(t * os * t)"
 \<comment>\<open>A maxim is of type term, open sentence, term tuple, such as ``(When I am strapped for cash, will falsely promise
 to repay a loan, to get some easy cash)''. The first term represents the circumstance, which
 can be true or false at a world. For example, the circumstance ``when I am strapped for cash'' is true at the real 
-world when my bank account is empty. The second term represents the action, which is an open sentence
-because different agents can perform a particular action. For example, the action, ``will falsely promise
+world when my bank account is empty. The second term represents the act, which is an open sentence
+because different agents can perform a particular action. For example, the act, ``will falsely promise
 to repay a loan'' is an open sentence that can be acted on by a subject. The third term represents 
 the goal, which can again be true or false at a world. For example, the goal ``to get some easy cash''
 is true at the real world if I have successfully received easy cash. \<close>
@@ -119,17 +119,17 @@ to the act and goal. This solution requires determining what qualifies as a rele
 
 O'Neill seems to acknowledge the difficulty of determining relevant circumstances when she concedes that a maxim cannot include all 
 of the infinitely many circumstances in which the agent may perform an action \citep[4:428]{actingonprinciple}. She argues that this is 
-an artifact of the fact that maxims are rules of practical reason, the kind of reason that helps us decide what to do 
+an artifact of the fact that maxims are rules of practical reason, which is the kind of reason that helps us decide what to do 
 and how to do it \citep{bok}. Like any practical rule, 
 maxims require the exercise of practical judgement to determine in which circumstances they should be applied. 
 This judgement, applied in both choosing when to exercise the maxim and in the formulation of the maxim 
 itself, is what determines the morally relevant circumstances.  
-The difficulty in determining relevant circumstances is a limitation of my system and requires that a 
+The difficulty in determining relevant circumstances is an obstacle to using my system in practice and requires that a 
 human being formulate the maxim or that future work develop heuristics to classify circumstances as morally 
 relevant. I discuss this challenge and potential solutions in greater detail in Section \ref{AIethics}.
 
 With this robust representation of a maxim, I can now define willing. To will a maxim is to adopt it 
-as a principle to live by, or to commit oneself to the maxim's action for the 
+as a principle to live by, or to commit oneself to the maxim's act for the 
 sake of maxim's end in the relevant circumstances. I formalize this idea in Definition \ref{willing}.
 
 \begin{definition}[Willing]\label{willing}
@@ -152,8 +152,8 @@ takes as input a maxim and a subject and returns the term, ``s wills maxim.'' \<
 subsubsection \<open>Practical Contradiction Interpretation of the FUL \label{praccon}\<close>
 
 text \<open>In order to evaluate the moral status of a maxim, I must define what it means for a maxim to not be
-universalizable, or to fail the universalizability test. Kantians debate the correct interpretation of 
-the Formula of Universal Law because Kant himself appears to interpret the criterion in different ways. 
+universalizable, or to fail the universalizability test. For many years, Kantians debated the correct interpretation of 
+the Formula of Universal Law because Kant himself appeared to interpret the criterion in different ways. 
 I adopt Korsgaard's practical contradiction interpretation, broadly accepted as correct within 
 the philosophical community \citep{ebelsduggan}.
  
@@ -173,9 +173,9 @@ making a false promise to repay a loan would be impossible.
 
 This view cannot correctly handle natural acts. Korsgaard appeals to 
 \citet{dietrichson} to construct the example natural act of a mother killing her children that
-cry too much at night so that she can get some sleep. Universalizing this maxim does not generate a logical 
-contradiction because killing is still possible in a world where everyone kills noisy children, but 
-it is clearly wrong. Because killing is a natural act, it can never be logically 
+cry too much at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
+it does not generate a logical contradiction because killing is still possible in a world where 
+everyone kills noisy children. Because killing is a natural act, it can never be logically 
 impossible so the logical contradiction view cannot prohibit it.
 
 As an alternative to the logical contradiction view, Korsgaard endorses the practical contradiction view, 
@@ -187,7 +187,7 @@ loud children, then she cannot be secure in the possession of her life, because 
 have killed her as an infant. Her willing this maxim thwarts the end that she sought to secure. 
 
 The practical contradiction interpretation offers a satisfying explanation of \emph{why} certain 
-maxims are immoral. These maxims involve parasitic behavior on social conditions that the agent seeks 
+maxims are immoral. These maxims involve parasitic behavior on the very social conditions that the agent seeks 
 to benefit from. The false promiser wants to both abuse the system of promising and benefit 
 from it, and is thus making an exception of themselves. The test formalizes the kinds of objections 
 that the question ``What if everyone did that?'' seeks to draw out.\footnote{This argument for the practical
@@ -227,7 +227,7 @@ when everyone wills the maxim.
 $$\text{\emph{universalized}} \, M  \equiv \forall w \, (\forall p \, \text{\emph{will}} \, M \, p)$$
 \end{definition}
 
-I can once again represent this as an abbreviation in Isabelle.
+\noindent I can once again represent this as an abbreviation in Isabelle.
 \<close>
 
 abbreviation universalized::"maxim\<Rightarrow>t" where 
@@ -246,16 +246,16 @@ not universalizable if, when universalized, it is no longer effective.
 For a maxim $M$ and agent $s$,
 $$\text{\emph{not\_universalizable}} \, M \, s  \equiv [ \text{\emph{universalized}} \, M \longrightarrow \neg \, \text{\emph{effective}} \, M \, s ]$$
 \end{definition}
-\noindent A maxim is not universalizable when, if everyone wills the maxim, then it is no longer effective.
-I implement this definition in Isabelle using another abbreviaion.\<close>
+\noindent A maxim is not universalizable when, if everyone wills the maxim, then it is no longer 
+effective. I implement this definition in Isabelle using another abbreviaion.\<close>
 
 abbreviation not_universalizable :: "maxim\<Rightarrow>s\<Rightarrow>bool" where 
 "not_universalizable \<equiv> \<lambda>M s. \<forall>w. ((universalized M)  \<^bold>\<rightarrow> (\<^bold>\<not> (E M s))) w"
 \<comment>\<open>Maxim $M$ is not universalizable at world $w$ when, ``at world $w$, if M is universalized, then M is not effective.'' \<close>
 
-text \<open>The FUL states that if a maxim is not universalizable, then it is prohibited. Before performing
-moral reasoning with my system, I must define obligation, permissibility, and prohibition.
-To judge an action, my system evaluates the moral status of the action 
+text \<open>The FUL states that if a maxim is not universalizable, then it is prohibited. To define and use 
+this statement, I must first define obligation, permissibility, and prohibition.
+To judge a maxim, my system evaluates the moral status of the sentence 
 ``person $s$ wills maxim $M$.'' This action can be obligated, prohibited, or permissible.
 I will use the phrase ``subject $s$ willing maxim $M$ is obligatory" 
 interchangeably with ``maxim $M$ is obligatory for subject $s$." I will use ``maxim $M$ is obligatory" to 
@@ -277,9 +277,9 @@ operator. Using this definition, I can define prohibition and permissibility.
 
 \begin{definition}[Prohibition and Permissibility] Let maxim $M$ be composed of the circumstances, act, 
 goal tuple $C, A, G$ and let $s$ be an arbitrary agent.\footnote{Technically, a maxim is not a boolean 
-type, so the term $\neg M$ is not type correct. The expression $obligated \, \neg M$ merely provides 
+type, so the term $\neg M$ is not type correct. The expression $\text{obligated} \, \neg M$ merely provides 
 intuition for the meaning of prohibition, but the exact definition is given by 
-$O\{ \neg will \, (C, A, G) \, s \, | \, C\}$.}
+$O\{ \neg \text{will} \, (C, A, G) \, s \, | \, C\}$.}
 \newcommand*{\approxident}{%
   \mathrel{\vcenter{\offinterlineskip
   \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
@@ -298,7 +298,7 @@ for an agent to will or not will a permissible maxim. \<close>
 text \<open>One additional piece of logical background necessary before I implement the FUL is the 
 notion of contradictory obligations. Many deontic logics, including DDL, allow contradictory
 obligations. As I will explain in Section \ref{testing}, Kantian ethics never prescribes contradictory
-obligations, so I will add this as an axiom. \<close>
+obligations, so I will add an axiom disallowing contradictory obligations. \<close>
 
 abbreviation non_contradictory where 
 "non_contradictory A B c w \<equiv> ((O{A|c} \<^bold>\<and> O{B|c}) w) \<longrightarrow> \<not>((A \<^bold>\<and> (B \<^bold>\<and> c)) w \<longrightarrow> False)"
@@ -311,10 +311,10 @@ do not conflict. \<close>
 
 subsubsection \<open>Formalizing the FUL\label{formalizingful}\<close>
 
-text \<open>With this logical background, I can begin to implement the Formula of Universal Law, which, as defined 
+text \<open>With this logical background, I can implement the Formula of Universal Law, which, as defined 
 by the practical contradiction interpretation, states that a maxim is prohibited if it is ineffective
 when universalized. A first, unsuccessful attempt to formalize the FUL simply translates this into Isabelle's syntax
-using the abbreviations above. While this attempt will not be consistent, I will use Isabelle's automatic
+using the abbreviations above. While this attempt is not consistent, I use Isabelle's automatic
 proof search abilities to determine how to modify this formula to be consistent, revealing a key philosophical
 insight about maxims in the process. This section presents my final formalization of the FUL and the 
 philosophical insight produced while creating it, which, as I argue in Section \ref{computationalethics},
@@ -337,8 +337,9 @@ text \<open>Isabelle's proof-finding tool, Sledgehammer, shows that
 \texttt{FUL0} is not consistent by showing that it implies a contradiction 
 using axiom \texttt{O\_diamond}\footnote{The full axiom reads @{"thm" "O_diamond"}.} \citep{sledgehammer}. 
 This axiom roughly states that an obligation can't contradict its context. Knowing that \texttt{FUL0}
-contradicts this particular axiom offers insight into what the problem is. If the goal or action
-or a maxim are equivalent to its circumstance, then prohibiting it is contradictory. If the maxim has already been 
+contradicts this particular axiom offers insight into what the problem is: the FUL must be obligating 
+a maxim in which the act or goal contradicts the circumstances. Precisely, if the goal or action
+or a maxim are equivalent to its circumstances, then prohibiting it is contradictory. If the maxim has already been 
 acted on or the goal has already been achieved, then the agent cannot undo their action or the achivement 
 of the goal. 
 
@@ -384,18 +385,19 @@ it is inconsistent. This is not only a logical property of my system, but it als
 significance that coheres with Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action \citep{actingforareason,actingonprinciple}. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast,'' is not 
-practically relevant. No agent would ever need to act on such a principle. Morality helps agents decide
+practically relevant. Morality helps agents decide
 whether to act on a potential principle of action, but no agent would need to ask
-``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" It is the wrong kind of 
-principle to be evaluating. It is not a well-formed maxim, so the categorical imperative cannot apply to it. 
+``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" Because it is not a 
+well-formed maxim, it is the wrong kind of principle to be evaluating, so the categorical imperative 
+cannot apply to it. 
 
 The fact that Isabelle revealed a philosophical insight about which kinds of maxims are well-formed
 is an example of the power of computational tools to aid
 philosophical progress. Nitpick and Sledgehammer helped me confirm that certain kinds
 of circumstance, act, goal tuples are too badly formed for the categorical imperative to logically 
 apply to them. The realization of this subtle problem would have been incredibly difficult without 
-computational tools, and serves as evidence of the power of computational ethics. I discuss the philosophical
-properties and implications of well-formed maxims and the power of computational ethics further in 
+computational tools, and serves as evidence of the power of computational ethics. I further discuss the philosophical
+properties and implications of well-formed maxims and the power of computational ethics in 
 Section \ref{computationalethics}.
 
 I complete my implementation by adding the consistent version of the FUL as an axiom.\<close>
@@ -412,24 +414,24 @@ subsection \<open>Tests\label{testing}\<close>
 
 text \<open>In addition to an implementation of automated Kantian ethics, I also contribute a testing framework 
 to evaluate how well my implementation coheres with philosophical literature. This testing architecture 
-makes the notion of ``philosophical faithfulness'' precise. Each test consists of a sentence in my logic 
-and an expected outcome, where the possible outcomes are proving or refuting the sentence. For example, 
+makes the notion of ``philosophical faithfulness'' precise. Each test consists of a sentence in my logic\footnote{Some
+tests also require additional logical background, explained below.} and an expected outcome, where 
+the possible outcomes are proving or refuting the sentence. For example, 
 one such sentence is that obligations cannot contradict each other. To run the tests, I attempt to
  prove or refute each test sentence in my logic.  Because these tests are derived from moral 
 intuition and philosophical literature, they evaluate how well my system reflects philosophical
 literature. Running the tests on my implementation consisted of approximately 400 lines of Isabelle code.
 
-The test framework can be expanded by adding more test sentences and can guide 
+The testing framework can be expanded by adding more test sentences and can guide 
 implementations of other parts of Kantian ethics or other ethical theories. As I was implementing my 
 formalization, I checked it against the testing framework, performing test-driven development for automated 
 ethics.
 
-I use my testing framework to show that my formalization and implementation of Kantian ethics outperforms 
+I use my testing framework to show that my formalization and implementation of Kantian ethics outperform 
 two other potential implementations. First, I consider raw DDL, which serves as a control group because it simply contains the base logic
-on top of which I build other implementations. DDL can express obligation, but has no knowledge of any 
+on top of which I build other implementations. DDL can express obligation, but does not include any 
 specific moral rules (like the categorical imperative). Second, I consider Moshe Kroy's 1976 formalization 
-of the FUL and the second formulation
-of the categorical imperative \citep{kroy}. His formalization is based on Hintikka's deontic logic, which is a different,
+of the FUL \citep{kroy}. His formalization is based on Hintikka's deontic logic, which is a different,
 less expressive logic than DDL \citep{hintikka}. He presents a logical representation of the FUL that has not yet been implemented
 using an automated theorem prover, so I implement it in Isabelle.\footnote{I present the complete implementation in
 Appendix \ref{kroydetails}.} I find that my implementation outperforms 
@@ -445,7 +447,7 @@ text_raw \<open>
 ``Kroy'' is my implementation of Moshe Kroy's formalization of the FUL, and ``Custom'' is my novel implementation.} \label{table}
 \end{figure}\<close>
 
-text \<open>\noindent \textbf{FUL Stronger than DDL} The FUL should not hold in raw DDL, which I use a control group. 
+text \<open>\noindent \textbf{FUL Stronger than DDL} The FUL should not hold in raw DDL, which I use as a control group. 
 If the FUL holds in the base logic, then adding it as an axiom doesn't make the logic any stronger, 
 which is troubling because the base logic does not come equipped with the categorical imperative. DDL
 defines basic properties of obligation, such as ought implies can, but contains no axioms that represent
@@ -468,8 +470,8 @@ to make oneself an exception: selfishness, meanness, advantagetaking, and disreg
 of others'' \citep[30]{KorsgaardFUL}. Kroy makes this property the center of his
 formalization, which essentially says that if an act is permissible for someone, it is permissible for 
 everyone.\footnote{Formally, $P\{A(s)\} \longrightarrow \forall p. P\{A(p)\}$.} Kroy's formalization and 
-my formalization satisfy this property, but raw DDL does not. Below I run
-this test for my formalization.\<close>
+my implementation satisfy this property, but raw DDL does not. Below I run
+this test for my implementation.\<close>
 
 lemma wrong_if_wrong_for_someone:
   shows "\<forall>w. \<forall>c::t. \<forall>g::t. \<forall>a. \<exists>s::s. O{\<^bold>\<not> (W (c, a, g) s) | c} w \<longrightarrow> (\<forall>p.  O{\<^bold>\<not> (W (c, a, g) p) | c} w) "
@@ -488,7 +490,8 @@ lemma right_if_right_for_someone:
 \<comment>\<open>This lemma shows that if a maxim $(c, a, g)$ is right for subject $s$ at a world, then it is right
 for all people at that world. The proof similarly proceeds using \texttt{blast}. \<close>
 
-text\<open>\noindent \textbf{Obligations Never Contradict} Contradictory obligations
+text\<open>\noindent \textbf{Obligations Never Contradict} There are two reasons that Kantian ethics cannot
+require contradictory obligations. First, contradictory obligations
 make obeying the prescriptions of an ethical theory impossible.
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
 can.\footnote{Kohl points out that this principle is referred to as 
@@ -498,7 +501,7 @@ for the will \citep[703-4]{kohl}. This defeats the purpose of Kant's theory, whi
 for rational agents. Ought implies can requires that obligations never contradict each other, because an agent 
 can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
 and Kantian ethics in particular, must not result in conflicting obligations. 
-Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
+Second, Kant briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
 conflicting moral obligations are impossible under his theory \citep[V224]{metaphysicsintro}. Particularly, the categorical imperative generates 
 ``strict negative laws of omission,'' which cannot conflict by definition \citep[45]{timmerman}.\footnote{The 
 kinds of obligations generated by the FUL are called ``perfect duties'' which arise from ``contradictions 
@@ -507,7 +510,7 @@ and thus never conflict. Kant also presents ``imperfect duties,'' generated from
 or maxims that we can concieve of universalizing but would never want to. These duties tend to be broader, 
 such as ``improve oneself" or "help others," and are secondary to perfect duties. My project only analyzes 
 perfect duties, as these are always stronger than imperfect duties.} Both raw DDL and 
-Kroy's formalization allow contradictory obligations, but I explicitly add an axiom to my formalization
+Kroy's formalization allow contradictory obligations, but I explicitly add an axiom to my implementation
 that prohibits contradictory obligations.\<close>
 
 lemma conflicting_obligations:
@@ -539,11 +542,12 @@ lemma "\<forall>w. \<exists>A. (((O {A} \<^bold>\<and> O {\<^bold>\<not> A})w)) 
 is the formal statement of contradictory obligations), then obligation does not always imply permissibility. \<close>
 \<comment>\<open>\texttt{simp} is the simplification tactic, which unfolds definitions to complete a proof.\<close>
 
-text \<open>\noindent \textbf{Distributive Property for Obligations Holds} Another property related to contradictory obligations is the distributive property for the obligation
+text \<open>\noindent \textbf{Distributive Property for Obligations Holds} Another property related to 
+contradictory obligations is the distributive property for the obligation operator over the and 
 operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
-another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
+another property that should hold. The rough English translation of  $O \{ A \wedge B \}$ is ``you are obligated to 
 do both A and B''. The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
-and you are obligated to do B.'' We think those English sentences mean the same thing, and they should mean 
+and you are obligated to do B.'' Both those English sentences mean the same thing, and they should mean 
 the same thing in logic as well. Moreover, if that (rather intuitive) property holds, then contradictory
 obligations are impossible, as shown in the below proof.\<close>
 
@@ -554,15 +558,20 @@ lemma distributive_implies_no_contradictions:
 \<comment>\<open>The \texttt{assumes} keyword indicates assumptions used when proving a lemma. I use it here to 
 represent metalogical implication. With the assumption, the lemma above reads, ``If the distributive
 property holds in this logic, then obligations cannot contradict.''\<close>
+\<comment>\<open>This lemma is trivially true by the added axiom, but notice that this proof does not use that axiom.
+This proof uses axiom O\_diamond and the assumptions and thus also holds in DDL itself, even without 
+an axiom prohibiting contradictory obligations.\<close>
 
 text \<open>Again, this test fails for raw DDL and for Kroy's formalization, but
-passes for my interpretation because I require that obligations don't contradict as an axiom.\<close>
+passes for my implementation because I require that obligations don't contradict as an axiom.\<close>
 
 lemma distribution:
   assumes "\<Turnstile> (O {A} \<^bold>\<and> O {B})"
   shows "\<Turnstile> O {A \<^bold>\<and> B}"
   using assms no_contradictions by fastforce
 \<comment>\<open>The proof proceeds almost immediately using the new axiom.\<close>
+\<comment>\<open>This proof and the above lemma together imply that the distributive property holds if and only if 
+there are no contradictory obligations.\<close>
 
 text\<open>\medskip 
 
@@ -576,8 +585,8 @@ able to show that the actions prohibited by the logical contradiction interpreta
 because the set of actions prohibited by the practical contradiction interpretation is a superset of these.
 The FUL should show that actions that cannot possibly be universalized are prohibited, because those acts cannot be willed in 
 a world where they are universalized. This property fails to hold in both raw DDL
-and Kroy's formalization, but holds for my formalization. Showing that this property holds
-for my formalization required significant logical work and the full code is presented in Appendix \ref{weirdtests}. \<close>
+and Kroy's formalization, but holds for my implementation. Showing that this property holds
+for my formalization required additional logical background and the full code is presented in Appendix \ref{weirdtests}. \<close>
 
 
 text \<open>
@@ -599,7 +608,7 @@ of the natural world. Conventional acts exist within a practice, which is ``comp
 and its existence (where it is not embodied in an institution with sanctions) consists in the general 
 acknowledgement and following of those rules'' \cite[10]{KorsgaardFUL}. Promising is a conventional act 
 because it exists as a practice. Murder, on the other hand, is an example of a natural act because 
-its existence only depends on the laws of nature\cite[11]{KorsgaardFUL}.
+its existence only depends on the laws of nature \cite[11]{KorsgaardFUL}.
 
 It is easier to show the wrongness of conventional acts because there are worlds
 in which these acts are impossible; namely, worlds in which the convention does not exist. For example, 
@@ -609,13 +618,14 @@ It is more difficult to show the wrongness of a natural act, like murder or viol
 never be logically impossible; even if everyone murders or acts violently, murder and violence will 
 still be possible, so it is difficult to show that they violate the FUL. 
 
-Both raw DDL and Kroy's interpretation fail to show the wrongness of conventional or natural acts. 
+Both raw DDL and Kroy's formalization fail to show the wrongness of conventional or natural acts. 
 My system shows the wrongness of both natural and conventional acts because it is faithful to Korsgaard's 
 practical contradiction interpretation of the FUL, which is the canonical interpretation of the 
 FUL \citep{ebelsduggan, KorsgaardFUL}. I run this test in Chapter \ref{applications}, where I
 use my system to reason about two ethical dilemmas, one which involves conventional acts and the other which
 involves natural acts. I present an additional example demonstrating that my implementation passes
-this test in Appendix \ref{weirdtests}.
+this test in Appendix \ref{weirdtests}. Because I formalize the philosophically-accepted version 
+of the FUL, my implementation passes this test. 
 \<close>
 
 (*<*)

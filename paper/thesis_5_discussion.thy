@@ -69,7 +69,10 @@ someone in order to take their job.'' The circumstance ``when I am unemployed'' 
 relevance to the murder in question; it speaks to the motivation for the murder. 
 
 While this view has intuitive appeal, it raises the question of how we can determine
-which circumstances are morally relevant. O'Neill answers this question by noting that the Formula of Universal Law is 
+which circumstances are morally relevant. In Section \ref{whatisamaxim}, I presented O'Neill's argument for why
+determining morally relevant circumstances requires practical judgement, which is a kind of practical
+reason. O'Neill characterizes practical judgement and answers this question more specifically
+by noting that the Formula of Universal Law is
 a ``test of moral worth rather than of outward rightness'' \citep[98]{constofreason}. The FUL is a way 
 for an agent to decide how they should behave, not for a third-party to judge their behavior. Ethics is 
 a personal process and the FUL is designed to help agents make decisions for themselves. Because agents use 
