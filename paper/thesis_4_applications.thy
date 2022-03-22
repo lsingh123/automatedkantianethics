@@ -5,14 +5,13 @@ begin(*>*)
 
 section \<open>Applications \label{applications}\<close>
 
-text \<open>In this chapter, I demonstrate that my system can produce correct judgements for challenging moral 
-dilemmas that naive ethical reasoning cannot satisfactorily handle. Because my system is faithful to
+text \<open>In this chapter, I demonstrate that my system can produce sophisticated judgements for challenging moral 
+dilemmas that naive Kantian ethical reasoning cannot satisfactorily handle. Because my system is faithful to
 philosophical literature, it can reproduce complex ethical judgements presented by philosophers as 
-solutions to controversial open questions in ethics.
-These dilemmas serve as examples of how my system could be used
+solutions to controversial open questions in ethics. These dilemmas serve as examples of how my system could be used
 in practice and demonstrate my system's ability to formalize longer, more complicted ethical arguments
 than those presented in Chapter \ref{details}. Moreover, in the process of formalizing these dilemmas, 
-I isolated the exact conditon that makes a maxim about lying wrong, an insight that could contribute to 
+I isolate the exact conditon that makes a maxim about lying wrong, an insight that could contribute to 
 the philosophical literature on lying.
 
 Many of the tests in Section \ref{testing} perform metaethical reasoning, which analyzes properties
@@ -32,16 +31,14 @@ understanding of communication and truth telling. Kantians specifically describe
 this common sense as ``postulates of rationality'' that are nontrivial and nonnormative, but still
 part of the process of practical reasoning itself \citep{silber}. 
 
-In this chapter, I tackle this challenge by
-endowing my system with this kind of common sense in the specific case of lying. My system needs common 
-sense facts and definitions because, while it has the ability to reason
+In this chapter, I tackle this challenge by endowing my system with this kind of common sense in the 
+specific case of lying. While my system has the ability to reason
 using the Formula of Universal Law, this reasoning must be applied to objects that are defined
-using common sense. Because these common sense facts can determine my system's judgements, they are part of the trusted
+using common sense. Because common sense facts can determine my system's judgements, they are part of the trusted
 code base for my system, or the logic and code that a user must trust in order to trust my system. 
-Changing these common sense facts will change the judgements 
-that my system makes. For example, if we define truth telling as an act that is self-contradictory (perhaps
+Malicious common sense facts will result in bad judgements.
+For example, if we define truth telling as an act that is self-contradictory (perhaps
 by defining it as $p \wedge \neg p$), then my system will output that truth telling is prohibited.
-Malicious common sense facts and definitions will result in bad ethical judgements. 
 The challenge of endowing automated ethical reasoners with common sense reasoning is not unique to my 
 system, and virtually all prior attempts in machine ethics face similar challenges. Many prior attempts
 sidestep this question, whereas I contribute an prototype implementation of one kind of common sense reasoning.
@@ -50,7 +47,7 @@ This chapter will provide examples of the kinds of common sense facts required t
 off the ground. I use a lean and uncontroversial common sense database
 to achieve robust and powerful results. This serves as evidence for the ease of automating
 Kantian ethics, an example of the additional work required to use my system in practice, and a 
-demonstration of my system's power and flexibility. These examples demonstrate that, armed with nuanced 
+demonstration of my system's power and flexibility. These examples demonstrate that, armed with some basic 
 common sense facts, my system can make sophisticated judgements faithful to philosophical literature.
 \<close>
 
@@ -60,8 +57,8 @@ text \<open>
 The moral status of lying is hotly debated in the Kantian literature. I focus on two dilemmas
 presented in Korsgaard's ``Right to Lie,'' which 
 examines Kant's prohibition on lying \citep{KorsgaardRTL}. She begins with the case of 
-lying and joking. Many of Kant's critics argue that his prohibition on lies includes lies told in 
-the context of a joke, which should be permissible. Korsgaard responds by arguing 
+lying and joking. To demonstrate that Kant's theory is too demanding, many of his critics argue that 
+his prohibition on lies includes lies told in the context of a joke, which should be permissible. Korsgaard responds by arguing 
 that there is a crucial difference between lying and joking: lies involve deception, but jokes do not. 
 The purpose of a joke is amusement, which does not rely on the listener believing the story told. 
 Given appropriate definitions of lies and jokes, my system shows that jokes are permissible but lies 
@@ -126,15 +123,15 @@ abbreviation lie::"maxim\<Rightarrow>bool" where
 "lie \<equiv> \<lambda> (c, a, g). \<exists>t. (a \<^bold>\<longrightarrow> (\<lambda>s. knowingly_utter_falsehood s t)) \<and> (\<exists>p. \<forall>w. (g \<^bold>\<rightarrow> (believe p t)) w)"
 \<comment>\<open>The abbreviation above maps a maxim to a boolean value that indicates if it is a lie. \<close>
 
-text \<open>To avoid unintentional wrongdoing, I focus on ``knowing lies,'' 
-in which the speaker is aware that they are lying. It is uncontroversial that, in order for an act to be
-a knowing lie, the speaker must utter a false statement that they do not believe. This also makes it 
-easier to make moral judgements about the speaker's action, since they were, at the very least, aware
-of their lie. The second half of
+text \<open>To avoid issues with unintentional wrongdoing, I focus on ``knowing lies,'' 
+in which the speaker is aware that they are lying. This makes it easier to make moral judgements about 
+the speaker's action, since they were, at the very least, aware of their lie. It is uncontroversial 
+that, in order for an act to be a knowing lie, the speaker must utter a false statement that they do 
+not believe. The second half of
 this definition requires that the goal of the lie is deception. This is inspired by  Korsgaard's interpretation 
 of a lie. She understands a lie as a kind of falsehood that is usually effective \emph{because} it decieves
 \citep[4]{KorsgaardRTL}. In my formalization, this means that the purpose or goal of the maxim must
-involve decieving someone, or, in other words, that someone believe what the speaker knows to be a 
+involve decieving someone, or that someone believe what the speaker knows to be a 
 falsehood. 
 
 With the above logical background, I automate Korsgaard's argument that maxims that involve
@@ -152,8 +149,7 @@ consts c::t a::os g::t
 
 text \<open>In the following lemma, I use my system to show that lying is prohibited. The assumptions of 
 this lemma represent the common sense necessary to reach this conclusion. This
-common sense background is a direct formalization of the premises of Korsgaard's argument. Using these
-relatively minimal premises about individual behavior, my system derives a prohibition against lying.  \<close>
+common sense background is a direct formalization of the premises of Korsgaard's argument.   \<close>
 
 lemma lying_prohibited:
   assumes "m \<equiv> (c::t, a::os, g::t)"
@@ -167,7 +163,7 @@ knowingly uttering a falsehood and the goal requires that someone believe this f
 Korsgaard's core piece of ``common sense'' about lying \cite[5]{KorsgaardRTL}. This simple assumption encodes the common sense knowledge
 that human communication involves an implicit trust, and that when this trust erodes, the convention of 
 communication begins to break down and people no longer believe each other. Call this the ``convention of 
-trust'' fact. In the rest of this section, I will test versions of this assumption, effectively encoding 
+trust'' fact. In the rest of this chapter, I will test another version of this assumption, effectively encoding 
 different common sense understandings of lying.\<close>
   assumes "\<forall>w. c w"
 \<comment>\<open>Restrict our focus to worlds in which the circumstances hold. A technical detail. \<close>
@@ -210,7 +206,7 @@ the goal does \emph{not} require that someone believe the falsehood told.\<close
 
 text \<open>This definition of a joke defines a joke as a falsehood uttered for some purpose that 
 doesn't require deception, where deception involves someone believing the uttered falsehood. 
-This definition doesn't require any conception of humor, but merely
+This definition is thin because it doesn't require any conception of humor, but merely
 distinguishes jokes from lies. 
 
 Korsgaard argues that her above argument for a prohibition against lying also implies that joking is 
@@ -272,17 +268,22 @@ of an action can hinge on the maxim's goal, circumstances, or act because these 
 of an action are inseparable.} no longer requires belief in the falsehood and thus passes the 
 universalizability test. 
 
+This demonstrates one kind of philosophical contribution that computational ethics can make: it can 
+offer insights that guide the formulation of permissible maxims, as in the surprise party example
+above. In Section \ref{computationalethics}, I provide another example of such a boundary condition 
+for the formulation of a maxim, which serves as further evidence of the potential of computational ethics.
+
 There are two implications of this section. First, my system is capable of performing ethical reasoning
 sophisticated enough to show that lying is prohibited but joking is not. This is a direct consequence 
 of my system's use of a robust conception of a maxim, which encodes the goal of an act as part of the 
 maxim being evaluated. Because my implementation is faithful to philosophical literature, it is able 
 to recreate Korsgaard's solution to a complex ethical dilemma that philosophers debated for decades. Second, 
 in the process of making this argument precise, my system isolated a necessary and sufficient condition 
-of a maxim about uttering a falsehood being prohibited: that the goal require that someone believe
+for a maxim about uttering a falsehood to be prohibited: the goal must require that someone believe
 the falsehood. This condition made an long-standing argument in Kantian ethics more precise, can guide 
 the correct formulation of future maxims, and could contribute to the rich philosophical conversation
 about the wrongness of lying. In other words, an insight generated by the
-computer provides value to ethicists, bolstering the argument for computational ethics provided in 
+computer could provide value to ethicists, bolstering the argument for computational ethics provided in 
 Section \ref{computationalethics}.
 \<close>
 
@@ -313,7 +314,7 @@ consts murderer::s
 \<comment>\<open>This example involves the murderer as an additional subject.\<close>
 consts not_a_murderer::t
 \<comment>\<open>This statement represents the lie that the murderer tells you. By not announcing his
-intention, he is implicitly telling you that he is not a murderer, as people normally assume that 
+intention, he is implicitly telling you that he is not a murderer, as people typically assume that 
 those knocking on their door are not murderers.\<close>
 consts when_at_my_door::t
 \<comment>\<open>These are the circumstances that the murderer is in.\<close>
@@ -467,7 +468,7 @@ is a potential limitation of my system, and I adress this concern in Section \re
 On one hand, the need for common sense facts is a 
 limitation of my system. On the other, these examples show that common sense is within reach. Even thin, 
 uncontroversial definitions and assumptions are enough to achieve nuanced ethical judgements. Moreover, 
-these kinds of judgements demonstrate that, with additional work, my system could be used in practice 
+these examples demonstrate that, with some additional work, my system could be used in practice 
 to guide AI agents. The idea of AI making decisions as in the dilemmas above may seem far-fetched, but
 such scenarios are already becoming reality. For example, a ``smart doorbell'' may face a dilemma like that of
 the murderer at the door. Such an AI agent equipped with a future version of my 

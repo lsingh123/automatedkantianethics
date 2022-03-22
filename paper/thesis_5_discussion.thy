@@ -7,7 +7,8 @@ section \<open>Discussion\label{discussion}\<close>
 
 text \<open>In the above chapters, I presented an implementation of automated Kantian ethics that, given an appropriately
 represented maxim and sufficient factual background, can classify a maxim as obligatory, permissible, 
-or prohibited. In this chapter, I discuss the philosophical limitations and implications of this 
+or prohibited. In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
+nuanced ethical reasoning. In this chapter, I discuss the philosophical limitations and implications of this 
 work.
 
 First, I explore how my system can be used in practice to guide AI agents,
@@ -23,35 +24,26 @@ this objection and make a theoretical argument for the possibility of the kind o
 I implement in this thesis. Finally, in Section \ref{relatedwork}, I situate my project among related work.  \<close>
 
 subsection \<open>Automated Moral Agents in Practice \label{AIethics}\<close>
-text \<open>
-In Chapter \ref{applications}, I demonstrated that my system is capable of performing sophisticated,
-nuanced ethical reasoning. In this section, I outline the additional components necessary for my system
-to guide AI agents in practice. As it stands, my system is a categorical imperative library that, given
-sufficient factual or ``common sense'' background, can take 
-as input the logical representation of a maxim and return its moral status (if it is obligatory, 
-prohibited, or permissible). My project potentially 
+text \<open>In this section, I outline the additional components necessary for my system
+to guide AI agents in practice. As it stands, my system is a categorical imperative library that can
+evaluate the moral status of a maxim. My project potentially 
 serves as one component of an ``ethics engine'' that an AI agent could use to make ethical decisions.
-For example, my system could be combined with an input parser to translate moral dilemmas as represented 
-to the AI agent into maxims in my logic. An output parser could translate my system's output
-into a prescription for action that the AI agent could act on. \begin{figure}
+For example, when an AI agent faces a moral dilemma in some internal representation, it could pass it 
+to an input parser that translates the dilemma into a maxim in my logic. An output parser could then 
+translate my system's output into a prescription for action that the AI agent could act on. \begin{figure}
 \includegraphics[scale=0.43]{AI_engine.png}
 \caption{An example of an ethics engine for an artificial agent. This ethics engine passes a moral dilemma 
 through an input parser, applies the automated categorical imperative test, and finally processes the 
 output using an output parser, producing a prescription for action. I contribute the automated categorical 
 imperative component.} \label{fig:AIengine}
-\end{figure} Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine.
-
-In this workflow, an AI agent is faced with a moral dilemma in some internal representation. The input
-parser translates this internal representation into an appropriate logical representation, i.e. 
-a circumstance, act, goal tuple. The output parser translates the output of the categorical imperative
-library (the moral status of the maxim as obligatory, prohibited, or permissible) to a prescription for
-action. In order for my system to be used in an AI agent using the workflow
-above, future work must develop such input and output parsers.
+\end{figure} Figure \ref{fig:AIengine} depicts the workflow of this example ethics engine. In order 
+for my system to guide an AI agent using this workflow, future work must develop such input and output parsers.
 
 One of the biggest challenges for an ethics engine is the development of an input parser. An input parser 
-for my implementation of automated Kantian ethics must translate a complex real-world situation into a flat, logical representation.
+for my implementation of automated Kantian ethics must translate a complex real-world situation into a flat 
+circumstances, act, goal triple.
 This requires that the input parser determine which circumstances are morally relevant
-to a maxim, a controversial judgement. As mentioned in Section \ref{whatisamaxim},
+to a maxim, a controversial judgement. As introduced in Section \ref{whatisamaxim},
 there is robust debate on the circumstances that should be considered when formulating a maxim, 
 inspired by a common criticism of Kantian ethics called the tailoring objection. Recall that the 
 tailoring objection is the worry that arbitrarily specific 
@@ -69,9 +61,7 @@ someone in order to take their job.'' The circumstance ``when I am unemployed'' 
 relevance to the murder in question; it speaks to the motivation for the murder. 
 
 While this view has intuitive appeal, it raises the question of how we can determine
-which circumstances are morally relevant. In Section \ref{whatisamaxim}, I presented O'Neill's argument for why
-determining morally relevant circumstances requires practical judgement, which is a kind of practical
-reason. O'Neill characterizes practical judgement and answers this question more specifically
+which circumstances are morally relevant. O'Neill answers this question
 by noting that the Formula of Universal Law is
 a ``test of moral worth rather than of outward rightness'' \citep[98]{constofreason}. The FUL is a way 
 for an agent to decide how they should behave, not for a third-party to judge their behavior. Ethics is 
@@ -90,14 +80,15 @@ While the above account explains how a well-intentioned human agent can determin
 morally relevant circumstances, the challenge remains open for automated ethics. However an action is turned into a maxim for my system 
 to process, whether manually as I did in Chapter \ref{applications} or using an automatic input 
 parser, this transformation must be a good-faith attempt to capture the principle of action. 
-Correctly formulating a maxim requires what Kantians call ``practical judgement,'' or
+Such a good-faith attempt to formulate a maxim requires what Kantians call ``practical judgement,'' or
 common sense reasoning and factual background \citep{oneilluniversallaws}. Returning to the example above, the fact that being 
 unemployed may contribute to one's desire to steal another's job is a consequence of practical
-judgement, not just pure reason alone. Translating everyday situations into appropriate maxims is
-the bulk of the reasoning that a Kantian human being does when making decisions. Automating this
-reasoning requires endowing a machine with common sense. 
+judgement, not just pure reason alone. Automating the formulation of a maxim requires
+endowing a machine with common sense. 
 
-The challenge of formulating a maxim is one of the biggest obstacles to using my categorical imperative library
+Translating everyday situations into appropriate maxims is the bulk of the reasoning that a Kantian 
+human being does when making decisions, so it is unsurprising that formulating a maxim 
+is one of the biggest obstacles to using my categorical imperative library
 in an AI ethics engine. One solution is for a human being to perform the role of the input
 parser by supervising the operation of an AI agent. When the agent stumbles onto
 an ethical dilemma, the human could take over, formulate
@@ -118,9 +109,9 @@ a particular ethical theory and implement it, different implementations of such 
 adopt different interpretations of maxim formulation and morally relevant circumstances. 
 
 These interpretations could inspire heuristics to classify circumstances as morally 
-relevant. For example, one such attempt could define a moral closeness relation between an action, a 
+relevant. For example, one such attempt could define a moral closeness relation between an act, a 
 goal, and circumstances. This heuristic could define morally relevant circumstances as those that 
-reach a certain closeness threshhold with the action and the goal. Another possible heuristic could 
+reach a certain closeness threshhold with the act and the goal. Another possible heuristic could 
 define some set of morally important entities, and classify morally relevant circumstances as those
 that involve morally important entities. I propose a potential machine-learning based approach which formulates
 maxims based on a training set of appropriately formulated maxims in Section \ref{amapossible}. This 
@@ -138,7 +129,7 @@ Testing these properties requires that my system have a database of common sense
 Different applications of my system may require different factual background (e.g. a self-driving car 
 needs to know traffic regulations), so this common sense database will need to be application 
 specific. As demonstrated in the examples in Chapter \ref{applications}, my system can produce sophisticated 
-judgements with relatively little situational context. Thus, while my automated categorical imperative
+judgements with relatively little situational context. Thus, while my automated categorical imperative system
 requires some common sense and factual background, Chapter \ref{applications} demonstrates that automating
 this common sense is less daunting than it seems.
 
@@ -383,10 +374,11 @@ philosophers to understand their arguments in a new way. The philosophical insig
 that computational ethics makes: it can quickly check edge cases and it uncovers imprecise, ambiguous,
 or implicit assumptions.
 
-I do not argue that computational ethics uncovers philosophical insights that humans are always incapable 
-of reaching. In some cases, computational ethics may automate calculations too long and tedious for 
+In some cases, computational ethics may automate calculations too long and tedious for 
 any human philosopher to complete. Insights like the one about well-formed maxims, however, could 
-have been discovered by a human being but are much easier to reach with computational tools. Computational tools prompt philosophers 
+have been discovered by a human being but are much easier to reach with computational tools. I do not 
+argue that computational ethics uncovers philosophical insights that humans are always incapable 
+of reaching. Computational tools prompt philosophers 
 to ask new questions that lead to insights, and can thus serve as another tool in a philosopher's arsenal, like a 
 thought experiment or counterexample.
 
@@ -413,11 +405,10 @@ subfields that use symbolic logic to represent philosophical concepts (e.g. phil
 use interactive theorem provers like Isabelle to complete proofs in a matter of seconds. By automating 
 away the tedium, computational ethics can give philosophers the tools to ask new kinds of questions.
 
-Computational ethics is at its infancy. The use of theorem provers in mathematics is only now beginning 
-to make headway \citep{buzzardvideo}, even though theorem provers were first invented in the 1960's \citep{historyofITP}. 
+Computational ethics is at its infancy. Theorem provers are only now beginning to make headway in 
+mathematics \citep{buzzardvideo}, even though theorem provers were first invented in the 1960's \citep{historyofITP}. 
 In contrast, the first attempts to use theorem provers to automate deontic logic occurred in the last
-few years. The 
-fact that this nascent technology is already helping humans reach non-trivial ethical conclusions 
+few years. The fact that this nascent technology is already helping humans reach non-trivial ethical conclusions 
 is reason to, at the very least, entertain the possibility of a future where computational ethics 
 becomes as normal for philosophers as using a thought experiment.
 
@@ -440,8 +431,8 @@ subsection \<open>Automating Everyday Practical Reason \label{ordinarypeople}\<c
 
 text\<open>In Sections \ref{AIethics} and \ref{computationalethics}, I outline how automated ethics can guide
 artificial agents and philosophers respectively. This raises a natural question: can automated
-ethics guide ordinary human beings, not just academic philosophers, as we navigate the world and face ethical
-dilemmas? Some may hope (or worry) that automated ethics could render ethical reasoning obsolete. In 
+ethics guide all human beings, not just academic philosophers, as we navigate the world and face ethical
+dilemmas? Some may hope (or worry) that automated ethics could render everyday ethical reasoning obsolete. In 
 this section, I argue that while computers should not replace human ethical reasoning entirely,
 they can supplement and improve our ethical reasoning. I argue for a kind of human-computer symbiosis
 in which computers offer ethical advice, arguments for particular moral judgements, and speed up moral
@@ -512,8 +503,8 @@ Moreover, just as they do for philosophers, computers can help ordinary people a
 different perspective. Even interacting with my system requires the user to consider the action's maxim, 
 which includes the circumstances, act, and goal. Making these components of action precise already changes
 the user's perspective. Just as computational ethics can serve as a tool for academic philosophers to 
-ask new questions and achieve greater precision, it can do the same for ordinary human beings navigating
-the world. Moreover, it also offers another way for the general public to access professional philosophy
+ask new questions and achieve greater precision, it can do the same for all human beings navigating
+the world. Moreover, it also offers another way for the general public to access professional philosophy's
 insights, and thus carries potential to improve our everyday reasoning. 
 \<close>
 
@@ -588,8 +579,8 @@ a maxim be given as input. O'Neill notes that the test assumes ``that agents wil
 plans, proposals and policies which they can consider, revise or reject or endorse and pursue'' \citep[343]{oneilluniversallaws}.
 The FUL evaluates the moral worth of a maxim given as input, where this potential maxim is generated by 
 the choices that an agent is faced with. As I argue in Section \ref{AIethics}, determining this potential maxim is a challenge for both human
-and automated reasoners. Kant even claims that the difficulty of determining an agent's potential maxim, which is their
-own, subjective understanding of their principle of action, is a reason that we may never be able 
+and automated reasoners. Kant claims that determining an agent's potential maxim is so difficult because a maxim is their
+prsonal understanding of their principle of action, and so we may never be able 
 to know if the morally worthy action has been performed \cite[345]{oneilluniversallaws}. Reasoners are faced with
 choices between potential actions and must determine the maxim, or principle, underlying each potential action.
 This is equivalent to a ``mapping'' problem: agents are given situations or dilemmas as input and must map
@@ -635,7 +626,7 @@ our own convenience or pleasure, that the moral law has no exceptions \citep[9]{
 that ``the Kantian test is therefore as useless for machines as it is for anyone who does
 not already know what to do'' \citep[8]{tafani}.\footnote{Translated using Google Translate.} 
 Understanding the categorical imperative test as a reminder
-instead of a derivation tool also explains the response to the tailor objection presented in Section \ref{AIethics}, that the FUL cannot 
+instead of a derivation tool also explains the response to the tailoring objection presented in Section \ref{AIethics}, that the FUL cannot 
 handle bad-faith attempts to generate false positives or negatives. The test only returns the right 
 result when an agent sincerely attempts to represent their maxim of action, not when an adversary attempts
  to ``trick'' the categorical imperative because such tricks will fall outside the scope of our moral 
@@ -647,7 +638,7 @@ text_raw \<open>
 \caption{A refined version of Figure \ref{fig:AIengine} in which the input parser learns from a database
 of action-maxim mappings, which is in turn fed the output of my automated categorical imperative. } \label{fig:inputparser}
 \end{figure}\<close>
-text \<open>Under Tafani's understanding of the categorical imperative, not only is automated moral reasoning
+text \<open>Under Tafani's and O'Neill's understandings of the categorical imperative, not only is automated moral reasoning
 possible, but the challenge of creating an input parser or automatically formulating a maxim becomes 
 easier as well. 
 If the categorical imperative test is only useful to those who have some prior moral knowledge, then prior moral
@@ -660,7 +651,7 @@ could in turn be fed into the database of maxims to make the intput parser smart
 this kind of system is shown in Figure \ref{fig:inputparser}. The combination of 
 prior knowledge of some maxims' moral worth and the ability of a computer to constantly perform the
 universalizability test could not only match human ethical reasoning but could perhaps surpass it
-by double checking the moral intuitions that we take for granted. A computer with no common sense or prior knowledge
+by double-checking the moral intuitions that we take for granted. A computer with no common sense or prior knowledge
 may be unable to reason using the categorical imperative, but one equipped with some prior knowledge
 of maxims and their moral worth may even be able to reason about morality better than human beings can. 
 \<close>
@@ -689,11 +680,11 @@ against its conclusions is impossible. Top-down approaches, on the other hand, m
 the underlying ethical theories, and are thus more explainable. 
 
 In this paper, I use a top-down approach to formalize Kantian ethics. There is a long line of work 
-automating other ethical theories, like consequentialism \citep{util1, util2} or particularism 
+automating other ethical theories, like consequentialism \citep{util2, util1} or particularism 
 \citep{particularism1, particularism2}. I choose to implement Kantian ethics because, as argued in 
 Section \ref{whykant}, it is the most formal and least data-intensive of the three major ethical 
 traditions. Kantian ethics is a deontological, or rule based ethic, and there is prior work 
-implementing other deontological theories \citep{dde, deon1, deon2}. 
+implementing other deontological theories \citep{deon1, deon2, dde}. 
 
 Kantian ethics specifically appears to be an intuitive candidate for formalization and implementation 
 and there has been both theoretical and practical work on automating Kantian ethics \citep{powers, lin}. 
@@ -717,7 +708,7 @@ philosophical literature makes my system capable of making robust and reliable j
 
 The implementation of this paper was inspired by and builds on Benzmüller, Parent, and Farjami's 
 foundational work with the LogiKEy framework for machine ethics, which includes their implementation 
-of DDL in Isabelle \citep{BFP, logikey}. The LogiKEy project has been used to study metaphysics 
+of DDL in Isabelle \citep{logikey, BFP}. The LogiKEy project has been used to study metaphysics 
 \citep{godel, metaphysics1}, law \citep{constitution}, and ethics \citep{gewirth}, but not 
 Kant's categorical imperative.\<close>
 

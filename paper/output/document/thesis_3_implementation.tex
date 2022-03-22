@@ -73,7 +73,7 @@ DDL by adding representations of these concepts, drawn from philosophical litera
 %
 \isatagdocument
 %
-\isamarkupsubsubsection{Logical Background%
+\isamarkupsubsubsection{Subjects and Acts%
 }
 \isamarkuptrue%
 %
@@ -385,7 +385,7 @@ operator. Using this definition, I can define prohibition and permissibility.
 
 \begin{definition}[Prohibition and Permissibility] Let maxim $M$ be composed of the circumstances, act, 
 goal tuple $C, A, G$ and let $s$ be an arbitrary agent.\footnote{Technically, a maxim is not a boolean 
-type, so the term $\neg M$ is not type correct. The expression $obligated \, \neg M$ merely provides 
+type, so the term $\neg M$ is not type correct. The expression $\text{obligated} \, \neg M$ merely provides 
 intuition for the meaning of prohibition, but the exact definition is given by 
 $O\{ \neg \text{will} \, (C, A, G) \, s \, | \, C\}$.}
 \newcommand*{\approxident}{%
@@ -413,7 +413,7 @@ for an agent to will or not will a permissible maxim.%
 One additional piece of logical background necessary before I implement the FUL is the 
 notion of contradictory obligations. Many deontic logics, including DDL, allow contradictory
 obligations. As I will explain in Section \ref{testing}, Kantian ethics never prescribes contradictory
-obligations, so I will add this as an axiom.%
+obligations, so I will add an axiom disallowing contradictory obligations.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{abbreviation}\isamarkupfalse%
 \ non{\isacharunderscore}contradictory\ \isakeyword{where}\ \isanewline
@@ -447,10 +447,10 @@ do not conflict.%
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-With this logical background, I can begin to implement the Formula of Universal Law, which, as defined 
+With this logical background, I can implement the Formula of Universal Law, which, as defined 
 by the practical contradiction interpretation, states that a maxim is prohibited if it is ineffective
 when universalized. A first, unsuccessful attempt to formalize the FUL simply translates this into Isabelle's syntax
-using the abbreviations above. While this attempt will not be consistent, I will use Isabelle's automatic
+using the abbreviations above. While this attempt is not consistent, I use Isabelle's automatic
 proof search abilities to determine how to modify this formula to be consistent, revealing a key philosophical
 insight about maxims in the process. This section presents my final formalization of the FUL and the 
 philosophical insight produced while creating it, which, as I argue in Section \ref{computationalethics},
@@ -492,8 +492,9 @@ Isabelle's proof-finding tool, Sledgehammer, shows that
 \texttt{FUL0} is not consistent by showing that it implies a contradiction 
 using axiom \texttt{O\_diamond}\footnote{The full axiom reads \isa{{\isasymTurnstile}{\isasymlambda}w{\isachardot}\ ob\ {\isacharquery}B\ {\isacharquery}A\ {\isasymlongrightarrow}\ {\isasymnot}\ {\isasymTurnstile}\isactrlbold {\isasymnot}\ {\isacharquery}B\isactrlbold {\isasymand}{\isacharquery}A}.} \citep{sledgehammer}. 
 This axiom roughly states that an obligation can't contradict its context. Knowing that \texttt{FUL0}
-contradicts this particular axiom offers insight into what the problem is. If the goal or action
-or a maxim are equivalent to its circumstance, then prohibiting it is contradictory. If the maxim has already been 
+contradicts this particular axiom offers insight into what the problem is: the FUL must be obligating 
+a maxim in which the act or goal contradicts the circumstances. Precisely, if the goal or action
+or a maxim are equivalent to its circumstances, then prohibiting it is contradictory. If the maxim has already been 
 acted on or the goal has already been achieved, then the agent cannot undo their action or the achivement 
 of the goal. 
 
@@ -563,18 +564,19 @@ it is inconsistent. This is not only a logical property of my system, but it als
 significance that coheres with Korsgaard's and O'Neill's interpretations of a maxim as a practical
 guide to action \citep{actingforareason,actingonprinciple}. A maxim is a practical principle that guides how we behave in everyday life. A 
 principle of the form ``When you are eating breakfast, eat breakfast in order to eat breakfast,'' is not 
-practically relevant. No agent would ever need to act on such a principle. Morality helps agents decide
+practically relevant. Morality helps agents decide
 whether to act on a potential principle of action, but no agent would need to ask
-``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" It is the wrong kind of 
-principle to be evaluating. It is not a well-formed maxim, so the categorical imperative cannot apply to it. 
+``When I am eating breakfast, should I eat breakfast in order to eat breakfast?" Because it is not a 
+well-formed maxim, it is the wrong kind of principle to be evaluating, so the categorical imperative 
+cannot apply to it. 
 
 The fact that Isabelle revealed a philosophical insight about which kinds of maxims are well-formed
 is an example of the power of computational tools to aid
 philosophical progress. Nitpick and Sledgehammer helped me confirm that certain kinds
 of circumstance, act, goal tuples are too badly formed for the categorical imperative to logically 
 apply to them. The realization of this subtle problem would have been incredibly difficult without 
-computational tools, and serves as evidence of the power of computational ethics. I discuss the philosophical
-properties and implications of well-formed maxims and the power of computational ethics further in 
+computational tools, and serves as evidence of the power of computational ethics. I further discuss the philosophical
+properties and implications of well-formed maxims and the power of computational ethics in 
 Section \ref{computationalethics}.
 
 I complete my implementation by adding the consistent version of the FUL as an axiom.%
@@ -609,24 +611,24 @@ implementation can be tested and used to make moral judgements.%
 \begin{isamarkuptext}%
 In addition to an implementation of automated Kantian ethics, I also contribute a testing framework 
 to evaluate how well my implementation coheres with philosophical literature. This testing architecture 
-makes the notion of ``philosophical faithfulness'' precise. Each test consists of a sentence in my logic 
-and an expected outcome, where the possible outcomes are proving or refuting the sentence. For example, 
+makes the notion of ``philosophical faithfulness'' precise. Each test consists of a sentence in my logic\footnote{Some
+tests also require additional logical background, explained below.} and an expected outcome, where 
+the possible outcomes are proving or refuting the sentence. For example, 
 one such sentence is that obligations cannot contradict each other. To run the tests, I attempt to
  prove or refute each test sentence in my logic.  Because these tests are derived from moral 
 intuition and philosophical literature, they evaluate how well my system reflects philosophical
 literature. Running the tests on my implementation consisted of approximately 400 lines of Isabelle code.
 
-The test framework can be expanded by adding more test sentences and can guide 
+The testing framework can be expanded by adding more test sentences and can guide 
 implementations of other parts of Kantian ethics or other ethical theories. As I was implementing my 
 formalization, I checked it against the testing framework, performing test-driven development for automated 
 ethics.
 
-I use my testing framework to show that my formalization and implementation of Kantian ethics outperforms 
+I use my testing framework to show that my formalization and implementation of Kantian ethics outperform 
 two other potential implementations. First, I consider raw DDL, which serves as a control group because it simply contains the base logic
-on top of which I build other implementations. DDL can express obligation, but has no knowledge of any 
+on top of which I build other implementations. DDL can express obligation, but does not include any 
 specific moral rules (like the categorical imperative). Second, I consider Moshe Kroy's 1976 formalization 
-of the FUL and the second formulation
-of the categorical imperative \citep{kroy}. His formalization is based on Hintikka's deontic logic, which is a different,
+of the FUL \citep{kroy}. His formalization is based on Hintikka's deontic logic, which is a different,
 less expressive logic than DDL \citep{hintikka}. He presents a logical representation of the FUL that has not yet been implemented
 using an automated theorem prover, so I implement it in Isabelle.\footnote{I present the complete implementation in
 Appendix \ref{kroydetails}.} I find that my implementation outperforms 
@@ -642,7 +644,7 @@ explain some notable tests.%
 \end{figure}
 %
 \begin{isamarkuptext}%
-\noindent \textbf{FUL Stronger than DDL} The FUL should not hold in raw DDL, which I use a control group. 
+\noindent \textbf{FUL Stronger than DDL} The FUL should not hold in raw DDL, which I use as a control group. 
 If the FUL holds in the base logic, then adding it as an axiom doesn't make the logic any stronger, 
 which is troubling because the base logic does not come equipped with the categorical imperative. DDL
 defines basic properties of obligation, such as ought implies can, but contains no axioms that represent
@@ -667,8 +669,8 @@ to make oneself an exception: selfishness, meanness, advantagetaking, and disreg
 of others'' \citep[30]{KorsgaardFUL}. Kroy makes this property the center of his
 formalization, which essentially says that if an act is permissible for someone, it is permissible for 
 everyone.\footnote{Formally, $P\{A(s)\} \longrightarrow \forall p. P\{A(p)\}$.} Kroy's formalization and 
-my formalization satisfy this property, but raw DDL does not. Below I run
-this test for my formalization.%
+my implementation satisfy this property, but raw DDL does not. Below I run
+this test for my implementation.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ wrong{\isacharunderscore}if{\isacharunderscore}wrong{\isacharunderscore}for{\isacharunderscore}someone{\isacharcolon}\isanewline
@@ -723,7 +725,8 @@ for all people at that world. The proof similarly proceeds using \texttt{blast}.
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Obligations Never Contradict} Contradictory obligations
+\noindent \textbf{Obligations Never Contradict} There are two reasons that Kantian ethics cannot
+require contradictory obligations. First, contradictory obligations
 make obeying the prescriptions of an ethical theory impossible.
 Kant subscribes to the general, popular view that morality is supposed to guide action, so ought implies 
 can.\footnote{Kohl points out that this principle is referred to as 
@@ -733,7 +736,7 @@ for the will \citep[703-4]{kohl}. This defeats the purpose of Kant's theory, whi
 for rational agents. Ought implies can requires that obligations never contradict each other, because an agent 
 can't perform contradictory actions. Therefore, any ethical theory that respects ought implies can, 
 and Kantian ethics in particular, must not result in conflicting obligations. 
-Kant only briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
+Second, Kant briefly discusses contradictory obligations in \emph{Metaphysics of Morals}, where he argues that 
 conflicting moral obligations are impossible under his theory \citep[V224]{metaphysicsintro}. Particularly, the categorical imperative generates 
 ``strict negative laws of omission,'' which cannot conflict by definition \citep[45]{timmerman}.\footnote{The 
 kinds of obligations generated by the FUL are called ``perfect duties'' which arise from ``contradictions 
@@ -742,7 +745,7 @@ and thus never conflict. Kant also presents ``imperfect duties,'' generated from
 or maxims that we can concieve of universalizing but would never want to. These duties tend to be broader, 
 such as ``improve oneself" or "help others," and are secondary to perfect duties. My project only analyzes 
 perfect duties, as these are always stronger than imperfect duties.} Both raw DDL and 
-Kroy's formalization allow contradictory obligations, but I explicitly add an axiom to my formalization
+Kroy's formalization allow contradictory obligations, but I explicitly add an axiom to my implementation
 that prohibits contradictory obligations.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
@@ -828,11 +831,12 @@ is the formal statement of contradictory obligations), then obligation does not 
 \endisadelimproof
 %
 \begin{isamarkuptext}%
-\noindent \textbf{Distributive Property for Obligations Holds} Another property related to contradictory obligations is the distributive property for the obligation
+\noindent \textbf{Distributive Property for Obligations Holds} Another property related to 
+contradictory obligations is the distributive property for the obligation operator over the and 
 operator.\footnote{Formally, $O\{A\} \wedge O\{B\} \longleftrightarrow O\{A \wedge B\}$.} This is 
-another property that we expect to hold. The rough English translation of  $O \{ A \wedge B \} $ is ``you are obligated to 
+another property that should hold. The rough English translation of  $O \{ A \wedge B \}$ is ``you are obligated to 
 do both A and B''. The rough English translation of $O\{A\} \wedge O\{B\}$ is ``you are obligated to do A 
-and you are obligated to do B.'' We think those English sentences mean the same thing, and they should mean 
+and you are obligated to do B.'' Both those English sentences mean the same thing, and they should mean 
 the same thing in logic as well. Moreover, if that (rather intuitive) property holds, then contradictory
 obligations are impossible, as shown in the below proof.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -853,6 +857,11 @@ obligations are impossible, as shown in the below proof.%
 \isamarkupcmt{The \texttt{assumes} keyword indicates assumptions used when proving a lemma. I use it here to 
 represent metalogical implication. With the assumption, the lemma above reads, ``If the distributive
 property holds in this logic, then obligations cannot contradict.''%
+}\isanewline
+%
+\isamarkupcmt{This lemma is trivially true by the added axiom, but notice that this proof does not use that axiom.
+This proof uses axiom O\_diamond and the assumptions and thus also holds in DDL itself, even without 
+an axiom prohibiting contradictory obligations.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -863,7 +872,7 @@ property holds in this logic, then obligations cannot contradict.''%
 %
 \begin{isamarkuptext}%
 Again, this test fails for raw DDL and for Kroy's formalization, but
-passes for my interpretation because I require that obligations don't contradict as an axiom.%
+passes for my implementation because I require that obligations don't contradict as an axiom.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ distribution{\isacharcolon}\isanewline
@@ -880,6 +889,10 @@ passes for my interpretation because I require that obligations don't contradict
 \ fastforce\isanewline
 %
 \isamarkupcmt{The proof proceeds almost immediately using the new axiom.%
+}\isanewline
+%
+\isamarkupcmt{This proof and the above lemma together imply that the distributive property holds if and only if 
+there are no contradictory obligations.%
 }%
 \endisatagproof
 {\isafoldproof}%
@@ -901,8 +914,8 @@ able to show that the actions prohibited by the logical contradiction interpreta
 because the set of actions prohibited by the practical contradiction interpretation is a superset of these.
 The FUL should show that actions that cannot possibly be universalized are prohibited, because those acts cannot be willed in 
 a world where they are universalized. This property fails to hold in both raw DDL
-and Kroy's formalization, but holds for my formalization. Showing that this property holds
-for my formalization required significant logical work and the full code is presented in Appendix \ref{weirdtests}.%
+and Kroy's formalization, but holds for my implementation. Showing that this property holds
+for my formalization required additional logical background and the full code is presented in Appendix \ref{weirdtests}.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \begin{isamarkuptext}%
@@ -925,7 +938,7 @@ of the natural world. Conventional acts exist within a practice, which is ``comp
 and its existence (where it is not embodied in an institution with sanctions) consists in the general 
 acknowledgement and following of those rules'' \cite[10]{KorsgaardFUL}. Promising is a conventional act 
 because it exists as a practice. Murder, on the other hand, is an example of a natural act because 
-its existence only depends on the laws of nature\cite[11]{KorsgaardFUL}.
+its existence only depends on the laws of nature \cite[11]{KorsgaardFUL}.
 
 It is easier to show the wrongness of conventional acts because there are worlds
 in which these acts are impossible; namely, worlds in which the convention does not exist. For example, 
@@ -935,13 +948,14 @@ It is more difficult to show the wrongness of a natural act, like murder or viol
 never be logically impossible; even if everyone murders or acts violently, murder and violence will 
 still be possible, so it is difficult to show that they violate the FUL. 
 
-Both raw DDL and Kroy's interpretation fail to show the wrongness of conventional or natural acts. 
+Both raw DDL and Kroy's formalization fail to show the wrongness of conventional or natural acts. 
 My system shows the wrongness of both natural and conventional acts because it is faithful to Korsgaard's 
 practical contradiction interpretation of the FUL, which is the canonical interpretation of the 
 FUL \citep{ebelsduggan, KorsgaardFUL}. I run this test in Chapter \ref{applications}, where I
 use my system to reason about two ethical dilemmas, one which involves conventional acts and the other which
 involves natural acts. I present an additional example demonstrating that my implementation passes
-this test in Appendix \ref{weirdtests}.%
+this test in Appendix \ref{weirdtests}. Because I formalize the philosophically-accepted version 
+of the FUL, my implementation passes this test.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimproof
@@ -1312,34 +1326,34 @@ this test in Appendix \ref{weirdtests}.%
 %:%511=356%:%
 %:%512=357%:%
 %:%513=358%:%
-%:%515=360%:%
-%:%516=360%:%
+%:%514=359%:%
+%:%516=361%:%
 %:%517=361%:%
-%:%519=362%:%
+%:%518=362%:%
 %:%520=363%:%
-%:%523=365%:%
-%:%525=367%:%
-%:%526=367%:%
+%:%521=364%:%
+%:%524=366%:%
+%:%526=368%:%
 %:%527=368%:%
-%:%529=369%:%
+%:%528=369%:%
 %:%530=370%:%
-%:%531=370%:%
+%:%531=371%:%
 %:%532=371%:%
 %:%533=372%:%
-%:%534=372%:%
+%:%534=373%:%
 %:%535=373%:%
-%:%536=373%:%
-%:%538=373%:%
-%:%542=373%:%
-%:%543=373%:%
-%:%545=374%:%
+%:%536=374%:%
+%:%537=374%:%
+%:%539=374%:%
+%:%543=374%:%
+%:%544=374%:%
 %:%546=375%:%
 %:%547=376%:%
 %:%548=377%:%
 %:%549=378%:%
 %:%550=379%:%
 %:%551=380%:%
-%:%561=382%:%
+%:%552=381%:%
 %:%562=383%:%
 %:%563=384%:%
 %:%564=385%:%
@@ -1359,16 +1373,16 @@ this test in Appendix \ref{weirdtests}.%
 %:%578=399%:%
 %:%579=400%:%
 %:%580=401%:%
+%:%581=402%:%
 %:%582=403%:%
-%:%583=403%:%
+%:%584=405%:%
 %:%585=405%:%
-%:%586=406%:%
 %:%587=407%:%
 %:%588=408%:%
 %:%589=409%:%
-%:%598=411%:%
-%:%610=413%:%
-%:%611=414%:%
+%:%590=410%:%
+%:%591=411%:%
+%:%600=413%:%
 %:%612=415%:%
 %:%613=416%:%
 %:%614=417%:%
@@ -1392,14 +1406,14 @@ this test in Appendix \ref{weirdtests}.%
 %:%632=435%:%
 %:%633=436%:%
 %:%634=437%:%
-%:%637=441%:%
-%:%638=442%:%
+%:%635=438%:%
+%:%636=439%:%
 %:%639=443%:%
 %:%640=444%:%
 %:%641=445%:%
 %:%642=446%:%
-%:%645=448%:%
-%:%646=449%:%
+%:%643=447%:%
+%:%644=448%:%
 %:%647=450%:%
 %:%648=451%:%
 %:%649=452%:%
@@ -1408,8 +1422,8 @@ this test in Appendix \ref{weirdtests}.%
 %:%652=455%:%
 %:%653=456%:%
 %:%654=457%:%
-%:%658=459%:%
-%:%659=460%:%
+%:%655=458%:%
+%:%656=459%:%
 %:%660=461%:%
 %:%661=462%:%
 %:%662=463%:%
@@ -1422,32 +1436,32 @@ this test in Appendix \ref{weirdtests}.%
 %:%669=470%:%
 %:%670=471%:%
 %:%671=472%:%
+%:%672=473%:%
 %:%673=474%:%
-%:%674=474%:%
-%:%675=475%:%
-%:%678=476%:%
-%:%682=476%:%
-%:%683=476%:%
-%:%685=477%:%
-%:%686=478%:%
+%:%675=476%:%
+%:%676=476%:%
+%:%677=477%:%
+%:%680=478%:%
+%:%684=478%:%
+%:%685=478%:%
 %:%687=479%:%
-%:%688=479%:%
-%:%690=480%:%
-%:%691=481%:%
+%:%688=480%:%
+%:%689=481%:%
+%:%690=481%:%
 %:%692=482%:%
 %:%693=483%:%
-%:%699=483%:%
-%:%702=484%:%
-%:%703=485%:%
-%:%704=485%:%
-%:%705=486%:%
-%:%708=487%:%
-%:%712=487%:%
-%:%713=487%:%
-%:%715=488%:%
-%:%716=489%:%
-%:%726=491%:%
-%:%727=492%:%
+%:%694=484%:%
+%:%695=485%:%
+%:%701=485%:%
+%:%704=486%:%
+%:%705=487%:%
+%:%706=487%:%
+%:%707=488%:%
+%:%710=489%:%
+%:%714=489%:%
+%:%715=489%:%
+%:%717=490%:%
+%:%718=491%:%
 %:%728=493%:%
 %:%729=494%:%
 %:%730=495%:%
@@ -1467,117 +1481,129 @@ this test in Appendix \ref{weirdtests}.%
 %:%744=509%:%
 %:%745=510%:%
 %:%746=511%:%
+%:%747=512%:%
 %:%748=513%:%
-%:%749=513%:%
-%:%750=514%:%
-%:%753=515%:%
-%:%757=515%:%
-%:%758=515%:%
-%:%759=515%:%
-%:%761=516%:%
-%:%767=516%:%
-%:%770=517%:%
-%:%771=518%:%
-%:%772=518%:%
-%:%773=519%:%
-%:%774=520%:%
-%:%777=521%:%
-%:%781=521%:%
-%:%782=521%:%
-%:%783=521%:%
-%:%785=522%:%
-%:%786=523%:%
-%:%787=524%:%
-%:%797=526%:%
-%:%798=527%:%
-%:%799=528%:%
+%:%749=514%:%
+%:%751=516%:%
+%:%752=516%:%
+%:%753=517%:%
+%:%756=518%:%
+%:%760=518%:%
+%:%761=518%:%
+%:%762=518%:%
+%:%764=519%:%
+%:%770=519%:%
+%:%773=520%:%
+%:%774=521%:%
+%:%775=521%:%
+%:%776=522%:%
+%:%777=523%:%
+%:%780=524%:%
+%:%784=524%:%
+%:%785=524%:%
+%:%786=524%:%
+%:%788=525%:%
+%:%789=526%:%
+%:%790=527%:%
 %:%800=529%:%
 %:%801=530%:%
 %:%802=531%:%
 %:%803=532%:%
 %:%804=533%:%
-%:%806=536%:%
+%:%805=534%:%
+%:%806=535%:%
 %:%807=536%:%
-%:%810=537%:%
-%:%814=537%:%
-%:%815=537%:%
-%:%817=538%:%
-%:%818=539%:%
-%:%819=539%:%
-%:%821=540%:%
-%:%831=542%:%
-%:%832=543%:%
-%:%833=544%:%
+%:%809=539%:%
+%:%810=539%:%
+%:%813=540%:%
+%:%817=540%:%
+%:%818=540%:%
+%:%820=541%:%
+%:%821=542%:%
+%:%822=542%:%
+%:%824=543%:%
 %:%834=545%:%
 %:%835=546%:%
 %:%836=547%:%
 %:%837=548%:%
+%:%838=549%:%
 %:%839=550%:%
-%:%840=550%:%
-%:%841=551%:%
-%:%842=552%:%
-%:%845=553%:%
-%:%849=553%:%
-%:%850=553%:%
-%:%851=553%:%
-%:%853=554%:%
-%:%854=555%:%
-%:%855=556%:%
-%:%865=558%:%
-%:%866=559%:%
-%:%868=561%:%
-%:%869=561%:%
-%:%870=562%:%
-%:%871=563%:%
-%:%874=564%:%
-%:%878=564%:%
-%:%879=564%:%
-%:%880=564%:%
-%:%882=565%:%
-%:%892=567%:%
-%:%893=568%:%
-%:%894=569%:%
-%:%895=570%:%
-%:%896=571%:%
-%:%897=572%:%
-%:%898=573%:%
-%:%899=574%:%
-%:%900=575%:%
-%:%901=576%:%
-%:%902=577%:%
-%:%903=578%:%
-%:%904=579%:%
-%:%905=580%:%
-%:%909=584%:%
-%:%910=585%:%
-%:%911=586%:%
-%:%912=587%:%
-%:%913=588%:%
-%:%914=589%:%
-%:%915=590%:%
-%:%916=591%:%
-%:%920=594%:%
-%:%921=595%:%
-%:%922=596%:%
-%:%923=597%:%
-%:%924=598%:%
-%:%925=599%:%
-%:%926=600%:%
-%:%927=601%:%
-%:%928=602%:%
-%:%929=603%:%
-%:%930=604%:%
-%:%931=605%:%
-%:%932=606%:%
-%:%933=607%:%
-%:%934=608%:%
-%:%935=609%:%
-%:%936=610%:%
-%:%937=611%:%
-%:%938=612%:%
-%:%939=613%:%
-%:%940=614%:%
-%:%941=615%:%
-%:%942=616%:%
-%:%943=617%:%
-%:%944=618%:%
+%:%840=551%:%
+%:%841=552%:%
+%:%843=554%:%
+%:%844=554%:%
+%:%845=555%:%
+%:%846=556%:%
+%:%849=557%:%
+%:%853=557%:%
+%:%854=557%:%
+%:%855=557%:%
+%:%857=558%:%
+%:%858=559%:%
+%:%859=560%:%
+%:%860=560%:%
+%:%862=561%:%
+%:%863=562%:%
+%:%864=563%:%
+%:%874=565%:%
+%:%875=566%:%
+%:%877=568%:%
+%:%878=568%:%
+%:%879=569%:%
+%:%880=570%:%
+%:%883=571%:%
+%:%887=571%:%
+%:%888=571%:%
+%:%889=571%:%
+%:%891=572%:%
+%:%892=572%:%
+%:%894=573%:%
+%:%895=574%:%
+%:%905=576%:%
+%:%906=577%:%
+%:%907=578%:%
+%:%908=579%:%
+%:%909=580%:%
+%:%910=581%:%
+%:%911=582%:%
+%:%912=583%:%
+%:%913=584%:%
+%:%914=585%:%
+%:%915=586%:%
+%:%916=587%:%
+%:%917=588%:%
+%:%918=589%:%
+%:%922=593%:%
+%:%923=594%:%
+%:%924=595%:%
+%:%925=596%:%
+%:%926=597%:%
+%:%927=598%:%
+%:%928=599%:%
+%:%929=600%:%
+%:%933=603%:%
+%:%934=604%:%
+%:%935=605%:%
+%:%936=606%:%
+%:%937=607%:%
+%:%938=608%:%
+%:%939=609%:%
+%:%940=610%:%
+%:%941=611%:%
+%:%942=612%:%
+%:%943=613%:%
+%:%944=614%:%
+%:%945=615%:%
+%:%946=616%:%
+%:%947=617%:%
+%:%948=618%:%
+%:%949=619%:%
+%:%950=620%:%
+%:%951=621%:%
+%:%952=622%:%
+%:%953=623%:%
+%:%954=624%:%
+%:%955=625%:%
+%:%956=626%:%
+%:%957=627%:%
+%:%958=628%:%

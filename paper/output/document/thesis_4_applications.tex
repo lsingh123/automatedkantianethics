@@ -33,14 +33,13 @@
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-In this chapter, I demonstrate that my system can produce correct judgements for challenging moral 
-dilemmas that naive ethical reasoning cannot satisfactorily handle. Because my system is faithful to
+In this chapter, I demonstrate that my system can produce sophisticated judgements for challenging moral 
+dilemmas that naive Kantian ethical reasoning cannot satisfactorily handle. Because my system is faithful to
 philosophical literature, it can reproduce complex ethical judgements presented by philosophers as 
-solutions to controversial open questions in ethics.
-These dilemmas serve as examples of how my system could be used
+solutions to controversial open questions in ethics. These dilemmas serve as examples of how my system could be used
 in practice and demonstrate my system's ability to formalize longer, more complicted ethical arguments
 than those presented in Chapter \ref{details}. Moreover, in the process of formalizing these dilemmas, 
-I isolated the exact conditon that makes a maxim about lying wrong, an insight that could contribute to 
+I isolate the exact conditon that makes a maxim about lying wrong, an insight that could contribute to 
 the philosophical literature on lying.
 
 Many of the tests in Section \ref{testing} perform metaethical reasoning, which analyzes properties
@@ -60,16 +59,14 @@ understanding of communication and truth telling. Kantians specifically describe
 this common sense as ``postulates of rationality'' that are nontrivial and nonnormative, but still
 part of the process of practical reasoning itself \citep{silber}. 
 
-In this chapter, I tackle this challenge by
-endowing my system with this kind of common sense in the specific case of lying. My system needs common 
-sense facts and definitions because, while it has the ability to reason
+In this chapter, I tackle this challenge by endowing my system with this kind of common sense in the 
+specific case of lying. While my system has the ability to reason
 using the Formula of Universal Law, this reasoning must be applied to objects that are defined
-using common sense. Because these common sense facts can determine my system's judgements, they are part of the trusted
+using common sense. Because common sense facts can determine my system's judgements, they are part of the trusted
 code base for my system, or the logic and code that a user must trust in order to trust my system. 
-Changing these common sense facts will change the judgements 
-that my system makes. For example, if we define truth telling as an act that is self-contradictory (perhaps
+Malicious common sense facts will result in bad judgements.
+For example, if we define truth telling as an act that is self-contradictory (perhaps
 by defining it as $p \wedge \neg p$), then my system will output that truth telling is prohibited.
-Malicious common sense facts and definitions will result in bad ethical judgements. 
 The challenge of endowing automated ethical reasoners with common sense reasoning is not unique to my 
 system, and virtually all prior attempts in machine ethics face similar challenges. Many prior attempts
 sidestep this question, whereas I contribute an prototype implementation of one kind of common sense reasoning.
@@ -78,7 +75,7 @@ This chapter will provide examples of the kinds of common sense facts required t
 off the ground. I use a lean and uncontroversial common sense database
 to achieve robust and powerful results. This serves as evidence for the ease of automating
 Kantian ethics, an example of the additional work required to use my system in practice, and a 
-demonstration of my system's power and flexibility. These examples demonstrate that, armed with nuanced 
+demonstration of my system's power and flexibility. These examples demonstrate that, armed with some basic 
 common sense facts, my system can make sophisticated judgements faithful to philosophical literature.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -103,8 +100,8 @@ common sense facts, my system can make sophisticated judgements faithful to phil
 The moral status of lying is hotly debated in the Kantian literature. I focus on two dilemmas
 presented in Korsgaard's ``Right to Lie,'' which 
 examines Kant's prohibition on lying \citep{KorsgaardRTL}. She begins with the case of 
-lying and joking. Many of Kant's critics argue that his prohibition on lies includes lies told in 
-the context of a joke, which should be permissible. Korsgaard responds by arguing 
+lying and joking. To demonstrate that Kant's theory is too demanding, many of his critics argue that 
+his prohibition on lies includes lies told in the context of a joke, which should be permissible. Korsgaard responds by arguing 
 that there is a crucial difference between lying and joking: lies involve deception, but jokes do not. 
 The purpose of a joke is amusement, which does not rely on the listener believing the story told. 
 Given appropriate definitions of lies and jokes, my system shows that jokes are permissible but lies 
@@ -180,15 +177,15 @@ the false statement $t$.%
 \isamarkupcmt{The abbreviation above maps a maxim to a boolean value that indicates if it is a lie.%
 }%
 \begin{isamarkuptext}%
-To avoid unintentional wrongdoing, I focus on ``knowing lies,'' 
-in which the speaker is aware that they are lying. It is uncontroversial that, in order for an act to be
-a knowing lie, the speaker must utter a false statement that they do not believe. This also makes it 
-easier to make moral judgements about the speaker's action, since they were, at the very least, aware
-of their lie. The second half of
+To avoid issues with unintentional wrongdoing, I focus on ``knowing lies,'' 
+in which the speaker is aware that they are lying. This makes it easier to make moral judgements about 
+the speaker's action, since they were, at the very least, aware of their lie. It is uncontroversial 
+that, in order for an act to be a knowing lie, the speaker must utter a false statement that they do 
+not believe. The second half of
 this definition requires that the goal of the lie is deception. This is inspired by  Korsgaard's interpretation 
 of a lie. She understands a lie as a kind of falsehood that is usually effective \emph{because} it decieves
 \citep[4]{KorsgaardRTL}. In my formalization, this means that the purpose or goal of the maxim must
-involve decieving someone, or, in other words, that someone believe what the speaker knows to be a 
+involve decieving someone, or that someone believe what the speaker knows to be a 
 falsehood. 
 
 With the above logical background, I automate Korsgaard's argument that maxims that involve
@@ -215,8 +212,7 @@ is prohibited.%
 \begin{isamarkuptext}%
 In the following lemma, I use my system to show that lying is prohibited. The assumptions of 
 this lemma represent the common sense necessary to reach this conclusion. This
-common sense background is a direct formalization of the premises of Korsgaard's argument. Using these
-relatively minimal premises about individual behavior, my system derives a prohibition against lying.%
+common sense background is a direct formalization of the premises of Korsgaard's argument.%
 \end{isamarkuptext}\isamarkuptrue%
 \isacommand{lemma}\isamarkupfalse%
 \ lying{\isacharunderscore}prohibited{\isacharcolon}\isanewline
@@ -236,7 +232,7 @@ knowingly uttering a falsehood and the goal requires that someone believe this f
 Korsgaard's core piece of ``common sense'' about lying \cite[5]{KorsgaardRTL}. This simple assumption encodes the common sense knowledge
 that human communication involves an implicit trust, and that when this trust erodes, the convention of 
 communication begins to break down and people no longer believe each other. Call this the ``convention of 
-trust'' fact. In the rest of this section, I will test versions of this assumption, effectively encoding 
+trust'' fact. In the rest of this chapter, I will test another version of this assumption, effectively encoding 
 different common sense understandings of lying.%
 }\isanewline
 \ \ \isakeyword{assumes}\ {\isachardoublequoteopen}{\isasymforall}w{\isachardot}\ c\ w{\isachardoublequoteclose}\isanewline
@@ -311,7 +307,7 @@ the goal does \emph{not} require that someone believe the falsehood told.%
 \begin{isamarkuptext}%
 This definition of a joke defines a joke as a falsehood uttered for some purpose that 
 doesn't require deception, where deception involves someone believing the uttered falsehood. 
-This definition doesn't require any conception of humor, but merely
+This definition is thin because it doesn't require any conception of humor, but merely
 distinguishes jokes from lies. 
 
 Korsgaard argues that her above argument for a prohibition against lying also implies that joking is 
@@ -397,17 +393,22 @@ of an action can hinge on the maxim's goal, circumstances, or act because these 
 of an action are inseparable.} no longer requires belief in the falsehood and thus passes the 
 universalizability test. 
 
+This demonstrates one kind of philosophical contribution that computational ethics can make: it can 
+offer insights that guide the formulation of permissible maxims, as in the surprise party example
+above. In Section \ref{computationalethics}, I provide another example of such a boundary condition 
+for the formulation of a maxim, which serves as further evidence of the potential of computational ethics.
+
 There are two implications of this section. First, my system is capable of performing ethical reasoning
 sophisticated enough to show that lying is prohibited but joking is not. This is a direct consequence 
 of my system's use of a robust conception of a maxim, which encodes the goal of an act as part of the 
 maxim being evaluated. Because my implementation is faithful to philosophical literature, it is able 
 to recreate Korsgaard's solution to a complex ethical dilemma that philosophers debated for decades. Second, 
 in the process of making this argument precise, my system isolated a necessary and sufficient condition 
-of a maxim about uttering a falsehood being prohibited: that the goal require that someone believe
+for a maxim about uttering a falsehood to be prohibited: the goal must require that someone believe
 the falsehood. This condition made an long-standing argument in Kantian ethics more precise, can guide 
 the correct formulation of future maxims, and could contribute to the rich philosophical conversation
 about the wrongness of lying. In other words, an insight generated by the
-computer provides value to ethicists, bolstering the argument for computational ethics provided in 
+computer could provide value to ethicists, bolstering the argument for computational ethics provided in 
 Section \ref{computationalethics}.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -458,7 +459,7 @@ Bill's maxim, which is to hide his intention to murder.%
 \ not{\isacharunderscore}a{\isacharunderscore}murderer{\isacharcolon}{\isacharcolon}t\isanewline
 %
 \isamarkupcmt{This statement represents the lie that the murderer tells you. By not announcing his
-intention, he is implicitly telling you that he is not a murderer, as people normally assume that 
+intention, he is implicitly telling you that he is not a murderer, as people typically assume that 
 those knocking on their door are not murderers.%
 }\isanewline
 \isacommand{consts}\isamarkupfalse%
@@ -680,7 +681,7 @@ is a potential limitation of my system, and I adress this concern in Section \re
 On one hand, the need for common sense facts is a 
 limitation of my system. On the other, these examples show that common sense is within reach. Even thin, 
 uncontroversial definitions and assumptions are enough to achieve nuanced ethical judgements. Moreover, 
-these kinds of judgements demonstrate that, with additional work, my system could be used in practice 
+these examples demonstrate that, with some additional work, my system could be used in practice 
 to guide AI agents. The idea of AI making decisions as in the dilemmas above may seem far-fetched, but
 such scenarios are already becoming reality. For example, a ``smart doorbell'' may face a dilemma like that of
 the murderer at the door. Such an AI agent equipped with a future version of my 
@@ -749,10 +750,10 @@ explainable, rigorous philosophical arguments.%
 %:%77=49%:%
 %:%78=50%:%
 %:%79=51%:%
-%:%80=52%:%
-%:%81=53%:%
-%:%82=54%:%
-%:%91=57%:%
+%:%88=54%:%
+%:%100=57%:%
+%:%101=58%:%
+%:%102=59%:%
 %:%103=60%:%
 %:%104=61%:%
 %:%105=62%:%
@@ -772,39 +773,39 @@ explainable, rigorous philosophical arguments.%
 %:%119=76%:%
 %:%120=77%:%
 %:%121=78%:%
-%:%122=79%:%
-%:%123=80%:%
+%:%123=81%:%
 %:%124=81%:%
-%:%126=84%:%
-%:%127=84%:%
-%:%129=85%:%
-%:%130=86%:%
-%:%131=87%:%
+%:%126=82%:%
+%:%127=83%:%
+%:%128=84%:%
+%:%131=86%:%
+%:%132=87%:%
+%:%133=88%:%
 %:%134=89%:%
 %:%135=90%:%
 %:%136=91%:%
 %:%137=92%:%
-%:%138=93%:%
-%:%139=94%:%
+%:%139=95%:%
 %:%140=95%:%
-%:%142=98%:%
-%:%143=98%:%
-%:%145=99%:%
-%:%146=100%:%
-%:%147=100%:%
-%:%148=101%:%
-%:%149=101%:%
-%:%150=102%:%
-%:%152=103%:%
-%:%153=103%:%
-%:%154=104%:%
-%:%155=104%:%
-%:%156=105%:%
+%:%142=96%:%
+%:%143=97%:%
+%:%144=97%:%
+%:%145=98%:%
+%:%146=98%:%
+%:%147=99%:%
+%:%149=100%:%
+%:%150=100%:%
+%:%151=101%:%
+%:%152=101%:%
+%:%153=102%:%
+%:%155=103%:%
+%:%156=104%:%
+%:%157=105%:%
 %:%158=106%:%
 %:%159=107%:%
-%:%160=108%:%
-%:%161=109%:%
-%:%162=110%:%
+%:%162=111%:%
+%:%163=112%:%
+%:%164=113%:%
 %:%165=114%:%
 %:%166=115%:%
 %:%167=116%:%
@@ -812,13 +813,13 @@ explainable, rigorous philosophical arguments.%
 %:%169=118%:%
 %:%170=119%:%
 %:%171=120%:%
-%:%172=121%:%
 %:%173=122%:%
-%:%174=123%:%
-%:%176=125%:%
-%:%177=125%:%
-%:%178=126%:%
-%:%180=127%:%
+%:%174=122%:%
+%:%175=123%:%
+%:%177=124%:%
+%:%180=126%:%
+%:%181=127%:%
+%:%182=128%:%
 %:%183=129%:%
 %:%184=130%:%
 %:%185=131%:%
@@ -829,73 +830,73 @@ explainable, rigorous philosophical arguments.%
 %:%190=136%:%
 %:%191=137%:%
 %:%192=138%:%
-%:%193=139%:%
 %:%194=140%:%
-%:%195=141%:%
-%:%197=143%:%
-%:%198=143%:%
-%:%200=144%:%
-%:%201=145%:%
-%:%202=146%:%
-%:%203=146%:%
-%:%204=147%:%
-%:%205=147%:%
-%:%207=148%:%
-%:%208=149%:%
-%:%209=149%:%
-%:%210=150%:%
-%:%211=150%:%
-%:%213=151%:%
-%:%216=153%:%
+%:%195=140%:%
+%:%197=141%:%
+%:%198=142%:%
+%:%199=143%:%
+%:%200=143%:%
+%:%201=144%:%
+%:%202=144%:%
+%:%204=145%:%
+%:%205=146%:%
+%:%206=146%:%
+%:%207=147%:%
+%:%208=147%:%
+%:%210=148%:%
+%:%213=150%:%
+%:%214=151%:%
+%:%215=152%:%
 %:%217=154%:%
-%:%218=155%:%
-%:%219=156%:%
-%:%221=158%:%
-%:%222=158%:%
-%:%223=159%:%
-%:%224=160%:%
-%:%226=161%:%
-%:%227=161%:%
-%:%228=162%:%
-%:%230=163%:%
-%:%231=164%:%
-%:%232=164%:%
-%:%233=165%:%
+%:%218=154%:%
+%:%219=155%:%
+%:%220=156%:%
+%:%222=157%:%
+%:%223=157%:%
+%:%224=158%:%
+%:%226=159%:%
+%:%227=160%:%
+%:%228=160%:%
+%:%229=161%:%
+%:%231=162%:%
+%:%232=163%:%
+%:%233=164%:%
+%:%234=165%:%
 %:%235=166%:%
 %:%236=167%:%
-%:%237=168%:%
-%:%238=169%:%
-%:%239=170%:%
-%:%240=171%:%
-%:%241=171%:%
-%:%242=172%:%
-%:%244=173%:%
-%:%245=173%:%
-%:%246=174%:%
-%:%253=175%:%
-%:%254=175%:%
-%:%255=176%:%
-%:%256=176%:%
-%:%257=177%:%
-%:%258=177%:%
-%:%260=178%:%
-%:%261=179%:%
-%:%262=180%:%
-%:%263=181%:%
-%:%264=181%:%
-%:%265=182%:%
-%:%266=182%:%
-%:%267=183%:%
-%:%268=183%:%
-%:%269=184%:%
-%:%270=184%:%
-%:%271=185%:%
-%:%272=185%:%
-%:%273=185%:%
-%:%275=186%:%
-%:%276=187%:%
-%:%277=187%:%
-%:%278=188%:%
+%:%237=167%:%
+%:%238=168%:%
+%:%240=169%:%
+%:%241=169%:%
+%:%242=170%:%
+%:%249=171%:%
+%:%250=171%:%
+%:%251=172%:%
+%:%252=172%:%
+%:%253=173%:%
+%:%254=173%:%
+%:%256=174%:%
+%:%257=175%:%
+%:%258=176%:%
+%:%259=177%:%
+%:%260=177%:%
+%:%261=178%:%
+%:%262=178%:%
+%:%263=179%:%
+%:%264=179%:%
+%:%265=180%:%
+%:%266=180%:%
+%:%267=181%:%
+%:%268=181%:%
+%:%269=181%:%
+%:%271=182%:%
+%:%272=183%:%
+%:%273=183%:%
+%:%274=184%:%
+%:%284=186%:%
+%:%285=187%:%
+%:%286=188%:%
+%:%287=189%:%
 %:%288=190%:%
 %:%289=191%:%
 %:%290=192%:%
@@ -907,49 +908,49 @@ explainable, rigorous philosophical arguments.%
 %:%296=198%:%
 %:%297=199%:%
 %:%298=200%:%
-%:%299=201%:%
 %:%300=202%:%
-%:%301=203%:%
-%:%302=204%:%
-%:%304=206%:%
-%:%305=206%:%
-%:%306=207%:%
-%:%308=208%:%
-%:%309=209%:%
+%:%301=202%:%
+%:%302=203%:%
+%:%304=204%:%
+%:%305=205%:%
+%:%308=207%:%
+%:%309=208%:%
+%:%310=209%:%
+%:%311=210%:%
 %:%312=211%:%
 %:%313=212%:%
 %:%314=213%:%
 %:%315=214%:%
 %:%316=215%:%
-%:%317=216%:%
 %:%318=217%:%
-%:%319=218%:%
-%:%320=219%:%
-%:%322=221%:%
-%:%323=221%:%
-%:%324=222%:%
-%:%325=223%:%
-%:%327=224%:%
-%:%328=224%:%
-%:%329=225%:%
-%:%331=226%:%
-%:%332=227%:%
-%:%333=227%:%
-%:%334=228%:%
-%:%336=229%:%
-%:%337=229%:%
-%:%338=230%:%
-%:%340=231%:%
-%:%341=231%:%
-%:%342=232%:%
-%:%345=233%:%
-%:%349=233%:%
-%:%350=233%:%
+%:%319=217%:%
+%:%320=218%:%
+%:%321=219%:%
+%:%323=220%:%
+%:%324=220%:%
+%:%325=221%:%
+%:%327=222%:%
+%:%328=223%:%
+%:%329=223%:%
+%:%330=224%:%
+%:%332=225%:%
+%:%333=225%:%
+%:%334=226%:%
+%:%336=227%:%
+%:%337=227%:%
+%:%338=228%:%
+%:%341=229%:%
+%:%345=229%:%
+%:%346=229%:%
+%:%348=230%:%
+%:%349=231%:%
+%:%350=232%:%
+%:%351=233%:%
 %:%352=234%:%
-%:%353=235%:%
-%:%354=236%:%
-%:%355=237%:%
-%:%356=238%:%
+%:%362=237%:%
+%:%363=238%:%
+%:%364=239%:%
+%:%365=240%:%
 %:%366=241%:%
 %:%367=242%:%
 %:%368=243%:%
@@ -996,8 +997,8 @@ explainable, rigorous philosophical arguments.%
 %:%409=284%:%
 %:%410=285%:%
 %:%411=286%:%
-%:%420=289%:%
-%:%432=292%:%
+%:%412=287%:%
+%:%421=290%:%
 %:%433=293%:%
 %:%434=294%:%
 %:%435=295%:%
@@ -1016,52 +1017,52 @@ explainable, rigorous philosophical arguments.%
 %:%448=308%:%
 %:%449=309%:%
 %:%450=310%:%
-%:%452=312%:%
-%:%453=312%:%
-%:%455=313%:%
-%:%456=313%:%
+%:%451=311%:%
+%:%453=313%:%
+%:%454=313%:%
+%:%456=314%:%
 %:%457=314%:%
-%:%458=314%:%
-%:%460=315%:%
+%:%458=315%:%
+%:%459=315%:%
 %:%461=316%:%
 %:%462=317%:%
-%:%463=317%:%
+%:%463=318%:%
 %:%464=318%:%
-%:%465=318%:%
-%:%467=319%:%
-%:%468=319%:%
+%:%465=319%:%
+%:%466=319%:%
+%:%468=320%:%
 %:%469=320%:%
-%:%470=320%:%
-%:%472=321%:%
-%:%473=321%:%
+%:%470=321%:%
+%:%471=321%:%
+%:%473=322%:%
 %:%474=322%:%
-%:%475=322%:%
+%:%475=323%:%
 %:%476=323%:%
-%:%478=324%:%
+%:%477=324%:%
 %:%479=325%:%
-%:%482=327%:%
+%:%480=326%:%
 %:%483=328%:%
 %:%484=329%:%
 %:%485=330%:%
-%:%487=332%:%
-%:%488=332%:%
-%:%490=333%:%
-%:%491=333%:%
+%:%486=331%:%
+%:%488=333%:%
+%:%489=333%:%
+%:%491=334%:%
 %:%492=334%:%
-%:%493=334%:%
+%:%493=335%:%
 %:%494=335%:%
-%:%496=336%:%
-%:%497=336%:%
+%:%495=336%:%
+%:%497=337%:%
 %:%498=337%:%
-%:%499=337%:%
-%:%501=338%:%
-%:%502=338%:%
+%:%499=338%:%
+%:%500=338%:%
+%:%502=339%:%
 %:%503=339%:%
-%:%504=339%:%
+%:%504=340%:%
 %:%505=340%:%
-%:%507=341%:%
+%:%506=341%:%
 %:%508=342%:%
-%:%524=374%:%
+%:%509=343%:%
 %:%525=375%:%
 %:%526=376%:%
 %:%527=377%:%
@@ -1070,85 +1071,85 @@ explainable, rigorous philosophical arguments.%
 %:%530=380%:%
 %:%531=381%:%
 %:%532=382%:%
-%:%534=384%:%
-%:%535=384%:%
+%:%533=383%:%
+%:%535=385%:%
 %:%536=385%:%
 %:%537=386%:%
-%:%539=387%:%
-%:%540=387%:%
+%:%538=387%:%
+%:%540=388%:%
 %:%541=388%:%
-%:%543=389%:%
-%:%544=389%:%
+%:%542=389%:%
+%:%544=390%:%
 %:%545=390%:%
-%:%547=391%:%
+%:%546=391%:%
 %:%548=392%:%
 %:%549=393%:%
 %:%550=394%:%
 %:%551=395%:%
-%:%552=395%:%
+%:%552=396%:%
 %:%553=396%:%
-%:%555=397%:%
+%:%554=397%:%
 %:%556=398%:%
 %:%557=399%:%
 %:%558=400%:%
 %:%559=401%:%
 %:%560=402%:%
 %:%561=403%:%
-%:%562=403%:%
+%:%562=404%:%
 %:%563=404%:%
-%:%565=405%:%
+%:%564=405%:%
 %:%566=406%:%
-%:%567=406%:%
+%:%567=407%:%
 %:%568=407%:%
-%:%571=408%:%
-%:%575=408%:%
-%:%576=408%:%
-%:%577=408%:%
-%:%579=409%:%
+%:%569=408%:%
+%:%572=409%:%
+%:%576=409%:%
+%:%577=409%:%
+%:%578=409%:%
 %:%580=410%:%
 %:%581=411%:%
-%:%591=413%:%
+%:%582=412%:%
 %:%592=414%:%
 %:%593=415%:%
 %:%594=416%:%
-%:%596=418%:%
-%:%597=418%:%
+%:%595=417%:%
+%:%597=419%:%
 %:%598=419%:%
-%:%600=420%:%
-%:%601=420%:%
+%:%599=420%:%
+%:%601=421%:%
 %:%602=421%:%
-%:%604=422%:%
-%:%605=422%:%
+%:%603=422%:%
+%:%605=423%:%
 %:%606=423%:%
-%:%608=424%:%
-%:%609=424%:%
+%:%607=424%:%
+%:%609=425%:%
 %:%610=425%:%
-%:%612=426%:%
-%:%613=426%:%
+%:%611=426%:%
+%:%613=427%:%
 %:%614=427%:%
-%:%616=428%:%
+%:%615=428%:%
 %:%617=429%:%
-%:%618=429%:%
+%:%618=430%:%
 %:%619=430%:%
-%:%626=431%:%
-%:%627=431%:%
+%:%620=431%:%
+%:%627=432%:%
 %:%628=432%:%
-%:%629=432%:%
+%:%629=433%:%
 %:%630=433%:%
-%:%631=433%:%
-%:%632=433%:%
+%:%631=434%:%
+%:%632=434%:%
 %:%633=434%:%
-%:%634=434%:%
+%:%634=435%:%
 %:%635=435%:%
-%:%636=435%:%
-%:%637=435%:%
+%:%636=436%:%
+%:%637=436%:%
 %:%638=436%:%
-%:%639=436%:%
+%:%639=437%:%
 %:%640=437%:%
-%:%641=437%:%
-%:%642=437%:%
+%:%641=438%:%
+%:%642=438%:%
 %:%643=438%:%
-%:%653=440%:%
+%:%644=439%:%
 %:%654=441%:%
 %:%655=442%:%
 %:%656=443%:%
@@ -1184,3 +1185,4 @@ explainable, rigorous philosophical arguments.%
 %:%686=473%:%
 %:%687=474%:%
 %:%688=475%:%
+%:%689=476%:%

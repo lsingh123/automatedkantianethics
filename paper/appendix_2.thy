@@ -46,7 +46,6 @@ consts falsely_promise::os
 \<comment>\<open>This constant represents the act ``make a false promise to pay a loan back.''\<close>
 consts to_get_easy_cash::t
 \<comment>\<open>This constant represents the goal ``to get some money.''\<close>
-
 abbreviation false_promising::maxim where 
 "false_promising \<equiv> (when_strapped_for_cash, falsely_promise, to_get_easy_cash)"
 \<comment>\<open>Armed with the circumstances, act, and goal above, I can define the example false promising maxim as a tuple.\<close>

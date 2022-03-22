@@ -5,19 +5,24 @@ begin (*>*)
 
 section \<open>Alternate Definitions of a Maxim \label{maximmotive}\<close>
 
+text\<open>In Section \ref{whatisamaxim}, I explain and justify O'Neill's definition of a maxim as a circumstance,
+act, goal triple. In this appendix, I explore two alternate definitions of maxim: Korsgaard's definition, 
+which is weaker than O'Neill's, and Kitcher's definition, which is stronger than O'Neill's. I argue that 
+O'Neill's definition offers the right amount of strength for my project.  \<close>
+
 subsection \<open>Korsgaard's Act-Goal View\<close>
 
-text \<open>I adopt O'Niell's definition of a maxim, which builds on Korsgaard's weaker interpretation of 
-a maxim as an act, goal pair. She interprets Kant's example meanings as having the form ``to-do-this-act-for-
+text \<open>I adopt O'Neill's definition of a maxim, which builds on Korsgaard's weaker interpretation of 
+a maxim as an act, goal pair. Korsgaard interprets Kant's example meanings as having the form ``to-do-this-act-for-
 the-sake-of-this-end,'' which could be formalized as a pair of an act and goal \citep{actingforareason}.
-For example, under this view, one example maxim might be, ``Falsely promise to repay a loan in order
-to get some easy cash.'' 
+Under this view, one example maxim might be, ``Falsely promise to repay a loan in order
+to get some easy cash.''
 
-O'Niell's view only differs from this view in the inclusion of the circumstances
-on which the agent acts. This inclusion creates a representation of a maxim that is strictly more expressive than 
-Korsgaard's interpretation; every (circumstance, act, goal) tuple can be represented as an (act, goal) pair
-by simply dropping the circumstances, but the same (act, goal) pair could correspond to many different
-(circumstance, act, goal) tuples, all with varying moral statuses. Because my representation of a maxim
+O'Neill's view only differs from this view in the inclusion of the circumstances
+under which the agent acts. This inclusion creates a representation of a maxim that is strictly more expressive than 
+Korsgaard's interpretation; every circumstance, act, goal triple can be represented as an act, goal pair
+by simply dropping the circumstances, but the same act, goal pair could correspond to many different
+circumstance, act, goal triples, all with varying moral statuses. Because my representation of a maxim
 is more expressive than Korsgaard's, my results are stronger than those that would be achieved with 
 Korsgaard's view. Thus, proponents of Korsgaard's view could simply ignore the circumstances in my
 representation of a maxim and still achieve their desired results. 
@@ -26,28 +31,27 @@ One issue with Korsgaard's view is that an actionable maxim will necessarily
 require some circumstances built-in because the agent will need to know when to act on the maxim. For example,
 the falsely promising maxim bakes in the circumstances that the actor has access to lender, needs money, 
 and that the lender will expect their money back. At an even more granular level, this maxim implicitly includes
-a definition of a lender and of falsely promising, both of which are circumstantial. Given that all
-maxims necessarily include some circumstances, O'Niell's view makes these implicit circumstances
+a definition of a lender and of falsely promising, both of which are circumstantial. All
+maxims necessarily include some circumstances and  O'Neill's view makes these implicit circumstances
 explicit. This precision is a benefit; so long as my circumstances are not so finely grained that they
-are uninterpretable, they render O'Niell's maxims more precise than Korsgaard's maxims. 
+are uninterpretable, they render O'Neill's maxims more precise than Korsgaard's maxims. 
 \<close>
 
-subsection \<open>Kitcher's View on Motives\<close>
+subsection \<open>Kitcher's View Including Motives\<close>
 
-text \<open>Kitcher begins with O'Niell's 
+text \<open>Kitcher begins with O'Neill's 
 circumstance, act, goal view and expands it to include the motive for a maxim \citep{whatisamaxim}. 
 This additional component is read as ``In circumstance C, I will do A in order to G because of M,'' 
 where M may be ``duty'' or ``self-love.'' Kitcher argues that the inclusion of motive is necessary 
 for the fullest, most general form of a maxim in order to capture Kant's idea that an action derives 
 its moral worth from being done for the sake of duty itself. Under this view, the FUL would obligate maxims of the form 
 ``In circumstance C, I will do A in order to G because I can will that I and everyone else simultaneously
-will do A in order to G in circumstance C.'' In other words, if Kant is correct in arguing that moral 
-actions must be done from the motive of duty, the affirmative result of the FUL becomes 
-the motive for a moral action.
+will do A in order to G in circumstance C.'' If moral actions must be done from the motive of duty, the 
+affirmative result of the FUL becomes the motive for a moral action.
 
-While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I will not implement it 
+While Kitcher's conception of a maxim captures Kant's idea of acting for duty's own sake, I do not implement it 
 because it is not necessary for putting maxims through the FUL. Kitcher acknowledges that 
-O'Niell's formulation suffices for the universalizability test, but merely argues that it is not the most general form of a maxim.
+O'Neill's formulation suffices for the universalizability test, but argues that it is not the most general form of a maxim.
 In order to pass the maxim through the FUL, it suffices to know the circumstance, act, and goal. The FUL
 derives the motive that Kitcher bundles into the maxim, so automating the FUL does not require 
 including a motive. The ``input'' to the FUL is a circumstance, act, goal tuple. My project takes 
@@ -55,7 +59,7 @@ this input and returns the motivation that the dutiful, moral agent would adopt,
 maxim is morally worthy.'' Additionally, doing
 justice to the rich notion of motive requires modelling the operation of practical reason itself, 
 which is outside the scope of this project. My work focuses on the universalizability test, but future work that 
-models the process of practical reason may use my implementation of the FUL as a ``library.'' Combined 
+models the process of practical reason may use my implementation of the FUL as a library. Combined 
 with a logic of practical reason, an implementation of the FUL can move from evaluating a maxim to 
 evaluating an agent's behavior, since that's when acting from duty starts to matter.
 
@@ -66,7 +70,7 @@ section \<open>Kroy's Formalization\label{kroydetails}\<close>
 
 text \<open>In this appendix, I implement a formalization of the categorical imperative introduced by Moshe Kroy in
 1976 \citep{kroy}. Kroy used Hinktikka's deontic logic to formalize the Formula of Universal Law and
-the Formula of Humanity. I will first import the additional logical tools that Hintikka's logic contains, 
+the Formula of Humanity. I first import the additional logical tools that Hintikka's logic contains, 
 then examine the differences between his logic and DDL, and finally implement 
 and test Kroy's formalization of the FUL\<close>
 
@@ -78,11 +82,11 @@ which I define as a new type, just as I did for my implementation.\<close>
 
 typedecl s \<comment>\<open>s is the type for a ``subject," i.e. the subject of a sentence\<close>
 
-text \<open>Kroy also defines a substitution operator.\footnote{See page 196 in \citet{kroy}.}
-$P (d/e)$ is read in his logic as ``P with e substituted 
-for d.'' DDL has no such notion of substitution, so I will use the more generalized notion of an ``open 
+text \<open>Kroy also defines a substitution operator \citep[196]{kroy}.
+$P (d/e)$ is read in his logic as ``$P$ with $e$ substituted 
+for $d$.'' DDL has no such notion of substitution, so I will use the more generalized notion of an ``open 
 sentence,'' as I did for my formalization. An open sentence takes as input a subject and returns a 
-complete or ``closed'' DDL formula by binding the free variable in the sentence to the input. For example, 
+closed DDL formula by binding the free variable in the sentence to the input. For example, 
 ``does action'' is an open sentence that can be instantiated with a subject. \<close>
 
 type_synonym os = "(s \<Rightarrow> t)"
@@ -116,15 +120,15 @@ abbreviation os_permissible::"os\<Rightarrow>os" ("\<^emph>P {_}")
 text \<open>\noindent \textbf{Differences Between Kroy's Logic (Kr) and DDL}\<close>
 
 text \<open>There is potential for complication because Kroy's original paper uses a different logic than DDL. 
-His custom logic is a slight modification of Hintikka's deontic logic \citep{hintikka}. In this brief interlude, 
+His custom logic is a modification of Hintikka's deontic logic \citep{hintikka}. In this brief interlude, 
 I examine if the semantic properties that Kroy's logic (which I abbreviate to Kr) requires 
 hold in DDL. These differences may explain limitations of Kroy's formalization (including failed tests), but I argue that 
 the alternative properties of DDL cohere better with moral intuition. Thus, even if Kroy's formalization
 would pass more tests if it were implemented using Hintikka's logic, the logic itself would be less 
-morally plausible than DDL, and would thus remain a worse implementation of automated Kantian ethics.  \<close>
+morally plausible than DDL, and would thus remain a worse implementation of automated Kantian ethics.  
 
-text \<open>Many of the differences between Kr and DDL can be explained by a difference in their semantics. The most 
-faithful interpretation of Kr is that if $A$ is permissible in a context, then 
+Many of the differences between Kr and DDL can be explained by a difference in their semantics. Kr 
+requires that if $A$ is permissible in a context, then 
 it must be true at some world in that context. Kr operates under the ``deontic alternatives'' or Kripke semantics, 
 summarized by Solt as follows: ``A proposition of the sort $O A$ is true at the actual world $w$ if and
 only if $A$ is true at every deontic alternative world to $w$''  \citep{solt}. Under this view, permissible propositions
@@ -133,53 +137,52 @@ property does not hold in DDL.\<close>
 
 lemma permissible_semantics:
   fixes A w
-  shows "(P {A}) w \<longrightarrow> (\<exists>x. A(x))"
+  shows "(P {A}) w \<longrightarrow> (\<exists>w'. A(w'))"
   nitpick[user_axioms] oops
 \<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+    A = ($\lambda w'. \_$)($i_1$ := False) \color{black}\<close>
 
 text \<open>DDL uses neighborhood semantics, not the deontic alternatives view, which is why this
- proposition fails in DDL. In DDL, the $ob$ function abstracts away the notion of
- deontic alternatives. Even if one believes that permissible 
-statements should be true at some deontic alternative, it's not clear that permissible statements
- must be realized at some world. This also coheres with our understanding of obligation. There 
-are permissible actions like ``Lavanya buys a red folder'' that might not happen in any universe.
+ proposition fails in DDL. Moreover, the validity of this proposition is dubious. Even if one believes that permissible 
+statements should be true at some deontic alternative, permissible statements aren't necessarily
+realized at some world. There are permissible actions like ``Lavanya buys a red folder'' that might not 
+happen in any universe.
 
-An even stricter version of the semantics that Kr requires is that if something is permissible at a world, 
+An even stricter version of Kr's semantics requires that if something is permissible at a world, 
 then it is obligatory at some world. This is a straightforward application of the Kripke semantics. This
 also fails in DDL.\<close>
 
 lemma permissible_semantics_strong:
   fixes A w
-  shows "P {A} w \<longrightarrow> (\<exists>x. O {A} x)"
+  shows "P {A} w \<longrightarrow> (\<exists>w'. O {A} w')"
   nitpick[user_axioms] oops
 \<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+    A = ($\lambda w'. \_$)($i_1$ := False) \color{black}\<close>
 
   text \<open>This also doesn't hold in DDL because DDL uses neighborhood semantics instead of the deontic 
 alternatives or Kripke semantics. This also seems to cohere with our moral intuitions. The statement 
 ``Lavanya buys a red folder'' is permissible in the current world, but it's hard to see why it would 
 be oblgiatory in any world.
 
-Another implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements.'' In 
-other words, if something is permissible it has to be obligated at some deontically perfect alternative. 
-If we translate this to the language of DDL, we expect that if $A$ is permissible, it is obligated in some 
+Another implication of the Kripke semantics is that Kr disallows ``vacuously permissible statements.'' If 
+something is permissible, it has to be obligated at some deontically perfect alternative. 
+Translating this to the language of DDL, if $A$ is permissible, then it should be obligated in some 
 context.\<close>
 
 lemma permissible_semantic_vacuous:
   fixes A w
-  shows "P {A} w \<longrightarrow> (\<exists>x. ob(x)(A))"
+  shows "P {A} w \<longrightarrow> (\<exists>w'. ob(w')(A))"
   nitpick[user_axioms] oops
 \<comment>\<open>\color{blue} Nitpick found a counterexample for card i = 1:
 
   Free variable:
-    A = ($\lambda x. \_$)($i_1$ := False) \color{black}\<close>
+    A = ($\lambda w'. \_$)($i_1$ := False) \color{black}\<close>
 
-text \<open>In order to make this true, we'd have to require that everything is either obligatory or
+text \<open>In order for this statement to hold, everything must be either obligatory or
 prohibited somewhere, but this makes permissibility impossible, which is clearly undesirable. \<close>
 
 (*<*)
@@ -205,7 +208,7 @@ formalization should add this as an axiom.\<close>
 
 text\<open>axiomatization where permissible_prepreq_ob: "\<Turnstile> (O {A} \<rightarrow> P {A})"\<close> (*>*)
 
-text \<open>\noindent \textbf{Kroy's formalization of the FUL \label{sec: kroy_ful}}\<close>
+text \<open>\noindent \textbf{Kroy's Formalization of the FUL \label{sec: kroy_ful}}\<close>
 
 text \<open>I now implement Kroy's formalization of the Formula of Universal Law. Recall that the FUL reads
 ``act only in accordance with that maxim which you can at the same time will a universal law'' \citep[34]{groundwork}.
@@ -256,17 +259,23 @@ that it is both non-trivial and consistent."
         the formalization is considerably
         stronger than the naive formalization, it still fails many of these tests. Some of these failures 
         are due to the differences between Kroy's logic and my logic mentioned in Section \ref{sec:kroy_logical_background}, but some 
-        reveal philosophical problems with Kroy's interpretation of what the formula of universal law means.
+        reveal deep philosophical problems with Kroy's interpretation of what the Formula of Universal Law means.
 
 \noindent \textbf{Obligations Universalize Across People}
 I already showed above that Kroy's formalization is stronger than DDL. Next, I test whether or
 not obligations universalize across people. This test passes, perhaps trivially, due to the fact that 
-this property is definitionally the basis of Kroy's formalization; his formalization states, intuitively, 
+this property is definitionally the basis of Kroy's formalization; his formalization states
 that obligations must hold across all people. \<close>
 
 lemma obligation_universalizes:
-  shows "\<forall>w. (\<exists>p. O {A p} w) \<longrightarrow> (\<forall>p. O {A p} w)"
-  nitpick[user_axioms, falsify=true] oops
+  fixes A::os
+  shows "(\<exists>p. \<Turnstile> O {\<^bold>\<not>(A p)}) \<longrightarrow> (\<forall>p. \<Turnstile> O {\<^bold>\<not>(A p)})"
+  proof 
+    assume "(\<exists>p. \<Turnstile> O {\<^bold>\<not>(A p)})"
+    show "(\<forall>p. \<Turnstile> O {\<^bold>\<not>(A p)})"
+      using FUL \<open>\<exists>p. \<Turnstile>\<^emph>O{\<^emph>\<not>A} p\<close> by blast
+  qed
+\<comment>\<open>This proof requires some manual work, but Isabelle completes it.\<close>
 
   text \<open>\noindent \textbf{Obligations Universalize Across People} The next test verifies that obligations 
 cannot contradict. Kroy's formalization fails this test
@@ -323,12 +332,10 @@ consts lie::os
 \<comment>\<open>This is an empty constant to represent the act of lying, which is an open sentence. Unlike Chapter 
 \ref{applications}, I do not specify any properties of lying, so this could be replaced with any 
 action that is impossible to universalize. \<close>
-
 abbreviation everyone_lies::t where "everyone_lies \<equiv> \<lambda>w. (\<forall>p. (lie(p) w))"
 \<comment>\<open>This represents the term ``all people lie".\<close>
 \<comment>\<open>The term above is true for a set of worlds $i$ such that, at all the worlds $w$ in $i$, all people 
 at $w$ lie.\<close>
-
 abbreviation lying_not_possibly_universal::bool where "lying_not_possibly_universal \<equiv> \<Turnstile>(\<^bold>\<not> (\<diamond> everyone_lies))"
 \<comment>\<open>Armed with @{abbrev everyone_lies}, it's easy to represent the desired sentence. The abbreviation above 
 reads, ``At all worlds, it is not possible that everyone lies."\<close>
@@ -351,24 +358,23 @@ lemma lying_prohibited:
       to universalize, it is prohibited. This is unexpected—Kroy's formalization seemingly hinges
 on universalizability, so it seems as though it should pass this test. To understand this, I 
   outline the syllogism that one might $\emph{expect}$ to prove that lying is prohibited and 
-test each component of this syllogism in Isabelle.\<close>
+test each component of this syllogism in Isabelle.
 
-  text\<open>\begin{enumerate}
+\begin{enumerate}
         \item At all worlds, it is not possible for everyone to lie. \emph{(This is the assumed sentence.)}
         \item At all worlds, there is necessarily someone who doesn't lie. \emph{(Modal dual of (1))}
-        \item If A is permissible for subject p at world w, A is possible for subject p at world w. \emph{(Modified Ought Implies Can)}
-        \item If A is permissible at world w for any person p, it must be possible for everyone to A at w. \emph{(FUL and (3))}
-        \item Lying is impermissible. \emph{(Follows from (4) and (1))} \end{enumerate}\<close>
+        \item If $A$ is permissible for subject $p$ at world $w$, $A$ is possible for subject $p$ at world $w$. \emph{(Modified Ought Implies Can)}
+        \item If $A$ is permissible at world $w$ for any person $p$, it must be possible for everyone to $A$ at $w$. \emph{(FUL and (3))}
+        \item Lying is impermissible. \emph{(Follows from (4) and (1))} \end{enumerate}
 
-  text "I now test each step of this syllogism to determine where Kroy's formalize deviates from the
+I now test each step of this syllogism to determine where Kroy's formalize deviates from the
 expected results. Step 1 holds by assumption, and Step 2 holds as shown below, but the syllogism breaks down
-at Step 3."
+at Step 3.\<close>
 
 lemma step2:
   shows "lying_not_possibly_universal \<longrightarrow> \<Turnstile>( (\<box> (\<lambda>w. \<exists>p. (\<^bold>\<not> (lie(p)) w)))) "
   by simp
 \<comment>\<open>Step 2 holds.\<close>
-
 lemma step3: 
   fixes A p w
   shows "P {A(p)} w \<longrightarrow> (\<diamond> (A(p)) w)"
@@ -376,15 +382,16 @@ lemma step3:
 \<comment>\<open>$\color{blue}$ Nitpick found a counterexample for card `a = 1, card i = 1, and card s = 1:
 
   Free variables:
-    A = ($\lambda x. \_$)($a_1$ := ($\lambda x. \_$)($i_1$ := False))
-    p = $a_1$ $\color{black}$\<close>
+    $A$ = ($\lambda x. \_$)($a_1$ := ($\lambda x. \_$)($i_1$ := False))
+
+    $p$ = $a_1$ $\color{black}$\<close>
 
   text \<open>The above lemma shows that the syllogism fails at Step 3, explaining why the lemma doesn't 
-        hold as expected. Kroy explicitly states\footnote{See footnote 19 on p. 199 of \citet{kroy}} that 
-        Step 3 holds in his logic, so this failure may be explained by this difference in Kr and DDL.
-        However, upon reflection, it is not clear that the statement expressed in Step 3 should actually hold.
+        hold as expected. Kroy explicitly states that 
+        Step 3 holds in his logic, so this failure may be explained by this difference in Kr and DDL \citep[footnote 19, 199]{kroy}.
+        However, upon reflection, it is not clear that Step 3 should actually hold.
         Step 3 states that all permissible actions must be possible, but this implies that impossible
-        actions are not permissible, so they must be prohibited, which seems silly. For example, 
+        actions are not permissible, so they must be prohibited, which is counterintuitive. For example, 
         imagine I make a trip to Target to purchase a folder, and they offer blue and black folders. 
         Even though it is impossible for me to purchase a red folder, it doesn't seem impermissible
         for me to purchase a red folder.
@@ -397,9 +404,9 @@ lemma step3:
         in a self-referencing manner. The FUL is supposed to define what is permissible and what isn't, 
         but Kroy defines permissibility in terms of itself.
         
-        Neither of these errors are obvious from Kroy's presentation of his formalization of 
-        the categorical imperative. This is another example of the power of computational ethics. Making
-        Kroy's interpretation of the categorical imperative precise demonstrated philosophical problems
+        Neither of these errors are obvious from Kroy's presentation of  
+        the categorical imperative. This is another example of the power of computational ethics. Performing
+        computational tests on a precise version of an interpretation of the FUL demonstrated philosophical problems
         with that interpretation.\<close>
 
   text\<open>\noindent \textbf{Remaining Tests} It is clear that Kroy's formalization does not encode a robust conception of a maxim, as it

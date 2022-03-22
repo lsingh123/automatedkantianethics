@@ -11,7 +11,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Syntax}{23}{subsubsection.2.3.2}%
 \contentsline {section}{\numberline {3}Implementation Details}{25}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Formalization and Implementation of the FUL }{25}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Logical Background}{25}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Subjects and Acts}{25}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Maxims }{26}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}Practical Contradiction Interpretation of the FUL }{29}{subsubsection.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Formalizing the FUL}{34}{subsubsection.3.1.4}%
@@ -26,12 +26,12 @@
 \contentsline {subsubsection}{\numberline {5.2.2}An Argument For Computational Ethics}{70}{subsubsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.3}Automating Everyday Practical Reason }{72}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Theoretical Objections to Automating Kantian Ethics }{75}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Related Work }{81}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Conclusion}{83}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.5}Related Work }{80}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Conclusion}{82}{subsection.5.6}%
 \contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{94}{appendix.a.A}%
 \contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{94}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kitcher's View on Motives}{95}{subsection.a.A.2}%
-\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{96}{appendix.a.B}%
-\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{96}{subsection.a.B.1}%
-\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{100}{subsection.a.B.2}%
-\contentsline {section}{Appendix \numberline {C}Additional Tests }{107}{appendix.a.C}%
+\contentsline {subsection}{\numberline {A.2}Kitcher's View Including Motives}{95}{subsection.a.A.2}%
+\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{97}{appendix.a.B}%
+\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{97}{subsection.a.B.1}%
+\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{101}{subsection.a.B.2}%
+\contentsline {section}{Appendix \numberline {C}Additional Tests }{108}{appendix.a.C}%

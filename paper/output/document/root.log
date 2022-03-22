@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 MAR 2022 16:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  22 MAR 2022 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -570,7 +570,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 ...oy's Formalization }{96}{subsection.a.B.1}
+l.35 ...oy's Formalization }{97}{subsection.a.B.1}
                                                   % [3])
 \tf@toc=\write5
 \openout5 = `root.toc'.
@@ -706,72 +706,71 @@ t line 493.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/bold/n' will be
 (Font)              scaled to size 9.0pt on input line 493.
  [34]
-Overfull \hbox (7.23547pt too wide) in paragraph at lines 527--531
+Overfull \hbox (7.23547pt too wide) in paragraph at lines 528--532
 [][]\T1/EBGaramond-OsF/regular/n/10 --- This for-mal-iza-tion states that if a 
 maxim is well-formed, then if it is not uni-ver-sal-iz-able, it is prohibited.[
 ] 
  []
 
 [35] [36] [37]
-<goalstable.png, id=752, 691.58376pt x 259.97125pt>
+<goalstable.png, id=754, 691.58376pt x 259.97125pt>
 File: goalstable.png Graphic file (type png)
 <use goalstable.png>
-Package pdftex.def Info: goalstable.png  used on input line 639.
+Package pdftex.def Info: goalstable.png  used on input line 641.
 (pdftex.def)             Requested size: 414.95345pt x 155.98395pt.
 
-Overfull \hbox (34.25557pt too wide) in paragraph at lines 639--641
+Overfull \hbox (34.25557pt too wide) in paragraph at lines 641--643
  [][] 
  []
 
 [38 <./goalstable.png>] [39] [40]
-Overfull \hbox (4.8275pt too wide) in paragraph at lines 815--819
+Overfull \hbox (4.8275pt too wide) in paragraph at lines 818--822
 \T1/EBGaramond-OsF/regular/n/10 the for-mal state-ment of con-tra-dic-tory obli
 -ga-tions), then obli-ga-tion does not al-ways im-ply permissibility.[] 
  []
 
-[41]
-Overfull \hbox (2.69238pt too wide) in paragraph at lines 920--929
+[41] [42]
+Overfull \hbox (2.69238pt too wide) in paragraph at lines 933--942
 \T1/EBGaramond-OsF/regular/n/10.95 ([][]Ko-rs-gaard[][], [][]1985[][]). A con-v
 en-tional act re-lies on a con-ven-tion, like the con-ven-tion that a promise
  []
 
-[42]) [43] (./thesis_4_applications.tex [44] [45] [46] [47] [48] [49] [50]
-[51] [52] [53] [54] [55] [56]) [57] (./thesis_5_discussion.tex
-<AI_engine.png, id=926, 893.3375pt x 324.21124pt>
+) [43] (./thesis_4_applications.tex [44] [45] [46] [47] [48] [49] [50] [51]
+[52] [53] [54] [55] [56]) [57] (./thesis_5_discussion.tex
+<AI_engine.png, id=930, 893.3375pt x 324.21124pt>
 File: AI_engine.png Graphic file (type png)
 <use AI_engine.png>
-Package pdftex.def Info: AI_engine.png  used on input line 82.
+Package pdftex.def Info: AI_engine.png  used on input line 80.
 (pdftex.def)             Requested size: 384.12764pt x 139.40811pt.
 
-Overfull \hbox (3.42976pt too wide) in paragraph at lines 82--86
+Overfull \hbox (3.42976pt too wide) in paragraph at lines 80--84
 [][] 
  []
 
-[58] [59 <./AI_engine.png>] [60] [61] [62] [63] [64] [65] [66] [67] [68]
-[69] [70] [71] [72] [73] [74]
-Overfull \hbox (7.29796pt too wide) in paragraph at lines 618--630
+[58] [59 <./AI_engine.png>]
+Overfull \hbox (0.31195pt too wide) in paragraph at lines 109--124
+\T1/EBGaramond-OsF/regular/n/10.95 For-mula of Uni-ver-sal Law is a ``test of m
+oral worth rather than of out-ward right-ness'' ([][]O'Neill[][],
+ []
+
+[60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73]
+Overfull \hbox (7.29796pt too wide) in paragraph at lines 610--622
 []\T1/EBGaramond-OsF/regular/n/10.95 The above model of human-computer sym-bio-
 sis demon-strates how com-pu-ta-tional ethics
  []
 
-[75] [76] [77] [78]
-<inputparser.png, id=1123, 815.045pt x 540.0175pt>
+[74] [75] [76] [77] [78]
+<inputparser.png, id=1126, 815.045pt x 540.0175pt>
 File: inputparser.png Graphic file (type png)
 <use inputparser.png>
-Package pdftex.def Info: inputparser.png  used on input line 774.
+Package pdftex.def Info: inputparser.png  used on input line 766.
 (pdftex.def)             Requested size: 383.0712pt x 253.80826pt.
 
-Overfull \hbox (2.37332pt too wide) in paragraph at lines 774--776
+Overfull \hbox (2.37332pt too wide) in paragraph at lines 766--768
  [][] 
  []
 
-
-Overfull \hbox (2.54117pt too wide) in paragraph at lines 780--796
-[]\T1/EBGaramond-OsF/regular/n/10.95 Under Tafani's un-der-stand-ing of the cat
--e-gor-i-cal im-per-a-tive, not only is au-to-mated moral
- []
-
-[79] [80 <./inputparser.png>] [81] [82] [83]) [84] (./root.bbl [85] [86]
+[79 <./inputparser.png>] [80] [81] [82] [83]) [84] (./root.bbl [85] [86]
 Underfull \hbox (badness 2027) in paragraph at lines 129--132
 []\T1/EBGaramond-OsF/regular/n/10.95 Christensen, D. (2007), `Epis-temic self-r
 espect', \T1/EBGaramond-OsF/regular/it/10.95 Pro-ceed-ings of the Aris-totelian
@@ -803,15 +802,21 @@ Overfull \hbox (0.46356pt too wide) in paragraph at lines 25--25
 |[]\T1/EBGaramond-OsF/bold/n/24.88 Alternate Def-i-ni-tions of a Maxim
  []
 
-[94] [95] [96] [97]
+
+Overfull \hbox (2.42966pt too wide) in paragraph at lines 36--40
+\T1/EBGaramond-OsF/regular/n/10.95 tion, which is weaker than O'Neill's, and Ki
+tcher's def-i-ni-tion, which is stronger than O'Neill's.
+ []
+
+[94] [95] [96] [97] [98]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' in size <7> not availabl
 e
 (Font)              Font shape `T1/EBGaramond-OsF/regular/n' tried instead on i
-nput line 249.
+nput line 269.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/regular/n' will be
-(Font)              scaled to size 7.0pt on input line 249.
- [98] [99] [100] [101]
-Overfull \hbox (22.72354pt too wide) in paragraph at lines 609--611
+(Font)              scaled to size 7.0pt on input line 269.
+ [99] [100] [101] [102]
+Overfull \hbox (22.72354pt too wide) in paragraph at lines 629--631
 [][]\T1/EBGaramond-OsF/bold/n/10 abbreviation \T1/EBGaramond-OsF/regular/it/10 
 lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
 /it/10 bool \T1/EBGaramond-OsF/bold/n/10 where \T1/EBGaramond-OsF/regular/it/10
@@ -820,7 +825,7 @@ lying[]not[]possibly[]universal$\OT1/cmr/m/n/10 :$$:$\T1/EBGaramond-OsF/regular
 F/regular/it/10 everyone[]lies$\OT1/cmr/m/n/10 )$$)$[] 
  []
 
-[102] [103] [104] [105] [106]) (./appendix_2.tex [107] [108] [109] [110]
+[103] [104] [105] [106] [107]) (./appendix_2.tex [108] [109] [110] [111]
 Overfull \hbox (0.94582pt too wide) in paragraph at lines 256--262
 []\T1/EBGaramond-OsF/regular/n/10.95 These proofs demon-strate that my for-mal-
 iza-tion is able to cor-rectly pro-hibit this maxim,
@@ -828,19 +833,19 @@ iza-tion is able to cor-rectly pro-hibit this maxim,
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
- [111]
+ [112]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
  (./root.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
 Package rerunfilecheck Info: File `root.out' has not changed.
-(rerunfilecheck)             Checksum: DA003899499DBE98FC66FBB56CA35721;2758.
+(rerunfilecheck)             Checksum: 64507F61675884F805BFB3EF4F04841F;2764.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
  ) 
 Here is how much of TeX's memory you used:
- 10364 strings out of 480608
- 152165 string characters out of 5903631
- 421131 words of memory out of 5000000
+ 10366 strings out of 480608
+ 152185 string characters out of 5903631
+ 421132 words of memory out of 5000000
  25692 multiletter control sequences out of 15000+600000
  686871 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -871,10 +876,10 @@ sy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols
 /msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sft
 t1000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1
 095.pfb>
-Output written on root.pdf (116 pages, 919087 bytes).
+Output written on root.pdf (117 pages, 918710 bytes).
 PDF statistics:
- 1525 PDF objects out of 1728 (max. 8388607)
- 1365 compressed objects within 14 object streams
- 309 named destinations out of 1000 (max. 500000)
+ 1532 PDF objects out of 1728 (max. 8388607)
+ 1371 compressed objects within 14 object streams
+ 311 named destinations out of 1000 (max. 500000)
  312 words of extra memory for PDF output out of 10000 (max. 10000000)
 
