@@ -40,7 +40,7 @@ present the philosophical, logical, and computational background underlying my s
 
 Other choices of components, such as another ethical theory, a different logic, or a different theorem 
 prover could be made. Flaws with these components are limitations of my system, but do not 
-indict logic-programming-based automated ethics more generally. My thesis seeks to 
+indict logic-based automated ethics more generally. My thesis seeks to 
 both present a specific implementation of automated ethics and to argue for a particular approach 
 to automating ethical reasoning more generally and these choices are relevant to the former goal but 
 not to the latter.%
@@ -69,16 +69,15 @@ attractive candidates for automation because rules are generally computationally
 Intuitively, algorithms are procedures for problem solving and Kantian ethics (which is a kind 
 of deontological theory) offers one such 
 procedure for the problem of making ethical judgements. I will make this intuition precise by
-arguing that Kantian ethics is natural to formalize because it prescribes moral rules that require 
-little additional data about the world and are easy to represent to a computer. I argue that, compared to 
-consequentialism and virtue ethics,\footnote{Technically, virtue ethics and
+arguing that Kantian ethics is more natural to formalize than consequentialism or virtue ethics\footnote{Technically, virtue ethics and
 consequentialism are broad ethical traditions, while Kantian ethics is a specific ethical theory within
 deontology, the third major ethical tradition. However, Kantian ethics is not merely a kind of deontology
 but is widely regarded as deontology's central representative \citep{sepdeont}. Deontology's comparatively 
 greater focus on Kant means that my choice of Kant as a guiding figure is less controversial for deontologists 
 than, for example, the choice of Bentham as the guiding figure of consequentialism. Given that most deontological
 theories have some connection to or basis in Kantian ethics, I choose to focus on Kantian ethics, instead
-of deontology more broadly. } Kantian ethics is more amenable to automation.
+of deontology more broadly. } because it prescribes moral rules that require 
+little additional data about the world and are easy to represent to a computer.
 
 I do not aim to show that Kantian ethics is the only tractable theory to automate or
 to present a comprehensive overview of all consequentialist or virtue ethical theories. Instead, I 
@@ -194,12 +193,12 @@ choose one specific aggregation algorithm, but those who disagree with this choi
 the reasoner's moral judgements. Moreover, for complex theories of the good, this aggregation algorithm
 may be complex and may require a lot of data. 
 
-To solve this problem, some consequentialists reject aggregation entirely and instead prefer wholistic
+To solve this problem, some consequentialists reject aggregation entirely and instead prefer holistic
 evaluations of a state of affairs. While this approach no longer requires that an 
 aggregation algorithm, an automated ethical system still needs to calculate a goodness measurement for a state of 
 affairs. Whereas before the system could restrict its analysis to a single person, the algorithm must now 
-evaluate an entire state wholistically. As consequentialists modulate between aggregation 
-and wholistic evaluation, they face a tradeoff between the difficulty of aggregation and the complexity 
+evaluate an entire state holistically. As consequentialists modulate between aggregation 
+and holistic evaluation, they face a tradeoff between the difficulty of aggregation and the complexity 
 of goodness measurements for large states of affairs.%
 \end{isamarkuptext}\isamarkuptrue%
 %
@@ -281,8 +280,7 @@ that virtue ethicists accept, this implicit view will likely be controversial. E
 that certain traits, like courage, are virtues debate the exact definitions of these traits. 
 
 Machine learning approaches like the Delphi system \citep{delphi} mentioned in Chapter \ref{intro} also may suffer explanability 
-problems that my logic-programming, theorem-prover
-approach does not face. Many machine learning algorithms cannot sufficiently explain their 
+problems that my system does not face. Many machine learning algorithms cannot sufficiently explain their 
 decisions to a human being and often find patterns in datasets that don't 
 cohere with the causes that a human being would identify \citep{puiutta}. While there is significant activity 
 and progress in explainable machine learning, interactive theorem provers are designed to be explainable 
@@ -313,8 +311,7 @@ I will extend this argument to general bottom-up approaches in Section \ref{rela
 \endisadelimdocument
 %
 \begin{isamarkuptext}%
-Kant's theory is centered 
-on practical reason, which is the kind of reason that we 
+Kant's theory is centered on practical reason, which is the kind of reason that we 
 use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
 rational beings are unique because we act ``in accordance with 
 the representations of laws'' \citep[26]{groundwork}. A ball thrown into the air acts 
@@ -425,11 +422,10 @@ an action and virtue ethical agents need common sense to determine which virtues
 reflects. For example, in the case of virtue ethics, in order to see that saving a baby from a lion 
 requires courage, a reasoner must have enough background knowledge to know that lions are scary. Making any 
 ethical judgement requires robust conceptions of the action at hand, but Kantian ethics requires far less common sense 
-than a consequentialism or virtue ethics.\footnote{
+than consequentialism or virtue ethics.\footnote{
 In Sections \ref{joking} and \ref{murderer}, I use my system to demonstrate that Kantian ethics requires relatively lightweight, uncontroversial definitions 
-of concepts like falsely promising.} All
-moral theories evaluating falsely promising will a robust definition of promising, 
-but consequentialism and virtue ethics will require more information than Kantian ethics.
+of concepts like falsely promising.} All moral theories evaluating falsely promising need a robust 
+definition of promising, but consequentialism and virtue ethics will require more information than Kantian ethics.
 Thus, although the need for common sense poses a challenge to automated
 Kantian ethics, this challenge is more acute for consequentialism or virtue ethics.%
 \end{isamarkuptext}\isamarkuptrue%
@@ -489,17 +485,19 @@ imperative.
 Those who do not believe that all three formulations of the categorical imperative are equivalent
 understand the FUL as the strongest or most foundational, and thus an appropriate initial choice for 
 automation. Korsgaard characterizes the three formulations of the categorical
-imperative according to Rawls' general and special conception of justice \cite{theoryofjustice}. The general conception applies
-universally and can never be violated, while the special conception represents an ideal for us to
-live towards that may not be possible to achieve. For example, the special conception may require that we prefer some job applicants
-over others in order to remedy historical injustice, and the general conception may require that such
-inequalities always operate in the service of the least privileged \citep[19]{KorsgaardRTL}. Korsgaard
-argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
-Humanity represents his special conception. The FUL's prescriptions can never be violated, even in the most
-non-ideal circumstances imaginable, but the FUH is merely an ideal to strive towards. Thus, the FUL 
-generates stronger requirements than the other two formulations and reflects 
-the bare minimum standard of Kant's ethics. Because the FUL's prescriptions outweigh those of the other two formulations,
-it serves as a functional, minimal version of Kantian ethics.%
+imperative according to Rawls' general and special conception of justice \cite{theoryofjustice}. The general conception 
+consists of universal rules that can never be violated, no matter what the circumstances are. The special
+conception, on the other hand, is an ideal to live up to, and in some cases, it may not be possible to 
+achieve. For example, under some ethical theory, the general conception may include a prohibition against 
+torturing others, whereas the the special conception may include the obligation to give to charity. 
+In some situations, such as when a thief steals all your belongings and leaves you destitute, you may not 
+be able to give to charity, but you are never allowed to torture others, no matter what the circumstances.
+Korsgaard argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
+Humanity represents his special conception \citep[19]{KorsgaardRTL}. The FUL's prescriptions can never 
+be violated, even in the most non-ideal circumstances imaginable, but the FUH is merely an ideal to 
+strive towards. Thus, the FUL generates stronger requirements than the other two formulations and reflects 
+the bare minimum standard of Kant's ethics. Because the FUL's prescriptions outweigh those of the other 
+two formulations, it serves as a functional, minimal version of Kantian ethics.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimdocument
@@ -771,7 +769,7 @@ find counterexamples using the \texttt{falsify} option, both of which I use heav
 \isacommand{by}\isamarkupfalse%
 \ simp\isanewline
 %
-\isamarkupcmt{The blue texte below is an example of typical Nitpick output. In this case, Nitpick successfully found a model 
+\isamarkupcmt{The blue text below is an example of typical Nitpick output. In this case, Nitpick successfully found a model 
 satisfying these axioms so the system is consistent.%
 }\isanewline
 %
@@ -789,7 +787,8 @@ satisfying these axioms so the system is consistent.%
 \begin{isamarkuptext}%
 In the proof above, ``by simp'' indicates the use of the Simplification proof method, 
 which unfolds definitions and applies theorems directly. HOL has $True$ as a theorem,
-which is why this theorem was so easy to prove.%
+which is why this theorem was so easy to prove. I generated this proof automatically using Sledgehammer,
+a tool that automatically searches for proofs \cite{sledgehammer}.%
 \end{isamarkuptext}\isamarkuptrue%
 %
 \isadelimtheory
@@ -848,8 +847,8 @@ which is why this theorem was so easy to prove.%
 %:%91=47%:%
 %:%92=48%:%
 %:%93=49%:%
-%:%94=50%:%
-%:%103=53%:%
+%:%102=52%:%
+%:%114=54%:%
 %:%115=55%:%
 %:%116=56%:%
 %:%117=57%:%
@@ -858,8 +857,8 @@ which is why this theorem was so easy to prove.%
 %:%120=60%:%
 %:%121=61%:%
 %:%122=62%:%
-%:%123=63%:%
-%:%127=65%:%
+%:%126=64%:%
+%:%130=66%:%
 %:%131=67%:%
 %:%132=68%:%
 %:%133=69%:%
@@ -884,8 +883,8 @@ which is why this theorem was so easy to prove.%
 %:%152=88%:%
 %:%153=89%:%
 %:%154=90%:%
-%:%155=91%:%
-%:%159=94%:%
+%:%158=93%:%
+%:%162=95%:%
 %:%163=96%:%
 %:%164=97%:%
 %:%165=98%:%
@@ -902,8 +901,8 @@ which is why this theorem was so easy to prove.%
 %:%176=109%:%
 %:%177=110%:%
 %:%178=111%:%
-%:%179=112%:%
-%:%183=114%:%
+%:%182=113%:%
+%:%186=115%:%
 %:%187=116%:%
 %:%188=117%:%
 %:%189=118%:%
@@ -920,8 +919,8 @@ which is why this theorem was so easy to prove.%
 %:%200=129%:%
 %:%201=130%:%
 %:%202=131%:%
-%:%203=132%:%
-%:%207=135%:%
+%:%206=134%:%
+%:%210=137%:%
 %:%211=138%:%
 %:%212=139%:%
 %:%213=140%:%
@@ -936,8 +935,8 @@ which is why this theorem was so easy to prove.%
 %:%222=149%:%
 %:%223=150%:%
 %:%224=151%:%
-%:%225=152%:%
-%:%234=155%:%
+%:%233=154%:%
+%:%245=156%:%
 %:%246=157%:%
 %:%247=158%:%
 %:%248=159%:%
@@ -954,8 +953,8 @@ which is why this theorem was so easy to prove.%
 %:%259=170%:%
 %:%260=171%:%
 %:%261=172%:%
-%:%262=173%:%
-%:%266=175%:%
+%:%265=174%:%
+%:%269=176%:%
 %:%270=177%:%
 %:%271=178%:%
 %:%272=179%:%
@@ -980,9 +979,9 @@ which is why this theorem was so easy to prove.%
 %:%291=198%:%
 %:%292=199%:%
 %:%293=200%:%
-%:%294=201%:%
-%:%295=202%:%
-%:%304=205%:%
+%:%302=203%:%
+%:%314=205%:%
+%:%315=206%:%
 %:%316=207%:%
 %:%317=208%:%
 %:%318=209%:%
@@ -1037,10 +1036,10 @@ which is why this theorem was so easy to prove.%
 %:%367=258%:%
 %:%368=259%:%
 %:%369=260%:%
-%:%370=261%:%
-%:%371=262%:%
-%:%372=263%:%
-%:%376=266%:%
+%:%373=263%:%
+%:%377=265%:%
+%:%378=266%:%
+%:%379=267%:%
 %:%380=268%:%
 %:%381=269%:%
 %:%382=270%:%
@@ -1058,10 +1057,10 @@ which is why this theorem was so easy to prove.%
 %:%394=282%:%
 %:%395=283%:%
 %:%396=284%:%
-%:%397=285%:%
-%:%398=286%:%
-%:%399=287%:%
-%:%403=290%:%
+%:%400=287%:%
+%:%404=289%:%
+%:%405=290%:%
+%:%406=291%:%
 %:%407=292%:%
 %:%408=293%:%
 %:%409=294%:%
@@ -1086,11 +1085,11 @@ which is why this theorem was so easy to prove.%
 %:%428=313%:%
 %:%429=314%:%
 %:%430=315%:%
-%:%431=316%:%
-%:%432=317%:%
-%:%433=318%:%
-%:%434=319%:%
-%:%443=321%:%
+%:%439=317%:%
+%:%451=319%:%
+%:%452=320%:%
+%:%453=321%:%
+%:%454=322%:%
 %:%455=323%:%
 %:%456=324%:%
 %:%457=325%:%
@@ -1137,9 +1136,9 @@ which is why this theorem was so easy to prove.%
 %:%498=366%:%
 %:%499=367%:%
 %:%500=368%:%
-%:%501=369%:%
-%:%502=370%:%
-%:%511=372%:%
+%:%509=370%:%
+%:%521=373%:%
+%:%522=374%:%
 %:%523=375%:%
 %:%524=376%:%
 %:%525=377%:%
@@ -1200,111 +1199,110 @@ which is why this theorem was so easy to prove.%
 %:%580=432%:%
 %:%581=433%:%
 %:%582=434%:%
-%:%583=435%:%
-%:%584=436%:%
-%:%593=439%:%
+%:%591=437%:%
+%:%603=439%:%
+%:%604=440%:%
 %:%605=441%:%
 %:%606=442%:%
 %:%607=443%:%
 %:%608=444%:%
-%:%609=445%:%
-%:%610=446%:%
-%:%619=449%:%
+%:%617=447%:%
+%:%629=449%:%
+%:%630=450%:%
 %:%631=451%:%
-%:%632=452%:%
 %:%633=453%:%
-%:%635=455%:%
-%:%636=455%:%
-%:%637=455%:%
-%:%638=455%:%
-%:%640=456%:%
-%:%641=456%:%
-%:%642=457%:%
-%:%643=457%:%
-%:%644=457%:%
-%:%645=457%:%
-%:%647=458%:%
-%:%648=459%:%
+%:%634=453%:%
+%:%635=453%:%
+%:%636=453%:%
+%:%638=454%:%
+%:%639=454%:%
+%:%640=455%:%
+%:%641=455%:%
+%:%642=455%:%
+%:%643=455%:%
+%:%645=456%:%
+%:%646=457%:%
+%:%649=469%:%
+%:%650=470%:%
 %:%651=471%:%
-%:%652=472%:%
 %:%653=473%:%
-%:%655=475%:%
-%:%656=475%:%
-%:%657=475%:%
-%:%658=475%:%
-%:%659=476%:%
-%:%660=476%:%
+%:%654=473%:%
+%:%655=473%:%
+%:%656=473%:%
+%:%657=474%:%
+%:%658=474%:%
+%:%661=476%:%
+%:%662=477%:%
 %:%663=478%:%
 %:%664=479%:%
-%:%665=480%:%
 %:%666=481%:%
-%:%668=483%:%
-%:%669=483%:%
-%:%670=507%:%
-%:%671=508%:%
+%:%667=481%:%
+%:%668=505%:%
+%:%669=506%:%
+%:%671=507%:%
+%:%672=508%:%
 %:%673=509%:%
 %:%674=510%:%
-%:%675=511%:%
-%:%676=512%:%
-%:%684=517%:%
+%:%682=515%:%
+%:%694=517%:%
+%:%695=518%:%
 %:%696=519%:%
 %:%697=520%:%
 %:%698=521%:%
 %:%699=522%:%
 %:%700=523%:%
-%:%701=524%:%
-%:%702=525%:%
-%:%706=539%:%
-%:%708=540%:%
-%:%709=540%:%
-%:%710=541%:%
-%:%712=542%:%
-%:%713=543%:%
-%:%714=543%:%
-%:%715=544%:%
-%:%716=544%:%
-%:%717=545%:%
-%:%719=546%:%
-%:%722=547%:%
-%:%724=548%:%
-%:%725=548%:%
-%:%726=549%:%
-%:%728=550%:%
-%:%731=567%:%
-%:%732=568%:%
-%:%734=569%:%
+%:%704=537%:%
+%:%706=538%:%
+%:%707=538%:%
+%:%708=539%:%
+%:%710=540%:%
+%:%711=541%:%
+%:%712=541%:%
+%:%713=542%:%
+%:%714=542%:%
+%:%715=543%:%
+%:%717=544%:%
+%:%720=545%:%
+%:%722=546%:%
+%:%723=546%:%
+%:%724=547%:%
+%:%726=548%:%
+%:%729=565%:%
+%:%730=566%:%
+%:%732=567%:%
+%:%733=567%:%
+%:%734=568%:%
 %:%735=569%:%
-%:%736=570%:%
-%:%737=571%:%
+%:%736=569%:%
+%:%737=570%:%
 %:%738=571%:%
-%:%739=572%:%
-%:%740=573%:%
-%:%741=573%:%
-%:%742=574%:%
-%:%744=575%:%
-%:%745=576%:%
-%:%748=577%:%
-%:%750=578%:%
-%:%751=578%:%
-%:%752=579%:%
-%:%754=580%:%
+%:%739=571%:%
+%:%740=572%:%
+%:%742=573%:%
+%:%743=574%:%
+%:%746=575%:%
+%:%748=576%:%
+%:%749=576%:%
+%:%750=577%:%
+%:%752=578%:%
+%:%755=583%:%
+%:%756=584%:%
 %:%757=585%:%
 %:%758=586%:%
 %:%759=587%:%
-%:%760=588%:%
-%:%761=589%:%
-%:%763=592%:%
-%:%764=592%:%
-%:%765=592%:%
-%:%767=592%:%
-%:%771=592%:%
-%:%772=592%:%
-%:%774=593%:%
-%:%775=594%:%
-%:%776=594%:%
+%:%761=590%:%
+%:%762=590%:%
+%:%763=590%:%
+%:%765=590%:%
+%:%769=590%:%
+%:%770=590%:%
+%:%772=591%:%
+%:%773=592%:%
+%:%774=592%:%
+%:%776=593%:%
+%:%777=594%:%
 %:%778=595%:%
-%:%779=596%:%
-%:%780=597%:%
+%:%788=597%:%
+%:%789=598%:%
 %:%790=599%:%
 %:%791=600%:%
-%:%792=601%:%

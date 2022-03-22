@@ -92,7 +92,8 @@ of a maxim.
 type_synonym maxim = "(t * os * t)"
 \<comment>\<open>A maxim is of type term, open sentence, term tuple, such as ``(When I am strapped for cash, will falsely promise
 to repay a loan, to get some easy cash)''. The first term represents the circumstance, which
-can be true or false at a world. For example, the circumstance ``when I am strapped for cash'' is true at the real 
+can be true or false at a world. For example, in the \nameref{falsepromise} maxim, the circumstance
+``when I am strapped for cash'' is true at the real 
 world when my bank account is empty. The second term represents the act, which is an open sentence
 because different agents can perform a particular action. For example, the act, ``will falsely promise
 to repay a loan'' is an open sentence that can be acted on by a subject. The third term represents 
@@ -135,7 +136,7 @@ sake of maxim's end in the relevant circumstances. I formalize this idea in Defi
 \begin{definition}[Willing]\label{willing}
 For maxim $M = (C, A, G)$ and actor $s$,
 $$\text{\emph{will}} \, M \, s \equiv \forall w \, (C \longrightarrow A \, (s)) \, w$$
-\noindent At all worlds $w$, if the circumstances hold at that world, agent $s$ performs act $A$.
+\noindent At all worlds $w$, if the circumstances hold at that world, actor $s$ performs act $A$.
 \end{definition}
 
 If I will the example \nameref{falsepromise} maxim, then whenever I need cash, 
@@ -171,9 +172,9 @@ universalizability test because, in the universalized world, everyone falsely pr
 loans so lenders no longer believe promises to repay loans. The practice of giving loans would die out, so 
 making a false promise to repay a loan would be impossible.
 
-This view cannot correctly handle natural acts. Korsgaard appeals to 
+This view cannot correctly handle natural acts, or acts that are possible simply due to the laws of nature. Korsgaard appeals to 
 \citet{dietrichson} to construct the example natural act of a mother killing her children that
-cry too much at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
+cry at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
 it does not generate a logical contradiction because killing is still possible in a world where 
 everyone kills noisy children. Because killing is a natural act, it can never be logically 
 impossible so the logical contradiction view cannot prohibit it.
@@ -184,7 +185,7 @@ you commit yourself to the maxim's goal, and thus cannot rationally will that th
 undercut. This interpretation can prohibit natural acts like those of the sleep-deprived mother: in 
 willing the end of sleeping, she is implicitly willing that she is alive. If all mothers kill all 
 loud children, then she cannot be secure in the possession of her life, because her own mother may 
-have killed her as an infant. Her willing this maxim thwarts the end that she sought to secure. 
+have killed her when she cried as an infant. Her willing this maxim thwarts the end that she sought to secure. 
 
 The practical contradiction interpretation offers a satisfying explanation of \emph{why} certain 
 maxims are immoral. These maxims involve parasitic behavior on the very social conditions that the agent seeks 
@@ -442,7 +443,7 @@ explain some notable tests.
 text_raw \<open>
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{goalstable.png}
+\includegraphics[scale=0.165]{goalstable.jpeg}
 \caption{Table showing which tests each implementation passes. ``Naive'' indicates raw DDL, 
 ``Kroy'' is my implementation of Moshe Kroy's formalization of the FUL, and ``Custom'' is my novel implementation.} \label{table}
 \end{figure}\<close>
@@ -459,7 +460,7 @@ I performed this test before adding the FUL as an axiom, since after adding it n
 be possible.\<close>
 
 text \<open>\medskip
-\noindent \textbf{Obligation Universalizes Across People} The obligations prescribed by the Formula of Universal Law
+\noindent \textbf{Obligations Universalize Across People} The obligations prescribed by the Formula of Universal Law
 should generalize across people. In other words, if a maxim is obligated for one person, then it is obligated
 for all other people because maxims are not person-specific. Velleman argues that, because 
 reason is accessible to everyone identically, obligations apply to all people equally \citep[25]{velleman}. 

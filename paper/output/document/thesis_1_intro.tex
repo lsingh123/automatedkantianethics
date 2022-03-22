@@ -153,15 +153,18 @@ perform as we navigate the world and explore how automated ethics can improve ou
 My implementation of automated Kantian ethics formalizes Kant's moral rule
 in deontic logic, a modal logic that can express obligation, or morally binding requirements. Most modal 
 logics include a necessitation operator, denoted as $\Box$, where
-$\Box p$ is true at world $w$ if $p$ is true at all worlds that neighbor $w$ \citep{cresswell}. Such 
-logics  also contain the possibility operator $\diamond$, where $\diamond \, p \longleftrightarrow \neg (\Box (\neg p))$ 
-and operators of propositional logic like $\neg, \wedge, \vee, \rightarrow$. Standard deontic logic (SDL) 
-replaces $\Box$ with the obligation operator $O$, where $O \, p$ is true at $w$ 
-if $p$ is true at all morally perfect versions of $w$ \citep{sep-logic-deontic}. I use a more sophisticated
-version of DDL called Dyadic Deontic Logic, in which
-the dyadic obligation operator $O\{A \vert B\}$ represents the sentence ``A is obligated in the context B.'' 
-The introduction of context allows DDL to express more nuanced reasoning and certain paradoxes that plague
-SDL.
+$\Box p$ is true at world $w$ if $p$ is true at all worlds that neighbor $w$ \citep{cresswell}. Intuitively, 
+$\Box p$ indicates that $p$ is a necessary truth, like $p$ or $\neg p$. Such 
+logics also contain the $\diamond$ operator, which represents possible truths, and operators of 
+propositional logic like $\neg, \wedge, \vee, \rightarrow$. Deontic logics
+replace $\Box$ with the obligation operator $O$, where $O \, p$ is true at $w$ 
+if $p$ is true at all morally perfect versions of $w$ \citep{sep-logic-deontic}. A necessary 
+proposition must be true, while an obligatory proposition must be true in order for a world to be morally good.
+For example, in order for a world to be morally perfect, if giving to charity is morally obligatory, then
+the statement ``Sara gives to charity'' must be true at that world. I use a sophisticated deontic logic 
+called Dyadic Deontic Logic, in which the dyadic obligation operator $O\{A \vert B\}$ represents the 
+sentence ``A is obligated in the context B.'' This operator expresses the nuanced idea
+that certain acts are morally required in certain situations, but not in others.
 
 I automate Kantian ethics because it is the most natural of the major ethical traditions to formalize, as 
 I argue in Section \ref{whykant}. 
@@ -203,7 +206,7 @@ This indicates that the challenge of automating ``common sense,'' a major hurdle
 is within closer reach than previously thought. I discuss automated common sense further in
 Sections \ref{AIethics} and \ref{amapossible}.
 
-A machine that can evaluate the moral status of a maxim can not only help machines better reason about ethics, 
+A machine that can evaluate the moral status of an action can not only help machines better reason about ethics, 
 but it can also help philosophers better study philosophy. I argue for ``computational ethics,'' or the use of computational tools to 
 make philosophical progress, analogous to computational biology. 
 I demonstrate the potential of computational ethics by presenting a 
@@ -410,3 +413,6 @@ but can also augment the everyday ethical reasoning that we all perform as we na
 %:%215=185%:%
 %:%216=186%:%
 %:%217=187%:%
+%:%218=188%:%
+%:%219=189%:%
+%:%220=190%:%

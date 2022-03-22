@@ -12,7 +12,7 @@ present the philosophical, logical, and computational background underlying my s
 
 Other choices of components, such as another ethical theory, a different logic, or a different theorem 
 prover could be made. Flaws with these components are limitations of my system, but do not 
-indict logic-programming-based automated ethics more generally. My thesis seeks to 
+indict logic-based automated ethics more generally. My thesis seeks to 
 both present a specific implementation of automated ethics and to argue for a particular approach 
 to automating ethical reasoning more generally and these choices are relevant to the former goal but 
 not to the latter.   \<close>
@@ -25,16 +25,15 @@ attractive candidates for automation because rules are generally computationally
 Intuitively, algorithms are procedures for problem solving and Kantian ethics (which is a kind 
 of deontological theory) offers one such 
 procedure for the problem of making ethical judgements. I will make this intuition precise by
-arguing that Kantian ethics is natural to formalize because it prescribes moral rules that require 
-little additional data about the world and are easy to represent to a computer. I argue that, compared to 
-consequentialism and virtue ethics,\footnote{Technically, virtue ethics and
+arguing that Kantian ethics is more natural to formalize than consequentialism or virtue ethics\footnote{Technically, virtue ethics and
 consequentialism are broad ethical traditions, while Kantian ethics is a specific ethical theory within
 deontology, the third major ethical tradition. However, Kantian ethics is not merely a kind of deontology
 but is widely regarded as deontology's central representative \citep{sepdeont}. Deontology's comparatively 
 greater focus on Kant means that my choice of Kant as a guiding figure is less controversial for deontologists 
 than, for example, the choice of Bentham as the guiding figure of consequentialism. Given that most deontological
 theories have some connection to or basis in Kantian ethics, I choose to focus on Kantian ethics, instead
-of deontology more broadly. } Kantian ethics is more amenable to automation.
+of deontology more broadly. } because it prescribes moral rules that require 
+little additional data about the world and are easy to represent to a computer.
 
 I do not aim to show that Kantian ethics is the only tractable theory to automate or
 to present a comprehensive overview of all consequentialist or virtue ethical theories. Instead, I 
@@ -123,12 +122,12 @@ choose one specific aggregation algorithm, but those who disagree with this choi
 the reasoner's moral judgements. Moreover, for complex theories of the good, this aggregation algorithm
 may be complex and may require a lot of data. 
 
-To solve this problem, some consequentialists reject aggregation entirely and instead prefer wholistic
+To solve this problem, some consequentialists reject aggregation entirely and instead prefer holistic
 evaluations of a state of affairs. While this approach no longer requires that an 
 aggregation algorithm, an automated ethical system still needs to calculate a goodness measurement for a state of 
 affairs. Whereas before the system could restrict its analysis to a single person, the algorithm must now 
-evaluate an entire state wholistically. As consequentialists modulate between aggregation 
-and wholistic evaluation, they face a tradeoff between the difficulty of aggregation and the complexity 
+evaluate an entire state holistically. As consequentialists modulate between aggregation 
+and holistic evaluation, they face a tradeoff between the difficulty of aggregation and the complexity 
 of goodness measurements for large states of affairs.
 \<close>
 
@@ -188,8 +187,7 @@ that virtue ethicists accept, this implicit view will likely be controversial. E
 that certain traits, like courage, are virtues debate the exact definitions of these traits. 
 
 Machine learning approaches like the Delphi system \citep{delphi} mentioned in Chapter \ref{intro} also may suffer explanability 
-problems that my logic-programming, theorem-prover
-approach does not face. Many machine learning algorithms cannot sufficiently explain their 
+problems that my system does not face. Many machine learning algorithms cannot sufficiently explain their 
 decisions to a human being and often find patterns in datasets that don't 
 cohere with the causes that a human being would identify \citep{puiutta}. While there is significant activity 
 and progress in explainable machine learning, interactive theorem provers are designed to be explainable 
@@ -204,8 +202,7 @@ I will extend this argument to general bottom-up approaches in Section \ref{rela
 
 subsubsection \<open>Kantian Ethics \label{kantianethics}\<close>
 
-text \<open>Kant's theory is centered 
-on practical reason, which is the kind of reason that we 
+text \<open>Kant's theory is centered on practical reason, which is the kind of reason that we 
 use to decide what to do. In \emph{The Groundwork of the Metaphysics of Morals}, Kant explains that 
 rational beings are unique because we act ``in accordance with 
 the representations of laws'' \citep[26]{groundwork}. A ball thrown into the air acts 
@@ -310,11 +307,10 @@ an action and virtue ethical agents need common sense to determine which virtues
 reflects. For example, in the case of virtue ethics, in order to see that saving a baby from a lion 
 requires courage, a reasoner must have enough background knowledge to know that lions are scary. Making any 
 ethical judgement requires robust conceptions of the action at hand, but Kantian ethics requires far less common sense 
-than a consequentialism or virtue ethics.\footnote{
+than consequentialism or virtue ethics.\footnote{
 In Sections \ref{joking} and \ref{murderer}, I use my system to demonstrate that Kantian ethics requires relatively lightweight, uncontroversial definitions 
-of concepts like falsely promising.} All
-moral theories evaluating falsely promising will a robust definition of promising, 
-but consequentialism and virtue ethics will require more information than Kantian ethics.
+of concepts like falsely promising.} All moral theories evaluating falsely promising need a robust 
+definition of promising, but consequentialism and virtue ethics will require more information than Kantian ethics.
 Thus, although the need for common sense poses a challenge to automated
 Kantian ethics, this challenge is more acute for consequentialism or virtue ethics. \<close>
 
@@ -357,17 +353,19 @@ imperative.
 Those who do not believe that all three formulations of the categorical imperative are equivalent
 understand the FUL as the strongest or most foundational, and thus an appropriate initial choice for 
 automation. Korsgaard characterizes the three formulations of the categorical
-imperative according to Rawls' general and special conception of justice \cite{theoryofjustice}. The general conception applies
-universally and can never be violated, while the special conception represents an ideal for us to
-live towards that may not be possible to achieve. For example, the special conception may require that we prefer some job applicants
-over others in order to remedy historical injustice, and the general conception may require that such
-inequalities always operate in the service of the least privileged \citep[19]{KorsgaardRTL}. Korsgaard
-argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
-Humanity represents his special conception. The FUL's prescriptions can never be violated, even in the most
-non-ideal circumstances imaginable, but the FUH is merely an ideal to strive towards. Thus, the FUL 
-generates stronger requirements than the other two formulations and reflects 
-the bare minimum standard of Kant's ethics. Because the FUL's prescriptions outweigh those of the other two formulations,
-it serves as a functional, minimal version of Kantian ethics. \<close>
+imperative according to Rawls' general and special conception of justice \cite{theoryofjustice}. The general conception 
+consists of universal rules that can never be violated, no matter what the circumstances are. The special
+conception, on the other hand, is an ideal to live up to, and in some cases, it may not be possible to 
+achieve. For example, under some ethical theory, the general conception may include a prohibition against 
+torturing others, whereas the the special conception may include the obligation to give to charity. 
+In some situations, such as when a thief steals all your belongings and leaves you destitute, you may not 
+be able to give to charity, but you are never allowed to torture others, no matter what the circumstances.
+Korsgaard argues that the Formula of Universal Law represents Kant's general conception of justice, and the Formula of 
+Humanity represents his special conception \citep[19]{KorsgaardRTL}. The FUL's prescriptions can never 
+be violated, even in the most non-ideal circumstances imaginable, but the FUH is merely an ideal to 
+strive towards. Thus, the FUL generates stronger requirements than the other two formulations and reflects 
+the bare minimum standard of Kant's ethics. Because the FUL's prescriptions outweigh those of the other 
+two formulations, it serves as a functional, minimal version of Kantian ethics. \<close>
 
 subsection \<open>Dyadic Deontic Logic \label{ddl}\<close>
 
@@ -590,7 +588,7 @@ find counterexamples using the \texttt{falsify} option, both of which I use heav
 \<close>
 
 lemma True nitpick [satisfy,user_axioms,format=2] by simp
-\<comment> \<open>The blue texte below is an example of typical Nitpick output. In this case, Nitpick successfully found a model 
+\<comment> \<open>The blue text below is an example of typical Nitpick output. In this case, Nitpick successfully found a model 
 satisfying these axioms so the system is consistent.\<close>
 \<comment>\<open> \color{blue} Nitpick found a model for card i = 1:
 
@@ -598,7 +596,8 @@ satisfying these axioms so the system is consistent.\<close>
 
 text \<open>In the proof above, ``by simp'' indicates the use of the Simplification proof method, 
 which unfolds definitions and applies theorems directly. HOL has $True$ as a theorem,
-which is why this theorem was so easy to prove.\<close>
+which is why this theorem was so easy to prove. I generated this proof automatically using Sledgehammer,
+a tool that automatically searches for proofs \cite{sledgehammer}. \<close>
 
 
 (*<*)

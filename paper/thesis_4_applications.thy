@@ -31,7 +31,7 @@ understanding of communication and truth telling. Kantians specifically describe
 this common sense as ``postulates of rationality'' that are nontrivial and nonnormative, but still
 part of the process of practical reasoning itself \citep{silber}. 
 
-In this chapter, I tackle this challenge by endowing my system with this kind of common sense in the 
+In this chapter, I tackle this challenge by automating this kind of common sense in the 
 specific case of lying. While my system has the ability to reason
 using the Formula of Universal Law, this reasoning must be applied to objects that are defined
 using common sense. Because common sense facts can determine my system's judgements, they are part of the trusted
@@ -438,8 +438,8 @@ proof -
     using FUL assms(1) by blast 
 qed
 
-text \<open>This concludes my examination of the maxim of lying to a liar. I was able to show that, by
-modifying the common sense facts used, my system can show that lying to a liar is permissible, but lying 
+text \<open>This concludes my examination of the maxim of lying to a liar. I was able to show that, given minimal
+common sense facts, my system shows that lying to a liar is permissible, but lying 
 in order to find a victim is not. The assumptions used in this example were a little more robust, but still
 ultimately uncontroversial because they were direct consequences of Korsgaard's definition of willing 
 and of ordinary definitions of lying. These thin assumptions were sufficient to recreate Korsgaard's solution

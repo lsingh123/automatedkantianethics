@@ -176,7 +176,8 @@ of a maxim.%
 %
 \isamarkupcmt{A maxim is of type term, open sentence, term tuple, such as ``(When I am strapped for cash, will falsely promise
 to repay a loan, to get some easy cash)''. The first term represents the circumstance, which
-can be true or false at a world. For example, the circumstance ``when I am strapped for cash'' is true at the real 
+can be true or false at a world. For example, in the \nameref{falsepromise} maxim, the circumstance
+``when I am strapped for cash'' is true at the real 
 world when my bank account is empty. The second term represents the act, which is an open sentence
 because different agents can perform a particular action. For example, the act, ``will falsely promise
 to repay a loan'' is an open sentence that can be acted on by a subject. The third term represents 
@@ -220,7 +221,7 @@ sake of maxim's end in the relevant circumstances. I formalize this idea in Defi
 \begin{definition}[Willing]\label{willing}
 For maxim $M = (C, A, G)$ and actor $s$,
 $$\text{\emph{will}} \, M \, s \equiv \forall w \, (C \longrightarrow A \, (s)) \, w$$
-\noindent At all worlds $w$, if the circumstances hold at that world, agent $s$ performs act $A$.
+\noindent At all worlds $w$, if the circumstances hold at that world, actor $s$ performs act $A$.
 \end{definition}
 
 If I will the example \nameref{falsepromise} maxim, then whenever I need cash, 
@@ -274,9 +275,9 @@ universalizability test because, in the universalized world, everyone falsely pr
 loans so lenders no longer believe promises to repay loans. The practice of giving loans would die out, so 
 making a false promise to repay a loan would be impossible.
 
-This view cannot correctly handle natural acts. Korsgaard appeals to 
+This view cannot correctly handle natural acts, or acts that are possible simply due to the laws of nature. Korsgaard appeals to 
 \citet{dietrichson} to construct the example natural act of a mother killing her children that
-cry too much at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
+cry at night so that she can get some sleep. Thought this maxim is clearly wrong, universalizing 
 it does not generate a logical contradiction because killing is still possible in a world where 
 everyone kills noisy children. Because killing is a natural act, it can never be logically 
 impossible so the logical contradiction view cannot prohibit it.
@@ -287,7 +288,7 @@ you commit yourself to the maxim's goal, and thus cannot rationally will that th
 undercut. This interpretation can prohibit natural acts like those of the sleep-deprived mother: in 
 willing the end of sleeping, she is implicitly willing that she is alive. If all mothers kill all 
 loud children, then she cannot be secure in the possession of her life, because her own mother may 
-have killed her as an infant. Her willing this maxim thwarts the end that she sought to secure. 
+have killed her when she cried as an infant. Her willing this maxim thwarts the end that she sought to secure. 
 
 The practical contradiction interpretation offers a satisfying explanation of \emph{why} certain 
 maxims are immoral. These maxims involve parasitic behavior on the very social conditions that the agent seeks 
@@ -638,7 +639,7 @@ explain some notable tests.%
 %
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{goalstable.png}
+\includegraphics[scale=0.165]{goalstable.jpeg}
 \caption{Table showing which tests each implementation passes. ``Naive'' indicates raw DDL, 
 ``Kroy'' is my implementation of Moshe Kroy's formalization of the FUL, and ``Custom'' is my novel implementation.} \label{table}
 \end{figure}
@@ -658,7 +659,7 @@ be possible.%
 %
 \begin{isamarkuptext}%
 \medskip
-\noindent \textbf{Obligation Universalizes Across People} The obligations prescribed by the Formula of Universal Law
+\noindent \textbf{Obligations Universalize Across People} The obligations prescribed by the Formula of Universal Law
 should generalize across people. In other words, if a maxim is obligated for one person, then it is obligated
 for all other people because maxims are not person-specific. Velleman argues that, because 
 reason is accessible to everyone identically, obligations apply to all people equally \citep[25]{velleman}. 
@@ -1074,7 +1075,7 @@ of the FUL, my implementation passes this test.%
 %:%182=98%:%
 %:%183=99%:%
 %:%184=100%:%
-%:%187=102%:%
+%:%185=101%:%
 %:%188=103%:%
 %:%189=104%:%
 %:%190=105%:%
@@ -1116,15 +1117,15 @@ of the FUL, my implementation passes this test.%
 %:%226=141%:%
 %:%227=142%:%
 %:%228=143%:%
-%:%230=145%:%
-%:%231=145%:%
+%:%229=144%:%
+%:%231=146%:%
 %:%232=146%:%
-%:%234=147%:%
+%:%233=147%:%
 %:%235=148%:%
 %:%236=149%:%
 %:%237=150%:%
-%:%245=152%:%
-%:%257=154%:%
+%:%238=151%:%
+%:%246=153%:%
 %:%258=155%:%
 %:%259=156%:%
 %:%260=157%:%
@@ -1176,12 +1177,12 @@ of the FUL, my implementation passes this test.%
 %:%306=203%:%
 %:%307=204%:%
 %:%308=205%:%
-%:%310=208%:%
-%:%311=208%:%
+%:%309=206%:%
+%:%311=209%:%
 %:%312=209%:%
-%:%314=210%:%
+%:%313=210%:%
 %:%315=211%:%
-%:%318=213%:%
+%:%316=212%:%
 %:%319=214%:%
 %:%320=215%:%
 %:%321=216%:%
@@ -1199,12 +1200,12 @@ of the FUL, my implementation passes this test.%
 %:%333=228%:%
 %:%334=229%:%
 %:%335=230%:%
-%:%337=233%:%
-%:%338=233%:%
+%:%336=231%:%
+%:%338=234%:%
 %:%339=234%:%
-%:%341=235%:%
+%:%340=235%:%
 %:%342=236%:%
-%:%345=240%:%
+%:%343=237%:%
 %:%346=241%:%
 %:%347=242%:%
 %:%348=243%:%
@@ -1215,11 +1216,11 @@ of the FUL, my implementation passes this test.%
 %:%353=248%:%
 %:%354=249%:%
 %:%355=250%:%
-%:%357=252%:%
-%:%358=252%:%
+%:%356=251%:%
+%:%358=253%:%
 %:%359=253%:%
-%:%361=254%:%
-%:%364=256%:%
+%:%360=254%:%
+%:%362=255%:%
 %:%365=257%:%
 %:%366=258%:%
 %:%367=259%:%
@@ -1252,34 +1253,34 @@ of the FUL, my implementation passes this test.%
 %:%394=286%:%
 %:%395=287%:%
 %:%396=288%:%
-%:%398=290%:%
-%:%399=290%:%
+%:%397=289%:%
+%:%399=291%:%
 %:%400=291%:%
-%:%402=292%:%
+%:%401=292%:%
 %:%403=293%:%
-%:%404=293%:%
+%:%404=294%:%
 %:%405=294%:%
-%:%406=294%:%
+%:%406=295%:%
 %:%407=295%:%
-%:%409=296%:%
+%:%408=296%:%
 %:%410=297%:%
-%:%413=298%:%
+%:%411=298%:%
 %:%414=299%:%
 %:%415=300%:%
 %:%416=301%:%
-%:%418=303%:%
-%:%419=303%:%
+%:%417=302%:%
+%:%419=304%:%
 %:%420=304%:%
-%:%422=305%:%
+%:%421=305%:%
 %:%423=306%:%
-%:%424=306%:%
+%:%424=307%:%
 %:%425=307%:%
-%:%426=307%:%
-%:%428=308%:%
+%:%426=308%:%
+%:%427=308%:%
 %:%429=309%:%
 %:%430=310%:%
-%:%438=312%:%
-%:%450=314%:%
+%:%431=311%:%
+%:%439=313%:%
 %:%451=315%:%
 %:%452=316%:%
 %:%453=317%:%
@@ -1287,23 +1288,23 @@ of the FUL, my implementation passes this test.%
 %:%455=319%:%
 %:%456=320%:%
 %:%457=321%:%
-%:%459=324%:%
-%:%460=324%:%
-%:%462=325%:%
+%:%458=322%:%
+%:%460=325%:%
+%:%461=325%:%
 %:%463=326%:%
 %:%464=327%:%
 %:%465=328%:%
-%:%468=330%:%
+%:%466=329%:%
 %:%469=331%:%
-%:%471=333%:%
-%:%472=333%:%
-%:%474=333%:%
-%:%478=333%:%
-%:%479=333%:%
+%:%470=332%:%
+%:%472=334%:%
+%:%473=334%:%
+%:%475=334%:%
+%:%479=334%:%
 %:%480=334%:%
-%:%481=334%:%
-%:%482=334%:%
-%:%491=336%:%
+%:%481=335%:%
+%:%482=335%:%
+%:%483=335%:%
 %:%492=337%:%
 %:%493=338%:%
 %:%494=339%:%
@@ -1327,34 +1328,34 @@ of the FUL, my implementation passes this test.%
 %:%512=357%:%
 %:%513=358%:%
 %:%514=359%:%
-%:%516=361%:%
-%:%517=361%:%
+%:%515=360%:%
+%:%517=362%:%
 %:%518=362%:%
-%:%520=363%:%
+%:%519=363%:%
 %:%521=364%:%
-%:%524=366%:%
-%:%526=368%:%
-%:%527=368%:%
+%:%522=365%:%
+%:%525=367%:%
+%:%527=369%:%
 %:%528=369%:%
-%:%530=370%:%
+%:%529=370%:%
 %:%531=371%:%
-%:%532=371%:%
+%:%532=372%:%
 %:%533=372%:%
 %:%534=373%:%
-%:%535=373%:%
+%:%535=374%:%
 %:%536=374%:%
-%:%537=374%:%
-%:%539=374%:%
-%:%543=374%:%
-%:%544=374%:%
-%:%546=375%:%
+%:%537=375%:%
+%:%538=375%:%
+%:%540=375%:%
+%:%544=375%:%
+%:%545=375%:%
 %:%547=376%:%
 %:%548=377%:%
 %:%549=378%:%
 %:%550=379%:%
 %:%551=380%:%
 %:%552=381%:%
-%:%562=383%:%
+%:%553=382%:%
 %:%563=384%:%
 %:%564=385%:%
 %:%565=386%:%
@@ -1375,15 +1376,15 @@ of the FUL, my implementation passes this test.%
 %:%580=401%:%
 %:%581=402%:%
 %:%582=403%:%
-%:%584=405%:%
-%:%585=405%:%
-%:%587=407%:%
+%:%583=404%:%
+%:%585=406%:%
+%:%586=406%:%
 %:%588=408%:%
 %:%589=409%:%
 %:%590=410%:%
 %:%591=411%:%
-%:%600=413%:%
-%:%612=415%:%
+%:%592=412%:%
+%:%601=414%:%
 %:%613=416%:%
 %:%614=417%:%
 %:%615=418%:%
@@ -1408,13 +1409,13 @@ of the FUL, my implementation passes this test.%
 %:%634=437%:%
 %:%635=438%:%
 %:%636=439%:%
-%:%639=443%:%
+%:%637=440%:%
 %:%640=444%:%
 %:%641=445%:%
 %:%642=446%:%
 %:%643=447%:%
 %:%644=448%:%
-%:%647=450%:%
+%:%645=449%:%
 %:%648=451%:%
 %:%649=452%:%
 %:%650=453%:%
@@ -1424,7 +1425,7 @@ of the FUL, my implementation passes this test.%
 %:%654=457%:%
 %:%655=458%:%
 %:%656=459%:%
-%:%660=461%:%
+%:%657=460%:%
 %:%661=462%:%
 %:%662=463%:%
 %:%663=464%:%
@@ -1438,31 +1439,31 @@ of the FUL, my implementation passes this test.%
 %:%671=472%:%
 %:%672=473%:%
 %:%673=474%:%
-%:%675=476%:%
-%:%676=476%:%
+%:%674=475%:%
+%:%676=477%:%
 %:%677=477%:%
-%:%680=478%:%
-%:%684=478%:%
-%:%685=478%:%
-%:%687=479%:%
+%:%678=478%:%
+%:%681=479%:%
+%:%685=479%:%
+%:%686=479%:%
 %:%688=480%:%
 %:%689=481%:%
-%:%690=481%:%
-%:%692=482%:%
+%:%690=482%:%
+%:%691=482%:%
 %:%693=483%:%
 %:%694=484%:%
 %:%695=485%:%
-%:%701=485%:%
-%:%704=486%:%
+%:%696=486%:%
+%:%702=486%:%
 %:%705=487%:%
-%:%706=487%:%
+%:%706=488%:%
 %:%707=488%:%
-%:%710=489%:%
-%:%714=489%:%
-%:%715=489%:%
-%:%717=490%:%
+%:%708=489%:%
+%:%711=490%:%
+%:%715=490%:%
+%:%716=490%:%
 %:%718=491%:%
-%:%728=493%:%
+%:%719=492%:%
 %:%729=494%:%
 %:%730=495%:%
 %:%731=496%:%
@@ -1484,28 +1485,28 @@ of the FUL, my implementation passes this test.%
 %:%747=512%:%
 %:%748=513%:%
 %:%749=514%:%
-%:%751=516%:%
-%:%752=516%:%
+%:%750=515%:%
+%:%752=517%:%
 %:%753=517%:%
-%:%756=518%:%
-%:%760=518%:%
-%:%761=518%:%
-%:%762=518%:%
-%:%764=519%:%
-%:%770=519%:%
-%:%773=520%:%
+%:%754=518%:%
+%:%757=519%:%
+%:%761=519%:%
+%:%762=519%:%
+%:%763=519%:%
+%:%765=520%:%
+%:%771=520%:%
 %:%774=521%:%
-%:%775=521%:%
+%:%775=522%:%
 %:%776=522%:%
 %:%777=523%:%
-%:%780=524%:%
-%:%784=524%:%
-%:%785=524%:%
-%:%786=524%:%
-%:%788=525%:%
+%:%778=524%:%
+%:%781=525%:%
+%:%785=525%:%
+%:%786=525%:%
+%:%787=525%:%
 %:%789=526%:%
 %:%790=527%:%
-%:%800=529%:%
+%:%791=528%:%
 %:%801=530%:%
 %:%802=531%:%
 %:%803=532%:%
@@ -1513,16 +1514,16 @@ of the FUL, my implementation passes this test.%
 %:%805=534%:%
 %:%806=535%:%
 %:%807=536%:%
-%:%809=539%:%
-%:%810=539%:%
-%:%813=540%:%
-%:%817=540%:%
-%:%818=540%:%
-%:%820=541%:%
+%:%808=537%:%
+%:%810=540%:%
+%:%811=540%:%
+%:%814=541%:%
+%:%818=541%:%
+%:%819=541%:%
 %:%821=542%:%
-%:%822=542%:%
-%:%824=543%:%
-%:%834=545%:%
+%:%822=543%:%
+%:%823=543%:%
+%:%825=544%:%
 %:%835=546%:%
 %:%836=547%:%
 %:%837=548%:%
@@ -1530,36 +1531,36 @@ of the FUL, my implementation passes this test.%
 %:%839=550%:%
 %:%840=551%:%
 %:%841=552%:%
-%:%843=554%:%
-%:%844=554%:%
+%:%842=553%:%
+%:%844=555%:%
 %:%845=555%:%
 %:%846=556%:%
-%:%849=557%:%
-%:%853=557%:%
-%:%854=557%:%
-%:%855=557%:%
-%:%857=558%:%
+%:%847=557%:%
+%:%850=558%:%
+%:%854=558%:%
+%:%855=558%:%
+%:%856=558%:%
 %:%858=559%:%
 %:%859=560%:%
-%:%860=560%:%
-%:%862=561%:%
+%:%860=561%:%
+%:%861=561%:%
 %:%863=562%:%
 %:%864=563%:%
-%:%874=565%:%
+%:%865=564%:%
 %:%875=566%:%
-%:%877=568%:%
-%:%878=568%:%
+%:%876=567%:%
+%:%878=569%:%
 %:%879=569%:%
 %:%880=570%:%
-%:%883=571%:%
-%:%887=571%:%
-%:%888=571%:%
-%:%889=571%:%
-%:%891=572%:%
-%:%892=572%:%
-%:%894=573%:%
+%:%881=571%:%
+%:%884=572%:%
+%:%888=572%:%
+%:%889=572%:%
+%:%890=572%:%
+%:%892=573%:%
+%:%893=573%:%
 %:%895=574%:%
-%:%905=576%:%
+%:%896=575%:%
 %:%906=577%:%
 %:%907=578%:%
 %:%908=579%:%
@@ -1573,7 +1574,7 @@ of the FUL, my implementation passes this test.%
 %:%916=587%:%
 %:%917=588%:%
 %:%918=589%:%
-%:%922=593%:%
+%:%919=590%:%
 %:%923=594%:%
 %:%924=595%:%
 %:%925=596%:%
@@ -1581,7 +1582,7 @@ of the FUL, my implementation passes this test.%
 %:%927=598%:%
 %:%928=599%:%
 %:%929=600%:%
-%:%933=603%:%
+%:%930=601%:%
 %:%934=604%:%
 %:%935=605%:%
 %:%936=606%:%
@@ -1607,3 +1608,4 @@ of the FUL, my implementation passes this test.%
 %:%956=626%:%
 %:%957=627%:%
 %:%958=628%:%
+%:%959=629%:%

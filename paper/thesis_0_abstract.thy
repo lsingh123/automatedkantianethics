@@ -17,19 +17,21 @@ difficult in practice. Faithfully translating a complex ethical theory from natu
 rigid syntax of a computer program is technically and philosophically challenging.
 
 In this thesis, I present an implementation of automated Kantian
-ethics that is faithful to the Kantian philosophical tradition. Given an appropriately represented 
-action and minimal factual background, my system can judge a potential action as morally obligatory, permissible, or prohibited.
+ethics that is faithful to the Kantian philosophical tradition. Given minimal factual background, my 
+system can judge an agent's potential action as morally obligatory, permissible, or prohibited.
 To accomplish this, I formalize Kant's categorical imperative, or moral rule,
-in Carmo and Jones's Dyadic Deontic Logic, implement this formalization 
+in deontic logic, implement this formalization 
 in the Isabelle/HOL theorem prover, and develop a testing framework to evaluate how well 
 my implementation coheres with expected properties of Kantian ethics, as established in the literature. 
-I also use my system to derive philosophically sophisticated and nuanced solutions to two central ethical 
-dilemmas in Kantian literature: the permissibility of lying in the context of a joke and to a murderer 
-asking about the location of their intended victim. Finally, I examine the philosophical implications 
-of my system, exploring its potential to guide AI agents, academic philosophers, 
-and everyday reasoners as they navigate ethical dilemmas. Ultimately, this work serves 
-as an early proof-of-concept for philosophically mature AI agents and is one step towards the development 
-of responsible, trustworthy artificial intelligence.
+This testing framework demonstrates that my system outperforms two other potential implementations of 
+automated Kantian ethics. I also use my system to derive philosophically sophisticated and nuanced 
+solutions to two central controversies in Kantian literature: the permissibility of lying in the 
+context of a joke and to a murderer asking about the location of their intended victim. Finally, I 
+examine my system's philosophical implications, demonstrating that it can not only guide AI agents, but it can
+also help academic philosophers make philosophical progress and augment the everyday ethical reasoning
+that we all perform as we navigate the world. I contribute a working proof-of-concept implementation
+of automated Kantian ethics capable of performing philosophical reasoning more mature than anything previously
+automated. My work serves as one step towards the development of responsible, trustworthy artifical intelligence.
 \<close>
 
 (*<*)

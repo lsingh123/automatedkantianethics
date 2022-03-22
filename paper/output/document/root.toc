@@ -28,10 +28,10 @@
 \contentsline {subsection}{\numberline {5.4}Theoretical Objections to Automating Kantian Ethics }{75}{subsection.5.4}%
 \contentsline {subsection}{\numberline {5.5}Related Work }{80}{subsection.5.5}%
 \contentsline {subsection}{\numberline {5.6}Conclusion}{82}{subsection.5.6}%
-\contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{94}{appendix.a.A}%
-\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{94}{subsection.a.A.1}%
-\contentsline {subsection}{\numberline {A.2}Kitcher's View Including Motives}{95}{subsection.a.A.2}%
-\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{97}{appendix.a.B}%
-\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{97}{subsection.a.B.1}%
-\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{101}{subsection.a.B.2}%
-\contentsline {section}{Appendix \numberline {C}Additional Tests }{108}{appendix.a.C}%
+\contentsline {section}{Appendix \numberline {A}Alternate Definitions of a Maxim }{93}{appendix.a.A}%
+\contentsline {subsection}{\numberline {A.1}Korsgaard's Act-Goal View}{93}{subsection.a.A.1}%
+\contentsline {subsection}{\numberline {A.2}Kitcher's View Including Motives}{94}{subsection.a.A.2}%
+\contentsline {section}{Appendix \numberline {B}Kroy's Formalization}{96}{appendix.a.B}%
+\contentsline {subsection}{\numberline {B.1}Implementing Kroy's Formalization }{96}{subsection.a.B.1}%
+\contentsline {subsection}{\numberline {B.2}Testing Kroy's Formalization}{100}{subsection.a.B.2}%
+\contentsline {section}{Appendix \numberline {C}Additional Tests }{107}{appendix.a.C}%
