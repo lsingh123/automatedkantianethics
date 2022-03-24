@@ -543,6 +543,8 @@ algorithm, but the many algorithms that constitute my system.
 
 \noindent \textbf{Machines, Morality, and Motivation}
 
+\medskip
+
 In \emph{Universal Laws and Ends In Themselves}, O'Neill argues against the existence of an algorithm for
 moral behavior. She points out that Kant draws an important distinction between a morally worthy maxim
 and a morally worthy action: the latter requires a good will, or a will motivated by duty \citep[345]{oneilluniversallaws}. 
@@ -576,6 +578,8 @@ can interact with it safely.
 
 \noindent \textbf{Inputs to the Categorical Imperative}
 
+\medskip
+
 Another challenge for automated Kantian ethics is that the FUL test requires that
 a maxim be given as input. O'Neill notes that the test assumes ``that agents will have certain tentative 
 plans, proposals and policies which they can consider, revise or reject or endorse and pursue'' \citep[343]{oneilluniversallaws}.
@@ -601,6 +605,8 @@ in automated ethics could address this concern.
 \medskip 
 
 \noindent \textbf{Prior Moral Knowledge}
+
+\medskip
 
 As one of the strongest arguments against a categorical imperative algorithm, O'Neill argues that 
 the FUL is not supposed to provide a mechanism for deriving all morally worthy maxims from scratch. She notes
@@ -746,10 +752,10 @@ philosophers must work together. Neither discipline alone can address the pressi
 This thesis is an experiment in marrying philosophy and computer science 
 to create automated ethics that is both technically and philosophically advanced. 
 
-This work is an early proof-of-concept. It demonstrates the potential of top-down, logic programming 
+This work is an early proof-of-concept. It demonstrates the potential of top-down
 approaches to automated ethics and shows that it is possible to faithfully automate an ethical theory as
 complex as Kantian ethics. There are open questions that must be resolved before a system like this 
-could be used in practice, but this project demonstrates that these questions are within closer reach
+could be used in practice, but this project demonstrates that answers to these questions are within closer reach
 than they may seem. Automated ethics does not need to limit itself to simple, flattened versions of 
 ethical theories. With technical and philosophical progress, faithful automated ethics is possible.
 Growing public consciousness about the dangers of unregulated AI is creating momentum in machine ethics; 

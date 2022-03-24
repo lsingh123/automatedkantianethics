@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 MAR 2022 11:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  24 MAR 2022 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -764,7 +764,7 @@ sis demon-strates how com-pu-ta-tional ethics
 <inputparser.jpeg, id=1136, 1934.22626pt x 1212.53pt>
 File: inputparser.jpeg Graphic file (type jpg)
 <use inputparser.jpeg>
-Package pdftex.def Info: inputparser.jpeg  used on input line 768.
+Package pdftex.def Info: inputparser.jpeg  used on input line 774.
 (pdftex.def)             Requested size: 367.5068pt x 230.38309pt.
  [79 <./inputparser.jpeg>] [80] [81] [82]) [83]
 (./root.bbl [84] [85]
@@ -874,7 +874,7 @@ sy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 sam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1
 000.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt109
 5.pfb>
-Output written on root.pdf (117 pages, 1295697 bytes).
+Output written on root.pdf (117 pages, 1295716 bytes).
 PDF statistics:
  1537 PDF objects out of 1728 (max. 8388607)
  1378 compressed objects within 14 object streams
