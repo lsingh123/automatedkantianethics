@@ -17,7 +17,7 @@ the philosophical literature on lying.
 Many of the tests in Section \ref{testing} perform metaethical reasoning, which analyzes properties
 of morality itself and involves questions about the nature of ethical truth. In this chapter, I perform
 ``applied ethical reasoning,'' which is the use of ethics to resolve dilemmas and make judgements about 
-what an agent should or should not do. This is the kind of reasoning necessary for an AI agent using my system to
+what an agent should or should not do. This is the kind of reasoning necessary for AI to use my system to
 navigate the real world.
 
 One challenge of applied ethical reasoning is that it requires more factual background than metaethical
@@ -469,9 +469,9 @@ On one hand, the need for common sense facts is a
 limitation of my system. On the other, these examples show that common sense is within reach. Even thin, 
 uncontroversial definitions and assumptions are enough to achieve nuanced ethical judgements. Moreover, 
 these examples demonstrate that, with some additional work, my system could be used in practice 
-to guide AI agents. The idea of AI making decisions as in the dilemmas above may seem far-fetched, but
+to guide AI. The idea of AI making decisions as in the dilemmas above may seem far-fetched, but
 such scenarios are already becoming reality. For example, a ``smart doorbell'' may face a dilemma like that of
-the murderer at the door. Such an AI agent equipped with a future version of my 
+the murderer at the door. Such an AI system equipped with a future version of my 
 system would be able to reason about lying to the murderer and arrive at the right judgement, guided by
 explainable, rigorous philosophical arguments.
 \<close>
