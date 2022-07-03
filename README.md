@@ -14,6 +14,6 @@ philosophers evaluate ethical theories.
 ## Quick Links
 
 The root directory contains development versions of my Isabelle theories, in files ending in `*.thy`. The directory `paper/` 
-contains cleaned up versions of these theories, compiled to produce the report in `paper/output/document.pdf` The compiled version 
-of my senior thesis is [here]<https://github.com/lsingh123/cs91r/blob/main/paper/output/Automated_Kantian_Ethics_LS_Thesis.pdf>
+contains cleaned up versions of these theories, which can be compiled. The compiled version 
+of my senior thesis is [here](https://github.com/lsingh123/cs91r/blob/main/paper/output/Automated_Kantian_Ethics_LS_Thesis.pdf)
  
