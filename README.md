@@ -16,10 +16,17 @@ philosophers evaluate ethical theories.
 The root directory contains development versions of my Isabelle theories, in files ending in `*.thy`. The directory `paper/` 
 contains cleaned up versions of these theories, which can be compiled. The compiled version 
 of my senior thesis is [here](https://github.com/lsingh123/cs91r/blob/main/paper/output/Automated_Kantian_Ethics_LS_Thesis.pdf). 
-Files beginning in `thesis_` are included in the final draft of my senior thesis. Everything else is developement work.
+Files beginning in `thesis_` are included in the final draft of my senior thesis. File `thesis_*_[name].thy` will contain
+source code for chapter * of the thesis. Everything else is developement work.
 
 To get started, check out my recreation of Benzmueller, Farjami, and Parent's [implementation](https://www.researchgate.net/publication/323392435_Faithful_Semantical_Embedding_of_a_Dyadic_Deontic_Logic_in_HOL) of DDL in Isabelle in 
 `thesis_2_methods.thy`. Necessarily logical background and my formalization of the FUL are in `thesis_3_methods.thy`. 
 In `thesis_4_applications.thy`, I present examples of extended ethical reasoning (e.g., teling jokes is permissible) and 
 my testing framework. For the development version of my implementation of Kroy's [formalization](https://www.proquest.com/openview/b3acb60a78f717e52b35171886fc1916/1?pq-origsite=gscholar&cbl=1817983), see `paper32.thy`. For
 the final version, see `appendix.thy`.
+
+## Compiling
+
+To run the code, download the repo and open it in [JEdit](http://www.jedit.org/). To compile it, run `isabelle build -D .` from the repo root. The compiled PDF will
+be in `paper/output/` and the tex files will be in `paper/output/document`.
+
