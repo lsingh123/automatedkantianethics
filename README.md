@@ -19,4 +19,6 @@ of my senior thesis is [here](https://github.com/lsingh123/cs91r/blob/main/paper
 Files beginning in `thesis_` are included in the final draft of my senior thesis. Everything else is developement work.
 
 To get started, check out my recreation of Benzmueller, Farjami, and Parent's [implementation]() of DDL in Isabelle in 
-`thesis_2_methods.thy'.
+`thesis_2_methods.thy'. Necessarily logical background and my formalization of the FUL are in `thesis_3_methods.thy'. 
+In `thesis_4_applications.thy', I present examples of extended ethical reasoning (e.g., teling jokes is permissible) and 
+my testing framework.
