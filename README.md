@@ -9,7 +9,7 @@ tools to prove facts about the logic, thus automating ethical reasoning. The com
 an implemented formalization of the categorical imperative, a variety of tests evaluating these formalizations, and examples
 of concrete ethical reasoning performed using these formalizations. All reasoning is automated using Isabelle and a meta-goal
 of the project is to demonstrate the power of automated theorem provers in performing ethical reasoning and helping 
-philosophers evaluate ethical theories.
+philosophers evaluate ethical theories. Preprint of the paper is [https://arxiv.org/abs/2207.10152](https://arxiv.org/abs/2207.10152).
 
 ## Quick Links
 
